@@ -37,6 +37,10 @@
     # nvapi
     git revert --no-commit fdfb4b925f52fbec580dd30bef37fb22c219c667
 
+    # Diablo 4 workaround
+    git revert --no-commit 51ce414a1f41fcaa415c4d3b4edd6b96ba711a35
+
+
 ### END PROBLEMATIC COMMIT REVERT SECTION ###
 
 
