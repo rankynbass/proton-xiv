@@ -371,4 +371,17 @@
     #patch -Np1 < ../patches/proton/71-invert-fsr-logic.patch
 
 ### END PROTON-GE ADDITIONAL CUSTOM PATCHES ###
+
+### (2-7) PROTON-XIV ADDITIONAL CUSTOM PATCHES ###
+
+    echo "WINE: -XIV- Add Wine to Unix PID mapping"
+    patch -Np1 < ../patches/xivlauncher/proton8-unix-pid-maps.patch
+
+    echo "WINE: -PS5 Controller- Dualsense patch 1"
+    patch -Np1 < ../patches/dualsense/dualsense1.patch
+
+    echo "WINE: -PS5 Controller- Dualsense patch 2"
+    patch -Np1 < ../patches/dualsense/dualsense2.patch
+
+### END PROTON-XIV ADDITIONAL CUSTOM PATCHES ###
 ### END WINE PATCHING ###
