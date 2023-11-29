@@ -55,3 +55,7 @@
 [submodule "glslang"]
 	path = glslang
 	url = https://github.com/KhronosGroup/glslang
+[submodule "piper"]
+	path = piper
+	url = https://github.com/shaunren/piper.git
+	branch = library

@@ -1403,6 +1403,8 @@ class Session:
         self.env["MEDIACONV_BLANK_VIDEO_FILE"] = g_proton.media_dir + "blank.mkv"
         self.env["MEDIACONV_BLANK_AUDIO_FILE"] = g_proton.media_dir + "blank.ptna"
 
+        self.env["ESPEAK_DATA_PATH"] = g_proton.dist_dir + "share"
+
         prepend_to_env_str(self.env, "PATH", g_proton.bin_dir, ":")
 
     def check_environment(self, env_name, config_name):
