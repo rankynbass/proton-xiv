@@ -79,6 +79,28 @@ PLEASE NOTE: There are prerequisites for using this version of proton:
 
 ### Manual
 
+#### Via [`asdf`, the version manager](https://asdf-vm.com/)
+
+There is an unofficial [plugin for installing and managing ProtonGE versions](https://github.com/augustobmoura/asdf-protonge)
+with [`asdf` (the universal version manager)](https://asdf-vm.com/), it follows
+the same process as the manual installation but makes it a lot easier. Managing
+versions by removing and updating to newer versions also becomes easier.
+
+To install by it first [install `asdf`](https://asdf-vm.com/guide/getting-started.html),
+and then proceed to add the ProtonGE plugin and install the version you want.
+``` bash
+asdf plugin add protonge
+
+# Or install a version from a tag (Eg.: GE-Proton8-25)
+asdf install protonge latest
+```
+
+It's also possible to use the asdf plugin in Flatpak installations, by
+customizing the target `compatibilitytools.d` path. For more settings check the
+[plugin's official documentation](https://github.com/augustobmoura/asdf-protonge)
+
+After every install you need to restart Steam, and [enable proton-ge-custom](#enabling).
+
 #### Native
 
 This section is for those that use the native version of Steam.
