@@ -47,8 +47,11 @@
 
 # Bring back configure files. Staging uses them to regenerate fresh ones
 # https://github.com/ValveSoftware/wine/commit/e813ca5771658b00875924ab88d525322e50d39f
+# Also revert a commit that causes mouse/camera issues in FFXIV with KDE
 
     git revert --no-commit e813ca5771658b00875924ab88d525322e50d39f
+    git revert --no-commit df43fd788455ed243af61ffb76102ab1ef6557e2
+
 
 ### END PROBLEMATIC COMMIT REVERT SECTION ###
 
