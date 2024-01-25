@@ -3,6 +3,7 @@
 pushd wine
 git reset --hard HEAD
 git clean -xdf
+git branch -D xiv-temp
 git checkout -b xiv-temp
 git revert --no-commit df43fd788455ed243af61ffb76102ab1ef6557e2
 git commit -a -m "Revert problematic commit df43fd7"
