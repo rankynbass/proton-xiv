@@ -40,7 +40,7 @@ from random import randrange
 #To enable debug logging, copy "user_settings.sample.py" to "user_settings.py"
 #and edit it if needed.
 
-CURRENT_PREFIX_VERSION="GE-Proton8-28"
+CURRENT_PREFIX_VERSION="GE-Proton8-29"
 
 PFX="Proton: "
 ld_path_var = "LD_LIBRARY_PATH"
@@ -791,8 +791,13 @@ class CompatData:
 
             self.migrate_user_paths()
 
+            if os.getenv('GAMEID') != "":
+                if not file_exists(self.prefix_dir + "/dosdevices", follow_symlinks=False):
+                    makedirs(self.prefix_dir + "/dosdevices")
+                    os.symlink(self.prefix_dir + "/drive_c", self.prefix_dir + "/dosdevices/c:")
+
             if not file_exists(self.prefix_dir + "/dosdevices/c:", follow_symlinks=False):
-                os.symlink("../drive_c", self.prefix_dir + "/dosdevices/c:")
+                os.symlink(self.prefix_dir + "/drive_c", self.prefix_dir + "/dosdevices/c:")
 
             if not file_exists(self.prefix_dir + "/dosdevices/z:", follow_symlinks=False):
                 os.symlink("/", self.prefix_dir + "/dosdevices/z:")
@@ -1772,7 +1777,9 @@ class Session:
         # [S_API FAIL] SteamAPI_Init() failed; no appID found.
         # Either launch the game from Steam, or put the file steam_appid.txt containing the correct appID in your game folder.
         elif os.environ.get("SteamGameId", 0) == "0":
-            argv = [g_proton.wine64_bin]
+            argv = [g_proton.wine64_bin, "start", "/unix"]
+        elif os.environ.get("STORE", 0) != "":
+            argv = [g_proton.wine64_bin, "start", "/unix"]
         else:
             argv = [g_proton.wine64_bin, "c:\\windows\\system32\\steam.exe"]
 
