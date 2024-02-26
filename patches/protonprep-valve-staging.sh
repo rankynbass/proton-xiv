@@ -379,6 +379,10 @@
     echo "WINE: -PENDING- Enable NTsync"
     patch -Np1 < ../patches/wine-hotfixes/pending/ntsync.patch
 
+    # https://github.com/ValveSoftware/Proton/issues/7526
+    echo "WINE: -PENDING- Add belauncher fixup"
+    patch -Np1 < ../patches/wine-hotfixes/pending/belauncher.patch
+
 ### END WINE PENDING UPSTREAM SECTION ###
 
 

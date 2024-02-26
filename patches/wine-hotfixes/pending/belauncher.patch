@@ -1,0 +1,19 @@
+--- a/programs/belauncher/main.c	2024-02-26 05:44:56.112719254 +0300
++++ b/programs/belauncher/main.c	2024-02-26 05:46:05.426247741 +0300
+@@ -58,7 +58,7 @@
+         goto start_failed;
+     }
+ 
+-    configs = HeapAlloc( GetProcessHeap(), 0, launcher_cfg_size.u.LowPart);
++    configs = HeapAlloc( GetProcessHeap(), 0, launcher_cfg_size.u.LowPart + 1 );
+ 
+     if (!ReadFile(launcher_cfg, configs, launcher_cfg_size.u.LowPart, &size, NULL) || size != launcher_cfg_size.u.LowPart)
+     {
+@@ -69,6 +69,7 @@
+ 
+     CloseHandle(launcher_cfg);
+ 
++    configs[launcher_cfg_size.u.LowPart] = '\0';
+     config = configs;
+     do
+     {
