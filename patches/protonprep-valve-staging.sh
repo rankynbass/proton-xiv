@@ -198,7 +198,7 @@
     patch -Np1 < ../wine-staging/patches/ntdll-Hide_Wine_Exports/0001-ntdll-Add-support-for-hiding-wine-version-informatio.patch
 
     echo "WINE: -STAGING- ntdll-WRITECOPY manually applied"
-    patch -Np1 < ../wine-staging/patches/staging/ntdll-WRITECOPY/0007-ntdll-Report-unmodified-WRITECOPY-pages-as-shared.patch
+    patch -Np1 < ../wine-staging/patches/ntdll-WRITECOPY/0007-ntdll-Report-unmodified-WRITECOPY-pages-as-shared.patch
 
     echo "WINE: -STAGING- wineboot-ProxySettings manually applied"
     patch -Np1 < ../patches/wine-hotfixes/staging/wineboot-ProxySettings/0001-wineboot-Initialize-proxy-settings-registry-key.patch
