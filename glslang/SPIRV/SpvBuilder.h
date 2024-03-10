@@ -436,10 +436,6 @@ public:
     // discard, terminate-invocation, terminateRayEXT, or ignoreIntersectionEXT
     void makeStatementTerminator(spv::Op opcode, const char *name);
 
-    // Create block terminator instruction for statements that have input operands
-    // such as OpEmitMeshTasksEXT
-    void makeStatementTerminator(spv::Op opcode, const std::vector<Id>& operands, const char* name);
-
     // Create a global or function local or IO variable.
     Id createVariable(Decoration precision, StorageClass storageClass, Id type, const char* name = nullptr,
         Id initializer = NoResult, bool const compilerGenerated = true);
@@ -848,6 +844,7 @@ public:
     void createConditionalBranch(Id condition, Block* thenBlock, Block* elseBlock);
     void createLoopMerge(Block* mergeBlock, Block* continueBlock, unsigned int control,
         const std::vector<unsigned int>& operands);
+    void createAndSetNoPredecessorBlock(const char*);
 
     // Sets to generate opcode for specialization constants.
     void setToSpecConstCodeGenMode() { generatingOpCodeForSpecConst = true; }
@@ -867,7 +864,6 @@ public:
     void remapDynamicSwizzle();
     void transferAccessChainSwizzle(bool dynamic);
     void simplifyAccessChainSwizzle();
-    void createAndSetNoPredecessorBlock(const char*);
     void createSelectionMerge(Block* mergeBlock, unsigned int control);
     void dumpSourceInstructions(std::vector<unsigned int>&) const;
     void dumpSourceInstructions(const spv::Id fileId, const std::string& text, std::vector<unsigned int>&) const;

@@ -3,16 +3,20 @@
 #include <winternl.h>
 #include <dlfcn.h>
 
+#if 0
+#pragma makedep unix
+#endif
+
 WINE_DEFAULT_DEBUG_CHANNEL(vrclient);
 
 static void *(*p_HmdSystemFactory)( const char *name, int *return_code );
 static void *(*p_VRClientCoreFactory)( const char *name, int *return_code );
 
-VkDevice_T *(WINAPI *p_get_native_VkDevice)( VkDevice_T * );
-VkInstance_T *(WINAPI *p_get_native_VkInstance)( VkInstance_T * );
-VkPhysicalDevice_T *(WINAPI *p_get_native_VkPhysicalDevice)( VkPhysicalDevice_T * );
-VkPhysicalDevice_T *(WINAPI *p_get_wrapped_VkPhysicalDevice)( VkInstance_T *, VkPhysicalDevice_T * );
-VkQueue_T *(WINAPI *p_get_native_VkQueue)( VkQueue_T * );
+VkDevice_T *(*p_get_native_VkDevice)( VkDevice_T * );
+VkInstance_T *(*p_get_native_VkInstance)( VkInstance_T * );
+VkPhysicalDevice_T *(*p_get_native_VkPhysicalDevice)( VkPhysicalDevice_T * );
+VkPhysicalDevice_T *(*p_get_wrapped_VkPhysicalDevice)( VkInstance_T *, VkPhysicalDevice_T * );
+VkQueue_T *(*p_get_native_VkQueue)( VkQueue_T * );
 
 static void *get_winevulkan_unixlib( HMODULE winevulkan )
 {
@@ -38,7 +42,7 @@ static void *get_winevulkan_unixlib( HMODULE winevulkan )
     return dlopen( info.dli_fname, RTLD_NOW );
 }
 
-static void load_vk_unwrappers( HMODULE winevulkan )
+static BOOL load_vk_unwrappers( HMODULE winevulkan )
 {
     static HMODULE h = NULL;
     void *unix_handle;
@@ -46,14 +50,14 @@ static void load_vk_unwrappers( HMODULE winevulkan )
     if (!(unix_handle = get_winevulkan_unixlib( winevulkan )))
     {
         ERR("Unable to open winevulkan.so.\n");
-        return;
+        return FALSE;
     }
 
 #define LOAD_FUNC( name )                                                        \
     if (!(p_##name = (decltype(p_##name))dlsym( unix_handle, "__wine_" #name ))) \
     {                                                                            \
         ERR( "%s not found.\n", #name );                                         \
-        return;                                                                  \
+        return FALSE;                                                                  \
     }
 
     LOAD_FUNC( get_native_VkDevice )
@@ -65,12 +69,16 @@ static void load_vk_unwrappers( HMODULE winevulkan )
 #undef LOAD_FUNC
 
     dlclose(unix_handle);
+    return TRUE;
 }
+
+static void *vrclient;
 
 NTSTATUS vrclient_init( void *args )
 {
     struct vrclient_init_params *params = (struct vrclient_init_params *)args;
-    static void *vrclient;
+
+    params->_ret = false;
 
     if (vrclient)
     {
@@ -81,14 +89,14 @@ NTSTATUS vrclient_init( void *args )
     if (!(vrclient = dlopen( params->unix_path, RTLD_NOW )))
     {
         TRACE( "unable to load %s\n", params->unix_path );
-        return -1;
+        return 0;
     }
 
 #define LOAD_FUNC( x )                                      \
     if (!(p_##x = (decltype(p_##x))dlsym( vrclient, #x )))  \
     {                                                       \
         ERR( "unable to load " #x "\n" );                   \
-        return -1;                                          \
+        return 0;                                          \
     }
 
     LOAD_FUNC( HmdSystemFactory );
@@ -96,8 +104,20 @@ NTSTATUS vrclient_init( void *args )
 
 #undef LOAD_FUNC
 
-    load_vk_unwrappers( params->winevulkan );
+    if (!load_vk_unwrappers( params->winevulkan ))
+        return 0;
+
     params->_ret = true;
+    return 0;
+}
+
+NTSTATUS vrclient_unload( void *args )
+{
+    if (!vrclient) return 0;
+    dlclose( vrclient );
+    vrclient = NULL;
+    p_HmdSystemFactory = NULL;
+    p_VRClientCoreFactory = NULL;
     return 0;
 }
 

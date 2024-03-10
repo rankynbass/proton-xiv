@@ -16,16 +16,17 @@
 extern "C" {
 #endif /* __cplusplus */
 
-extern VkDevice_T *(WINAPI *p_get_native_VkDevice)( VkDevice_T * );
-extern VkInstance_T *(WINAPI *p_get_native_VkInstance)( VkInstance_T * );
-extern VkPhysicalDevice_T *(WINAPI *p_get_native_VkPhysicalDevice)( VkPhysicalDevice_T * );
-extern VkPhysicalDevice_T *(WINAPI *p_get_wrapped_VkPhysicalDevice)( VkInstance_T *, VkPhysicalDevice_T * );
-extern VkQueue_T *(WINAPI *p_get_native_VkQueue)( VkQueue_T * );
+extern VkDevice_T *(*p_get_native_VkDevice)( VkDevice_T * );
+extern VkInstance_T *(*p_get_native_VkInstance)( VkInstance_T * );
+extern VkPhysicalDevice_T *(*p_get_native_VkPhysicalDevice)( VkPhysicalDevice_T * );
+extern VkPhysicalDevice_T *(*p_get_wrapped_VkPhysicalDevice)( VkInstance_T *, VkPhysicalDevice_T * );
+extern VkQueue_T *(*p_get_native_VkQueue)( VkQueue_T * );
 
 extern char *json_convert_startup_info(const char *startup_info);
 extern char *json_convert_paths(const char *input);
 
 extern NTSTATUS vrclient_init( void *args );
+extern NTSTATUS vrclient_unload( void *args );
 extern NTSTATUS vrclient_HmdSystemFactory( void *args );
 extern NTSTATUS vrclient_VRClientCoreFactory( void *args );
 

@@ -1,5 +1,9 @@
 #include "unix_private.h"
 
+#if 0
+#pragma makedep unix
+#endif
+
 static u_VRVulkanTextureData_t *unwrap_texture_vkdata( const w_VRVulkanTextureData_t *w_vkdata, u_VRVulkanTextureData_t *u_vkdata )
 {
     if (!w_vkdata) return NULL;
@@ -163,6 +167,15 @@ NTSTATUS IVRCompositor_IVRCompositor_027_GetVulkanDeviceExtensionsRequired( void
 {
     struct IVRCompositor_IVRCompositor_027_GetVulkanDeviceExtensionsRequired_params *params = (struct IVRCompositor_IVRCompositor_027_GetVulkanDeviceExtensionsRequired_params *)args;
     struct u_IVRCompositor_IVRCompositor_027 *iface = (struct u_IVRCompositor_IVRCompositor_027 *)params->linux_side;
+    VkPhysicalDevice_T *host_device = p_get_native_VkPhysicalDevice( params->pPhysicalDevice );
+    params->_ret = (uint32_t)iface->GetVulkanDeviceExtensionsRequired( host_device, params->pchValue, params->unBufferSize );
+    return 0;
+}
+
+NTSTATUS IVRCompositor_IVRCompositor_028_GetVulkanDeviceExtensionsRequired( void *args )
+{
+    struct IVRCompositor_IVRCompositor_028_GetVulkanDeviceExtensionsRequired_params *params = (struct IVRCompositor_IVRCompositor_028_GetVulkanDeviceExtensionsRequired_params *)args;
+    struct u_IVRCompositor_IVRCompositor_028 *iface = (struct u_IVRCompositor_IVRCompositor_028 *)params->linux_side;
     VkPhysicalDevice_T *host_device = p_get_native_VkPhysicalDevice( params->pPhysicalDevice );
     params->_ret = (uint32_t)iface->GetVulkanDeviceExtensionsRequired( host_device, params->pchValue, params->unBufferSize );
     return 0;
@@ -380,6 +393,19 @@ NTSTATUS IVRCompositor_IVRCompositor_027_SetSkyboxOverride( void *args )
 {
     struct IVRCompositor_IVRCompositor_027_SetSkyboxOverride_params *params = (struct IVRCompositor_IVRCompositor_027_SetSkyboxOverride_params *)args;
     struct u_IVRCompositor_IVRCompositor_027 *iface = (struct u_IVRCompositor_IVRCompositor_027 *)params->linux_side;
+    u_VRVulkanTextureArrayData_t vkdata[params->unTextureCount];
+    u_Texture_t textures[params->unTextureCount];
+    uint32_t i;
+
+    for (i = 0; i < params->unTextureCount; i++) textures[i] = unwrap_texture_data( params->pTextures + i, 0, &vkdata[i] );
+    params->_ret = (uint32_t)iface->SetSkyboxOverride( textures, params->unTextureCount );
+    return 0;
+}
+
+NTSTATUS IVRCompositor_IVRCompositor_028_SetSkyboxOverride( void *args )
+{
+    struct IVRCompositor_IVRCompositor_028_SetSkyboxOverride_params *params = (struct IVRCompositor_IVRCompositor_028_SetSkyboxOverride_params *)args;
+    struct u_IVRCompositor_IVRCompositor_028 *iface = (struct u_IVRCompositor_IVRCompositor_028 *)params->linux_side;
     u_VRVulkanTextureArrayData_t vkdata[params->unTextureCount];
     u_Texture_t textures[params->unTextureCount];
     uint32_t i;
@@ -607,5 +633,31 @@ NTSTATUS IVRCompositor_IVRCompositor_027_Submit( void *args )
     u_Texture_t *submit = unwrap_submit_texture_data( (const w_VRTextureWithPoseAndDepth_t *)params->pTexture, params->nSubmitFlags,
                                                       &u_texture, &u_vkdata, &u_depth_vkdata );
     params->_ret = (uint32_t)iface->Submit( params->eEye, submit, params->pBounds, params->nSubmitFlags );
+    return 0;
+}
+
+NTSTATUS IVRCompositor_IVRCompositor_028_Submit( void *args )
+{
+    struct IVRCompositor_IVRCompositor_028_Submit_params *params = (struct IVRCompositor_IVRCompositor_028_Submit_params *)args;
+    struct u_IVRCompositor_IVRCompositor_028 *iface = (struct u_IVRCompositor_IVRCompositor_028 *)params->linux_side;
+    u_VRTextureWithPoseAndDepth_t u_texture;
+    u_VRVulkanTextureData_t u_depth_vkdata;
+    u_VRVulkanTextureArrayData_t u_vkdata;
+    u_Texture_t *submit = unwrap_submit_texture_data( (const w_VRTextureWithPoseAndDepth_t *)params->pTexture, params->nSubmitFlags,
+                                                      &u_texture, &u_vkdata, &u_depth_vkdata );
+    params->_ret = (uint32_t)iface->Submit( params->eEye, submit, params->pBounds, params->nSubmitFlags );
+    return 0;
+}
+
+NTSTATUS IVRCompositor_IVRCompositor_028_SubmitWithArrayIndex( void *args )
+{
+    struct IVRCompositor_IVRCompositor_028_SubmitWithArrayIndex_params *params = (struct IVRCompositor_IVRCompositor_028_SubmitWithArrayIndex_params *)args;
+    struct u_IVRCompositor_IVRCompositor_028 *iface = (struct u_IVRCompositor_IVRCompositor_028 *)params->linux_side;
+    u_VRTextureWithPoseAndDepth_t u_texture;
+    u_VRVulkanTextureData_t u_depth_vkdata;
+    u_VRVulkanTextureArrayData_t u_vkdata;
+    u_Texture_t *submit = unwrap_submit_texture_data( (const w_VRTextureWithPoseAndDepth_t *)params->pTexture, params->nSubmitFlags,
+                                                      &u_texture, &u_vkdata, &u_depth_vkdata );
+    params->_ret = (uint32_t)iface->SubmitWithArrayIndex( params->eEye, submit, params->unTextureArrayIndex, params->pBounds, params->nSubmitFlags );
     return 0;
 }

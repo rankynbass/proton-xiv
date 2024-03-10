@@ -10,22 +10,28 @@ This reverts commit d19e34d8f072514cb903bda89767996ba078bae4.
  1 file changed, 2 deletions(-)
 
 diff --git a/dlls/dwrite/font.c b/dlls/dwrite/font.c
-index e1593f7729..2a69c2a436 100644
+index c473a306720..dbf6c611f86 100644
 --- a/dlls/dwrite/font.c
 +++ b/dlls/dwrite/font.c
-@@ -4348,7 +4348,11 @@ HRESULT create_font_collection(IDWriteFactory7 *factory, IDWriteFontFileEnumerat
-                 break;
+@@ -4659,6 +4659,7 @@ HRESULT create_font_collection(IDWriteFactory7 *factory, IDWriteFontFileEnumerat
+     BOOL current = FALSE;
+     HRESULT hr = S_OK;
+     size_t i;
++    const char *sgi = getenv("SteamGameId");
+ 
+     *ret = NULL;
+ 
+@@ -4785,7 +4786,9 @@ HRESULT create_font_collection(IDWriteFactory7 *factory, IDWriteFontFileEnumerat
+             }
          }
  
 -        IDWriteFontFileStream_Release(stream);
-+        const char *sgi = getenv("SteamGameId");
-+
 +        if ((!sgi) | (sgi && strcmp(sgi, "244210"))) {
 +            IDWriteFontFileStream_Release(stream);
 +        }
      }
  
-     LIST_FOR_EACH_ENTRY_SAFE(fileenum, fileenum2, &scannedfiles, struct fontfile_enum, entry) {
+     LIST_FOR_EACH_ENTRY_SAFE(fileenum, fileenum2, &scannedfiles, struct fontfile_enum, entry)
 -- 
 2.26.2
 

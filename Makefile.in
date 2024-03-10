@@ -185,6 +185,7 @@ GST_BASE_MESON_ARGS := \
 	-Dx11=enabled \
 	-Dgl=enabled \
 	-Dgl-graphene=enabled \
+	-Dgl_winsys=surfaceless,x11,wayland,egl \
 	-Dgl_platform=glx,egl \
 	--wrap-mode nodownload \
 
@@ -497,6 +498,7 @@ $(eval $(call rules-cmake,glslang,64))
 ##
 
 LSTEAMCLIENT_DEPENDS = wine
+LSTEAMCLIENT_LDFLAGS = -static-libgcc -static-libstdc++
 
 $(eval $(call rules-source,lsteamclient,$(SRCDIR)/lsteamclient))
 $(eval $(call rules-makedep,lsteamclient,32))
@@ -678,6 +680,7 @@ $(eval $(call rules-autoconf,wine,32))
 $(eval $(call rules-autoconf,wine,64))
 
 $(OBJ)/.wine-post-source:
+	-cd $(WINE_SRC) && tools/make_specfiles
 	cd $(WINE_SRC) && tools/make_requests
 	cd $(WINE_SRC) && dlls/winevulkan/make_vulkan -x vk.xml
 	touch $@
@@ -702,7 +705,8 @@ $(OBJ)/.wine-post-build32:
 ## vrclient
 ##
 
-VRCLIENT_DEPENDS = wine
+VRCLIENT_LDFLAGS = -static-libgcc -static-libstdc++
+VRCLIENT_DEPENDS = vulkan-headers wine
 
 $(eval $(call rules-source,vrclient,$(SRCDIR)/vrclient_x64))
 $(eval $(call rules-makedep,vrclient,32))
@@ -1218,7 +1222,7 @@ all-dist: $(DIST_FONTS)
 ## Gecko
 ##
 
-GECKO_VER := 2.47.3
+GECKO_VER := 2.47.4
 GECKO32_TARBALL := wine-gecko-$(GECKO_VER)-x86.tar.xz
 GECKO64_TARBALL := wine-gecko-$(GECKO_VER)-x86_64.tar.xz
 GECKO64_TARBALL_URL := https://dl.winehq.org/wine/wine-gecko/$(GECKO_VER)/$(GECKO64_TARBALL)
@@ -1229,11 +1233,11 @@ DIST_GECKO64 := $(OBJ)/.gecko-dist64
 
 $(SRC)/contrib/$(GECKO64_TARBALL):
 	mkdir -p $(dir $@)
-	wget -O $@ $(GECKO64_TARBALL_URL)
+	wget --no-use-server-timestamps -O $@ $(GECKO64_TARBALL_URL)
 
 $(SRC)/contrib/$(GECKO32_TARBALL):
 	mkdir -p $(dir $@)
-	wget -O $@ $(GECKO32_TARBALL_URL)
+	wget --no-use-server-timestamps -O $@ $(GECKO32_TARBALL_URL)
 
 $(DIST_GECKO32): $(SRC)/contrib/$(GECKO32_TARBALL)
 	mkdir -p $(DIST_GECKO_DIR)
@@ -1254,7 +1258,7 @@ all-dist: $(DIST_GECKO32) $(DIST_GECKO64)
 ## wine-mono
 ##
 
-WINEMONO_VER := 8.1.0
+WINEMONO_VER := 9.0.0
 WINEMONO_TARBALL := wine-mono-$(WINEMONO_VER)-x86.tar.xz
 DIST_WINEMONO_DIR := $(DST_DIR)/share/wine/mono
 DIST_WINEMONO := $(OBJ)/.wine-mono-dist
@@ -1262,7 +1266,7 @@ MONO_TARBALL_URL := https://github.com/madewokherd/wine-mono/releases/download/w
 
 $(SRC)/contrib/$(WINEMONO_TARBALL):
 	mkdir -p $(dir $@)
-	wget -O $@ $(MONO_TARBALL_URL)
+	wget --no-use-server-timestamps -O $@ $(MONO_TARBALL_URL)
 
 $(DIST_WINEMONO): $(SRC)/contrib/$(WINEMONO_TARBALL)
 	mkdir -p $(DIST_WINEMONO_DIR)

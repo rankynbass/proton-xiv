@@ -56,10 +56,11 @@ index f4fe202dfaf..1768444b2e5 100644
  #define LOAD_FUNCPTR(f) if (!(p##f = dlsym(vulkan_handle, #f))) goto fail
  #define LOAD_OPTIONAL_FUNCPTR(f) p##f = dlsym(vulkan_handle, #f)
      LOAD_FUNCPTR(vkCreateInstance);
-@@ -1270,32 +1270,3 @@ const struct vulkan_funcs *get_vulkan_driver(UINT version)
+@@ -1273,33 +1273,3 @@ const struct vulkan_funcs *get_vulkan_driver(UINT version)
+ 
      return NULL;
  }
-
+-
 -#else /* No vulkan */
 -
 -const struct vulkan_funcs *get_vulkan_driver(UINT version)
@@ -68,15 +69,15 @@ index f4fe202dfaf..1768444b2e5 100644
 -    return NULL;
 -}
 -
--void destroy_vk_surface(HWND hwnd)
+-void destroy_vk_surface( HWND hwnd )
 -{
 -}
 -
--void resize_vk_surfaces(HWND hwnd, Window active, int mask, XWindowChanges *changes)
+-void resize_vk_surfaces( HWND hwnd, Window active, int mask, XWindowChanges *changes )
 -{
 -}
 -
--void sync_vk_surface(HWND hwnd, BOOL known_child)
+-void sync_vk_surface( HWND hwnd, BOOL known_child )
 -{
 -}
 -

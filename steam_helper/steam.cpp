@@ -35,10 +35,10 @@
 #include "ntstatus.h"
 #define WIN32_NO_STATUS
 #include <windows.h>
+#include <winsvc.h>
 #include <winternl.h>
 #include <shellapi.h>
 #include <shlwapi.h>
-#include <shlobj.h>
 #include <string.h>
 #include <stdio.h>
 #include <limits.h>
@@ -72,6 +72,14 @@
 #include <msi.h>
 
 WINE_DEFAULT_DEBUG_CHANNEL(steam);
+
+/* from shlobj.h, which breaks because of DECLSPEC_IMPORT EXTERN_C in C++ */
+#define CSIDL_LOCAL_APPDATA 0x001c
+#define CSIDL_FLAG_CREATE   0x8000
+
+EXTERN_C WINSHELLAPI HRESULT WINAPI SHGetFolderPathA(HWND hwnd, int nFolder, HANDLE hToken, DWORD dwFlags, LPSTR pszPath);
+EXTERN_C WINSHELLAPI HRESULT WINAPI SHGetFolderPathW(HWND hwnd, int nFolder, HANDLE hToken, DWORD dwFlags, LPWSTR pszPath);
+#define SHGetFolderPath WINELIB_NAME_AW(SHGetFolderPath)
 
 static const WCHAR PROTON_VR_RUNTIME_W[] = {'P','R','O','T','O','N','_','V','R','_','R','U','N','T','I','M','E',0};
 static const WCHAR VR_PATHREG_OVERRIDE_W[] = {'V','R','_','P','A','T','H','R','E','G','_','O','V','E','R','R','I','D','E',0};
@@ -647,7 +655,7 @@ static void parse_extensions(const char *in, uint32_t *out_count,
 
 extern "C"
 {
-    VkPhysicalDevice WINAPI __wine_get_native_VkPhysicalDevice(VkPhysicalDevice phys_dev);
+    VkPhysicalDevice __wine_get_native_VkPhysicalDevice(VkPhysicalDevice phys_dev);
 };
 
 static void *get_winevulkan_unix_lib_handle(HMODULE hvulkan)
@@ -1219,8 +1227,11 @@ run:
     {
         HDESK desktop = GetThreadDesktop(GetCurrentThreadId());
         DWORD is_unavailable, type, size;
+        SC_HANDLE manager, service;
+        SERVICE_STATUS status;
         DWORD timeout = 3000;
         HKEY eakey;
+        BOOL ret;
 
         link2ea = TRUE;
         if (!SetUserObjectInformationA(desktop, 1000, &timeout, sizeof(timeout)))
@@ -1238,6 +1249,26 @@ run:
             }
             RegCloseKey(eakey);
         }
+        if ((manager = OpenSCManagerA(NULL, SERVICES_ACTIVE_DATABASEA, SERVICE_QUERY_STATUS)))
+        {
+            if ((service = OpenServiceA(manager, "EABackgroundService", SERVICE_QUERY_STATUS)))
+            {
+                if (QueryServiceStatus(service, &status))
+                {
+                    TRACE("dwCurrentState %#x.\n", status.dwCurrentState);
+                    if (status.dwCurrentState == SERVICE_STOP_PENDING || status.dwCurrentState == SERVICE_STOPPED)
+                    {
+                        ret = DeleteFileA("C:\\ProgramData\\EA Desktop\\backgroundservice.ini");
+                        WARN("Tried to delete backgroundservice.ini, ret %d, error %u.\n", ret, GetLastError());
+                    }
+                }
+                else ERR("Could not query service status, error %u.\n", GetLastError());
+                CloseServiceHandle(service);
+            }
+            else TRACE("Could not open EABackgroundService, error %u.\n", GetLastError());
+            CloseServiceHandle(manager);
+        }
+        else ERR("Could not open service manager, error %u.\n", GetLastError());
     }
     hide_window = env_nonzero("PROTON_HIDE_PROCESS_WINDOW");
 

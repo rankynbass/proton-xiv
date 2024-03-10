@@ -1,12 +1,16 @@
 /* This file is auto-generated, do not edit. */
-
 #include "unix_private.h"
+
+#if 0
+#pragma makedep unix
+#endif
 
 extern "C" const unixlib_entry_t __wine_unix_call_funcs[] =
 {
     vrclient_init,
     vrclient_HmdSystemFactory,
     vrclient_VRClientCoreFactory,
+    vrclient_unload,
     IVRApplications_IVRApplications_001_AddApplicationManifest,
     IVRApplications_IVRApplications_001_RemoveApplicationManifest,
     IVRApplications_IVRApplications_001_IsApplicationInstalled,
@@ -982,6 +986,58 @@ extern "C" const unixlib_entry_t __wine_unix_call_funcs[] =
     IVRCompositor_IVRCompositor_027_GetCompositorBenchmarkResults,
     IVRCompositor_IVRCompositor_027_GetLastPosePredictionIDs,
     IVRCompositor_IVRCompositor_027_GetPosesForFrame,
+    IVRCompositor_IVRCompositor_028_SetTrackingSpace,
+    IVRCompositor_IVRCompositor_028_GetTrackingSpace,
+    IVRCompositor_IVRCompositor_028_WaitGetPoses,
+    IVRCompositor_IVRCompositor_028_GetLastPoses,
+    IVRCompositor_IVRCompositor_028_GetLastPoseForTrackedDeviceIndex,
+    IVRCompositor_IVRCompositor_028_Submit,
+    IVRCompositor_IVRCompositor_028_SubmitWithArrayIndex,
+    IVRCompositor_IVRCompositor_028_ClearLastSubmittedFrame,
+    IVRCompositor_IVRCompositor_028_PostPresentHandoff,
+    IVRCompositor_IVRCompositor_028_GetFrameTiming,
+    IVRCompositor_IVRCompositor_028_GetFrameTimings,
+    IVRCompositor_IVRCompositor_028_GetFrameTimeRemaining,
+    IVRCompositor_IVRCompositor_028_GetCumulativeStats,
+    IVRCompositor_IVRCompositor_028_FadeToColor,
+    IVRCompositor_IVRCompositor_028_GetCurrentFadeColor,
+    IVRCompositor_IVRCompositor_028_FadeGrid,
+    IVRCompositor_IVRCompositor_028_GetCurrentGridAlpha,
+    IVRCompositor_IVRCompositor_028_SetSkyboxOverride,
+    IVRCompositor_IVRCompositor_028_ClearSkyboxOverride,
+    IVRCompositor_IVRCompositor_028_CompositorBringToFront,
+    IVRCompositor_IVRCompositor_028_CompositorGoToBack,
+    IVRCompositor_IVRCompositor_028_CompositorQuit,
+    IVRCompositor_IVRCompositor_028_IsFullscreen,
+    IVRCompositor_IVRCompositor_028_GetCurrentSceneFocusProcess,
+    IVRCompositor_IVRCompositor_028_GetLastFrameRenderer,
+    IVRCompositor_IVRCompositor_028_CanRenderScene,
+    IVRCompositor_IVRCompositor_028_ShowMirrorWindow,
+    IVRCompositor_IVRCompositor_028_HideMirrorWindow,
+    IVRCompositor_IVRCompositor_028_IsMirrorWindowVisible,
+    IVRCompositor_IVRCompositor_028_CompositorDumpImages,
+    IVRCompositor_IVRCompositor_028_ShouldAppRenderWithLowResources,
+    IVRCompositor_IVRCompositor_028_ForceInterleavedReprojectionOn,
+    IVRCompositor_IVRCompositor_028_ForceReconnectProcess,
+    IVRCompositor_IVRCompositor_028_SuspendRendering,
+    IVRCompositor_IVRCompositor_028_GetMirrorTextureD3D11,
+    IVRCompositor_IVRCompositor_028_ReleaseMirrorTextureD3D11,
+    IVRCompositor_IVRCompositor_028_GetMirrorTextureGL,
+    IVRCompositor_IVRCompositor_028_ReleaseSharedGLTexture,
+    IVRCompositor_IVRCompositor_028_LockGLSharedTextureForAccess,
+    IVRCompositor_IVRCompositor_028_UnlockGLSharedTextureForAccess,
+    IVRCompositor_IVRCompositor_028_GetVulkanInstanceExtensionsRequired,
+    IVRCompositor_IVRCompositor_028_GetVulkanDeviceExtensionsRequired,
+    IVRCompositor_IVRCompositor_028_SetExplicitTimingMode,
+    IVRCompositor_IVRCompositor_028_SubmitExplicitTimingData,
+    IVRCompositor_IVRCompositor_028_IsMotionSmoothingEnabled,
+    IVRCompositor_IVRCompositor_028_IsMotionSmoothingSupported,
+    IVRCompositor_IVRCompositor_028_IsCurrentSceneFocusAppLoading,
+    IVRCompositor_IVRCompositor_028_SetStageOverride_Async,
+    IVRCompositor_IVRCompositor_028_ClearStageOverride,
+    IVRCompositor_IVRCompositor_028_GetCompositorBenchmarkResults,
+    IVRCompositor_IVRCompositor_028_GetLastPosePredictionIDs,
+    IVRCompositor_IVRCompositor_028_GetPosesForFrame,
     IVRControlPanel_IVRControlPanel_006_undoc1,
     IVRControlPanel_IVRControlPanel_006_undoc2,
     IVRControlPanel_IVRControlPanel_006_undoc3,
@@ -3664,6 +3720,14 @@ C_ASSERT( sizeof(VREvent_ApplicationLaunch_t().pid) >= 4 );
 C_ASSERT( offsetof(VREvent_ApplicationLaunch_t, unArgsHandle) == 4 );
 C_ASSERT( sizeof(VREvent_ApplicationLaunch_t().unArgsHandle) >= 4 );
 
+C_ASSERT( sizeof(VREvent_AudioMuteControl_t) >= 1 );
+C_ASSERT( offsetof(VREvent_AudioMuteControl_t, bMute) == 0 );
+C_ASSERT( sizeof(VREvent_AudioMuteControl_t().bMute) >= 1 );
+
+C_ASSERT( sizeof(VREvent_AudioVolumeControl_t) >= 4 );
+C_ASSERT( offsetof(VREvent_AudioVolumeControl_t, fVolumeLevel) == 0 );
+C_ASSERT( sizeof(VREvent_AudioVolumeControl_t().fVolumeLevel) >= 4 );
+
 C_ASSERT( sizeof(VREvent_Chaperone_t) >= 16 );
 C_ASSERT( offsetof(VREvent_Chaperone_t, m_nPreviousUniverse) == 0 );
 C_ASSERT( sizeof(VREvent_Chaperone_t().m_nPreviousUniverse) >= 8 );
@@ -3740,6 +3804,14 @@ C_ASSERT( sizeof(VREvent_Ipd_t) >= 4 );
 C_ASSERT( offsetof(VREvent_Ipd_t, ipdMeters) == 0 );
 C_ASSERT( sizeof(VREvent_Ipd_t().ipdMeters) >= 4 );
 
+C_ASSERT( sizeof(VREvent_Keyboard_t_2010) >= 24 );
+C_ASSERT( offsetof(VREvent_Keyboard_t_2010, cNewInput) == 0 );
+C_ASSERT( sizeof(VREvent_Keyboard_t_2010().cNewInput) >= 8 );
+C_ASSERT( offsetof(VREvent_Keyboard_t_2010, uUserValue) == 8 );
+C_ASSERT( sizeof(VREvent_Keyboard_t_2010().uUserValue) >= 8 );
+C_ASSERT( offsetof(VREvent_Keyboard_t_2010, overlayHandle) == 16 );
+C_ASSERT( sizeof(VREvent_Keyboard_t_2010().overlayHandle) >= 8 );
+
 C_ASSERT( sizeof(VREvent_Keyboard_t_0912) >= 16 );
 C_ASSERT( offsetof(VREvent_Keyboard_t_0912, cNewInput) == 0 );
 C_ASSERT( sizeof(VREvent_Keyboard_t_0912().cNewInput) >= 8 );
@@ -3756,13 +3828,23 @@ C_ASSERT( sizeof(VREvent_MessageOverlay_t) >= 4 );
 C_ASSERT( offsetof(VREvent_MessageOverlay_t, unVRMessageOverlayResponse) == 0 );
 C_ASSERT( sizeof(VREvent_MessageOverlay_t().unVRMessageOverlayResponse) >= 4 );
 
-C_ASSERT( sizeof(VREvent_Mouse_t) >= 12 );
-C_ASSERT( offsetof(VREvent_Mouse_t, x) == 0 );
-C_ASSERT( sizeof(VREvent_Mouse_t().x) >= 4 );
-C_ASSERT( offsetof(VREvent_Mouse_t, y) == 4 );
-C_ASSERT( sizeof(VREvent_Mouse_t().y) >= 4 );
-C_ASSERT( offsetof(VREvent_Mouse_t, button) == 8 );
-C_ASSERT( sizeof(VREvent_Mouse_t().button) >= 4 );
+C_ASSERT( sizeof(VREvent_Mouse_t_2010) >= 16 );
+C_ASSERT( offsetof(VREvent_Mouse_t_2010, x) == 0 );
+C_ASSERT( sizeof(VREvent_Mouse_t_2010().x) >= 4 );
+C_ASSERT( offsetof(VREvent_Mouse_t_2010, y) == 4 );
+C_ASSERT( sizeof(VREvent_Mouse_t_2010().y) >= 4 );
+C_ASSERT( offsetof(VREvent_Mouse_t_2010, button) == 8 );
+C_ASSERT( sizeof(VREvent_Mouse_t_2010().button) >= 4 );
+C_ASSERT( offsetof(VREvent_Mouse_t_2010, cursorIndex) == 12 );
+C_ASSERT( sizeof(VREvent_Mouse_t_2010().cursorIndex) >= 4 );
+
+C_ASSERT( sizeof(VREvent_Mouse_t_090) >= 12 );
+C_ASSERT( offsetof(VREvent_Mouse_t_090, x) == 0 );
+C_ASSERT( sizeof(VREvent_Mouse_t_090().x) >= 4 );
+C_ASSERT( offsetof(VREvent_Mouse_t_090, y) == 4 );
+C_ASSERT( sizeof(VREvent_Mouse_t_090().y) >= 4 );
+C_ASSERT( offsetof(VREvent_Mouse_t_090, button) == 8 );
+C_ASSERT( sizeof(VREvent_Mouse_t_090().button) >= 4 );
 
 C_ASSERT( sizeof(VREvent_Notification_t_093) >= 16 );
 C_ASSERT( offsetof(VREvent_Notification_t_093, ulUserValue) == 0 );
@@ -3777,6 +3859,16 @@ C_ASSERT( offsetof(VREvent_Notification_t_092, y) == 4 );
 C_ASSERT( sizeof(VREvent_Notification_t_092().y) >= 4 );
 C_ASSERT( offsetof(VREvent_Notification_t_092, notificationId) == 8 );
 C_ASSERT( sizeof(VREvent_Notification_t_092().notificationId) >= 4 );
+
+C_ASSERT( sizeof(VREvent_Overlay_t_2010) >= 32 );
+C_ASSERT( offsetof(VREvent_Overlay_t_2010, overlayHandle) == 0 );
+C_ASSERT( sizeof(VREvent_Overlay_t_2010().overlayHandle) >= 8 );
+C_ASSERT( offsetof(VREvent_Overlay_t_2010, devicePath) == 8 );
+C_ASSERT( sizeof(VREvent_Overlay_t_2010().devicePath) >= 8 );
+C_ASSERT( offsetof(VREvent_Overlay_t_2010, memoryBlockId) == 16 );
+C_ASSERT( sizeof(VREvent_Overlay_t_2010().memoryBlockId) >= 8 );
+C_ASSERT( offsetof(VREvent_Overlay_t_2010, cursorIndex) == 24 );
+C_ASSERT( sizeof(VREvent_Overlay_t_2010().cursorIndex) >= 4 );
 
 C_ASSERT( sizeof(VREvent_Overlay_t_1168) >= 24 );
 C_ASSERT( offsetof(VREvent_Overlay_t_1168, overlayHandle) == 0 );
@@ -3884,6 +3976,18 @@ C_ASSERT( sizeof(VREvent_Screenshot_t().handle) >= 4 );
 C_ASSERT( offsetof(VREvent_Screenshot_t, type) == 4 );
 C_ASSERT( sizeof(VREvent_Screenshot_t().type) >= 4 );
 
+C_ASSERT( sizeof(VREvent_Scroll_t_2010) >= 20 );
+C_ASSERT( offsetof(VREvent_Scroll_t_2010, xdelta) == 0 );
+C_ASSERT( sizeof(VREvent_Scroll_t_2010().xdelta) >= 4 );
+C_ASSERT( offsetof(VREvent_Scroll_t_2010, ydelta) == 4 );
+C_ASSERT( sizeof(VREvent_Scroll_t_2010().ydelta) >= 4 );
+C_ASSERT( offsetof(VREvent_Scroll_t_2010, unused) == 8 );
+C_ASSERT( sizeof(VREvent_Scroll_t_2010().unused) >= 4 );
+C_ASSERT( offsetof(VREvent_Scroll_t_2010, viewportscale) == 12 );
+C_ASSERT( sizeof(VREvent_Scroll_t_2010().viewportscale) >= 4 );
+C_ASSERT( offsetof(VREvent_Scroll_t_2010, cursorIndex) == 16 );
+C_ASSERT( sizeof(VREvent_Scroll_t_2010().cursorIndex) >= 4 );
+
 C_ASSERT( sizeof(VREvent_Scroll_t_1322) >= 16 );
 C_ASSERT( offsetof(VREvent_Scroll_t_1322, xdelta) == 0 );
 C_ASSERT( sizeof(VREvent_Scroll_t_1322().xdelta) >= 4 );
@@ -3953,6 +4057,130 @@ C_ASSERT( offsetof(TrackedDevicePose_t, bPoseIsValid) == 76 );
 C_ASSERT( sizeof(TrackedDevicePose_t().bPoseIsValid) >= 1 );
 C_ASSERT( offsetof(TrackedDevicePose_t, bDeviceIsConnected) == 77 );
 C_ASSERT( sizeof(TrackedDevicePose_t().bDeviceIsConnected) >= 1 );
+
+C_ASSERT( sizeof(VREvent_Data_t_223) >= 48 );
+C_ASSERT( offsetof(VREvent_Data_t_223, reserved) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().reserved) >= 48 );
+C_ASSERT( offsetof(VREvent_Data_t_223, controller) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().controller) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_223, mouse) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().mouse) >= 16 );
+C_ASSERT( offsetof(VREvent_Data_t_223, scroll) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().scroll) >= 20 );
+C_ASSERT( offsetof(VREvent_Data_t_223, process) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().process) >= 12 );
+C_ASSERT( offsetof(VREvent_Data_t_223, notification) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().notification) >= 16 );
+C_ASSERT( offsetof(VREvent_Data_t_223, overlay) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().overlay) >= 32 );
+C_ASSERT( offsetof(VREvent_Data_t_223, status) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().status) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_223, keyboard) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().keyboard) >= 24 );
+C_ASSERT( offsetof(VREvent_Data_t_223, ipd) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().ipd) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_223, chaperone) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().chaperone) >= 16 );
+C_ASSERT( offsetof(VREvent_Data_t_223, performanceTest) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().performanceTest) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_223, touchPadMove) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().touchPadMove) >= 24 );
+C_ASSERT( offsetof(VREvent_Data_t_223, seatedZeroPoseReset) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().seatedZeroPoseReset) >= 1 );
+C_ASSERT( offsetof(VREvent_Data_t_223, screenshot) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().screenshot) >= 8 );
+C_ASSERT( offsetof(VREvent_Data_t_223, screenshotProgress) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().screenshotProgress) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_223, applicationLaunch) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().applicationLaunch) >= 8 );
+C_ASSERT( offsetof(VREvent_Data_t_223, cameraSurface) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().cameraSurface) >= 16 );
+C_ASSERT( offsetof(VREvent_Data_t_223, messageOverlay) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().messageOverlay) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_223, property) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().property) >= 16 );
+C_ASSERT( offsetof(VREvent_Data_t_223, hapticVibration) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().hapticVibration) >= 32 );
+C_ASSERT( offsetof(VREvent_Data_t_223, webConsole) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().webConsole) >= 8 );
+C_ASSERT( offsetof(VREvent_Data_t_223, inputBinding) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().inputBinding) >= 32 );
+C_ASSERT( offsetof(VREvent_Data_t_223, actionManifest) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().actionManifest) >= 32 );
+C_ASSERT( offsetof(VREvent_Data_t_223, spatialAnchor) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().spatialAnchor) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_223, progressUpdate) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().progressUpdate) >= 48 );
+C_ASSERT( offsetof(VREvent_Data_t_223, showUi) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().showUi) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_223, showDevTools) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().showDevTools) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_223, hdcpError) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().hdcpError) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_223, audioVolumeControl) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().audioVolumeControl) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_223, audioMuteControl) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_223().audioMuteControl) >= 1 );
+
+C_ASSERT( sizeof(VREvent_Data_t_2010) >= 48 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, reserved) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().reserved) >= 48 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, controller) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().controller) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, mouse) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().mouse) >= 16 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, scroll) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().scroll) >= 20 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, process) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().process) >= 12 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, notification) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().notification) >= 16 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, overlay) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().overlay) >= 32 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, status) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().status) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, keyboard) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().keyboard) >= 24 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, ipd) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().ipd) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, chaperone) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().chaperone) >= 16 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, performanceTest) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().performanceTest) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, touchPadMove) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().touchPadMove) >= 24 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, seatedZeroPoseReset) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().seatedZeroPoseReset) >= 1 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, screenshot) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().screenshot) >= 8 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, screenshotProgress) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().screenshotProgress) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, applicationLaunch) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().applicationLaunch) >= 8 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, cameraSurface) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().cameraSurface) >= 16 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, messageOverlay) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().messageOverlay) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, property) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().property) >= 16 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, hapticVibration) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().hapticVibration) >= 32 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, webConsole) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().webConsole) >= 8 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, inputBinding) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().inputBinding) >= 32 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, actionManifest) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().actionManifest) >= 32 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, spatialAnchor) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().spatialAnchor) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, progressUpdate) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().progressUpdate) >= 48 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, showUi) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().showUi) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, showDevTools) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().showDevTools) >= 4 );
+C_ASSERT( offsetof(VREvent_Data_t_2010, hdcpError) == 0 );
+C_ASSERT( sizeof(VREvent_Data_t_2010().hdcpError) >= 4 );
 
 C_ASSERT( sizeof(VREvent_Data_t_1168) >= 48 );
 C_ASSERT( offsetof(VREvent_Data_t_1168, reserved) == 0 );
@@ -10208,6 +10436,86 @@ u32_VRControllerState001_t::operator w32_VRControllerState001_t() const
 }
 #endif
 
+C_ASSERT( sizeof(w64_VREvent_t_223) >= 64 );
+C_ASSERT( offsetof(w64_VREvent_t_223, eventType) == 0 );
+C_ASSERT( sizeof(w64_VREvent_t_223().eventType) >= 4 );
+C_ASSERT( offsetof(w64_VREvent_t_223, trackedDeviceIndex) == 4 );
+C_ASSERT( sizeof(w64_VREvent_t_223().trackedDeviceIndex) >= 4 );
+C_ASSERT( offsetof(w64_VREvent_t_223, eventAgeSeconds) == 8 );
+C_ASSERT( sizeof(w64_VREvent_t_223().eventAgeSeconds) >= 4 );
+C_ASSERT( offsetof(w64_VREvent_t_223, data) == 16 );
+C_ASSERT( sizeof(w64_VREvent_t_223().data) >= 48 );
+
+C_ASSERT( sizeof(u64_VREvent_t_223) >= 60 );
+C_ASSERT( offsetof(u64_VREvent_t_223, eventType) == 0 );
+C_ASSERT( sizeof(u64_VREvent_t_223().eventType) >= 4 );
+C_ASSERT( offsetof(u64_VREvent_t_223, trackedDeviceIndex) == 4 );
+C_ASSERT( sizeof(u64_VREvent_t_223().trackedDeviceIndex) >= 4 );
+C_ASSERT( offsetof(u64_VREvent_t_223, eventAgeSeconds) == 8 );
+C_ASSERT( sizeof(u64_VREvent_t_223().eventAgeSeconds) >= 4 );
+C_ASSERT( offsetof(u64_VREvent_t_223, data) == 12 );
+C_ASSERT( sizeof(u64_VREvent_t_223().data) >= 48 );
+
+C_ASSERT( sizeof(w32_VREvent_t_223) >= 64 );
+C_ASSERT( offsetof(w32_VREvent_t_223, eventType) == 0 );
+C_ASSERT( sizeof(w32_VREvent_t_223().eventType) >= 4 );
+C_ASSERT( offsetof(w32_VREvent_t_223, trackedDeviceIndex) == 4 );
+C_ASSERT( sizeof(w32_VREvent_t_223().trackedDeviceIndex) >= 4 );
+C_ASSERT( offsetof(w32_VREvent_t_223, eventAgeSeconds) == 8 );
+C_ASSERT( sizeof(w32_VREvent_t_223().eventAgeSeconds) >= 4 );
+C_ASSERT( offsetof(w32_VREvent_t_223, data) == 16 );
+C_ASSERT( sizeof(w32_VREvent_t_223().data) >= 48 );
+
+C_ASSERT( sizeof(u32_VREvent_t_223) >= 60 );
+C_ASSERT( offsetof(u32_VREvent_t_223, eventType) == 0 );
+C_ASSERT( sizeof(u32_VREvent_t_223().eventType) >= 4 );
+C_ASSERT( offsetof(u32_VREvent_t_223, trackedDeviceIndex) == 4 );
+C_ASSERT( sizeof(u32_VREvent_t_223().trackedDeviceIndex) >= 4 );
+C_ASSERT( offsetof(u32_VREvent_t_223, eventAgeSeconds) == 8 );
+C_ASSERT( sizeof(u32_VREvent_t_223().eventAgeSeconds) >= 4 );
+C_ASSERT( offsetof(u32_VREvent_t_223, data) == 12 );
+C_ASSERT( sizeof(u32_VREvent_t_223().data) >= 48 );
+
+C_ASSERT( sizeof(w64_VREvent_t_2010) >= 64 );
+C_ASSERT( offsetof(w64_VREvent_t_2010, eventType) == 0 );
+C_ASSERT( sizeof(w64_VREvent_t_2010().eventType) >= 4 );
+C_ASSERT( offsetof(w64_VREvent_t_2010, trackedDeviceIndex) == 4 );
+C_ASSERT( sizeof(w64_VREvent_t_2010().trackedDeviceIndex) >= 4 );
+C_ASSERT( offsetof(w64_VREvent_t_2010, eventAgeSeconds) == 8 );
+C_ASSERT( sizeof(w64_VREvent_t_2010().eventAgeSeconds) >= 4 );
+C_ASSERT( offsetof(w64_VREvent_t_2010, data) == 16 );
+C_ASSERT( sizeof(w64_VREvent_t_2010().data) >= 48 );
+
+C_ASSERT( sizeof(u64_VREvent_t_2010) >= 60 );
+C_ASSERT( offsetof(u64_VREvent_t_2010, eventType) == 0 );
+C_ASSERT( sizeof(u64_VREvent_t_2010().eventType) >= 4 );
+C_ASSERT( offsetof(u64_VREvent_t_2010, trackedDeviceIndex) == 4 );
+C_ASSERT( sizeof(u64_VREvent_t_2010().trackedDeviceIndex) >= 4 );
+C_ASSERT( offsetof(u64_VREvent_t_2010, eventAgeSeconds) == 8 );
+C_ASSERT( sizeof(u64_VREvent_t_2010().eventAgeSeconds) >= 4 );
+C_ASSERT( offsetof(u64_VREvent_t_2010, data) == 12 );
+C_ASSERT( sizeof(u64_VREvent_t_2010().data) >= 48 );
+
+C_ASSERT( sizeof(w32_VREvent_t_2010) >= 64 );
+C_ASSERT( offsetof(w32_VREvent_t_2010, eventType) == 0 );
+C_ASSERT( sizeof(w32_VREvent_t_2010().eventType) >= 4 );
+C_ASSERT( offsetof(w32_VREvent_t_2010, trackedDeviceIndex) == 4 );
+C_ASSERT( sizeof(w32_VREvent_t_2010().trackedDeviceIndex) >= 4 );
+C_ASSERT( offsetof(w32_VREvent_t_2010, eventAgeSeconds) == 8 );
+C_ASSERT( sizeof(w32_VREvent_t_2010().eventAgeSeconds) >= 4 );
+C_ASSERT( offsetof(w32_VREvent_t_2010, data) == 16 );
+C_ASSERT( sizeof(w32_VREvent_t_2010().data) >= 48 );
+
+C_ASSERT( sizeof(u32_VREvent_t_2010) >= 60 );
+C_ASSERT( offsetof(u32_VREvent_t_2010, eventType) == 0 );
+C_ASSERT( sizeof(u32_VREvent_t_2010().eventType) >= 4 );
+C_ASSERT( offsetof(u32_VREvent_t_2010, trackedDeviceIndex) == 4 );
+C_ASSERT( sizeof(u32_VREvent_t_2010().trackedDeviceIndex) >= 4 );
+C_ASSERT( offsetof(u32_VREvent_t_2010, eventAgeSeconds) == 8 );
+C_ASSERT( sizeof(u32_VREvent_t_2010().eventAgeSeconds) >= 4 );
+C_ASSERT( offsetof(u32_VREvent_t_2010, data) == 12 );
+C_ASSERT( sizeof(u32_VREvent_t_2010().data) >= 48 );
+
 C_ASSERT( sizeof(w64_VREvent_t_1168) >= 64 );
 C_ASSERT( offsetof(w64_VREvent_t_1168, eventType) == 0 );
 C_ASSERT( sizeof(w64_VREvent_t_1168().eventType) >= 4 );
@@ -11207,6 +11515,94 @@ C_ASSERT( offsetof(u32_VREvent_t_090, data) == 8 );
 C_ASSERT( sizeof(u32_VREvent_t_090().data) >= 16 );
 C_ASSERT( offsetof(u32_VREvent_t_090, eventAgeSeconds) == 24 );
 C_ASSERT( sizeof(u32_VREvent_t_090().eventAgeSeconds) >= 4 );
+
+#ifdef __x86_64__
+w64_VREvent_t_223::operator u64_VREvent_t_223() const
+{
+    u64_VREvent_t_223 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+
+u64_VREvent_t_223::operator w64_VREvent_t_223() const
+{
+    w64_VREvent_t_223 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __i386__
+w32_VREvent_t_223::operator u32_VREvent_t_223() const
+{
+    u32_VREvent_t_223 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+
+u32_VREvent_t_223::operator w32_VREvent_t_223() const
+{
+    w32_VREvent_t_223 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w64_VREvent_t_2010::operator u64_VREvent_t_2010() const
+{
+    u64_VREvent_t_2010 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+
+u64_VREvent_t_2010::operator w64_VREvent_t_2010() const
+{
+    w64_VREvent_t_2010 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __i386__
+w32_VREvent_t_2010::operator u32_VREvent_t_2010() const
+{
+    u32_VREvent_t_2010 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+
+u32_VREvent_t_2010::operator w32_VREvent_t_2010() const
+{
+    w32_VREvent_t_2010 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
 
 #ifdef __x86_64__
 w64_VREvent_t_1168::operator u64_VREvent_t_1168() const

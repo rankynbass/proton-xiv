@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <assert.h>
 
 #include <windef.h>
 #include <winbase.h>
@@ -11,20 +12,20 @@
 
 #include "steamclient_structs.h"
 
-#include "wine/unixlib.h"
+#define TEMP_PATH_BUFFER_LENGTH 4096
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif /* __cplusplus */
 
-#define PATH_MAX 4096
-extern char g_tmppath[PATH_MAX];
+#include "wine/unixlib.h"
 
 #include <pshpack1.h>
 
 struct steamclient_init_params
 {
+    char *g_tmppath;
     const char *steam_app_id;
     int8_t steam_app_id_unset;
     const char *ignore_child_processes;
@@ -215,10 +216,13 @@ struct networking_message
 
 #include <poppack.h>
 
-typedef NTSTATUS (*unixlib_entry_t)( void *args );
-extern const unixlib_entry_t __wine_unix_call_funcs[];
-
-#define STEAMCLIENT_CALL( code, args ) __wine_unix_call_funcs[unix_ ## code]( args )
+#define STEAMCLIENT_CALL( code, args )                                     \
+    ({                                                                     \
+        NTSTATUS status = WINE_UNIX_CALL( unix_ ## code, args );           \
+        if (status) WARN( #code " failed, status %#x\n", (UINT)status );   \
+        assert( !status );                                                 \
+        status;                                                            \
+    })
 
 #ifdef __cplusplus
 } /* extern "C" */

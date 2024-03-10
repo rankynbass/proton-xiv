@@ -11,6 +11,8 @@ import os
 import re
 
 SDK_VERSIONS = [
+    "v2.2.3",
+    "v2.0.10",
     "v1.26.7",
     "v1.23.7",
     "v1.16.8",
@@ -222,6 +224,7 @@ UNIX_FUNCS = [
     'vrclient_init',
     'vrclient_HmdSystemFactory',
     'vrclient_VRClientCoreFactory',
+    'vrclient_unload',
 ]
 
 MANUAL_METHODS = {
@@ -232,9 +235,10 @@ MANUAL_METHODS = {
     "IVRSystem_GetDXGIOutputInfo": lambda ver, abi: abi == 'w',
     "IVRSystem_GetOutputDevice": lambda ver, abi: abi == 'u' and ver > 16,
     "IVRCompositor_Submit": lambda ver, abi: ver > 8,
+    "IVRCompositor_SubmitWithArrayIndex": lambda ver, abi: ver > 8,
     "IVRCompositor_SetSkyboxOverride": lambda ver, abi: ver > 8,
     "IVRCompositor_PostPresentHandoff": lambda ver, abi: abi == 'w',
-    "IVRCompositor_WaitGetPoses": lambda ver, abi: abi == 'w' and ver > 15 and ver < 27,
+    "IVRCompositor_WaitGetPoses": lambda ver, abi: abi == 'w' and ver > 15,
     "IVRCompositor_GetVulkanDeviceExtensionsRequired": lambda ver, abi: abi == 'u',
     "IVRRenderModels_LoadTextureD3D11_Async": lambda ver, abi: abi == 'w',
     "IVRRenderModels_FreeTextureD3D11": lambda ver, abi: abi == 'w',
@@ -926,6 +930,9 @@ def handle_class(klass):
 
         out(u'/* This file is auto-generated, do not edit. */\n')
         out(u'#include "unix_private.h"\n\n')
+        out(u'#if 0\n')
+        out(u'#pragma makedep unix\n')
+        out(u'#endif\n\n')
 
         for method in klass.methods:
             if type(method) is Destructor:
@@ -1618,8 +1625,11 @@ with open(u"unixlib_generated.h", "w") as file:
 with open('unixlib_generated.cpp', 'w') as file:
     out = file.write
 
-    out(u'/* This file is auto-generated, do not edit. */\n\n')
+    out(u'/* This file is auto-generated, do not edit. */\n')
     out(u'#include "unix_private.h"\n\n')
+    out(u'#if 0\n')
+    out(u'#pragma makedep unix\n')
+    out(u'#endif\n\n')
 
     out(u'extern "C" const unixlib_entry_t __wine_unix_call_funcs[] =\n')
     out(u'{\n')

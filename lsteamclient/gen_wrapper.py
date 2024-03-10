@@ -406,6 +406,9 @@ PATH_CONV_STRUCTS = {
     },
 }
 
+PRETOUCH_TYPES = {
+    "const char *": "    IsBadStringPtrA({0}, -1);\n",
+}
 
 class Padding:
     def __init__(self, offset, size):
@@ -559,7 +562,7 @@ class Struct:
             if field.name not in path_conv_fields:
                 out(f'    ret.{field.name} = this->{field.name};\n')
             else:
-                out(f'    steamclient_unix_path_to_dos_path(1, this->{field.name}, g_tmppath, sizeof(g_tmppath), 1);\n')
+                out(f'    steamclient_unix_path_to_dos_path(1, this->{field.name}, g_tmppath, TEMP_PATH_BUFFER_LENGTH, 1);\n')
                 out(f'    ret.{field.name} = g_tmppath;\n')
         out(u'    return ret;\n')
         out(u'}\n')
@@ -1062,6 +1065,14 @@ def handle_method_c(klass, method, winclassname, out):
 
     out(u'    TRACE("%p\\n", _this);\n')
 
+    # Some games pass pointers to the data in PE modules which have no access. Access violation is handled
+    # by VEH (which decrypts data and changes page protection). That can only work if such access violation happens
+    # on the PE side, so access the data before passing to the Unix side.
+    for _, p in enumerate(method.get_arguments()):
+        pretouch = PRETOUCH_TYPES.get(p.type.spelling)
+        if pretouch is not None:
+            out(pretouch.format(p.spelling))
+
     out(f'    STEAMCLIENT_CALL( {method.full_name}, &params );\n')
 
     if method.name.startswith('CreateFakeUDPPort'):
@@ -1084,6 +1095,10 @@ def handle_class(klass):
 
         out(u'/* This file is auto-generated, do not edit. */\n')
         out(u'#include "unix_private.h"\n\n')
+
+        out(u'#if 0\n')
+        out(u'#pragma makedep unix\n')
+        out(u'#endif\n\n')
 
         for method in klass.methods:
             if type(method) is Destructor:
@@ -1345,7 +1360,7 @@ with open("steamclient_generated.h", "w") as file:
     out(u'/* This file is auto-generated, do not edit. */\n\n')
 
     for _, klass in sorted(all_classes.items()):
-        out(f"extern struct w_steam_iface *create_win{klass.full_name}(void *) DECLSPEC_HIDDEN;\n")
+        out(f"extern struct w_steam_iface *create_win{klass.full_name}(void *);\n")
 
 
 with open("steamclient_generated.c", "w") as file:
@@ -1549,6 +1564,10 @@ with open('unixlib_generated.cpp', 'w') as file:
     out = file.write
 
     out(u'/* This file is auto-generated, do not edit. */\n\n')
+    out(u'#if 0\n')
+    out(u'#pragma makedep unix\n')
+    out(u'#endif\n')
+    out(u'\n')
     out(u'#include "unix_private.h"\n\n')
 
     out(u'extern "C" const unixlib_entry_t __wine_unix_call_funcs[] =\n')
@@ -1697,7 +1716,7 @@ with open('unixlib_generated.cpp', 'w') as file:
     out(u'    }\n')
     out(u'#undef MAKE_CASE\n')
     out(u'\n')
-    out(u'    callback = HeapAlloc( GetProcessHeap(), 0, len );\n')
+    out(u'    callback = malloc( len );\n')
     out(u'    *callback_len = len;\n')
     out(u'    return callback;\n')
     out(u'}\n')
