@@ -130,6 +130,9 @@ static void setup_steam_registry(void)
     char buf[256];
     HKEY key;
     LSTATUS status;
+    const int system_locale_appids[] = {
+        1284210 /* Guild Wars 2 */
+    };
 
     ui_lang = SteamUtils()->GetSteamUILanguage();
     WINE_TRACE("UI language: %s\n", wine_dbgstr_a(ui_lang));
@@ -155,6 +158,18 @@ static void setup_steam_registry(void)
     language = SteamApps()->GetCurrentGameLanguage();
     languages = SteamApps()->GetAvailableGameLanguages();
     WINE_TRACE( "Game language %s, available %s\n", wine_dbgstr_a(language), wine_dbgstr_a(languages) );
+
+    if (strchr(languages, ',') == NULL) /* If there is a list of languages then respect that */
+    {
+        for (int i = 0; i < (sizeof(system_locale_appids) / sizeof(*system_locale_appids)); i++)
+        {
+            if (system_locale_appids[i] == appid)
+            {
+                WINE_TRACE("Not changing system locale for application %i\n",appid);
+                language = NULL;
+            }
+        }
+    }
 
     if (!language) locale = NULL;
     else if (!strcmp( language, "arabic" )) locale = "ar_001.UTF-8";
@@ -187,6 +202,10 @@ static void setup_steam_registry(void)
     else if (!strcmp( language, "ukrainian" )) locale = "uk_UA.UTF-8";
     else if (!strcmp( language, "vietnamese" )) locale = "vi_VN.UTF-8";
     else WINE_FIXME( "Unsupported game language %s\n", wine_dbgstr_a(language) );
+
+    /* HACK: Bug 23597 Granado Espada Japan (1219160) launcher needs Japanese locale to display correctly */
+    if (appid == 1219160)
+        locale = "ja_JP.UTF-8";
 
     if (locale)
     {
@@ -682,7 +701,7 @@ static void *get_winevulkan_unix_lib_handle(HMODULE hvulkan)
 
 static DWORD WINAPI initialize_vr_data(void *arg)
 {
-    int (WINAPI *p__wineopenxr_get_extensions_internal)(char **instance_extensions, char **device_extensions);
+    int (WINAPI *p__wineopenxr_get_extensions_internal)(char **instance_extensions, char **device_extensions, uint32_t *physdev_vid, uint32_t *physdev_pid);
     vr::IVRClientCore* (*vrclient_VRClientCoreFactory)(const char *name, int *return_code);
     uint32_t instance_extensions_count, device_count;
     VkPhysicalDevice *phys_devices = NULL;
@@ -880,7 +899,8 @@ static DWORD WINAPI initialize_vr_data(void *arg)
                 (GetProcAddress(hwineopenxr, "__wineopenxr_get_extensions_internal"));
         if (p__wineopenxr_get_extensions_internal)
         {
-            if (!p__wineopenxr_get_extensions_internal(&xr_inst_ext, &xr_dev_ext))
+            uint32_t vid, pid;
+            if (!p__wineopenxr_get_extensions_internal(&xr_inst_ext, &xr_dev_ext, &vid, &pid))
             {
                 WINE_TRACE("Got XR extensions.\n");
                 if ((status = RegSetValueExA(vr_key, "openxr_vulkan_instance_extensions", 0, REG_SZ,
@@ -893,6 +913,18 @@ static DWORD WINAPI initialize_vr_data(void *arg)
                         (BYTE *)xr_dev_ext, strlen(xr_dev_ext) + 1)))
                 {
                     WINE_ERR("Could not set openxr_vulkan_device_extensions value, status %#x.\n", status);
+                    goto done;
+                }
+                if ((status = RegSetValueExA(vr_key, "openxr_vulkan_device_vid", 0, REG_DWORD,
+                        (BYTE *)&vid, sizeof(vid))))
+                {
+                    WINE_ERR("Could not set openxr_vulkan_device_vid value, status %#x.\n", status);
+                    goto done;
+                }
+                if ((status = RegSetValueExA(vr_key, "openxr_vulkan_device_pid", 0, REG_DWORD,
+                        (BYTE *)&pid, sizeof(pid))))
+                {
+                    WINE_ERR("Could not set openxr_vulkan_device_pid value, status %#x.\n", status);
                     goto done;
                 }
             }
@@ -1339,8 +1371,10 @@ static BOOL steam_command_handler(int argc, char *argv[])
     typedef NTSTATUS (WINAPI *__WINE_UNIX_SPAWNVP)(char *const argv[], int wait);
     static __WINE_UNIX_SPAWNVP p__wine_unix_spawnvp;
     NTSTATUS status = STATUS_UNSUCCESSFUL;
+    BOOL restart_self = FALSE;
     char **unix_argv;
     HMODULE module;
+    const char *sgi;
     int i, j;
     static char *unix_steam[] =
     {
@@ -1352,6 +1386,33 @@ static BOOL steam_command_handler(int argc, char *argv[])
     /* If there are command line options, only forward steam:// and options start with - */
     if (argc > 1 && StrStrIA(argv[1], "steam://") != argv[1] && argv[1][0] != '-')
         return FALSE;
+
+    if (argc > 2 && !strcmp(argv[1], "--") && (sgi = getenv("SteamGameId")))
+    {
+        char s[64];
+
+        snprintf(s, sizeof(s), "steam://launch/%s", sgi);
+        if (!(restart_self = !strcmp(argv[2], s)))
+        {
+            snprintf(s, sizeof(s), "steam://rungameid/%s", sgi);
+            restart_self = !strcmp(argv[2], s);
+        }
+    }
+    if (restart_self)
+    {
+        HANDLE event;
+
+        event = OpenEventA(SYNCHRONIZE, FALSE, "PROTON_STEAM_EXE_RESTART_APP");
+        if (event)
+        {
+            SetEvent(event);
+            CloseHandle(event);
+            WINE_TRACE("Signalled app restart.\n");
+        }
+        else
+            WINE_ERR("Restart event not found.\n");
+        return TRUE;
+    }
 
     if (!p__wine_unix_spawnvp)
     {
@@ -1720,8 +1781,46 @@ int main(int argc, char *argv[])
 
     if(wait_handle != INVALID_HANDLE_VALUE)
     {
+        HANDLE waits[2];
+        DWORD ret;
+        int wait_count;
+
+        waits[0] = wait_handle;
+        waits[1] = NULL;
+        wait_count = 1;
+        if (game_process)
+        {
+            if ((waits[1] = CreateEventA(NULL, FALSE, FALSE, "PROTON_STEAM_EXE_RESTART_APP")))
+            {
+                ++wait_count;
+            }
+            else
+            {
+                WINE_ERR("Failed to create restart event, err %lu.\n", GetLastError());
+            }
+        }
         FreeConsole();
-        WaitForSingleObject(wait_handle, INFINITE);
+        while ((ret = WaitForMultipleObjects(wait_count, waits, FALSE, INFINITE) != WAIT_OBJECT_0))
+        {
+            BOOL should_await;
+
+            if (ret != WAIT_OBJECT_0 + 1)
+            {
+                WINE_ERR("Wait failed.\n");
+                break;
+            }
+            if (child != INVALID_HANDLE_VALUE)
+            {
+                if (WaitForSingleObject(child, 0) == WAIT_TIMEOUT)
+                {
+                    WINE_ERR("Child is still running, not restarting.\n");
+                    continue;
+                }
+                CloseHandle(child);
+            }
+            child = run_process(&should_await, game_process);
+        }
+        CloseHandle(waits[1]);
     }
 
     if (event != INVALID_HANDLE_VALUE)

@@ -1,6 +1,6 @@
 MODULE    = lsteamclient.dll
 UNIXLIB   = lsteamclient.so
-IMPORTS   = user32
+IMPORTS   = user32 ws2_32
 
 EXTRADEFS = -DWINE_NO_LONG_TYPES -DSTEAM_API_EXPORTS -Dprivate=public -Dprotected=public
 
@@ -71,6 +71,7 @@ SOURCES = \
 	cppISteamClient_SteamClient018.cpp \
 	cppISteamClient_SteamClient019.cpp \
 	cppISteamClient_SteamClient020.cpp \
+	cppISteamClient_SteamClient021.cpp \
 	cppISteamController_SteamController003.cpp \
 	cppISteamController_SteamController004.cpp \
 	cppISteamController_SteamController005.cpp \

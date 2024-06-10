@@ -10,6 +10,7 @@
 #include "winnls.h"
 #include "winuser.h"
 #include "winternl.h"
+#include "winsock2.h"
 
 #include "steamclient_private.h"
 
@@ -49,6 +50,7 @@ static char temp_path_buffer[TEMP_PATH_BUFFER_LENGTH];
 
 static CRITICAL_SECTION steamclient_cs = { NULL, -1, 0, 0, 0, 0 };
 static HANDLE steam_overlay_event;
+static BOOL wsa_initialized;
 
 BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, void *reserved)
 {
@@ -67,10 +69,28 @@ BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, void *reserved)
             break;
         case DLL_PROCESS_DETACH:
             CloseHandle(steam_overlay_event);
+            if (wsa_initialized)
+            {
+                WSACleanup();
+                wsa_initialized = FALSE;
+            }
             break;
     }
 
     return TRUE;
+}
+
+NTSTATUS steamclient_call( unsigned int code, void *args, const char *name )
+{
+    NTSTATUS status = WINE_UNIX_CALL( code, args );
+
+    if (status == STATUS_ACCESS_VIOLATION)
+    {
+        ERR( "Access violation in %s.\n", name );
+        RaiseException( status, 0, 0, NULL );
+    }
+    if (status) WARN( "%s failed, status %#x\n", name, (UINT)status );
+    return status;
 }
 
 static BYTE *alloc_start, *alloc_end;
@@ -334,6 +354,14 @@ static int load_steamclient(void)
         params.ignore_child_processes = ignore_child_processes;
 
     if (STEAMCLIENT_CALL( steamclient_init, &params )) return 0;
+    if (!wsa_initialized)
+    {
+        /* Some games depend on winsocks being initialized after initializing Steam API. */
+        WSADATA data;
+
+        WSAStartup(0x202, &data);
+        wsa_initialized = TRUE;
+    }
     return 1;
 }
 
@@ -359,12 +387,12 @@ void execute_pending_callbacks(void)
         {
         case SOCKETS_DEBUG_OUTPUT:
             TRACE( "SOCKETS_DEBUG_OUTPUT func %p, type %u, msg %s.\n", params.callback->sockets_debug_output.pfnFunc,
-                   params.callback->sockets_debug_output.type, wine_dbgstr_a( params.callback->sockets_debug_output.msg ) );
+                   params.callback->sockets_debug_output.type, debugstr_a( params.callback->sockets_debug_output.msg ) );
             params.callback->sockets_debug_output.pfnFunc( params.callback->sockets_debug_output.type, params.callback->sockets_debug_output.msg );
             break;
         case WARNING_MESSAGE_HOOK:
             TRACE( "WARNING_MESSAGE_HOOK func %p, severity %d, msg %s.\n", params.callback->warning_message_hook.pFunction,
-                   params.callback->warning_message_hook.severity, wine_dbgstr_a( params.callback->warning_message_hook.msg ) );
+                   params.callback->warning_message_hook.severity, debugstr_a( params.callback->warning_message_hook.msg ) );
             params.callback->warning_message_hook.pFunction( params.callback->warning_message_hook.severity, params.callback->warning_message_hook.msg );
             break;
         case CALL_CDECL_FUNC_DATA:
@@ -398,7 +426,7 @@ void execute_pending_callbacks(void)
             break;
         case CALL_IFACE_VTABLE_0_ADD_PLAYER_TO_LIST:
             TRACE( "CALL_IFACE_VTABLE_0_ADD_PLAYER_TO_LIST iface %p, name %s, score %u, time_played %f.\n", params.callback->add_player_to_list.iface,
-                   params.callback->add_player_to_list.name, params.callback->add_player_to_list.score, params.callback->add_player_to_list.time_played );
+                   debugstr_a( params.callback->add_player_to_list.name ), params.callback->add_player_to_list.score, params.callback->add_player_to_list.time_played );
             CALL_VTBL_FUNC( params.callback->add_player_to_list.iface, 0, void, (void *, const char *, int32_t, float), (params.callback->add_player_to_list.iface,
                             params.callback->add_player_to_list.name, params.callback->add_player_to_list.score, params.callback->add_player_to_list.time_played) );
             break;
@@ -406,7 +434,7 @@ void execute_pending_callbacks(void)
         {
             const char *value = params.callback->rules_responded.rule_and_value + strlen( params.callback->rules_responded.rule_and_value ) + 1;
             TRACE( "CALL_IFACE_VTABLE_0_RULES_RESPONDED iface %p, rule %s, value %s.\n", params.callback->rules_responded.iface,
-                   params.callback->rules_responded.rule_and_value, value );
+                   debugstr_a( params.callback->rules_responded.rule_and_value ), debugstr_a( value ) );
             CALL_VTBL_FUNC( params.callback->rules_responded.iface, 0, void, (void *, const char *, const char *), (params.callback->rules_responded.iface,
                             params.callback->rules_responded.rule_and_value, value) );
             break;

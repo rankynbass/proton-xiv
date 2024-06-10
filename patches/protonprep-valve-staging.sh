@@ -73,6 +73,7 @@
     -W eventfd_synchronization \
     -W dbghelp-Debug_Symbols \
     -W ddraw-Device_Caps \
+    -W ddraw-GetPickRecords \
     -W Pipelight \
     -W server-PeekMessage \
     -W server-Realtime_Priority \
@@ -134,6 +135,7 @@
     # eventfd_synchronization - already applied
     # ddraw-Device_Caps - conflicts with proton's changes
     # ddraw-version-check - conflicts with proton's changes, disabled in 8.0
+    # ddraw-GetPickRecords - applied manually
 
     # dbghelp-Debug_Symbols - see below:
     # Sancreed — 11/21/2021
@@ -194,11 +196,14 @@
     patch -Np1 < ../patches/wine-hotfixes/staging/loader-KeyboardLayouts/0001-loader-Add-Keyboard-Layouts-registry-enteries.patch
     patch -Np1 < ../patches/wine-hotfixes/staging/loader-KeyboardLayouts/0002-user32-Improve-GetKeyboardLayoutList.patch
 
+    echo "WINE: -STAGING- ddraw-GetPickRecords manually applied"
+    patch -Np1 < ../patches/wine-hotfixes/staging/ddraw-GetPickRecords/0001-ddraw-Implement-Pick-and-GetPickRecords.patch
+
     echo "WINE: -STAGING- ntdll-Hide_Wine_Exports manually applied"
     patch -Np1 < ../wine-staging/patches/ntdll-Hide_Wine_Exports/0001-ntdll-Add-support-for-hiding-wine-version-informatio.patch
 
     echo "WINE: -STAGING- ntdll-WRITECOPY manually applied"
-    patch -Np1 < ../wine-staging/patches/ntdll-WRITECOPY/0007-ntdll-Report-unmodified-WRITECOPY-pages-as-shared.patch
+    patch -Np1 < ../patches/wine-hotfixes/staging/ntdll-WRITECOPY/0007-ntdll-Report-unmodified-WRITECOPY-pages-as-shared.patch
 
     echo "WINE: -STAGING- wineboot-ProxySettings manually applied"
     patch -Np1 < ../patches/wine-hotfixes/staging/wineboot-ProxySettings/0001-wineboot-Initialize-proxy-settings-registry-key.patch
@@ -279,6 +284,16 @@
     echo "WINE: -PENDING- Add WINE_DISABLE_SFN option. (Yakuza 5 cutscenes fix)"
     patch -Np1 < ../patches/wine-hotfixes/pending/ntdll_add_wine_disable_sfn.patch
 
+    echo "WINE: -PENDING- Add TCP_KEEP patch (Star Citizen Launcher 2.0 fix)"
+    patch -Np1 < ../patches/wine-hotfixes/pending/TCP_KEEP-fixup.patch
+
+    echo "WINE: -PENDING- shell32: Implement some file_operation apis. (Solo Leveling netmarble launcher)"
+    # https://gitlab.winehq.org/wine/wine/-/merge_requests/5671
+    patch -Np1 < ../patches/wine-hotfixes/pending/5671.patch
+
+    echo "WINE: -PENDING- ncrypt: NCryptDecrypt implementation (PSN Login for Ghost of Tsushima)"
+    patch -Np1 < ../patches/wine-hotfixes/pending/NCryptDecrypt_implementation.patch
+
 ### END WINE PENDING UPSTREAM SECTION ###
 
 
@@ -286,6 +301,9 @@
 
     echo "WINE: -FSR- fullscreen hack fsr patch"
     patch -Np1 < ../patches/proton/47-proton-fshack-AMD-FSR-complete.patch
+
+    echo "WINE: -PENDING- Add options to disable proton media converter."
+    patch -Np1 < ../patches/wine-hotfixes/pending/add-envvar-to-gate-media-converter.patch
 
     #echo "WINE: -Nvidia Reflex- Support VK_NV_low_latency2"
     #patch -Np1 < ../patches/proton/83-nv_low_latency_wine.patch
