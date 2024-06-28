@@ -1276,6 +1276,7 @@ def default_compat_config():
                 "489830", # The Elder Scrolls V: Skyrim Special Edition
                 "610190", # WARRIORS ALL-STARS
                 "712180", # Mugsters
+                "1818750", # MultiVersus
                 ]:
             ret.add("xalia")
 
