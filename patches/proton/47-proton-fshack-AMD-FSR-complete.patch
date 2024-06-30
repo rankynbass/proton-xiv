@@ -1863,7 +1863,7 @@ index 73824021060..d079a374376 100644
 +    memcpy(fs_monitor_sizes+fs_monitor_sizes_count, fs_monitor_sizes_base, sizeof(fs_monitor_sizes_base));
 +    fs_monitor_sizes_count += ARRAY_SIZE(fs_monitor_sizes_base);
 +
-     max_count = ARRAY_SIZE(fs_monitor_sizes) * DEPTH_COUNT + real_mode_count;
+     max_count = ARRAY_SIZE(fs_monitor_sizes) * DEPTH_COUNT + real_mode_count + 1;
      if (center_modes) max_count += ARRAY_SIZE(fs_monitor_sizes) + real_mode_count;
  
 @@ -328,7 +490,7 @@ static void monitor_get_modes( struct fs_monitor *monitor, DEVMODEW **modes, UIN
