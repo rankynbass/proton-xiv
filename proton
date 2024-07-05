@@ -41,7 +41,7 @@ from pathlib import Path
 #To enable debug logging, copy "user_settings.sample.py" to "user_settings.py"
 #and edit it if needed.
 
-CURRENT_PREFIX_VERSION="GE-Proton9-7"
+CURRENT_PREFIX_VERSION="GE-Proton9-9"
 
 PFX="Proton: "
 ld_path_var = "LD_LIBRARY_PATH"
@@ -1138,6 +1138,8 @@ def default_compat_config():
                 "1522260", #Iragon: Prologue 18+
                 "2229300", #Iragon
                 "1097480", #Iragon 18+
+                #CW bug 23986
+                "1928420", #Farlight 84
                 ]:
             ret.add("nomfdxgiman")
 
@@ -1275,8 +1277,14 @@ def default_compat_config():
                 "397950", # Clustertruck
                 "489830", # The Elder Scrolls V: Skyrim Special Edition
                 "712180", # Mugsters
+                "1818750", # MultiVersus
                 ]:
             ret.add("xalia")
+
+        if appid in [
+                "255960", #Bad Mojo Redux
+                ]:
+            ret.add("gamedrive")
 
     return ret
 
@@ -1508,6 +1516,9 @@ class Session:
         if os.environ.get("SteamGameId", 0) == "444930":
             self.env["MESA_EXTENSION_OVERRIDE"] = "-GL_ARB_bindless_texture"
 
+        if os.environ.get("SteamGameId", 0) == "500810":
+            self.dlloverrides["ddraw"] = "n,b"
+
         if "forcelgadd" in self.compat_config:
             self.env["WINE_LARGE_ADDRESS_AWARE"] = "1"
         else:
@@ -1682,15 +1693,6 @@ class Session:
         else:
             argv = [g_proton.wine64_bin, "c:\\windows\\system32\\steam.exe"]
 
-        if 'winetricks' in self.cmdlineappend:
-            after_winetricks = self.cmdlineappend.split('winetricks', 1)[1]
-            arguments = after_winetricks.split()
-            if len(arguments) == 0:
-                protonfixes.util.protontricks('gui')
-            else:
-                protonfixes.util.protontricks(arguments)
-            sys.exit(0)
-
         rc = self.run_proc(adverb + argv + sys.argv[2:] + self.cmdlineappend)
 
         if remote_debug_proc:
@@ -1727,6 +1729,24 @@ if __name__ == "__main__":
         g_proton.make_default_prefix()
 
     g_session.init_session(sys.argv[1] != "runinprefix")
+
+    # Allow umu clients to run winetricks verbs and be the frontend for them
+    if (
+        g_session.env.get("UMU_ID")
+        and g_session.env.get("EXE", "").endswith("winetricks")
+        and g_session.env.get("PROTON_VERB") == "waitforexitandrun"
+    ):
+        wt_verbs = " ".join(sys.argv[2:][2:])
+        g_session.env["WINE"] = g_proton.wine_bin
+        g_session.env["WINELOADER"] = g_proton.wine_bin
+        g_session.env["WINESERVER"] = g_proton.wineserver_bin
+        g_session.env["WINETRICKS_LATEST_VERSION_CHECK"] = "disabled"
+        g_session.env["LD_PRELOAD"] = ""
+
+        log(f"Running winetricks verbs in prefix: {wt_verbs}")
+        rc = subprocess.run(sys.argv[2:], check=False, env=g_session.env).returncode
+
+        sys.exit(rc)
 
     import protonfixes
 
