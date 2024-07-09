@@ -1160,6 +1160,7 @@ def default_compat_config():
                 "273590", #Descent 3
                 "834530", #Yakuza Kiwami
                 "2526380", #Sword of Convallaria
+                "714010", #Aimlabs
                 ]:
             ret.add("gamedrive")
 
