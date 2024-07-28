@@ -209,6 +209,7 @@ $(eval $(call rules-meson,gst_base,64))
 ##
 
 GST_GOOD_MESON_ARGS := \
+	-Dapetag=enabled \
 	-Dauto_features=disabled \
 	-Dgobject-cast-checks=disabled \
 	-Dglib-asserts=disabled \
@@ -476,21 +477,6 @@ $(eval $(call rules-cmake,vulkan-headers,64,CROSS))
 $(eval $(call rules-source,spirv-headers,$(SRCDIR)/SPIRV-Headers))
 $(eval $(call rules-cmake,spirv-headers,32,CROSS))
 $(eval $(call rules-cmake,spirv-headers,64,CROSS))
-
-
-##
-## Vulkan-Loader
-##
-
-VULKAN_LOADER_CMAKE_ARGS = -DUSE_MASM=OFF
-VULKAN_LOADER_CMAKE_ARGS64 = -DVULKAN_HEADERS_INSTALL_DIR=$(VULKAN_HEADERS_DST64)
-VULKAN_LOADER_CMAKE_ARGS32 = -DVULKAN_HEADERS_INSTALL_DIR=$(VULKAN_HEADERS_DST32)
-VULKAN_LOADER_CFLAGS = -DWINVER=0x0A00 -D_WIN32_WINNT=0x0A00 # 0x0A00 is _WIN32_WINNT_WIN10
-VULKAN_LOADER_DEPENDS = vulkan-headers spirv-headers
-
-$(eval $(call rules-source,vulkan-loader,$(SRCDIR)/Vulkan-Loader))
-$(eval $(call rules-cmake,vulkan-loader,32,CROSS))
-$(eval $(call rules-cmake,vulkan-loader,64,CROSS))
 
 
 ##
@@ -786,42 +772,6 @@ $(OBJ)/.dxvk-nvapi-post-build32:
 
 
 ##
-## d8vk
-##
-
-D8VK_MESON_ARGS = \
-	-Denable_dxgi=false \
-	-Denable_d3d10=false \
-	-Denable_d3d11=false
-
-D8VK_MESON_ARGS32 = --bindir=$(D8VK_DST32)/lib/wine/d8vk
-D8VK_MESON_ARGS64 = --bindir=$(D8VK_DST64)/lib64/wine/d8vk
-D8VK_DEPENDS = glslang
-
-$(eval $(call rules-source,d8vk,$(SRCDIR)/d8vk))
-$(eval $(call rules-meson,d8vk,32,CROSS))
-$(eval $(call rules-meson,d8vk,64,CROSS))
-
-$(OBJ)/.d8vk-post-source:
-	sed -re 's#@VCS_TAG@#$(shell git -C $(SRCDIR)/d8vk describe --always --abbrev=15 --dirty=0)#' \
-	    $(SRCDIR)/d8vk/version.h.in > $(D8VK_SRC)/version.h.in
-	touch $@
-
-$(OBJ)/.d8vk-post-build64:
-	mkdir -p "$(DST_DIR)"/lib64/wine/d8vk
-	rm -f "$(DST_DIR)"/lib64/wine/d8vk/version && if test -e $(SRCDIR)/.git; then ( cd $(SRCDIR) && git submodule status -- d8vk ) > "$(DST_DIR)"/lib64/wine/d8vk/version; fi
-	touch $@
-
-$(OBJ)/.d8vk-post-build32:
-	mkdir -p "$(DST_DIR)"/lib/wine/d8vk
-	rm -f "$(DST_DIR)"/lib/wine/d8vk/version && if test -e $(SRCDIR)/.git; then ( cd $(SRCDIR) && git submodule status -- d8vk ) > "$(DST_DIR)"/lib/wine/d8vk/version; fi
-	touch $@
-
-# wine builds DLLs with the same names, we need to differentiate the timestamps
-D8VK_SOURCE_DATE_EPOCH32 := $(shell expr $(BASE_SOURCE_DATE_EPOCH32) - 1)
-D8VK_SOURCE_DATE_EPOCH64 := $(shell expr $(BASE_SOURCE_DATE_EPOCH64) - 1)
-
-##
 ## vkd3d
 ##
 
@@ -847,7 +797,7 @@ VKD3D_CONFIGURE_ARGS = \
   SONAME_LIBVULKAN=vulkan-1 \
 
 VKD3D_LDFLAGS = -static-libgcc $(CROSSLDFLAGS)
-VKD3D_DEPENDS = vulkan-loader vulkan-headers spirv-headers
+VKD3D_DEPENDS = vulkan-headers spirv-headers
 
 $(eval $(call rules-source,vkd3d,$(SRCDIR)/vkd3d))
 $(eval $(call rules-autoconf,vkd3d,32,CROSS))
@@ -1262,7 +1212,7 @@ all-dist: $(DIST_GECKO32) $(DIST_GECKO64)
 ## wine-mono
 ##
 
-WINEMONO_VER := 9.1.0
+WINEMONO_VER := 9.2.0
 WINEMONO_TARBALL := wine-mono-$(WINEMONO_VER)-x86.tar.xz
 DIST_WINEMONO_DIR := $(DST_DIR)/share/wine/mono
 DIST_WINEMONO := $(OBJ)/.wine-mono-dist
@@ -1325,7 +1275,7 @@ all-dist: $(DIST_OVR32) $(DIST_OVR64)
 ## default_pfx
 ##
 
-default_pfx: wine gst_good gst_libav gst_plugins_rs lsteamclient steamexe vrclient wineopenxr dxvk dxvk-nvapi vkd3d-proton d8vk
+default_pfx: wine gst_good gst_libav gst_plugins_rs lsteamclient steamexe vrclient wineopenxr dxvk dxvk-nvapi vkd3d-proton
 	find $(DST_LIBDIR32)/wine -type f -execdir chmod a-w '{}' '+'
 	find $(DST_LIBDIR64)/wine -type f -execdir chmod a-w '{}' '+'
 	rm -rf $(abspath $(DIST_PREFIX))

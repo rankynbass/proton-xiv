@@ -342,6 +342,7 @@ static int load_steamclient(void)
 {
     char steam_app_id[4096], ignore_child_processes[4096];
     struct steamclient_init_params params = {.g_tmppath = temp_path_buffer};
+    DWORD saved_err = GetLastError();
 
     if (!get_env_win(u"SteamAppId", steam_app_id, sizeof(steam_app_id)))
         params.steam_app_id_unset = TRUE;
@@ -362,6 +363,7 @@ static int load_steamclient(void)
         WSAStartup(0x202, &data);
         wsa_initialized = TRUE;
     }
+    SetLastError(saved_err);
     return 1;
 }
 
@@ -485,7 +487,11 @@ int8_t CDECL Steam_BGetCallback( int32_t pipe, w_CallbackMsg_t *win_msg, int32_t
 
 next_event:
     STEAMCLIENT_CALL( steamclient_Steam_BGetCallback, &params );
-    if (!params._ret) return FALSE;
+    if (!params._ret)
+    {
+        SetLastError(0);
+        return FALSE;
+    }
 
     if (!(win_msg->m_pubParam = HeapAlloc( GetProcessHeap(), 0, win_msg->m_cubParam ))) return FALSE;
     last_callback_data = win_msg->m_pubParam;

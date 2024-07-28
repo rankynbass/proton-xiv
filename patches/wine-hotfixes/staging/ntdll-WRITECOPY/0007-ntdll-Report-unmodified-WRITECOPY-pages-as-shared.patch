@@ -13,18 +13,18 @@ Signed-off-by: Andrew Wesie <awesie@gmail.com>
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/dlls/ntdll/unix/virtual.c b/dlls/ntdll/unix/virtual.c
-index 6c530304442..05d4d517aeb 100644
+index 9c265db365e..08b37e185bd 100644
 --- a/dlls/ntdll/unix/virtual.c
 +++ b/dlls/ntdll/unix/virtual.c
-@@ -4420,7 +4422,7 @@ static NTSTATUS get_working_set_ex( HANDLE process, LPCVOID addr,
-             }
+@@ -5841,7 +5841,7 @@ static void fill_working_set_info( struct fill_working_set_info_data *d, struct
+         pagemap = d->pm_buffer[page - d->buffer_start];
  
-             p->VirtualAttributes.Valid = !(vprot & VPROT_GUARD) && (vprot & 0x0f) && (pagemap >> 63);
--            p->VirtualAttributes.Shared = !is_view_valloc( view ) && ((pagemap >> 61) & 1);
-+            p->VirtualAttributes.Shared = (!is_view_valloc( view ) && ((pagemap >> 61) & 1)) || ((view->protect & VPROT_WRITECOPY) && !(vprot & VPROT_COPIED));
-             if (p->VirtualAttributes.Shared && p->VirtualAttributes.Valid)
-                 p->VirtualAttributes.ShareCount = 1; /* FIXME */
-             if (p->VirtualAttributes.Valid)
+         p->VirtualAttributes.Valid = !(vprot & VPROT_GUARD) && (vprot & 0x0f) && (pagemap >> 63);
+-        p->VirtualAttributes.Shared = !is_view_valloc( view ) && ((pagemap >> 61) & 1);
++        p->VirtualAttributes.Shared = (!is_view_valloc( view ) && ((pagemap >> 61) & 1)) || ((view->protect & VPROT_WRITECOPY) && !(vprot & VPROT_COPIED));
+         if (p->VirtualAttributes.Shared && p->VirtualAttributes.Valid)
+             p->VirtualAttributes.ShareCount = 1; /* FIXME */
+         if (p->VirtualAttributes.Valid)
 -- 
 2.35.1
 

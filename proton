@@ -41,7 +41,7 @@ from pathlib import Path
 #To enable debug logging, copy "user_settings.sample.py" to "user_settings.py"
 #and edit it if needed.
 
-CURRENT_PREFIX_VERSION="GE-Proton9-9"
+CURRENT_PREFIX_VERSION="GE-Proton9-11"
 
 PFX="Proton: "
 ld_path_var = "LD_LIBRARY_PATH"
@@ -636,6 +636,9 @@ class CompatData:
                     #proton 3.7 did not generate tracked_files, so copy it into place first
                     try_copy(g_proton.path("proton_3.7_tracked_files"), self.tracked_files_file)
                 self.remove_tracked_files()
+                path = self.prefix_dir + "/drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/version.txt"
+                if file_exists(path, follow_symlinks=False) and os.path.isfile(path):
+                    os.remove(path)
                 return
 
             if old_proton_ver == "3.7" and old_prefix_ver == "1":
@@ -904,6 +907,7 @@ class CompatData:
             use_dxvk_dxgi = not use_wined3d and \
                     not ("WINEDLLOVERRIDES" in g_session.env and "dxgi=b" in g_session.env["WINEDLLOVERRIDES"])
             use_nvapi = 'disablenvapi' not in g_session.compat_config or 'forcenvapi' in g_session.compat_config
+            use_dxvk_d3d8 = "dxvkd3d8" in g_session.compat_config
 
             builtin_dll_copy = os.environ.get("PROTON_DLL_COPY",
                     #dxsetup redist
@@ -954,6 +958,7 @@ class CompatData:
                 str(use_dxvk_dxgi),
                 builtin_dll_copy,
                 str(use_nvapi),
+                str(use_dxvk_d3d8),
             ))
 
             # check whether any prefix config has changed
@@ -1024,26 +1029,24 @@ class CompatData:
                 try_copy(g_proton.lib_dir + "vkd3d/libvkd3d-shader-1.dll", "drive_c/windows/syswow64",
                         prefix=self.prefix_dir, track_file=tracked_files, link_debug=True)
 
-                enable_d8vk = "enabled8vk" in g_session.compat_config
-
                 if use_wined3d:
                     dxvkfiles = []
-                    d8vkfiles = []
                     vkd3d_protonfiles = []
-                    wined3dfiles = ["d3d12", "d3d11", "d3d10", "d3d10core", "d3d10_1", "d3d9", "d3d8"]
+                    wined3dfiles = ["d3d12", "d3d11", "d3d10", "d3d10core", "d3d10_1", "d3d9"]
                 else:
                     dxvkfiles = ["d3d11", "d3d10core", "d3d9"]
-                    d8vkfiles = ["d3d8", "d3d9"] if enable_d8vk else []
                     vkd3d_protonfiles = ["d3d12", "d3d12core"]
-                    wined3dfiles = [] if enable_d8vk else ["d3d8"]
+                    wined3dfiles = []
 
                 if use_dxvk_dxgi:
                     dxvkfiles.append("dxgi")
                 else:
                     wined3dfiles.append("dxgi")
 
-                if dxvkfiles and enable_d8vk:
-                    dxvkfiles.remove("d3d9")
+                if use_dxvk_d3d8:
+                    dxvkfiles.append("d3d8")
+                else:
+                    wined3dfiles.append("d3d8")
 
                 for f in wined3dfiles:
                     try_copy(g_proton.default_pfx_dir + "drive_c/windows/system32/" + f + ".dll", "drive_c/windows/system32",
@@ -1055,13 +1058,6 @@ class CompatData:
                     try_copy(g_proton.lib64_dir + "wine/dxvk/" + f + ".dll", "drive_c/windows/system32",
                             prefix=self.prefix_dir, track_file=tracked_files, link_debug=True)
                     try_copy(g_proton.lib_dir + "wine/dxvk/" + f + ".dll", "drive_c/windows/syswow64",
-                            prefix=self.prefix_dir, track_file=tracked_files, link_debug=True)
-                    g_session.dlloverrides[f] = "n"
-
-                for f in d8vkfiles:
-                    try_copy(g_proton.lib64_dir + "wine/d8vk/" + f + ".dll", "drive_c/windows/system32",
-                            prefix=self.prefix_dir, track_file=tracked_files, link_debug=True)
-                    try_copy(g_proton.lib_dir + "wine/d8vk/" + f + ".dll", "drive_c/windows/syswow64",
                             prefix=self.prefix_dir, track_file=tracked_files, link_debug=True)
                     g_session.dlloverrides[f] = "n"
 
@@ -1206,6 +1202,7 @@ def default_compat_config():
                 "460790", #Bayonetta
                 "273590", #Descent 3
                 "834530", #Yakuza Kiwami
+                "714010", #Aimlabs
                 ]:
             ret.add("gamedrive")
 
@@ -1252,6 +1249,9 @@ def default_compat_config():
                 "109600", #Neverwinter
                 "9900", #Star Trek Online
                 "9880", #Champions Online
+                "202750", #Alan Wake's American Nightmare
+                "255220", #GRID Autosport
+                "44350", #GRID 2
                 ]:
             ret.add("disablenvapi")
 
@@ -1472,12 +1472,10 @@ class Session:
             self.compat_config.add("wined3d")
 
         if not self.check_environment("PROTON_USE_WINED3D", "wined3d"):
-            if not self.check_environment("PROTON_USE_WINED3D11", "wined3d"):
-                self.check_environment("PROTON_USE_WINED3D9",  "wined3d9")
-        self.check_environment("PROTON_NO_D3D12", "nod3d12")
+            self.check_environment("PROTON_USE_WINED3D11", "wined3d")
+        self.check_environment("PROTON_DXVK_D3D8", "dxvkd3d8")
         self.check_environment("PROTON_NO_D3D11", "nod3d11")
         self.check_environment("PROTON_NO_D3D10", "nod3d10")
-        self.check_environment("PROTON_NO_D9VK",  "nod3d9")
         self.check_environment("PROTON_NO_ESYNC", "noesync")
         self.check_environment("PROTON_NO_FSYNC", "nofsync")
         self.check_environment("PROTON_FORCE_LARGE_ADDRESS_AWARE", "forcelgadd")
@@ -1492,7 +1490,6 @@ class Session:
         self.check_environment("PROTON_DISABLE_NVAPI", "disablenvapi")
         self.check_environment("PROTON_FORCE_NVAPI", "forcenvapi")
         self.check_environment("PROTON_HIDE_APU", "hideapu")
-        self.check_environment("PROTON_ENABLE_D8VK", "enabled8vk")
 
         if "noesync" in self.compat_config:
             self.env.pop("WINEESYNC", "")
@@ -1613,11 +1610,6 @@ class Session:
         if update_prefix_files:
             g_compatdata.setup_prefix()
 
-        if "nod3d12" in self.compat_config:
-            self.dlloverrides["d3d12"] = ""
-            if "dxgi" in self.dlloverrides:
-                del self.dlloverrides["dxgi"]
-
         if "nod3d11" in self.compat_config:
             self.dlloverrides["d3d11"] = ""
             if "dxgi" in self.dlloverrides:
@@ -1630,13 +1622,6 @@ class Session:
 
         if "nativevulkanloader" in self.compat_config:
             self.dlloverrides["vulkan-1"] = "n"
-
-        if "nod3d9" in self.compat_config:
-            self.dlloverrides["d3d9"] = ""
-            self.dlloverrides["dxgi"] = ""
-
-        if "wined3d9" in self.compat_config:
-            self.dlloverrides["d3d9"] = "b"
 
         if "disablenvapi" not in self.compat_config or "forcenvapi" in self.compat_config:
             self.env["DXVK_ENABLE_NVAPI"] = "1"
