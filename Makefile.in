@@ -322,8 +322,8 @@ LSTEAMCLIENT_DEPENDS = wine
 LSTEAMCLIENT_LDFLAGS = -static-libgcc -static-libstdc++
 
 $(eval $(call rules-source,lsteamclient,$(SRCDIR)/lsteamclient))
-$(eval $(call rules-makedep,lsteamclient,32))
-$(eval $(call rules-makedep,lsteamclient,64))
+$(eval $(call rules-makedep,lsteamclient,32,CROSS))
+$(eval $(call rules-makedep,lsteamclient,64,CROSS))
 
 
 ##
@@ -347,7 +347,7 @@ WINEOPENXR_LDFLAGS = -lopenxr_loader
 WINEOPENXR_DEPENDS = wine openxr
 
 $(eval $(call rules-source,wineopenxr,$(SRCDIR)/wineopenxr))
-$(eval $(call rules-makedep,wineopenxr,64))
+$(eval $(call rules-makedep,wineopenxr,64,CROSS))
 
 DIST_WINEOPENXR_JSON64 := $(DIST_PREFIX)/drive_c/openxr/wineopenxr64.json
 $(WINEOPENXR_SRC)/wineopenxr64.json: wineopenxr
@@ -374,8 +374,8 @@ STEAMEXE_LDFLAGS = \
 STEAMEXE_DEPENDS = wine
 
 $(eval $(call rules-source,steamexe,$(SRCDIR)/steam_helper))
-$(eval $(call rules-makedep,steamexe,64))
-$(eval $(call rules-makedep,steamexe,32))
+$(eval $(call rules-makedep,steamexe,32,CROSS))
+$(eval $(call rules-makedep,steamexe,64,CROSS))
 
 $(OBJ)/.steamexe-post-build32:
 	mkdir -p $(DST_LIBDIR)/i386-linux-gnu/
@@ -477,8 +477,8 @@ VRCLIENT_LDFLAGS = -static-libgcc -static-libstdc++
 VRCLIENT_DEPENDS = vulkan-headers wine
 
 $(eval $(call rules-source,vrclient,$(SRCDIR)/vrclient_x64))
-$(eval $(call rules-makedep,vrclient,32))
-$(eval $(call rules-makedep,vrclient,64))
+$(eval $(call rules-makedep,vrclient,32,CROSS))
+$(eval $(call rules-makedep,vrclient,64,CROSS))
 
 
 ##
