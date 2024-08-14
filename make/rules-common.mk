@@ -130,16 +130,24 @@ $(2)_$(3)_ENV = \
 ifeq ($(1),wine)
 
 $(2)_$(3)_ENV += \
-    CROSSAR="$$(CROSS$(3)_TARGET)-ar" \
-    CROSSRANLIB="$$(CROSS$(3)_TARGET)-ranlib" \
-    CROSSCC="$$(CROSS$(3)_TARGET)-gcc" \
-    CROSSCXX="$$(CROSS$(3)_TARGET)-g++" \
-    CROSSLD="$$(CROSS$(3)_TARGET)-ld" \
     CROSSCFLAGS="$$($(2)_$(3)_INCFLAGS) $$($(2)_CFLAGS) $$(COMMON_FLAGS) $$($(3)_COMMON_FLAGS)" \
-    CROSSCPPFLAGS="$$($(2)_$(3)_INCFLAGS) $$($(2)_CPPFLAGS) $$(COMMON_FLAGS) $$($(3)_COMMON_FLAGS)" \
-    CROSSCXXFLAGS="$$($(2)_$(3)_INCFLAGS) $$($(2)_CXXFLAGS) $$(COMMON_FLAGS) $$($(3)_COMMON_FLAGS) -std=c++17" \
     CROSSLDFLAGS="$$($(2)_$(3)_LIBFLAGS) $$($(2)_$(3)_LDFLAGS) $$($(2)_LDFLAGS) $$(CROSSLDFLAGS)" \
-    CROSSPKG_CONFIG_LIBDIR="/usr/lib/$$(CROSS$(3)_LIBDIR)/pkgconfig:/usr/share/pkgconfig" \
+    i386_AR="$$(CROSS32_TARGET)-ar" \
+    i386_RANLIB="$$(CROSS32_TARGET)-ranlib" \
+    i386_CC="$$(CROSS32_TARGET)-gcc" \
+    i386_CXX="$$(CROSS32_TARGET)-g++" \
+    i386_LD="$$(CROSS32_TARGET)-ld" \
+    i386_CFLAGS="$$($(2)_32_INCFLAGS) $$($(2)_CFLAGS) $$(COMMON_FLAGS) $$(32_COMMON_FLAGS)" \
+    i386_LDFLAGS="$$($(2)_32_LIBFLAGS) $$($(2)_32_LDFLAGS) $$($(2)_LDFLAGS) $$(CROSSLDFLAGS)" \
+    i386_PKG_CONFIG_LIBDIR="/usr/lib/$$(CROSS32_LIBDIR)/pkgconfig:/usr/share/pkgconfig" \
+    x86_64_AR="$$(CROSS64_TARGET)-ar" \
+    x86_64_RANLIB="$$(CROSS64_TARGET)-ranlib" \
+    x86_64_CC="$$(CROSS64_TARGET)-gcc" \
+    x86_64_CXX="$$(CROSS64_TARGET)-g++" \
+    x86_64_LD="$$(CROSS64_TARGET)-ld" \
+    x86_64_CFLAGS="$$($(2)_64_INCFLAGS) $$($(2)_CFLAGS) $$(COMMON_FLAGS) $$(64_COMMON_FLAGS)" \
+    x86_64_LDFLAGS="$$($(2)_64_LIBFLAGS) $$($(2)_64_LDFLAGS) $$($(2)_LDFLAGS) $$(CROSSLDFLAGS)" \
+    x86_64_PKG_CONFIG_LIBDIR="/usr/lib/$$(CROSS64_LIBDIR)/pkgconfig:/usr/share/pkgconfig" \
 
 endif
 
