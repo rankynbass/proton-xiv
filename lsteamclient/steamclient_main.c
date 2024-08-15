@@ -401,25 +401,28 @@ void execute_pending_callbacks(void)
             TRACE( "CALL_CDECL_FUNC_DATA func %p, data %p.\n", params.callback->call_cdecl_func_data.pFunc, params.callback->call_cdecl_func_data.data );
             params.callback->call_cdecl_func_data.pFunc( params.callback->call_cdecl_func_data.data );
             break;
-        case CALL_IFACE_VTABLE_0:
-            TRACE( "CALL_IFACE_VTABLE_0 iface %p, arg0 %#I64x, arg1 %#I64x, arg2 %#I64x.\n", params.callback->call_iface_vtable.iface,
-                   params.callback->call_iface_vtable.arg0, params.callback->call_iface_vtable.arg1, params.callback->call_iface_vtable.arg2 );
-            CALL_VTBL_FUNC( params.callback->call_iface_vtable.iface, 0, void, (void *, intptr_t, intptr_t, intptr_t), (params.callback->call_iface_vtable.iface,
-                            params.callback->call_iface_vtable.arg0, params.callback->call_iface_vtable.arg1, params.callback->call_iface_vtable.arg2) );
-            break;
-        case CALL_IFACE_VTABLE_1:
-            TRACE( "CALL_IFACE_VTABLE_1 iface %p, arg0 %#I64x, arg1 %#I64x, arg2 %#I64x.\n", params.callback->call_iface_vtable.iface,
-                   params.callback->call_iface_vtable.arg0, params.callback->call_iface_vtable.arg1, params.callback->call_iface_vtable.arg2 );
-            CALL_VTBL_FUNC( params.callback->call_iface_vtable.iface, 4, void, (void *, intptr_t, intptr_t, intptr_t), (params.callback->call_iface_vtable.iface,
-                            params.callback->call_iface_vtable.arg0, params.callback->call_iface_vtable.arg1, params.callback->call_iface_vtable.arg2) );
-            break;
-        case CALL_IFACE_VTABLE_2:
-            TRACE( "CALL_IFACE_VTABLE_2 iface %p, arg0 %#I64x, arg1 %#I64x, arg2 %#I64x.\n", params.callback->call_iface_vtable.iface,
-                   params.callback->call_iface_vtable.arg0, params.callback->call_iface_vtable.arg1, params.callback->call_iface_vtable.arg2 );
-            CALL_VTBL_FUNC( params.callback->call_iface_vtable.iface, 8, void, (void *, intptr_t, intptr_t, intptr_t), (params.callback->call_iface_vtable.iface,
-                            params.callback->call_iface_vtable.arg0, params.callback->call_iface_vtable.arg1, params.callback->call_iface_vtable.arg2) );
-            break;
+#define CALL_VTABLE_CASES(method) \
+        case CALL_IFACE_VTABLE_ ## method ## _0: \
+            TRACE( "CALL_IFACE_VTABLE_" #method "_0 iface %p.\n", params.callback->call_iface_vtable.iface ); \
+            CALL_VTBL_FUNC( params.callback->call_iface_vtable.iface, method * 4, void, (void *), (params.callback->call_iface_vtable.iface) ); \
+            break; \
+        case CALL_IFACE_VTABLE_ ## method ## _1: \
+            TRACE( "CALL_IFACE_VTABLE_" #method "_1 iface %p, arg0 %#I64x.\n", params.callback->call_iface_vtable.iface, \
+                   params.callback->call_iface_vtable.arg0 ); \
+            CALL_VTBL_FUNC( params.callback->call_iface_vtable.iface, method * 4, void, (void *, intptr_t), (params.callback->call_iface_vtable.iface, \
+                            params.callback->call_iface_vtable.arg0) ); \
+            break; \
+        case CALL_IFACE_VTABLE_ ## method ## _2: \
+            TRACE( "CALL_IFACE_VTABLE_" #method "_2 iface %p, arg0 %#I64x, arg1 %#I64x.\n", params.callback->call_iface_vtable.iface, \
+                   params.callback->call_iface_vtable.arg0, params.callback->call_iface_vtable.arg1 ); \
+            CALL_VTBL_FUNC( params.callback->call_iface_vtable.iface, method * 4, void, (void *, intptr_t, intptr_t), (params.callback->call_iface_vtable.iface, \
+                            params.callback->call_iface_vtable.arg0, params.callback->call_iface_vtable.arg1) ); \
+            break
 
+        CALL_VTABLE_CASES(0);
+        CALL_VTABLE_CASES(1);
+        CALL_VTABLE_CASES(2);
+#undef CALL_VTABLE_CASES
         case CALL_IFACE_VTABLE_0_SERVER_RESPONDED:
             TRACE( "CALL_IFACE_VTABLE_0_SERVER_RESPONDED iface %p, server %p.\n", params.callback->server_responded.iface,
                    params.callback->server_responded.server );
