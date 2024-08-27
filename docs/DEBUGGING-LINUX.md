@@ -1,14 +1,37 @@
-Proton Debugging Tips
-=====================
+Proton Debugging Tips For Linux / Wine Developers
+=================================================
 
-For loading dev builds of games onto a Steam Deck see
-<https://partner.steamgames.com/doc/steamdeck/loadgames>
+Table Of Contents
+-----------------
+
+- [Debug Proton Builds](#debug-proton-builds)
+- [Attaching A Debugger](#attaching-a-debugger)
+- [Attaching Before The Program Starts](#attaching-before-the-program-starts)
+- [Getting Shell Inside Of The Steam Runtime](#getting-shell-inside-of-the-steam-runtime)
+- [Starting A Different Binary](#starting-a-different-binary)
+  - [Substitution](#substitution)
+  - [Pressure-Vessel Shell](#pressure-vessel-shell)
 
 
 Debug Proton Builds
 -------------------
 
-See [README.md#debugging](../README.md#debugging).
+Debug builds contain symbols and should be used for live debugging session.
+
+1. Locate the version of proton you are using in your Steam Library (e.g. Proton
+Experimental), click on a cog and select properties.
+
+![](img/proton_properties.png)
+
+2. In the "betas" tab select "debug - unstripped".
+
+![](img/proton_debug_beta.png)
+
+3. Chosen Proton version will now download and update and the symbols will be
+available.
+
+For instruction on how to make a custom debug build see
+[README.md#debug-builds](../README.md#debug-builds).
 
 
 Attaching A Debugger
@@ -40,9 +63,10 @@ which you can build with `configure && make all-gdb && make install-gdb`.
 Make sure to have python development packages installed, as GDB python
 support will be required.
 
+**NOTE: using a debug Proton build will greatly improve the experience.**
+
 With this custom GDB you can `source` [Wine's custom unwinder](https://github.com/ValveSoftware/wine/blob/experimental_9.0/tools/gdbunwind.py)
 in your `~/.gdbinit`, and you will get backtraces across PE / unix boundaries.
-
 
 With older Proton you can use `source` [wine's
 gdbinit](https://github.com/ValveSoftware/wine/blob/proton_8.0/tools/gdbinit.py)
@@ -147,6 +171,7 @@ Starting A Different Binary
 If you want to start a different binary than the game's default you can use a
 few methods. All of the examples below will use `winecfg`.
 
+
 ### Substitution
 
 You can use the following launch option:
@@ -158,6 +183,7 @@ echo "%command%" | sed 's/proton waitforexitandrun .*/proton waitforexitandrun w
 The full substitution of `proton waitforexitandrun .*` is necessary as the
 original `%command%` is very long and may contain multiple mentions of `proton`
 or the original binary.
+
 
 ### Pressure-Vessel Shell
 
