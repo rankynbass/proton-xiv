@@ -1179,6 +1179,8 @@ def default_compat_config():
                 "273590", #Descent 3
                 "834530", #Yakuza Kiwami
                 "2526380", #Sword of Convallaria
+                "1088710", #Yakuza 3 Remastered
+                "1105500", #Yakuza 4 Remastered
                 "714010", #Aimlabs
                 "2249070", #Strip Fighter ZERO
                 "1845910", #Dragon Age: The Veilguard
