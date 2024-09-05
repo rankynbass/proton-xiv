@@ -42,7 +42,7 @@ from pathlib import Path
 #To enable debug logging, copy "user_settings.sample.py" to "user_settings.py"
 #and edit it if needed.
 
-CURRENT_PREFIX_VERSION="GE-Proton9-12"
+CURRENT_PREFIX_VERSION="GE-Proton9-13"
 
 PFX="Proton: "
 ld_path_var = "LD_LIBRARY_PATH"
@@ -1209,6 +1209,8 @@ def default_compat_config():
                 "460790", #Bayonetta
                 "273590", #Descent 3
                 "834530", #Yakuza Kiwami
+                "1088710", #Yakuza 3 Remastered
+                "1105500", #Yakuza 4 Remastered
                 "714010", #Aimlabs
                 "2249070", #Strip Fighter ZERO
                 "2526380", #Sword of Convallaria
