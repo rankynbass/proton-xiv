@@ -385,6 +385,9 @@ PATH_CONV_METHODS_WTOU = {
     "ISteamInput_SetInputActionManifestFilePath": {
         "pchInputActionManifestAbsolutePath": {"array": False, "url": False},
     },
+    "ISteamFriends_ActivateGameOverlayToWebPage": {
+        "pchURL": {"array": False, "url": True},
+    },
 }
 
 PATH_CONV_STRUCTS = {
