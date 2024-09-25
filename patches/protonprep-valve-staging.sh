@@ -120,7 +120,11 @@
     -W winedevice-Default_Drivers \
     -W winex11-Fixed-scancodes \
     -W ntdll-RtlQueryPackageIdentity \
-    -W d3dx9_36-DDS
+    -W d3dx9_36-DDS \
+    -W d3dx11_43-D3DX11CreateTextureFromMemory \
+    -W d3dx9_36-BumpLuminance \
+    -W shell32-SHFileOperation_Move \
+    -W shell32-registry-lookup-app
 
     # NOTE: Some patches are applied manually because they -do- apply, just not cleanly, ie with patch fuzz.
     # A detailed list of why the above patches are disabled is listed below:
@@ -195,6 +199,10 @@
     # wined3d-SWVP-shaders -- interferes with proton's wined3d -- currently also disabled in upstream staging
     # wined3d-Indexed_Vertex_Blending -- interferes with proton's wined3d -- currently also disabled in upstream staging
     # d3dx9_36-DDS - incompatible with upstream proton 7/27/24
+    # d3dx11_43-D3DX11CreateTextureFromMemory - already applied
+    # d3dx9_36-BumpLuminance - already applied
+    # shell32-SHFileOperation_Move - already applied
+    # shell32-registry-lookup-app - already applied
 
     echo "WINE: -STAGING- loader-KeyboardLayouts manually applied"
     patch -Np1 < ../patches/wine-hotfixes/staging/loader-KeyboardLayouts/0001-loader-Add-Keyboard-Layouts-registry-enteries.patch

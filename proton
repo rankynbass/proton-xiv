@@ -42,7 +42,7 @@ from pathlib import Path
 #To enable debug logging, copy "user_settings.sample.py" to "user_settings.py"
 #and edit it if needed.
 
-CURRENT_PREFIX_VERSION="GE-Proton9-13"
+CURRENT_PREFIX_VERSION="GE-Proton9-14"
 
 PFX="Proton: "
 ld_path_var = "LD_LIBRARY_PATH"
@@ -1578,6 +1578,12 @@ class Session:
 
         if "PROTON_CRASH_REPORT_DIR" in self.env:
             self.env["WINE_CRASH_REPORT_DIR"] = self.env["PROTON_CRASH_REPORT_DIR"]
+
+        # NVIDIA software may check NVIDIA_WINE_DLL_DIR as a search-path for
+        # driver-provided DLLs for use by Proton/Wine.
+        nvidia_wine_dll_dir = find_nvidia_wine_dll_dir()
+        if nvidia_wine_dll_dir:
+            self.env["NVIDIA_WINE_DLL_DIR"] = nvidia_wine_dll_dir
 
         if "PROTON_LOG" in self.env and nonzero(self.env["PROTON_LOG"]):
             if self.setup_logging(append_forever=False):
