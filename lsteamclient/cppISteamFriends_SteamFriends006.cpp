@@ -185,9 +185,7 @@ NTSTATUS ISteamFriends_SteamFriends006_ActivateGameOverlayToWebPage( void *args 
 {
     struct ISteamFriends_SteamFriends006_ActivateGameOverlayToWebPage_params *params = (struct ISteamFriends_SteamFriends006_ActivateGameOverlayToWebPage_params *)args;
     struct u_ISteamFriends_SteamFriends006 *iface = (struct u_ISteamFriends_SteamFriends006 *)params->linux_side;
-    char *u_pchURL = steamclient_dos_to_unix_path( params->pchURL, 1 );
-    iface->ActivateGameOverlayToWebPage( u_pchURL );
-    steamclient_free_path( u_pchURL );
+    iface->ActivateGameOverlayToWebPage( params->pchURL );
     return 0;
 }
 

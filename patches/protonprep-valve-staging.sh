@@ -124,7 +124,8 @@
     -W d3dx11_43-D3DX11CreateTextureFromMemory \
     -W d3dx9_36-BumpLuminance \
     -W shell32-SHFileOperation_Move \
-    -W shell32-registry-lookup-app
+    -W shell32-registry-lookup-app \
+    -W Staging
 
     # NOTE: Some patches are applied manually because they -do- apply, just not cleanly, ie with patch fuzz.
     # A detailed list of why the above patches are disabled is listed below:
@@ -203,6 +204,7 @@
     # d3dx9_36-BumpLuminance - already applied
     # shell32-SHFileOperation_Move - already applied
     # shell32-registry-lookup-app - already applied
+    # **Staging - applied manually
 
     echo "WINE: -STAGING- loader-KeyboardLayouts manually applied"
     patch -Np1 < ../patches/wine-hotfixes/staging/loader-KeyboardLayouts/0001-loader-Add-Keyboard-Layouts-registry-enteries.patch
@@ -263,6 +265,9 @@
     patch -Np1 < ../wine-staging/patches/fltmgr.sys-FltBuildDefaultSecurityDescriptor/0001-fltmgr.sys-Implement-FltBuildDefaultSecurityDescript.patch
     patch -Np1 < ../wine-staging/patches/fltmgr.sys-FltBuildDefaultSecurityDescriptor/0002-fltmgr.sys-Create-import-library.patch
     patch -Np1 < ../wine-staging/patches/fltmgr.sys-FltBuildDefaultSecurityDescriptor/0003-ntoskrnl.exe-Add-FltBuildDefaultSecurityDescriptor-t.patch
+
+    echo "WINE: -STAGING- Staging manually applied"
+    patch -Np1 < ../patches/wine-hotfixes/staging/Staging/0002-winelib-Append-Staging-at-the-end-of-the-version-s.patch
 
 ### END WINE STAGING APPLY SECTION ###
 
