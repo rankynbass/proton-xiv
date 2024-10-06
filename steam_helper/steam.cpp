@@ -261,6 +261,23 @@ static void setup_eac_bridge(void)
     setenv("PROTON_EAC_RUNTIME", path, 1);
 }
 
+static void setup_proton_voice_files(void)
+{
+    const unsigned int proton_voice_files_appid = 3086180;
+    char path[2048];
+    char *path_end;
+
+    if (!SteamApps()->BIsAppInstalled(proton_voice_files_appid))
+        return;
+
+    if (!SteamApps()->GetAppInstallDir(proton_voice_files_appid, path, sizeof(path)))
+        return;
+
+    WINE_TRACE("Found proton voice files at %s\n", path);
+
+    setenv("PROTON_VOICE_FILES", path, 1);
+}
+
 static std::string get_linux_vr_path(void)
 {
     const char *e;
@@ -1728,6 +1745,7 @@ int main(int argc, char *argv[])
             setup_steam_registry();
             setup_battleye_bridge();
             setup_eac_bridge();
+            setup_proton_voice_files();
         }
         else
         {
