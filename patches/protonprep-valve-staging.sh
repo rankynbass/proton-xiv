@@ -33,10 +33,24 @@
     pushd gstreamer
     git reset --hard HEAD
     git clean -xdf
-    
     echo "GSTREAMER: fix for unclosable invisible wayland opengl windows in taskbar"
     patch -Np1 < ../patches/gstreamer/5509.patch
     patch -Np1 < ../patches/gstreamer/5511.patch
+    popd
+
+    pushd protonfixes
+    git reset --hard HEAD
+    git clean -xdf
+    pushd subprojects
+    pushd x11-xserver-utils
+    git reset --hard HEAD
+    git clean -xdf
+    popd
+    pushd xutils-dev
+    git reset --hard HEAD
+    git clean -xdf
+    popd
+    popd
     popd
 
 ### END PREP SECTION ###
@@ -267,6 +281,7 @@
     patch -Np1 < ../wine-staging/patches/fltmgr.sys-FltBuildDefaultSecurityDescriptor/0003-ntoskrnl.exe-Add-FltBuildDefaultSecurityDescriptor-t.patch
 
     echo "WINE: -STAGING- Staging manually applied"
+    patch -Np1 < ../patches/wine-hotfixes/staging/Staging/0001-ntdll-Print-a-warning-message-specifying-the-wine-st.patch
     patch -Np1 < ../patches/wine-hotfixes/staging/Staging/0002-winelib-Append-Staging-at-the-end-of-the-version-s.patch
 
 ### END WINE STAGING APPLY SECTION ###
@@ -299,9 +314,6 @@
     echo "WINE: -PENDING- Add WINE_DISABLE_SFN option. (Yakuza 5 cutscenes fix)"
     patch -Np1 < ../patches/wine-hotfixes/pending/ntdll_add_wine_disable_sfn.patch
 
-    echo "WINE: -PENDING- Add TCP_KEEP patch (Star Citizen Launcher 2.0 fix)"
-    patch -Np1 < ../patches/wine-hotfixes/pending/TCP_KEEP-fixup.patch
-
     echo "WINE: -PENDING- ncrypt: NCryptDecrypt implementation (PSN Login for Ghost of Tsushima)"
     patch -Np1 < ../patches/wine-hotfixes/pending/NCryptDecrypt_implementation.patch
 
@@ -320,6 +332,9 @@
 
     #echo "WINE: -Nvidia Reflex- Support VK_NV_low_latency2"
     #patch -Np1 < ../patches/proton/83-nv_low_latency_wine.patch
+
+    echo "WINE: -CUSTOM- Downgrade MESSAGE to TRACE to remove write_watches spam"
+    patch -Np1 < ../patches/proton/0001-ntdll-Downgrade-using-kernel-write-watches-from-MESS.patch
 
     popd
 
