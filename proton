@@ -1011,6 +1011,8 @@ class CompatData:
                 else:
                     wined3dfiles.append("d3d8")
 
+                icufiles = ["icuin68", "icuuc68", "icudt68"]
+
                 for f in wined3dfiles:
                     try_copy(g_proton.default_pfx_dir + "drive_c/windows/system32/" + f + ".dll", "drive_c/windows/system32",
                             prefix=self.prefix_dir, track_file=tracked_files, link_debug=True)
@@ -1033,6 +1035,11 @@ class CompatData:
                     try_copy(g_proton.lib_dir + "wine/vkd3d-proton/" + f + ".dll", "drive_c/windows/syswow64",
                             prefix=self.prefix_dir, track_file=tracked_files, link_debug=True, optional=optional)
                     g_session.dlloverrides[f] = "n"
+
+                for f in icufiles:
+                    self.create_symlink(self.prefix_dir + "drive_c/windows/system32/" + f + ".dll",
+                            g_proton.lib64_dir + "icu/" + f + ".dll")
+                    tracked_files.write("drive_c/windows/system32/" + f + '.dll\n')
 
                 # If the user requested the NVAPI be available, copy it into place.
                 # If they didn't, clean up any stray nvapi DLLs.
