@@ -1255,6 +1255,19 @@ $(DIST_XALIA): $(SRC)/contrib/$(XALIA_ZIP)
 
 all-dist: $(DIST_XALIA)
 
+##
+## ICU
+##
+ICU_VER := 6.8.2
+DIST_ICU_DIR := $(DST_DIR)/lib64/icu
+DIST_ICU := $(OBJ)/.icu-dist
+ICU_TARBALL := icu-$(ICU_VER)-x86_64.tar.xz
+$(DIST_ICU): $(SRC)/icu/$(ICU_TARBALL)
+	mkdir -p $(DIST_ICU_DIR)
+	rm -rf $(DIST_ICU_DIR)/*.dll
+	tar --no-same-owner -xf $< -C $(DIST_ICU_DIR)
+	touch $@
+all-dist: $(DIST_ICU)
 
 ##
 ## openvr
