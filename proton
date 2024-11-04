@@ -1181,6 +1181,7 @@ def default_compat_config():
                 "2526380", #Sword of Convallaria
                 "714010", #Aimlabs
                 "2249070", #Strip Fighter ZERO
+                "1845910", #Dragon Age: The Veilguard
                 ]:
             ret.add("gamedrive")
 
