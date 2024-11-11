@@ -1276,6 +1276,12 @@ def default_compat_config():
                 ]:
             ret.add("gamedrive")
 
+        if appid in [
+                "275850", #No Man's Sky
+                "2012840", #Portal with RTX
+                ]:
+            ret.add("nohardwarescheduling")
+
     return ret
 
 default_cpu_limit = {
@@ -1550,6 +1556,9 @@ class Session:
 
         if "xalia" in self.compat_config and "PROTON_USE_XALIA" not in self.env:
             self.env["PROTON_USE_XALIA"] = "1"
+
+        if "nohardwarescheduling" in self.compat_config and "WINE_DISABLE_HARDWARE_SCHEDULING" not in self.env:
+            self.env["WINE_DISABLE_HARDWARE_SCHEDULING"] = "1"
 
         if "PROTON_CRASH_REPORT_DIR" in self.env:
             self.env["WINE_CRASH_REPORT_DIR"] = self.env["PROTON_CRASH_REPORT_DIR"]
