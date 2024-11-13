@@ -1213,6 +1213,7 @@ def default_compat_config():
                 "1060210", #Disaster Report 4: Summer Memories
                 "414740", #RAID: World War II
                 "201510", #Flatout 3
+                "1233880", #Disgaea 4 Complete+
                 ]:
             ret.add("nofsync")
             ret.add("noesync")
