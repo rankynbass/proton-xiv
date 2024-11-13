@@ -1244,6 +1244,7 @@ def default_compat_config():
                 "2176900", #Fablecraft
                 "407810", #Hard Reset Redux
                 "2853730", #Skull and Bones
+                "233130", #Shadow Warrior
                 ]:
             ret.add("disablenvapi")
 
