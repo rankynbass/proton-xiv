@@ -297,6 +297,9 @@
     echo "WINE: -GAME FIXES- add xinput support to Dragon Age Inquisition"
     patch -Np1 < ../patches/game-patches/dai_xinput.patch
 
+    echo "WINE: -GAME FIXES- add __TRY/__EXCEPT_PAGE_FAULT wnsprintfA xDefiant patch because of a bad arg passed by the game that would exit to desktop"
+    patch -Np1 < ../patches/game-patches/xdefiant.patch
+
 ### END GAME PATCH SECTION ###
 
 ### (2-4) WINE HOTFIX/BACKPORT SECTION ###
