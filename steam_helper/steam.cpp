@@ -215,23 +215,11 @@ static void setup_steam_registry(void)
     }
 }
 
-static void copy_to_win(const char *unix_path, const WCHAR *win_path)
-{
-    WCHAR *src_path = wine_get_dos_file_name(unix_path);
-    if (!src_path)
-        return;
-
-    CopyFileW(src_path, win_path, FALSE);
-
-    HeapFree(GetProcessHeap(), 0, src_path);
-}
-
 /* requires steam API to be initialized */
 static void setup_battleye_bridge(void)
 {
     const unsigned int be_runtime_appid = 1161040;
     char path[2048];
-    char *path_end;
 
     if (!SteamApps()->BIsAppInstalled(be_runtime_appid))
         return;
@@ -248,7 +236,6 @@ static void setup_eac_bridge(void)
 {
     const unsigned int eac_runtime_appid = 1826330;
     char path[2048];
-    char *path_end;
 
     if (!SteamApps()->BIsAppInstalled(eac_runtime_appid))
         return;
@@ -736,8 +723,6 @@ static DWORD WINAPI initialize_vr_data(void *arg)
     vr::EVRInitError error;
     HMODULE hvulkan = NULL;
     DWORD vr_status = ~0u;
-    const char *env_str;
-    unsigned int app_id;
     unsigned int length;
     HMODULE hwineopenxr;
     void *lib_vrclient;
@@ -883,7 +868,6 @@ static DWORD WINAPI initialize_vr_data(void *arg)
     for (i = 0; i < device_count; ++i)
     {
         char name[256];
-        LUID luid;
 
         pvkGetPhysicalDeviceProperties(phys_devices[i], &prop);
         if (prop.apiVersion < VK_MAKE_VERSION(1, 1, 0))
