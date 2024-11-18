@@ -1037,9 +1037,15 @@ class CompatData:
                     g_session.dlloverrides[f] = "n"
 
                 for f in icufiles:
-                    self.create_symlink(self.prefix_dir + "drive_c/windows/system32/" + f + ".dll",
-                            g_proton.lib64_dir + "icu/" + f + ".dll")
-                    tracked_files.write("drive_c/windows/system32/" + f + '.dll\n')
+                    dst = "drive_c/windows/system32/" + f + ".dll"
+                    if not file_exists(self.prefix_dir + dst, follow_symlinks=False):
+                        tracked_files.write(dst + '\n')
+                    self.create_symlink(self.prefix_dir + dst, g_proton.lib64_dir + "icu/" + f + ".dll")
+
+                    dst = "drive_c/windows/syswow64/" + f + ".dll"
+                    if not file_exists(self.prefix_dir + dst, follow_symlinks=False):
+                        tracked_files.write(dst + '\n')
+                    self.create_symlink(self.prefix_dir + dst, g_proton.lib_dir + "icu/" + f + ".dll")
 
                 # If the user requested the NVAPI be available, copy it into place.
                 # If they didn't, clean up any stray nvapi DLLs.
