@@ -51,17 +51,6 @@
 #define _USE_GNU
 #include <dlfcn.h>
 
-#pragma push_macro("_WIN32")
-#pragma push_macro("__cdecl")
-#pragma push_macro("strncpy")
-#undef _WIN32
-#undef __cdecl
-#undef strncpy
-#include "steam_api.h"
-#pragma pop_macro("_WIN32")
-#pragma pop_macro("__cdecl")
-#pragma pop_macro("strncpy")
-
 #include "wine/debug.h"
 
 #include "wine/unixlib.h"
@@ -105,149 +94,6 @@ static DWORD WINAPI create_steam_window(void *arg)
     }
 
     return 0;
-}
-
-/* requires steam API to be initialized */
-static void setup_steam_registry(void)
-{
-    const char *ui_lang, *language, *languages, *locale = NULL;
-    uint32 appid;
-    char buf[256];
-    HKEY key;
-    LSTATUS status;
-    const int system_locale_appids[] = {
-        1284210 /* Guild Wars 2 */
-    };
-
-    ui_lang = SteamUtils()->GetSteamUILanguage();
-    WINE_TRACE("UI language: %s\n", wine_dbgstr_a(ui_lang));
-    RegSetKeyValueA(HKEY_CURRENT_USER, "Software\\Valve\\Steam", "language",
-                    REG_SZ, ui_lang, strlen(ui_lang) + 1);
-
-    appid = SteamUtils()->GetAppID();
-    WINE_TRACE("appid: %u\n", appid);
-    sprintf(buf, "Software\\Valve\\Steam\\Apps\\%u", appid);
-    status = RegCreateKeyA(HKEY_CURRENT_USER, buf, &key);
-    if (!status)
-    {
-        DWORD value;
-        value = 1;
-        RegSetKeyValueA(key, NULL, "Installed", REG_DWORD, &value, sizeof(value));
-        RegSetKeyValueA(key, NULL, "Running", REG_DWORD, &value, sizeof(value));
-        value = 0;
-        RegSetKeyValueA(key, NULL, "Updating", REG_DWORD, &value, sizeof(value));
-        RegCloseKey(key);
-    }
-    else WINE_ERR("Could not create key: %u\n", status);
-
-    language = SteamApps()->GetCurrentGameLanguage();
-    languages = SteamApps()->GetAvailableGameLanguages();
-    WINE_TRACE( "Game language %s, available %s\n", wine_dbgstr_a(language), wine_dbgstr_a(languages) );
-
-    if (strchr(languages, ',') == NULL) /* If there is a list of languages then respect that */
-    {
-        for (int i = 0; i < (sizeof(system_locale_appids) / sizeof(*system_locale_appids)); i++)
-        {
-            if (system_locale_appids[i] == appid)
-            {
-                WINE_TRACE("Not changing system locale for application %i\n",appid);
-                language = NULL;
-            }
-        }
-    }
-
-    if (!language) locale = NULL;
-    else if (!strcmp( language, "arabic" )) locale = "ar_001.UTF-8";
-    else if (!strcmp( language, "bulgarian" )) locale = "bg_BG.UTF-8";
-    else if (!strcmp( language, "schinese" )) locale = "zh_CN.UTF-8";
-    else if (!strcmp( language, "tchinese" )) locale = "zh_TW.UTF-8";
-    else if (!strcmp( language, "czech" )) locale = "cs_CZ.UTF-8";
-    else if (!strcmp( language, "danish" )) locale = "da_DK.UTF-8";
-    else if (!strcmp( language, "dutch" )) locale = "nl_NL.UTF-8";
-    else if (!strcmp( language, "english" )) locale = "en_US.UTF-8";
-    else if (!strcmp( language, "finnish" )) locale = "fi_FI.UTF-8";
-    else if (!strcmp( language, "french" )) locale = "fr_FR.UTF-8";
-    else if (!strcmp( language, "german" )) locale = "de_DE.UTF-8";
-    else if (!strcmp( language, "greek" )) locale = "el_GR.UTF-8";
-    else if (!strcmp( language, "hungarian" )) locale = "hu_HU.UTF-8";
-    else if (!strcmp( language, "italian" )) locale = "it_IT.UTF-8";
-    else if (!strcmp( language, "japanese" )) locale = "ja_JP.UTF-8";
-    else if (!strcmp( language, "koreana" )) locale = "ko_KR.UTF-8";
-    else if (!strcmp( language, "norwegian" )) locale = "nb_NO.UTF-8";
-    else if (!strcmp( language, "polish" )) locale = "pl_PL.UTF-8";
-    else if (!strcmp( language, "portuguese" )) locale = "pt_PT.UTF-8";
-    else if (!strcmp( language, "brazilian" )) locale = "pt_BR.UTF-8";
-    else if (!strcmp( language, "romanian" )) locale = "ro_RO.UTF-8";
-    else if (!strcmp( language, "russian" )) locale = "ru_RU.UTF-8";
-    else if (!strcmp( language, "spanish" )) locale = "es_ES.UTF-8";
-    else if (!strcmp( language, "latam" )) locale = "es_419.UTF-8";
-    else if (!strcmp( language, "swedish" )) locale = "sv_SE.UTF-8";
-    else if (!strcmp( language, "thai" )) locale = "th_TH.UTF-8";
-    else if (!strcmp( language, "turkish" )) locale = "tr_TR.UTF-8";
-    else if (!strcmp( language, "ukrainian" )) locale = "uk_UA.UTF-8";
-    else if (!strcmp( language, "vietnamese" )) locale = "vi_VN.UTF-8";
-    else WINE_FIXME( "Unsupported game language %s\n", wine_dbgstr_a(language) );
-
-    /* HACK: Bug 23597 Granado Espada Japan (1219160) launcher needs Japanese locale to display correctly */
-    if (appid == 1219160)
-        locale = "ja_JP.UTF-8";
-
-    if (locale)
-    {
-        WINE_FIXME( "Game language %s, defaulting LC_CTYPE / LC_MESSAGES to %s.\n", wine_dbgstr_a(language), locale );
-        setenv( "LC_CTYPE", locale, FALSE );
-        setenv( "LC_MESSAGES", locale, FALSE );
-    }
-}
-
-/* requires steam API to be initialized */
-static void setup_battleye_bridge(void)
-{
-    const unsigned int be_runtime_appid = 1161040;
-    char path[2048];
-
-    if (!SteamApps()->BIsAppInstalled(be_runtime_appid))
-        return;
-
-    if (!SteamApps()->GetAppInstallDir(be_runtime_appid, path, sizeof(path)))
-        return;
-
-    WINE_TRACE("Found battleye runtime at %s\n", path);
-
-    setenv("PROTON_BATTLEYE_RUNTIME", path, 1);
-}
-
-static void setup_eac_bridge(void)
-{
-    const unsigned int eac_runtime_appid = 1826330;
-    char path[2048];
-
-    if (!SteamApps()->BIsAppInstalled(eac_runtime_appid))
-        return;
-
-    if (!SteamApps()->GetAppInstallDir(eac_runtime_appid, path, sizeof(path)))
-        return;
-
-    WINE_TRACE("Found easyanticheat runtime at %s\n", path);
-
-    setenv("PROTON_EAC_RUNTIME", path, 1);
-}
-
-static void setup_proton_voice_files(void)
-{
-    const unsigned int proton_voice_files_appid = 3086180;
-    char path[2048];
-    char *path_end;
-
-    if (!SteamApps()->BIsAppInstalled(proton_voice_files_appid))
-        return;
-
-    if (!SteamApps()->GetAppInstallDir(proton_voice_files_appid, path, sizeof(path)))
-        return;
-
-    WINE_TRACE("Found proton voice files at %s\n", path);
-
-    setenv("PROTON_VOICE_FILES", path, 1);
 }
 
 static void write_file( const WCHAR *filename, const char *data, size_t len )
@@ -321,7 +167,6 @@ static void setup_vr_registry(void)
 {
     BOOL (CDECL *init)(void);
     HMODULE vrclient;
-    HANDLE thread;
 
 #ifdef _WIN64
     if (!(vrclient = LoadLibraryA( "vrclient_x64" )))
@@ -338,6 +183,23 @@ static void setup_vr_registry(void)
 
     TRACE( "Queued VR info initialization.\n" );
     FreeLibrary(vrclient);
+}
+
+static void setup_steam_registry(void)
+{
+    BOOL (CDECL *init)(void);
+    HMODULE steamclient;
+
+    if (!(steamclient = LoadLibraryA( "lsteamclient" )))
+    {
+        ERR( "Failed to load lsteamclient module, skipping initialization\n" );
+        return;
+    }
+
+    if ((init = (decltype(init))GetProcAddress( steamclient, "steamclient_init_registry" ))) init();
+    else ERR( "Failed to find steamclient_init_registry export\n" );
+
+    FreeLibrary( steamclient );
 }
 
 static WCHAR *strchrW(WCHAR *h, WCHAR n)
@@ -999,18 +861,7 @@ int main(int argc, char *argv[])
 
         set_active_process_pid();
 
-        if (SteamAPI_Init())
-        {
-            setup_steam_registry();
-            setup_battleye_bridge();
-            setup_eac_bridge();
-            setup_proton_voice_files();
-        }
-        else
-        {
-            WINE_ERR("SteamAPI_Init failed\n");
-        }
-
+        setup_steam_registry();
         setup_steam_files();
 
         if (env_nonzero("PROTON_WAIT_ATTACH"))
@@ -1028,8 +879,6 @@ int main(int argc, char *argv[])
                 }
             }
         }
-
-        SteamAPI_Shutdown();
 
         game_process = TRUE;
     }

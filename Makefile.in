@@ -368,29 +368,12 @@ all-dist: $(DIST_WINEOPENXR64_JSON)
 ## steam.exe
 ##
 
-STEAMEXE_CFLAGS = \
-	-I$(SRC)/lsteamclient/steamworks_sdk_142/ \
-
-STEAMEXE_LDFLAGS = \
-	-L$(SRC)/steam_helper/32/ \
-	-L$(SRC)/steam_helper/64/ \
-	-lsteam_api
-
 STEAMEXE_DEPENDS = wine
 
 $(eval $(call rules-source,steamexe,$(SRCDIR)/steam_helper))
 $(eval $(call rules-makedep,steamexe,i386))
 $(eval $(call rules-makedep,steamexe,x86_64))
 
-$(OBJ)/.steamexe-i386-post-build:
-	mkdir -p $(DST_LIBDIR)/i386-linux-gnu/
-	cp $(SRC)/steam_helper/32/libsteam_api.so $(DST_LIBDIR)/i386-linux-gnu/
-	touch $@
-
-$(OBJ)/.steamexe-x86_64-post-build:
-	mkdir -p $(DST_LIBDIR)/x86_64-linux-gnu/
-	cp $(SRC)/steam_helper/64/libsteam_api.so $(DST_LIBDIR)/x86_64-linux-gnu/
-	touch $@
 
 ##
 ## piper
