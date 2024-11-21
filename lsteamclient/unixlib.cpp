@@ -346,7 +346,7 @@ NTSTATUS steamclient_callback_message_receive( void *args )
         }
         else
         {
-            WARN( "Unexpected SteamAPICallCompleted_t callback size %d, not doing API callback size conversion." );
+            WARN( "Unexpected SteamAPICallCompleted_t callback size %d, not doing API callback size conversion.", params->w_msg->m_cubParam );
         }
     }
     return 0;
