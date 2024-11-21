@@ -32,6 +32,12 @@
  * a small subset of the actual Steam functionality for games that expect
  * Windows version of Steam running. */
 
+#include <stddef.h>
+#include <stdarg.h>
+
+#include <wchar.h>
+#include <wctype.h>
+
 #include "ntstatus.h"
 #define WIN32_NO_STATUS
 #include <windows.h>
@@ -58,11 +64,6 @@
 
 #include "wine/debug.h"
 
-#pragma push_macro("wcsncpy")
-#undef wcsncpy
-#include "json/json.h"
-#pragma pop_macro("wcsncpy")
-
 #include "wine/unixlib.h"
 #include "wine/heap.h"
 #include "wine/vulkan.h"
@@ -73,19 +74,7 @@
 
 WINE_DEFAULT_DEBUG_CHANNEL(steam);
 
-/* from shlobj.h, which breaks because of DECLSPEC_IMPORT EXTERN_C in C++ */
-#define CSIDL_LOCAL_APPDATA 0x001c
-#define CSIDL_FLAG_CREATE   0x8000
-
-EXTERN_C WINSHELLAPI HRESULT WINAPI SHGetFolderPathA(HWND hwnd, int nFolder, HANDLE hToken, DWORD dwFlags, LPSTR pszPath);
-EXTERN_C WINSHELLAPI HRESULT WINAPI SHGetFolderPathW(HWND hwnd, int nFolder, HANDLE hToken, DWORD dwFlags, LPWSTR pszPath);
-#define SHGetFolderPath WINELIB_NAME_AW(SHGetFolderPath)
-
 static const WCHAR PROTON_VR_RUNTIME_W[] = {'P','R','O','T','O','N','_','V','R','_','R','U','N','T','I','M','E',0};
-static const WCHAR VR_PATHREG_OVERRIDE_W[] = {'V','R','_','P','A','T','H','R','E','G','_','O','V','E','R','R','I','D','E',0};
-static const WCHAR VR_OVERRIDE_W[] = {'V','R','_','O','V','E','R','R','I','D','E',0};
-static const WCHAR VR_CONFIG_PATH_W[] = {'V','R','_','C','O','N','F','I','G','_','P','A','T','H',0};
-static const WCHAR VR_LOG_PATH_W[] = {'V','R','_','L','O','G','_','P','A','T','H',0};
 
 static bool env_nonzero(const char *env)
 {
@@ -265,116 +254,6 @@ static void setup_proton_voice_files(void)
     setenv("PROTON_VOICE_FILES", path, 1);
 }
 
-static std::string get_linux_vr_path(void)
-{
-    const char *e;
-
-    static const char *openvr_path = "/openvr/openvrpaths.vrpath";
-
-    e = getenv("VR_PATHREG_OVERRIDE");
-    if(e && *e)
-        return e;
-
-    e = getenv("XDG_CONFIG_HOME");
-    if(e && *e)
-        return std::string(e) + openvr_path;
-
-    e = getenv("HOME");
-    if(e && *e)
-        return std::string(e) + "/.config" + openvr_path;
-
-    return "";
-}
-
-static bool get_windows_vr_path(WCHAR *out_path, bool create)
-{
-    static const WCHAR openvrpathsW[] = {'\\','o','p','e','n','v','r','p','a','t','h','s','.','v','r','p','a','t','h',0};
-    static const WCHAR openvrW[] = {'\\','o','p','e','n','v','r',0};
-
-    if(FAILED(SHGetFolderPathW(NULL, CSIDL_LOCAL_APPDATA | CSIDL_FLAG_CREATE,
-                    NULL, 0, out_path)))
-        return false;
-
-    lstrcatW(out_path, openvrW);
-
-    if(create)
-        CreateDirectoryW(out_path, NULL);
-
-    lstrcatW(out_path, openvrpathsW);
-
-    return true;
-}
-
-static WCHAR *str_to_wchar(const std::string &str)
-{
-    DWORD sz = MultiByteToWideChar(CP_UNIXCP, 0, str.c_str(), -1, NULL, 0);
-    if(!sz)
-        return NULL;
-
-    WCHAR *ret = (WCHAR *)HeapAlloc(GetProcessHeap(), 0, sizeof(WCHAR) * sz);
-    if(!ret)
-        return NULL;
-
-    sz = MultiByteToWideChar(CP_UNIXCP, 0, str.c_str(), -1, ret, sz);
-    if(!sz)
-    {
-        HeapFree(GetProcessHeap(), 0, ret);
-        return NULL;
-    }
-
-    return ret;
-}
-
-static std::string read_text_file(const WCHAR *filename)
-{
-    HANDLE ifile = CreateFileW(filename, GENERIC_READ,
-            FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE, NULL,
-            OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
-    if(ifile == INVALID_HANDLE_VALUE)
-        return "";
-
-    LARGE_INTEGER size;
-
-    if(!GetFileSizeEx(ifile, &size))
-    {
-        CloseHandle(ifile);
-        return "";
-    }
-
-    char *buf = (char *)HeapAlloc(GetProcessHeap(), 0, size.u.LowPart);
-    if(!buf)
-    {
-        CloseHandle(ifile);
-        return "";
-    }
-
-    DWORD readed;
-
-    if(!ReadFile(ifile, buf, size.u.LowPart, &readed, NULL))
-    {
-        HeapFree(GetProcessHeap(), 0, buf);
-        CloseHandle(ifile);
-        return "";
-    }
-
-    CloseHandle(ifile);
-
-    DWORD outsize = 1;
-    for(DWORD i = 1; i < readed; ++i)
-    {
-        if(buf[i] == '\n' && buf[i - 1] == '\r') // CRLF
-            buf[outsize - 1] = '\n';
-        else
-            buf[outsize++] = buf[i];
-    }
-
-    std::string ret(buf, outsize);
-
-    HeapFree(GetProcessHeap(), 0, buf);
-
-    return ret;
-}
-
 static bool write_string_to_file(const WCHAR *filename, const std::string &contents)
 {
     HANDLE ofile = CreateFileW(filename, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS,
@@ -429,145 +308,6 @@ static bool convert_path_to_win(std::string &s)
     HeapFree(GetProcessHeap(), 0, path);
 
     return true;
-}
-
-static void convert_json_array_paths(Json::Value &arr)
-{
-    for(uint32_t i = 0; i < arr.size(); ++i)
-    {
-        std::string path(arr[i].asString());
-        if(convert_path_to_win(path))
-            arr[i] = path;
-    }
-}
-
-static void convert_environment_path(const char *nameA, const WCHAR *nameW)
-{
-    /* get linux-side variable */
-    const char *e = getenv(nameA);
-    if(!e || !*e)
-        return;
-
-    /* convert to win and set */
-    WCHAR *path = wine_get_dos_file_name(e);
-    if(!path)
-        return;
-
-    SetEnvironmentVariableW(nameW, path);
-
-    HeapFree(GetProcessHeap(), 0, path);
-}
-
-static void set_env_from_unix(const WCHAR *name, const std::string &val)
-{
-    WCHAR valW[MAX_PATH];
-    DWORD sz;
-
-    sz = MultiByteToWideChar(CP_UTF8, 0, val.c_str(), -1, valW, MAX_PATH);
-    if(!sz)
-    {
-        WINE_WARN("Invalid utf8 seq in vr runtime key\n");
-        return;
-    }
-
-    SetEnvironmentVariableW(name, valW);
-}
-
-static bool convert_linux_vrpaths(void)
-{
-    /* read in linux vrpaths */
-    std::string linux_vrpaths = get_linux_vr_path();
-    if(linux_vrpaths.empty())
-    {
-        WINE_TRACE("Couldn't get openvr vrpaths path\n");
-        return false;
-    }
-
-    WCHAR *linux_vrpathsW = str_to_wchar(linux_vrpaths);
-    if(!linux_vrpathsW)
-        return false;
-
-    std::string contents = read_text_file(linux_vrpathsW);
-    HeapFree(GetProcessHeap(), 0, linux_vrpathsW);
-    if(contents.empty())
-    {
-        WINE_TRACE("openvr vrpaths is empty\n");
-        return false;
-    }
-
-    Json::Value root;
-    Json::Reader reader;
-
-    if(!reader.parse(contents, root))
-    {
-        WINE_WARN("Invalid openvr vrpaths JSON\n");
-        return false;
-    }
-
-    /* pass original runtime path into Wine */
-    const char *vr_override = getenv("VR_OVERRIDE");
-    if(vr_override)
-    {
-        set_env_from_unix(PROTON_VR_RUNTIME_W, vr_override);
-    }
-    else if(root.isMember("runtime") && root["runtime"].isArray() && root["runtime"].size() > 0)
-    {
-        set_env_from_unix(PROTON_VR_RUNTIME_W, root["runtime"][0].asString());
-    }
-
-    /* set hard-coded paths */
-    root["runtime"] = Json::Value(Json::ValueType::arrayValue);
-    root["runtime"][0] = "C:\\vrclient\\";
-    root["runtime"][1] = "C:\\vrclient";
-
-    /* map linux paths into windows filesystem */
-    if(root.isMember("config") && root["config"].isArray())
-        convert_json_array_paths(root["config"]);
-
-    if(root.isMember("log") && root["log"].isArray())
-        convert_json_array_paths(root["log"]);
-
-    /* external_drivers is currently unsupported in Proton */
-    root["external_drivers"] = Json::Value(Json::ValueType::nullValue);
-
-    /* write out windows vrpaths */
-    SetEnvironmentVariableW(VR_PATHREG_OVERRIDE_W, NULL);
-    SetEnvironmentVariableW(VR_OVERRIDE_W, NULL);
-    convert_environment_path("VR_CONFIG_PATH", VR_CONFIG_PATH_W);
-    convert_environment_path("VR_LOG_PATH", VR_LOG_PATH_W);
-    Json::StyledWriter writer;
-
-    WCHAR windows_vrpaths[MAX_PATH];
-    if(!get_windows_vr_path(windows_vrpaths, true))
-        return false;
-
-    contents = writer.write(root);
-
-    write_string_to_file(windows_vrpaths, contents);
-
-    return true;
-}
-
-static void setup_vrpaths(void)
-{
-    bool success = false;
-
-    try{
-        success = convert_linux_vrpaths();
-    }catch(std::exception e){
-        WINE_ERR("got error parsing vrpaths file\n");
-        success = false;
-    }
-
-    if(!success)
-    {
-        /* delete the windows file only if the linux conversion fails */
-        WCHAR windows_vrpaths[MAX_PATH];
-        if(get_windows_vr_path(windows_vrpaths, false))
-        {
-            DeleteFileW(windows_vrpaths);
-        }
-    }
 }
 
 static BOOL set_vr_status(HKEY key, DWORD value)
@@ -1762,8 +1502,6 @@ int main(int argc, char *argv[])
     if (argc > 1)
     {
         BOOL should_await;
-
-        setup_vrpaths();
 
         if (game_process)
             setup_vr_registry();
