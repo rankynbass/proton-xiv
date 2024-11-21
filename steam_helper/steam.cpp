@@ -459,7 +459,6 @@ static DWORD WINAPI initialize_vr_data(void *arg)
     vr::IVRCompositor* compositor;
     VkInstance vk_instance = NULL;
     BOOL vr_initialized = FALSE;
-    HKEY vr_key = (HKEY)arg;
     vr::EVRInitError error;
     HMODULE hvulkan = NULL;
     DWORD vr_status = ~0u;
@@ -472,8 +471,15 @@ static DWORD WINAPI initialize_vr_data(void *arg)
     LSTATUS status;
     unsigned int i;
     VkResult res;
+    HKEY vr_key;
 
     WINE_TRACE("Starting VR info initialization.\n");
+
+    if ((status = RegOpenKeyExA( HKEY_CURRENT_USER, "Software\\Wine\\VR", 0, KEY_ALL_ACCESS, &vr_key )))
+    {
+        WINE_WARN( "Could not create key, status %#x.\n", status );
+        return 0;
+    }
 
     if (!(lib_vrclient = load_vrclient()))
     {
@@ -714,54 +720,26 @@ done:
 
 static void setup_vr_registry(void)
 {
-    WCHAR pathW[PATH_MAX];
-    LSTATUS status;
+    BOOL (CDECL *init)(void);
+    HMODULE vrclient;
     HANDLE thread;
-    HKEY vr_key;
-    DWORD disp;
 
-    if ((status = RegCreateKeyExA(HKEY_CURRENT_USER, "Software\\Wine\\VR", 0, NULL, REG_OPTION_VOLATILE,
-            KEY_ALL_ACCESS, NULL, &vr_key, &disp)))
+#ifdef _WIN64
+    if (!(vrclient = LoadLibraryA( "vrclient_x64" )))
+#else
+    if (!(vrclient = LoadLibraryA( "vrclient" )))
+#endif
     {
-        WINE_ERR("Could not create key, status %#x.\n", status);
-        return;
-    }
-    if (disp != REG_CREATED_NEW_KEY)
-    {
-        WINE_ERR("VR key already exists, disp %#x.\n", disp);
-        RegCloseKey(vr_key);
+        ERR( "Failed to load vrclient module, skipping initialization\n" );
         return;
     }
 
-    if(GetEnvironmentVariableW(PROTON_VR_RUNTIME_W, pathW, ARRAY_SIZE(pathW)))
-    {
-        if ((status = RegSetValueExW(vr_key, PROTON_VR_RUNTIME_W, 0, REG_SZ,
-                (BYTE *)pathW, (lstrlenW(pathW) + 1) * sizeof(WCHAR))))
-        {
-            WINE_ERR("Could not set PROTON_VR_RUNTIME value, status %#x.\n", status);
-            set_vr_status(vr_key, ~0u);
-            RegCloseKey(vr_key);
-            return;
-        }
-    }
-    else
-    {
-        WINE_TRACE("Linux OpenVR runtime is not available\n");
-        set_vr_status(vr_key, ~0u);
-        RegCloseKey(vr_key);
-        return;
-    }
+    if ((init = (decltype(init))GetProcAddress( vrclient, "vrclient_init_registry" ))) init();
+    else ERR( "Failed to find vrclient_init_registry export\n" );
 
-    if (!set_vr_status(vr_key, 0))
+    if (!(thread = CreateThread( NULL, 0, initialize_vr_data, NULL, 0, NULL )))
     {
-        RegCloseKey(vr_key);
-        return;
-    }
-
-    if (!(thread = CreateThread(NULL, 0, initialize_vr_data, (void *)vr_key, 0, NULL)))
-    {
-        WINE_ERR("Could not create thread, error %u.\n", GetLastError());
-        RegCloseKey(vr_key);
+        ERR( "Could not create thread, error %u.\n", GetLastError() );
         return;
     }
     CloseHandle(thread);
