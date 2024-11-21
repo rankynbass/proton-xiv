@@ -196,6 +196,68 @@ void * __stdcall VRClientCoreFactory(const char *name, int *return_code)
     return create_win_interface( name, params._ret );
 }
 
+static BOOL set_vr_status( HKEY key, DWORD value )
+{
+    LSTATUS status;
+
+    if ((status = RegSetValueExW( key, L"state", 0, REG_DWORD, (BYTE *)&value, sizeof(value) )))
+    {
+        ERR( "Could not set state value, status %#x.\n", status );
+        return FALSE;
+    }
+    return TRUE;
+}
+
+BOOL CDECL vrclient_init_registry(void)
+{
+    WCHAR pathW[PATH_MAX];
+    LSTATUS status;
+    HKEY vr_key;
+    DWORD disp;
+
+    if ((status = RegCreateKeyExW( HKEY_CURRENT_USER, L"Software\\Wine\\VR", 0, NULL,
+                                   REG_OPTION_VOLATILE, KEY_ALL_ACCESS, NULL, &vr_key, &disp )))
+    {
+        ERR( "Could not create key, status %#x.\n", status );
+        return FALSE;
+    }
+    if (disp != REG_CREATED_NEW_KEY)
+    {
+        TRACE( "Already initialized, returning.\n" );
+        RegCloseKey( vr_key );
+        return TRUE;
+    }
+
+    if (GetEnvironmentVariableW( L"PROTON_VR_RUNTIME", pathW, ARRAY_SIZE(pathW) ))
+    {
+        if ((status = RegSetValueExW( vr_key, L"PROTON_VR_RUNTIME", 0, REG_SZ, (BYTE *)pathW,
+                                      (wcslen( pathW ) + 1) * sizeof(*pathW) )))
+        {
+            ERR( "Could not set PROTON_VR_RUNTIME value, status %#x.\n", status );
+            set_vr_status( vr_key, -1 );
+            RegCloseKey( vr_key );
+            return FALSE;
+        }
+    }
+    else
+    {
+        TRACE( "Linux OpenVR runtime is not available\n" );
+        set_vr_status( vr_key, -1 );
+        RegCloseKey( vr_key );
+        return FALSE;
+    }
+
+    if (!set_vr_status( vr_key, 0 ))
+    {
+        RegCloseKey( vr_key );
+        return FALSE;
+    }
+
+    TRACE( "Initialized OpenVR registry entries\n" );
+    RegCloseKey( vr_key );
+    return TRUE;
+}
+
 static int8_t is_hmd_present_reg(void)
 {
     DWORD type, value, wait_status, size;
