@@ -113,7 +113,7 @@ static char *escape_path_unix_to_dos( const char *path )
     char *escaped = NULL;
     UINT len;
 
-    if (!(dos = wine_get_dos_file_name( path )) || !(len = lstrlenW( dos ))) goto done;
+    if (!(dos = wine_get_dos_file_name( path )) || !(len = wcslen( dos ))) goto done;
     if (!(tmp = heap_alloc( (len * 2 + 1) * sizeof(*tmp) ))) goto done;
     for (src = dos, dst = tmp; *src; src++, dst++) if ((*dst = *src) == '\\') *++dst = '\\';
 
@@ -397,11 +397,11 @@ static HANDLE run_process(BOOL *should_await, BOOL game_process)
         }
 
         new_cmdline = HeapAlloc(GetProcessHeap(), 0,
-                (lstrlenW(dos) + 3 + lstrlenW(remainder) + 1) * sizeof(WCHAR));
-        lstrcpyW(new_cmdline, dquoteW);
-        lstrcatW(new_cmdline, dos);
-        lstrcatW(new_cmdline, dquoteW);
-        lstrcatW(new_cmdline, remainder);
+                (wcslen(dos) + 3 + wcslen(remainder) + 1) * sizeof(WCHAR));
+        wcscpy(new_cmdline, dquoteW);
+        wcscat(new_cmdline, dos);
+        wcscat(new_cmdline, dquoteW);
+        wcscat(new_cmdline, remainder);
 
         cmdline = new_cmdline;
     }
@@ -412,7 +412,7 @@ run:
     SetConsoleCtrlHandler( console_ctrl_handler, TRUE );
 
     use_shell_execute = should_use_shell_execute(cmdline);
-    if (use_shell_execute && lstrlenW( cmdline ) > 10 && !memcmp( cmdline, L"link2ea://", 10 * sizeof(WCHAR) ))
+    if (use_shell_execute && wcslen( cmdline ) > 10 && !memcmp( cmdline, L"link2ea://", 10 * sizeof(WCHAR) ))
     {
         HDESK desktop = GetThreadDesktop(GetCurrentThreadId());
         DWORD is_unavailable, type, size;
