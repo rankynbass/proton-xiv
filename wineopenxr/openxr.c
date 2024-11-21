@@ -2438,3 +2438,38 @@ struct openxr_instance_funcs *get_dispatch_table(uint64_t handle)
     }
     return funcs;
 }
+
+BOOL CDECL wineopenxr_init_registry(void)
+{
+    char *xr_inst_ext, *xr_dev_ext;
+    uint32_t vid, pid;
+    LSTATUS status;
+    HKEY vr_key;
+
+    if ((status = RegOpenKeyExA( HKEY_CURRENT_USER, "Software\\Wine\\VR", 0, KEY_ALL_ACCESS, &vr_key )))
+    {
+        WARN( "Could not open key, status %#x.\n", status );
+        return FALSE;
+    }
+
+    if (!__wineopenxr_get_extensions_internal( &xr_inst_ext, &xr_dev_ext, &vid, &pid ))
+    {
+        TRACE( "Got XR extensions.\n" );
+        if ((status = RegSetValueExA( vr_key, "openxr_vulkan_instance_extensions", 0, REG_SZ,
+                                      (BYTE *)xr_inst_ext, strlen( xr_inst_ext ) + 1 )))
+            ERR( "Could not set openxr_vulkan_instance_extensions value, status %#x.\n", status );
+        if ((status = RegSetValueExA( vr_key, "openxr_vulkan_device_extensions", 0, REG_SZ,
+                                      (BYTE *)xr_dev_ext, strlen( xr_dev_ext ) + 1 )))
+            ERR( "Could not set openxr_vulkan_device_extensions value, status %#x.\n", status );
+        if ((status = RegSetValueExA( vr_key, "openxr_vulkan_device_vid", 0, REG_DWORD,
+                                      (BYTE *)&vid, sizeof(vid) )))
+            ERR( "Could not set openxr_vulkan_device_vid value, status %#x.\n", status );
+        if ((status = RegSetValueExA( vr_key, "openxr_vulkan_device_pid", 0, REG_DWORD,
+                                      (BYTE *)&pid, sizeof(pid) )))
+            ERR( "Could not set openxr_vulkan_device_pid value, status %#x.\n", status );
+    }
+
+    TRACE( "Initialized OpenXR registry entries\n" );
+    RegCloseKey( vr_key );
+    return TRUE;
+}
