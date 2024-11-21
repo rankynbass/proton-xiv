@@ -52,10 +52,6 @@
 
 #include "wine/debug.h"
 
-#include "wine/unixlib.h"
-#include "wine/heap.h"
-#include "wine/vulkan.h"
-
 #include <msi.h>
 
 WINE_DEFAULT_DEBUG_CHANNEL(steam);
@@ -114,15 +110,15 @@ static char *escape_path_unix_to_dos( const char *path )
     UINT len;
 
     if (!(dos = wine_get_dos_file_name( path )) || !(len = wcslen( dos ))) goto done;
-    if (!(tmp = heap_alloc( (len * 2 + 1) * sizeof(*tmp) ))) goto done;
+    if (!(tmp = malloc( (len * 2 + 1) * sizeof(*tmp) ))) goto done;
     for (src = dos, dst = tmp; *src; src++, dst++) if ((*dst = *src) == '\\') *++dst = '\\';
 
     if (!(len = WideCharToMultiByte( CP_UTF8, 0, tmp, (dst - tmp), NULL, 0, NULL, NULL ))) goto done;
-    if ((escaped = heap_alloc( len ))) WideCharToMultiByte( CP_UTF8, 0, tmp, (dst - tmp), escaped, len, NULL, NULL );
+    if ((escaped = malloc( len ))) WideCharToMultiByte( CP_UTF8, 0, tmp, (dst - tmp), escaped, len, NULL, NULL );
 
 done:
-    heap_free( dos );
-    heap_free( tmp );
+    free( dos );
+    free( tmp );
     return escaped;
 }
 
@@ -363,7 +359,7 @@ static HANDLE run_process(BOOL *should_await, BOOL game_process)
 
         argv0_len = end - start;
 
-        scratchW = HeapAlloc(GetProcessHeap(), 0, (argv0_len + 1) * sizeof(WCHAR));
+        scratchW = malloc((argv0_len + 1) * sizeof(WCHAR));
         memcpy(scratchW, start, argv0_len * sizeof(WCHAR));
         scratchW[argv0_len] = '\0';
 
@@ -375,7 +371,7 @@ static HANDLE run_process(BOOL *should_await, BOOL game_process)
             goto run;
         }
 
-        scratchA = HeapAlloc(GetProcessHeap(), 0, r);
+        scratchA = malloc(r);
 
         r = WideCharToMultiByte(CP_UNIXCP, 0, scratchW, -1,
                 scratchA, r, NULL, NULL);
@@ -396,8 +392,7 @@ static HANDLE run_process(BOOL *should_await, BOOL game_process)
                 flags |= CREATE_NEW_CONSOLE;
         }
 
-        new_cmdline = HeapAlloc(GetProcessHeap(), 0,
-                (wcslen(dos) + 3 + wcslen(remainder) + 1) * sizeof(WCHAR));
+        new_cmdline = malloc((wcslen(dos) + 3 + wcslen(remainder) + 1) * sizeof(WCHAR));
         wcscpy(new_cmdline, dquoteW);
         wcscat(new_cmdline, dos);
         wcscat(new_cmdline, dquoteW);
@@ -652,7 +647,7 @@ static void setup_steam_files(void)
         else
         {
             pos += strappend( &buf, &len, pos, "\t\"%u\"\n\t{\n\t\t\"path\"\t\t\"%s\"\n\t}\n", index, str );
-            heap_free( str );
+            free( str );
         }
     }
 
@@ -668,16 +663,16 @@ static void setup_steam_files(void)
         if (end != start && end[-1] == '/') --end;
         while (end != start && end[-1] != '/') --end;
 
-        path = heap_alloc( end - start + 1 );
+        path = malloc( end - start + 1 );
         lstrcpynA( path, start, end - start );
         if (!(str = escape_path_unix_to_dos( path )))
             ERR( "Could not convert %s to win path.\n", debugstr_a(path) );
         else
         {
             pos += strappend( &buf, &len, pos, "\t\"%u\"\n\t{\n\t\t\"path\"\t\t\"%s\"\n\t}\n", index, str );
-            heap_free( str );
+            free( str );
         }
-        heap_free( path );
+        free( path );
 
         if (*next == ':') ++next;
         start = next;
