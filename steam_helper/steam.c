@@ -69,22 +69,20 @@ static bool env_nonzero(const char *env)
 static void set_active_process_pid(void)
 {
     DWORD pid = GetCurrentProcessId();
-    RegSetKeyValueA(HKEY_CURRENT_USER, "Software\\Valve\\Steam\\ActiveProcess", "pid", REG_DWORD, &pid, sizeof(pid));
+    RegSetKeyValueW( HKEY_CURRENT_USER, L"Software\\Valve\\Steam\\ActiveProcess", L"pid",
+                     REG_DWORD, &pid, sizeof(pid) );
 }
 
 static DWORD WINAPI create_steam_window(void *arg)
 {
     static WNDCLASSEXW wndclass = { sizeof(WNDCLASSEXW) };
-    static const WCHAR class_nameW[] = {'v','g','u','i','P','o','p','u','p','W','i','n','d','o','w',0};
-    static const WCHAR steamW[] = {'S','t','e','a','m',0};
     MSG msg;
 
     wndclass.lpfnWndProc = DefWindowProcW;
-    wndclass.lpszClassName = class_nameW;
+    wndclass.lpszClassName = L"vguiPopupWindow";
 
     RegisterClassExW(&wndclass);
-    CreateWindowW(class_nameW, steamW, WS_POPUP, 40, 40,
-                  400, 300, NULL, NULL, NULL, NULL);
+    CreateWindowW( wndclass.lpszClassName, L"Steam", WS_POPUP, 40, 40, 400, 300, NULL, NULL, NULL, NULL );
 
     while (GetMessageW(&msg, NULL, 0, 0))
     {
@@ -168,9 +166,9 @@ static void setup_vr_registry(void)
     HMODULE vrclient;
 
 #ifdef _WIN64
-    if (!(vrclient = LoadLibraryA( "vrclient_x64" )))
+    if (!(vrclient = LoadLibraryW( L"vrclient_x64" )))
 #else
-    if (!(vrclient = LoadLibraryA( "vrclient" )))
+    if (!(vrclient = LoadLibraryW( L"vrclient" )))
 #endif
     {
         ERR( "Failed to load vrclient module, skipping initialization\n" );
@@ -189,7 +187,7 @@ static void setup_steam_registry(void)
     BOOL (CDECL *init)(void);
     HMODULE steamclient;
 
-    if (!(steamclient = LoadLibraryA( "lsteamclient" )))
+    if (!(steamclient = LoadLibraryW( L"lsteamclient" )))
     {
         ERR( "Failed to load lsteamclient module, skipping initialization\n" );
         return;
@@ -295,10 +293,7 @@ static BOOL should_use_shell_execute(WCHAR *cmdline)
 
     if (executable_name_end >= cmdline)
     {
-        static const WCHAR exeW[] = {'.','e','x','e',0};
-
-        if (streq_niw(executable_name_end, exeW, sizeof(exeW) / sizeof(*exeW) - 1))
-            use_shell_execute = FALSE;
+        if (streq_niw( executable_name_end, L".exe", 4 )) use_shell_execute = FALSE;
     }
 
     return use_shell_execute;
@@ -306,22 +301,6 @@ static BOOL should_use_shell_execute(WCHAR *cmdline)
 
 static HANDLE run_process(BOOL *should_await, BOOL game_process)
 {
-    static const WCHAR link2eaW[] = {'l','i','n','k','2','e','a',':','/','/',0};
-    static const WCHAR link2ea_pathW[] =
-    {
-        'S','o','f','t','w','a','r','e','\\','C','l','a','s','s','e','s','\\','l','i','n','k','2','e','a',0
-    };
-    static const WCHAR ea_desktop_pathW[] =
-    {
-        'S','o','f','t','w','a','r','e','\\','E','l','e','c','t','r','o','n','i','c',' ','A','r','t','s',
-        '\\','E','A',' ','D','e','s','k','t','o','p',0
-    };
-    static const WCHAR ea_core_pathW[] =
-    {
-        'S','o','f','t','w','a','r','e','\\','E','l','e','c','t','r','o','n','i','c',' ','A','r','t','s',
-        '\\','E','A',' ','C','o','r','e',0
-    };
-    static const WCHAR IsUnavailableW[] = {'I','s','U','n','a','v','a','i','l','a','b','l','e',0};
     WCHAR *cmdline = GetCommandLineW();
     STARTUPINFOW si = { sizeof(si) };
     PROCESS_INFORMATION pi;
@@ -433,7 +412,7 @@ run:
     SetConsoleCtrlHandler( console_ctrl_handler, TRUE );
 
     use_shell_execute = should_use_shell_execute(cmdline);
-    if (use_shell_execute && lstrlenW(cmdline) > 10 && !memcmp(cmdline, link2eaW, 10 *sizeof(WCHAR)))
+    if (use_shell_execute && lstrlenW( cmdline ) > 10 && !memcmp( cmdline, L"link2ea://", 10 * sizeof(WCHAR) ))
     {
         HDESK desktop = GetThreadDesktop(GetCurrentThreadId());
         DWORD is_unavailable, type, size;
@@ -447,28 +426,29 @@ run:
         if (!SetUserObjectInformationA(desktop, 1000, &timeout, sizeof(timeout)))
             WINE_ERR("Failed to set desktop timeout, err %lu.\n", GetLastError());
 
-        if (!RegOpenKeyExW(HKEY_LOCAL_MACHINE, ea_desktop_pathW, 0, KEY_ALL_ACCESS, &eakey))
+        if (!RegOpenKeyExW( HKEY_LOCAL_MACHINE, L"Software\\Electronic Arts\\EA Desktop", 0, KEY_ALL_ACCESS, &eakey ))
         {
             size = sizeof(is_unavailable);
-            if (!RegQueryValueExW(eakey, IsUnavailableW, NULL, &type, (BYTE *)&is_unavailable, &size)
-                    && type == REG_DWORD && is_unavailable)
+            if (!RegQueryValueExW( eakey, L"IsUnavailable", NULL, &type, (BYTE *)&is_unavailable, &size ) &&
+                type == REG_DWORD && is_unavailable)
             {
                 WINE_ERR("EA Desktop\\IsUnavailable is set, clearing.\n");
                 is_unavailable = 0;
-                RegSetValueExW(eakey, IsUnavailableW, 0, REG_DWORD, (BYTE *)&is_unavailable, sizeof(is_unavailable));
+                RegSetValueExW( eakey, L"IsUnavailable", 0, REG_DWORD, (BYTE *)&is_unavailable,
+                                sizeof(is_unavailable) );
             }
             RegCloseKey(eakey);
         }
-        if ((manager = OpenSCManagerA(NULL, SERVICES_ACTIVE_DATABASEA, SERVICE_QUERY_STATUS)))
+        if ((manager = OpenSCManagerW( NULL, SERVICES_ACTIVE_DATABASEW, SERVICE_QUERY_STATUS )))
         {
-            if ((service = OpenServiceA(manager, "EABackgroundService", SERVICE_QUERY_STATUS)))
+            if ((service = OpenServiceW( manager, L"EABackgroundService", SERVICE_QUERY_STATUS )))
             {
                 if (QueryServiceStatus(service, &status))
                 {
                     TRACE("dwCurrentState %#lx.\n", status.dwCurrentState);
                     if (status.dwCurrentState == SERVICE_STOP_PENDING || status.dwCurrentState == SERVICE_STOPPED)
                     {
-                        ret = DeleteFileA("C:\\ProgramData\\EA Desktop\\backgroundservice.ini");
+                        ret = DeleteFileW( L"C:\\ProgramData\\EA Desktop\\backgroundservice.ini" );
                         WARN("Tried to delete backgroundservice.ini, ret %d, error %lu.\n", ret, GetLastError());
                     }
                 }
@@ -509,17 +489,15 @@ run:
             WINE_ERR("Failed to execute %s, ret %Iu.\n", wine_dbgstr_w(cmdline), ret);
             if (game_process && ret == SE_ERR_NOASSOC && link2ea)
             {
-                static const WCHAR msi_guidW[] = {'{','C','2','6','2','2','0','8','5','-','A','B','D','2','-','4','9','E','5','-','8','A','B','9','-','D','3','D','6','A','6','4','2','C','0','9','1','}',0};
-                static const WCHAR REMOVE_ALL_W[] = {'R','E','M','O','V','E','=','A','L','L',0};
-
                 /* Try to uninstall EA desktop so it is set up from prerequisites on the next run. */
-                UINT ret = MsiConfigureProductExW(msi_guidW, 0, INSTALLSTATE_DEFAULT, REMOVE_ALL_W);
+                UINT ret = MsiConfigureProductExW( L"{C2622085-ABD2-49E5-8AB9-D3D6A642C091}", 0,
+                                                   INSTALLSTATE_DEFAULT, L"REMOVE=ALL" );
 
                 WINE_TRACE("MsiConfigureProductExW ret %u.\n", ret);
                 /* If uninstall failed this should trigger interactive repair window on the EA setup run. */
-                RegDeleteTreeW(HKEY_LOCAL_MACHINE, link2ea_pathW);
-                RegDeleteTreeW(HKEY_LOCAL_MACHINE, ea_desktop_pathW);
-                RegDeleteTreeW(HKEY_LOCAL_MACHINE, ea_core_pathW);
+                RegDeleteTreeW( HKEY_LOCAL_MACHINE, L"Software\\Classes\\link2ea" );
+                RegDeleteTreeW( HKEY_LOCAL_MACHINE, L"Software\\Electronic Arts\\EA Desktop" );
+                RegDeleteTreeW( HKEY_LOCAL_MACHINE, L"Software\\Electronic Arts\\EA Core" );
             }
         }
         return INVALID_HANDLE_VALUE;
@@ -581,7 +559,7 @@ static BOOL steam_command_handler(int argc, char *argv[])
     {
         HANDLE event;
 
-        event = OpenEventA(SYNCHRONIZE, FALSE, "PROTON_STEAM_EXE_RESTART_APP");
+        event = OpenEventW( SYNCHRONIZE, FALSE, L"PROTON_STEAM_EXE_RESTART_APP" );
         if (event)
         {
             SetEvent(event);
@@ -595,7 +573,7 @@ static BOOL steam_command_handler(int argc, char *argv[])
 
     if (!p__wine_unix_spawnvp)
     {
-        module = GetModuleHandleA("ntdll.dll");
+        module = GetModuleHandleW( L"ntdll" );
         p__wine_unix_spawnvp = (void *)GetProcAddress(module, "__wine_unix_spawnvp");
         if (!p__wine_unix_spawnvp)
         {
@@ -645,21 +623,6 @@ static BOOL steam_command_handler(int argc, char *argv[])
 
 static void setup_steam_files(void)
 {
-    static const WCHAR config_pathW[] =
-    {
-        'C',':','\\','P','r','o','g','r','a','m',' ','F','i','l','e','s',' ','(','x','8','6',')','\\','S','t','e','a','m',
-        '\\','c','o','n','f','i','g',0,
-    };
-    static const WCHAR steamapps_pathW[] =
-    {
-        'C',':','\\','P','r','o','g','r','a','m',' ','F','i','l','e','s',' ','(','x','8','6',')','\\','S','t','e','a','m',
-        '\\','s','t','e','a','m','a','p','p','s',0,
-    };
-    static const WCHAR libraryfolders_nameW[] =
-    {
-        'C',':','\\','P','r','o','g','r','a','m',' ','F','i','l','e','s',' ','(','x','8','6',')','\\','S','t','e','a','m',
-        '\\','s','t','e','a','m','a','p','p','s','\\','l','i','b','r','a','r','y','f','o','l','d','e','r','s','.','v','d','f',0,
-    };
     const char *steam_install_path = getenv("STEAM_COMPAT_CLIENT_INSTALL_PATH");
     const char *steam_library_paths = getenv("STEAM_COMPAT_LIBRARY_PATHS");
     const char *start, *end, *next;
@@ -667,13 +630,13 @@ static void setup_steam_files(void)
     char *buf = NULL, *str;
     unsigned int index = 0;
 
-    if (!CreateDirectoryW(config_pathW, NULL) && GetLastError() != ERROR_ALREADY_EXISTS)
+    if (!CreateDirectoryW( L"C:\\Program Files (x86)\\Steam\\config", NULL ) && GetLastError() != ERROR_ALREADY_EXISTS)
     {
         WINE_ERR("Failed to create config directory, GetLastError() %lu.\n", GetLastError());
         return;
     }
 
-    if (!CreateDirectoryW(steamapps_pathW, NULL) && GetLastError() != ERROR_ALREADY_EXISTS)
+    if (!CreateDirectoryW( L"C:\\Program Files (x86)\\Steam\\steamapps", NULL ) && GetLastError() != ERROR_ALREADY_EXISTS)
     {
         WINE_ERR("Failed to create steamapps directory, GetLastError() %lu.\n", GetLastError());
         return;
@@ -721,7 +684,7 @@ static void setup_steam_files(void)
     }
 
     pos += strappend( &buf, &len, pos, "}\n" );
-    write_file( libraryfolders_nameW, buf, len );
+    write_file( L"C:\\Program Files (x86)\\Steam\\steamapps\\libraryfolders.vdf", buf, len );
 }
 
 #ifndef DIRECTORY_QUERY
@@ -730,31 +693,28 @@ static void setup_steam_files(void)
 
 static HANDLE find_ack_event(void)
 {
-    static const WCHAR steam_ack_event[] = {'S','T','E','A','M','_','S','T','A','R','T','_','A','C','K','_','E','V','E','N','T',0};
-    static const WCHAR name[] = {'\\','B','a','s','e','N','a','m','e','d','O','b','j','e','c','t','s','\\','S','e','s','s','i','o','n','\\','1',0};
+    UNICODE_STRING str = RTL_CONSTANT_STRING( L"\\BaseNamedObjects\\Session\\1" );
     DIRECTORY_BASIC_INFORMATION *di;
     OBJECT_ATTRIBUTES attr;
     HANDLE dir, ret = NULL;
     ULONG context, size;
-    UNICODE_STRING str;
     char buffer[1024];
     NTSTATUS status;
 
     di = (DIRECTORY_BASIC_INFORMATION *)buffer;
 
-    RtlInitUnicodeString(&str, name);
     InitializeObjectAttributes(&attr, &str, 0, 0, NULL);
     status = NtOpenDirectoryObject( &dir, DIRECTORY_QUERY, &attr );
     if (status)
     {
-        WINE_WARN("Failed to open directory %s, status %#lx.\n", wine_dbgstr_w(name), status);
+        WINE_WARN( "Failed to open directory, status %#lx.\n", status );
         return NULL;
     }
 
     status = NtQueryDirectoryObject(dir, di, sizeof(buffer), TRUE, TRUE, &context, &size);
     while (!status)
     {
-        if (!strncmpW(di->ObjectName.Buffer, steam_ack_event, ARRAY_SIZE(steam_ack_event) - 1))
+        if (!strncmpW( di->ObjectName.Buffer, L"STEAM_START_ACK_EVENT", 21 ))
         {
             WINE_TRACE("Found event %s.\n", wine_dbgstr_w(di->ObjectName.Buffer));
             ret = OpenEventW(SYNCHRONIZE, FALSE, di->ObjectName.Buffer);
@@ -780,13 +740,13 @@ static DWORD WINAPI steam_drm_thread(void *arg)
     DWORD pid;
     LONG prev;
 
-    consume = CreateSemaphoreA(NULL, 0, 512, "STEAM_DIPC_CONSUME");
+    consume = CreateSemaphoreW( NULL, 0, 512, L"STEAM_DIPC_CONSUME" );
     if (!consume)
     {
         WINE_ERR("Failed to create consume semaphore, err %lu.\n", GetLastError());
         return -1;
     }
-    produce = CreateSemaphoreA(NULL, 1, 512, "SREAM_DIPC_PRODUCE");
+    produce = CreateSemaphoreW( NULL, 1, 512, L"SREAM_DIPC_PRODUCE" );
     if (!produce)
     {
         CloseHandle(consume);
@@ -842,10 +802,10 @@ int main(int argc, char *argv[])
     if (getenv("SteamGameId"))
     {
         /* do setup only for game process */
-        event = CreateEventA(NULL, FALSE, FALSE, "Steam3Master_SharedMemLock");
+        event = CreateEventW( NULL, FALSE, FALSE, L"Steam3Master_SharedMemLock" );
 
         /* For 2K Launcher. */
-        event2 = CreateEventA(NULL, FALSE, FALSE, "Global\\Valve_SteamIPC_Class");
+        event2 = CreateEventW( NULL, FALSE, FALSE, L"Global\\Valve_SteamIPC_Class" );
 
         CreateThread(NULL, 0, create_steam_window, NULL, 0, NULL);
 
@@ -909,7 +869,7 @@ int main(int argc, char *argv[])
         wait_count = 1;
         if (game_process)
         {
-            if ((waits[1] = CreateEventA(NULL, FALSE, FALSE, "PROTON_STEAM_EXE_RESTART_APP")))
+            if ((waits[1] = CreateEventW( NULL, FALSE, FALSE, L"PROTON_STEAM_EXE_RESTART_APP" )))
             {
                 ++wait_count;
             }
