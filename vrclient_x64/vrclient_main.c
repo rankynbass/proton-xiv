@@ -247,6 +247,14 @@ BOOL CDECL vrclient_init_registry(void)
         return FALSE;
     }
 
+    if (!load_vrclient())
+    {
+        TRACE( "Failed to load vrclient\n" );
+        set_vr_status( vr_key, -1 );
+        RegCloseKey( vr_key );
+        return FALSE;
+    }
+
     if (!set_vr_status( vr_key, 0 ))
     {
         RegCloseKey( vr_key );
