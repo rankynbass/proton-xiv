@@ -15,6 +15,7 @@ import subprocess
 import sys
 import shlex
 import uuid
+import json
 
 from ctypes import CDLL
 from ctypes import CFUNCTYPE
@@ -308,6 +309,56 @@ def setup_game_dir_drive():
 
 def setup_steam_dir_drive():
         setup_dir_drive("steamdrive", "t:", try_get_steam_dir())
+
+
+def unix_to_nt_file_name(path):
+    return '\\??\\unix' + path
+
+def setup_openvr_paths():
+    if 'VR_PATHREG_OVERRIDE' in g_session.env:
+        openvr_paths = g_session.env['VR_PATHREG_OVERRIDE']
+        del g_session.env['VR_PATHREG_OVERRIDE']
+    elif 'XDG_CONFIG_HOME' in g_session.env:
+        openvr_paths = os.path.join(g_session.env['XDG_CONFIG_HOME'], 'openvr/openvrpaths.vrpath')
+    elif 'HOME' in g_session.env:
+        openvr_paths = os.path.join(g_session.env['HOME'], '.config/openvr/openvrpaths.vrpath')
+    else:
+        openvr_paths = None
+
+    if not openvr_paths or not file_exists(openvr_paths, follow_symlinks=True):
+        return
+
+    with open(openvr_paths, 'r') as file:
+        contents = json.load(file)
+
+    if 'runtime' not in contents or type(contents['runtime']) != list:
+        contents['runtime'] = []
+    if 'config' in contents and type(contents['config']) != list:
+        del contents['config']
+    if 'log' in contents and type(contents['log']) != list:
+        del contents['log']
+
+    if 'VR_OVERRIDE' in g_session.env:
+        g_session.env['PROTON_VR_RUNTIME'] = g_session.env['VR_OVERRIDE']
+        del g_session.env['VR_OVERRIDE']
+    elif len(contents['runtime']) > 0:
+        g_session.env['PROTON_VR_RUNTIME'] = contents['runtime'][0]
+
+    contents['runtime'] = ["C:\\vrclient\\", "C:\\vrclient"]
+
+    for i, path in enumerate(contents.get('config', [])):
+        contents['config'][i] = unix_to_nt_file_name(path)
+    for i, path in enumerate(contents.get('log', [])):
+        contents['log'][i] = unix_to_nt_file_name(path)
+
+    openvr_paths = os.path.join(g_compatdata.prefix_dir, "drive_c/users/steamuser/AppData/Local/openvr")
+    makedirs(openvr_paths)
+
+    openvr_paths = os.path.join(openvr_paths, "openvrpaths.vrpath")
+    with open(openvr_paths, 'w') as file:
+        json.dump(contents, file, indent=3)
+
+
 
 # Function to find the installed location of DLL files for use by Wine/Proton
 # from the NVIDIA Linux driver
@@ -1088,6 +1139,7 @@ class CompatData:
 
             setup_game_dir_drive()
             setup_steam_dir_drive()
+            setup_openvr_paths()
 
             # add Steam ffmpeg libraries to path
             prepend_to_env_str(g_session.env, ld_path_var, steamdir + "/ubuntu12_64/video/:" + steamdir + "/ubuntu12_32/video/", ":")
