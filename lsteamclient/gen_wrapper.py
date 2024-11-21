@@ -209,6 +209,7 @@ MANUAL_STRUCTS = [
 
 UNIX_FUNCS = [
     'steamclient_init',
+    'steamclient_init_registry',
     'steamclient_next_callback',
     'steamclient_CreateInterface',
     'steamclient_Steam_GetAPICallResult',

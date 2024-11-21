@@ -9,6 +9,7 @@
 extern "C" const unixlib_entry_t __wine_unix_call_funcs[] =
 {
     steamclient_init,
+    steamclient_init_registry,
     steamclient_next_callback,
     steamclient_CreateInterface,
     steamclient_Steam_GetAPICallResult,

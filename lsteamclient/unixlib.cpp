@@ -379,6 +379,248 @@ NTSTATUS steamclient_Steam_GetAPICallResult( void *args )
     return 0;
 }
 
+static UINT asciiz_to_unicode( WCHAR *dst, const char *src )
+{
+    WCHAR *p = dst;
+    while ((*p++ = *src++));
+    return (p - dst) * sizeof(WCHAR);
+}
+
+static BOOL set_reg_value( HANDLE hkey, const WCHAR *name, UINT type, const void *value, DWORD count )
+{
+    unsigned short name_size = name ? lstrlenW( name ) * sizeof(WCHAR) : 0;
+    UNICODE_STRING nameW = { name_size, name_size, (WCHAR *)name };
+    return !NtSetValueKey( hkey, &nameW, 0, type, value, count );
+}
+
+static void set_reg_ascii_dword( HANDLE hkey, const char *name, DWORD value )
+{
+    WCHAR nameW[64], valueW[128];
+    asciiz_to_unicode( nameW, name );
+    set_reg_value( hkey, nameW, REG_DWORD, &value, sizeof(value) );
+}
+
+static void set_reg_ascii_str( HANDLE hkey, const char *name, const char *value )
+{
+    size_t len = strlen( value ) + 1;
+    WCHAR nameW[64], *valueW;
+
+    if (!(valueW = (WCHAR *)malloc( len * sizeof(*valueW) ))) return;
+    asciiz_to_unicode( valueW, value );
+    asciiz_to_unicode( nameW, name );
+    set_reg_value( hkey, nameW, REG_SZ, valueW, len * sizeof(*valueW) );
+    free( valueW );
+}
+
+static inline void init_unicode_string( UNICODE_STRING *str, const WCHAR *data )
+{
+    str->Length = wcslen( data ) * sizeof(WCHAR);
+    str->MaximumLength = str->Length + sizeof(WCHAR);
+    str->Buffer = (WCHAR *)data;
+}
+
+static NTSTATUS open_hkcu_key( const char *path, HANDLE *key )
+{
+    NTSTATUS status;
+    char buffer[256];
+    WCHAR bufferW[256];
+    DWORD_PTR sid_data[(sizeof(TOKEN_USER) + SECURITY_MAX_SID_SIZE) / sizeof(DWORD_PTR)];
+    DWORD i, len = sizeof(sid_data);
+    SID *sid;
+    UNICODE_STRING name;
+    OBJECT_ATTRIBUTES attr;
+
+    status = NtQueryInformationToken( GetCurrentThreadEffectiveToken(), TokenUser, sid_data, len, &len );
+    if (status) return status;
+
+    sid = (SID *)((TOKEN_USER *)sid_data)->User.Sid;
+    len = snprintf( buffer, sizeof(buffer), "\\Registry\\User\\S-%u-%u", sid->Revision,
+                   (int)MAKELONG( MAKEWORD( sid->IdentifierAuthority.Value[5], sid->IdentifierAuthority.Value[4] ),
+                                  MAKEWORD( sid->IdentifierAuthority.Value[3], sid->IdentifierAuthority.Value[2] )));
+    for (i = 0; i < sid->SubAuthorityCount; i++)
+        len += snprintf( buffer + len, sizeof(buffer) - len, "-%u", (int)sid->SubAuthority[i] );
+    len += snprintf( buffer + len, sizeof(buffer) - len, "\\%s", path );
+
+    asciiz_to_unicode( bufferW, buffer );
+    init_unicode_string( &name, bufferW );
+    InitializeObjectAttributes( &attr, &name, OBJ_CASE_INSENSITIVE, 0, NULL );
+    return NtCreateKey( key, KEY_ALL_ACCESS, &attr, 0, NULL, 0, NULL );
+}
+
+/* requires steam API to be initialized */
+static void setup_steam_registry( u_ISteamClient_SteamClient017 *client, int pipe, int user )
+{
+    static const int system_locale_appids[] =
+    {
+        1284210 /* Guild Wars 2 */
+    };
+
+    const char *ui_lang, *language, *languages, *locale = NULL;
+    u_ISteamApps_STEAMAPPS_INTERFACE_VERSION008 *apps;
+    u_ISteamUtils_SteamUtils009 *utils;
+    unsigned int appid, status;
+    char buf[256];
+    HANDLE key;
+    int i;
+
+    utils = (u_ISteamUtils_SteamUtils009 *)client->GetISteamUtils( pipe, "SteamUtils009" );
+    ui_lang = utils->GetSteamUILanguage();
+    TRACE( "UI language: %s\n", debugstr_a(ui_lang) );
+
+    if ((status = open_hkcu_key( "Software\\Valve\\Steam", &key )))
+        ERR( "Could not create key, status %#x\n", status );
+    else
+    {
+        set_reg_ascii_str( key, "language", ui_lang );
+        NtClose( key );
+    }
+
+    appid = utils->GetAppID();
+    TRACE( "appid: %u\n", appid );
+
+    if ((status = open_hkcu_key( "Software\\Valve\\Steam\\Apps", &key )))
+        ERR( "Could not create key, status %#x\n", status );
+    else
+        NtClose( key );
+
+    sprintf( buf, "Software\\Valve\\Steam\\Apps\\%u", appid );
+    if ((status = open_hkcu_key( buf, &key ))) ERR( "Could not create key, status %#x\n", status );
+    else
+    {
+        DWORD value;
+        value = 1;
+        set_reg_ascii_dword( key, "Installed", value );
+        set_reg_ascii_dword( key, "Running", value );
+        value = 0;
+        set_reg_ascii_dword( key, "Updating", value );
+        NtClose( key );
+    }
+
+    apps = (u_ISteamApps_STEAMAPPS_INTERFACE_VERSION008 *)client->GetISteamApps( user, pipe, "STEAMAPPS_INTERFACE_VERSION008" );
+    language = apps->GetCurrentGameLanguage();
+    languages = apps->GetAvailableGameLanguages();
+    TRACE( "Game language %s, available %s\n", debugstr_a(language), debugstr_a(languages) );
+
+    if (!strchr( languages, ',' )) /* If there is a list of languages then respect that */
+    {
+        for (i = 0; language && i < ARRAY_SIZE(system_locale_appids); i++)
+        {
+            if (system_locale_appids[i] == appid)
+            {
+                TRACE( "Not changing system locale for application %i\n", appid );
+                language = NULL;
+            }
+        }
+    }
+
+    if (!language) locale = NULL;
+    else if (!strcmp( language, "arabic" )) locale = "ar_001.UTF-8";
+    else if (!strcmp( language, "bulgarian" )) locale = "bg_BG.UTF-8";
+    else if (!strcmp( language, "schinese" )) locale = "zh_CN.UTF-8";
+    else if (!strcmp( language, "tchinese" )) locale = "zh_TW.UTF-8";
+    else if (!strcmp( language, "czech" )) locale = "cs_CZ.UTF-8";
+    else if (!strcmp( language, "danish" )) locale = "da_DK.UTF-8";
+    else if (!strcmp( language, "dutch" )) locale = "nl_NL.UTF-8";
+    else if (!strcmp( language, "english" )) locale = "en_US.UTF-8";
+    else if (!strcmp( language, "finnish" )) locale = "fi_FI.UTF-8";
+    else if (!strcmp( language, "french" )) locale = "fr_FR.UTF-8";
+    else if (!strcmp( language, "german" )) locale = "de_DE.UTF-8";
+    else if (!strcmp( language, "greek" )) locale = "el_GR.UTF-8";
+    else if (!strcmp( language, "hungarian" )) locale = "hu_HU.UTF-8";
+    else if (!strcmp( language, "italian" )) locale = "it_IT.UTF-8";
+    else if (!strcmp( language, "japanese" )) locale = "ja_JP.UTF-8";
+    else if (!strcmp( language, "koreana" )) locale = "ko_KR.UTF-8";
+    else if (!strcmp( language, "norwegian" )) locale = "nb_NO.UTF-8";
+    else if (!strcmp( language, "polish" )) locale = "pl_PL.UTF-8";
+    else if (!strcmp( language, "portuguese" )) locale = "pt_PT.UTF-8";
+    else if (!strcmp( language, "brazilian" )) locale = "pt_BR.UTF-8";
+    else if (!strcmp( language, "romanian" )) locale = "ro_RO.UTF-8";
+    else if (!strcmp( language, "russian" )) locale = "ru_RU.UTF-8";
+    else if (!strcmp( language, "spanish" )) locale = "es_ES.UTF-8";
+    else if (!strcmp( language, "latam" )) locale = "es_419.UTF-8";
+    else if (!strcmp( language, "swedish" )) locale = "sv_SE.UTF-8";
+    else if (!strcmp( language, "thai" )) locale = "th_TH.UTF-8";
+    else if (!strcmp( language, "turkish" )) locale = "tr_TR.UTF-8";
+    else if (!strcmp( language, "ukrainian" )) locale = "uk_UA.UTF-8";
+    else if (!strcmp( language, "vietnamese" )) locale = "vi_VN.UTF-8";
+    else FIXME( "Unsupported game language %s\n", debugstr_a(language) );
+
+    /* HACK: Bug 23597 Granado Espada Japan (1219160) launcher needs Japanese locale to display correctly */
+    if (appid == 1219160) locale = "ja_JP.UTF-8";
+
+    if (locale)
+    {
+        FIXME( "Game language %s, defaulting LC_CTYPE / LC_MESSAGES to %s.\n", debugstr_a(language), locale );
+        setenv( "LC_CTYPE", locale, FALSE );
+        setenv( "LC_MESSAGES", locale, FALSE );
+    }
+}
+
+/* requires steam API to be initialized */
+static void setup_battleye_bridge( u_ISteamClient_SteamClient017 *client, int pipe, int user )
+{
+    u_ISteamApps_STEAMAPPS_INTERFACE_VERSION008 *apps;
+    const unsigned int be_runtime_appid = 1161040;
+    char path[2048];
+    int error;
+
+    apps = (u_ISteamApps_STEAMAPPS_INTERFACE_VERSION008 *)client->GetISteamApps( user, pipe, "STEAMAPPS_INTERFACE_VERSION008" );
+    if (!apps->BIsAppInstalled( be_runtime_appid )) return;
+    if (!apps->GetAppInstallDir( be_runtime_appid, path, sizeof(path) )) return;
+    TRACE( "Found battleye runtime at %s\n", path );
+    setenv( "PROTON_BATTLEYE_RUNTIME", path, 1 );
+}
+
+static void setup_eac_bridge( u_ISteamClient_SteamClient017 *client, int pipe, int user )
+{
+    u_ISteamApps_STEAMAPPS_INTERFACE_VERSION008 *apps;
+    const unsigned int eac_runtime_appid = 1826330;
+    char path[2048];
+    int error;
+
+    apps = (u_ISteamApps_STEAMAPPS_INTERFACE_VERSION008 *)client->GetISteamApps( user, pipe, "STEAMAPPS_INTERFACE_VERSION008" );
+    if (!apps->BIsAppInstalled( eac_runtime_appid )) return;
+    if (!apps->GetAppInstallDir( eac_runtime_appid, path, sizeof(path) )) return;
+    TRACE( "Found easyanticheat runtime at %s\n", path );
+    setenv( "PROTON_EAC_RUNTIME", path, 1 );
+}
+
+static void setup_proton_voice_files( u_ISteamClient_SteamClient017 *client, int pipe, int user )
+{
+    u_ISteamApps_STEAMAPPS_INTERFACE_VERSION008 *apps;
+    const unsigned int eac_runtime_appid = 3086180;
+    char path[2048];
+    int error;
+
+    apps = (u_ISteamApps_STEAMAPPS_INTERFACE_VERSION008 *)client->GetISteamApps( user, pipe, "STEAMAPPS_INTERFACE_VERSION008" );
+    if (!apps->BIsAppInstalled( eac_runtime_appid )) return;
+    if (!apps->GetAppInstallDir( eac_runtime_appid, path, sizeof(path) )) return;
+    TRACE( "Found proton voice files at %s\n", path );
+    setenv( "PROTON_VOICE_FILES", path, 1 );
+}
+
+NTSTATUS steamclient_init_registry( void *args )
+{
+    u_ISteamClient_SteamClient017 *client;
+    int pipe, user, error;
+
+    client = (u_ISteamClient_SteamClient017 *)p_CreateInterface( "SteamClient017", &error );
+    if (!(pipe = client->CreateSteamPipe()) || !(user = client->ConnectToGlobalUser( pipe )))
+    {
+        ERR( "Failed to connect to Steam\n" );
+        if (pipe) client->BReleaseSteamPipe( pipe );
+        return -1;
+    }
+
+    setup_steam_registry( client, pipe, user );
+    setup_battleye_bridge( client, pipe, user );
+    setup_eac_bridge( client, pipe, user );
+    setup_proton_voice_files( client, pipe, user );
+
+    client->BReleaseSteamPipe( pipe );
+    return 0;
+}
+
 NTSTATUS steamclient_init( void *args )
 {
     struct steamclient_init_params *params = (struct steamclient_init_params *)args;

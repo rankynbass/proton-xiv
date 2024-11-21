@@ -601,3 +601,10 @@ void CDECL Steam_NotifyMissingInterface( int32_t hSteamPipe, const char *pchVers
     load_steamclient();
     STEAMCLIENT_CALL( steamclient_Steam_NotifyMissingInterface, &params );
 }
+
+BOOL CDECL steamclient_init_registry(void)
+{
+    load_steamclient();
+    if (STEAMCLIENT_CALL( steamclient_init_registry, NULL )) return FALSE;
+    return TRUE;
+}
