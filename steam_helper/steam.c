@@ -445,7 +445,7 @@ run:
 
         link2ea = TRUE;
         if (!SetUserObjectInformationA(desktop, 1000, &timeout, sizeof(timeout)))
-            WINE_ERR("Failed to set desktop timeout, err %u.\n", GetLastError());
+            WINE_ERR("Failed to set desktop timeout, err %lu.\n", GetLastError());
 
         if (!RegOpenKeyExW(HKEY_LOCAL_MACHINE, ea_desktop_pathW, 0, KEY_ALL_ACCESS, &eakey))
         {
@@ -465,20 +465,20 @@ run:
             {
                 if (QueryServiceStatus(service, &status))
                 {
-                    TRACE("dwCurrentState %#x.\n", status.dwCurrentState);
+                    TRACE("dwCurrentState %#lx.\n", status.dwCurrentState);
                     if (status.dwCurrentState == SERVICE_STOP_PENDING || status.dwCurrentState == SERVICE_STOPPED)
                     {
                         ret = DeleteFileA("C:\\ProgramData\\EA Desktop\\backgroundservice.ini");
-                        WARN("Tried to delete backgroundservice.ini, ret %d, error %u.\n", ret, GetLastError());
+                        WARN("Tried to delete backgroundservice.ini, ret %d, error %lu.\n", ret, GetLastError());
                     }
                 }
-                else ERR("Could not query service status, error %u.\n", GetLastError());
+                else ERR("Could not query service status, error %lu.\n", GetLastError());
                 CloseServiceHandle(service);
             }
-            else TRACE("Could not open EABackgroundService, error %u.\n", GetLastError());
+            else TRACE("Could not open EABackgroundService, error %lu.\n", GetLastError());
             CloseServiceHandle(manager);
         }
-        else ERR("Could not open service manager, error %u.\n", GetLastError());
+        else ERR("Could not open service manager, error %lu.\n", GetLastError());
     }
     hide_window = env_nonzero("PROTON_HIDE_PROCESS_WINDOW");
 
@@ -506,7 +506,7 @@ run:
 
         if ((ret = (INT_PTR)ShellExecuteW(NULL, verb, cmdline, param, NULL, hide_window ? SW_HIDE : SW_SHOWNORMAL)) < 32)
         {
-            WINE_ERR("Failed to execute %s, ret %u.\n", wine_dbgstr_w(cmdline), (int)ret);
+            WINE_ERR("Failed to execute %s, ret %Iu.\n", wine_dbgstr_w(cmdline), ret);
             if (game_process && ret == SE_ERR_NOASSOC && link2ea)
             {
                 static const WCHAR msi_guidW[] = {'{','C','2','6','2','2','0','8','5','-','A','B','D','2','-','4','9','E','5','-','8','A','B','9','-','D','3','D','6','A','6','4','2','C','0','9','1','}',0};
@@ -534,7 +534,7 @@ run:
 
         if (!CreateProcessW(NULL, cmdline, NULL, NULL, FALSE, flags, NULL, NULL, &si, &pi))
         {
-            WINE_ERR("Failed to create process %s: %u\n", wine_dbgstr_w(cmdline), GetLastError());
+            WINE_ERR("Failed to create process %s: %lu\n", wine_dbgstr_w(cmdline), GetLastError());
             return INVALID_HANDLE_VALUE;
         }
 
@@ -638,7 +638,7 @@ static BOOL steam_command_handler(int argc, char *argv[])
         WINE_ERR("Forwarding");
         for (i = 0; i < argc; ++i)
             WINE_ERR(" %s", wine_dbgstr_a(argv[i]));
-        WINE_ERR(" to native steam failed, status %#x.\n", status);
+        WINE_ERR(" to native steam failed, status %#lx.\n", status);
     }
     return TRUE;
 }
@@ -669,13 +669,13 @@ static void setup_steam_files(void)
 
     if (!CreateDirectoryW(config_pathW, NULL) && GetLastError() != ERROR_ALREADY_EXISTS)
     {
-        WINE_ERR("Failed to create config directory, GetLastError() %u.\n", GetLastError());
+        WINE_ERR("Failed to create config directory, GetLastError() %lu.\n", GetLastError());
         return;
     }
 
     if (!CreateDirectoryW(steamapps_pathW, NULL) && GetLastError() != ERROR_ALREADY_EXISTS)
     {
-        WINE_ERR("Failed to create steamapps directory, GetLastError() %u.\n", GetLastError());
+        WINE_ERR("Failed to create steamapps directory, GetLastError() %lu.\n", GetLastError());
         return;
     }
 
@@ -747,7 +747,7 @@ static HANDLE find_ack_event(void)
     status = NtOpenDirectoryObject( &dir, DIRECTORY_QUERY, &attr );
     if (status)
     {
-        WINE_WARN("Failed to open directory %s, status %#x.\n", wine_dbgstr_w(name), status);
+        WINE_WARN("Failed to open directory %s, status %#lx.\n", wine_dbgstr_w(name), status);
         return NULL;
     }
 
@@ -759,13 +759,13 @@ static HANDLE find_ack_event(void)
             WINE_TRACE("Found event %s.\n", wine_dbgstr_w(di->ObjectName.Buffer));
             ret = OpenEventW(SYNCHRONIZE, FALSE, di->ObjectName.Buffer);
             if (!ret)
-                WINE_WARN("Failed to create event, err %u.\n", GetLastError());
+                WINE_WARN("Failed to create event, err %lu.\n", GetLastError());
             break;
         }
         status = NtQueryDirectoryObject(dir, di, sizeof(buffer), TRUE, FALSE, &context, &size);
     }
     if (status && status != STATUS_NO_MORE_ENTRIES)
-        WINE_WARN("NtQueryDirectoryObject failed, status %#x.\n", status);
+        WINE_WARN("NtQueryDirectoryObject failed, status %#lx.\n", status);
     WINE_TRACE("ret %p.\n", ret);
 
     CloseHandle(dir);
@@ -783,20 +783,20 @@ static DWORD WINAPI steam_drm_thread(void *arg)
     consume = CreateSemaphoreA(NULL, 0, 512, "STEAM_DIPC_CONSUME");
     if (!consume)
     {
-        WINE_ERR("Failed to create consume semaphore, err %u.\n", GetLastError());
+        WINE_ERR("Failed to create consume semaphore, err %lu.\n", GetLastError());
         return -1;
     }
     produce = CreateSemaphoreA(NULL, 1, 512, "SREAM_DIPC_PRODUCE");
     if (!produce)
     {
         CloseHandle(consume);
-        WINE_ERR("Failed to create produce semaphore, err %u.\n", GetLastError());
+        WINE_ERR("Failed to create produce semaphore, err %lu.\n", GetLastError());
         return -1;
     }
 
     pid = GetProcessId(child);
 
-    WINE_TRACE("Child pid %04x.\n", pid);
+    WINE_TRACE("Child pid %04lx.\n", pid);
 
     while (WaitForSingleObject(consume, INFINITE) == WAIT_OBJECT_0)
     {
@@ -807,7 +807,7 @@ static DWORD WINAPI steam_drm_thread(void *arg)
         if (start_ack)
             SetEvent(start_ack);
         ReleaseSemaphore(produce, 1, &prev);
-        WINE_TRACE("prev %d.\n", prev);
+        WINE_TRACE("prev %ld.\n", prev);
     }
 
     return 0;
@@ -915,7 +915,7 @@ int main(int argc, char *argv[])
             }
             else
             {
-                ERR("Failed to create restart event, err %u.\n", GetLastError());
+                ERR("Failed to create restart event, err %lu.\n", GetLastError());
             }
         }
         FreeConsole();
