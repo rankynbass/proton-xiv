@@ -50,7 +50,6 @@
 #include <limits.h>
 #define _USE_GNU
 #include <dlfcn.h>
-#include <string>
 
 #pragma push_macro("_WIN32")
 #pragma push_macro("__cdecl")
@@ -251,60 +250,71 @@ static void setup_proton_voice_files(void)
     setenv("PROTON_VOICE_FILES", path, 1);
 }
 
-static bool write_string_to_file(const WCHAR *filename, const std::string &contents)
+static void write_file( const WCHAR *filename, const char *data, size_t len )
 {
-    HANDLE ofile = CreateFileW(filename, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS,
-            FILE_ATTRIBUTE_NORMAL, NULL);
-    if(ofile == INVALID_HANDLE_VALUE)
-        return false;
-
     DWORD written;
+    HANDLE file;
 
-    if(!WriteFile(ofile, contents.data(), (DWORD)contents.length(), &written, NULL))
+    file = CreateFileW( filename, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL );
+    if (file == INVALID_HANDLE_VALUE) ERR( "Could not open %s.\n", debugstr_w(filename) );
+    else
     {
-        CloseHandle(ofile);
-        return false;
+        if (!WriteFile( file, data, len, &written, NULL )) ERR( "Could not write to %s.\n", debugstr_w(filename) );
+        CloseHandle( file );
     }
-
-    CloseHandle(ofile);
-
-    return true;
 }
 
-static bool convert_path_to_win(std::string &s)
+static char *escape_path_unix_to_dos( const char *path )
 {
-    WCHAR *path = wine_get_dos_file_name(s.c_str());
-    if(!path)
-        return false;
+    WCHAR *dos, *tmp = NULL, *src, *dst;
+    char *escaped = NULL;
+    UINT len;
 
-    DWORD sz = WideCharToMultiByte(CP_UTF8, 0, path, -1, NULL, 0, NULL, NULL);
-    if(!sz)
+    if (!(dos = wine_get_dos_file_name( path )) || !(len = lstrlenW( dos ))) goto done;
+    if (!(tmp = (WCHAR *)heap_alloc( (len * 2 + 1) * sizeof(*tmp) ))) goto done;
+    for (src = dos, dst = tmp; *src; src++, dst++) if ((*dst = *src) == '\\') *++dst = '\\';
+
+    if (!(len = WideCharToMultiByte( CP_UTF8, 0, tmp, (dst - tmp), NULL, 0, NULL, NULL ))) goto done;
+    if ((escaped = (char *)heap_alloc( len ))) WideCharToMultiByte( CP_UTF8, 0, tmp, (dst - tmp), escaped, len, NULL, NULL );
+
+done:
+    heap_free( dos );
+    heap_free( tmp );
+    return escaped;
+}
+
+size_t strappend( char **buf, size_t *len, size_t pos, const char *fmt, ... )
+{
+    size_t size;
+    va_list ap;
+    char *ptr;
+    int n;
+
+    if (*buf)
     {
-        HeapFree(GetProcessHeap(), 0, path);
-        return false;
+        size = *len;
+        ptr = *buf;
+    }
+    else
+    {
+        size = 100;
+        ptr = (char *)malloc( size );
     }
 
-    char *pathUTF8 = (char *)HeapAlloc(GetProcessHeap(), 0, sz);
-    if(!pathUTF8)
+    for (;;)
     {
-        HeapFree(GetProcessHeap(), 0, path);
-        return false;
+        va_start( ap, fmt );
+        n = vsnprintf( ptr + pos, size - pos, fmt, ap );
+        va_end( ap );
+        if (n == -1) size *= 2;
+        else if (pos + (size_t)n >= size) size = pos + n + 1;
+        else break;
+        ptr = (char *)realloc( ptr, size );
     }
 
-    sz = WideCharToMultiByte(CP_UTF8, 0, path, -1, pathUTF8, sz, NULL, NULL);
-    if(!sz)
-    {
-        HeapFree(GetProcessHeap(), 0, pathUTF8);
-        HeapFree(GetProcessHeap(), 0, path);
-        return false;
-    }
-
-    s = pathUTF8;
-
-    HeapFree(GetProcessHeap(), 0, pathUTF8);
-    HeapFree(GetProcessHeap(), 0, path);
-
-    return true;
+    *len = size;
+    *buf = ptr;
+    return n;
 }
 
 static void setup_vr_registry(void)
@@ -791,9 +801,9 @@ static void setup_steam_files(void)
     const char *steam_install_path = getenv("STEAM_COMPAT_CLIENT_INSTALL_PATH");
     const char *steam_library_paths = getenv("STEAM_COMPAT_LIBRARY_PATHS");
     const char *start, *end, *next;
-    unsigned int i, index = 0;
-    std::string contents;
-    char idx_str[10];
+    size_t len = 0, pos = 0;
+    char *buf = NULL, *str;
+    unsigned int index = 0;
 
     if (!CreateDirectoryW(config_pathW, NULL) && GetLastError() != ERROR_ALREADY_EXISTS)
     {
@@ -807,85 +817,49 @@ static void setup_steam_files(void)
         return;
     }
 
-    contents += "\"LibraryFolders\"\n{\n";
+    pos += strappend( &buf, &len, pos, "\"LibraryFolders\"\n{\n" );
 
-    WINE_TRACE("steam_install_path %s.\n", wine_dbgstr_a(steam_install_path));
-
+    TRACE( "steam_install_path %s.\n", debugstr_a(steam_install_path) );
     if (steam_install_path)
     {
-        std::string s = steam_install_path;
-
-        if (convert_path_to_win(s))
-        {
-            sprintf(idx_str, "%u", index);
-            ++index;
-
-            for (i = 0; i < s.length(); ++i)
-            {
-                if (s[i] == '\\')
-                {
-                    s.insert(i, 1, '\\');
-                    ++i;
-                }
-            }
-
-            contents += std::string("\t\"") + idx_str + "\"\n\t{\n\t\t\"path\"\t\t\"" + s + "\"\n\t}\n";
-        }
+        if (!(str = escape_path_unix_to_dos( steam_install_path )))
+            ERR( "Could not convert %s to win path.\n", debugstr_a(steam_install_path) );
         else
         {
-            WINE_ERR("Could not convert %s to win path.\n", wine_dbgstr_a(s.c_str()));
+            pos += strappend( &buf, &len, pos, "\t\"%u\"\n\t{\n\t\t\"path\"\t\t\"%s\"\n\t}\n", index, str );
+            heap_free( str );
         }
     }
 
-    WINE_TRACE("steam_library_paths %s.\n", wine_dbgstr_a(steam_library_paths));
-
+    TRACE( "steam_library_paths %s.\n", debugstr_a(steam_library_paths) );
     start = steam_library_paths;
     while (start && *start)
     {
-        std::string s;
+        char *path;
 
-        if (!(next = strchr(start, ':')))
-            next = start + strlen(start);
+        if (!(next = strchr( start, ':' ))) next = start + strlen( start );
         end = next;
 
-        if (end != start && end[-1] == '/')
-            --end;
+        if (end != start && end[-1] == '/') --end;
+        while (end != start && end[-1] != '/') --end;
 
-        while (end != start && end[-1] != '/' )
-            --end;
-        if (end != start)
-            --end;
-
-        s.append(start, end - start);
-        if (convert_path_to_win(s))
-        {
-            sprintf(idx_str, "%u", index);
-            ++index;
-
-            for (i = 0; i < s.length(); ++i)
-            {
-                if (s[i] == '\\')
-                {
-                    s.insert(i, 1, '\\');
-                    ++i;
-                }
-            }
-
-            contents += std::string("\t\"") + idx_str + "\"\n\t{\n\t\t\"path\"\t\t\"" + s + "\"\n\t}\n";
-        }
+        path = (char *)heap_alloc( end - start + 1 );
+        lstrcpynA( path, start, end - start );
+        if (!(str = escape_path_unix_to_dos( path )))
+            ERR( "Could not convert %s to win path.\n", debugstr_a(path) );
         else
         {
-            WINE_ERR("Could not convert %s to win path.\n", wine_dbgstr_a(s.c_str()));
+            pos += strappend( &buf, &len, pos, "\t\"%u\"\n\t{\n\t\t\"path\"\t\t\"%s\"\n\t}\n", index, str );
+            heap_free( str );
         }
-        if (*next == ':')
-            ++next;
+        heap_free( path );
+
+        if (*next == ':') ++next;
         start = next;
     }
 
-    contents += "}\n";
-
-    if (!write_string_to_file(libraryfolders_nameW, contents))
-        WINE_ERR("Could not write %s.\n", wine_dbgstr_w(libraryfolders_nameW));
+    pos += strappend( &buf, &len, pos, "}\n" );
+    write_file( libraryfolders_nameW, buf, len );
 }
 
 #ifndef DIRECTORY_QUERY
