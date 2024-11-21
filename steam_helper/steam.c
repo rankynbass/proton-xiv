@@ -48,8 +48,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <limits.h>
-#define _USE_GNU
-#include <dlfcn.h>
+#include <stdbool.h>
 
 #include "wine/debug.h"
 
@@ -117,11 +116,11 @@ static char *escape_path_unix_to_dos( const char *path )
     UINT len;
 
     if (!(dos = wine_get_dos_file_name( path )) || !(len = lstrlenW( dos ))) goto done;
-    if (!(tmp = (WCHAR *)heap_alloc( (len * 2 + 1) * sizeof(*tmp) ))) goto done;
+    if (!(tmp = heap_alloc( (len * 2 + 1) * sizeof(*tmp) ))) goto done;
     for (src = dos, dst = tmp; *src; src++, dst++) if ((*dst = *src) == '\\') *++dst = '\\';
 
     if (!(len = WideCharToMultiByte( CP_UTF8, 0, tmp, (dst - tmp), NULL, 0, NULL, NULL ))) goto done;
-    if ((escaped = (char *)heap_alloc( len ))) WideCharToMultiByte( CP_UTF8, 0, tmp, (dst - tmp), escaped, len, NULL, NULL );
+    if ((escaped = heap_alloc( len ))) WideCharToMultiByte( CP_UTF8, 0, tmp, (dst - tmp), escaped, len, NULL, NULL );
 
 done:
     heap_free( dos );
@@ -144,7 +143,7 @@ size_t strappend( char **buf, size_t *len, size_t pos, const char *fmt, ... )
     else
     {
         size = 100;
-        ptr = (char *)malloc( size );
+        ptr = malloc( size );
     }
 
     for (;;)
@@ -155,7 +154,7 @@ size_t strappend( char **buf, size_t *len, size_t pos, const char *fmt, ... )
         if (n == -1) size *= 2;
         else if (pos + (size_t)n >= size) size = pos + n + 1;
         else break;
-        ptr = (char *)realloc( ptr, size );
+        ptr = realloc( ptr, size );
     }
 
     *len = size;
@@ -178,7 +177,7 @@ static void setup_vr_registry(void)
         return;
     }
 
-    if ((init = (decltype(init))GetProcAddress( vrclient, "vrclient_init_registry" ))) init();
+    if ((init = (void *)GetProcAddress( vrclient, "vrclient_init_registry" ))) init();
     else ERR( "Failed to find vrclient_init_registry export\n" );
 
     TRACE( "Queued VR info initialization.\n" );
@@ -196,7 +195,7 @@ static void setup_steam_registry(void)
         return;
     }
 
-    if ((init = (decltype(init))GetProcAddress( steamclient, "steamclient_init_registry" ))) init();
+    if ((init = (void *)GetProcAddress( steamclient, "steamclient_init_registry" ))) init();
     else ERR( "Failed to find steamclient_init_registry export\n" );
 
     FreeLibrary( steamclient );
@@ -281,7 +280,7 @@ static WCHAR* get_end_of_excutable_name(WCHAR *cmdline)
 static BOOL should_use_shell_execute(WCHAR *cmdline)
 {
     BOOL use_shell_execute = TRUE;
-    const WCHAR *executable_name_end = (const WCHAR*)get_end_of_excutable_name(cmdline);
+    const WCHAR *executable_name_end = get_end_of_excutable_name(cmdline);
 
     /* if the executable is quoted backtrack a bit */
     if (*(executable_name_end - 1) == '"')
@@ -385,7 +384,7 @@ static HANDLE run_process(BOOL *should_await, BOOL game_process)
 
         argv0_len = end - start;
 
-        scratchW = (WCHAR *)HeapAlloc(GetProcessHeap(), 0, (argv0_len + 1) * sizeof(WCHAR));
+        scratchW = HeapAlloc(GetProcessHeap(), 0, (argv0_len + 1) * sizeof(WCHAR));
         memcpy(scratchW, start, argv0_len * sizeof(WCHAR));
         scratchW[argv0_len] = '\0';
 
@@ -397,7 +396,7 @@ static HANDLE run_process(BOOL *should_await, BOOL game_process)
             goto run;
         }
 
-        scratchA = (char *)HeapAlloc(GetProcessHeap(), 0, r);
+        scratchA = HeapAlloc(GetProcessHeap(), 0, r);
 
         r = WideCharToMultiByte(CP_UNIXCP, 0, scratchW, -1,
                 scratchA, r, NULL, NULL);
@@ -418,7 +417,7 @@ static HANDLE run_process(BOOL *should_await, BOOL game_process)
                 flags |= CREATE_NEW_CONSOLE;
         }
 
-        new_cmdline = (WCHAR *)HeapAlloc(GetProcessHeap(), 0,
+        new_cmdline = HeapAlloc(GetProcessHeap(), 0,
                 (lstrlenW(dos) + 3 + lstrlenW(remainder) + 1) * sizeof(WCHAR));
         lstrcpyW(new_cmdline, dquoteW);
         lstrcatW(new_cmdline, dos);
@@ -496,17 +495,18 @@ run:
     {
         WCHAR *param = NULL;
         WCHAR *executable_name_end = get_end_of_excutable_name(cmdline);
+        static const WCHAR verb[] = { 'o', 'p', 'e', 'n', 0 };
+        INT_PTR ret;
+
         if (*executable_name_end != '\0')
         {
             *executable_name_end = '\0';
             param = executable_name_end+1;
         }
-        static const WCHAR verb[] = { 'o', 'p', 'e', 'n', 0 };
-        INT_PTR ret;
 
         if ((ret = (INT_PTR)ShellExecuteW(NULL, verb, cmdline, param, NULL, hide_window ? SW_HIDE : SW_SHOWNORMAL)) < 32)
         {
-            WINE_ERR("Failed to execute %s, ret %u.\n", wine_dbgstr_w(cmdline), (unsigned int)ret);
+            WINE_ERR("Failed to execute %s, ret %u.\n", wine_dbgstr_w(cmdline), (int)ret);
             if (game_process && ret == SE_ERR_NOASSOC && link2ea)
             {
                 static const WCHAR msi_guidW[] = {'{','C','2','6','2','2','0','8','5','-','A','B','D','2','-','4','9','E','5','-','8','A','B','9','-','D','3','D','6','A','6','4','2','C','0','9','1','}',0};
@@ -596,7 +596,7 @@ static BOOL steam_command_handler(int argc, char *argv[])
     if (!p__wine_unix_spawnvp)
     {
         module = GetModuleHandleA("ntdll.dll");
-        p__wine_unix_spawnvp = (__WINE_UNIX_SPAWNVP)GetProcAddress(module, "__wine_unix_spawnvp");
+        p__wine_unix_spawnvp = (void *)GetProcAddress(module, "__wine_unix_spawnvp");
         if (!p__wine_unix_spawnvp)
         {
             WINE_ERR("Failed to load __wine_unix_spawnvp().\n");
@@ -604,7 +604,7 @@ static BOOL steam_command_handler(int argc, char *argv[])
         }
     }
 
-    if (!(unix_argv = static_cast<char **>(malloc((argc + 1) * sizeof(*unix_argv)))))
+    if (!(unix_argv = malloc((argc + 1) * sizeof(*unix_argv))))
     {
         WINE_ERR("Out of memory.\n");
         return FALSE;
@@ -705,7 +705,7 @@ static void setup_steam_files(void)
         if (end != start && end[-1] == '/') --end;
         while (end != start && end[-1] != '/') --end;
 
-        path = (char *)heap_alloc( end - start + 1 );
+        path = heap_alloc( end - start + 1 );
         lstrcpynA( path, start, end - start );
         if (!(str = escape_path_unix_to_dos( path )))
             ERR( "Could not convert %s to win path.\n", debugstr_a(path) );
@@ -895,7 +895,7 @@ int main(int argc, char *argv[])
     }
 
     if (game_process)
-        NtSetInformationProcess( GetCurrentProcess(), (PROCESSINFOCLASS)1000 /* ProcessWineMakeProcessSystem */,
+        NtSetInformationProcess( GetCurrentProcess(), 1000 /* ProcessWineMakeProcessSystem */,
                                  &wait_handle, sizeof(HANDLE *) );
 
     if(wait_handle != INVALID_HANDLE_VALUE)
@@ -915,7 +915,7 @@ int main(int argc, char *argv[])
             }
             else
             {
-                WINE_ERR("Failed to create restart event, err %lu.\n", GetLastError());
+                ERR("Failed to create restart event, err %u.\n", GetLastError());
             }
         }
         FreeConsole();
