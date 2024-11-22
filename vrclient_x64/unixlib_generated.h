@@ -29222,6 +29222,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_006_GetCameraTrackingSpace_params
 enum unix_funcs
 {
     unix_vrclient_init,
+    unix_vrclient_init_registry,
     unix_vrclient_HmdSystemFactory,
     unix_vrclient_VRClientCoreFactory,
     unix_vrclient_unload,

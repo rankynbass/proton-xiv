@@ -208,10 +208,49 @@ static BOOL set_vr_status( HKEY key, DWORD value )
     return TRUE;
 }
 
+static HMODULE vrclient;
+
+static DWORD WINAPI initialize_vr_data( void *arg )
+{
+    struct vrclient_init_registry_params params = {.vr_key = arg};
+    HKEY vr_key = arg;
+    HMODULE openxr;
+
+    VRCLIENT_CALL( vrclient_init_registry, &params );
+
+    if (!params._ret)
+    {
+        ERR( "Failed to initialize VR info.\n" );
+        set_vr_status( vr_key, -1 );
+    }
+    else
+    {
+        if (!(openxr = LoadLibraryW( L"wineopenxr" )))
+            WARN( "Could not load wineopenxr, err %u.\n", GetLastError() );
+        else
+        {
+            BOOL (CDECL * init)(void);
+
+            if ((init = (void *)GetProcAddress( openxr, "wineopenxr_init_registry" ))) init();
+            else ERR( "Failed to find wineopenxr_init_registry export\n" );
+
+            FreeLibrary( openxr );
+        }
+
+        set_vr_status( vr_key, 1 );
+        WINE_TRACE( "Completed VR info initialization.\n" );
+    }
+
+    RegCloseKey( vr_key );
+
+    FreeLibraryAndExitThread( vrclient, 0 );
+}
+
 BOOL CDECL vrclient_init_registry(void)
 {
     WCHAR pathW[PATH_MAX];
     LSTATUS status;
+    HANDLE thread;
     HKEY vr_key;
     DWORD disp;
 
@@ -261,8 +300,17 @@ BOOL CDECL vrclient_init_registry(void)
         return FALSE;
     }
 
+    GetModuleHandleExA( GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS, (void *)initialize_vr_data, &vrclient );
+    if (!(thread = CreateThread( NULL, 0, initialize_vr_data, vr_key, 0, NULL )))
+    {
+        WINE_ERR( "Could not create thread, error %u.\n", GetLastError() );
+        FreeLibrary( vrclient );
+        RegCloseKey( vr_key );
+        return FALSE;
+    }
+    CloseHandle( thread );
+
     TRACE( "Initialized OpenVR registry entries\n" );
-    RegCloseKey( vr_key );
     return TRUE;
 }
 

@@ -101,6 +101,10 @@ typedef struct VkQueue_T VkQueue_T;
 #define VRRenderModelError_InvalidArg 300
 #define VRRenderModelError_InvalidTexture 400
 
+#define VRApplication_Background 3
+
+#define VRInitError_Init_NoServerForBackgroundApp 121
+
 #define VRCompositorTimingMode_Explicit_ApplicationPerformsPostPresentHandoff 2
 
 enum EVRSubmitFlags

@@ -53,6 +53,12 @@ struct vrclient_init_params
     char *unix_path;
 };
 
+struct vrclient_init_registry_params
+{
+    int8_t _ret;
+    HKEY vr_key;
+};
+
 struct vrclient_HmdSystemFactory_params
 {
     void *_ret;
