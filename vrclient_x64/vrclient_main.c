@@ -109,10 +109,7 @@ struct w_steam_iface *create_win_interface(const char *name, void *linux_side)
 
 static int load_vrclient(void)
 {
-    static const WCHAR PROTON_VR_RUNTIME_W[] = {'P','R','O','T','O','N','_','V','R','_','R','U','N','T','I','M','E',0};
-    static const WCHAR winevulkanW[] = {'w','i','n','e','v','u','l','k','a','n','.','d','l','l',0};
-
-    struct vrclient_init_params params = {.winevulkan = LoadLibraryW( winevulkanW )};
+    struct vrclient_init_params params = {.winevulkan = LoadLibraryW( L"winevulkan.dll" )};
     WCHAR pathW[PATH_MAX];
     DWORD sz;
 
@@ -125,20 +122,20 @@ static int load_vrclient(void)
     if (vrclient_loaded) return 1;
 
     /* PROTON_VR_RUNTIME is provided by the proton setup script */
-    if(!GetEnvironmentVariableW(PROTON_VR_RUNTIME_W, pathW, ARRAY_SIZE(pathW)))
+    if(!GetEnvironmentVariableW(L"PROTON_VR_RUNTIME", pathW, ARRAY_SIZE(pathW)))
     {
         DWORD type, size;
         LSTATUS status;
         HKEY vr_key;
 
-        if ((status = RegOpenKeyExA(HKEY_CURRENT_USER, "Software\\Wine\\VR", 0, KEY_READ, &vr_key)))
+        if ((status = RegOpenKeyExW(HKEY_CURRENT_USER, L"Software\\Wine\\VR", 0, KEY_READ, &vr_key)))
         {
             WINE_WARN("Could not create key, status %#x.\n", status);
             return 0;
         }
 
         size = sizeof(pathW);
-        if ((status = RegQueryValueExW(vr_key, PROTON_VR_RUNTIME_W, NULL, &type, (BYTE *)pathW, &size)))
+        if ((status = RegQueryValueExW(vr_key, L"PROTON_VR_RUNTIME", NULL, &type, (BYTE *)pathW, &size)))
         {
             WINE_WARN("Could not query value, status %#x.\n", status);
             RegCloseKey(vr_key);
@@ -207,14 +204,14 @@ static int8_t is_hmd_present_reg(void)
     HANDLE event;
     HKEY vr_key;
 
-    if ((status = RegOpenKeyExA(HKEY_CURRENT_USER, "Software\\Wine\\VR", 0, KEY_READ, &vr_key)))
+    if ((status = RegOpenKeyExW(HKEY_CURRENT_USER, L"Software\\Wine\\VR", 0, KEY_READ, &vr_key)))
     {
         WINE_ERR("Could not create key, status %#x.\n", status);
         return FALSE;
     }
 
     size = sizeof(value);
-    if ((status = RegQueryValueExA(vr_key, "state", NULL, &type, (BYTE *)&value, &size)))
+    if ((status = RegQueryValueExW(vr_key, L"state", NULL, &type, (BYTE *)&value, &size)))
     {
         WINE_ERR("Could not query value, status %#x.\n", status);
         RegCloseKey(vr_key);
@@ -233,7 +230,7 @@ static int8_t is_hmd_present_reg(void)
         return value == 1;
     }
 
-    event = CreateEventA( NULL, FALSE, FALSE, NULL );
+    event = CreateEventW( NULL, FALSE, FALSE, NULL );
     while (1)
     {
         if (RegNotifyChangeKeyValue(vr_key, FALSE, REG_NOTIFY_CHANGE_LAST_SET, event, TRUE))
@@ -242,7 +239,7 @@ static int8_t is_hmd_present_reg(void)
             goto done;
         }
         size = sizeof(value);
-        if ((status = RegQueryValueExA(vr_key, "state", NULL, &type, (BYTE *)&value, &size)))
+        if ((status = RegQueryValueExW(vr_key, L"state", NULL, &type, (BYTE *)&value, &size)))
         {
             WINE_ERR("Could not query value, status %#x.\n", status);
             goto done;
@@ -263,7 +260,7 @@ static int8_t is_hmd_present_reg(void)
         goto done;
 
     size = sizeof(is_hmd_present);
-    if ((status = RegQueryValueExA(vr_key, "is_hmd_present", NULL, &type, (BYTE *)&is_hmd_present, &size)))
+    if ((status = RegQueryValueExW(vr_key, L"is_hmd_present", NULL, &type, (BYTE *)&is_hmd_present, &size)))
         WINE_ERR("Could not query is_hmd_present value, status %#x.\n", status);
 
 done:
