@@ -370,7 +370,6 @@ all-dist: $(DIST_WINEOPENXR64_JSON)
 
 STEAMEXE_CFLAGS = \
 	-I$(SRC)/lsteamclient/steamworks_sdk_142/ \
-	-I$(SRC)/openvr/headers/ \
 
 STEAMEXE_LDFLAGS = \
 	-L$(SRC)/steam_helper/32/ \
