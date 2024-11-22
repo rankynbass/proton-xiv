@@ -436,8 +436,8 @@ done:
     return value == 1;
 }
 
-int WINAPI __wineopenxr_get_extensions_internal(char **ret_instance_extensions,
-        char **ret_device_extensions, uint32_t *ret_physdev_vid, uint32_t *ret_physdev_pid)
+static int get_extensions( char **ret_instance_extensions, char **ret_device_extensions,
+                           uint32_t *ret_physdev_vid, uint32_t *ret_physdev_pid )
 {
     PFN_xrGetVulkanInstanceExtensionsKHR pxrGetVulkanInstanceExtensionsKHR;
     PFN_xrGetSystem pxrGetSystem;
@@ -2452,7 +2452,7 @@ BOOL CDECL wineopenxr_init_registry(void)
         return FALSE;
     }
 
-    if (!__wineopenxr_get_extensions_internal( &xr_inst_ext, &xr_dev_ext, &vid, &pid ))
+    if (!get_extensions( &xr_inst_ext, &xr_dev_ext, &vid, &pid ))
     {
         TRACE( "Got XR extensions.\n" );
         if ((status = RegSetValueExA( vr_key, "openxr_vulkan_instance_extensions", 0, REG_SZ,
