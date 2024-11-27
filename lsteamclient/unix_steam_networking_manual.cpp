@@ -4,6 +4,8 @@
 #pragma makedep unix
 #endif
 
+#include <unordered_map>
+
 WINE_DEFAULT_DEBUG_CHANNEL(steamclient);
 
 static void receive_messages_utow_144( uint32_t count, u_SteamNetworkingMessage_t_144 **u_msgs,
@@ -600,6 +602,41 @@ template <typename T> void free_callback_obj(T *obj)
     delete obj;
 }
 
+
+
+template <typename T> class callback_obj_tracker
+{
+    std::unordered_map<void *, T *> tracked_objects;
+
+  public:
+    void request_released( void *hrequest )
+    {
+        auto entry = tracked_objects.find( hrequest );
+        if (entry == tracked_objects.end())
+        {
+            WARN( "Object not found for request %p.\n", hrequest );
+            return;
+        }
+        TRACE( "request %p, deleting %p.\n", hrequest, entry->second );
+        free_callback_obj( entry->second );
+        tracked_objects.erase( entry );
+    }
+
+    void add_request( void *hrequest, T *obj )
+    {
+        auto entry = tracked_objects.find( hrequest );
+
+        TRACE( "request %p, obj %p.\n", hrequest, obj );
+        if (entry == tracked_objects.end())
+        {
+            tracked_objects[hrequest] = obj;
+            return;
+        }
+        ERR( "hrequest %p already registered, old %p, new %p.\n", hrequest, entry->second, obj );
+        entry->second = obj;
+    }
+};
+
 struct SteamMatchmakingServerListResponse_099u : u_ISteamMatchmakingServerListResponse_099u
 {
     struct w_steam_iface *w_iface;
@@ -621,8 +658,7 @@ void SteamMatchmakingServerListResponse_099u::ServerFailedToRespond( int32_t iSe
 void SteamMatchmakingServerListResponse_099u::RefreshComplete( uint32_t response )
 {
     queue_vtable_callback( this->w_iface, CALL_IFACE_VTABLE_2, (intptr_t)response, 0, 0 );
-    TRACE("Deleting this %p, w_iface %p.\n", this, this->w_iface);
-    free_callback_obj(this);
+    TRACE( "RefreshComplete this %p, w_iface %p.\n", this, this->w_iface );
 }
 
 u_ISteamMatchmakingServerListResponse_099u *create_LinuxISteamMatchmakingServerListResponse_099u( void *win )
@@ -641,10 +677,27 @@ u_ISteamMatchmakingServerListResponse_099u *create_LinuxISteamMatchmakingServerL
 struct SteamMatchmakingServerListResponse_106 : u_ISteamMatchmakingServerListResponse_106
 {
     struct w_steam_iface *w_iface;
+    static class callback_obj_tracker<SteamMatchmakingServerListResponse_106> track;
+
+    void add_request( void *hrequest)
+    {
+        if (hrequest) track.add_request( hrequest, this );
+        else
+        {
+            WARN( "NULL request.\n" );
+            free_callback_obj( this );
+        }
+    }
+    static void request_released( void *hrequest )
+    {
+        track.request_released( hrequest );
+    }
+
     virtual void ServerResponded( void *, int32_t );
     virtual void ServerFailedToRespond( void *, int32_t );
     virtual void RefreshComplete( void *, uint32_t );
 };
+class callback_obj_tracker<SteamMatchmakingServerListResponse_106> SteamMatchmakingServerListResponse_106::track;
 
 void SteamMatchmakingServerListResponse_106::ServerResponded( void *hRequest, int32_t iServer )
 {
@@ -659,11 +712,10 @@ void SteamMatchmakingServerListResponse_106::ServerFailedToRespond( void *hReque
 void SteamMatchmakingServerListResponse_106::RefreshComplete( void *hRequest, uint32_t response )
 {
     queue_vtable_callback( this->w_iface, CALL_IFACE_VTABLE_2, (intptr_t)hRequest, (intptr_t)response, 0 );
-    TRACE("Deleting this %p, w_iface %p.\n", this, this->w_iface);
-    free_callback_obj(this);
+    TRACE( "RefreshComplete this %p, w_iface %p.\n", this, this->w_iface );
 }
 
-u_ISteamMatchmakingServerListResponse_106 *create_LinuxISteamMatchmakingServerListResponse_106( void *win )
+SteamMatchmakingServerListResponse_106 *create_LinuxISteamMatchmakingServerListResponse_106( void *win )
 {
     SteamMatchmakingServerListResponse_106 *ret;
 
@@ -884,8 +936,9 @@ NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_RequestInternetServ
 {
     struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestInternetServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestInternetServerList_params *)args;
     struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->linux_side;
-    u_ISteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
+    SteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
     params->_ret = iface->RequestInternetServerList( params->iApp, params->ppchFilters, params->nFilters, u_pRequestServersResponse );
+    u_pRequestServersResponse->add_request( params->_ret );
     return 0;
 }
 
@@ -893,8 +946,9 @@ NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_RequestLANServerLis
 {
     struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestLANServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestLANServerList_params *)args;
     struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->linux_side;
-    u_ISteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
+    SteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
     params->_ret = iface->RequestLANServerList( params->iApp, u_pRequestServersResponse );
+    u_pRequestServersResponse->add_request( params->_ret );
     return 0;
 }
 
@@ -902,8 +956,9 @@ NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_RequestFriendsServe
 {
     struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestFriendsServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestFriendsServerList_params *)args;
     struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->linux_side;
-    u_ISteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
+    SteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
     params->_ret = iface->RequestFriendsServerList( params->iApp, params->ppchFilters, params->nFilters, u_pRequestServersResponse );
+    u_pRequestServersResponse->add_request( params->_ret );
     return 0;
 }
 
@@ -911,8 +966,9 @@ NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_RequestFavoritesSer
 {
     struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestFavoritesServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestFavoritesServerList_params *)args;
     struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->linux_side;
-    u_ISteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
+    SteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
     params->_ret = iface->RequestFavoritesServerList( params->iApp, params->ppchFilters, params->nFilters, u_pRequestServersResponse );
+    u_pRequestServersResponse->add_request( params->_ret );
     return 0;
 }
 
@@ -920,8 +976,9 @@ NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_RequestHistoryServe
 {
     struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestHistoryServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestHistoryServerList_params *)args;
     struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->linux_side;
-    u_ISteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
+    SteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
     params->_ret = iface->RequestHistoryServerList( params->iApp, params->ppchFilters, params->nFilters, u_pRequestServersResponse );
+    u_pRequestServersResponse->add_request( params->_ret );
     return 0;
 }
 
@@ -929,8 +986,9 @@ NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_RequestSpectatorSer
 {
     struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestSpectatorServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestSpectatorServerList_params *)args;
     struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->linux_side;
-    u_ISteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
+    SteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
     params->_ret = iface->RequestSpectatorServerList( params->iApp, params->ppchFilters, params->nFilters, u_pRequestServersResponse );
+    u_pRequestServersResponse->add_request( params->_ret );
     return 0;
 }
 
@@ -966,6 +1024,7 @@ NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_ReleaseRequest( voi
     struct ISteamMatchmakingServers_SteamMatchMakingServers002_ReleaseRequest_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_ReleaseRequest_params *)args;
     struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->linux_side;
     iface->ReleaseRequest( params->hServerListRequest );
+    SteamMatchmakingServerListResponse_106::request_released( params->hServerListRequest );
     return 0;
 }
 
