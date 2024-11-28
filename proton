@@ -1191,6 +1191,7 @@ def default_compat_config():
                 "2249070", #Strip Fighter ZERO
                 "1845910", #Dragon Age: The Veilguard
                 "6030", #Star Wars - Jedi Knight II: Jedi Outcast
+                "2842040", #Star Wars Outlaws
                 ]:
             ret.add("gamedrive")
 
