@@ -69,7 +69,7 @@ static void set_active_process_pid(void)
                      REG_DWORD, &pid, sizeof(pid) );
 }
 
-static DWORD WINAPI create_steam_window(void *arg)
+static DWORD WINAPI create_steam_windows(void *arg)
 {
     static WNDCLASSEXW wndclass = { sizeof(WNDCLASSEXW) };
     MSG msg;
@@ -79,6 +79,7 @@ static DWORD WINAPI create_steam_window(void *arg)
 
     RegisterClassExW(&wndclass);
     CreateWindowW( wndclass.lpszClassName, L"Steam", WS_POPUP, 40, 40, 400, 300, NULL, NULL, NULL, NULL );
+    CreateWindowA("static", "SteamVR Status", WS_POPUP, 0, 0, 0, 0, NULL, NULL, NULL, NULL);
 
     while (GetMessageW(&msg, NULL, 0, 0))
     {
@@ -802,7 +803,7 @@ int main(int argc, char *argv[])
         /* For 2K Launcher. */
         event2 = CreateEventW( NULL, FALSE, FALSE, L"Global\\Valve_SteamIPC_Class" );
 
-        CreateThread(NULL, 0, create_steam_window, NULL, 0, NULL);
+        CreateThread(NULL, 0, create_steam_windows, NULL, 0, NULL);
 
         set_active_process_pid();
 
