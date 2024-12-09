@@ -395,7 +395,6 @@ WINE_SOURCE_ARGS = \
   --exclude include/config.h.in \
   --exclude include/config.h.ink \
   --exclude include/wine/vulkan.h \
-  --exclude include/wine/vulkan_driver.h \
   --exclude dlls/vulkan-1/vulkan-1.spec \
   --exclude dlls/winevulkan/loader_thunks.c \
   --exclude dlls/winevulkan/loader_thunks.h \
