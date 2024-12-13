@@ -251,81 +251,6 @@ $(eval $(call rules-meson,gst_good,32))
 $(eval $(call rules-meson,gst_good,64))
 
 ##
-## FFmpeg
-##
-
-FFMPEG_CONFIGURE_ARGS := \
-	--enable-shared \
-	--disable-static \
-	--disable-everything \
-	--disable-programs \
-	--disable-doc \
-	--enable-decoder=indeo5 \
-	--enable-decoder=adpcm_ms \
-	--enable-decoder=mpegvideo \
-	--enable-decoder=mpeg1video \
-	--enable-decoder=mp2 \
-	--enable-decoder=mpeg4 \
-	--enable-decoder=msmpeg4v1 \
-	--enable-decoder=msmpeg4v2 \
-	--enable-decoder=msmpeg4v3 \
-	--enable-decoder=vc1 \
-	--enable-decoder=vc1image \
-	--enable-decoder=wmav1 \
-	--enable-decoder=wmav2 \
-	--enable-decoder=wmapro \
-	--enable-decoder=wmalossless \
-	--enable-decoder=xma1 \
-	--enable-decoder=xma2 \
-	--enable-decoder=wmv3image \
-	--enable-decoder=wmv3 \
-	--enable-decoder=wmv2 \
-	--enable-decoder=wmv1 \
-	--enable-decoder=h264 \
-	--enable-decoder=aac \
-	--enable-demuxer=xwma \
-	--disable-inline-asm
-
-$(eval $(call rules-source,ffmpeg,$(SRCDIR)/ffmpeg))
-$(eval $(call rules-configure,ffmpeg,32))
-$(eval $(call rules-configure,ffmpeg,64))
-
-
-##
-## gst-libav
-##
-
-GST_LIBAV_DEPENDS = gst_orc gstreamer gst_base ffmpeg
-
-$(eval $(call rules-source,gst_libav,$(SRCDIR)/gstreamer/subprojects/gst-libav))
-$(eval $(call rules-meson,gst_libav,32))
-$(eval $(call rules-meson,gst_libav,64))
-
-
-##
-## gst-plugins-rs
-##
-
-GST_PLUGINS_RS_CARGO_ARGS = \
-	-p gst-plugin-dav1d
-
-GST_PLUGINS_RS_DEPENDS = gst_orc gstreamer gst_base dav1d
-
-$(eval $(call rules-source,gst_plugins_rs,$(SRCDIR)/gst-plugins-rs))
-$(eval $(call rules-cargo,gst_plugins_rs,32))
-$(eval $(call rules-cargo,gst_plugins_rs,64))
-
-$(OBJ)/.gst_plugins_rs-post-build64:
-	mkdir -p $(GST_PLUGINS_RS_DST64)/lib64/gstreamer-1.0/
-	cp -a $(GST_PLUGINS_RS_OBJ64)/x86_64-unknown-linux-gnu/release/libgstdav1d.so $(GST_PLUGINS_RS_DST64)/lib64/gstreamer-1.0/
-	touch $@
-
-$(OBJ)/.gst_plugins_rs-post-build32:
-	mkdir -p $(GST_PLUGINS_RS_DST32)/lib/gstreamer-1.0/
-	cp -a $(GST_PLUGINS_RS_OBJ32)/i686-unknown-linux-gnu/release/libgstdav1d.so $(GST_PLUGINS_RS_DST32)/lib/gstreamer-1.0/
-	touch $@
-
-##
 ## gst-plugins-bad
 ##
 
@@ -460,6 +385,82 @@ GST_UGLY_DEPENDS = gst_orc gstreamer gst_base
 $(eval $(call rules-source,gst_ugly,$(SRCDIR)/gstreamer/subprojects/gst-plugins-ugly))
 $(eval $(call rules-meson,gst_ugly,32))
 $(eval $(call rules-meson,gst_ugly,64))
+
+##
+## FFmpeg
+##
+
+FFMPEG_CONFIGURE_ARGS := \
+	--enable-shared \
+	--disable-static \
+	--disable-everything \
+	--disable-programs \
+	--disable-doc \
+	--enable-decoder=indeo5 \
+	--enable-decoder=adpcm_ms \
+	--enable-decoder=mpegvideo \
+	--enable-decoder=mpeg1video \
+	--enable-decoder=mp2 \
+	--enable-decoder=mpeg4 \
+	--enable-decoder=msmpeg4v1 \
+	--enable-decoder=msmpeg4v2 \
+	--enable-decoder=msmpeg4v3 \
+	--enable-decoder=vc1 \
+	--enable-decoder=vc1image \
+	--enable-decoder=wmav1 \
+	--enable-decoder=wmav2 \
+	--enable-decoder=wmapro \
+	--enable-decoder=wmalossless \
+	--enable-decoder=xma1 \
+	--enable-decoder=xma2 \
+	--enable-decoder=wmv3image \
+	--enable-decoder=wmv3 \
+	--enable-decoder=wmv2 \
+	--enable-decoder=wmv1 \
+	--enable-decoder=h264 \
+	--enable-decoder=aac \
+	--enable-demuxer=xwma \
+	--disable-inline-asm
+
+$(eval $(call rules-source,ffmpeg,$(SRCDIR)/ffmpeg))
+$(eval $(call rules-configure,ffmpeg,32))
+$(eval $(call rules-configure,ffmpeg,64))
+
+
+##
+## gst-libav
+##
+
+GST_LIBAV_DEPENDS = gst_orc gstreamer gst_base ffmpeg
+
+$(eval $(call rules-source,gst_libav,$(SRCDIR)/gstreamer/subprojects/gst-libav))
+$(eval $(call rules-meson,gst_libav,32))
+$(eval $(call rules-meson,gst_libav,64))
+
+
+##
+## gst-plugins-rs
+##
+
+GST_PLUGINS_RS_CARGO_ARGS = \
+	-p gst-plugin-dav1d
+
+GST_PLUGINS_RS_DEPENDS = gst_orc gstreamer gst_base dav1d
+
+$(eval $(call rules-source,gst_plugins_rs,$(SRCDIR)/gst-plugins-rs))
+$(eval $(call rules-cargo,gst_plugins_rs,32))
+$(eval $(call rules-cargo,gst_plugins_rs,64))
+
+$(OBJ)/.gst_plugins_rs-post-build64:
+	mkdir -p $(GST_PLUGINS_RS_DST64)/lib64/gstreamer-1.0/
+	cp -a $(GST_PLUGINS_RS_OBJ64)/x86_64-unknown-linux-gnu/release/libgstdav1d.so $(GST_PLUGINS_RS_DST64)/lib64/gstreamer-1.0/
+	touch $@
+
+$(OBJ)/.gst_plugins_rs-post-build32:
+	mkdir -p $(GST_PLUGINS_RS_DST32)/lib/gstreamer-1.0/
+	cp -a $(GST_PLUGINS_RS_OBJ32)/i686-unknown-linux-gnu/release/libgstdav1d.so $(GST_PLUGINS_RS_DST32)/lib/gstreamer-1.0/
+	touch $@
+
 
 ##
 ## Vulkan-Headers
@@ -636,6 +637,19 @@ $(eval $(call rules-source,vosk,$(SRCDIR)/vosk-api))
 $(eval $(call rules-cmake,vosk,32))
 $(eval $(call rules-cmake,vosk,64))
 
+##
+## piper
+##
+
+$(eval $(call rules-source,piper,$(SRCDIR)/piper))
+$(eval $(call rules-cmake,piper,64))
+
+$(OBJ)/.piper-post-build64:
+	mkdir -p $(PIPER_DST64)/lib64
+	mkdir -p $(DST_DIR)/share
+	mv $(PIPER_DST64)/*.so* $(PIPER_DST64)/lib64/
+	cp -a $(PIPER_DST64)/{espeak-ng-data,libtashkeel_model.ort} $(DST_DIR)/share/
+	touch $@
 
 ##
 ## wine
@@ -674,6 +688,7 @@ WINE_CONFIGURE_ARGS64 = --enable-win64 \
   VKD3D_PE_LIBS="-L$(VKD3D_DST64)/bin -l:libvkd3d-1.dll -l:libvkd3d-shader-1.dll"
 
 WINE_DEPENDS = gst_orc gstreamer gst_base vkd3d openfst kaldi vosk
+WINE_DEPENDS64 = piper
 
 $(eval $(call rules-source,wine,$(SRCDIR)/wine))
 $(eval $(call rules-autoconf,wine,32))
@@ -1214,7 +1229,7 @@ all-dist: $(DIST_GECKO32) $(DIST_GECKO64)
 ## wine-mono
 ##
 
-WINEMONO_VER := 9.3.0
+WINEMONO_VER := 9.3.1
 WINEMONO_TARBALL := wine-mono-$(WINEMONO_VER)-x86.tar.xz
 DIST_WINEMONO_DIR := $(DST_DIR)/share/wine/mono
 DIST_WINEMONO := $(OBJ)/.wine-mono-dist
@@ -1255,19 +1270,33 @@ $(DIST_XALIA): $(SRC)/contrib/$(XALIA_ZIP)
 
 all-dist: $(DIST_XALIA)
 
+
 ##
 ## ICU
 ##
+
 ICU_VER := 6.8.2
-DIST_ICU_DIR := $(DST_DIR)/lib64/icu
-DIST_ICU := $(OBJ)/.icu-dist
-ICU_TARBALL := icu-$(ICU_VER)-x86_64.tar.xz
-$(DIST_ICU): $(SRC)/icu/$(ICU_TARBALL)
-	mkdir -p $(DIST_ICU_DIR)
-	rm -rf $(DIST_ICU_DIR)/*.dll
-	tar --no-same-owner -xf $< -C $(DIST_ICU_DIR)
+DIST_ICU64_DIR := $(DST_DIR)/lib64/icu
+DIST_ICU64 := $(OBJ)/.icu-dist64
+ICU64_TARBALL := icu-$(ICU_VER)-x86_64.tar.xz
+DIST_ICU32_DIR := $(DST_DIR)/lib/icu
+DIST_ICU32 := $(OBJ)/.icu-dist32
+ICU32_TARBALL := icu-$(ICU_VER)-x86.tar.xz
+
+$(DIST_ICU64): $(SRC)/icu/$(ICU64_TARBALL)
+	mkdir -p $(DIST_ICU64_DIR)
+	rm -rf $(DIST_ICU64_DIR)/*.dll
+	tar --no-same-owner -xf $< -C $(DIST_ICU64_DIR)
 	touch $@
-all-dist: $(DIST_ICU)
+
+$(DIST_ICU32): $(SRC)/icu/$(ICU32_TARBALL)
+	mkdir -p $(DIST_ICU32_DIR)
+	rm -rf $(DIST_ICU32_DIR)/*.dll
+	tar --no-same-owner -xf $< -C $(DIST_ICU32_DIR)
+	touch $@
+
+all-dist: $(DIST_ICU64) $(DIST_ICU32)
+
 
 ##
 ## openvr

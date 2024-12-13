@@ -5,14 +5,6 @@
 #pragma makedep unix
 #endif
 
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_ReleaseRequest( void *args )
-{
-    struct ISteamMatchmakingServers_SteamMatchMakingServers002_ReleaseRequest_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_ReleaseRequest_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->linux_side;
-    iface->ReleaseRequest( params->hServerListRequest );
-    return 0;
-}
-
 NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_GetServerDetails( void *args )
 {
     struct ISteamMatchmakingServers_SteamMatchMakingServers002_GetServerDetails_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_GetServerDetails_params *)args;

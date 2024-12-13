@@ -99,7 +99,7 @@ static void set_active_process_pid(void)
     RegSetKeyValueA(HKEY_CURRENT_USER, "Software\\Valve\\Steam\\ActiveProcess", "pid", REG_DWORD, &pid, sizeof(pid));
 }
 
-static DWORD WINAPI create_steam_window(void *arg)
+static DWORD WINAPI create_steam_windows(void *arg)
 {
     static WNDCLASSEXW wndclass = { sizeof(WNDCLASSEXW) };
     static const WCHAR class_nameW[] = {'v','g','u','i','P','o','p','u','p','W','i','n','d','o','w',0};
@@ -112,6 +112,7 @@ static DWORD WINAPI create_steam_window(void *arg)
     RegisterClassExW(&wndclass);
     CreateWindowW(class_nameW, steamW, WS_POPUP, 40, 40,
                   400, 300, NULL, NULL, NULL, NULL);
+    CreateWindowA("static", "SteamVR Status", WS_POPUP, 0, 0, 0, 0, NULL, NULL, NULL, NULL);
 
     while (GetMessageW(&msg, NULL, 0, 0))
     {
@@ -259,6 +260,23 @@ static void setup_eac_bridge(void)
     WINE_TRACE("Found easyanticheat runtime at %s\n", path);
 
     setenv("PROTON_EAC_RUNTIME", path, 1);
+}
+
+static void setup_proton_voice_files(void)
+{
+    const unsigned int proton_voice_files_appid = 3086180;
+    char path[2048];
+    char *path_end;
+
+    if (!SteamApps()->BIsAppInstalled(proton_voice_files_appid))
+        return;
+
+    if (!SteamApps()->GetAppInstallDir(proton_voice_files_appid, path, sizeof(path)))
+        return;
+
+    WINE_TRACE("Found proton voice files at %s\n", path);
+
+    setenv("PROTON_VOICE_FILES", path, 1);
 }
 
 static std::string get_linux_vr_path(void)
@@ -1719,7 +1737,7 @@ int main(int argc, char *argv[])
         /* For 2K Launcher. */
         event2 = CreateEventA(NULL, FALSE, FALSE, "Global\\Valve_SteamIPC_Class");
 
-        CreateThread(NULL, 0, create_steam_window, NULL, 0, NULL);
+        CreateThread(NULL, 0, create_steam_windows, NULL, 0, NULL);
 
         set_active_process_pid();
 
@@ -1728,6 +1746,7 @@ int main(int argc, char *argv[])
             setup_steam_registry();
             setup_battleye_bridge();
             setup_eac_bridge();
+            setup_proton_voice_files();
         }
         else
         {

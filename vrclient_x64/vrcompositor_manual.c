@@ -430,7 +430,8 @@ static const w_Texture_t *set_skybox_override_init( const w_Texture_t *textures,
     if (textures[0].eType == TextureType_DirectX)
         return set_skybox_override_d3d11_init( textures, count, state );
 
-    FIXME( "Conversion for type %u is not supported.\n", textures[0].eType );
+    if (textures[0].eType != TextureType_Vulkan)
+        FIXME( "Conversion for type %u is not supported.\n", textures[0].eType );
     return textures;
 }
 

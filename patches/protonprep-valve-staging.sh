@@ -339,6 +339,9 @@
     echo "WINE: -CUSTOM- Downgrade MESSAGE to TRACE to remove write_watches spam"
     patch -Np1 < ../patches/proton/0001-ntdll-Downgrade-using-kernel-write-watches-from-MESS.patch
 
+    echo "WINE: -CUSTOM- Fix wine bug #56653 - GetLogicalProcessorInformation can be missing Cache information"
+    patch -Np1 < ../patches/wine-bug-56653.patch
+
     popd
 
 ### END PROTON-GE ADDITIONAL CUSTOM PATCHES ###
