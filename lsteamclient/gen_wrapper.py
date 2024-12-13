@@ -235,7 +235,7 @@ MANUAL_METHODS = {
 
     "ISteamMatchmakingServers_PingServer": lambda ver, abi: abi == 'u',
     "ISteamMatchmakingServers_PlayerDetails": lambda ver, abi: abi == 'u',
-    "ISteamMatchmakingServers_ReleaseRequest": lambda ver, abi: abi == 'w',
+    "ISteamMatchmakingServers_ReleaseRequest": lambda ver, abi: abi == 'w' or abi == 'u',
     "ISteamMatchmakingServers_RequestFavoritesServerList": lambda ver, abi: abi == 'u',
     "ISteamMatchmakingServers_RequestFriendsServerList": lambda ver, abi: abi == 'u',
     "ISteamMatchmakingServers_RequestHistoryServerList": lambda ver, abi: abi == 'u',
@@ -384,6 +384,9 @@ PATH_CONV_METHODS_WTOU = {
     },
     "ISteamInput_SetInputActionManifestFilePath": {
         "pchInputActionManifestAbsolutePath": {"array": False, "url": False},
+    },
+    "ISteamFriends_ActivateGameOverlayToWebPage": {
+        "pchURL": {"array": False, "url": True},
     },
 }
 

@@ -544,6 +544,9 @@ VKD3D_CONFIGURE_ARGS = \
   --without-ncurses \
   SONAME_LIBVULKAN=vulkan-1 \
 
+# LTO is enabled by default, but causes the build to fail. I havent't
+# investigated this yet.
+VKD3D_CFLAGS = -fno-lto
 VKD3D_LDFLAGS = -static-libgcc $(CROSSLDFLAGS)
 VKD3D_DEPENDS = vulkan-headers spirv-headers
 
@@ -960,7 +963,7 @@ all-dist: $(DIST_GECKO32) $(DIST_GECKO64)
 ## wine-mono
 ##
 
-WINEMONO_VER := 9.2.0
+WINEMONO_VER := 9.3.1
 WINEMONO_TARBALL := wine-mono-$(WINEMONO_VER)-x86.tar.xz
 DIST_WINEMONO_DIR := $(DST_DIR)/share/wine/mono
 DIST_WINEMONO := $(OBJ)/.wine-mono-dist
@@ -983,7 +986,7 @@ all-dist: $(DIST_WINEMONO)
 ## xalia
 ##
 
-XALIA_VER := 0.4.2
+XALIA_VER := 0.4.4
 XALIA_ZIP := xalia-$(XALIA_VER)-net48-mono.zip
 DIST_XALIA_DIR := $(DST_DIR)/share/xalia
 DIST_XALIA := $(OBJ)/.xalia-dist
@@ -1000,6 +1003,33 @@ $(DIST_XALIA): $(SRC)/contrib/$(XALIA_ZIP)
 	touch $@
 
 all-dist: $(DIST_XALIA)
+
+
+##
+## ICU
+##
+
+ICU_VER := 6.8.2
+DIST_ICU64_DIR := $(DST_DIR)/lib64/icu
+DIST_ICU64 := $(OBJ)/.icu-dist64
+ICU64_TARBALL := icu-$(ICU_VER)-x86_64.tar.xz
+DIST_ICU32_DIR := $(DST_DIR)/lib/icu
+DIST_ICU32 := $(OBJ)/.icu-dist32
+ICU32_TARBALL := icu-$(ICU_VER)-x86.tar.xz
+
+$(DIST_ICU64): $(SRC)/icu/$(ICU64_TARBALL)
+	mkdir -p $(DIST_ICU64_DIR)
+	rm -rf $(DIST_ICU64_DIR)/*.dll
+	tar --no-same-owner -xf $< -C $(DIST_ICU64_DIR)
+	touch $@
+
+$(DIST_ICU32): $(SRC)/icu/$(ICU32_TARBALL)
+	mkdir -p $(DIST_ICU32_DIR)
+	rm -rf $(DIST_ICU32_DIR)/*.dll
+	tar --no-same-owner -xf $< -C $(DIST_ICU32_DIR)
+	touch $@
+
+all-dist: $(DIST_ICU64) $(DIST_ICU32)
 
 
 ##
