@@ -24,8 +24,15 @@
 #undef __cdecl
 #define XR_USE_GRAPHICS_API_OPENGL 1
 #define XR_USE_GRAPHICS_API_VULKAN 1
-#define WINE_VK_HOST
+
+#define WINE_UNIX_LIB
 #include "wine/vulkan.h"
+PFN_vkVoidFunction VKAPI_CALL vkGetDeviceProcAddr(VkDevice device, const char *pName);
+VkResult VKAPI_CALL vkCreateInstance(const VkInstanceCreateInfo *pCreateInfo, const VkAllocationCallbacks *pAllocator, VkInstance *pInstance);
+void VKAPI_CALL vkDestroyInstance(VkInstance instance, const VkAllocationCallbacks *pAllocator);
+void VKAPI_CALL vkGetPhysicalDeviceProperties(VkPhysicalDevice physicalDevice, VkPhysicalDeviceProperties *pProperties);
+#undef WINE_UNIX_LIB
+
 #define VULKAN_H_ 1// tell dxvk-interop not to include vulkan.h
 #include "dxvk-interop.h"
 #include "vkd3d-proton-interop.h"
