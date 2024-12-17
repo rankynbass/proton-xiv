@@ -1359,6 +1359,7 @@ def default_compat_config():
                 "7200", # Trackmania United Forever
                 "8000", # Tomb Raider: Anniversary
                 "11020", # TrackMania Nations Forever
+                "11450", # Overlord
                 "15750", # Oddworld: Stranger's Wrath HD
                 "22300", # Fallout 3
                 "22370", # Fallout 3: Game of the Year Edition
@@ -1370,6 +1371,13 @@ def default_compat_config():
                 "610190", # WARRIORS ALL-STARS
                 "712180", # Mugsters
                 "1818750", # MultiVersus
+                # Unity3D launchers:
+                "418620", # The TakeOver
+                "480450", # Floppy Heroes
+                "890930", # Whiskered Away
+                "931690", # Himno
+                "1050680", # Survirus
+                "3143980", # The Adventure of Ninomae Ina'nis
                 ]:
             ret.add("xalia")
 
