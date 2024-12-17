@@ -1346,7 +1346,7 @@ struct vk_create_instance_callback_context
     XrResult ret;
 };
 
-static VkResult WINAPI vk_create_instance_callback(const VkInstanceCreateInfo *create_info, const VkAllocationCallbacks *allocator,
+static VkResult vk_create_instance_callback(const VkInstanceCreateInfo *create_info, const VkAllocationCallbacks *allocator,
         VkInstance *vk_instance, void * (*pfnGetInstanceProcAddr)(VkInstance, const char *), void *context)
 {
     /* Only Unix calls here, called from the Unix side. */
@@ -1423,7 +1423,7 @@ struct vk_create_device_callback_context
     XrResult ret;
 };
 
-static VkResult WINAPI vk_create_device_callback(VkPhysicalDevice phys_dev, const VkDeviceCreateInfo *create_info, const VkAllocationCallbacks *allocator,
+static VkResult vk_create_device_callback(VkPhysicalDevice phys_dev, const VkDeviceCreateInfo *create_info, const VkAllocationCallbacks *allocator,
         VkDevice *vk_device, void * (*pfnGetInstanceProcAddr)(VkInstance, const char *), void *context)
 {
     /* Only Unix calls here, called from the Unix side. */
