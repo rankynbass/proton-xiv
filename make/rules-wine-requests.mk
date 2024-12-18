@@ -6,27 +6,24 @@ define create-rules-wine-requests
 $$($(2)_SRC)/include/wine/server_protocol.h: | $$(OBJ)/.$(1)-post-source
 $$($(2)_SRC)/include/wine/server_protocol.h: $$($(2)_ORIGIN)/include/wine/server_protocol.h
 	cp -a $$< $$@
-$$($(2)_SRC)/server/request.h: | $$(OBJ)/.$(1)-post-source
-$$($(2)_SRC)/server/request.h: $$($(2)_ORIGIN)/server/request.h
-	cp -a $$< $$@
 $$($(2)_SRC)/server/request_handlers.h: | $$(OBJ)/.$(1)-post-source
 $$($(2)_SRC)/server/request_handlers.h: $$($(2)_ORIGIN)/server/request_handlers.h
 	cp -a $$< $$@
-$$($(2)_SRC)/server/trace.c: | $$(OBJ)/.$(1)-post-source
-$$($(2)_SRC)/server/trace.c: $$($(2)_ORIGIN)/server/trace.c
+$$($(2)_SRC)/server/request_trace.h: | $$(OBJ)/.$(1)-post-source
+$$($(2)_SRC)/server/request_trace.h: $$($(2)_ORIGIN)/server/request_trace.h
 	cp -a $$< $$@
 
 $$(OBJ)/.$(1)-configure32: $$($(2)_SRC)/include/wine/server_protocol.h
-$$(OBJ)/.$(1)-configure32: $$($(2)_SRC)/server/request.h
-$$(OBJ)/.$(1)-configure32: $$($(2)_SRC)/server/trace.c
+$$(OBJ)/.$(1)-configure32: $$($(2)_SRC)/server/request_handlers.h
+$$(OBJ)/.$(1)-configure32: $$($(2)_SRC)/server/request_trace.h
 
 $$(OBJ)/.$(1)-configure64: $$($(2)_SRC)/include/wine/server_protocol.h
-$$(OBJ)/.$(1)-configure64: $$($(2)_SRC)/server/request.h
-$$(OBJ)/.$(1)-configure64: $$($(2)_SRC)/server/trace.c
+$$(OBJ)/.$(1)-configure64: $$($(2)_SRC)/server/request_handlers.h
+$$(OBJ)/.$(1)-configure64: $$($(2)_SRC)/server/request_trace.h
 
 $$(OBJ)/.$(1)-wine-requests: $$($(2)_SRC)/include/wine/server_protocol.h
-$$(OBJ)/.$(1)-wine-requests: $$($(2)_SRC)/server/request.h
-$$(OBJ)/.$(1)-wine-requests: $$($(2)_SRC)/server/trace.c
+$$(OBJ)/.$(1)-wine-requests: $$($(2)_SRC)/server/request_handlers.h
+$$(OBJ)/.$(1)-wine-requests: $$($(2)_SRC)/server/request_trace.h
 $$(OBJ)/.$(1)-wine-requests: $$($(2)_ORIGIN)/server/protocol.def
 $$(OBJ)/.$(1)-wine-requests: $$($(2)_ORIGIN)/tools/make_requests
 $$(OBJ)/.$(1)-wine-requests: | $$(OBJ)/.$(1)-post-source

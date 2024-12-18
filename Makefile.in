@@ -406,9 +406,8 @@ WINE_SOURCE_ARGS = \
   --exclude dlls/ntdll/ntsyscalls.h \
   --exclude dlls/win32u/win32syscalls.h \
   --exclude include/wine/server_protocol.h \
-  --exclude server/request.h \
   --exclude server/request_handlers.h \
-  --exclude server/trace.c \
+  --exclude server/request_trace.h \
 
 WINE_CONFIGURE_ARGS = \
   --enable-werror \
