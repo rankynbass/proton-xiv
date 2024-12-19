@@ -1245,6 +1245,8 @@ def default_compat_config():
                 "407810", #Hard Reset Redux
                 "2853730", #Skull and Bones
                 "233130", #Shadow Warrior
+                "2067160", #Simulakros
+                "2621010", #Simulakros Demo
                 ]:
             ret.add("disablenvapi")
 
