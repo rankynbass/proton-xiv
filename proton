@@ -1192,6 +1192,7 @@ def default_compat_config():
                 "1845910", #Dragon Age: The Veilguard
                 "6030", #Star Wars - Jedi Knight II: Jedi Outcast
                 "2842040", #Star Wars Outlaws
+                "245300", #Disney Epic Mickey 2: The Power of Two
                 ]:
             ret.add("gamedrive")
 
