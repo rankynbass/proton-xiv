@@ -15,6 +15,8 @@
 #include "d3d11_3.h"
 #include "d3d12.h"
 
+#include "wine/rbtree.h"
+
 /* we want to use the native linux header */
 #pragma push_macro("_WIN32")
 #pragma push_macro("__cdecl")
@@ -26,12 +28,18 @@
 #include "wine/vulkan.h"
 #define VULKAN_H_ 1// tell dxvk-interop not to include vulkan.h
 #include "dxvk-interop.h"
+#include "vkd3d-proton-interop.h"
 #undef WINE_VK_HOST
 #define XR_USE_GRAPHICS_API_D3D11 1
 #define XR_USE_GRAPHICS_API_D3D12 1
 #include <openxr/openxr_platform.h>
 #pragma pop_macro("_WIN32")
 #pragma pop_macro("__cdecl")
+
+typedef struct XrApiLayerCreateInfo XrApiLayerCreateInfo;
+typedef struct XrNegotiateLoaderInfo XrNegotiateLoaderInfo;
+typedef struct XrNegotiateApiLayerRequest XrNegotiateApiLayerRequest;
+typedef struct XrNegotiateRuntimeRequest XrNegotiateRuntimeRequest;
 
 #include "openxr_private.h"
 
@@ -72,6 +80,7 @@ static struct
 substitute_extensions[] =
 {
     {"XR_KHR_D3D11_enable", "XR_KHR_vulkan_enable"},
+    {"XR_KHR_D3D12_enable", "XR_KHR_vulkan_enable"},
     {"XR_KHR_win32_convert_performance_counter_time", "XR_KHR_convert_timespec_time", TRUE, TRUE},
 };
 
@@ -81,6 +90,26 @@ static char *wineopenxr_strdup(const char *src)
     char *r = heap_alloc(l);
     strcpy(r, src);
     return r;
+}
+
+struct handle_instance_lookup_entry
+{
+    struct rb_entry entry;
+    uint64_t handle;
+    struct openxr_instance_funcs *funcs;
+};
+
+static struct rb_tree handle_instance_lookup;
+static SRWLOCK handle_instance_lookup_lock = SRWLOCK_INIT;
+static struct wine_XrInstance *last_instance;
+
+static int wrapper_entry_compare(const void *key, const struct rb_entry *entry)
+{
+    struct handle_instance_lookup_entry *wrapper = RB_ENTRY_VALUE(entry, struct handle_instance_lookup_entry, entry);
+    const uint64_t *handle = key;
+    if (*handle < wrapper->handle) return -1;
+    if (*handle > wrapper->handle) return 1;
+    return 0;
 }
 
 VkDevice(*get_native_VkDevice)(VkDevice);
@@ -212,6 +241,7 @@ struct XrApiLayerNextInfo {
 
 static char *g_instance_extensions, *g_device_extensions;
 static uint32_t g_physdev_vid, g_physdev_pid;
+static XrVersion api_version = XR_CURRENT_API_VERSION;
 
 static char *strdupA(const char *s)
 {
@@ -357,27 +387,39 @@ done:
     {
         if ((status = RegQueryValueExA(vr_key, "openxr_vulkan_instance_extensions", NULL, &type, NULL, &size)))
         {
-            WINE_ERR("Error getting openxr_vulkan_instance_extensions, status %#x.\n", wait_status);
+            WINE_ERR("Error getting openxr_vulkan_instance_extensions, status %#x.\n", status);
             RegCloseKey(vr_key);
             return FALSE;
         }
         g_instance_extensions = heap_alloc(size);
         if ((status = RegQueryValueExA(vr_key, "openxr_vulkan_instance_extensions", NULL, &type, (BYTE *)g_instance_extensions, &size)))
         {
-            WINE_ERR("Error getting openxr_vulkan_instance_extensions, status %#x.\n", wait_status);
+            WINE_ERR("Error getting openxr_vulkan_instance_extensions, status %#x.\n", status);
             RegCloseKey(vr_key);
             return FALSE;
         }
         if ((status = RegQueryValueExA(vr_key, "openxr_vulkan_device_extensions", NULL, &type, NULL, &size)))
         {
-            WINE_ERR("Error getting openxr_vulkan_device_extensions, status %#x.\n", wait_status);
+            WINE_ERR("Error getting openxr_vulkan_device_extensions, status %#x.\n", status);
             RegCloseKey(vr_key);
             return FALSE;
         }
         g_device_extensions = heap_alloc(size);
         if ((status = RegQueryValueExA(vr_key, "openxr_vulkan_device_extensions", NULL, &type, (BYTE *)g_device_extensions, &size)))
         {
-            WINE_ERR("Error getting openxr_vulkan_device_extensions, status %#x.\n", wait_status);
+            WINE_ERR("Error getting openxr_vulkan_device_extensions, status %#x.\n", status);
+            RegCloseKey(vr_key);
+            return FALSE;
+        }
+        if ((status = RegQueryValueExA(vr_key, "openxr_vulkan_device_vid", NULL, &type, (BYTE *)&g_physdev_vid, &size)))
+        {
+            WINE_ERR("Error getting openxr_vulkan_device_vid, status: %#x.\n", status);
+            RegCloseKey(vr_key);
+            return FALSE;
+        }
+        if ((status = RegQueryValueExA(vr_key, "openxr_vulkan_device_pid", NULL, &type, (BYTE *)&g_physdev_pid, &size)))
+        {
+            WINE_ERR("Error getting openxr_vulkan_device_pid, status: %#x.\n", status);
             RegCloseKey(vr_key);
             return FALSE;
         }
@@ -388,7 +430,7 @@ done:
 }
 
 int WINAPI __wineopenxr_get_extensions_internal(char **ret_instance_extensions,
-        char **ret_device_extensions)
+        char **ret_device_extensions, uint32_t *ret_physdev_vid, uint32_t *ret_physdev_pid)
 {
     PFN_xrGetVulkanInstanceExtensionsKHR pxrGetVulkanInstanceExtensionsKHR;
     PFN_xrGetSystem pxrGetSystem;
@@ -418,7 +460,7 @@ int WINAPI __wineopenxr_get_extensions_internal(char **ret_instance_extensions,
         .applicationInfo = {
             .applicationVersion = 0,
             .engineVersion = 0,
-            .apiVersion = XR_CURRENT_API_VERSION,
+            .apiVersion = api_version,
         },
         .enabledApiLayerCount = 0,
         .enabledApiLayerNames = NULL,
@@ -460,6 +502,13 @@ int WINAPI __wineopenxr_get_extensions_internal(char **ret_instance_extensions,
     strcpy(xrCreateInfo.applicationInfo.engineName, "wineopenxr test instance");
 
     res = xrCreateInstance(&xrCreateInfo, &instance);
+    if (res == XR_ERROR_API_VERSION_UNSUPPORTED)
+    {
+        WINE_WARN("version %#llx unsupported.\n", (long long)api_version);
+        api_version = XR_MAKE_VERSION(1, 0, 0);
+        xrCreateInfo.applicationInfo.apiVersion = api_version;
+        res = xrCreateInstance(&xrCreateInfo, &instance);
+    }
     if(res != XR_SUCCESS){
         WINE_WARN("xrCreateInstance failed: %d\n", res);
         return res;
@@ -541,8 +590,8 @@ int WINAPI __wineopenxr_get_extensions_internal(char **ret_instance_extensions,
     }
 
     vkGetPhysicalDeviceProperties(vk_physdev, &vk_dev_props);
-    g_physdev_vid = vk_dev_props.vendorID;
-    g_physdev_pid = vk_dev_props.deviceID;
+    *ret_physdev_vid = vk_dev_props.vendorID;
+    *ret_physdev_pid = vk_dev_props.deviceID;
 
     res = pxrGetVulkanDeviceExtensionsKHR(instance, system, 0, &len, NULL);
     if(res != XR_SUCCESS){
@@ -587,6 +636,7 @@ XrResult load_host_openxr_loader(void)
 
     load_vk_unwrappers();
 
+    rb_init(&handle_instance_lookup, wrapper_entry_compare);
     return XR_SUCCESS;
 }
 
@@ -634,7 +684,6 @@ XrResult WINAPI wine_xrEnumerateInstanceExtensionProperties(const char *layerNam
                 else
                     dst = (*propertyCountOutput)++;
                 strcpy(properties[dst].extensionName, substitute_extensions[j].win32_ext);
-                break;
             }
         }
     }
@@ -701,6 +750,7 @@ XrResult WINAPI wine_xrGetD3D11GraphicsRequirementsKHR(XrInstance instance,
         /* FIXME: what if we have two of the same adapters? */
         if(adapter_desc.VendorId == g_physdev_vid &&
                 adapter_desc.DeviceId == g_physdev_pid){
+            WINE_TRACE("Found DXGI adapter for %#04x:%#04x\n", g_physdev_vid, g_physdev_pid);
             break;
         }
     }
@@ -741,9 +791,13 @@ XrResult WINAPI wine_xrGetD3D11GraphicsRequirementsKHR(XrInstance instance,
 XrResult WINAPI wine_xrGetD3D12GraphicsRequirementsKHR(XrInstance instance,
         XrSystemId systemId, XrGraphicsRequirementsD3D12KHR *graphicsRequirements)
 {
-    WINE_FIXME("unimplemented\n");
-    /* FIXME */
-    return XR_ERROR_INITIALIZATION_FAILED;
+    XrGraphicsRequirementsD3D11KHR requirements;
+    XrResult result = wine_xrGetD3D11GraphicsRequirementsKHR(instance, systemId, &requirements);
+    if (result != XR_SUCCESS)
+        return result;
+    graphicsRequirements->adapterLuid = requirements.adapterLuid;
+    graphicsRequirements->minFeatureLevel = D3D_FEATURE_LEVEL_11_0;
+    return XR_SUCCESS;
 }
 
 XrResult WINAPI wine_xrGetInstanceProcAddr(XrInstance instance, const char *fn_name, PFN_xrVoidFunction *out_fn)
@@ -825,6 +879,7 @@ XrResult WINAPI wine_xrCreateInstance(const XrInstanceCreateInfo *createInfo, Xr
 #undef USE_XR_FUNC
 
     *instance = (XrInstance)wine_instance;
+    last_instance = wine_instance;
 
 cleanup:
     for(i = 0; i < our_createInfo.enabledExtensionCount; ++i)
@@ -832,6 +887,13 @@ cleanup:
 
     heap_free((void*)our_createInfo.enabledExtensionNames);
     return res;
+}
+
+XrResult WINAPI wine_xrCreateApiLayerInstance(const XrInstanceCreateInfo *info, const XrApiLayerCreateInfo *layerInfo, XrInstance *instance)
+{
+    WINE_TRACE("%p, %p, %p\n", info, layerInfo, instance);
+
+    return wine_xrCreateInstance(info, instance);
 }
 
 XrResult WINAPI wine_xrDestroyInstance(XrInstance instance)
@@ -849,6 +911,13 @@ XrResult WINAPI wine_xrDestroyInstance(XrInstance instance)
 
     if(wine_instance->dxvk_device)
         wine_instance->dxvk_device->lpVtbl->Release(wine_instance->dxvk_device);
+
+    if (wine_instance->d3d12_device)
+    {
+        wine_instance->p_vkDestroyCommandPool(wine_instance->vk_device, wine_instance->vk_command_pool, NULL);
+        wine_instance->d3d12_device->lpVtbl->Release(wine_instance->d3d12_device);
+        wine_instance->d3d12_queue->lpVtbl->Release(wine_instance->d3d12_queue);
+    }
 
     heap_free(wine_instance);
 
@@ -984,6 +1053,75 @@ XrResult WINAPI wine_xrCreateSession(XrInstance instance, const XrSessionCreateI
 
                 break;
             }
+            case XR_TYPE_GRAPHICS_BINDING_D3D12_KHR:
+            {
+                const XrGraphicsBindingD3D12KHR *their_d3d12_binding = createInfo->next;
+                VkCommandPoolCreateInfo command_pool_create_info = {
+                    .sType = VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO,
+                    .flags = 0,
+                    .pNext = NULL,
+                };
+                HRESULT hr;
+                UINT32 queue_index;
+                VkQueueFlags queue_flags;
+                ID3D12DeviceExt1 *device_ext;
+                hr = ID3D12Device_QueryInterface(their_d3d12_binding->device, &IID_ID3D12DXVKInteropDevice, (void**)&wine_instance->d3d12_device);
+                if (FAILED(hr))
+                {
+                    WINE_WARN("Given ID3D12Device doesn't support ID3D12DXVKInteropDevice. Only vkd3d-proton is supported.\n");
+                    return XR_ERROR_VALIDATION_FAILURE;
+                }
+                hr = ID3D12Device_QueryInterface(their_d3d12_binding->device, &IID_ID3D12DeviceExt1, (void **)&device_ext);
+                if (FAILED(hr))
+                {
+                    WINE_WARN("Given ID3D12Device doesn't support ID3D12DeviceExt1. Only vkd3d-proton is supported.\n");
+                    return XR_ERROR_VALIDATION_FAILURE;
+                }
+
+                our_vk_binding.type = XR_TYPE_GRAPHICS_BINDING_VULKAN_KHR;
+                our_vk_binding.next = NULL;
+
+                wine_instance->d3d12_queue = their_d3d12_binding->queue;
+                their_d3d12_binding->queue->lpVtbl->AddRef(their_d3d12_binding->queue);
+
+                wine_instance->d3d12_device->lpVtbl->GetVulkanHandles(wine_instance->d3d12_device,
+                        &our_vk_binding.instance, &our_vk_binding.physicalDevice, &our_vk_binding.device);
+                device_ext->lpVtbl->GetVulkanQueueInfoEx(device_ext, their_d3d12_binding->queue,
+                        &wine_instance->vk_queue, &queue_index, &queue_flags, &our_vk_binding.queueFamilyIndex);
+                device_ext->lpVtbl->Release(device_ext);
+
+                wine_instance->vk_device = our_vk_binding.device = get_native_VkDevice(our_vk_binding.device);
+                wine_instance->vk_queue = get_native_VkQueue(wine_instance->vk_queue);
+                our_vk_binding.queueIndex = queue_index;
+
+                our_vk_binding.instance = get_native_VkInstance(our_vk_binding.instance);
+
+                if ((res = do_vulkan_init(wine_instance, our_vk_binding.instance)) != XR_SUCCESS)
+                    return res;
+
+                if (wine_instance->vk_phys_dev != get_native_VkPhysicalDevice(our_vk_binding.physicalDevice))
+                    WINE_WARN("VK physical device does not match that from xrGetVulkanGraphicsDeviceKHR.\n");
+
+                our_vk_binding.physicalDevice = wine_instance->vk_phys_dev;
+
+                our_create_info = *createInfo;
+                our_create_info.next = &our_vk_binding;
+                createInfo = &our_create_info;
+
+#define X(proc) wine_instance->p_##proc = (void *)vkGetDeviceProcAddr(our_vk_binding.device, #proc);
+                VK_PROCS
+#undef X
+                command_pool_create_info.queueFamilyIndex = our_vk_binding.queueFamilyIndex;
+                if (wine_instance->p_vkCreateCommandPool(wine_instance->vk_device, &command_pool_create_info, NULL, &wine_instance->vk_command_pool) != VK_SUCCESS)
+                {
+                    WINE_WARN("vkCreateCommandPool failed\n");
+                    return XR_ERROR_RUNTIME_FAILURE;
+                }
+
+                session_type = SESSION_TYPE_D3D12;
+
+                break;
+            }
             default:
                 WINE_WARN("Unhandled graphics binding type: %d\n", ((XrBaseInStructure *)createInfo->next)->type);
                 break;
@@ -1037,490 +1175,10 @@ XrResult WINAPI wine_xrDestroySession(XrSession session)
     return XR_SUCCESS;
 }
 
-XrResult WINAPI wine_xrCreateHandTrackerEXT(XrSession session, const XrHandTrackerCreateInfoEXT *createInfo,
-        XrHandTrackerEXT *handTracker)
+XrResult WINAPI wine_xrNegotiateLoaderRuntimeInterface(const XrNegotiateLoaderInfo *info, XrNegotiateRuntimeRequest *request)
 {
-    wine_XrSession *wine_session = (wine_XrSession *)session;
-    wine_XrHandTrackerEXT *wine_handTracker;
-    XrResult res;
-
-    WINE_TRACE("%p, %p, %p\n", session, createInfo, handTracker);
-
-    wine_handTracker = heap_alloc_zero(sizeof(*wine_handTracker));
-
-    res = wine_session->wine_instance->funcs.p_xrCreateHandTrackerEXT(wine_session->session, createInfo, &wine_handTracker->hand_tracker);
-    if(res != XR_SUCCESS){
-        WINE_WARN("xrCreateHandTrackerEXT failed: %d\n", res);
-        heap_free(wine_handTracker);
-        return res;
-    }
-
-    wine_handTracker->wine_session = wine_session;
-
-    *handTracker = (XrHandTrackerEXT)wine_handTracker;
-
-    WINE_TRACE("allocated wine handTracker %p for native handTracker %p\n",
-            wine_handTracker, wine_handTracker->hand_tracker);
-
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrDestroyHandTrackerEXT(XrHandTrackerEXT handTracker)
-{
-    wine_XrHandTrackerEXT *wine_handTracker = (wine_XrHandTrackerEXT *)handTracker;
-    XrResult res;
-
-    WINE_TRACE("%p\n", handTracker);
-
-    res = wine_handTracker->wine_session->wine_instance->funcs.p_xrDestroyHandTrackerEXT(wine_handTracker->hand_tracker);
-    if(res != XR_SUCCESS){
-        WINE_WARN("xrDestroyHandTrackerEXT failed: %d\n", res);
-        return res;
-    }
-
-    heap_free(wine_handTracker);
-
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrCreateSpatialAnchorMSFT(XrSession session,
-        const XrSpatialAnchorCreateInfoMSFT *createInfo, XrSpatialAnchorMSFT *anchor)
-{
-    wine_XrSession *wine_session = (wine_XrSession *)session;
-    wine_XrSpatialAnchorMSFT *wine_anchor;
-    XrResult res;
-
-    WINE_TRACE("%p, %p, %p\n", session, createInfo, anchor);
-
-    wine_anchor = heap_alloc_zero(sizeof(*wine_anchor));
-
-    res = wine_session->wine_instance->funcs.p_xrCreateSpatialAnchorMSFT(wine_session->session, createInfo, &wine_anchor->spatial_anchor);
-    if(res != XR_SUCCESS){
-        WINE_WARN("xrCreateSpatialAnchorMSFT failed: %d\n", res);
-        heap_free(wine_anchor);
-        return res;
-    }
-
-    wine_anchor->wine_session = wine_session;
-
-    *anchor = (XrSpatialAnchorMSFT)wine_anchor;
-
-    WINE_TRACE("allocated wine spatialAnchor %p for native spatialAnchor %p\n",
-            wine_anchor, wine_anchor->spatial_anchor);
-
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrCreateSpatialAnchorFromPersistedNameMSFT(XrSession session,
-        const XrSpatialAnchorFromPersistedAnchorCreateInfoMSFT *create_info,
-        XrSpatialAnchorMSFT *anchor)
-{
-    wine_XrSession *wine_session = (wine_XrSession *)session;
-    wine_XrSpatialAnchorMSFT *wine_anchor;
-    XrResult res;
-
-    WINE_TRACE("%p, %p, %p\n", session, create_info, anchor);
-
-    wine_anchor = heap_alloc_zero(sizeof(*wine_anchor));
-
-    res = wine_session->wine_instance->funcs.p_xrCreateSpatialAnchorFromPersistedNameMSFT(wine_session->session,
-            create_info, &wine_anchor->spatial_anchor);
-    if(res != XR_SUCCESS){
-        WINE_WARN("xrCreateSpatialAnchorFromPersistedNameMSFT failed: %d\n", res);
-        heap_free(wine_anchor);
-        return res;
-    }
-
-    wine_anchor->wine_session = wine_session;
-
-    *anchor = (XrSpatialAnchorMSFT)wine_anchor;
-
-    WINE_TRACE("allocated wine spatialAnchor %p for native spatialAnchor %p\n",
-            wine_anchor, wine_anchor->spatial_anchor);
-
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrDestroySpatialAnchorMSFT(XrSpatialAnchorMSFT anchor)
-{
-    wine_XrSpatialAnchorMSFT *wine_anchor = (wine_XrSpatialAnchorMSFT *)anchor;
-    XrResult res;
-
-    WINE_TRACE("%p\n", anchor);
-
-    res = wine_anchor->wine_session->wine_instance->funcs.p_xrDestroySpatialAnchorMSFT(wine_anchor->spatial_anchor);
-    if(res != XR_SUCCESS){
-        WINE_WARN("xrDestroySpatialAnchorMSFT failed: %d\n", res);
-        return res;
-    }
-
-    heap_free(wine_anchor);
-
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrCreateSpatialAnchorStoreConnectionMSFT(XrSession session, XrSpatialAnchorStoreConnectionMSFT *anchor_store)
-{
-    wine_XrSpatialAnchorStoreConnectionMSFT *wine_anchor_store;
-    wine_XrSession *wine_session = (wine_XrSession *)session;
-    XrResult res;
-
-    WINE_TRACE("%p, %p\n", session, anchor_store);
-
-    wine_anchor_store = heap_alloc_zero(sizeof(*wine_anchor_store));
-
-    res = wine_session->wine_instance->funcs.p_xrCreateSpatialAnchorStoreConnectionMSFT(wine_session->session,
-            &wine_anchor_store->spatial_anchor_store_connection);
-
-    if(res != XR_SUCCESS){
-        WINE_WARN("xrCreateSpatialAnchorStoreConnectionMSFT failed: %d\n", res);
-        heap_free(wine_anchor_store);
-        return res;
-    }
-
-    wine_anchor_store->wine_session = wine_session;
-
-    *anchor_store = (XrSpatialAnchorStoreConnectionMSFT)wine_anchor_store;
-
-    WINE_TRACE("allocated wine_anchor_store %p for native spatial_anchor_store_connection %p\n",
-            wine_anchor_store, wine_anchor_store->spatial_anchor_store_connection);
-
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrDestroySpatialAnchorStoreConnectionMSFT(XrSpatialAnchorStoreConnectionMSFT anchor_store)
-{
-    wine_XrSpatialAnchorStoreConnectionMSFT *wine_anchor_store
-            = (wine_XrSpatialAnchorStoreConnectionMSFT *)anchor_store;
-    XrResult res;
-
-    WINE_TRACE("%p\n", anchor_store);
-
-    res = wine_anchor_store->wine_session->wine_instance->funcs.p_xrDestroySpatialAnchorStoreConnectionMSFT
-            (wine_anchor_store->spatial_anchor_store_connection);
-    if(res != XR_SUCCESS){
-        WINE_WARN("xrDestroySpatialAnchorStoreConnectionMSFT failed: %d\n", res);
-        return res;
-    }
-
-    heap_free(wine_anchor_store);
-
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrCreateSceneObserverMSFT(XrSession session,
-        const XrSceneObserverCreateInfoMSFT *createInfo, XrSceneObserverMSFT *observer)
-{
-    wine_XrSession *wine_session = (wine_XrSession *)session;
-    wine_XrSceneObserverMSFT *wine_scene_observer_msft;
-    XrResult res;
-
-    WINE_TRACE("%p, %p, %p\n", session, createInfo, observer);
-
-    wine_scene_observer_msft = heap_alloc_zero(sizeof(*wine_scene_observer_msft));
-
-    res = wine_session->wine_instance->funcs.p_xrCreateSceneObserverMSFT(wine_session->session,
-            createInfo, &wine_scene_observer_msft->scene_observer_msft);
-    if(res != XR_SUCCESS){
-        WINE_WARN("xrCreateSceneObserverMSFT failed: %d\n", res);
-        heap_free(wine_scene_observer_msft);
-        return res;
-    }
-
-    wine_scene_observer_msft->wine_session = wine_session;
-
-    *observer = (XrSceneObserverMSFT)wine_scene_observer_msft;
-
-    WINE_TRACE("allocated wine sceneObserver %p for native sceneObserver %p\n",
-            wine_scene_observer_msft, wine_scene_observer_msft->scene_observer_msft);
-
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrDestroySceneObserverMSFT(XrSceneObserverMSFT observer)
-{
-    wine_XrSceneObserverMSFT *wine_observer = (wine_XrSceneObserverMSFT *)observer;
-    XrResult res;
-
-    WINE_TRACE("%p\n", observer);
-
-    res = wine_observer->wine_session->wine_instance->funcs.p_xrDestroySceneObserverMSFT(wine_observer->scene_observer_msft);
-    if(res != XR_SUCCESS){
-        WINE_WARN("xrDestroySceneObserverMSFT failed: %d\n", res);
-        return res;
-    }
-
-    heap_free(wine_observer);
-
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrCreateSceneMSFT(XrSceneObserverMSFT observer,
-        const XrSceneCreateInfoMSFT *createInfo, XrSceneMSFT *scene)
-{
-    wine_XrSceneObserverMSFT *wine_observer = (wine_XrSceneObserverMSFT *)observer;
-    wine_XrSceneMSFT *wine_scene_msft;
-    XrResult res;
-
-    WINE_TRACE("%p, %p, %p\n", observer, createInfo, scene);
-
-    wine_scene_msft = heap_alloc_zero(sizeof(*wine_scene_msft));
-
-    res = wine_observer->wine_session->wine_instance->funcs.p_xrCreateSceneMSFT(wine_observer->scene_observer_msft,
-            createInfo, &wine_scene_msft->scene_msft);
-    if(res != XR_SUCCESS){
-        WINE_WARN("xrCreateSceneMSFT failed: %d\n", res);
-        heap_free(wine_scene_msft);
-        return res;
-    }
-
-    wine_scene_msft->wine_scene_observer_msft = wine_observer;
-
-    *scene = (XrSceneMSFT)wine_scene_msft;
-
-    WINE_TRACE("allocated wine sceneMSFT %p for native sceneMSFT %p\n",
-            wine_scene_msft, wine_scene_msft->scene_msft);
-
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrDestroySceneMSFT(XrSceneMSFT scene)
-{
-    wine_XrSceneMSFT *wine_scene = (wine_XrSceneMSFT *)scene;
-    XrResult res;
-
-    WINE_TRACE("%p\n", scene);
-
-    res = wine_scene->wine_scene_observer_msft->wine_session->wine_instance->funcs.p_xrDestroySceneMSFT(wine_scene->scene_msft);
-    if(res != XR_SUCCESS){
-        WINE_WARN("xrDestroySceneMSFT failed: %d\n", res);
-        return res;
-    }
-
-    heap_free(wine_scene);
-
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrCreateFoveationProfileFB(XrSession session, const XrFoveationProfileCreateInfoFB *create_info,
-        XrFoveationProfileFB *profile)
-{
-    wine_XrSession *wine_session = (wine_XrSession *)session;
-    wine_XrFoveationProfileFB *wine_foveation_profile;
-    XrResult res;
-
-    WINE_TRACE("%p, %p\n", session, profile);
-
-    wine_foveation_profile = heap_alloc_zero(sizeof(*wine_foveation_profile));
-
-    res = wine_session->wine_instance->funcs.p_xrCreateFoveationProfileFB(wine_session->session, create_info,
-            &wine_foveation_profile->foveation_profile);
-
-    if(res != XR_SUCCESS){
-        WINE_WARN("xrCreateSpatialAnchorStoreConnectionMSFT failed: %d\n", res);
-        heap_free(wine_foveation_profile);
-        return res;
-    }
-
-    wine_foveation_profile->wine_session = wine_session;
-
-    *profile = (XrFoveationProfileFB)wine_foveation_profile;
-
-    WINE_TRACE("allocated wine_foveation_profile %p for native foveation_profile %p.\n",
-            wine_foveation_profile, wine_foveation_profile->foveation_profile);
-
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrDestroyFoveationProfileFB(XrFoveationProfileFB profile)
-{
-    wine_XrFoveationProfileFB *wine_profile = (wine_XrFoveationProfileFB *)profile;
-    XrResult res;
-
-    WINE_TRACE("%p\n", profile);
-
-    res = wine_profile->wine_session->wine_instance->funcs.p_xrDestroyFoveationProfileFB(wine_profile->foveation_profile);
-    if(res != XR_SUCCESS){
-        WINE_WARN("rDestroyFoveationProfileFB failed: %d\n", res);
-        return res;
-    }
-
-    heap_free(wine_profile);
-
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrCreateGeometryInstanceFB(XrSession session, const XrGeometryInstanceCreateInfoFB *create_info,
-        XrGeometryInstanceFB *out)
-{
-    wine_XrSession *wine_session = (wine_XrSession *)session;
-    XrGeometryInstanceCreateInfoFB our_create_info;
-    wine_XrGeometryInstanceFB *wine_instance;
-    XrResult res;
-
-    WINE_TRACE("%p %p %p\n", session, create_info, out);
-
-    wine_instance = heap_alloc_zero(sizeof(*wine_instance));
-    our_create_info = *create_info;
-    our_create_info.layer = ((wine_XrPassthroughLayerFB *)create_info->layer)->layer;
-    our_create_info.mesh = ((wine_XrTriangleMeshFB *)create_info->mesh)->mesh;
-
-    res = wine_session->wine_instance->funcs.p_xrCreateGeometryInstanceFB(wine_session->session, &our_create_info,
-            &wine_instance->instance);
-    if(res != XR_SUCCESS)
-    {
-        WINE_WARN("Failed, res %d\n", res);
-        heap_free(wine_instance);
-        return res;
-    }
-    wine_instance->wine_session = wine_session;
-    *out = (XrGeometryInstanceFB)wine_instance;
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrDestroyGeometryInstanceFB(XrGeometryInstanceFB instance)
-{
-    wine_XrGeometryInstanceFB *wine_instance = (wine_XrGeometryInstanceFB *)instance;
-    XrResult res;
-
-    WINE_TRACE("%p\n", instance);
-
-    res = wine_instance->wine_session->wine_instance->funcs.p_xrDestroyGeometryInstanceFB(wine_instance->instance);
-    if(res != XR_SUCCESS){
-        WINE_WARN("Failed, res %d\n", res);
-        return res;
-    }
-    heap_free(wine_instance);
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrCreateTriangleMeshFB(XrSession session, const XrTriangleMeshCreateInfoFB *create_info,
-        XrTriangleMeshFB *out)
-{
-    wine_XrSession *wine_session = (wine_XrSession *)session;
-    wine_XrTriangleMeshFB *wine_mesh;
-    XrResult res;
-
-    WINE_TRACE("%p %p %p\n", session, create_info, out);
-
-    wine_mesh = heap_alloc_zero(sizeof(*wine_mesh));
-
-    res = wine_session->wine_instance->funcs.p_xrCreateTriangleMeshFB(wine_session->session, create_info,
-            &wine_mesh->mesh);
-    if(res != XR_SUCCESS)
-    {
-        WINE_WARN("Failed, res %d\n", res);
-        heap_free(wine_mesh);
-        return res;
-    }
-    wine_mesh->wine_session = wine_session;
-    *out = (XrTriangleMeshFB)wine_mesh;
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrDestroyTriangleMeshFB(XrTriangleMeshFB mesh)
-{
-    wine_XrTriangleMeshFB *wine_mesh = (wine_XrTriangleMeshFB *)mesh;
-    XrResult res;
-
-    WINE_TRACE("%p\n", mesh);
-
-    res = wine_mesh->wine_session->wine_instance->funcs.p_xrDestroyTriangleMeshFB(wine_mesh->mesh);
-    if(res != XR_SUCCESS){
-        WINE_WARN("Failed, res %d\n", res);
-        return res;
-    }
-    heap_free(wine_mesh);
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrCreatePassthroughFB(XrSession session, const XrPassthroughCreateInfoFB *create_info,
-        XrPassthroughFB *out)
-{
-    wine_XrSession *wine_session = (wine_XrSession *)session;
-    wine_XrPassthroughFB *wine_passthrough;
-    XrResult res;
-
-    WINE_TRACE("%p %p %p\n", session, create_info, out);
-
-    wine_passthrough = heap_alloc_zero(sizeof(*wine_passthrough));
-
-    res = wine_session->wine_instance->funcs.p_xrCreatePassthroughFB(wine_session->session, create_info,
-            &wine_passthrough->passthrough);
-    if(res != XR_SUCCESS)
-    {
-        WINE_WARN("Failed, res %d\n", res);
-        heap_free(wine_passthrough);
-        return res;
-    }
-    wine_passthrough->wine_session = wine_session;
-    *out = (XrPassthroughFB)wine_passthrough;
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrDestroyPassthroughFB(XrPassthroughFB passthrough)
-{
-    wine_XrPassthroughFB *wine_passthrough = (wine_XrPassthroughFB *)passthrough;
-    XrResult res;
-
-    WINE_TRACE("%p\n", passthrough);
-
-    res = wine_passthrough->wine_session->wine_instance->funcs.p_xrDestroyPassthroughFB(wine_passthrough->passthrough);
-    if(res != XR_SUCCESS){
-        WINE_WARN("Failed, res %d\n", res);
-        return res;
-    }
-    heap_free(wine_passthrough);
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrCreatePassthroughLayerFB(XrSession session, const XrPassthroughLayerCreateInfoFB *create_info,
-        XrPassthroughLayerFB *out)
-{
-    wine_XrSession *wine_session = (wine_XrSession *)session;
-    XrPassthroughLayerCreateInfoFB our_create_info;
-    wine_XrPassthroughLayerFB *wine_layer;
-    XrResult res;
-
-    WINE_TRACE("%p %p %p\n", session, create_info, out);
-
-    wine_layer = heap_alloc_zero(sizeof(*wine_layer));
-    our_create_info = *create_info;
-    our_create_info.passthrough = ((wine_XrPassthroughFB *)create_info->passthrough)->passthrough;
-
-    res = wine_session->wine_instance->funcs.p_xrCreatePassthroughLayerFB(wine_session->session, &our_create_info,
-            &wine_layer->layer);
-    if(res != XR_SUCCESS)
-    {
-        WINE_WARN("Failed, res %d\n", res);
-        heap_free(wine_layer);
-        return res;
-    }
-    wine_layer->wine_session = wine_session;
-    *out = (XrPassthroughLayerFB)wine_layer;
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrDestroyPassthroughLayerFB(XrPassthroughLayerFB layer)
-{
-    wine_XrPassthroughLayerFB *wine_layer = (wine_XrPassthroughLayerFB *)layer;
-    XrResult res;
-
-    WINE_TRACE("%p\n", layer);
-
-    res = wine_layer->wine_session->wine_instance->funcs.p_xrDestroyPassthroughLayerFB(wine_layer->layer);
-    if(res != XR_SUCCESS){
-        WINE_WARN("Failed, res %d\n", res);
-        return res;
-    }
-    heap_free(wine_layer);
-    return XR_SUCCESS;
-}
-
-XrResult WINAPI wine_xrNegotiateLoaderRuntimeInterface(
-        const XrNegotiateLoaderInfo_win *loaderInfo,
-        XrNegotiateRuntimeRequest_win *runtimeRequest)
-{
+    const XrNegotiateLoaderInfo_win *loaderInfo = (const XrNegotiateLoaderInfo_win *)info;
+    XrNegotiateRuntimeRequest_win *runtimeRequest = (XrNegotiateRuntimeRequest_win *)request;
     XrResult res;
 
     WINE_TRACE("%p %p\n", loaderInfo, runtimeRequest);
@@ -1552,7 +1210,7 @@ XrResult WINAPI wine_xrNegotiateLoaderRuntimeInterface(
 
     runtimeRequest->runtimeInterfaceVersion = XR_CURRENT_LOADER_RUNTIME_VERSION;
     runtimeRequest->getInstanceProcAddr = (PFN_xrGetInstanceProcAddr)&wine_xrGetInstanceProcAddr;
-    runtimeRequest->runtimeApiVersion = XR_CURRENT_API_VERSION;
+    runtimeRequest->runtimeApiVersion = api_version;
 
     return XR_SUCCESS;
 }
@@ -1815,6 +1473,8 @@ XrResult WINAPI wine_xrPollEvent(XrInstance instance, XrEventDataBuffer *eventDa
 
     res = xrPollEvent(((wine_XrInstance *)instance)->instance, eventData);
 
+    WINE_TRACE("eventData->type %#x\n", eventData->type);
+
     if(res == XR_SUCCESS){
         switch(eventData->type){
             case XR_TYPE_EVENT_DATA_INTERACTION_PROFILE_CHANGED:
@@ -1841,6 +1501,18 @@ XrResult WINAPI wine_xrPollEvent(XrInstance instance, XrEventDataBuffer *eventDa
                 evt->session = (XrSession)get_wrapped_XrSession(evt->session);
                 break;
             }
+            case XR_TYPE_EVENT_DATA_USER_PRESENCE_CHANGED_EXT:
+            {
+                XrEventDataUserPresenceChangedEXT *evt = (XrEventDataUserPresenceChangedEXT *)eventData;
+                evt->session = (XrSession)get_wrapped_XrSession(evt->session);
+                break;
+            }
+            case XR_TYPE_EVENT_DATA_LOCALIZATION_CHANGED_ML:
+            {
+                XrEventDataLocalizationChangedML *evt = (XrEventDataLocalizationChangedML *)eventData;
+                evt->session = (XrSession)get_wrapped_XrSession(evt->session);
+                break;
+            }
             default:
                 break;
         }
@@ -1862,6 +1534,29 @@ XrResult WINAPI wine_xrGetSystem(XrInstance instance, const XrSystemGetInfo *get
 
     wine_instance->systemId = *systemId;
     return res;
+}
+
+static BOOL is_vulkan_format_depth(VkFormat format)
+{
+    switch(format){
+    case VK_FORMAT_B8G8R8A8_SRGB:
+    case VK_FORMAT_B8G8R8A8_UNORM:
+    case VK_FORMAT_R8G8B8A8_SRGB:
+    case VK_FORMAT_R8G8B8A8_UNORM:
+    case VK_FORMAT_R32G32B32A32_SFLOAT:
+    case VK_FORMAT_R32G32B32_SFLOAT:
+    case VK_FORMAT_R16G16B16A16_SFLOAT:
+        return FALSE;
+    case VK_FORMAT_D32_SFLOAT:
+    case VK_FORMAT_D16_UNORM:
+    case VK_FORMAT_D24_UNORM_S8_UINT:
+    case VK_FORMAT_D32_SFLOAT_S8_UINT:
+        return TRUE;
+
+    default:
+        WINE_WARN("Unknown vulkan format %#x", format);
+        return FALSE;
+    }
 }
 
 int64_t map_format_dxgi_to_vulkan(int64_t format)
@@ -1958,7 +1653,7 @@ XrResult WINAPI wine_xrEnumerateSwapchainFormats(XrSession session, uint32_t for
 
     WINE_TRACE("%p, %u, %p, %p\n", session, formatCapacityInput, formatCountOutput, formats);
 
-    if (wine_session->session_type != SESSION_TYPE_D3D11)
+    if (wine_session->session_type != SESSION_TYPE_D3D11 && wine_session->session_type != SESSION_TYPE_D3D12)
         return xrEnumerateSwapchainFormats(wine_session->session, formatCapacityInput, formatCountOutput, formats);
 
     res = xrEnumerateSwapchainFormats(wine_session->session, 0, &real_format_count, NULL);
@@ -2006,7 +1701,8 @@ XrResult WINAPI wine_xrCreateSwapchain(XrSession session, const XrSwapchainCreat
     wine_swapchain = heap_alloc_zero(sizeof(*wine_swapchain));
     wine_swapchain->create_info = *createInfo;
 
-    if(wine_session->session_type == SESSION_TYPE_D3D11){
+    if(wine_session->session_type == SESSION_TYPE_D3D11 || wine_session->session_type == SESSION_TYPE_D3D12){
+        BOOL format_is_depth;
         our_createInfo = *createInfo;
         our_createInfo.format = map_format_dxgi_to_vulkan(createInfo->format);
         if(our_createInfo.format == VK_FORMAT_UNDEFINED){
@@ -2015,6 +1711,14 @@ XrResult WINAPI wine_xrCreateSwapchain(XrSession session, const XrSwapchainCreat
             return XR_ERROR_SWAPCHAIN_FORMAT_UNSUPPORTED;
         }
         createInfo = &our_createInfo;
+
+        format_is_depth = is_vulkan_format_depth(our_createInfo.format);
+        if ((createInfo->usageFlags & XR_SWAPCHAIN_USAGE_COLOR_ATTACHMENT_BIT) && format_is_depth){
+            WINE_WARN("Swapchain has a color attachment usage, but it's format is for depth\n");
+        }
+        if ((createInfo->usageFlags & XR_SWAPCHAIN_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT) && !format_is_depth){
+            WINE_WARN("Swapchain has a depth/stencil usage, but it's format is for color\n");
+        }
     }
 
     res = xrCreateSwapchain(((wine_XrSession *)session)->session, createInfo, &wine_swapchain->swapchain);
@@ -2033,6 +1737,25 @@ XrResult WINAPI wine_xrCreateSwapchain(XrSession session, const XrSwapchainCreat
     return XR_SUCCESS;
 }
 
+static void release_d3d12_resources(wine_XrSwapchain *wine_swapchain, uint32_t image_count)
+{
+    wine_XrInstance *wine_instance = wine_swapchain->wine_session->wine_instance;
+    XrSwapchainImageD3D12KHR *d3d12_images = (XrSwapchainImageD3D12KHR *)wine_swapchain->images;
+    UINT i;
+    if (!image_count)
+        return;
+
+    for (i = 0; i < image_count; i++)
+        if (d3d12_images[i].texture)
+            d3d12_images[i].texture->lpVtbl->Release(d3d12_images[i].texture);
+    wine_instance->p_vkFreeCommandBuffers(wine_instance->vk_device, wine_instance->vk_command_pool, image_count, wine_swapchain->cmd_release);
+    wine_instance->p_vkFreeCommandBuffers(wine_instance->vk_device, wine_instance->vk_command_pool, image_count, wine_swapchain->cmd_acquire);
+    heap_free(wine_swapchain->cmd_release);
+    heap_free(wine_swapchain->cmd_acquire);
+    heap_free(wine_swapchain->acquired);
+    heap_free(wine_swapchain->acquired_indices);
+}
+
 XrResult WINAPI wine_xrDestroySwapchain(XrSwapchain swapchain)
 {
     wine_XrSwapchain *wine_swapchain = (wine_XrSwapchain *)swapchain;
@@ -2040,12 +1763,23 @@ XrResult WINAPI wine_xrDestroySwapchain(XrSwapchain swapchain)
 
     WINE_TRACE("%p\n", swapchain);
 
+    if (wine_swapchain->image_count){
+        UINT i;
+        if (wine_swapchain->wine_session->session_type == SESSION_TYPE_D3D11){
+            XrSwapchainImageD3D11KHR *d3d11_images = (XrSwapchainImageD3D11KHR *)wine_swapchain->images;
+            for (i = 0; i < wine_swapchain->image_count; i++)
+                d3d11_images[i].texture->lpVtbl->Release(d3d11_images[i].texture);
+        } else if (wine_swapchain->wine_session->session_type == SESSION_TYPE_D3D12)
+            release_d3d12_resources(wine_swapchain, wine_swapchain->image_count);
+        heap_free(wine_swapchain->images);
+        wine_swapchain->image_count = 0;
+    }
+
     res = xrDestroySwapchain(wine_swapchain->swapchain);
     if(res != XR_SUCCESS){
         WINE_WARN("xrDestroySwapchain failed: %d\n", res);
         return res;
     }
-
     heap_free(wine_swapchain);
 
     return XR_SUCCESS;
@@ -2072,33 +1806,79 @@ static D3D11_USAGE d3d11usage_from_XrSwapchainUsageFlags(XrSwapchainUsageFlags f
     return ret;
 }
 
+static VkResult record_transition_command(wine_XrInstance *instance, VkImage image, VkImageSubresourceRange subresource,
+        VkImageLayout from, VkImageLayout to, VkCommandBuffer *out_cmd)
+{
+    VkResult ret;
+    VkCommandBufferAllocateInfo command_buffer_allocate_info = {
+        .sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO,
+        .level = VK_COMMAND_BUFFER_LEVEL_PRIMARY,
+        .commandPool = instance->vk_command_pool,
+        .commandBufferCount = 1,
+    };
+    VkCommandBufferBeginInfo begin_info = {
+        .sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO,
+        .flags = 0,
+    };
+    VkImageMemoryBarrier barrier = {
+        .sType = VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER,
+        .oldLayout = from,
+        .newLayout = to,
+        .srcQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED,
+        .dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED,
+        .image = image,
+        .subresourceRange = subresource,
+        .srcAccessMask = VK_ACCESS_MEMORY_WRITE_BIT,
+        .dstAccessMask = VK_ACCESS_MEMORY_READ_BIT,
+    };
+
+    *out_cmd = VK_NULL_HANDLE;
+    if (from == to){
+        return VK_SUCCESS;
+    }
+
+    if ((ret = instance->p_vkAllocateCommandBuffers(instance->vk_device, &command_buffer_allocate_info, out_cmd)) != VK_SUCCESS)
+        return ret;
+    if ((ret = instance->p_vkBeginCommandBuffer(*out_cmd, &begin_info)) != VK_SUCCESS)
+        return ret;
+    instance->p_vkCmdPipelineBarrier(*out_cmd, VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT, VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT,
+            0, 0, NULL, 0, NULL, 1, &barrier);
+    return instance->p_vkEndCommandBuffer(*out_cmd);
+}
+
 XrResult WINAPI wine_xrEnumerateSwapchainImages(XrSwapchain swapchain, uint32_t imageCapacityInput, uint32_t *imageCountOutput, XrSwapchainImageBaseHeader *images)
 {
     wine_XrSwapchain *wine_swapchain = (wine_XrSwapchain *)swapchain;
     wine_XrInstance *wine_instance = wine_swapchain->wine_session->wine_instance;
     XrResult res;
-    XrSwapchainImageVulkanKHR *our_images = NULL;
-    XrSwapchainImageBaseHeader *their_images = images;
+    XrSwapchainImageVulkanKHR *our_vk = NULL;
     HRESULT hr;
+    size_t image_size = 0;
     uint32_t i;
 
     WINE_TRACE("%p, %u, %p, %p\n", swapchain, imageCapacityInput, imageCountOutput, images);
+    if (wine_swapchain->wine_session->session_type != SESSION_TYPE_D3D11 && wine_swapchain->wine_session->session_type != SESSION_TYPE_D3D12)
+        return xrEnumerateSwapchainImages(wine_swapchain->swapchain, imageCapacityInput, imageCountOutput, images);
 
-    if(images){
-        if(wine_swapchain->wine_session->session_type == SESSION_TYPE_D3D11){
-            our_images = heap_alloc(sizeof(*our_images) * imageCapacityInput);
-            for(i = 0; i < imageCapacityInput; ++i){
-                our_images[i].type = XR_TYPE_SWAPCHAIN_IMAGE_VULKAN_KHR;
-            }
-            images = (XrSwapchainImageBaseHeader *)our_images;
+    if (!wine_swapchain->image_count) {
+        uint32_t image_count;
+        res = xrEnumerateSwapchainImages(wine_swapchain->swapchain, 0, &image_count, NULL);
+        if (res != XR_SUCCESS)
+            return res;
+
+        our_vk = heap_alloc(sizeof(*our_vk) * image_count);
+        for(i = 0; i < image_count; ++i){
+            our_vk[i].type = XR_TYPE_SWAPCHAIN_IMAGE_VULKAN_KHR;
         }
-    }
 
-    res = xrEnumerateSwapchainImages(wine_swapchain->swapchain, imageCapacityInput, imageCountOutput, images);
+        res = xrEnumerateSwapchainImages(wine_swapchain->swapchain, image_count, &image_count, (XrSwapchainImageBaseHeader *)our_vk);
+        if (res != XR_SUCCESS){
+            heap_free(our_vk);
+            return res;
+        }
 
-    if(images && res == XR_SUCCESS){
         if(wine_swapchain->wine_session->session_type == SESSION_TYPE_D3D11){
-            XrSwapchainImageD3D11KHR *their_d3d11;
+            XrSwapchainImageD3D11KHR *our_d3d11;
             D3D11_TEXTURE2D_DESC1 desc;
 
             desc.Width = wine_swapchain->create_info.width;
@@ -2116,21 +1896,129 @@ XrResult WINAPI wine_xrEnumerateSwapchainImages(XrSwapchain swapchain, uint32_t 
             desc.MiscFlags = 0;
             desc.TextureLayout = D3D11_TEXTURE_LAYOUT_UNDEFINED;
 
-            their_d3d11 = (XrSwapchainImageD3D11KHR *)their_images;
-            for(i = 0; i < *imageCountOutput; ++i){
+            our_d3d11 = heap_alloc(sizeof(XrSwapchainImageD3D11KHR) * image_count);
+            for(i = 0; i < image_count; ++i){
                 hr = wine_instance->dxvk_device->lpVtbl->CreateTexture2DFromVkImage(wine_instance->dxvk_device,
-                        &desc, our_images[i].image, &their_d3d11[i].texture);
+                        &desc, our_vk[i].image, &our_d3d11[i].texture);
                 if(FAILED(hr)){
+                    UINT j;
+                    for (j = 0; j < i; ++j){
+                        our_d3d11[i].texture->lpVtbl->Release(our_d3d11[i].texture);
+                    }
+                    heap_free(our_d3d11);
+                    heap_free(our_vk);
                     WINE_WARN("Failed to create DXVK texture from VkImage: %08x\n", hr);
-                    return XR_ERROR_INSTANCE_LOST;
+                    return XR_ERROR_RUNTIME_FAILURE;
                 }
-                WINE_TRACE("Successfully allocated texture %p\n", their_d3d11[i].texture);
+                WINE_TRACE("Successfully allocated texture %p\n", our_d3d11[i].texture);
+            }
+            wine_swapchain->images = (XrSwapchainImageBaseHeader *)our_d3d11;
+        } else if(wine_swapchain->wine_session->session_type == SESSION_TYPE_D3D12){
+            XrSwapchainImageD3D12KHR *our_d3d12;
+            D3D12_RESOURCE_DESC1 desc;
+            ID3D12DeviceExt1 *device_ext;
+            HRESULT hr = wine_instance->d3d12_device->lpVtbl->QueryInterface(wine_instance->d3d12_device, &IID_ID3D12DeviceExt1, (void **)&device_ext);
+            BOOL format_is_depth = is_vulkan_format_depth(map_format_dxgi_to_vulkan(wine_swapchain->create_info.format));
+            BOOL succeeded = TRUE;
+            const D3D12_RESOURCE_STATES incoming_state = format_is_depth ? D3D12_RESOURCE_STATE_DEPTH_WRITE : D3D12_RESOURCE_STATE_RENDER_TARGET;
+            const VkImageLayout vk_layout = format_is_depth ? VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL : VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
+            const VkImageSubresourceRange subresource =
+            {
+                .layerCount = wine_swapchain->create_info.arraySize,
+                .baseArrayLayer = 0,
+                .levelCount = wine_swapchain->create_info.mipCount,
+                .baseMipLevel = 0,
+                .aspectMask = format_is_depth ? (VK_IMAGE_ASPECT_DEPTH_BIT | VK_IMAGE_ASPECT_STENCIL_BIT) : VK_IMAGE_ASPECT_COLOR_BIT,
+            };
+            if (FAILED(hr))
+            {
+                WINE_ERR("Cannot get vkd3d-proton interface: %08x\n", hr);
+                return XR_ERROR_VALIDATION_FAILURE;
+            }
+
+            desc.Alignment = 0;
+            desc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
+            desc.Width = wine_swapchain->create_info.width;
+            desc.Height = wine_swapchain->create_info.height;
+            desc.MipLevels = wine_swapchain->create_info.mipCount;
+            desc.DepthOrArraySize = wine_swapchain->create_info.arraySize;
+            desc.Format = wine_swapchain->create_info.format;
+            WINE_TRACE("creating vkd3d-proton texture with dxgi format %d (%x)\n",
+                    desc.Format, desc.Format);
+            desc.SampleDesc.Count = wine_swapchain->create_info.sampleCount;
+            desc.SampleDesc.Quality = 0;
+            desc.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
+            desc.Flags = 0;
+            if (!format_is_depth)
+                desc.Flags |= D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET;
+            else
+            {
+                desc.Flags |= D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL;
+                if (!(wine_swapchain->create_info.usageFlags & XR_SWAPCHAIN_USAGE_SAMPLED_BIT))
+                    desc.Flags |= D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE;
+            }
+            if (wine_swapchain->create_info.usageFlags & XR_SWAPCHAIN_USAGE_UNORDERED_ACCESS_BIT)
+                desc.Flags |= D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS;
+
+            our_d3d12 = heap_alloc_zero(sizeof(XrSwapchainImageD3D12KHR) * image_count);
+            for(i = 0; i < image_count; ++i)
+            {
+                hr = device_ext->lpVtbl->CreateResourceFromBorrowedHandle(device_ext,
+                        &desc, our_vk[i].image, &our_d3d12[i].texture);
+                if(FAILED(hr))
+                {
+                    WINE_ERR("Failed to create vkd3d-proton texture from VkImage: %08x\n", hr);
+                    succeeded = FALSE;
+                    break;
+                }
+                WINE_TRACE("Successfully allocated texture %p\n", our_d3d12[i].texture);
+            }
+            device_ext->lpVtbl->Release(device_ext);
+
+            if (succeeded)
+            {
+                wine_swapchain->acquired = heap_alloc_zero(sizeof(BOOL) * image_count);
+                wine_swapchain->acquired_indices = heap_alloc(sizeof(uint32_t) * (image_count + 1));
+                wine_swapchain->acquired_count = wine_swapchain->acquired_start = 0;
+                wine_swapchain->images = (XrSwapchainImageBaseHeader *)our_d3d12;
+
+                wine_swapchain->cmd_release = heap_alloc_zero(sizeof(VkCommandBuffer) * image_count);
+                wine_swapchain->cmd_acquire = heap_alloc_zero(sizeof(VkCommandBuffer) * image_count);
+                for (i = 0; i < image_count; i++)
+                {
+                    VkImageLayout d3d12_vk_layout;
+                    wine_instance->d3d12_device->lpVtbl->GetVulkanImageLayout(wine_instance->d3d12_device, our_d3d12[i].texture, incoming_state, &d3d12_vk_layout);
+                    if (record_transition_command(wine_instance, our_vk[i].image, subresource, d3d12_vk_layout, vk_layout, &wine_swapchain->cmd_release[i]) != VK_SUCCESS ||
+                        record_transition_command(wine_instance, our_vk[i].image, subresource, vk_layout, d3d12_vk_layout, &wine_swapchain->cmd_acquire[i]) != VK_SUCCESS)
+                    {
+                        WINE_ERR("Failed to create command buffer for layout transition\n");
+                        succeeded = FALSE;
+                        break;
+                    }
+                }
+            }
+            if (!succeeded)
+            {
+                release_d3d12_resources(wine_swapchain, image_count);
+                heap_free(wine_swapchain->images);
+                wine_swapchain->images = NULL;
+                heap_free(our_vk);
+                return XR_ERROR_RUNTIME_FAILURE;
             }
         }
+        heap_free(our_vk);
+        wine_swapchain->image_count = image_count;
+        WINE_TRACE("image count %d\n", image_count);
     }
-    heap_free(our_images);
 
-    return res;
+    *imageCountOutput = wine_swapchain->image_count;
+    if (wine_swapchain->wine_session->session_type == SESSION_TYPE_D3D11){
+        image_size = sizeof(XrSwapchainImageD3D11KHR);
+    } else if (wine_swapchain->wine_session->session_type == SESSION_TYPE_D3D12){
+        image_size = sizeof(XrSwapchainImageD3D12KHR);
+    }
+    memcpy(images, wine_swapchain->images, image_size * min(wine_swapchain->image_count, imageCapacityInput));
+    return XR_SUCCESS;
 }
 
 static XrCompositionLayerBaseHeader *convert_XrCompositionLayer(wine_XrSession *wine_session,
@@ -2264,6 +2152,7 @@ XrResult WINAPI wine_xrEndFrame(XrSession session, const XrFrameEndInfo *frameEn
     wine_XrSession *wine_session = (wine_XrSession *)session;
     uint32_t i, view_idx = 0, view_info_idx = 0;
     IDXGIVkInteropDevice2 *dxvk_device;
+    ID3D12DXVKInteropDevice *d3d12_device;
     XrFrameEndInfo our_frameEndInfo;
     XrResult res;
 
@@ -2293,11 +2182,162 @@ XrResult WINAPI wine_xrEndFrame(XrSession session, const XrFrameEndInfo *frameEn
         dxvk_device->lpVtbl->FlushRenderingCommands(dxvk_device);
         dxvk_device->lpVtbl->LockSubmissionQueue(dxvk_device);
     }
+    else if ((d3d12_device = wine_session->wine_instance->d3d12_device))
+    {
+        WINE_TRACE("Locking vkd3d-proton submission queue.\n");
+        d3d12_device->lpVtbl->LockCommandQueue(d3d12_device, wine_session->wine_instance->d3d12_queue);
+    }
     res = xrEndFrame(((wine_XrSession *)session)->session, &our_frameEndInfo);
     if (dxvk_device)
         dxvk_device->lpVtbl->ReleaseSubmissionQueue(dxvk_device);
+    else if (d3d12_device)
+        d3d12_device->lpVtbl->UnlockCommandQueue(d3d12_device, wine_session->wine_instance->d3d12_queue);
 
     return res;
+}
+
+XrResult WINAPI wine_xrBeginFrame(XrSession session, const XrFrameBeginInfo *frameBeginInfo)
+{
+    wine_XrSession *wine_session = (wine_XrSession *)session;
+    IDXGIVkInteropDevice2 *dxvk_device;
+    ID3D12DXVKInteropDevice *d3d12_device;
+    XrResult ret;
+
+    WINE_TRACE("%p, %p\n", session, frameBeginInfo);
+
+    if ((dxvk_device = wine_session->wine_instance->dxvk_device))
+        dxvk_device->lpVtbl->LockSubmissionQueue(dxvk_device);
+    else if ((d3d12_device = wine_session->wine_instance->d3d12_device))
+        d3d12_device->lpVtbl->LockCommandQueue(d3d12_device, wine_session->wine_instance->d3d12_queue);
+    ret = xrBeginFrame(((wine_XrSession *)session)->session, frameBeginInfo);
+    if (dxvk_device)
+        dxvk_device->lpVtbl->ReleaseSubmissionQueue(dxvk_device);
+    else if (d3d12_device)
+        d3d12_device->lpVtbl->UnlockCommandQueue(d3d12_device, wine_session->wine_instance->d3d12_queue);
+    return ret;
+}
+
+XrResult WINAPI wine_xrAcquireSwapchainImage(XrSwapchain swapchain, const XrSwapchainImageAcquireInfo *acquireInfo, uint32_t *index)
+{
+    wine_XrSwapchain *wine_swapchain = (wine_XrSwapchain *)swapchain;
+    wine_XrSession *wine_session = wine_swapchain->wine_session;
+    IDXGIVkInteropDevice2 *dxvk_device;
+    ID3D12DXVKInteropDevice *d3d12_device;
+    XrResult ret;
+
+    WINE_TRACE("%p, %p, %p image count %d, acquired %d\n", swapchain, acquireInfo, index, wine_swapchain->image_count,
+            wine_swapchain->acquired_count);
+
+    if ((dxvk_device = wine_session->wine_instance->dxvk_device))
+        dxvk_device->lpVtbl->LockSubmissionQueue(dxvk_device);
+    else if ((d3d12_device = wine_session->wine_instance->d3d12_device))
+    {
+        if (wine_swapchain->acquired_count >= wine_swapchain->image_count)
+        {
+            WINE_WARN("Application has acquired all images but still tries to acquire more.\n");
+            return XR_ERROR_CALL_ORDER_INVALID;
+        }
+        d3d12_device->lpVtbl->LockCommandQueue(d3d12_device, wine_session->wine_instance->d3d12_queue);
+    }
+    ret = xrAcquireSwapchainImage(((wine_XrSwapchain *)swapchain)->swapchain, acquireInfo, index);
+    if (dxvk_device)
+    {
+        dxvk_device->lpVtbl->ReleaseSubmissionQueue(dxvk_device);
+        return ret;
+    }
+
+    if (!d3d12_device)
+        return ret;
+
+    if (ret == XR_SUCCESS)
+    {
+        if (!wine_swapchain->acquired[*index] && wine_swapchain->cmd_acquire[*index] != VK_NULL_HANDLE)
+        {
+            VkSubmitInfo submit_info =
+            {
+                .sType = VK_STRUCTURE_TYPE_SUBMIT_INFO,
+                .commandBufferCount = 1,
+                .pCommandBuffers = &wine_swapchain->cmd_acquire[*index],
+            };
+
+            wine_session->wine_instance->p_vkQueueSubmit(wine_session->wine_instance->vk_queue, 1, &submit_info, VK_NULL_HANDLE);
+        }
+        if (!wine_swapchain->acquired[*index])
+        {
+            uint32_t next = (wine_swapchain->acquired_start + wine_swapchain->acquired_count) % wine_swapchain->image_count;
+            wine_swapchain->acquired[*index] = TRUE;
+            wine_swapchain->acquired_indices[next] = *index;
+            wine_swapchain->acquired_count += 1;
+        }
+        else
+            WINE_WARN("the application acquired the same image (index %d) again!?", *index);
+    }
+    d3d12_device->lpVtbl->UnlockCommandQueue(d3d12_device, wine_session->wine_instance->d3d12_queue);
+    return ret;
+}
+
+XrResult WINAPI wine_xrReleaseSwapchainImage(XrSwapchain swapchain, const XrSwapchainImageReleaseInfo *releaseInfo)
+{
+    wine_XrSwapchain *wine_swapchain = (wine_XrSwapchain *)swapchain;
+    wine_XrSession *wine_session = wine_swapchain->wine_session;
+    IDXGIVkInteropDevice2 *dxvk_device;
+    ID3D12DXVKInteropDevice *d3d12_device = wine_session->wine_instance->d3d12_device;
+    XrResult ret;
+    uint32_t index;
+
+    WINE_TRACE("%p, %p\n", swapchain, releaseInfo);
+    if ((dxvk_device = wine_session->wine_instance->dxvk_device))
+        dxvk_device->lpVtbl->LockSubmissionQueue(dxvk_device);
+    else if (d3d12_device)
+    {
+        if (wine_swapchain->acquired_count == 0)
+        {
+            WINE_WARN("Application tried to release a swapchain image without having acquired it first.\n");
+            return XR_ERROR_CALL_ORDER_INVALID;
+        }
+
+        d3d12_device->lpVtbl->LockCommandQueue(d3d12_device, wine_session->wine_instance->d3d12_queue);
+
+        index = wine_swapchain->acquired_indices[wine_swapchain->acquired_start];
+        if (wine_swapchain->cmd_release[index] != VK_NULL_HANDLE)
+        {
+            VkSubmitInfo submit_info =
+            {
+                .sType = VK_STRUCTURE_TYPE_SUBMIT_INFO,
+                .commandBufferCount = 1,
+                .pCommandBuffers = &wine_swapchain->cmd_release[index],
+            };
+
+            wine_session->wine_instance->p_vkQueueSubmit(wine_session->wine_instance->vk_queue, 1, &submit_info, VK_NULL_HANDLE);
+        }
+    }
+    ret = xrReleaseSwapchainImage(((wine_XrSwapchain *)swapchain)->swapchain, releaseInfo);
+    if (dxvk_device)
+    {
+        dxvk_device->lpVtbl->ReleaseSubmissionQueue(dxvk_device);
+        return ret;
+    }
+    if (!d3d12_device)
+        return ret;
+    if (ret != XR_SUCCESS && wine_swapchain->cmd_release[index] != VK_NULL_HANDLE)
+    {
+        VkSubmitInfo submit_info =
+        {
+            .sType = VK_STRUCTURE_TYPE_SUBMIT_INFO,
+            .commandBufferCount = 1,
+            .pCommandBuffers = &wine_swapchain->cmd_acquire[index],
+        };
+        WINE_WARN("xrReleaseSwapchainImage failed, reverting layout transition\n");
+        wine_session->wine_instance->p_vkQueueSubmit(wine_session->wine_instance->vk_queue, 1, &submit_info, VK_NULL_HANDLE);
+    }
+    if (ret == XR_SUCCESS)
+    {
+        wine_swapchain->acquired[index] = FALSE;
+        wine_swapchain->acquired_start = (wine_swapchain->acquired_start + 1) % wine_swapchain->image_count;
+        wine_swapchain->acquired_count -= 1;
+    }
+    d3d12_device->lpVtbl->UnlockCommandQueue(d3d12_device, wine_session->wine_instance->d3d12_queue);
+    return ret;
 }
 
 /* wineopenxr API */
@@ -2346,4 +2386,48 @@ XrResult WINAPI __wineopenxr_GetVulkanDeviceExtensions(uint32_t buflen, uint32_t
     strcpy(buf, WINE_VULKAN_DEVICE_EXTENSION_NAME);
 
     return XR_SUCCESS;
+}
+
+void register_dispatchable_handle(uint64_t handle, struct openxr_instance_funcs *funcs)
+{
+    struct handle_instance_lookup_entry *entry;
+
+    entry = heap_alloc_zero(sizeof(*entry));
+    entry->handle = handle;
+    entry->funcs = funcs;
+    AcquireSRWLockExclusive(&handle_instance_lookup_lock);
+    rb_put(&handle_instance_lookup, &handle, &entry->entry);
+    ReleaseSRWLockExclusive(&handle_instance_lookup_lock);
+}
+
+void unregister_dispatchable_handle(uint64_t handle)
+{
+    struct rb_entry *entry;
+
+    AcquireSRWLockExclusive(&handle_instance_lookup_lock);
+    if ((entry = rb_get(&handle_instance_lookup, &handle)))
+        rb_remove(&handle_instance_lookup, entry);
+    ReleaseSRWLockExclusive(&handle_instance_lookup_lock);
+    if (entry)
+        heap_free(entry);
+    else
+        WINE_ERR("handle %s not found.\n", wine_dbgstr_longlong(handle));
+}
+
+struct openxr_instance_funcs *get_dispatch_table(uint64_t handle)
+{
+    struct openxr_instance_funcs *funcs = NULL;
+    struct rb_entry *entry;
+
+    AcquireSRWLockExclusive(&handle_instance_lookup_lock);
+    if ((entry = rb_get(&handle_instance_lookup, &handle)))
+        funcs = RB_ENTRY_VALUE(entry, struct handle_instance_lookup_entry, entry)->funcs;
+    ReleaseSRWLockExclusive(&handle_instance_lookup_lock);
+
+    if (!funcs)
+    {
+        WINE_ERR("handle %s not found.\n", wine_dbgstr_longlong(handle));
+        funcs = &last_instance->funcs;
+    }
+    return funcs;
 }

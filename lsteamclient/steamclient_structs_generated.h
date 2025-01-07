@@ -2343,6 +2343,10 @@ struct gameserveritem_t_099u
 };
 #pragma pack( pop )
 
+typedef struct u64_SteamUGCDetails_t_160 u64_SteamUGCDetails_t_160;
+typedef struct w64_SteamUGCDetails_t_160 w64_SteamUGCDetails_t_160;
+typedef struct u32_SteamUGCDetails_t_160 u32_SteamUGCDetails_t_160;
+typedef struct w32_SteamUGCDetails_t_160 w32_SteamUGCDetails_t_160;
 typedef struct u64_SteamUGCDetails_t_128x u64_SteamUGCDetails_t_128x;
 typedef struct w64_SteamUGCDetails_t_128x w64_SteamUGCDetails_t_128x;
 typedef struct u32_SteamUGCDetails_t_128x u32_SteamUGCDetails_t_128x;
@@ -2359,6 +2363,10 @@ typedef struct u64_AddUGCDependencyResult_t u64_AddUGCDependencyResult_t;
 typedef struct w64_AddUGCDependencyResult_t w64_AddUGCDependencyResult_t;
 typedef struct u32_AddUGCDependencyResult_t u32_AddUGCDependencyResult_t;
 typedef struct w32_AddUGCDependencyResult_t w32_AddUGCDependencyResult_t;
+typedef struct w64_CSteamAPIContext_141 u64_CSteamAPIContext_141;
+typedef struct w64_CSteamAPIContext_141 w64_CSteamAPIContext_141;
+typedef struct w32_CSteamAPIContext_141 u32_CSteamAPIContext_141;
+typedef struct w32_CSteamAPIContext_141 w32_CSteamAPIContext_141;
 typedef struct w64_CSteamAPIContext_143 u64_CSteamAPIContext_143;
 typedef struct w64_CSteamAPIContext_143 w64_CSteamAPIContext_143;
 typedef struct w32_CSteamAPIContext_143 u32_CSteamAPIContext_143;
@@ -2371,10 +2379,6 @@ typedef struct w64_CSteamAPIContext_137 u64_CSteamAPIContext_137;
 typedef struct w64_CSteamAPIContext_137 w64_CSteamAPIContext_137;
 typedef struct w32_CSteamAPIContext_137 u32_CSteamAPIContext_137;
 typedef struct w32_CSteamAPIContext_137 w32_CSteamAPIContext_137;
-typedef struct w64_CSteamAPIContext_141 u64_CSteamAPIContext_141;
-typedef struct w64_CSteamAPIContext_141 w64_CSteamAPIContext_141;
-typedef struct w32_CSteamAPIContext_141 u32_CSteamAPIContext_141;
-typedef struct w32_CSteamAPIContext_141 w32_CSteamAPIContext_141;
 typedef struct u_CSteamCallback u_CSteamCallback;
 typedef struct u_CSteamCallback u64_CSteamCallback;
 typedef struct u_CSteamCallback u32_CSteamCallback;
@@ -2563,10 +2567,14 @@ typedef struct u_ISteamNetworkingCustomSignalingRecvContext u32_ISteamNetworking
 typedef struct w_ISteamNetworkingCustomSignalingRecvContext w_ISteamNetworkingCustomSignalingRecvContext;
 typedef struct w_ISteamNetworkingCustomSignalingRecvContext w64_ISteamNetworkingCustomSignalingRecvContext;
 typedef struct w_ISteamNetworkingCustomSignalingRecvContext w32_ISteamNetworkingCustomSignalingRecvContext;
-typedef struct u64_ItemInstalled_t u64_ItemInstalled_t;
-typedef struct w64_ItemInstalled_t w64_ItemInstalled_t;
-typedef struct u32_ItemInstalled_t u32_ItemInstalled_t;
-typedef struct w32_ItemInstalled_t w32_ItemInstalled_t;
+typedef struct u64_ItemInstalled_t_160 u64_ItemInstalled_t_160;
+typedef struct w64_ItemInstalled_t_160 w64_ItemInstalled_t_160;
+typedef struct u32_ItemInstalled_t_160 u32_ItemInstalled_t_160;
+typedef struct w32_ItemInstalled_t_160 w32_ItemInstalled_t_160;
+typedef struct u64_ItemInstalled_t_130 u64_ItemInstalled_t_130;
+typedef struct w64_ItemInstalled_t_130 w64_ItemInstalled_t_130;
+typedef struct u32_ItemInstalled_t_130 u32_ItemInstalled_t_130;
+typedef struct w32_ItemInstalled_t_130 w32_ItemInstalled_t_130;
 typedef struct u64_JoinPartyCallback_t u64_JoinPartyCallback_t;
 typedef struct w64_JoinPartyCallback_t w64_JoinPartyCallback_t;
 typedef struct u32_JoinPartyCallback_t u32_JoinPartyCallback_t;
@@ -2871,6 +2879,10 @@ typedef struct u64_SteamPartyBeaconLocation_t u64_SteamPartyBeaconLocation_t;
 typedef struct w64_SteamPartyBeaconLocation_t w64_SteamPartyBeaconLocation_t;
 typedef struct u32_SteamPartyBeaconLocation_t u32_SteamPartyBeaconLocation_t;
 typedef struct w32_SteamPartyBeaconLocation_t w32_SteamPartyBeaconLocation_t;
+typedef struct u64_SteamUGCRequestUGCDetailsResult_t_160 u64_SteamUGCRequestUGCDetailsResult_t_160;
+typedef struct w64_SteamUGCRequestUGCDetailsResult_t_160 w64_SteamUGCRequestUGCDetailsResult_t_160;
+typedef struct u32_SteamUGCRequestUGCDetailsResult_t_160 u32_SteamUGCRequestUGCDetailsResult_t_160;
+typedef struct w32_SteamUGCRequestUGCDetailsResult_t_160 w32_SteamUGCRequestUGCDetailsResult_t_160;
 typedef struct u64_SteamUGCRequestUGCDetailsResult_t_128x u64_SteamUGCRequestUGCDetailsResult_t_128x;
 typedef struct w64_SteamUGCRequestUGCDetailsResult_t_128x w64_SteamUGCRequestUGCDetailsResult_t_128x;
 typedef struct u32_SteamUGCRequestUGCDetailsResult_t_128x u32_SteamUGCRequestUGCDetailsResult_t_128x;
@@ -2887,6 +2899,167 @@ typedef struct u64_SubmitPlayerResultResultCallback_t u64_SubmitPlayerResultResu
 typedef struct w64_SubmitPlayerResultResultCallback_t w64_SubmitPlayerResultResultCallback_t;
 typedef struct u32_SubmitPlayerResultResultCallback_t u32_SubmitPlayerResultResultCallback_t;
 typedef struct w32_SubmitPlayerResultResultCallback_t w32_SubmitPlayerResultResultCallback_t;
+#pragma pack( push, 8 )
+struct w64_SteamUGCDetails_t_160
+{
+    uint64_t m_nPublishedFileId;
+    uint32_t m_eResult;
+    uint32_t m_eFileType;
+    uint32_t m_nCreatorAppID;
+    uint32_t m_nConsumerAppID;
+    W64_ARRAY(char, 129, m_rgchTitle);
+    W64_ARRAY(char, 8000, m_rgchDescription);
+    uint8_t __pad_8153[7];
+    uint64_t m_ulSteamIDOwner;
+    uint32_t m_rtimeCreated;
+    uint32_t m_rtimeUpdated;
+    uint32_t m_rtimeAddedToUserList;
+    uint32_t m_eVisibility;
+    int8_t m_bBanned;
+    int8_t m_bAcceptedForUse;
+    int8_t m_bTagsTruncated;
+    W64_ARRAY(char, 1025, m_rgchTags);
+    uint8_t __pad_9212[4];
+    uint64_t m_hFile;
+    uint64_t m_hPreviewFile;
+    W64_ARRAY(char, 260, m_pchFileName);
+    int32_t m_nFileSize;
+    int32_t m_nPreviewFileSize;
+    W64_ARRAY(char, 256, m_rgchURL);
+    uint32_t m_unVotesUp;
+    uint32_t m_unVotesDown;
+    float m_flScore;
+    uint32_t m_unNumChildren;
+    uint8_t __pad_9772[4];
+    uint64_t m_ulTotalFilesSize;
+#ifdef __cplusplus
+    operator u64_SteamUGCDetails_t_160() const;
+#endif /* __cplusplus */
+};
+#pragma pack( pop )
+
+#pragma pack( push, 4 )
+struct u64_SteamUGCDetails_t_160
+{
+    uint64_t m_nPublishedFileId;
+    uint32_t m_eResult;
+    uint32_t m_eFileType;
+    uint32_t m_nCreatorAppID;
+    uint32_t m_nConsumerAppID;
+    U64_ARRAY(char, 129, m_rgchTitle);
+    U64_ARRAY(char, 8000, m_rgchDescription);
+    uint8_t __pad_8153[3];
+    uint64_t m_ulSteamIDOwner;
+    uint32_t m_rtimeCreated;
+    uint32_t m_rtimeUpdated;
+    uint32_t m_rtimeAddedToUserList;
+    uint32_t m_eVisibility;
+    int8_t m_bBanned;
+    int8_t m_bAcceptedForUse;
+    int8_t m_bTagsTruncated;
+    U64_ARRAY(char, 1025, m_rgchTags);
+    uint64_t m_hFile;
+    uint64_t m_hPreviewFile;
+    U64_ARRAY(char, 260, m_pchFileName);
+    int32_t m_nFileSize;
+    int32_t m_nPreviewFileSize;
+    U64_ARRAY(char, 256, m_rgchURL);
+    uint32_t m_unVotesUp;
+    uint32_t m_unVotesDown;
+    float m_flScore;
+    uint32_t m_unNumChildren;
+    uint64_t m_ulTotalFilesSize;
+#ifdef __cplusplus
+    operator w64_SteamUGCDetails_t_160() const;
+#endif /* __cplusplus */
+};
+#pragma pack( pop )
+
+#pragma pack( push, 8 )
+struct w32_SteamUGCDetails_t_160
+{
+    uint64_t m_nPublishedFileId;
+    uint32_t m_eResult;
+    uint32_t m_eFileType;
+    uint32_t m_nCreatorAppID;
+    uint32_t m_nConsumerAppID;
+    W32_ARRAY(char, 129, m_rgchTitle);
+    W32_ARRAY(char, 8000, m_rgchDescription);
+    uint8_t __pad_8153[7];
+    uint64_t m_ulSteamIDOwner;
+    uint32_t m_rtimeCreated;
+    uint32_t m_rtimeUpdated;
+    uint32_t m_rtimeAddedToUserList;
+    uint32_t m_eVisibility;
+    int8_t m_bBanned;
+    int8_t m_bAcceptedForUse;
+    int8_t m_bTagsTruncated;
+    W32_ARRAY(char, 1025, m_rgchTags);
+    uint8_t __pad_9212[4];
+    uint64_t m_hFile;
+    uint64_t m_hPreviewFile;
+    W32_ARRAY(char, 260, m_pchFileName);
+    int32_t m_nFileSize;
+    int32_t m_nPreviewFileSize;
+    W32_ARRAY(char, 256, m_rgchURL);
+    uint32_t m_unVotesUp;
+    uint32_t m_unVotesDown;
+    float m_flScore;
+    uint32_t m_unNumChildren;
+    uint8_t __pad_9772[4];
+    uint64_t m_ulTotalFilesSize;
+#ifdef __cplusplus
+    operator u32_SteamUGCDetails_t_160() const;
+#endif /* __cplusplus */
+};
+#pragma pack( pop )
+
+#pragma pack( push, 4 )
+struct u32_SteamUGCDetails_t_160
+{
+    uint64_t m_nPublishedFileId;
+    uint32_t m_eResult;
+    uint32_t m_eFileType;
+    uint32_t m_nCreatorAppID;
+    uint32_t m_nConsumerAppID;
+    U32_ARRAY(char, 129, m_rgchTitle);
+    U32_ARRAY(char, 8000, m_rgchDescription);
+    uint8_t __pad_8153[3];
+    uint64_t m_ulSteamIDOwner;
+    uint32_t m_rtimeCreated;
+    uint32_t m_rtimeUpdated;
+    uint32_t m_rtimeAddedToUserList;
+    uint32_t m_eVisibility;
+    int8_t m_bBanned;
+    int8_t m_bAcceptedForUse;
+    int8_t m_bTagsTruncated;
+    U32_ARRAY(char, 1025, m_rgchTags);
+    uint64_t m_hFile;
+    uint64_t m_hPreviewFile;
+    U32_ARRAY(char, 260, m_pchFileName);
+    int32_t m_nFileSize;
+    int32_t m_nPreviewFileSize;
+    U32_ARRAY(char, 256, m_rgchURL);
+    uint32_t m_unVotesUp;
+    uint32_t m_unVotesDown;
+    float m_flScore;
+    uint32_t m_unNumChildren;
+    uint64_t m_ulTotalFilesSize;
+#ifdef __cplusplus
+    operator w32_SteamUGCDetails_t_160() const;
+#endif /* __cplusplus */
+};
+#pragma pack( pop )
+
+#ifdef __i386__
+typedef w32_SteamUGCDetails_t_160 w_SteamUGCDetails_t_160;
+typedef u32_SteamUGCDetails_t_160 u_SteamUGCDetails_t_160;
+#endif
+#ifdef __x86_64__
+typedef w64_SteamUGCDetails_t_160 w_SteamUGCDetails_t_160;
+typedef u64_SteamUGCDetails_t_160 u_SteamUGCDetails_t_160;
+#endif
+
 #pragma pack( push, 8 )
 struct w64_SteamUGCDetails_t_128x
 {
@@ -3316,6 +3489,71 @@ typedef u64_AddUGCDependencyResult_t u_AddUGCDependencyResult_t;
 #endif
 
 #pragma pack( push, 8 )
+struct w64_CSteamAPIContext_141
+{
+    W64_PTR(void /*ISteamClient*/ *m_pSteamClient, m_pSteamClient);
+    W64_PTR(void /*ISteamUser*/ *m_pSteamUser, m_pSteamUser);
+    W64_PTR(void /*ISteamFriends*/ *m_pSteamFriends, m_pSteamFriends);
+    W64_PTR(void /*ISteamUtils*/ *m_pSteamUtils, m_pSteamUtils);
+    W64_PTR(void /*ISteamMatchmaking*/ *m_pSteamMatchmaking, m_pSteamMatchmaking);
+    W64_PTR(void /*ISteamGameSearch*/ *m_pSteamGameSearch, m_pSteamGameSearch);
+    W64_PTR(void /*ISteamUserStats*/ *m_pSteamUserStats, m_pSteamUserStats);
+    W64_PTR(void /*ISteamApps*/ *m_pSteamApps, m_pSteamApps);
+    W64_PTR(void /*ISteamMatchmakingServers*/ *m_pSteamMatchmakingServers, m_pSteamMatchmakingServers);
+    W64_PTR(void /*ISteamNetworking*/ *m_pSteamNetworking, m_pSteamNetworking);
+    W64_PTR(void /*ISteamRemoteStorage*/ *m_pSteamRemoteStorage, m_pSteamRemoteStorage);
+    W64_PTR(void /*ISteamScreenshots*/ *m_pSteamScreenshots, m_pSteamScreenshots);
+    W64_PTR(void /*ISteamHTTP*/ *m_pSteamHTTP, m_pSteamHTTP);
+    W64_PTR(void /*ISteamController*/ *m_pController, m_pController);
+    W64_PTR(void /*ISteamUGC*/ *m_pSteamUGC, m_pSteamUGC);
+    W64_PTR(void /*ISteamMusic*/ *m_pSteamMusic, m_pSteamMusic);
+    W64_PTR(void /*ISteamMusicRemote*/ *m_pSteamMusicRemote, m_pSteamMusicRemote);
+    W64_PTR(void /*ISteamHTMLSurface*/ *m_pSteamHTMLSurface, m_pSteamHTMLSurface);
+    W64_PTR(void /*ISteamInventory*/ *m_pSteamInventory, m_pSteamInventory);
+    W64_PTR(void /*ISteamVideo*/ *m_pSteamVideo, m_pSteamVideo);
+    W64_PTR(void /*ISteamParentalSettings*/ *m_pSteamParentalSettings, m_pSteamParentalSettings);
+    W64_PTR(void /*ISteamInput*/ *m_pSteamInput, m_pSteamInput);
+};
+#pragma pack( pop )
+
+#pragma pack( push, 4 )
+struct w32_CSteamAPIContext_141
+{
+    W32_PTR(void /*ISteamClient*/ *m_pSteamClient, m_pSteamClient);
+    W32_PTR(void /*ISteamUser*/ *m_pSteamUser, m_pSteamUser);
+    W32_PTR(void /*ISteamFriends*/ *m_pSteamFriends, m_pSteamFriends);
+    W32_PTR(void /*ISteamUtils*/ *m_pSteamUtils, m_pSteamUtils);
+    W32_PTR(void /*ISteamMatchmaking*/ *m_pSteamMatchmaking, m_pSteamMatchmaking);
+    W32_PTR(void /*ISteamGameSearch*/ *m_pSteamGameSearch, m_pSteamGameSearch);
+    W32_PTR(void /*ISteamUserStats*/ *m_pSteamUserStats, m_pSteamUserStats);
+    W32_PTR(void /*ISteamApps*/ *m_pSteamApps, m_pSteamApps);
+    W32_PTR(void /*ISteamMatchmakingServers*/ *m_pSteamMatchmakingServers, m_pSteamMatchmakingServers);
+    W32_PTR(void /*ISteamNetworking*/ *m_pSteamNetworking, m_pSteamNetworking);
+    W32_PTR(void /*ISteamRemoteStorage*/ *m_pSteamRemoteStorage, m_pSteamRemoteStorage);
+    W32_PTR(void /*ISteamScreenshots*/ *m_pSteamScreenshots, m_pSteamScreenshots);
+    W32_PTR(void /*ISteamHTTP*/ *m_pSteamHTTP, m_pSteamHTTP);
+    W32_PTR(void /*ISteamController*/ *m_pController, m_pController);
+    W32_PTR(void /*ISteamUGC*/ *m_pSteamUGC, m_pSteamUGC);
+    W32_PTR(void /*ISteamMusic*/ *m_pSteamMusic, m_pSteamMusic);
+    W32_PTR(void /*ISteamMusicRemote*/ *m_pSteamMusicRemote, m_pSteamMusicRemote);
+    W32_PTR(void /*ISteamHTMLSurface*/ *m_pSteamHTMLSurface, m_pSteamHTMLSurface);
+    W32_PTR(void /*ISteamInventory*/ *m_pSteamInventory, m_pSteamInventory);
+    W32_PTR(void /*ISteamVideo*/ *m_pSteamVideo, m_pSteamVideo);
+    W32_PTR(void /*ISteamParentalSettings*/ *m_pSteamParentalSettings, m_pSteamParentalSettings);
+    W32_PTR(void /*ISteamInput*/ *m_pSteamInput, m_pSteamInput);
+};
+#pragma pack( pop )
+
+#ifdef __i386__
+typedef w32_CSteamAPIContext_141 w_CSteamAPIContext_141;
+typedef u32_CSteamAPIContext_141 u_CSteamAPIContext_141;
+#endif
+#ifdef __x86_64__
+typedef w64_CSteamAPIContext_141 w_CSteamAPIContext_141;
+typedef u64_CSteamAPIContext_141 u_CSteamAPIContext_141;
+#endif
+
+#pragma pack( push, 8 )
 struct w64_CSteamAPIContext_143
 {
     W64_PTR(void /*ISteamClient*/ *m_pSteamClient, m_pSteamClient);
@@ -3512,71 +3750,6 @@ typedef u32_CSteamAPIContext_137 u_CSteamAPIContext_137;
 #ifdef __x86_64__
 typedef w64_CSteamAPIContext_137 w_CSteamAPIContext_137;
 typedef u64_CSteamAPIContext_137 u_CSteamAPIContext_137;
-#endif
-
-#pragma pack( push, 8 )
-struct w64_CSteamAPIContext_141
-{
-    W64_PTR(void /*ISteamClient*/ *m_pSteamClient, m_pSteamClient);
-    W64_PTR(void /*ISteamUser*/ *m_pSteamUser, m_pSteamUser);
-    W64_PTR(void /*ISteamFriends*/ *m_pSteamFriends, m_pSteamFriends);
-    W64_PTR(void /*ISteamUtils*/ *m_pSteamUtils, m_pSteamUtils);
-    W64_PTR(void /*ISteamMatchmaking*/ *m_pSteamMatchmaking, m_pSteamMatchmaking);
-    W64_PTR(void /*ISteamUserStats*/ *m_pSteamUserStats, m_pSteamUserStats);
-    W64_PTR(void /*ISteamApps*/ *m_pSteamApps, m_pSteamApps);
-    W64_PTR(void /*ISteamMatchmakingServers*/ *m_pSteamMatchmakingServers, m_pSteamMatchmakingServers);
-    W64_PTR(void /*ISteamNetworking*/ *m_pSteamNetworking, m_pSteamNetworking);
-    W64_PTR(void /*ISteamRemoteStorage*/ *m_pSteamRemoteStorage, m_pSteamRemoteStorage);
-    W64_PTR(void /*ISteamScreenshots*/ *m_pSteamScreenshots, m_pSteamScreenshots);
-    W64_PTR(void /*ISteamHTTP*/ *m_pSteamHTTP, m_pSteamHTTP);
-    W64_PTR(void /*ISteamUnifiedMessages*/ *m_pSteamUnifiedMessages, m_pSteamUnifiedMessages);
-    W64_PTR(void /*ISteamController*/ *m_pController, m_pController);
-    W64_PTR(void /*ISteamUGC*/ *m_pSteamUGC, m_pSteamUGC);
-    W64_PTR(void /*ISteamAppList*/ *m_pSteamAppList, m_pSteamAppList);
-    W64_PTR(void /*ISteamMusic*/ *m_pSteamMusic, m_pSteamMusic);
-    W64_PTR(void /*ISteamMusicRemote*/ *m_pSteamMusicRemote, m_pSteamMusicRemote);
-    W64_PTR(void /*ISteamHTMLSurface*/ *m_pSteamHTMLSurface, m_pSteamHTMLSurface);
-    W64_PTR(void /*ISteamInventory*/ *m_pSteamInventory, m_pSteamInventory);
-    W64_PTR(void /*ISteamVideo*/ *m_pSteamVideo, m_pSteamVideo);
-    W64_PTR(void /*ISteamParentalSettings*/ *m_pSteamParentalSettings, m_pSteamParentalSettings);
-};
-#pragma pack( pop )
-
-#pragma pack( push, 4 )
-struct w32_CSteamAPIContext_141
-{
-    W32_PTR(void /*ISteamClient*/ *m_pSteamClient, m_pSteamClient);
-    W32_PTR(void /*ISteamUser*/ *m_pSteamUser, m_pSteamUser);
-    W32_PTR(void /*ISteamFriends*/ *m_pSteamFriends, m_pSteamFriends);
-    W32_PTR(void /*ISteamUtils*/ *m_pSteamUtils, m_pSteamUtils);
-    W32_PTR(void /*ISteamMatchmaking*/ *m_pSteamMatchmaking, m_pSteamMatchmaking);
-    W32_PTR(void /*ISteamUserStats*/ *m_pSteamUserStats, m_pSteamUserStats);
-    W32_PTR(void /*ISteamApps*/ *m_pSteamApps, m_pSteamApps);
-    W32_PTR(void /*ISteamMatchmakingServers*/ *m_pSteamMatchmakingServers, m_pSteamMatchmakingServers);
-    W32_PTR(void /*ISteamNetworking*/ *m_pSteamNetworking, m_pSteamNetworking);
-    W32_PTR(void /*ISteamRemoteStorage*/ *m_pSteamRemoteStorage, m_pSteamRemoteStorage);
-    W32_PTR(void /*ISteamScreenshots*/ *m_pSteamScreenshots, m_pSteamScreenshots);
-    W32_PTR(void /*ISteamHTTP*/ *m_pSteamHTTP, m_pSteamHTTP);
-    W32_PTR(void /*ISteamUnifiedMessages*/ *m_pSteamUnifiedMessages, m_pSteamUnifiedMessages);
-    W32_PTR(void /*ISteamController*/ *m_pController, m_pController);
-    W32_PTR(void /*ISteamUGC*/ *m_pSteamUGC, m_pSteamUGC);
-    W32_PTR(void /*ISteamAppList*/ *m_pSteamAppList, m_pSteamAppList);
-    W32_PTR(void /*ISteamMusic*/ *m_pSteamMusic, m_pSteamMusic);
-    W32_PTR(void /*ISteamMusicRemote*/ *m_pSteamMusicRemote, m_pSteamMusicRemote);
-    W32_PTR(void /*ISteamHTMLSurface*/ *m_pSteamHTMLSurface, m_pSteamHTMLSurface);
-    W32_PTR(void /*ISteamInventory*/ *m_pSteamInventory, m_pSteamInventory);
-    W32_PTR(void /*ISteamVideo*/ *m_pSteamVideo, m_pSteamVideo);
-    W32_PTR(void /*ISteamParentalSettings*/ *m_pSteamParentalSettings, m_pSteamParentalSettings);
-};
-#pragma pack( pop )
-
-#ifdef __i386__
-typedef w32_CSteamAPIContext_141 w_CSteamAPIContext_141;
-typedef u32_CSteamAPIContext_141 u_CSteamAPIContext_141;
-#endif
-#ifdef __x86_64__
-typedef w64_CSteamAPIContext_141 w_CSteamAPIContext_141;
-typedef u64_CSteamAPIContext_141 u_CSteamAPIContext_141;
 #endif
 
 struct w_CSteamCallback
@@ -5683,58 +5856,121 @@ struct u_ISteamNetworkingCustomSignalingRecvContext
 };
 
 #pragma pack( push, 8 )
-struct w64_ItemInstalled_t
+struct w64_ItemInstalled_t_160
 {
     uint32_t m_unAppID;
     uint8_t __pad_4[4];
     uint64_t m_nPublishedFileId;
+    uint64_t m_hLegacyContent;
+    uint64_t m_unManifestID;
 #ifdef __cplusplus
-    operator u64_ItemInstalled_t() const;
+    operator u64_ItemInstalled_t_160() const;
 #endif /* __cplusplus */
 };
 #pragma pack( pop )
 
 #pragma pack( push, 4 )
-struct u64_ItemInstalled_t
+struct u64_ItemInstalled_t_160
 {
     uint32_t m_unAppID;
     uint64_t m_nPublishedFileId;
+    uint64_t m_hLegacyContent;
+    uint64_t m_unManifestID;
 #ifdef __cplusplus
-    operator w64_ItemInstalled_t() const;
+    operator w64_ItemInstalled_t_160() const;
 #endif /* __cplusplus */
 };
 #pragma pack( pop )
 
 #pragma pack( push, 8 )
-struct w32_ItemInstalled_t
+struct w32_ItemInstalled_t_160
 {
     uint32_t m_unAppID;
     uint8_t __pad_4[4];
     uint64_t m_nPublishedFileId;
+    uint64_t m_hLegacyContent;
+    uint64_t m_unManifestID;
 #ifdef __cplusplus
-    operator u32_ItemInstalled_t() const;
+    operator u32_ItemInstalled_t_160() const;
 #endif /* __cplusplus */
 };
 #pragma pack( pop )
 
 #pragma pack( push, 4 )
-struct u32_ItemInstalled_t
+struct u32_ItemInstalled_t_160
 {
     uint32_t m_unAppID;
     uint64_t m_nPublishedFileId;
+    uint64_t m_hLegacyContent;
+    uint64_t m_unManifestID;
 #ifdef __cplusplus
-    operator w32_ItemInstalled_t() const;
+    operator w32_ItemInstalled_t_160() const;
 #endif /* __cplusplus */
 };
 #pragma pack( pop )
 
 #ifdef __i386__
-typedef w32_ItemInstalled_t w_ItemInstalled_t;
-typedef u32_ItemInstalled_t u_ItemInstalled_t;
+typedef w32_ItemInstalled_t_160 w_ItemInstalled_t_160;
+typedef u32_ItemInstalled_t_160 u_ItemInstalled_t_160;
 #endif
 #ifdef __x86_64__
-typedef w64_ItemInstalled_t w_ItemInstalled_t;
-typedef u64_ItemInstalled_t u_ItemInstalled_t;
+typedef w64_ItemInstalled_t_160 w_ItemInstalled_t_160;
+typedef u64_ItemInstalled_t_160 u_ItemInstalled_t_160;
+#endif
+
+#pragma pack( push, 8 )
+struct w64_ItemInstalled_t_130
+{
+    uint32_t m_unAppID;
+    uint8_t __pad_4[4];
+    uint64_t m_nPublishedFileId;
+#ifdef __cplusplus
+    operator u64_ItemInstalled_t_130() const;
+#endif /* __cplusplus */
+};
+#pragma pack( pop )
+
+#pragma pack( push, 4 )
+struct u64_ItemInstalled_t_130
+{
+    uint32_t m_unAppID;
+    uint64_t m_nPublishedFileId;
+#ifdef __cplusplus
+    operator w64_ItemInstalled_t_130() const;
+#endif /* __cplusplus */
+};
+#pragma pack( pop )
+
+#pragma pack( push, 8 )
+struct w32_ItemInstalled_t_130
+{
+    uint32_t m_unAppID;
+    uint8_t __pad_4[4];
+    uint64_t m_nPublishedFileId;
+#ifdef __cplusplus
+    operator u32_ItemInstalled_t_130() const;
+#endif /* __cplusplus */
+};
+#pragma pack( pop )
+
+#pragma pack( push, 4 )
+struct u32_ItemInstalled_t_130
+{
+    uint32_t m_unAppID;
+    uint64_t m_nPublishedFileId;
+#ifdef __cplusplus
+    operator w32_ItemInstalled_t_130() const;
+#endif /* __cplusplus */
+};
+#pragma pack( pop )
+
+#ifdef __i386__
+typedef w32_ItemInstalled_t_130 w_ItemInstalled_t_130;
+typedef u32_ItemInstalled_t_130 u_ItemInstalled_t_130;
+#endif
+#ifdef __x86_64__
+typedef w64_ItemInstalled_t_130 w_ItemInstalled_t_130;
+typedef u64_ItemInstalled_t_130 u_ItemInstalled_t_130;
 #endif
 
 #pragma pack( push, 8 )
@@ -10430,6 +10666,63 @@ typedef u32_SteamPartyBeaconLocation_t u_SteamPartyBeaconLocation_t;
 #ifdef __x86_64__
 typedef w64_SteamPartyBeaconLocation_t w_SteamPartyBeaconLocation_t;
 typedef u64_SteamPartyBeaconLocation_t u_SteamPartyBeaconLocation_t;
+#endif
+
+#pragma pack( push, 8 )
+struct w64_SteamUGCRequestUGCDetailsResult_t_160
+{
+    w64_SteamUGCDetails_t_160 m_details;
+    int8_t m_bCachedData;
+    uint8_t __pad_9785[7];
+#ifdef __cplusplus
+    operator u64_SteamUGCRequestUGCDetailsResult_t_160() const;
+#endif /* __cplusplus */
+};
+#pragma pack( pop )
+
+#pragma pack( push, 4 )
+struct u64_SteamUGCRequestUGCDetailsResult_t_160
+{
+    u64_SteamUGCDetails_t_160 m_details;
+    int8_t m_bCachedData;
+    uint8_t __pad_9773[3];
+#ifdef __cplusplus
+    operator w64_SteamUGCRequestUGCDetailsResult_t_160() const;
+#endif /* __cplusplus */
+};
+#pragma pack( pop )
+
+#pragma pack( push, 8 )
+struct w32_SteamUGCRequestUGCDetailsResult_t_160
+{
+    w32_SteamUGCDetails_t_160 m_details;
+    int8_t m_bCachedData;
+    uint8_t __pad_9785[7];
+#ifdef __cplusplus
+    operator u32_SteamUGCRequestUGCDetailsResult_t_160() const;
+#endif /* __cplusplus */
+};
+#pragma pack( pop )
+
+#pragma pack( push, 4 )
+struct u32_SteamUGCRequestUGCDetailsResult_t_160
+{
+    u32_SteamUGCDetails_t_160 m_details;
+    int8_t m_bCachedData;
+    uint8_t __pad_9773[3];
+#ifdef __cplusplus
+    operator w32_SteamUGCRequestUGCDetailsResult_t_160() const;
+#endif /* __cplusplus */
+};
+#pragma pack( pop )
+
+#ifdef __i386__
+typedef w32_SteamUGCRequestUGCDetailsResult_t_160 w_SteamUGCRequestUGCDetailsResult_t_160;
+typedef u32_SteamUGCRequestUGCDetailsResult_t_160 u_SteamUGCRequestUGCDetailsResult_t_160;
+#endif
+#ifdef __x86_64__
+typedef w64_SteamUGCRequestUGCDetailsResult_t_160 w_SteamUGCRequestUGCDetailsResult_t_160;
+typedef u64_SteamUGCRequestUGCDetailsResult_t_160 u_SteamUGCRequestUGCDetailsResult_t_160;
 #endif
 
 #pragma pack( push, 8 )

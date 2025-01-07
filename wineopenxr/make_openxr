@@ -62,7 +62,7 @@ LOGGER = logging.Logger("openxr")
 LOGGER.addHandler(logging.StreamHandler())
 
 XR_XML_VERSION = "1.0.11"
-WINE_XR_VERSION = (1, 0)
+WINE_XR_VERSION = (1, 1)
 
 # Filenames to create.
 WINE_OPENXR_H = "./wineopenxr.h"
@@ -119,20 +119,6 @@ UNSUPPORTED_EXTENSIONS = [
     # Deprecated extensions
     "XR_NV_external_memory_capabilities",
     "XR_NV_external_memory_win32",
-
-    # Not widely supported extensions which require handler wrapping
-    "XR_MSFT_spatial_graph_bridge",
-    "XR_ML_compat",
-    "XR_MSFT_hand_tracking_mesh",
-    "XR_FB_keyboard_tracking",
-    "XR_VARJO_marker_tracking",
-    "XR_HTC_facial_tracking",
-    "XR_FB_face_tracking",
-    "XR_HTC_passthrough",
-    "XR_FB_eye_tracking_social",
-    "XR_FB_spatial_entity_user",
-    "XR_FB_body_tracking",
-    "XR_FB_spatial_entity",
 ]
 
 ALLOWED_PROTECTS = [
@@ -159,16 +145,13 @@ DRIVER_VERSION = 1
 FUNCTION_OVERRIDES = {
     # Global functions
     "xrCreateInstance" : {"dispatch" : False, "driver" : True, "thunk" : False},
+    "xrCreateApiLayerInstance" : {"dispatch" : False, "driver" : True, "thunk" : False},
+    "xrNegotiateLoaderRuntimeInterface" : {"dispatch" : False, "driver" : True, "thunk" : False},
+    "xrNegotiateLoaderApiLayerInterface" : {"dispatch" : False, "driver" : False, "thunk" : False},
     "xrDestroyInstance" : {"dispatch" : False, "driver" : True, "thunk" : False},
 
     "xrCreateSession" : {"dispatch" : True, "driver" : True, "thunk" : False},
     "xrDestroySession" : {"dispatch" : True, "driver" : True, "thunk" : False},
-
-    "xrCreateHandTrackerEXT" : {"dispatch" : True, "driver" : True, "thunk" : False},
-    "xrDestroyHandTrackerEXT" : {"dispatch" : True, "driver" : True, "thunk" : False},
-
-    "xrCreateSpatialAnchorMSFT" : {"dispatch" : True, "driver" : True, "thunk" : False},
-    "xrDestroySpatialAnchorMSFT" : {"dispatch" : True, "driver" : True, "thunk" : False},
 
     "xrGetInstanceProcAddr" : {"dispatch" : False, "driver" : True, "thunk" : False},
     "xrEnumerateInstanceExtensionProperties" : {"dispatch" : False, "driver" : True, "thunk" : False},
@@ -192,31 +175,54 @@ FUNCTION_OVERRIDES = {
     "xrCreateSwapchain" : {"dispatch" : True, "driver" : True, "thunk" : False},
     "xrDestroySwapchain" : {"dispatch" : True, "driver" : True, "thunk" : False},
     "xrEndFrame" : {"dispatch" : True, "driver" : True, "thunk" : False},
-
-    "xrCreateSceneObserverMSFT" : {"dispatch" : True, "driver" : True, "thunk" : False},
-    "xrDestroySceneObserverMSFT" : {"dispatch" : True, "driver" : True, "thunk" : False},
-    "xrCreateSceneMSFT" : {"dispatch" : True, "driver" : True, "thunk" : False},
-    "xrDestroySceneMSFT" : {"dispatch" : True, "driver" : True, "thunk" : False},
-
-    "xrCreateSpatialAnchorFromPersistedNameMSFT" : {"dispatch" : True, "driver" : True, "thunk" : False},
-    "xrCreateSpatialAnchorStoreConnectionMSFT" : {"dispatch" : True, "driver" : True, "thunk" : False},
-    "xrDestroySpatialAnchorStoreConnectionMSFT" : {"dispatch" : True, "driver" : True, "thunk" : False},
-    "xrCreateFoveationProfileFB" : {"dispatch" : True, "driver" : True, "thunk" : False},
-    "xrDestroyFoveationProfileFB" : {"dispatch" : True, "driver" : True, "thunk" : False},
-    "xrCreateGeometryInstanceFB" : {"dispatch" : True, "driver" : True, "thunk" : False},
-    "xrDestroyGeometryInstanceFB" : {"dispatch" : True, "driver" : True, "thunk" : False},
-    "xrCreateTriangleMeshFB" : {"dispatch" : True, "driver" : True, "thunk" : False},
-    "xrDestroyTriangleMeshFB" : {"dispatch" : True, "driver" : True, "thunk" : False},
-    "xrCreatePassthroughFB" : {"dispatch" : True, "driver" : True, "thunk" : False},
-    "xrDestroyPassthroughFB" : {"dispatch" : True, "driver" : True, "thunk" : False},
-    "xrCreatePassthroughLayerFB" : {"dispatch" : True, "driver" : True, "thunk" : False},
-    "xrDestroyPassthroughLayerFB" : {"dispatch" : True, "driver" : True, "thunk" : False},
+    "xrBeginFrame" : {"dispatch" : True, "driver" : True, "thunk" : False},
+    "xrAcquireSwapchainImage" : {"dispatch" : True, "driver" : True, "thunk" : False},
+    "xrReleaseSwapchainImage" : {"dispatch" : True, "driver" : True, "thunk" : False},
 }
+
+NOT_OUR_FUNCTIONS = [
+    # xr.xml defines that as a part of XR_LOADER_VERSION_1_0 commands but it looks like only layers should provide it
+    # (through dll export).
+    "xrNegotiateLoaderApiLayerInterface",
+]
 
 STRUCT_CHAIN_CONVERSIONS = [
     "XrInstanceCreateInfo",
 ]
 
+STRUCTS_PUT_FIRST = [
+    "XrUuid",
+    "XrExtent3Df",
+]
+
+AUTO_MAPPED_HANDLES = [
+    "XrSpace",
+    "XrSpatialAnchorMSFT",
+    "XrSpatialAnchorStoreConnectionMSFT",
+    "XrHandTrackerEXT",
+    "XrExportedLocalizationMapML",
+    "XrMarkerDetectorML",
+    "XrSceneMSFT",
+    "XrSceneObserverMSFT",
+    "XrSpatialGraphNodeBindingMSFT",
+    "XrFoveationProfileFB",
+    "XrTriangleMeshFB",
+    "XrPassthroughFB",
+    "XrPassthroughLayerFB",
+    "XrGeometryInstanceFB",
+    "XrEnvironmentDepthProviderMETA",
+    "XrVirtualKeyboardMETA",
+    "XrPlaneDetectorEXT",
+    "XrEyeTrackerFB",
+    "XrSpaceUserFB",
+    "XrBodyTrackerFB",
+    "XrFaceTrackerFB",
+    "XrFaceTracker2FB",
+    "XrEnvironmentDepthSwapchainMETA",
+    "XrPassthroughHTC",
+    "XrFacialTrackerHTC",
+    "XrPassthroughColorLutMETA",
+]
 
 class Direction(Enum):
     """ Parameter direction: input, output, input_output. """
@@ -629,6 +635,8 @@ class XrFunction(object):
     def body(self):
         body = ""
 
+        if self.type != "void":
+            body += "    {0} ret;\n\n".format(self.type)
         if not self.needs_private_thunk():
             body += "    {0}".format(self.trace())
 
@@ -640,13 +648,23 @@ class XrFunction(object):
             if self.type == "void":
                 body += "    {0}({1});\n".format(self.name, params)
             else:
-                body += "    return {0}({1});\n".format(self.name, params)
+                body += "    ret = {0}({1});\n".format(self.name, params)
         else:
             if self.type == "void":
                 body += "    {0}.p_{1}({2});\n".format(self.params[0].dispatch_table(), self.name, params)
             else:
-                body += "    return {0}.p_{1}({2});\n".format(self.params[0].dispatch_table(), self.name, params)
+                body += "    ret = {0}.p_{1}({2});\n".format(self.params[0].dispatch_table(), self.name, params)
 
+        if "Destroy" in self.name:
+            for p in self.params:
+                if p.type in AUTO_MAPPED_HANDLES:
+                    body += "    unregister_dispatchable_handle((uint64_t){0});\n".format(p.name)
+        if "Create" in self.name:
+            for p in self.params:
+                if p.type in AUTO_MAPPED_HANDLES and p.is_pointer():
+                    body += "    if (!ret) register_dispatchable_handle((uint64_t)*{0}, &({1}));\n".format(p.name, self.params[0].dispatch_table())
+        if self.type != "void":
+            body += "    return ret;\n"
         return body
 
     def body_conversion(self):
@@ -770,11 +788,12 @@ class XrFunction(object):
 
 
 class XrFunctionPointer(object):
-    def __init__(self, _type, name, members):
+    def __init__(self, _type, name, members, params_text):
         self.name = name
         self.members = members
         self.type = _type
         self.required = False
+        self.params_text = params_text
 
     @staticmethod
     def from_xml(funcpointer):
@@ -811,7 +830,19 @@ class XrFunctionPointer(object):
 
         _type = funcpointer.text
         name = funcpointer.find("name").text
-        return XrFunctionPointer(_type, name, members)
+        params_text = None
+        if members == []:
+            index = 0
+            for elem_part in funcpointer.itertext():
+                index = index + 1
+                if index == 3:
+                    p = re.findall(r'\([^)]*\)', elem_part)
+                    params_text = next(iter(p), None)
+                    if params_text:
+                        params_text = params_text[1:-1]
+                    break
+
+        return XrFunctionPointer(_type, name, members, params_text)
 
     def definition(self):
         text = "{0} {1})(\n".format(self.type, self.name)
@@ -824,6 +855,8 @@ class XrFunctionPointer(object):
                     first = False
                 else:
                     text += ",\n    " + m.definition()
+        elif self.params_text is not None:
+            text += self.params_text
         else:
             # Just make the compiler happy by adding a void parameter.
             text += "void"
@@ -864,8 +897,6 @@ class XrHandle(object):
             return "wine_session->wine_instance->funcs"
         if self.parent in ["XrActionSet"]:
             return "wine_action_set->wine_instance->funcs"
-        if self.parent in ["XrSceneObserverMSFT"]:
-            return "wine_scene_observer_msft->wine_session->wine_instance->funcs"
 
         LOGGER.error("Unhandled dispatchable parent: {0}".format(self.parent))
 
@@ -900,38 +931,19 @@ class XrHandle(object):
 
         native_handle_name = None
 
+        if self.name in AUTO_MAPPED_HANDLES:
+            return None
+
         if self.name == "XrInstance":
             native_handle_name = "instance"
         if self.name == "XrSession":
             native_handle_name = "session"
-        if self.name == "XrHandTrackerEXT":
-            native_handle_name = "hand_tracker"
-        if self.name == "XrSpatialAnchorMSFT":
-            native_handle_name = "spatial_anchor"
         if self.name == "XrSwapchain":
             native_handle_name = "swapchain"
         if self.name == "XrActionSet":
             return None
         if self.name == "XrAction":
             return None
-        if self.name == "XrSpace":
-            return None
-        if self.name == "XrGeometryInstanceFB":
-            native_handle_name = "instance"
-        if self.name == "XrPassthroughFB":
-            native_handle_name = "passthrough"
-        if self.name == "XrPassthroughLayerFB":
-            native_handle_name = "layer"
-        if self.name == "XrTriangleMeshFB":
-            native_handle_name = "mesh"
-        if self.name == "XrFoveationProfileFB":
-            native_handle_name = "foveation_profile"
-        if self.name == "XrSceneObserverMSFT":
-            native_handle_name = "scene_observer_msft"
-        if self.name == "XrSceneMSFT":
-            native_handle_name = "scene_msft"
-        if self.name == "XrSpatialAnchorStoreConnectionMSFT":
-            native_handle_name = "spatial_anchor_store_connection"
 
         if native_handle_name:
             return "((wine_{0} *){1})->{2}".format(self.name, name, native_handle_name)
@@ -1352,13 +1364,16 @@ class XrParam(object):
                 self.format_conv = "wine_dbgstr_longlong({0})"
             elif self.type == "HANDLE":
                 self.format_str = "%p"
-            elif self.type in ["XrSystemId", "XrPath", "XrTime", "XrDuration", "XrControllerModelKeyMSFT"]:
+            elif self.type in ["XrSystemId", "XrPath", "XrTime", "XrDuration", "XrControllerModelKeyMSFT", "XrMarkerML"]:
                 self.format_str = "0x%s"
                 self.format_conv = "wine_dbgstr_longlong({0})"
             elif self.type in ["XrVector2f"]:
                 self.format_str = "%f, %f"
                 self.format_conv = "{0}.x, {0}.y"
-            elif self.type in ["VisualID", "xcb_visualid_t", "VkInstance", "XrPosef"]:
+            elif self.type in ["XrPosef"]:
+                self.format_str = "{{%f, %f, %f, %f}, {%f %f %f}}"
+                self.format_conv = "{0}.orientation.x, {0}.orientation.y, {0}.orientation.z, {0}.orientation.w, {0}.position.x, {0}.position.y, {0}.position.z"
+            elif self.type in ["VisualID", "xcb_visualid_t", "VkInstance"]:
                 # Don't care about Linux specific types.
                 self.format_str = ""
             else:
@@ -1414,7 +1429,10 @@ class XrParam(object):
         if not self.is_dispatchable():
             return None
 
-        return "((wine_{0} *){1})->{2}".format(self.type, self.name, self.handle.dispatch_table())
+        if self.type in AUTO_MAPPED_HANDLES:
+            return "(*get_dispatch_table((uint64_t)({0})))".format(self.name)
+        else:
+            return "((wine_{0} *){1})->{2}".format(self.type, self.name, self.handle.dispatch_table())
 
     def format_string(self):
         return self.format_str
@@ -1543,7 +1561,7 @@ class XrParam(object):
 class XrStruct(Sequence):
     """ Class which represents the type union and struct. """
 
-    def __init__(self, name, members, returnedonly, structextends, alias=None, union=False):
+    def __init__(self, name, members, returnedonly, structextends, alias=None, union=False, dep_level=1000):
         self.name = name
         self.members = members
         self.returnedonly = returnedonly
@@ -1554,6 +1572,7 @@ class XrStruct(Sequence):
         self.type_info = None # To be set later.
         self.struct_extensions = []
         self.aliased_by = []
+        self.dep_level = dep_level
 
     def __getitem__(self, i):
         return self.members[i]
@@ -1589,7 +1608,11 @@ class XrStruct(Sequence):
             xr_member = XrMember.from_xml(member)
             members.append(xr_member)
 
-        return XrStruct(name, members, returnedonly, structextends, union=union)
+        if name in STRUCTS_PUT_FIRST:
+            dep_level = 0
+        else:
+            dep_level = 1000
+        return XrStruct(name, members, returnedonly, structextends, union=union, dep_level=dep_level)
 
     @staticmethod
     def decouple_structs(structs):
@@ -1732,6 +1755,8 @@ class XrStruct(Sequence):
             return True
 
         for m in self.members:
+            if m.type == self.name:
+                continue
             if m.needs_conversion():
                 return True
         return False
@@ -2525,7 +2550,8 @@ class XrRegistry(object):
         # calls out in the 3 types of functions: device, global and instance.
         instance_funcs = []
         for func in funcs.values():
-            instance_funcs.append(func)
+            if not func.name in NOT_OUR_FUNCTIONS:
+                instance_funcs.append(func)
 
         # Sort function lists by name and store them.
         self.instance_funcs = sorted(instance_funcs, key=lambda func: func.name)
@@ -2921,9 +2947,9 @@ class XrRegistry(object):
         self.bitmasks = sorted(bitmasks, key=lambda bitmask: bitmask.name)
         self.defines = defines
         self.enums = OrderedDict(sorted(self.enums.items()))
-        self.funcpointers = sorted(funcpointers, key=lambda fp: fp.name)
+        self.funcpointers = funcpointers
         self.handles = sorted(handles, key=lambda handle: handle.name)
-        self.structs = sorted(structs, key=lambda struct: struct.name)
+        self.structs = sorted(structs, key=lambda struct: (struct.dep_level, struct.name))
 
 def collect_element_text(e):
     return "".join(e.itertext())

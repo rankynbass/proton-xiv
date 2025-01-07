@@ -18,7 +18,7 @@
 	url = https://github.com/FNA-XNA/FAudio
 [submodule "protonfixes"]
 	path = protonfixes
-	url = https://github.com/open-wine-components/ULWGL-protonfixes
+	url = https://github.com/open-wine-components/umu-protonfixes
 [submodule "gstreamer"]
 	path = gstreamer
 	url = https://github.com/GStreamer/gstreamer.git
@@ -48,16 +48,13 @@
 	url = https://github.com/jp7677/dxvk-nvapi
 [submodule "vkd3d"]
 	path = vkd3d
-	url = https://github.com/ValveSoftware/vkd3d
+	url = https://gitlab.winehq.org/wine/vkd3d
 [submodule "Vulkan-Headers"]
 	path = Vulkan-Headers
 	url = https://github.com/KhronosGroup/Vulkan-Headers
 [submodule "SPIRV-Headers"]
 	path = SPIRV-Headers
 	url = https://github.com/KhronosGroup/SPIRV-Headers
-[submodule "Vulkan-Loader"]
-	path = Vulkan-Loader
-	url = https://github.com/KhronosGroup/Vulkan-Loader
 [submodule "gst-libav"]
 	path = gst-libav
 	url = https://github.com/GStreamer/gst-libav
@@ -86,6 +83,7 @@
 [submodule "vosk-api"]
 	path = vosk-api
 	url = https://github.com/alphacep/vosk-api
-[submodule "d8vk"]
-	path = d8vk
-	url = https://github.com/AlpyneDreams/d8vk
+[submodule "piper"]
+	path = piper
+	url = https://github.com/shaunren/piper.git
+	branch = library

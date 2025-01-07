@@ -33,10 +33,24 @@
     pushd gstreamer
     git reset --hard HEAD
     git clean -xdf
-    
     echo "GSTREAMER: fix for unclosable invisible wayland opengl windows in taskbar"
     patch -Np1 < ../patches/gstreamer/5509.patch
     patch -Np1 < ../patches/gstreamer/5511.patch
+    popd
+
+    pushd protonfixes
+    git reset --hard HEAD
+    git clean -xdf
+    pushd subprojects
+    pushd x11-xserver-utils
+    git reset --hard HEAD
+    git clean -xdf
+    popd
+    pushd xutils-dev
+    git reset --hard HEAD
+    git clean -xdf
+    popd
+    popd
     popd
 
 ### END PREP SECTION ###
@@ -73,6 +87,7 @@
     -W eventfd_synchronization \
     -W dbghelp-Debug_Symbols \
     -W ddraw-Device_Caps \
+    -W ddraw-GetPickRecords \
     -W Pipelight \
     -W server-PeekMessage \
     -W server-Realtime_Priority \
@@ -117,7 +132,14 @@
     -W ntdll_reg_flush \
     -W odbc-remove-unixodbc \
     -W winedevice-Default_Drivers \
-    -W winex11-Fixed-scancodes
+    -W winex11-Fixed-scancodes \
+    -W ntdll-RtlQueryPackageIdentity \
+    -W d3dx9_36-DDS \
+    -W d3dx11_43-D3DX11CreateTextureFromMemory \
+    -W d3dx9_36-BumpLuminance \
+    -W shell32-SHFileOperation_Move \
+    -W shell32-registry-lookup-app \
+    -W Staging
 
     # NOTE: Some patches are applied manually because they -do- apply, just not cleanly, ie with patch fuzz.
     # A detailed list of why the above patches are disabled is listed below:
@@ -134,6 +156,7 @@
     # eventfd_synchronization - already applied
     # ddraw-Device_Caps - conflicts with proton's changes
     # ddraw-version-check - conflicts with proton's changes, disabled in 8.0
+    # ddraw-GetPickRecords - applied manually
 
     # dbghelp-Debug_Symbols - see below:
     # Sancreed — 11/21/2021
@@ -176,11 +199,12 @@
     # ** winex11-XEMBED - applied manually
     # d3dx9_36-D3DXStubs - already applied
     # ** ntdll-ext4-case-folder - applied manually
-    # ** ntdll-HashLinks - applied manually
+    # * ntdll-HashLinks - upstreamed
     # ntdll_reg_flush - already applied
     # ** winedevice-Default_Drivers - applied manually
     # ** winex11-Fixed-scancodes - applied manually
     # odbc-remove-unixodbc - not required, used for ODBC drivers for use with SQL applications, not gaming related.
+    # ntdll-RtlQueryPackageIdentity - tests only, not used, do not apply cleanly.
     #
     # Paul Gofman — Yesterday at 3:49 PM
     # that’s only for desktop integration, spamming native menu’s with wine apps which won’t probably start from there anyway
@@ -189,16 +213,25 @@
     # mfplat-streaming-support -- interferes with proton's mfplat -- currently also disabled in upstream staging
     # wined3d-SWVP-shaders -- interferes with proton's wined3d -- currently also disabled in upstream staging
     # wined3d-Indexed_Vertex_Blending -- interferes with proton's wined3d -- currently also disabled in upstream staging
+    # d3dx9_36-DDS - incompatible with upstream proton 7/27/24
+    # d3dx11_43-D3DX11CreateTextureFromMemory - already applied
+    # d3dx9_36-BumpLuminance - already applied
+    # shell32-SHFileOperation_Move - already applied
+    # shell32-registry-lookup-app - already applied
+    # **Staging - applied manually
 
     echo "WINE: -STAGING- loader-KeyboardLayouts manually applied"
     patch -Np1 < ../patches/wine-hotfixes/staging/loader-KeyboardLayouts/0001-loader-Add-Keyboard-Layouts-registry-enteries.patch
     patch -Np1 < ../patches/wine-hotfixes/staging/loader-KeyboardLayouts/0002-user32-Improve-GetKeyboardLayoutList.patch
 
+    echo "WINE: -STAGING- ddraw-GetPickRecords manually applied"
+    patch -Np1 < ../patches/wine-hotfixes/staging/ddraw-GetPickRecords/0001-ddraw-Implement-Pick-and-GetPickRecords.patch
+
     echo "WINE: -STAGING- ntdll-Hide_Wine_Exports manually applied"
     patch -Np1 < ../wine-staging/patches/ntdll-Hide_Wine_Exports/0001-ntdll-Add-support-for-hiding-wine-version-informatio.patch
 
     echo "WINE: -STAGING- ntdll-WRITECOPY manually applied"
-    patch -Np1 < ../wine-staging/patches/staging/ntdll-WRITECOPY/0007-ntdll-Report-unmodified-WRITECOPY-pages-as-shared.patch
+    patch -Np1 < ../patches/wine-hotfixes/staging/ntdll-WRITECOPY/0007-ntdll-Report-unmodified-WRITECOPY-pages-as-shared.patch
 
     echo "WINE: -STAGING- wineboot-ProxySettings manually applied"
     patch -Np1 < ../patches/wine-hotfixes/staging/wineboot-ProxySettings/0001-wineboot-Initialize-proxy-settings-registry-key.patch
@@ -214,10 +247,6 @@
 
     echo "WINE: -STAGING- ntdll-ext4-case-folder manually applied"
     patch -Np1 < ../wine-staging/patches/ntdll-ext4-case-folder/0002-ntdll-server-Mark-drive_c-as-case-insensitive-when-c.patch
-
-    echo "WINE: -STAGING- ntdll-HashLinks manually applied"
-    patch -Np1 < ../patches/wine-hotfixes/staging/ntdll-HashLinks/0001-ntdll-Implement-HashLinks-field-in-LDR-module-data.patch
-    patch -Np1 < ../patches/wine-hotfixes/staging/ntdll-HashLinks/0002-ntdll-Use-HashLinks-when-searching-for-a-dll-using-t.patch
 
     echo "WINE: -STAGING- ntdll-NtQuerySection manually applied"
     patch -Np1 < ../wine-staging/patches/ntdll-NtQuerySection/0002-kernel32-tests-Add-tests-for-NtQuerySection.patch
@@ -236,21 +265,24 @@
     patch -Np1 < ../wine-staging/patches/winedevice-Default_Drivers/0004-programs-winedevice-Load-some-common-drivers-and-fix.patch
 
     echo "WINE: -STAGING- winex11-Fixed-scancodes manually applied"
-    patch -Np1 < ../wine-staging/patches/winex11-Fixed-scancodes/0001-winecfg-Move-input-config-options-to-a-dedicated-tab.patch
-    patch -Np1 < ../wine-staging/patches/winex11-Fixed-scancodes/0002-winex11-Always-create-the-HKCU-configuration-registr.patch
-    patch -Np1 < ../wine-staging/patches/winex11-Fixed-scancodes/0003-winex11-Write-supported-keyboard-layout-list-in-regi.patch
-    patch -Np1 < ../wine-staging/patches/winex11-Fixed-scancodes/0004-winecfg-Add-a-keyboard-layout-selection-config-optio.patch
-    patch -Np1 < ../wine-staging/patches/winex11-Fixed-scancodes/0005-winex11-Use-the-user-configured-keyboard-layout-if-a.patch
-    patch -Np1 < ../wine-staging/patches/winex11-Fixed-scancodes/0006-winecfg-Add-a-keyboard-scancode-detection-toggle-opt.patch
-    patch -Np1 < ../wine-staging/patches/winex11-Fixed-scancodes/0007-winex11-Use-scancode-high-bit-to-set-KEYEVENTF_EXTEN.patch
-    patch -Np1 < ../wine-staging/patches/winex11-Fixed-scancodes/0008-winex11-Support-fixed-X11-keycode-to-scancode-conver.patch
-    patch -Np1 < ../wine-staging/patches/winex11-Fixed-scancodes/0009-winex11-Disable-keyboard-scancode-auto-detection-by-.patch
+    patch -Np1 < ../patches/wine-hotfixes/staging/winex11-Fixed-scancodes/0001-winecfg-Move-input-config-options-to-a-dedicated-tab.patch
+    patch -Np1 < ../patches/wine-hotfixes/staging/winex11-Fixed-scancodes/0002-winex11-Always-create-the-HKCU-configuration-registr.patch
+    patch -Np1 < ../patches/wine-hotfixes/staging/winex11-Fixed-scancodes/0003-winex11-Write-supported-keyboard-layout-list-in-regi.patch
+    patch -Np1 < ../patches/wine-hotfixes/staging/winex11-Fixed-scancodes/0004-winecfg-Add-a-keyboard-layout-selection-config-optio.patch
+    patch -Np1 < ../patches/wine-hotfixes/staging/winex11-Fixed-scancodes/0005-winex11-Use-the-user-configured-keyboard-layout-if-a.patch
+    patch -Np1 < ../patches/wine-hotfixes/staging/winex11-Fixed-scancodes/0006-winecfg-Add-a-keyboard-scancode-detection-toggle-opt.patch
+    patch -Np1 < ../patches/wine-hotfixes/staging/winex11-Fixed-scancodes/0007-winex11-Use-scancode-high-bit-to-set-KEYEVENTF_EXTEN.patch
+    patch -Np1 < ../patches/wine-hotfixes/staging/winex11-Fixed-scancodes/0008-winex11-Support-fixed-X11-keycode-to-scancode-conver.patch
+    patch -Np1 < ../patches/wine-hotfixes/staging/winex11-Fixed-scancodes/0009-winex11-Disable-keyboard-scancode-auto-detection-by-.patch
 
     echo "WINE: -STAGING- fltmgr.sys-FltBuildDefaultSecurityDescriptor manually applied"
     patch -Np1 < ../wine-staging/patches/fltmgr.sys-FltBuildDefaultSecurityDescriptor/0001-fltmgr.sys-Implement-FltBuildDefaultSecurityDescript.patch
     patch -Np1 < ../wine-staging/patches/fltmgr.sys-FltBuildDefaultSecurityDescriptor/0002-fltmgr.sys-Create-import-library.patch
     patch -Np1 < ../wine-staging/patches/fltmgr.sys-FltBuildDefaultSecurityDescriptor/0003-ntoskrnl.exe-Add-FltBuildDefaultSecurityDescriptor-t.patch
-    
+
+    echo "WINE: -STAGING- Staging manually applied"
+    patch -Np1 < ../patches/wine-hotfixes/staging/Staging/0001-ntdll-Print-a-warning-message-specifying-the-wine-st.patch
+    patch -Np1 < ../patches/wine-hotfixes/staging/Staging/0002-winelib-Append-Staging-at-the-end-of-the-version-s.patch
 
 ### END WINE STAGING APPLY SECTION ###
 
@@ -261,6 +293,12 @@
 
     echo "WINE: -GAME FIXES- add file search workaround hack for Phantasy Star Online 2 (WINE_NO_OPEN_FILE_SEARCH)"
     patch -Np1 < ../patches/game-patches/pso2_hack.patch
+
+    echo "WINE: -GAME FIXES- add xinput support to Dragon Age Inquisition"
+    patch -Np1 < ../patches/game-patches/dai_xinput.patch
+
+    echo "WINE: -GAME FIXES- add __TRY/__EXCEPT_PAGE_FAULT wnsprintfA xDefiant patch because of a bad arg passed by the game that would exit to desktop"
+    patch -Np1 < ../patches/game-patches/xdefiant.patch
 
 ### END GAME PATCH SECTION ###
 
@@ -279,6 +317,11 @@
     echo "WINE: -PENDING- Add WINE_DISABLE_SFN option. (Yakuza 5 cutscenes fix)"
     patch -Np1 < ../patches/wine-hotfixes/pending/ntdll_add_wine_disable_sfn.patch
 
+    echo "WINE: -PENDING- ncrypt: NCryptDecrypt implementation (PSN Login for Ghost of Tsushima)"
+    patch -Np1 < ../patches/wine-hotfixes/pending/NCryptDecrypt_implementation.patch
+
+    echo "WINE: -PENDING- DXGI_FORMAT_R8G8B8A8_UNORM: Suport for DXGI_FORMAT_R8G8B8A8_UNORM on d2d_wic_render_target_init (Alt:V GTA V coustom client)"
+    patch -Np1 < ../patches/wine-hotfixes/pending/support_for_DXGI_FORMAT_R8G8B8A8_UNORM.patch
 ### END WINE PENDING UPSTREAM SECTION ###
 
 
@@ -287,8 +330,17 @@
     echo "WINE: -FSR- fullscreen hack fsr patch"
     patch -Np1 < ../patches/proton/47-proton-fshack-AMD-FSR-complete.patch
 
+    echo "WINE: -PENDING- Add options to disable proton media converter."
+    patch -Np1 < ../patches/wine-hotfixes/pending/add-envvar-to-gate-media-converter.patch
+
     #echo "WINE: -Nvidia Reflex- Support VK_NV_low_latency2"
     #patch -Np1 < ../patches/proton/83-nv_low_latency_wine.patch
+
+    echo "WINE: -CUSTOM- Downgrade MESSAGE to TRACE to remove write_watches spam"
+    patch -Np1 < ../patches/proton/0001-ntdll-Downgrade-using-kernel-write-watches-from-MESS.patch
+
+    echo "WINE: -CUSTOM- Fix wine bug #56653 - GetLogicalProcessorInformation can be missing Cache information"
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-bug-56653.patch
 
     popd
 

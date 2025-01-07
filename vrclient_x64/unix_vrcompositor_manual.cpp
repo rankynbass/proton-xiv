@@ -4,6 +4,8 @@
 #pragma makedep unix
 #endif
 
+WINE_DEFAULT_DEBUG_CHANNEL(vrclient);
+
 static u_VRVulkanTextureData_t *unwrap_texture_vkdata( const w_VRVulkanTextureData_t *w_vkdata, u_VRVulkanTextureData_t *u_vkdata )
 {
     if (!w_vkdata) return NULL;
@@ -109,76 +111,120 @@ static u_Texture_t *unwrap_submit_texture_data( const w_VRTextureWithPoseAndDept
     return (u_Texture_t *)u_texture;
 }
 
+template <typename Params, typename Iface>
+NTSTATUS get_vulkan_device_extensions_required( Params *params, Iface *iface )
+{
+    static const struct
+    {
+        const char *unix_ext;
+        const char *win_ext;
+    }
+    exts[] =
+    {
+        { "VK_KHR_external_memory_fd", "VK_KHR_external_memory_win32" },
+        { "VK_KHR_external_semaphore_fd", "VK_KHR_external_semaphore_win32" },
+    };
+    VkPhysicalDevice_T *host_device = p_get_native_VkPhysicalDevice( params->pPhysicalDevice );
+    char buffer[2048], *p, *end, *next;
+    uint32_t i, len;
+
+    len = iface->GetVulkanDeviceExtensionsRequired( host_device, buffer, sizeof(buffer) );
+    if (!len || len > sizeof(buffer))
+    {
+        ERR( "len %u.\n", len );
+        params->_ret = 0;
+        return 0;
+    }
+
+    p = buffer;
+    end = p + strlen(p);
+    while (1)
+    {
+        while (isspace(*p)) ++p;
+        if (!*p) break;
+        next = p + 1;
+        while (*next && !isspace(*next)) ++next;
+        for (i = 0; i < ARRAY_SIZE(exts); ++i)
+        {
+            len = strlen( exts[i].unix_ext );
+            if (len == next - p && !memcmp( p, exts[i].unix_ext, len ))
+            {
+                len = strlen( exts[i].win_ext );
+                if (end - next + 1 + len + (p - buffer) > sizeof(buffer))
+                {
+                    ERR( "buffer overflow.\n" );
+                    params->_ret = 0;
+                    return 0;
+                }
+                memmove( p + len, next, end - next + 1 );
+                memcpy( p, exts[i].win_ext, len );
+                end = p + len + (end - next);
+                next = p + len;
+                break;
+            }
+        }
+        p = next;
+    }
+    params->_ret = end - buffer + 1;
+    if (params->pchValue && params->unBufferSize >= params->_ret)
+        memcpy( params->pchValue, buffer, params->_ret );
+    return 0;
+}
+
 NTSTATUS IVRCompositor_IVRCompositor_019_GetVulkanDeviceExtensionsRequired( void *args )
 {
     struct IVRCompositor_IVRCompositor_019_GetVulkanDeviceExtensionsRequired_params *params = (struct IVRCompositor_IVRCompositor_019_GetVulkanDeviceExtensionsRequired_params *)args;
     struct u_IVRCompositor_IVRCompositor_019 *iface = (struct u_IVRCompositor_IVRCompositor_019 *)params->linux_side;
-    VkPhysicalDevice_T *host_device = p_get_native_VkPhysicalDevice( params->pPhysicalDevice );
-    params->_ret = (uint32_t)iface->GetVulkanDeviceExtensionsRequired( host_device, params->pchValue, params->unBufferSize );
-    return 0;
+    return get_vulkan_device_extensions_required( params, iface );
 }
 
 NTSTATUS IVRCompositor_IVRCompositor_020_GetVulkanDeviceExtensionsRequired( void *args )
 {
     struct IVRCompositor_IVRCompositor_020_GetVulkanDeviceExtensionsRequired_params *params = (struct IVRCompositor_IVRCompositor_020_GetVulkanDeviceExtensionsRequired_params *)args;
     struct u_IVRCompositor_IVRCompositor_020 *iface = (struct u_IVRCompositor_IVRCompositor_020 *)params->linux_side;
-    VkPhysicalDevice_T *host_device = p_get_native_VkPhysicalDevice( params->pPhysicalDevice );
-    params->_ret = (uint32_t)iface->GetVulkanDeviceExtensionsRequired( host_device, params->pchValue, params->unBufferSize );
-    return 0;
+    return get_vulkan_device_extensions_required( params, iface );
 }
 
 NTSTATUS IVRCompositor_IVRCompositor_021_GetVulkanDeviceExtensionsRequired( void *args )
 {
     struct IVRCompositor_IVRCompositor_021_GetVulkanDeviceExtensionsRequired_params *params = (struct IVRCompositor_IVRCompositor_021_GetVulkanDeviceExtensionsRequired_params *)args;
     struct u_IVRCompositor_IVRCompositor_021 *iface = (struct u_IVRCompositor_IVRCompositor_021 *)params->linux_side;
-    VkPhysicalDevice_T *host_device = p_get_native_VkPhysicalDevice( params->pPhysicalDevice );
-    params->_ret = (uint32_t)iface->GetVulkanDeviceExtensionsRequired( host_device, params->pchValue, params->unBufferSize );
-    return 0;
+    return get_vulkan_device_extensions_required( params, iface );
 }
 
 NTSTATUS IVRCompositor_IVRCompositor_022_GetVulkanDeviceExtensionsRequired( void *args )
 {
     struct IVRCompositor_IVRCompositor_022_GetVulkanDeviceExtensionsRequired_params *params = (struct IVRCompositor_IVRCompositor_022_GetVulkanDeviceExtensionsRequired_params *)args;
     struct u_IVRCompositor_IVRCompositor_022 *iface = (struct u_IVRCompositor_IVRCompositor_022 *)params->linux_side;
-    VkPhysicalDevice_T *host_device = p_get_native_VkPhysicalDevice( params->pPhysicalDevice );
-    params->_ret = (uint32_t)iface->GetVulkanDeviceExtensionsRequired( host_device, params->pchValue, params->unBufferSize );
-    return 0;
+    return get_vulkan_device_extensions_required( params, iface );
 }
 
 NTSTATUS IVRCompositor_IVRCompositor_024_GetVulkanDeviceExtensionsRequired( void *args )
 {
     struct IVRCompositor_IVRCompositor_024_GetVulkanDeviceExtensionsRequired_params *params = (struct IVRCompositor_IVRCompositor_024_GetVulkanDeviceExtensionsRequired_params *)args;
     struct u_IVRCompositor_IVRCompositor_024 *iface = (struct u_IVRCompositor_IVRCompositor_024 *)params->linux_side;
-    VkPhysicalDevice_T *host_device = p_get_native_VkPhysicalDevice( params->pPhysicalDevice );
-    params->_ret = (uint32_t)iface->GetVulkanDeviceExtensionsRequired( host_device, params->pchValue, params->unBufferSize );
-    return 0;
+    return get_vulkan_device_extensions_required( params, iface );
 }
 
 NTSTATUS IVRCompositor_IVRCompositor_026_GetVulkanDeviceExtensionsRequired( void *args )
 {
     struct IVRCompositor_IVRCompositor_026_GetVulkanDeviceExtensionsRequired_params *params = (struct IVRCompositor_IVRCompositor_026_GetVulkanDeviceExtensionsRequired_params *)args;
     struct u_IVRCompositor_IVRCompositor_026 *iface = (struct u_IVRCompositor_IVRCompositor_026 *)params->linux_side;
-    VkPhysicalDevice_T *host_device = p_get_native_VkPhysicalDevice( params->pPhysicalDevice );
-    params->_ret = (uint32_t)iface->GetVulkanDeviceExtensionsRequired( host_device, params->pchValue, params->unBufferSize );
-    return 0;
+    return get_vulkan_device_extensions_required( params, iface );
 }
 
 NTSTATUS IVRCompositor_IVRCompositor_027_GetVulkanDeviceExtensionsRequired( void *args )
 {
     struct IVRCompositor_IVRCompositor_027_GetVulkanDeviceExtensionsRequired_params *params = (struct IVRCompositor_IVRCompositor_027_GetVulkanDeviceExtensionsRequired_params *)args;
     struct u_IVRCompositor_IVRCompositor_027 *iface = (struct u_IVRCompositor_IVRCompositor_027 *)params->linux_side;
-    VkPhysicalDevice_T *host_device = p_get_native_VkPhysicalDevice( params->pPhysicalDevice );
-    params->_ret = (uint32_t)iface->GetVulkanDeviceExtensionsRequired( host_device, params->pchValue, params->unBufferSize );
-    return 0;
+    return get_vulkan_device_extensions_required( params, iface );
 }
 
 NTSTATUS IVRCompositor_IVRCompositor_028_GetVulkanDeviceExtensionsRequired( void *args )
 {
     struct IVRCompositor_IVRCompositor_028_GetVulkanDeviceExtensionsRequired_params *params = (struct IVRCompositor_IVRCompositor_028_GetVulkanDeviceExtensionsRequired_params *)args;
     struct u_IVRCompositor_IVRCompositor_028 *iface = (struct u_IVRCompositor_IVRCompositor_028 *)params->linux_side;
-    VkPhysicalDevice_T *host_device = p_get_native_VkPhysicalDevice( params->pPhysicalDevice );
-    params->_ret = (uint32_t)iface->GetVulkanDeviceExtensionsRequired( host_device, params->pchValue, params->unBufferSize );
-    return 0;
+    return get_vulkan_device_extensions_required( params, iface );
 }
 
 NTSTATUS IVRCompositor_IVRCompositor_009_SetSkyboxOverride( void *args )

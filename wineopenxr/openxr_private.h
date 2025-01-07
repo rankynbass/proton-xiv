@@ -9,6 +9,22 @@
 
 struct IDXGIVkInteropDevice2;
 typedef struct IDXGIVkInteropDevice2 IDXGIVkInteropDevice2;
+typedef struct ID3D12DXVKInteropDevice ID3D12DXVKInteropDevice;
+
+#define VK_PROCS                \
+    X(vkAllocateCommandBuffers) \
+    X(vkBeginCommandBuffer)     \
+    X(vkEndCommandBuffer)       \
+    X(vkQueueSubmit)            \
+    X(vkQueueWaitIdle)          \
+    X(vkFreeCommandBuffers)     \
+    X(vkCmdPipelineBarrier)     \
+    X(vkCreateCommandPool)      \
+    X(vkDestroyCommandPool)     \
+    X(vkDestroyFence)           \
+    X(vkCreateFence)            \
+    X(vkWaitForFences)          \
+    X(vkResetFences)
 
 typedef struct wine_XrInstance {
     XrInstance instance;
@@ -20,6 +36,16 @@ typedef struct wine_XrInstance {
     XrSystemId systemId;
 
     IDXGIVkInteropDevice2 *dxvk_device;
+    ID3D12DXVKInteropDevice *d3d12_device;
+    ID3D12CommandQueue *d3d12_queue;
+
+    /* For layout transitions for vkd3d-proton */
+#define X(proc) PFN_##proc p_##proc;
+    VK_PROCS
+#undef X
+    VkDevice vk_device;
+    VkQueue vk_queue;
+    VkCommandPool vk_command_pool;
 } wine_XrInstance;
 
 union CompositionLayer;
@@ -47,61 +73,18 @@ typedef struct wine_XrSession {
     view_info *view_infos;
 } wine_XrSession;
 
-typedef struct wine_XrHandTrackerEXT {
-    XrHandTrackerEXT hand_tracker;
-    struct wine_XrSession *wine_session;
-} wine_XrHandTrackerEXT;
-
-typedef struct wine_XrSpatialAnchorMSFT {
-    XrSpatialAnchorMSFT spatial_anchor;
-    struct wine_XrSession *wine_session;
-} wine_XrSpatialAnchorMSFT;
-
-typedef struct XrSpatialAnchorStoreConnectionMSFT {
-    XrSpatialAnchorStoreConnectionMSFT spatial_anchor_store_connection;
-    struct wine_XrSession *wine_session;
-} wine_XrSpatialAnchorStoreConnectionMSFT;
-
-typedef struct wine_XrSceneObserverMSFT {
-    XrSceneObserverMSFT scene_observer_msft;
-    struct wine_XrSession *wine_session;
-} wine_XrSceneObserverMSFT;
-
-typedef struct wine_XrSceneMSFT {
-    XrSceneMSFT scene_msft;
-    struct wine_XrSceneObserverMSFT *wine_scene_observer_msft;
-} wine_XrSceneMSFT;
-
-typedef struct wine_XrPassthroughFB {
-    XrPassthroughFB passthrough;
-    struct wine_XrSession *wine_session;
-} wine_XrPassthroughFB;
-
-typedef struct wine_XrPassthroughLayerFB {
-    XrPassthroughLayerFB layer;
-    struct wine_XrSession *wine_session;
-} wine_XrPassthroughLayerFB;
-
-typedef struct wine_XrTriangleMeshFB {
-    XrTriangleMeshFB mesh;
-    struct wine_XrSession *wine_session;
-} wine_XrTriangleMeshFB;
-
-typedef struct wine_XrGeometryInstanceFB {
-    XrGeometryInstanceFB instance;
-    struct wine_XrSession *wine_session;
-} wine_XrGeometryInstanceFB;
-
-typedef struct wine_XrFoveationProfileFB {
-    XrFoveationProfileFB foveation_profile;
-    struct wine_XrSession *wine_session;
-} wine_XrFoveationProfileFB;
-
 typedef struct wine_XrSwapchain{
     XrSwapchain swapchain;
+    XrSwapchainImageBaseHeader *images;
+    uint32_t image_count;
+    uint32_t acquired_count, acquired_start;
+    BOOL *acquired;
+    uint32_t *acquired_indices;
     struct wine_XrSession *wine_session;
 
     XrSwapchainCreateInfo create_info;
+    VkCommandBuffer *cmd_release;
+    VkCommandBuffer *cmd_acquire;
 } wine_XrSwapchain;
 
 struct openxr_func {
@@ -128,3 +111,7 @@ extern VkPhysicalDevice (*get_native_VkPhysicalDevice)(VkPhysicalDevice);
 extern VkPhysicalDevice (*get_wrapped_VkPhysicalDevice)(VkInstance, VkPhysicalDevice);
 extern VkQueue (*get_native_VkQueue)(VkQueue);
 extern XrResult load_host_openxr_loader(void);
+
+extern void register_dispatchable_handle(uint64_t handle, struct openxr_instance_funcs *funcs);
+extern void unregister_dispatchable_handle(uint64_t handle);
+extern struct openxr_instance_funcs *get_dispatch_table(uint64_t handle);

@@ -1,6 +1,6 @@
 MODULE    = lsteamclient.dll
 UNIXLIB   = lsteamclient.so
-IMPORTS   = user32
+IMPORTS   = user32 ws2_32
 
 EXTRADEFS = -DWINE_NO_LONG_TYPES -DSTEAM_API_EXPORTS -Dprivate=public -Dprotected=public
 
@@ -40,6 +40,7 @@ SOURCES = \
 	winISteamRemotePlay.c \
 	winISteamRemoteStorage.c \
 	winISteamScreenshots.c \
+	winISteamTimeline.c \
 	winISteamUGC.c \
 	winISteamUnifiedMessages.c \
 	winISteamUser.c \
@@ -71,6 +72,7 @@ SOURCES = \
 	cppISteamClient_SteamClient018.cpp \
 	cppISteamClient_SteamClient019.cpp \
 	cppISteamClient_SteamClient020.cpp \
+	cppISteamClient_SteamClient021.cpp \
 	cppISteamController_SteamController003.cpp \
 	cppISteamController_SteamController004.cpp \
 	cppISteamController_SteamController005.cpp \
@@ -181,6 +183,7 @@ SOURCES = \
 	cppISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION001.cpp \
 	cppISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION002.cpp \
 	cppISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003.cpp \
+	cppISteamTimeline_STEAMTIMELINE_INTERFACE_V001.cpp \
 	cppISteamUGC_STEAMUGC_INTERFACE_VERSION001.cpp \
 	cppISteamUGC_STEAMUGC_INTERFACE_VERSION002.cpp \
 	cppISteamUGC_STEAMUGC_INTERFACE_VERSION003.cpp \
@@ -198,6 +201,7 @@ SOURCES = \
 	cppISteamUGC_STEAMUGC_INTERFACE_VERSION016.cpp \
 	cppISteamUGC_STEAMUGC_INTERFACE_VERSION017.cpp \
 	cppISteamUGC_STEAMUGC_INTERFACE_VERSION018.cpp \
+	cppISteamUGC_STEAMUGC_INTERFACE_VERSION020.cpp \
 	cppISteamUnifiedMessages_STEAMUNIFIEDMESSAGES_INTERFACE_VERSION001.cpp \
 	cppISteamUser_SteamUser004.cpp \
 	cppISteamUser_SteamUser005.cpp \
@@ -241,6 +245,7 @@ SOURCES = \
 	cppISteamUtils_SteamUtils010.cpp \
 	cppISteamVideo_STEAMVIDEO_INTERFACE_V001.cpp \
 	cppISteamVideo_STEAMVIDEO_INTERFACE_V002.cpp \
+	cppISteamVideo_STEAMVIDEO_INTERFACE_V007.cpp \
 	unix_steam_input_manual.cpp \
 	unix_steam_networking_manual.cpp \
 	unix_steam_utils_manual.cpp \

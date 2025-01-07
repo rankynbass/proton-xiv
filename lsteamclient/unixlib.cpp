@@ -24,6 +24,24 @@ struct callback_entry
 static struct list callbacks = LIST_INIT( callbacks );
 static pthread_mutex_t callbacks_lock = PTHREAD_MUTEX_INITIALIZER;
 
+static const struct callback_def *find_first_callback_def_by_id( int id );
+
+static int callback_len_utow( int cb_id, int u_len )
+{
+    const struct callback_def *c, *end;
+
+    if (!(c = find_first_callback_def_by_id( cb_id ))) return u_len;
+
+    end = callback_data + callback_data_size;
+    while (c != end && c->id == cb_id)
+    {
+        if (c->u_callback_len == u_len) return c->w_callback_len;
+        ++c;
+    }
+    ERR( "Unix len %d not found for callback %d.\n", u_len, cb_id );
+    return find_first_callback_def_by_id( cb_id )->w_callback_len;
+}
+
 void queue_vtable_callback( struct w_steam_iface *w_iface, enum callback_type type, uint64_t arg0, uint64_t arg1, uint64_t arg2 )
 {
     struct callback_entry *entry;
@@ -248,6 +266,15 @@ NTSTATUS ISteamClient_SteamClient020_Set_SteamAPI_CCheckCallbackRegisteredInProc
     return 0;
 }
 
+NTSTATUS ISteamClient_SteamClient021_Set_SteamAPI_CCheckCallbackRegisteredInProcess( void *args )
+{
+    struct ISteamClient_SteamClient021_Set_SteamAPI_CCheckCallbackRegisteredInProcess_params *params = (struct ISteamClient_SteamClient021_Set_SteamAPI_CCheckCallbackRegisteredInProcess_params *)args;
+    struct u_ISteamClient_SteamClient021 *iface = (struct u_ISteamClient_SteamClient021 *)params->linux_side;
+    uint32_t (*U_CDECL lin_func)(int32_t) = manual_convert_Set_SteamAPI_CCheckCallbackRegisteredInProcess_func_156( params->func );
+    iface->Set_SteamAPI_CCheckCallbackRegisteredInProcess( lin_func );
+    return 0;
+}
+
 NTSTATUS steamclient_next_callback( void *args )
 {
     struct steamclient_next_callback_params *params = (struct steamclient_next_callback_params *)args;
@@ -289,7 +316,10 @@ NTSTATUS steamclient_Steam_BGetCallback( void *args )
         params->_ret = false;
     else
     {
-        callback_message_utow( params->u_msg, params->w_msg );
+        TRACE( "id %d, u_size %d.\n", params->u_msg->m_iCallback, params->u_msg->m_cubParam );
+        params->w_msg->m_hSteamUser = params->u_msg->m_hSteamUser;
+        params->w_msg->m_iCallback = params->u_msg->m_iCallback;
+        params->w_msg->m_cubParam = callback_len_utow( params->u_msg->m_iCallback, params->u_msg->m_cubParam );
         params->_ret = true;
     }
 
@@ -302,6 +332,23 @@ NTSTATUS steamclient_callback_message_receive( void *args )
     convert_callback_utow( params->u_msg->m_iCallback, (void *)params->u_msg->m_pubParam,
                            params->u_msg->m_cubParam, (void *)params->w_msg->m_pubParam,
                            params->w_msg->m_cubParam );
+    if (params->w_msg->m_iCallback == 703 /* SteamAPICallCompleted_t::k_iCallback */)
+    {
+        SteamAPICallCompleted_t_137 *c = (SteamAPICallCompleted_t_137 *)params->w_msg->m_pubParam;
+
+        if (sizeof(SteamAPICallCompleted_t_137) == params->w_msg->m_cubParam)
+        {
+            int len;
+
+            len = callback_len_utow( c->m_iCallback, c->m_cubParam );
+            TRACE( "SteamAPICallCompleted_t id %d, size %d -> %d.\n", c->m_iCallback, c->m_cubParam, len );
+            c->m_cubParam = len;
+        }
+        else
+        {
+            WARN( "Unexpected SteamAPICallCompleted_t callback size %d, not doing API callback size conversion." );
+        }
+    }
     return 0;
 }
 
@@ -424,6 +471,74 @@ NTSTATUS steamclient_Steam_NotifyMissingInterface( void *args )
 
 #define IS_ABSOLUTE( x ) (*x == '/' || *x == '\\' || (*x && *(x + 1) == ':'))
 
+static void collapse_path( WCHAR *path, UINT mark )
+{
+    WCHAR *p, *next;
+
+    /* convert every / into a \ */
+    for (p = path; *p; p++) if (*p == '/') *p = '\\';
+
+    /* collapse duplicate backslashes */
+    next = path + std::max( 1u, mark );
+    for (p = next; *p; p++) if (*p != '\\' || next[-1] != '\\') *next++ = *p;
+    *next = 0;
+
+    p = path + mark;
+    while (*p)
+    {
+        if (*p == '.')
+        {
+            switch(p[1])
+            {
+            case '\\': /* .\ component */
+                next = p + 2;
+                memmove( p, next, (wcslen(next) + 1) * sizeof(WCHAR) );
+                continue;
+            case 0:  /* final . */
+                if (p > path + mark) p--;
+                *p = 0;
+                continue;
+            case '.':
+                if (p[2] == '\\')  /* ..\ component */
+                {
+                    next = p + 3;
+                    if (p > path + mark)
+                    {
+                        p--;
+                        while (p > path + mark && p[-1] != '\\') p--;
+                    }
+                    memmove( p, next, (wcslen(next) + 1) * sizeof(WCHAR) );
+                    continue;
+                }
+                else if (!p[2])  /* final .. */
+                {
+                    if (p > path + mark)
+                    {
+                        p--;
+                        while (p > path + mark && p[-1] != '\\') p--;
+                        if (p > path + mark) p--;
+                    }
+                    *p = 0;
+                    continue;
+                }
+                break;
+            }
+        }
+        /* skip to the next component */
+        while (*p && *p != '\\') p++;
+        if (*p == '\\')
+        {
+            /* remove last dot in previous dir name */
+            if (p > path + mark && p[-1] == '.') memmove( p-1, p, (wcslen(p) + 1) * sizeof(WCHAR) );
+            else p++;
+        }
+    }
+
+    /* remove trailing spaces and dots (yes, Windows really does that, don't ask) */
+    while (p > path + mark && (p[-1] == ' ' || p[-1] == '.')) p--;
+    *p = 0;
+}
+
 static char *get_unix_file_name( const WCHAR *path )
 {
     UNICODE_STRING nt_name;
@@ -479,22 +594,23 @@ char *steamclient_dos_to_unix_path( const char *src, int is_url )
     if (IS_ABSOLUTE( src ))
     {
         /* absolute path, use wine conversion */
-        WCHAR srcW[PATH_MAX] = {'\\', '?', '?', '\\', 0}, *tmp;
+        WCHAR srcW[PATH_MAX] = {'\\', '?', '?', '\\', 0};
         char *unix_path;
         uint32_t r;
 
-        r = ntdll_umbstowcs( src, -1, srcW + 4, PATH_MAX - 4 );
+        if (is_url) while (*src == '/') ++src;
+        r = ntdll_umbstowcs( src, strlen( src ) + 1, srcW + 4, PATH_MAX - 4 );
         if (r == 0) unix_path = NULL;
         else
         {
-            for (tmp = srcW; *tmp; ++tmp) if (*tmp == '/') *tmp = '\\';
+            collapse_path( srcW, 4 );
             unix_path = get_unix_file_name( srcW );
         }
 
         if (!unix_path)
         {
             WARN( "Unable to convert DOS filename to unix: %s\n", src );
-            return NULL;
+            goto done;
         }
 
         lstrcpynA( dst, unix_path, PATH_MAX );
@@ -534,7 +650,7 @@ const char **steamclient_dos_to_unix_path_array( const char **src )
     size_t len;
     const char **s;
     char **out, **o;
-    WCHAR scratch[PATH_MAX] = {'\\', '?', '?', '\\', 0}, *tmp;
+    WCHAR scratch[PATH_MAX] = {'\\', '?', '?', '\\', 0};
 
     TRACE( "src %p\n", src );
 
@@ -550,8 +666,8 @@ const char **steamclient_dos_to_unix_path_array( const char **src )
         TRACE( "  src[%zu] %s\n", s - src, debugstr_a(*s) );
         if (IS_ABSOLUTE( *s ))
         {
-            ntdll_umbstowcs( *s, -1, scratch + 4, PATH_MAX - 4 );
-            for (tmp = scratch; *tmp; ++tmp) if (*tmp == '/') *tmp = '\\';
+            ntdll_umbstowcs( *s, strlen( *s ) + 1, scratch + 4, PATH_MAX - 4 );
+            collapse_path( scratch, 4 );
             *o = get_unix_file_name( scratch );
         }
         else
@@ -648,3 +764,92 @@ unsigned int steamclient_unix_path_to_dos_path( bool api_result, const char *src
     return r;
 }
 
+static const struct callback_def *find_first_callback_def_by_id( int id )
+{
+    unsigned int l, r, m;
+
+    l = 0;
+    r = callback_data_size;
+    while (l < r)
+    {
+        m = (l + r) /2;
+        if (callback_data[m].id == id)
+        {
+            while (m && callback_data[m - 1].id == id) --m;
+            return &callback_data[m];
+        }
+        if (id < callback_data[m].id) r = m;
+        else                          l = m + 1;
+    }
+    return NULL;
+}
+
+void *alloc_callback_wtou( int id, void *callback, int *callback_len )
+{
+    const struct callback_def *c, *end, *best;
+
+    if (!(c = find_first_callback_def_by_id( id ))) return callback;
+
+    end = callback_data + callback_data_size;
+    best = NULL;
+    while (c != end && c->id == id)
+    {
+        if (c->w_callback_len == *callback_len)
+        {
+            best = c;
+            break;
+        }
+        if (!best && *callback_len >= c->w_callback_len) best = c;
+        ++c;
+    }
+
+    if (!best)
+    {
+        ERR( "len %d is too small for callback %d, using default.\n", *callback_len, id );
+        best = find_first_callback_def_by_id( id );
+    }
+    if (best->w_callback_len != *callback_len)
+        WARN( "Found len %d for id %d, len %d.\n", best->w_callback_len, id, *callback_len );
+    *callback_len = best->u_callback_len;
+    return malloc( *callback_len );
+}
+
+void convert_callback_utow(int id, void *u_callback, int u_callback_len, void *w_callback, int w_callback_len)
+{
+    const struct callback_def *c, *end, *best;
+
+    if (!(c = find_first_callback_def_by_id( id )))
+    {
+        memcpy( w_callback, u_callback, u_callback_len );
+        return;
+    }
+
+    end = callback_data + callback_data_size;
+    best = NULL;
+    while (c != end && c->id == id)
+    {
+        if (c->w_callback_len == w_callback_len && c->u_callback_len == u_callback_len)
+        {
+            best = c;
+            break;
+        }
+        if ((!best || best->w_callback_len > w_callback_len)
+             && c->u_callback_len == u_callback_len && c->w_callback_len <= w_callback_len)
+            best = c;
+        if (!best && c->u_callback_len == u_callback_len)
+            best = c;
+        ++c;
+    }
+    if (!best)
+    {
+        ERR( "Could not find id %d, u_callback_len %d, w_callback_len %d.\n", id, u_callback_len, w_callback_len );
+        best = find_first_callback_def_by_id( id );
+    }
+
+    if (best->w_callback_len != w_callback_len || best->u_callback_len != u_callback_len)
+        WARN( "Found len %d, %d for id %d, len %d, %d.\n", best->w_callback_len, best->u_callback_len,
+              id, w_callback_len, u_callback_len );
+
+    if (best->conv_w_from_u) best->conv_w_from_u( w_callback, u_callback );
+    else                     memcpy( w_callback, u_callback, u_callback_len );
+}
