@@ -117,8 +117,13 @@ function configure() {
   if [[ -n $build_name ]]; then
     info "Configuring with build name: $build_name"
   else
-    build_name="$DEFAULT_BUILD_NAME"
-    info "No build name specified, using default: $build_name"
+    build_name="$DEFAULT_BUILD_NAME" info "No build name specified, using default: $build_name"
+  fi
+
+  if [[ ${build_name,,} == *proton* ]]; then
+    internal_tool_name=${build_name}
+  else
+    internal_tool_name=${build_name}-proton
   fi
 
   dependency_command make "GNU Make"
@@ -156,6 +161,7 @@ function configure() {
     echo ""
     echo "SRCDIR     := $(escape_for_make "$srcdir")"
     echo "BUILD_NAME := $(escape_for_make "$build_name")"
+    echo "INTERNAL_TOOL_NAME := $(escape_for_make "$internal_tool_name")"
 
     # SteamRT was specified, baking it into the Makefile
     if [[ -n $arg_protonsdk_image ]]; then
