@@ -47,9 +47,9 @@ CONFIGURE_CMD := ../../configure.sh \
 	--build-name="$(_build_name)"
 
 ifneq ($(protonsdk_version),)
-CONFIGURE_CMD += --proton-sdk-image=registry.gitlab.steamos.cloud/proton/soldier/sdk:$(protonsdk_version)
+CONFIGURE_CMD += --proton-sdk-image=registry.gitlab.steamos.cloud/proton/sniper/sdk:$(protonsdk_version)
 else
-protonsdk_version := $(shell grep '^arg_protonsdk_image=' configure.sh|xargs echo|cut -d: -f2)
+protonsdk_version := $(shell grep '^STEAMRT_IMAGE ' Makefile.in|xargs echo|cut -d: -f2)
 endif
 
 enable_ccache := 1
