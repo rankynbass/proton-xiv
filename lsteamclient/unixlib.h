@@ -32,6 +32,12 @@ struct steamclient_init_params
     int8_t ignore_child_processes_unset;
 };
 
+struct steamclient_get_unix_buffer_params
+{
+    struct u_buffer buf;
+    void *ptr; /* client-side ptr */
+};
+
 enum callback_type
 {
     SOCKETS_DEBUG_OUTPUT = 1,

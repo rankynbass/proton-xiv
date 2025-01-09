@@ -6,6 +6,7 @@
 #include <pthread.h>
 #include <stdlib.h>
 #include <dlfcn.h>
+#include <unordered_map>
 
 #if 0
 #pragma makedep unix
@@ -680,6 +681,38 @@ NTSTATUS steamclient_init( void *args )
     LOAD_FUNC( Steam_NotifyMissingInterface );
 
     TRACE( "Loaded host steamclient from %s\n", debugstr_a(path) );
+    return 0;
+}
+
+namespace std
+{
+template<> struct hash< struct u_buffer >
+{
+    using argument_type = struct u_buffer;
+    using result_type = std::size_t;
+    result_type operator()( argument_type const& buf ) const { return buf.ptr; }
+};
+}
+
+static pthread_mutex_t buffer_cache_lock = PTHREAD_MUTEX_INITIALIZER;
+static std::unordered_map< struct u_buffer, void * > buffer_cache;
+
+NTSTATUS steamclient_get_unix_buffer( void *args )
+{
+    struct steamclient_get_unix_buffer_params *params = (struct steamclient_get_unix_buffer_params *)args;
+    struct cache_entry *entry;
+    struct rb_entry *ptr;
+
+    pthread_mutex_lock( &buffer_cache_lock );
+    auto iter = buffer_cache.find( params->buf );
+    if (iter != buffer_cache.end()) params->ptr = iter->second;
+    else
+    {
+        memcpy( params->ptr, (char *)params->buf, params->buf.len );
+        buffer_cache[params->buf] = params->ptr;
+    }
+    pthread_mutex_unlock( &buffer_cache_lock );
+
     return 0;
 }
 

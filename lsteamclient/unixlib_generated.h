@@ -48759,6 +48759,7 @@ enum unix_funcs
     unix_steamclient_init,
     unix_steamclient_init_registry,
     unix_steamclient_next_callback,
+    unix_steamclient_get_unix_buffer,
     unix_steamclient_CreateInterface,
     unix_steamclient_Steam_GetAPICallResult,
     unix_steamclient_Steam_BGetCallback,

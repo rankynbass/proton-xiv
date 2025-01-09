@@ -74,6 +74,7 @@ void convert_callback_utow( int id, void *u_callback, int u_callback_len, void *
 extern NTSTATUS steamclient_init( void * );
 extern NTSTATUS steamclient_init_registry( void * );
 extern NTSTATUS steamclient_next_callback( void * );
+extern NTSTATUS steamclient_get_unix_buffer( void * );
 extern NTSTATUS steamclient_CreateInterface( void * );
 extern NTSTATUS steamclient_Steam_GetAPICallResult( void * );
 extern NTSTATUS steamclient_Steam_BGetCallback( void * );

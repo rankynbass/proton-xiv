@@ -67,4 +67,14 @@ struct u_iface
 #endif /* __cplusplus */
 };
 
+struct u_buffer
+{
+    UINT64 ptr;
+    UINT64 len;
+#ifdef __cplusplus
+    struct u_buffer &operator=(const char* value) { this->ptr = (UINT_PTR)value; this->len = value ? strlen( value ) + 1 : 0; return *this; }
+    operator char*() const { return (char*)(UINT_PTR)this->ptr; }
+#endif /* __cplusplus */
+};
+
 #endif /* __STEAMCLIENT_STRUCTS_H */

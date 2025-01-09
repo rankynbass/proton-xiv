@@ -46,6 +46,7 @@ extern void execute_pending_callbacks(void);
 struct w_iface *create_win_interface( const char *name, struct u_iface );
 void *alloc_mem_for_iface(size_t size, const char *iface_version);
 void *alloc_vtable(void *vtable, unsigned int method_count, const char *iface_version);
+void *get_unix_buffer( struct u_buffer buf );
 
 void init_rtti( char *base );
 

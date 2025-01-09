@@ -325,6 +325,24 @@ done:
     return ret;
 }
 
+void *get_unix_buffer( struct u_buffer buf )
+{
+    struct steamclient_get_unix_buffer_params params = {.buf = buf};
+    void *ret;
+
+    if ((UINT_PTR)buf.ptr == buf.ptr && (UINT_PTR)(buf.ptr + buf.len) == (buf.ptr + buf.len))
+        return (void *)(UINT_PTR)buf.ptr;
+
+    if (!(params.ptr = ret = HeapAlloc( GetProcessHeap(), 0, buf.len ))) return NULL;
+    if (STEAMCLIENT_CALL( steamclient_get_unix_buffer, &params ) || (ret != params.ptr))
+    {
+        HeapFree( GetProcessHeap(), 0, ret );
+        ret = params.ptr;
+    }
+
+    return ret;
+}
+
 static BOOL get_env_win(const WCHAR *name, char *value, unsigned int size)
 {
     DWORD i, env_size;
