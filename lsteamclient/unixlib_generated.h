@@ -4377,6 +4377,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION003_UGCDownload_p
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION003_GetUGCDetails_params
 {
     struct u_iface u_iface;
+    struct u_buffer _str;
     int8_t _ret;
     uint64_t hContent;
     uint32_t *pnAppID;
@@ -4539,6 +4540,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION004_UGCDownload_p
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION004_GetUGCDetails_params
 {
     struct u_iface u_iface;
+    struct u_buffer _str;
     int8_t _ret;
     uint64_t hContent;
     uint32_t *pnAppID;
@@ -4701,6 +4703,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION005_UGCDownload_p
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION005_GetUGCDetails_params
 {
     struct u_iface u_iface;
+    struct u_buffer _str;
     int8_t _ret;
     uint64_t hContent;
     uint32_t *pnAppID;
@@ -4946,6 +4949,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION006_GetUGCDownloa
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION006_GetUGCDetails_params
 {
     struct u_iface u_iface;
+    struct u_buffer _str;
     int8_t _ret;
     uint64_t hContent;
     uint32_t *pnAppID;
@@ -5316,6 +5320,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION007_GetUGCDownloa
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION007_GetUGCDetails_params
 {
     struct u_iface u_iface;
+    struct u_buffer _str;
     int8_t _ret;
     uint64_t hContent;
     uint32_t *pnAppID;
@@ -5718,6 +5723,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION008_GetUGCDownloa
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION008_GetUGCDetails_params
 {
     struct u_iface u_iface;
+    struct u_buffer _str;
     int8_t _ret;
     uint64_t hContent;
     uint32_t *pnAppID;
@@ -6120,6 +6126,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION009_GetUGCDownloa
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION009_GetUGCDetails_params
 {
     struct u_iface u_iface;
+    struct u_buffer _str;
     int8_t _ret;
     uint64_t hContent;
     uint32_t *pnAppID;
@@ -6524,6 +6531,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION010_GetUGCDownloa
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION010_GetUGCDetails_params
 {
     struct u_iface u_iface;
+    struct u_buffer _str;
     int8_t _ret;
     uint64_t hContent;
     uint32_t *pnAppID;
@@ -6937,6 +6945,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION011_GetUGCDownloa
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION011_GetUGCDetails_params
 {
     struct u_iface u_iface;
+    struct u_buffer _str;
     int8_t _ret;
     uint64_t hContent;
     uint32_t *pnAppID;
@@ -7351,6 +7360,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION012_GetUGCDownloa
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION012_GetUGCDetails_params
 {
     struct u_iface u_iface;
+    struct u_buffer _str;
     int8_t _ret;
     uint64_t hContent;
     uint32_t *pnAppID;
@@ -7793,6 +7803,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION013_GetUGCDownloa
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION013_GetUGCDetails_params
 {
     struct u_iface u_iface;
+    struct u_buffer _str;
     int8_t _ret;
     uint64_t hContent;
     uint32_t *pnAppID;
@@ -8235,6 +8246,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION014_GetUGCDownloa
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION014_GetUGCDetails_params
 {
     struct u_iface u_iface;
+    struct u_buffer _str;
     int8_t _ret;
     uint64_t hContent;
     uint32_t *pnAppID;
@@ -8677,6 +8689,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION016_GetUGCDownloa
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION016_GetUGCDetails_params
 {
     struct u_iface u_iface;
+    struct u_buffer _str;
     int8_t _ret;
     uint64_t hContent;
     uint32_t *pnAppID;
@@ -43421,6 +43434,7 @@ struct ISteamNetworkingUtils_SteamNetworkingUtils001_GetConfigValue_params
 struct ISteamNetworkingUtils_SteamNetworkingUtils001_GetConfigValueInfo_params
 {
     struct u_iface u_iface;
+    struct u_buffer _str;
     int8_t _ret;
     uint32_t eValue;
     const char **pOutName;
@@ -43588,6 +43602,7 @@ struct ISteamNetworkingUtils_SteamNetworkingUtils002_GetConfigValue_params
 struct ISteamNetworkingUtils_SteamNetworkingUtils002_GetConfigValueInfo_params
 {
     struct u_iface u_iface;
+    struct u_buffer _str;
     int8_t _ret;
     uint32_t eValue;
     const char **pOutName;
@@ -43762,6 +43777,7 @@ struct ISteamNetworkingUtils_SteamNetworkingUtils003_GetConfigValue_params
 struct ISteamNetworkingUtils_SteamNetworkingUtils003_GetConfigValueInfo_params
 {
     struct u_iface u_iface;
+    struct u_buffer _str;
     int8_t _ret;
     uint32_t eValue;
     const char **pOutName;

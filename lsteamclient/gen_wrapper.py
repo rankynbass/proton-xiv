@@ -422,6 +422,11 @@ PRETOUCH_TYPES = {
     "const char *": "    IsBadStringPtrA({0}, -1);\n",
 }
 
+OUTSTR_PARAMS = {
+    "GetUGCDetails": "ppchName",
+    "GetConfigValueInfo": "pOutName",
+}
+
 class Padding:
     def __init__(self, offset, size):
         self.offset = offset
@@ -684,6 +689,9 @@ class Method:
         if self.result_type.kind != TypeKind.VOID:
             params = [ret] + params
             names = ['_ret'] + names
+
+        if self.name in OUTSTR_PARAMS and OUTSTR_PARAMS[self.name] in names:
+            params = ["struct u_buffer _str"] + params
 
         params = ['struct u_iface u_iface'] + params
         names = ['u_iface'] + names
@@ -969,6 +977,8 @@ def handle_method_cpp(method, classname, out):
     out(u'{\n')
     out(f'    struct {method.full_name}_params *params = (struct {method.full_name}_params *)args;\n')
     out(f'    struct u_{klass.full_name} *iface = (struct u_{klass.full_name} *)params->u_iface;\n')
+    if method.name in OUTSTR_PARAMS and OUTSTR_PARAMS[method.name] in names:
+        out(u'    char *u_str;\n')
 
     params = list(zip(names[1:], method.get_arguments()))
     for i, (name, param) in enumerate(params[:-1]):
@@ -1032,6 +1042,8 @@ def handle_method_cpp(method, classname, out):
         if name in need_convert: return f"{pfx}u_{name}"
         if name in manual_convert: return f"u_{name}"
         if name in path_conv_wtou: return f"u_{name}"
+        if name == OUTSTR_PARAMS.get(method.name, None):
+            return f'params->{name} ? ({declspec(param, "", "u_")})&u_str : nullptr'
         return f'params->{name}'
 
     params = [param_call(n, p) for n, p in zip(names[1:], method.get_arguments())]
@@ -1061,6 +1073,9 @@ def handle_method_cpp(method, classname, out):
             out(f'    steamclient_free_path_array( u_{name} );\n')
         else:
             out(f'    steamclient_free_path( u_{name} );\n')
+
+    if method.name in OUTSTR_PARAMS and OUTSTR_PARAMS[method.name] in names:
+        out(f'    if (params->{OUTSTR_PARAMS[method.name]}) params->_str = u_str;\n');
 
     out(u'    return 0;\n')
     out(u'}\n\n')
@@ -1118,6 +1133,8 @@ def handle_method_c(klass, method, winclassname, out):
             out(pretouch.format(p.spelling))
 
     out(f'    STEAMCLIENT_CALL( {method.full_name}, &params );\n')
+    if method.name in OUTSTR_PARAMS and OUTSTR_PARAMS[method.name] in names:
+        out(f'    if ({OUTSTR_PARAMS[method.name]}) *{OUTSTR_PARAMS[method.name]} = get_unix_buffer( params._str );\n')
 
     if method.name.startswith('CreateFakeUDPPort'):
         out(u'    return create_winISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001( params._ret );\n')

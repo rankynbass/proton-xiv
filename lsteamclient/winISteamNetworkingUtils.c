@@ -231,6 +231,7 @@ int8_t __thiscall winISteamNetworkingUtils_SteamNetworkingUtils001_GetConfigValu
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamNetworkingUtils_SteamNetworkingUtils001_GetConfigValueInfo, &params );
+    if (pOutName) *pOutName = get_unix_buffer( params._str );
     return params._ret;
 }
 
@@ -572,6 +573,7 @@ int8_t __thiscall winISteamNetworkingUtils_SteamNetworkingUtils002_GetConfigValu
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamNetworkingUtils_SteamNetworkingUtils002_GetConfigValueInfo, &params );
+    if (pOutName) *pOutName = get_unix_buffer( params._str );
     return params._ret;
 }
 
@@ -914,6 +916,7 @@ int8_t __thiscall winISteamNetworkingUtils_SteamNetworkingUtils003_GetConfigValu
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamNetworkingUtils_SteamNetworkingUtils003_GetConfigValueInfo, &params );
+    if (pOutName) *pOutName = get_unix_buffer( params._str );
     return params._ret;
 }
 

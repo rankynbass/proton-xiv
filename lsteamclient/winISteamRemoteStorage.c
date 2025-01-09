@@ -507,6 +507,7 @@ int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION003
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION003_GetUGCDetails, &params );
+    if (ppchName) *ppchName = get_unix_buffer( params._str );
     return params._ret;
 }
 
@@ -851,6 +852,7 @@ int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION004
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION004_GetUGCDetails, &params );
+    if (ppchName) *ppchName = get_unix_buffer( params._str );
     return params._ret;
 }
 
@@ -1206,6 +1208,7 @@ int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION005
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION005_GetUGCDetails, &params );
+    if (ppchName) *ppchName = get_unix_buffer( params._str );
     return params._ret;
 }
 
@@ -1727,6 +1730,7 @@ int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION006
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION006_GetUGCDetails, &params );
+    if (ppchName) *ppchName = get_unix_buffer( params._str );
     return params._ret;
 }
 
@@ -2469,6 +2473,7 @@ int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION007
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION007_GetUGCDetails, &params );
+    if (ppchName) *ppchName = get_unix_buffer( params._str );
     return params._ret;
 }
 
@@ -3269,6 +3274,7 @@ int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION008
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION008_GetUGCDetails, &params );
+    if (ppchName) *ppchName = get_unix_buffer( params._str );
     return params._ret;
 }
 
@@ -4073,6 +4079,7 @@ int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION009
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION009_GetUGCDetails, &params );
+    if (ppchName) *ppchName = get_unix_buffer( params._str );
     return params._ret;
 }
 
@@ -4880,6 +4887,7 @@ int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION010
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION010_GetUGCDetails, &params );
+    if (ppchName) *ppchName = get_unix_buffer( params._str );
     return params._ret;
 }
 
@@ -5703,6 +5711,7 @@ int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION011
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION011_GetUGCDetails, &params );
+    if (ppchName) *ppchName = get_unix_buffer( params._str );
     return params._ret;
 }
 
@@ -6527,6 +6536,7 @@ int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION012
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION012_GetUGCDetails, &params );
+    if (ppchName) *ppchName = get_unix_buffer( params._str );
     return params._ret;
 }
 
@@ -7399,6 +7409,7 @@ int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION013
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION013_GetUGCDetails, &params );
+    if (ppchName) *ppchName = get_unix_buffer( params._str );
     return params._ret;
 }
 
@@ -8274,6 +8285,7 @@ int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION014
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION014_GetUGCDetails, &params );
+    if (ppchName) *ppchName = get_unix_buffer( params._str );
     return params._ret;
 }
 
@@ -9153,6 +9165,7 @@ int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION016
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION016_GetUGCDetails, &params );
+    if (ppchName) *ppchName = get_unix_buffer( params._str );
     return params._ret;
 }
 

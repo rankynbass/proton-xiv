@@ -130,7 +130,9 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils002_GetConfigValueInfo( void 
 {
     struct ISteamNetworkingUtils_SteamNetworkingUtils002_GetConfigValueInfo_params *params = (struct ISteamNetworkingUtils_SteamNetworkingUtils002_GetConfigValueInfo_params *)args;
     struct u_ISteamNetworkingUtils_SteamNetworkingUtils002 *iface = (struct u_ISteamNetworkingUtils_SteamNetworkingUtils002 *)params->u_iface;
-    params->_ret = iface->GetConfigValueInfo( params->eValue, params->pOutName, params->pOutDataType, params->pOutScope, params->pOutNextValue );
+    char *u_str;
+    params->_ret = iface->GetConfigValueInfo( params->eValue, params->pOutName ? (const char **)&u_str : nullptr, params->pOutDataType, params->pOutScope, params->pOutNextValue );
+    if (params->pOutName) params->_str = u_str;
     return 0;
 }
 

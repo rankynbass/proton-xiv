@@ -193,7 +193,9 @@ NTSTATUS ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION009_GetUGCDetai
 {
     struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION009_GetUGCDetails_params *params = (struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION009_GetUGCDetails_params *)args;
     struct u_ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION009 *iface = (struct u_ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION009 *)params->u_iface;
-    params->_ret = iface->GetUGCDetails( params->hContent, params->pnAppID, params->ppchName, params->pnFileSizeInBytes, params->pSteamIDOwner );
+    char *u_str;
+    params->_ret = iface->GetUGCDetails( params->hContent, params->pnAppID, params->ppchName ? (char **)&u_str : nullptr, params->pnFileSizeInBytes, params->pSteamIDOwner );
+    if (params->ppchName) params->_str = u_str;
     return 0;
 }
 
