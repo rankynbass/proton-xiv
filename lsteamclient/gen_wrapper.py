@@ -663,11 +663,16 @@ class Method:
     def returns_unix_iface(self):
         return self.result_type.spelling.startswith("ISteam") or "GetISteam" in self.name
 
+    def returns_string(self):
+        return self.result_type.spelling == "const char *"
+
     def write_params(self, out):
         returns_record = self.result_type.get_canonical().kind == TypeKind.RECORD
 
         if self.returns_unix_iface():
             ret = 'struct u_iface _ret'
+        elif self.returns_string():
+            ret = 'struct u_buffer _ret'
         else:
             ret = "*_ret" if returns_record else "_ret"
             ret = f'{declspec(self.result_type, ret, "w_")}'
@@ -1118,6 +1123,8 @@ def handle_method_c(klass, method, winclassname, out):
         out(u'    return create_winISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001( params._ret );\n')
     elif method.returns_unix_iface():
         out(u'    return create_win_interface( pchVersion, params._ret );\n')
+    elif method.returns_string():
+        out(u'    return get_unix_buffer( params._ret );\n')
     elif not returns_void:
         out(u'    return params._ret;\n')
     out(u'}\n\n')

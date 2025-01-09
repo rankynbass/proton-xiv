@@ -15,7 +15,7 @@ const char *__thiscall winISteamController_SteamController005_GetGlyphForActionO
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamController_SteamController005_GetGlyphForActionOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 /* ISteamController_SteamController006 */
@@ -31,7 +31,7 @@ const char *__thiscall winISteamController_SteamController006_GetGlyphForActionO
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamController_SteamController006_GetGlyphForActionOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 /* ISteamController_SteamController007 */
@@ -47,7 +47,7 @@ const char *__thiscall winISteamController_SteamController007_GetGlyphForActionO
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamController_SteamController007_GetGlyphForActionOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char *__thiscall winISteamController_SteamController007_GetGlyphForXboxOrigin( struct w_iface *_this, uint32_t eOrigin )
@@ -61,7 +61,7 @@ const char *__thiscall winISteamController_SteamController007_GetGlyphForXboxOri
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamController_SteamController007_GetGlyphForXboxOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 /* ISteamController_SteamController008 */
@@ -77,7 +77,7 @@ const char *__thiscall winISteamController_SteamController008_GetGlyphForActionO
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamController_SteamController008_GetGlyphForActionOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char *__thiscall winISteamController_SteamController008_GetGlyphForXboxOrigin( struct w_iface *_this, uint32_t eOrigin )
@@ -91,7 +91,7 @@ const char *__thiscall winISteamController_SteamController008_GetGlyphForXboxOri
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamController_SteamController008_GetGlyphForXboxOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 /* ISteamInput_SteamInput001 */
@@ -107,7 +107,7 @@ const char *__thiscall winISteamInput_SteamInput001_GetGlyphForActionOrigin( str
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamInput_SteamInput001_GetGlyphForActionOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char *__thiscall winISteamInput_SteamInput001_GetGlyphForXboxOrigin( struct w_iface *_this, uint32_t eOrigin )
@@ -121,7 +121,7 @@ const char *__thiscall winISteamInput_SteamInput001_GetGlyphForXboxOrigin( struc
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamInput_SteamInput001_GetGlyphForXboxOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 /* ISteamInput_SteamInput002 */
@@ -137,7 +137,7 @@ const char *__thiscall winISteamInput_SteamInput002_GetGlyphForActionOrigin( str
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamInput_SteamInput002_GetGlyphForActionOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char *__thiscall winISteamInput_SteamInput002_GetGlyphForXboxOrigin( struct w_iface *_this, uint32_t eOrigin )
@@ -151,7 +151,7 @@ const char *__thiscall winISteamInput_SteamInput002_GetGlyphForXboxOrigin( struc
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamInput_SteamInput002_GetGlyphForXboxOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 /* ISteamInput_SteamInput005 */
@@ -170,7 +170,7 @@ const char *__thiscall winISteamInput_SteamInput005_GetGlyphPNGForActionOrigin( 
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamInput_SteamInput005_GetGlyphPNGForActionOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char *__thiscall winISteamInput_SteamInput005_GetGlyphSVGForActionOrigin( struct w_iface *_this,
@@ -186,7 +186,7 @@ const char *__thiscall winISteamInput_SteamInput005_GetGlyphSVGForActionOrigin( 
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamInput_SteamInput005_GetGlyphSVGForActionOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char *__thiscall winISteamInput_SteamInput005_GetGlyphForActionOrigin_Legacy( struct w_iface *_this, uint32_t eOrigin )
@@ -200,7 +200,7 @@ const char *__thiscall winISteamInput_SteamInput005_GetGlyphForActionOrigin_Lega
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamInput_SteamInput005_GetGlyphForActionOrigin_Legacy, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char *__thiscall winISteamInput_SteamInput005_GetGlyphForXboxOrigin( struct w_iface *_this, uint32_t eOrigin )
@@ -214,7 +214,7 @@ const char *__thiscall winISteamInput_SteamInput005_GetGlyphForXboxOrigin( struc
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamInput_SteamInput005_GetGlyphForXboxOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 /* ISteamInput_SteamInput006 */
@@ -233,7 +233,7 @@ const char *__thiscall winISteamInput_SteamInput006_GetGlyphPNGForActionOrigin( 
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamInput_SteamInput006_GetGlyphPNGForActionOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char *__thiscall winISteamInput_SteamInput006_GetGlyphSVGForActionOrigin( struct w_iface *_this,
@@ -249,7 +249,7 @@ const char *__thiscall winISteamInput_SteamInput006_GetGlyphSVGForActionOrigin( 
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamInput_SteamInput006_GetGlyphSVGForActionOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char *__thiscall winISteamInput_SteamInput006_GetGlyphForActionOrigin_Legacy( struct w_iface *_this, uint32_t eOrigin )
@@ -263,7 +263,7 @@ const char *__thiscall winISteamInput_SteamInput006_GetGlyphForActionOrigin_Lega
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamInput_SteamInput006_GetGlyphForActionOrigin_Legacy, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char *__thiscall winISteamInput_SteamInput006_GetGlyphForXboxOrigin( struct w_iface *_this, uint32_t eOrigin )
@@ -277,5 +277,5 @@ const char *__thiscall winISteamInput_SteamInput006_GetGlyphForXboxOrigin( struc
     TRACE( "%p\n", _this );
 
     STEAMCLIENT_CALL( ISteamInput_SteamInput006_GetGlyphForXboxOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }

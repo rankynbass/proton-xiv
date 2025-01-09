@@ -70,7 +70,7 @@ const char * __thiscall winISteamUtils_SteamUtils002_GetIPCountry(struct w_iface
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamUtils_SteamUtils002_GetIPCountry, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamUtils_SteamUtils002_GetImageSize(struct w_iface *_this, int32_t iImage, uint32_t *pnWidth, uint32_t *pnHeight)
@@ -291,7 +291,7 @@ const char * __thiscall winISteamUtils_SteamUtils004_GetIPCountry(struct w_iface
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamUtils_SteamUtils004_GetIPCountry, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamUtils_SteamUtils004_GetImageSize(struct w_iface *_this, int32_t iImage, uint32_t *pnWidth, uint32_t *pnHeight)
@@ -564,7 +564,7 @@ const char * __thiscall winISteamUtils_SteamUtils005_GetIPCountry(struct w_iface
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamUtils_SteamUtils005_GetIPCountry, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamUtils_SteamUtils005_GetImageSize(struct w_iface *_this, int32_t iImage, uint32_t *pnWidth, uint32_t *pnHeight)
@@ -908,7 +908,7 @@ const char * __thiscall winISteamUtils_SteamUtils006_GetIPCountry(struct w_iface
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamUtils_SteamUtils006_GetIPCountry, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamUtils_SteamUtils006_GetImageSize(struct w_iface *_this, int32_t iImage, uint32_t *pnWidth, uint32_t *pnHeight)
@@ -1141,7 +1141,7 @@ const char * __thiscall winISteamUtils_SteamUtils006_GetSteamUILanguage(struct w
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamUtils_SteamUtils006_GetSteamUILanguage, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamUtils_SteamUtils006_IsSteamRunningInVR(struct w_iface *_this)
@@ -1277,7 +1277,7 @@ const char * __thiscall winISteamUtils_SteamUtils007_GetIPCountry(struct w_iface
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamUtils_SteamUtils007_GetIPCountry, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamUtils_SteamUtils007_GetImageSize(struct w_iface *_this, int32_t iImage, uint32_t *pnWidth, uint32_t *pnHeight)
@@ -1512,7 +1512,7 @@ const char * __thiscall winISteamUtils_SteamUtils007_GetSteamUILanguage(struct w
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamUtils_SteamUtils007_GetSteamUILanguage, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamUtils_SteamUtils007_IsSteamRunningInVR(struct w_iface *_this)
@@ -1663,7 +1663,7 @@ const char * __thiscall winISteamUtils_SteamUtils008_GetIPCountry(struct w_iface
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamUtils_SteamUtils008_GetIPCountry, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamUtils_SteamUtils008_GetImageSize(struct w_iface *_this, int32_t iImage, uint32_t *pnWidth, uint32_t *pnHeight)
@@ -1898,7 +1898,7 @@ const char * __thiscall winISteamUtils_SteamUtils008_GetSteamUILanguage(struct w
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamUtils_SteamUtils008_GetSteamUILanguage, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamUtils_SteamUtils008_IsSteamRunningInVR(struct w_iface *_this)
@@ -2078,7 +2078,7 @@ const char * __thiscall winISteamUtils_SteamUtils009_GetIPCountry(struct w_iface
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamUtils_SteamUtils009_GetIPCountry, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamUtils_SteamUtils009_GetImageSize(struct w_iface *_this, int32_t iImage, uint32_t *pnWidth, uint32_t *pnHeight)
@@ -2313,7 +2313,7 @@ const char * __thiscall winISteamUtils_SteamUtils009_GetSteamUILanguage(struct w
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamUtils_SteamUtils009_GetSteamUILanguage, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamUtils_SteamUtils009_IsSteamRunningInVR(struct w_iface *_this)
@@ -2576,7 +2576,7 @@ const char * __thiscall winISteamUtils_SteamUtils010_GetIPCountry(struct w_iface
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamUtils_SteamUtils010_GetIPCountry, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamUtils_SteamUtils010_GetImageSize(struct w_iface *_this, int32_t iImage, uint32_t *pnWidth, uint32_t *pnHeight)
@@ -2811,7 +2811,7 @@ const char * __thiscall winISteamUtils_SteamUtils010_GetSteamUILanguage(struct w
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamUtils_SteamUtils010_GetSteamUILanguage, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamUtils_SteamUtils010_IsSteamRunningInVR(struct w_iface *_this)

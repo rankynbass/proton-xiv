@@ -1283,7 +1283,7 @@ const char * __thiscall winISteamNetworkingUtils_SteamNetworkingUtils004_GetConf
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamNetworkingUtils_SteamNetworkingUtils004_GetConfigValueInfo, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winISteamNetworkingUtils_SteamNetworkingUtils004_IterateGenericEditableConfigValues(struct w_iface *_this, uint32_t eCurrent, int8_t bEnumerateDevVars)

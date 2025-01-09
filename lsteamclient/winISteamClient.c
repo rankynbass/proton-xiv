@@ -159,7 +159,7 @@ const char * __thiscall winISteamClient_SteamClient006_GetUniverseName(struct w_
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamClient_SteamClient006_GetUniverseName, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 void /*ISteamFriends*/ * __thiscall winISteamClient_SteamClient006_GetISteamFriends(struct w_iface *_this, int32_t hSteamUser, int32_t hSteamPipe, const char *pchVersion)

@@ -100,7 +100,7 @@ const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION002_GetCurrentG
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamApps_STEAMAPPS_INTERFACE_VERSION002_GetCurrentGameLanguage, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION002_GetAvailableGameLanguages(struct w_iface *_this)
@@ -111,7 +111,7 @@ const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION002_GetAvailabl
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamApps_STEAMAPPS_INTERFACE_VERSION002_GetAvailableGameLanguages, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION002_BIsSubscribedApp(struct w_iface *_this, uint32_t appID)
@@ -212,7 +212,7 @@ const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION003_GetCurrentG
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamApps_STEAMAPPS_INTERFACE_VERSION003_GetCurrentGameLanguage, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION003_GetAvailableGameLanguages(struct w_iface *_this)
@@ -223,7 +223,7 @@ const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION003_GetAvailabl
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamApps_STEAMAPPS_INTERFACE_VERSION003_GetAvailableGameLanguages, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION003_BIsSubscribedApp(struct w_iface *_this, uint32_t appID)
@@ -343,7 +343,7 @@ const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION004_GetCurrentG
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamApps_STEAMAPPS_INTERFACE_VERSION004_GetCurrentGameLanguage, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION004_GetAvailableGameLanguages(struct w_iface *_this)
@@ -354,7 +354,7 @@ const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION004_GetAvailabl
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamApps_STEAMAPPS_INTERFACE_VERSION004_GetAvailableGameLanguages, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION004_BIsSubscribedApp(struct w_iface *_this, uint32_t appID)
@@ -558,7 +558,7 @@ const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION005_GetCurrentG
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamApps_STEAMAPPS_INTERFACE_VERSION005_GetCurrentGameLanguage, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION005_GetAvailableGameLanguages(struct w_iface *_this)
@@ -569,7 +569,7 @@ const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION005_GetAvailabl
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamApps_STEAMAPPS_INTERFACE_VERSION005_GetAvailableGameLanguages, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION005_BIsSubscribedApp(struct w_iface *_this, uint32_t appID)
@@ -856,7 +856,7 @@ const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION006_GetCurrentG
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamApps_STEAMAPPS_INTERFACE_VERSION006_GetCurrentGameLanguage, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION006_GetAvailableGameLanguages(struct w_iface *_this)
@@ -867,7 +867,7 @@ const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION006_GetAvailabl
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamApps_STEAMAPPS_INTERFACE_VERSION006_GetAvailableGameLanguages, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION006_BIsSubscribedApp(struct w_iface *_this, uint32_t appID)
@@ -1064,7 +1064,7 @@ const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION006_GetLaunchQu
     TRACE("%p\n", _this);
     IsBadStringPtrA(pchKey, -1);
     STEAMCLIENT_CALL( ISteamApps_STEAMAPPS_INTERFACE_VERSION006_GetLaunchQueryParam, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 extern vtable_ptr winISteamApps_STEAMAPPS_INTERFACE_VERSION006_vtable;
@@ -1184,7 +1184,7 @@ const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION007_GetCurrentG
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamApps_STEAMAPPS_INTERFACE_VERSION007_GetCurrentGameLanguage, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION007_GetAvailableGameLanguages(struct w_iface *_this)
@@ -1195,7 +1195,7 @@ const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION007_GetAvailabl
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamApps_STEAMAPPS_INTERFACE_VERSION007_GetAvailableGameLanguages, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION007_BIsSubscribedApp(struct w_iface *_this, uint32_t appID)
@@ -1392,7 +1392,7 @@ const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION007_GetLaunchQu
     TRACE("%p\n", _this);
     IsBadStringPtrA(pchKey, -1);
     STEAMCLIENT_CALL( ISteamApps_STEAMAPPS_INTERFACE_VERSION007_GetLaunchQueryParam, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION007_GetDlcDownloadProgress(struct w_iface *_this, uint32_t nAppID, uint64_t *punBytesDownloaded, uint64_t *punBytesTotal)
@@ -1548,7 +1548,7 @@ const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION008_GetCurrentG
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamApps_STEAMAPPS_INTERFACE_VERSION008_GetCurrentGameLanguage, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION008_GetAvailableGameLanguages(struct w_iface *_this)
@@ -1559,7 +1559,7 @@ const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION008_GetAvailabl
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamApps_STEAMAPPS_INTERFACE_VERSION008_GetAvailableGameLanguages, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION008_BIsSubscribedApp(struct w_iface *_this, uint32_t appID)
@@ -1756,7 +1756,7 @@ const char * __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION008_GetLaunchQu
     TRACE("%p\n", _this);
     IsBadStringPtrA(pchKey, -1);
     STEAMCLIENT_CALL( ISteamApps_STEAMAPPS_INTERFACE_VERSION008_GetLaunchQueryParam, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamApps_STEAMAPPS_INTERFACE_VERSION008_GetDlcDownloadProgress(struct w_iface *_this, uint32_t nAppID, uint64_t *punBytesDownloaded, uint64_t *punBytesTotal)

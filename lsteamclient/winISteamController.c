@@ -1078,7 +1078,7 @@ const char * __thiscall winISteamController_SteamController005_GetStringForActio
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamController_SteamController005_GetStringForActionOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 extern vtable_ptr winISteamController_SteamController005_vtable;
@@ -1529,7 +1529,7 @@ const char * __thiscall winISteamController_SteamController006_GetStringForActio
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamController_SteamController006_GetStringForActionOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winISteamController_SteamController006_GetInputTypeForHandle(struct w_iface *_this, uint64_t controllerHandle)
@@ -1850,7 +1850,7 @@ const char * __thiscall winISteamController_SteamController007_GetStringForActio
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamController_SteamController007_GetStringForActionOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 void __thiscall winISteamController_SteamController007_StopAnalogActionMomentum(struct w_iface *_this, uint64_t controllerHandle, uint64_t eAction)
@@ -1992,7 +1992,7 @@ const char * __thiscall winISteamController_SteamController007_GetStringForXboxO
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamController_SteamController007_GetStringForXboxOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winISteamController_SteamController007_GetActionOriginFromXboxOrigin(struct w_iface *_this, uint64_t controllerHandle, uint32_t eOrigin)
@@ -2344,7 +2344,7 @@ const char * __thiscall winISteamController_SteamController008_GetStringForActio
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamController_SteamController008_GetStringForActionOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 void __thiscall winISteamController_SteamController008_StopAnalogActionMomentum(struct w_iface *_this, uint64_t controllerHandle, uint64_t eAction)
@@ -2486,7 +2486,7 @@ const char * __thiscall winISteamController_SteamController008_GetStringForXboxO
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamController_SteamController008_GetStringForXboxOrigin, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winISteamController_SteamController008_GetActionOriginFromXboxOrigin(struct w_iface *_this, uint64_t controllerHandle, uint32_t eOrigin)

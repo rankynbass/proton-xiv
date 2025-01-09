@@ -102,7 +102,7 @@ const char * __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERS
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION001_GetFileNameAndSize, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION001_GetQuota(struct w_iface *_this, int32_t *pnTotalBytes, int32_t *puAvailableBytes)
@@ -229,7 +229,7 @@ const char * __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERS
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION002_GetFileNameAndSize, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION002_GetQuota(struct w_iface *_this, int32_t *pnTotalBytes, int32_t *puAvailableBytes)
@@ -433,7 +433,7 @@ const char * __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERS
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION003_GetFileNameAndSize, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION003_GetQuota(struct w_iface *_this, int32_t *pnTotalBytes, int32_t *puAvailableBytes)
@@ -777,7 +777,7 @@ const char * __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERS
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION004_GetFileNameAndSize, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION004_GetQuota(struct w_iface *_this, int32_t *pnTotalBytes, int32_t *puAvailableBytes)
@@ -1132,7 +1132,7 @@ const char * __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERS
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION005_GetFileNameAndSize, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION005_GetQuota(struct w_iface *_this, int32_t *pnTotalBytes, int32_t *puAvailableBytes)
@@ -1639,7 +1639,7 @@ const char * __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERS
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION006_GetFileNameAndSize, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION006_GetQuota(struct w_iface *_this, int32_t *pnTotalBytes, int32_t *puAvailableBytes)
@@ -2381,7 +2381,7 @@ const char * __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERS
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION007_GetFileNameAndSize, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION007_GetQuota(struct w_iface *_this, int32_t *pnTotalBytes, int32_t *puAvailableBytes)
@@ -3181,7 +3181,7 @@ const char * __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERS
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION008_GetFileNameAndSize, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION008_GetQuota(struct w_iface *_this, int32_t *pnTotalBytes, int32_t *puAvailableBytes)
@@ -3985,7 +3985,7 @@ const char * __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERS
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION009_GetFileNameAndSize, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION009_GetQuota(struct w_iface *_this, int32_t *pnTotalBytes, int32_t *puAvailableBytes)
@@ -4791,7 +4791,7 @@ const char * __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERS
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION010_GetFileNameAndSize, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION010_GetQuota(struct w_iface *_this, int32_t *pnTotalBytes, int32_t *puAvailableBytes)
@@ -5614,7 +5614,7 @@ const char * __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERS
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION011_GetFileNameAndSize, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION011_GetQuota(struct w_iface *_this, int32_t *pnTotalBytes, int32_t *puAvailableBytes)
@@ -6438,7 +6438,7 @@ const char * __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERS
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION012_GetFileNameAndSize, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION012_GetQuota(struct w_iface *_this, int32_t *pnTotalBytes, int32_t *puAvailableBytes)
@@ -7310,7 +7310,7 @@ const char * __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERS
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION013_GetFileNameAndSize, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION013_GetQuota(struct w_iface *_this, int32_t *pnTotalBytes, int32_t *puAvailableBytes)
@@ -8185,7 +8185,7 @@ const char * __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERS
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION014_GetFileNameAndSize, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION014_GetQuota(struct w_iface *_this, uint64_t *pnTotalBytes, uint64_t *puAvailableBytes)
@@ -9064,7 +9064,7 @@ const char * __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERS
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION016_GetFileNameAndSize, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION016_GetQuota(struct w_iface *_this, uint64_t *pnTotalBytes, uint64_t *puAvailableBytes)
@@ -9568,7 +9568,7 @@ const char * __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERS
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION016_GetLocalFileChange, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION016_BeginFileWriteBatch(struct w_iface *_this)

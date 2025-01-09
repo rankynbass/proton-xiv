@@ -85,13 +85,13 @@ struct ISteamApps_STEAMAPPS_INTERFACE_VERSION002_BIsVACBanned_params
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION002_GetCurrentGameLanguage_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION002_GetAvailableGameLanguages_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION002_BIsSubscribedApp_params
@@ -128,13 +128,13 @@ struct ISteamApps_STEAMAPPS_INTERFACE_VERSION003_BIsVACBanned_params
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION003_GetCurrentGameLanguage_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION003_GetAvailableGameLanguages_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION003_BIsSubscribedApp_params
@@ -178,13 +178,13 @@ struct ISteamApps_STEAMAPPS_INTERFACE_VERSION004_BIsVACBanned_params
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION004_GetCurrentGameLanguage_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION004_GetAvailableGameLanguages_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION004_BIsSubscribedApp_params
@@ -270,13 +270,13 @@ struct ISteamApps_STEAMAPPS_INTERFACE_VERSION005_BIsVACBanned_params
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION005_GetCurrentGameLanguage_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION005_GetAvailableGameLanguages_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION005_BIsSubscribedApp_params
@@ -407,13 +407,13 @@ struct ISteamApps_STEAMAPPS_INTERFACE_VERSION006_BIsVACBanned_params
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION006_GetCurrentGameLanguage_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION006_GetAvailableGameLanguages_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION006_BIsSubscribedApp_params
@@ -527,7 +527,7 @@ struct ISteamApps_STEAMAPPS_INTERFACE_VERSION006_GetAppOwner_params
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION006_GetLaunchQueryParam_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     const char *pchKey;
 };
 
@@ -558,13 +558,13 @@ struct ISteamApps_STEAMAPPS_INTERFACE_VERSION007_BIsVACBanned_params
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION007_GetCurrentGameLanguage_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION007_GetAvailableGameLanguages_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION007_BIsSubscribedApp_params
@@ -678,7 +678,7 @@ struct ISteamApps_STEAMAPPS_INTERFACE_VERSION007_GetAppOwner_params
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION007_GetLaunchQueryParam_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     const char *pchKey;
 };
 
@@ -724,13 +724,13 @@ struct ISteamApps_STEAMAPPS_INTERFACE_VERSION008_BIsVACBanned_params
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION008_GetCurrentGameLanguage_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION008_GetAvailableGameLanguages_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION008_BIsSubscribedApp_params
@@ -844,7 +844,7 @@ struct ISteamApps_STEAMAPPS_INTERFACE_VERSION008_GetAppOwner_params
 struct ISteamApps_STEAMAPPS_INTERFACE_VERSION008_GetLaunchQueryParam_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     const char *pchKey;
 };
 
@@ -3952,7 +3952,7 @@ struct ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION001_GetSessionSteamID_p
 struct ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION001_GetSessionClientName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t unSessionID;
 };
 
@@ -4002,7 +4002,7 @@ struct ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION002_GetSessionSteamID_p
 struct ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION002_GetSessionClientName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t unSessionID;
 };
 
@@ -4193,7 +4193,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION001_GetFileCount_
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION001_GetFileNameAndSize_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int32_t iFile;
     int32_t *pnFileSizeInBytes;
 };
@@ -4247,7 +4247,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION002_GetFileCount_
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION002_GetFileNameAndSize_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int32_t iFile;
     int32_t *pnFileSizeInBytes;
 };
@@ -4336,7 +4336,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION003_GetFileCount_
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION003_GetFileNameAndSize_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int32_t iFile;
     int32_t *pnFileSizeInBytes;
 };
@@ -4498,7 +4498,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION004_GetFileCount_
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION004_GetFileNameAndSize_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int32_t iFile;
     int32_t *pnFileSizeInBytes;
 };
@@ -4660,7 +4660,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION005_GetFileCount_
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION005_GetFileNameAndSize_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int32_t iFile;
     int32_t *pnFileSizeInBytes;
 };
@@ -4896,7 +4896,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION006_GetFileCount_
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION006_GetFileNameAndSize_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int32_t iFile;
     int32_t *pnFileSizeInBytes;
 };
@@ -5266,7 +5266,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION007_GetFileCount_
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION007_GetFileNameAndSize_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int32_t iFile;
     int32_t *pnFileSizeInBytes;
 };
@@ -5668,7 +5668,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION008_GetFileCount_
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION008_GetFileNameAndSize_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int32_t iFile;
     int32_t *pnFileSizeInBytes;
 };
@@ -6070,7 +6070,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION009_GetFileCount_
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION009_GetFileNameAndSize_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int32_t iFile;
     int32_t *pnFileSizeInBytes;
 };
@@ -6473,7 +6473,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION010_GetFileCount_
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION010_GetFileNameAndSize_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int32_t iFile;
     int32_t *pnFileSizeInBytes;
 };
@@ -6886,7 +6886,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION011_GetFileCount_
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION011_GetFileNameAndSize_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int32_t iFile;
     int32_t *pnFileSizeInBytes;
 };
@@ -7300,7 +7300,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION012_GetFileCount_
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION012_GetFileNameAndSize_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int32_t iFile;
     int32_t *pnFileSizeInBytes;
 };
@@ -7742,7 +7742,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION013_GetFileCount_
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION013_GetFileNameAndSize_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int32_t iFile;
     int32_t *pnFileSizeInBytes;
 };
@@ -8184,7 +8184,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION014_GetFileCount_
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION014_GetFileNameAndSize_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int32_t iFile;
     int32_t *pnFileSizeInBytes;
 };
@@ -8626,7 +8626,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION016_GetFileCount_
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION016_GetFileNameAndSize_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int32_t iFile;
     int32_t *pnFileSizeInBytes;
 };
@@ -8929,7 +8929,7 @@ struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION016_GetLocalFileC
 struct ISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION016_GetLocalFileChange_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int32_t iFile;
     uint32_t *pEChangeType;
     uint32_t *pEFilePathType;
@@ -19731,7 +19731,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION001_GetNumStats_params
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION001_GetStatName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CGameID nGameID;
     uint32_t iStat;
 };
@@ -19754,7 +19754,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION001_GetNumAchievements_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION001_GetAchievementName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CGameID nGameID;
     uint32_t iAchievement;
 };
@@ -19769,7 +19769,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION001_GetNumGroupAchievemen
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION001_GetGroupAchievementName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CGameID nGameID;
     uint32_t iAchievement;
 };
@@ -19895,7 +19895,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION001_GetAchievementIcon_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION001_GetAchievementDisplayAttribute_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CGameID nGameID;
     const char *pchName;
     const char *pchKey;
@@ -19911,7 +19911,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION002_GetNumStats_params
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION002_GetStatName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CGameID nGameID;
     uint32_t iStat;
 };
@@ -19934,7 +19934,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION002_GetNumAchievements_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION002_GetAchievementName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CGameID nGameID;
     uint32_t iAchievement;
 };
@@ -20035,7 +20035,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION002_GetAchievementIcon_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION002_GetAchievementDisplayAttribute_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CGameID nGameID;
     const char *pchName;
     const char *pchKey;
@@ -20136,7 +20136,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION003_GetAchievementIcon_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION003_GetAchievementDisplayAttribute_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     const char *pchName;
     const char *pchKey;
 };
@@ -20235,7 +20235,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION004_GetAchievementIcon_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION004_GetAchievementDisplayAttribute_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     const char *pchName;
     const char *pchKey;
 };
@@ -20368,7 +20368,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION005_GetAchievementIcon_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION005_GetAchievementDisplayAttribute_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     const char *pchName;
     const char *pchKey;
 };
@@ -20442,7 +20442,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION005_FindLeaderboard_param
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION005_GetLeaderboardName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint64_t hSteamLeaderboard;
 };
 
@@ -20583,7 +20583,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION006_GetAchievementIcon_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION006_GetAchievementDisplayAttribute_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     const char *pchName;
     const char *pchKey;
 };
@@ -20657,7 +20657,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION006_FindLeaderboard_param
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION006_GetLeaderboardName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint64_t hSteamLeaderboard;
 };
 
@@ -20814,7 +20814,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION007_GetAchievementIcon_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION007_GetAchievementDisplayAttribute_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     const char *pchName;
     const char *pchKey;
 };
@@ -20898,7 +20898,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION007_FindLeaderboard_param
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION007_GetLeaderboardName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint64_t hSteamLeaderboard;
 };
 
@@ -21055,7 +21055,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION008_GetAchievementIcon_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION008_GetAchievementDisplayAttribute_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     const char *pchName;
     const char *pchKey;
 };
@@ -21139,7 +21139,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION008_FindLeaderboard_param
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION008_GetLeaderboardName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint64_t hSteamLeaderboard;
 };
 
@@ -21304,7 +21304,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION009_GetAchievementIcon_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION009_GetAchievementDisplayAttribute_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     const char *pchName;
     const char *pchKey;
 };
@@ -21388,7 +21388,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION009_FindLeaderboard_param
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION009_GetLeaderboardName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint64_t hSteamLeaderboard;
 };
 
@@ -21562,7 +21562,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION010_GetAchievementIcon_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION010_GetAchievementDisplayAttribute_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     const char *pchName;
     const char *pchKey;
 };
@@ -21646,7 +21646,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION010_FindLeaderboard_param
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION010_GetLeaderboardName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint64_t hSteamLeaderboard;
 };
 
@@ -21896,7 +21896,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementIcon_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementDisplayAttribute_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     const char *pchName;
     const char *pchKey;
 };
@@ -21919,7 +21919,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetNumAchievements_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t iAchievement;
 };
 
@@ -21993,7 +21993,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_FindLeaderboard_param
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetLeaderboardName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint64_t hSteamLeaderboard;
 };
 
@@ -22243,7 +22243,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_GetAchievementIcon_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_GetAchievementDisplayAttribute_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     const char *pchName;
     const char *pchKey;
 };
@@ -22266,7 +22266,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_GetNumAchievements_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_GetAchievementName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t iAchievement;
 };
 
@@ -22340,7 +22340,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_FindLeaderboard_param
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_GetLeaderboardName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint64_t hSteamLeaderboard;
 };
 
@@ -23018,7 +23018,7 @@ struct ISteamClient_SteamClient006_SetLocalIPBinding_params
 struct ISteamClient_SteamClient006_GetUniverseName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eUniverse;
 };
 
@@ -27327,14 +27327,14 @@ struct ISteamController_SteamController005_ShowAnalogActionOrigins_params
 struct ISteamController_SteamController005_GetStringForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
 struct ISteamController_SteamController005_GetGlyphForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
@@ -27558,14 +27558,14 @@ struct ISteamController_SteamController006_ShowAnalogActionOrigins_params
 struct ISteamController_SteamController006_GetStringForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
 struct ISteamController_SteamController006_GetGlyphForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
@@ -27702,14 +27702,14 @@ struct ISteamController_SteamController007_GetAnalogActionOrigins_params
 struct ISteamController_SteamController007_GetGlyphForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
 struct ISteamController_SteamController007_GetStringForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
@@ -27795,14 +27795,14 @@ struct ISteamController_SteamController007_GetGamepadIndexForController_params
 struct ISteamController_SteamController007_GetStringForXboxOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
 struct ISteamController_SteamController007_GetGlyphForXboxOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
@@ -27957,14 +27957,14 @@ struct ISteamController_SteamController008_GetAnalogActionOrigins_params
 struct ISteamController_SteamController008_GetGlyphForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
 struct ISteamController_SteamController008_GetStringForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
@@ -28050,14 +28050,14 @@ struct ISteamController_SteamController008_GetGamepadIndexForController_params
 struct ISteamController_SteamController008_GetStringForXboxOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
 struct ISteamController_SteamController008_GetGlyphForXboxOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
@@ -28089,7 +28089,7 @@ struct ISteamController_SteamController008_GetControllerBindingRevision_params
 struct ISteamFriends_SteamFriends001_GetPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamFriends_SteamFriends001_SetPersonaName_params
@@ -28158,7 +28158,7 @@ struct ISteamFriends_SteamFriends001_Deprecated_GetFriendGamePlayed_params
 struct ISteamFriends_SteamFriends001_GetFriendPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
 };
 
@@ -28201,7 +28201,7 @@ struct ISteamFriends_SteamFriends001_SetFriendRegValue_params
 struct ISteamFriends_SteamFriends001_GetFriendRegValue_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     const char *pchKey;
 };
@@ -28209,7 +28209,7 @@ struct ISteamFriends_SteamFriends001_GetFriendRegValue_params
 struct ISteamFriends_SteamFriends001_GetFriendPersonaNameHistory_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iPersonaName;
 };
@@ -28292,7 +28292,7 @@ struct ISteamFriends_SteamFriends001_GetFriendGamePlayed2_params
 struct ISteamFriends_SteamFriends002_GetPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamFriends_SteamFriends002_SetPersonaName_params
@@ -28345,7 +28345,7 @@ struct ISteamFriends_SteamFriends002_GetFriendPersonaState_params
 struct ISteamFriends_SteamFriends002_GetFriendPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
 };
 
@@ -28360,7 +28360,7 @@ struct ISteamFriends_SteamFriends002_SetFriendRegValue_params
 struct ISteamFriends_SteamFriends002_GetFriendRegValue_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     const char *pchKey;
 };
@@ -28379,7 +28379,7 @@ struct ISteamFriends_SteamFriends002_GetFriendGamePlayed_params
 struct ISteamFriends_SteamFriends002_GetFriendPersonaNameHistory_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iPersonaName;
 };
@@ -28477,7 +28477,7 @@ struct ISteamFriends_SteamFriends002_GetClanByIndex_params
 struct ISteamFriends_SteamFriends002_GetClanName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
@@ -28515,7 +28515,7 @@ struct ISteamFriends_SteamFriends002_GetFriendFromSourceByIndex_params
 struct ISteamFriends_SteamFriends003_GetPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamFriends_SteamFriends003_SetPersonaName_params
@@ -28562,7 +28562,7 @@ struct ISteamFriends_SteamFriends003_GetFriendPersonaState_params
 struct ISteamFriends_SteamFriends003_GetFriendPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
 };
 
@@ -28587,7 +28587,7 @@ struct ISteamFriends_SteamFriends003_GetFriendGamePlayed_params
 struct ISteamFriends_SteamFriends003_GetFriendPersonaNameHistory_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iPersonaName;
 };
@@ -28616,7 +28616,7 @@ struct ISteamFriends_SteamFriends003_GetClanByIndex_params
 struct ISteamFriends_SteamFriends003_GetClanName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
@@ -28659,7 +28659,7 @@ struct ISteamFriends_SteamFriends003_ActivateGameOverlay_params
 struct ISteamFriends_SteamFriends004_GetPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamFriends_SteamFriends004_SetPersonaName_params
@@ -28706,7 +28706,7 @@ struct ISteamFriends_SteamFriends004_GetFriendPersonaState_params
 struct ISteamFriends_SteamFriends004_GetFriendPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
 };
 
@@ -28732,7 +28732,7 @@ struct ISteamFriends_SteamFriends004_GetFriendGamePlayed_params
 struct ISteamFriends_SteamFriends004_GetFriendPersonaNameHistory_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iPersonaName;
 };
@@ -28761,7 +28761,7 @@ struct ISteamFriends_SteamFriends004_GetClanByIndex_params
 struct ISteamFriends_SteamFriends004_GetClanName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
@@ -28804,7 +28804,7 @@ struct ISteamFriends_SteamFriends004_ActivateGameOverlay_params
 struct ISteamFriends_SteamFriends005_GetPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamFriends_SteamFriends005_SetPersonaName_params
@@ -28851,7 +28851,7 @@ struct ISteamFriends_SteamFriends005_GetFriendPersonaState_params
 struct ISteamFriends_SteamFriends005_GetFriendPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
 };
 
@@ -28874,7 +28874,7 @@ struct ISteamFriends_SteamFriends005_GetFriendGamePlayed_params
 struct ISteamFriends_SteamFriends005_GetFriendPersonaNameHistory_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iPersonaName;
 };
@@ -28903,7 +28903,7 @@ struct ISteamFriends_SteamFriends005_GetClanByIndex_params
 struct ISteamFriends_SteamFriends005_GetClanName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
@@ -28971,7 +28971,7 @@ struct ISteamFriends_SteamFriends005_SetPlayedWith_params
 struct ISteamFriends_SteamFriends006_GetPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamFriends_SteamFriends006_SetPersonaName_params
@@ -29018,7 +29018,7 @@ struct ISteamFriends_SteamFriends006_GetFriendPersonaState_params
 struct ISteamFriends_SteamFriends006_GetFriendPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
 };
 
@@ -29041,7 +29041,7 @@ struct ISteamFriends_SteamFriends006_GetFriendGamePlayed_params
 struct ISteamFriends_SteamFriends006_GetFriendPersonaNameHistory_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iPersonaName;
 };
@@ -29070,14 +29070,14 @@ struct ISteamFriends_SteamFriends006_GetClanByIndex_params
 struct ISteamFriends_SteamFriends006_GetClanName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
 struct ISteamFriends_SteamFriends006_GetClanTag_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
@@ -29151,7 +29151,7 @@ struct ISteamFriends_SteamFriends006_ActivateGameOverlayInviteDialog_params
 struct ISteamFriends_SteamFriends007_GetPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamFriends_SteamFriends007_SetPersonaName_params
@@ -29198,7 +29198,7 @@ struct ISteamFriends_SteamFriends007_GetFriendPersonaState_params
 struct ISteamFriends_SteamFriends007_GetFriendPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
 };
 
@@ -29213,7 +29213,7 @@ struct ISteamFriends_SteamFriends007_GetFriendGamePlayed_params
 struct ISteamFriends_SteamFriends007_GetFriendPersonaNameHistory_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iPersonaName;
 };
@@ -29242,14 +29242,14 @@ struct ISteamFriends_SteamFriends007_GetClanByIndex_params
 struct ISteamFriends_SteamFriends007_GetClanName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
 struct ISteamFriends_SteamFriends007_GetClanTag_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
@@ -29344,7 +29344,7 @@ struct ISteamFriends_SteamFriends007_GetLargeFriendAvatar_params
 struct ISteamFriends_SteamFriends008_GetPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamFriends_SteamFriends008_SetPersonaName_params
@@ -29391,7 +29391,7 @@ struct ISteamFriends_SteamFriends008_GetFriendPersonaState_params
 struct ISteamFriends_SteamFriends008_GetFriendPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
 };
 
@@ -29406,7 +29406,7 @@ struct ISteamFriends_SteamFriends008_GetFriendGamePlayed_params
 struct ISteamFriends_SteamFriends008_GetFriendPersonaNameHistory_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iPersonaName;
 };
@@ -29435,14 +29435,14 @@ struct ISteamFriends_SteamFriends008_GetClanByIndex_params
 struct ISteamFriends_SteamFriends008_GetClanName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
 struct ISteamFriends_SteamFriends008_GetClanTag_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
@@ -29580,7 +29580,7 @@ struct ISteamFriends_SteamFriends008_GetUserRestrictions_params
 struct ISteamFriends_SteamFriends009_GetPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamFriends_SteamFriends009_SetPersonaName_params
@@ -29627,7 +29627,7 @@ struct ISteamFriends_SteamFriends009_GetFriendPersonaState_params
 struct ISteamFriends_SteamFriends009_GetFriendPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
 };
 
@@ -29642,7 +29642,7 @@ struct ISteamFriends_SteamFriends009_GetFriendGamePlayed_params
 struct ISteamFriends_SteamFriends009_GetFriendPersonaNameHistory_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iPersonaName;
 };
@@ -29671,14 +29671,14 @@ struct ISteamFriends_SteamFriends009_GetClanByIndex_params
 struct ISteamFriends_SteamFriends009_GetClanName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
 struct ISteamFriends_SteamFriends009_GetClanTag_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
@@ -29829,7 +29829,7 @@ struct ISteamFriends_SteamFriends009_ClearRichPresence_params
 struct ISteamFriends_SteamFriends009_GetFriendRichPresence_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     const char *pchKey;
 };
@@ -29844,7 +29844,7 @@ struct ISteamFriends_SteamFriends009_GetFriendRichPresenceKeyCount_params
 struct ISteamFriends_SteamFriends009_GetFriendRichPresenceKeyByIndex_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iKey;
 };
@@ -29887,7 +29887,7 @@ struct ISteamFriends_SteamFriends009_GetFriendCoplayGame_params
 struct ISteamFriends_SteamFriends010_GetPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamFriends_SteamFriends010_SetPersonaName_params
@@ -29934,7 +29934,7 @@ struct ISteamFriends_SteamFriends010_GetFriendPersonaState_params
 struct ISteamFriends_SteamFriends010_GetFriendPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
 };
 
@@ -29949,7 +29949,7 @@ struct ISteamFriends_SteamFriends010_GetFriendGamePlayed_params
 struct ISteamFriends_SteamFriends010_GetFriendPersonaNameHistory_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iPersonaName;
 };
@@ -29978,14 +29978,14 @@ struct ISteamFriends_SteamFriends010_GetClanByIndex_params
 struct ISteamFriends_SteamFriends010_GetClanName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
 struct ISteamFriends_SteamFriends010_GetClanTag_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
@@ -30154,7 +30154,7 @@ struct ISteamFriends_SteamFriends010_ClearRichPresence_params
 struct ISteamFriends_SteamFriends010_GetFriendRichPresence_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     const char *pchKey;
 };
@@ -30169,7 +30169,7 @@ struct ISteamFriends_SteamFriends010_GetFriendRichPresenceKeyCount_params
 struct ISteamFriends_SteamFriends010_GetFriendRichPresenceKeyByIndex_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iKey;
 };
@@ -30316,7 +30316,7 @@ struct ISteamFriends_SteamFriends010_GetFriendMessage_params
 struct ISteamFriends_SteamFriends011_GetPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamFriends_SteamFriends011_SetPersonaName_params
@@ -30363,7 +30363,7 @@ struct ISteamFriends_SteamFriends011_GetFriendPersonaState_params
 struct ISteamFriends_SteamFriends011_GetFriendPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
 };
 
@@ -30378,7 +30378,7 @@ struct ISteamFriends_SteamFriends011_GetFriendGamePlayed_params
 struct ISteamFriends_SteamFriends011_GetFriendPersonaNameHistory_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iPersonaName;
 };
@@ -30407,14 +30407,14 @@ struct ISteamFriends_SteamFriends011_GetClanByIndex_params
 struct ISteamFriends_SteamFriends011_GetClanName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
 struct ISteamFriends_SteamFriends011_GetClanTag_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
@@ -30583,7 +30583,7 @@ struct ISteamFriends_SteamFriends011_ClearRichPresence_params
 struct ISteamFriends_SteamFriends011_GetFriendRichPresence_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     const char *pchKey;
 };
@@ -30598,7 +30598,7 @@ struct ISteamFriends_SteamFriends011_GetFriendRichPresenceKeyCount_params
 struct ISteamFriends_SteamFriends011_GetFriendRichPresenceKeyByIndex_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iKey;
 };
@@ -30772,7 +30772,7 @@ struct ISteamFriends_SteamFriends011_EnumerateFollowingList_params
 struct ISteamFriends_SteamFriends012_GetPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamFriends_SteamFriends012_SetPersonaName_params
@@ -30820,7 +30820,7 @@ struct ISteamFriends_SteamFriends012_GetFriendPersonaState_params
 struct ISteamFriends_SteamFriends012_GetFriendPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
 };
 
@@ -30835,7 +30835,7 @@ struct ISteamFriends_SteamFriends012_GetFriendGamePlayed_params
 struct ISteamFriends_SteamFriends012_GetFriendPersonaNameHistory_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iPersonaName;
 };
@@ -30864,14 +30864,14 @@ struct ISteamFriends_SteamFriends012_GetClanByIndex_params
 struct ISteamFriends_SteamFriends012_GetClanName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
 struct ISteamFriends_SteamFriends012_GetClanTag_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
@@ -31040,7 +31040,7 @@ struct ISteamFriends_SteamFriends012_ClearRichPresence_params
 struct ISteamFriends_SteamFriends012_GetFriendRichPresence_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     const char *pchKey;
 };
@@ -31055,7 +31055,7 @@ struct ISteamFriends_SteamFriends012_GetFriendRichPresenceKeyCount_params
 struct ISteamFriends_SteamFriends012_GetFriendRichPresenceKeyByIndex_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iKey;
 };
@@ -31229,7 +31229,7 @@ struct ISteamFriends_SteamFriends012_EnumerateFollowingList_params
 struct ISteamFriends_SteamFriends013_GetPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamFriends_SteamFriends013_SetPersonaName_params
@@ -31277,7 +31277,7 @@ struct ISteamFriends_SteamFriends013_GetFriendPersonaState_params
 struct ISteamFriends_SteamFriends013_GetFriendPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
 };
 
@@ -31292,7 +31292,7 @@ struct ISteamFriends_SteamFriends013_GetFriendGamePlayed_params
 struct ISteamFriends_SteamFriends013_GetFriendPersonaNameHistory_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iPersonaName;
 };
@@ -31321,14 +31321,14 @@ struct ISteamFriends_SteamFriends013_GetClanByIndex_params
 struct ISteamFriends_SteamFriends013_GetClanName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
 struct ISteamFriends_SteamFriends013_GetClanTag_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
@@ -31498,7 +31498,7 @@ struct ISteamFriends_SteamFriends013_ClearRichPresence_params
 struct ISteamFriends_SteamFriends013_GetFriendRichPresence_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     const char *pchKey;
 };
@@ -31513,7 +31513,7 @@ struct ISteamFriends_SteamFriends013_GetFriendRichPresenceKeyCount_params
 struct ISteamFriends_SteamFriends013_GetFriendRichPresenceKeyByIndex_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iKey;
 };
@@ -31687,7 +31687,7 @@ struct ISteamFriends_SteamFriends013_EnumerateFollowingList_params
 struct ISteamFriends_SteamFriends014_GetPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamFriends_SteamFriends014_SetPersonaName_params
@@ -31735,7 +31735,7 @@ struct ISteamFriends_SteamFriends014_GetFriendPersonaState_params
 struct ISteamFriends_SteamFriends014_GetFriendPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
 };
 
@@ -31750,7 +31750,7 @@ struct ISteamFriends_SteamFriends014_GetFriendGamePlayed_params
 struct ISteamFriends_SteamFriends014_GetFriendPersonaNameHistory_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iPersonaName;
 };
@@ -31758,7 +31758,7 @@ struct ISteamFriends_SteamFriends014_GetFriendPersonaNameHistory_params
 struct ISteamFriends_SteamFriends014_GetPlayerNickname_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDPlayer;
 };
 
@@ -31786,14 +31786,14 @@ struct ISteamFriends_SteamFriends014_GetClanByIndex_params
 struct ISteamFriends_SteamFriends014_GetClanName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
 struct ISteamFriends_SteamFriends014_GetClanTag_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
@@ -31963,7 +31963,7 @@ struct ISteamFriends_SteamFriends014_ClearRichPresence_params
 struct ISteamFriends_SteamFriends014_GetFriendRichPresence_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     const char *pchKey;
 };
@@ -31978,7 +31978,7 @@ struct ISteamFriends_SteamFriends014_GetFriendRichPresenceKeyCount_params
 struct ISteamFriends_SteamFriends014_GetFriendRichPresenceKeyByIndex_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iKey;
 };
@@ -32152,7 +32152,7 @@ struct ISteamFriends_SteamFriends014_EnumerateFollowingList_params
 struct ISteamFriends_SteamFriends015_GetPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamFriends_SteamFriends015_SetPersonaName_params
@@ -32200,7 +32200,7 @@ struct ISteamFriends_SteamFriends015_GetFriendPersonaState_params
 struct ISteamFriends_SteamFriends015_GetFriendPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
 };
 
@@ -32215,7 +32215,7 @@ struct ISteamFriends_SteamFriends015_GetFriendGamePlayed_params
 struct ISteamFriends_SteamFriends015_GetFriendPersonaNameHistory_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iPersonaName;
 };
@@ -32230,7 +32230,7 @@ struct ISteamFriends_SteamFriends015_GetFriendSteamLevel_params
 struct ISteamFriends_SteamFriends015_GetPlayerNickname_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDPlayer;
 };
 
@@ -32250,7 +32250,7 @@ struct ISteamFriends_SteamFriends015_GetFriendsGroupIDByIndex_params
 struct ISteamFriends_SteamFriends015_GetFriendsGroupName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int16_t friendsGroupID;
 };
 
@@ -32293,14 +32293,14 @@ struct ISteamFriends_SteamFriends015_GetClanByIndex_params
 struct ISteamFriends_SteamFriends015_GetClanName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
 struct ISteamFriends_SteamFriends015_GetClanTag_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
@@ -32470,7 +32470,7 @@ struct ISteamFriends_SteamFriends015_ClearRichPresence_params
 struct ISteamFriends_SteamFriends015_GetFriendRichPresence_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     const char *pchKey;
 };
@@ -32485,7 +32485,7 @@ struct ISteamFriends_SteamFriends015_GetFriendRichPresenceKeyCount_params
 struct ISteamFriends_SteamFriends015_GetFriendRichPresenceKeyByIndex_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iKey;
 };
@@ -32673,7 +32673,7 @@ struct ISteamFriends_SteamFriends015_IsClanOfficialGameGroup_params
 struct ISteamFriends_SteamFriends017_GetPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamFriends_SteamFriends017_SetPersonaName_params
@@ -32721,7 +32721,7 @@ struct ISteamFriends_SteamFriends017_GetFriendPersonaState_params
 struct ISteamFriends_SteamFriends017_GetFriendPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
 };
 
@@ -32736,7 +32736,7 @@ struct ISteamFriends_SteamFriends017_GetFriendGamePlayed_params
 struct ISteamFriends_SteamFriends017_GetFriendPersonaNameHistory_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iPersonaName;
 };
@@ -32751,7 +32751,7 @@ struct ISteamFriends_SteamFriends017_GetFriendSteamLevel_params
 struct ISteamFriends_SteamFriends017_GetPlayerNickname_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDPlayer;
 };
 
@@ -32771,7 +32771,7 @@ struct ISteamFriends_SteamFriends017_GetFriendsGroupIDByIndex_params
 struct ISteamFriends_SteamFriends017_GetFriendsGroupName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int16_t friendsGroupID;
 };
 
@@ -32814,14 +32814,14 @@ struct ISteamFriends_SteamFriends017_GetClanByIndex_params
 struct ISteamFriends_SteamFriends017_GetClanName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
 struct ISteamFriends_SteamFriends017_GetClanTag_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
@@ -32992,7 +32992,7 @@ struct ISteamFriends_SteamFriends017_ClearRichPresence_params
 struct ISteamFriends_SteamFriends017_GetFriendRichPresence_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     const char *pchKey;
 };
@@ -33007,7 +33007,7 @@ struct ISteamFriends_SteamFriends017_GetFriendRichPresenceKeyCount_params
 struct ISteamFriends_SteamFriends017_GetFriendRichPresenceKeyByIndex_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iKey;
 };
@@ -33235,7 +33235,7 @@ struct ISteamFriends_SteamFriends017_BHasEquippedProfileItem_params
 struct ISteamFriends_SteamFriends017_GetProfileItemPropertyString_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamID;
     uint32_t itemType;
     uint32_t prop;
@@ -36584,14 +36584,14 @@ struct ISteamInput_SteamInput001_GetAnalogActionOrigins_params
 struct ISteamInput_SteamInput001_GetGlyphForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
 struct ISteamInput_SteamInput001_GetStringForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
@@ -36677,14 +36677,14 @@ struct ISteamInput_SteamInput001_GetGamepadIndexForController_params
 struct ISteamInput_SteamInput001_GetStringForXboxOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
 struct ISteamInput_SteamInput001_GetGlyphForXboxOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
@@ -36846,14 +36846,14 @@ struct ISteamInput_SteamInput002_GetAnalogActionOrigins_params
 struct ISteamInput_SteamInput002_GetGlyphForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
 struct ISteamInput_SteamInput002_GetStringForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
@@ -36939,14 +36939,14 @@ struct ISteamInput_SteamInput002_GetGamepadIndexForController_params
 struct ISteamInput_SteamInput002_GetStringForXboxOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
 struct ISteamInput_SteamInput002_GetGlyphForXboxOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
@@ -37117,7 +37117,7 @@ struct ISteamInput_SteamInput005_GetDigitalActionOrigins_params
 struct ISteamInput_SteamInput005_GetStringForDigitalActionName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint64_t eActionHandle;
 };
 
@@ -37149,7 +37149,7 @@ struct ISteamInput_SteamInput005_GetAnalogActionOrigins_params
 struct ISteamInput_SteamInput005_GetGlyphPNGForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
     uint32_t eSize;
     uint32_t unFlags;
@@ -37158,7 +37158,7 @@ struct ISteamInput_SteamInput005_GetGlyphPNGForActionOrigin_params
 struct ISteamInput_SteamInput005_GetGlyphSVGForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
     uint32_t unFlags;
 };
@@ -37166,21 +37166,21 @@ struct ISteamInput_SteamInput005_GetGlyphSVGForActionOrigin_params
 struct ISteamInput_SteamInput005_GetGlyphForActionOrigin_Legacy_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
 struct ISteamInput_SteamInput005_GetStringForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
 struct ISteamInput_SteamInput005_GetStringForAnalogActionName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint64_t eActionHandle;
 };
 
@@ -37287,14 +37287,14 @@ struct ISteamInput_SteamInput005_GetGamepadIndexForController_params
 struct ISteamInput_SteamInput005_GetStringForXboxOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
 struct ISteamInput_SteamInput005_GetGlyphForXboxOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
@@ -37471,7 +37471,7 @@ struct ISteamInput_SteamInput006_GetDigitalActionOrigins_params
 struct ISteamInput_SteamInput006_GetStringForDigitalActionName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint64_t eActionHandle;
 };
 
@@ -37503,7 +37503,7 @@ struct ISteamInput_SteamInput006_GetAnalogActionOrigins_params
 struct ISteamInput_SteamInput006_GetGlyphPNGForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
     uint32_t eSize;
     uint32_t unFlags;
@@ -37512,7 +37512,7 @@ struct ISteamInput_SteamInput006_GetGlyphPNGForActionOrigin_params
 struct ISteamInput_SteamInput006_GetGlyphSVGForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
     uint32_t unFlags;
 };
@@ -37520,21 +37520,21 @@ struct ISteamInput_SteamInput006_GetGlyphSVGForActionOrigin_params
 struct ISteamInput_SteamInput006_GetGlyphForActionOrigin_Legacy_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
 struct ISteamInput_SteamInput006_GetStringForActionOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
 struct ISteamInput_SteamInput006_GetStringForAnalogActionName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint64_t eActionHandle;
 };
 
@@ -37641,14 +37641,14 @@ struct ISteamInput_SteamInput006_GetGamepadIndexForController_params
 struct ISteamInput_SteamInput006_GetStringForXboxOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
 struct ISteamInput_SteamInput006_GetGlyphForXboxOrigin_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eOrigin;
 };
 
@@ -38039,7 +38039,7 @@ struct ISteamMatchmaking_SteamMatchMaking001_GetLobbyMemberByIndex_params
 struct ISteamMatchmaking_SteamMatchMaking001_GetLobbyData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID SteamIDLobby;
     const char *pchKey;
 };
@@ -38056,7 +38056,7 @@ struct ISteamMatchmaking_SteamMatchMaking001_SetLobbyData_params
 struct ISteamMatchmaking_SteamMatchMaking001_GetLobbyMemberData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDLobby;
     CSteamID steamIDUser;
     const char *pchKey;
@@ -38197,7 +38197,7 @@ struct ISteamMatchmaking_SteamMatchMaking002_GetLobbyMemberByIndex_params
 struct ISteamMatchmaking_SteamMatchMaking002_GetLobbyData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDLobby;
     const char *pchKey;
 };
@@ -38214,7 +38214,7 @@ struct ISteamMatchmaking_SteamMatchMaking002_SetLobbyData_params
 struct ISteamMatchmaking_SteamMatchMaking002_GetLobbyMemberData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDLobby;
     CSteamID steamIDUser;
     const char *pchKey;
@@ -38383,7 +38383,7 @@ struct ISteamMatchmaking_SteamMatchMaking003_GetLobbyMemberByIndex_params
 struct ISteamMatchmaking_SteamMatchMaking003_GetLobbyData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDLobby;
     const char *pchKey;
 };
@@ -38400,7 +38400,7 @@ struct ISteamMatchmaking_SteamMatchMaking003_SetLobbyData_params
 struct ISteamMatchmaking_SteamMatchMaking003_GetLobbyMemberData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDLobby;
     CSteamID steamIDUser;
     const char *pchKey;
@@ -38607,7 +38607,7 @@ struct ISteamMatchmaking_SteamMatchMaking004_GetLobbyMemberByIndex_params
 struct ISteamMatchmaking_SteamMatchMaking004_GetLobbyData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDLobby;
     const char *pchKey;
 };
@@ -38624,7 +38624,7 @@ struct ISteamMatchmaking_SteamMatchMaking004_SetLobbyData_params
 struct ISteamMatchmaking_SteamMatchMaking004_GetLobbyMemberData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDLobby;
     CSteamID steamIDUser;
     const char *pchKey;
@@ -38831,7 +38831,7 @@ struct ISteamMatchmaking_SteamMatchMaking005_GetLobbyMemberByIndex_params
 struct ISteamMatchmaking_SteamMatchMaking005_GetLobbyData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDLobby;
     const char *pchKey;
 };
@@ -38848,7 +38848,7 @@ struct ISteamMatchmaking_SteamMatchMaking005_SetLobbyData_params
 struct ISteamMatchmaking_SteamMatchMaking005_GetLobbyMemberData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDLobby;
     CSteamID steamIDUser;
     const char *pchKey;
@@ -39075,7 +39075,7 @@ struct ISteamMatchmaking_SteamMatchMaking006_GetLobbyMemberByIndex_params
 struct ISteamMatchmaking_SteamMatchMaking006_GetLobbyData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDLobby;
     const char *pchKey;
 };
@@ -39092,7 +39092,7 @@ struct ISteamMatchmaking_SteamMatchMaking006_SetLobbyData_params
 struct ISteamMatchmaking_SteamMatchMaking006_GetLobbyMemberData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDLobby;
     CSteamID steamIDUser;
     const char *pchKey;
@@ -39314,7 +39314,7 @@ struct ISteamMatchmaking_SteamMatchMaking007_GetLobbyMemberByIndex_params
 struct ISteamMatchmaking_SteamMatchMaking007_GetLobbyData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDLobby;
     const char *pchKey;
 };
@@ -39358,7 +39358,7 @@ struct ISteamMatchmaking_SteamMatchMaking007_DeleteLobbyData_params
 struct ISteamMatchmaking_SteamMatchMaking007_GetLobbyMemberData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDLobby;
     CSteamID steamIDUser;
     const char *pchKey;
@@ -39608,7 +39608,7 @@ struct ISteamMatchmaking_SteamMatchMaking008_GetLobbyMemberByIndex_params
 struct ISteamMatchmaking_SteamMatchMaking008_GetLobbyData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDLobby;
     const char *pchKey;
 };
@@ -39652,7 +39652,7 @@ struct ISteamMatchmaking_SteamMatchMaking008_DeleteLobbyData_params
 struct ISteamMatchmaking_SteamMatchMaking008_GetLobbyMemberData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDLobby;
     CSteamID steamIDUser;
     const char *pchKey;
@@ -39908,7 +39908,7 @@ struct ISteamMatchmaking_SteamMatchMaking009_GetLobbyMemberByIndex_params
 struct ISteamMatchmaking_SteamMatchMaking009_GetLobbyData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDLobby;
     const char *pchKey;
 };
@@ -39952,7 +39952,7 @@ struct ISteamMatchmaking_SteamMatchMaking009_DeleteLobbyData_params
 struct ISteamMatchmaking_SteamMatchMaking009_GetLobbyMemberData_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDLobby;
     CSteamID steamIDUser;
     const char *pchKey;
@@ -43951,7 +43951,7 @@ struct ISteamNetworkingUtils_SteamNetworkingUtils004_GetConfigValue_params
 struct ISteamNetworkingUtils_SteamNetworkingUtils004_GetConfigValueInfo_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eValue;
     uint32_t *pOutDataType;
     uint32_t *pOutScope;
@@ -47352,7 +47352,7 @@ struct ISteamUtils_SteamUtils002_GetServerRealTime_params
 struct ISteamUtils_SteamUtils002_GetIPCountry_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamUtils_SteamUtils002_GetImageSize_params
@@ -47452,7 +47452,7 @@ struct ISteamUtils_SteamUtils004_GetServerRealTime_params
 struct ISteamUtils_SteamUtils004_GetIPCountry_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamUtils_SteamUtils004_GetImageSize_params
@@ -47575,7 +47575,7 @@ struct ISteamUtils_SteamUtils005_GetServerRealTime_params
 struct ISteamUtils_SteamUtils005_GetIPCountry_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamUtils_SteamUtils005_GetImageSize_params
@@ -47735,7 +47735,7 @@ struct ISteamUtils_SteamUtils006_GetServerRealTime_params
 struct ISteamUtils_SteamUtils006_GetIPCountry_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamUtils_SteamUtils006_GetImageSize_params
@@ -47871,7 +47871,7 @@ struct ISteamUtils_SteamUtils006_GetEnteredGamepadTextInput_params
 struct ISteamUtils_SteamUtils006_GetSteamUILanguage_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamUtils_SteamUtils006_IsSteamRunningInVR_params
@@ -47907,7 +47907,7 @@ struct ISteamUtils_SteamUtils007_GetServerRealTime_params
 struct ISteamUtils_SteamUtils007_GetIPCountry_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamUtils_SteamUtils007_GetImageSize_params
@@ -48044,7 +48044,7 @@ struct ISteamUtils_SteamUtils007_GetEnteredGamepadTextInput_params
 struct ISteamUtils_SteamUtils007_GetSteamUILanguage_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamUtils_SteamUtils007_IsSteamRunningInVR_params
@@ -48087,7 +48087,7 @@ struct ISteamUtils_SteamUtils008_GetServerRealTime_params
 struct ISteamUtils_SteamUtils008_GetIPCountry_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamUtils_SteamUtils008_GetImageSize_params
@@ -48224,7 +48224,7 @@ struct ISteamUtils_SteamUtils008_GetEnteredGamepadTextInput_params
 struct ISteamUtils_SteamUtils008_GetSteamUILanguage_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamUtils_SteamUtils008_IsSteamRunningInVR_params
@@ -48278,7 +48278,7 @@ struct ISteamUtils_SteamUtils009_GetServerRealTime_params
 struct ISteamUtils_SteamUtils009_GetIPCountry_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamUtils_SteamUtils009_GetImageSize_params
@@ -48415,7 +48415,7 @@ struct ISteamUtils_SteamUtils009_GetEnteredGamepadTextInput_params
 struct ISteamUtils_SteamUtils009_GetSteamUILanguage_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamUtils_SteamUtils009_IsSteamRunningInVR_params
@@ -48510,7 +48510,7 @@ struct ISteamUtils_SteamUtils010_GetServerRealTime_params
 struct ISteamUtils_SteamUtils010_GetIPCountry_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamUtils_SteamUtils010_GetImageSize_params
@@ -48647,7 +48647,7 @@ struct ISteamUtils_SteamUtils010_GetEnteredGamepadTextInput_params
 struct ISteamUtils_SteamUtils010_GetSteamUILanguage_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamUtils_SteamUtils010_IsSteamRunningInVR_params
