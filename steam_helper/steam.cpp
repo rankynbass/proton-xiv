@@ -815,24 +815,14 @@ static DWORD WINAPI steam_drm_thread(void *arg)
 
 BOOL is_ptraced(void)
 {
-    char key[50];
-    int value;
-    FILE *fp = fopen("/proc/self/status", "r");
-    BOOL ret = FALSE;
+    DWORD len;
+    int pid;
 
-    if (!fp) return FALSE;
+    if (NtQueryInformationProcess( GetCurrentProcess(), 1100 /* ProcessWineUnixDebuggerPid */,
+                                   &pid, sizeof(pid), &len ))
+        return FALSE;
 
-    while (fscanf(fp, " %s	%d\n", key, &value) > 0)
-    {
-        if (!strcmp("TracerPid:", key))
-        {
-            ret = (value != 0);
-            break;
-        }
-    }
-
-    fclose(fp);
-    return ret;
+    return !!pid;
 }
 
 int main(int argc, char *argv[])
