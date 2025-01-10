@@ -96,6 +96,14 @@ extern void steamclient_free_path_array( const char **path_array );
 extern unsigned int steamclient_unix_path_to_dos_path( bool api_result, const char *src, char *dst,
                                                        uint32_t dst_bytes, int is_url );
 
+#define LSTEAMCLIENT_UNIX_IMPL( iface, version, method, ... ) \
+    NTSTATUS iface ## _ ## version ## _ ## method( void *args ) \
+    { \
+        auto params = (struct iface ## _ ## version ## _ ## method ## _params *)args; \
+        auto u_iface = (struct u_ ## iface ## _ ## version *)params->linux_side; \
+        return iface ## _ ## method( u_iface, params, ## __VA_ARGS__ ); \
+    }
+
 #ifdef __cplusplus
 } /* extern "C" */
 #endif /* __cplusplus */
