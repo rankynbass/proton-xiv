@@ -498,16 +498,12 @@ $(eval $(call rules-meson,dxvk,64,CROSS))
 $(OBJ)/.dxvk-post-source:
 	sed -re 's#@VCS_TAG@#$(shell git -C $(SRCDIR)/dxvk describe --always --abbrev=15 --dirty=0)#' \
 	    $(SRCDIR)/dxvk/version.h.in > $(DXVK_SRC)/version.h.in
-	touch $@
-
-$(OBJ)/.dxvk-post-build64:
-	mkdir -p "$(DST_DIR)"/lib64/wine/dxvk
-	rm -f "$(DST_DIR)"/lib64/wine/dxvk/version && if test -e $(SRCDIR)/.git; then ( cd $(SRCDIR) && git submodule status -- dxvk ) > "$(DST_DIR)"/lib64/wine/dxvk/version; fi
-	touch $@
-
-$(OBJ)/.dxvk-post-build32:
-	mkdir -p "$(DST_DIR)"/lib/wine/dxvk
-	rm -f "$(DST_DIR)"/lib/wine/dxvk/version && if test -e $(SRCDIR)/.git; then ( cd $(SRCDIR) && git submodule status -- dxvk ) > "$(DST_DIR)"/lib/wine/dxvk/version; fi
+	mkdir -p $(DST_DIR)/lib/wine/dxvk
+	mkdir -p $(DST_DIR)/lib64/wine/dxvk
+	rm -rf $(DST_DIR)/lib/wine/dxvk/version
+	rm -rf $(DST_DIR)/lib64/wine/dxvk/version
+	echo "$(shell git -C $(SRCDIR) submodule status -- dxvk)" > $(DST_DIR)/lib/wine/dxvk/version
+	echo "$(shell git -C $(SRCDIR) submodule status -- dxvk)" > $(DST_DIR)/lib64/wine/dxvk/version
 	touch $@
 
 
@@ -522,14 +518,13 @@ $(eval $(call rules-source,dxvk-nvapi,$(SRCDIR)/dxvk-nvapi))
 $(eval $(call rules-meson,dxvk-nvapi,32,CROSS))
 $(eval $(call rules-meson,dxvk-nvapi,64,CROSS))
 
-$(OBJ)/.dxvk-nvapi-post-build64:
-	mkdir -p "$(DST_DIR)"/lib64/wine/nvapi
-	rm -f "$(DST_DIR)"/lib64/wine/nvapi/version && if test -e $(SRCDIR)/.git; then ( cd $(SRCDIR) && git submodule status -- dxvk-nvapi ) > "$(DST_DIR)"/lib64/wine/nvapi/version; fi
-	touch $@
-
-$(OBJ)/.dxvk-nvapi-post-build32:
-	mkdir -p "$(DST_DIR)"/lib/wine/nvapi
-	rm -f "$(DST_DIR)"/lib/wine/nvapi/version && if test -e $(SRCDIR)/.git; then ( cd $(SRCDIR) && git submodule status -- dxvk-nvapi ) > "$(DST_DIR)"/lib/wine/nvapi/version; fi
+$(OBJ)/.dxvk-nvapi-post-source:
+	mkdir -p $(DST_DIR)/lib/wine/nvapi
+	mkdir -p $(DST_DIR)/lib64/wine/nvapi
+	rm -rf $(DST_DIR)/lib/wine/nvapi/version
+	rm -rf $(DST_DIR)/lib64/wine/nvapi/version
+	echo "$(shell git -C $(SRCDIR) submodule status -- dxvk-nvapi)" > $(DST_DIR)/lib/wine/nvapi/version
+	echo "$(shell git -C $(SRCDIR) submodule status -- dxvk-nvapi)" > $(DST_DIR)/lib64/wine/nvapi/version
 	touch $@
 
 
@@ -609,18 +604,13 @@ $(OBJ)/.vkd3d-proton-post-source:
 	    $(SRCDIR)/vkd3d-proton/vkd3d_build.h.in > $(VKD3D_PROTON_SRC)/vkd3d_build.h.in
 	sed -re 's#@VCS_TAG@#$(shell git -C $(SRCDIR)/vkd3d-proton describe --always --tags --dirty=+)#' \
 	    $(SRCDIR)/vkd3d-proton/vkd3d_version.h.in > $(VKD3D_PROTON_SRC)/vkd3d_version.h.in
+	mkdir -p $(DST_DIR)/lib/wine/vkd3d-proton
+	mkdir -p $(DST_DIR)/lib64/wine/vkd3d-proton
+	rm -rf $(DST_DIR)/lib/wine/vkd3d-proton/version
+	rm -rf $(DST_DIR)/lib64/wine/vkd3d-proton/version
+	echo "$(shell git -C $(SRCDIR) submodule status -- vkd3d-proton)" > $(DST_DIR)/lib/wine/vkd3d-proton/version
+	echo "$(shell git -C $(SRCDIR) submodule status -- vkd3d-proton)" > $(DST_DIR)/lib64/wine/vkd3d-proton/version
 	touch $@
-
-$(OBJ)/.vkd3d-proton-post-build32:
-	mkdir -p "$(DST_DIR)"/lib/wine/vkd3d-proton
-	rm -f "$(DST_DIR)"/lib/wine/vkd3d-proton/version && if test -e $(SRCDIR)/.git; then ( cd $(SRCDIR) && git submodule status -- vkd3d-proton ) > "$(DST_DIR)"/lib/wine/vkd3d-proton/version; fi
-	touch $@
-
-$(OBJ)/.vkd3d-proton-post-build64:
-	mkdir -p "$(DST_DIR)"/lib64/wine/vkd3d-proton
-	rm -f "$(DST_DIR)"/lib64/wine/vkd3d-proton/version && if test -e $(SRCDIR)/.git; then ( cd $(SRCDIR) && git submodule status -- vkd3d-proton ) > "$(DST_DIR)"/lib64/wine/vkd3d-proton/version; fi
-	touch $@
-
 
 
 ##
