@@ -43,7 +43,7 @@ static int callback_len_utow( int cb_id, int u_len )
     return find_first_callback_def_by_id( cb_id )->w_callback_len;
 }
 
-void queue_vtable_callback( struct w_iface *w_iface, enum callback_type type, uint64_t arg0, uint64_t arg1, uint64_t arg2 )
+void queue_vtable_callback( struct w_iface *w_iface, enum callback_type type, uint64_t arg0, uint64_t arg1 )
 {
     struct callback_entry *entry;
     uint32_t size = 0;
@@ -58,7 +58,6 @@ void queue_vtable_callback( struct w_iface *w_iface, enum callback_type type, ui
     entry->callback.call_iface_vtable.iface = w_iface;
     entry->callback.call_iface_vtable.arg0 = arg0;
     entry->callback.call_iface_vtable.arg1 = arg1;
-    entry->callback.call_iface_vtable.arg2 = arg2;
 
     pthread_mutex_lock( &callbacks_lock );
     list_add_tail( &callbacks, &entry->entry );

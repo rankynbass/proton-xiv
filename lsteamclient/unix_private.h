@@ -21,7 +21,7 @@ extern "C"
 #endif /* __cplusplus */
 
 struct w_iface;
-extern void queue_vtable_callback( struct w_iface *w_iface, enum callback_type type, uint64_t arg0, uint64_t arg1, uint64_t arg2 );
+extern void queue_vtable_callback( struct w_iface *w_iface, enum callback_type type, uint64_t arg0, uint64_t arg1 );
 extern void queue_vtable_callback_0_server_responded( struct w_iface *w_iface, gameserveritem_t_105 *server );
 extern void queue_vtable_callback_0_add_player_to_list( struct w_iface *w_iface, const char *pchName, int nScore, float flTimePlayed );
 extern void queue_vtable_callback_0_rules_responded( struct w_iface *w_iface, const char *pchRule, const char *pchValue );

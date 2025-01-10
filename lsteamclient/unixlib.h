@@ -89,7 +89,6 @@ struct callback
             struct w_iface *iface;
             uint64_t arg0;
             uint64_t arg1;
-            uint64_t arg2;
         } call_iface_vtable;
 
         struct
