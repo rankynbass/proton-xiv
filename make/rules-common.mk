@@ -48,7 +48,6 @@ $$(OBJ)/.$(1)-dist$(3): $$(OBJ)/.$(1)-post-build$(3)
 
 $(2)_SOURCE_DATE_EPOCH$(3) ?= $$(BASE_SOURCE_DATE_EPOCH$(3))
 
-ifneq ($(UNSTRIPPED_BUILD),)
 $$(OBJ)/.$(1)-dist$(3):
 	@echo ":: installing $(3)bit $(1)..." >&2
 	if [ -f "$$($(2)_OBJ$(3))/compile_commands.json" ]; then \
@@ -58,28 +57,20 @@ $$(OBJ)/.$(1)-dist$(3):
 	mkdir -p $$($(2)_LIBDIR$(3))/ $$(DST_LIBDIR)/
 	cd $$($(2)_LIBDIR$(3)) && find -type f -printf '$$(DST_LIBDIR)/%h\0' | sort -z | uniq -z | xargs $(--verbose?) -0 -r -P$$(J) mkdir -p
 	cd $$($(2)_LIBDIR$(3)) && find -type l -printf '%p\0$$(DST_LIBDIR)/%p\0' | xargs $(--verbose?) -0 -r -P$$(J) -n2 cp -a
+ifneq ($(UNSTRIPPED_BUILD),)
 	cd $$($(2)_LIBDIR$(3)) && find -type f -not '(' -iname '*.pc' -or -iname '*.cmake' -or -iname '*.a' -or -iname '*.la' -or -iname '*.def' -or -iname '*.h' ')' \
 	    -printf '--only-keep-debug\0%p\0$$(DST_LIBDIR)/%p.debug\0' | \
-	    xargs $(--verbose?) -0 -r -P$$(J) -n3 objcopy -p
+	    xargs $(--verbose?) -0 -r -P$$(J) -n3 objcopy $(OBJCOPY_FLAGS)
 	cd $$($(2)_LIBDIR$(3)) && find -type f -not '(' -iname '*.pc' -or -iname '*.cmake' -or -iname '*.a' -or -iname '*.la' -or -iname '*.def' -or -iname '*.h' ')' \
 	    -printf '--add-gnu-debuglink=$$(DST_LIBDIR)/%p.debug\0--strip-debug\0%p\0$$(DST_LIBDIR)/%p\0' | \
-	    xargs $(--verbose?) -0 -r -P$$(J) -n4 objcopy -p --set-section-flags .text=contents,alloc,load,readonly,code
+	    xargs $(--verbose?) -0 -r -P$$(J) -n4 objcopy $(OBJCOPY_FLAGS) --set-section-flags .text=contents,alloc,load,readonly,code
 	touch $$@
 else
-$$(OBJ)/.$(1)-dist$(3):
-	@echo ":: installing $(3)bit $(1)..." >&2
-	if [ -f "$$($(2)_OBJ$(3))/compile_commands.json" ]; then \
-	    mkdir -p "$$(OBJ)/compile_commands/$(1)$(3)/"; \
-	    sed "s#$$($(2)_SRC)#$$($(2)_ORIGIN)#g" "$$($(2)_OBJ$(3))/compile_commands.json" > "$$(OBJ)/compile_commands/$(1)$(3)/compile_commands.json"; \
-	fi
-	mkdir -p $$($(2)_LIBDIR$(3))/ $$(DST_LIBDIR)/
-	cd $$($(2)_LIBDIR$(3)) && find -type f -printf '$$(DST_LIBDIR)/%h\0' | sort -z | uniq -z | xargs $(--verbose?) -0 -r -P$$(J) mkdir -p
-	cd $$($(2)_LIBDIR$(3)) && find -type l -printf '%p\0$$(DST_LIBDIR)/%p\0' | xargs $(--verbose?) -0 -r -P$$(J) -n2 cp -a
 	cd $$($(2)_LIBDIR$(3)) && find -type f -not '(' -iname '*.pc' -or -iname '*.cmake' -or -iname '*.a' -or -iname '*.la' -or -iname '*.def' -or -iname '*.h' ')' \
 	    -printf '$$(DST_LIBDIR)/%p.debug\0' | xargs $(--verbose?) -0 -r -P$$(J) rm -f
 	cd $$($(2)_LIBDIR$(3)) && find -type f -not '(' -iname '*.pc' -or -iname '*.cmake' -or -iname '*.a' -or -iname '*.la' -or -iname '*.def' -or -iname '*.h' ')' \
 	    -printf '--strip-debug\0%p\0$$(DST_LIBDIR)/%p\0' | \
-	    xargs $(--verbose?) -0 -r -P$$(J) -n3 objcopy -p --set-section-flags .text=contents,alloc,load,readonly,code
+	    xargs $(--verbose?) -0 -r -P$$(J) -n3 objcopy $(OBJCOPY_FLAGS) --set-section-flags .text=contents,alloc,load,readonly,code
 	touch $$@
 endif
 
@@ -161,10 +152,10 @@ endif
 endef
 
 ifneq ($(UNSTRIPPED_BUILD),)
-install-strip = objcopy -p --only-keep-debug $(1) $(2)/$(notdir $(1)).debug && \
-                objcopy -p --add-gnu-debuglink=$(2)/$(notdir $(1)).debug --strip-debug $(1) $(2)/$(notdir $(1))
+install-strip = objcopy $(OBJCOPY_FLAGS) --only-keep-debug $(1) $(2)/$(notdir $(1)).debug && \
+                objcopy $(OBJCOPY_FLAGS) --add-gnu-debuglink=$(2)/$(notdir $(1)).debug --strip-debug $(1) $(2)/$(notdir $(1))
 else
-install-strip = objcopy -p --strip-debug $(1) $(2)/$(notdir $(1)) && rm -f $(2)/$(notdir $(1)).debug
+install-strip = objcopy $(OBJCOPY_FLAGS) --strip-debug $(1) $(2)/$(notdir $(1)) && rm -f $(2)/$(notdir $(1)).debug
 endif
 
 TARGET_32 := i686-linux-gnu
