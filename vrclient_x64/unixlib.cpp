@@ -44,7 +44,6 @@ static void *get_winevulkan_unixlib( HMODULE winevulkan )
 
 static BOOL load_vk_unwrappers( HMODULE winevulkan )
 {
-    static HMODULE h = NULL;
     void *unix_handle;
 
     if (!(unix_handle = get_winevulkan_unixlib( winevulkan )))
