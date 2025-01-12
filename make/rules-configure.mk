@@ -1,7 +1,7 @@
 # parameters:
 #   $(1): lowercase package name
 #   $(2): uppercase package name
-#   $(3): 32/64, build type
+#   $(3): build target <arch>
 #   $(4): CROSS/<empty>, cross compile
 #
 define create-rules-configure
@@ -31,7 +31,7 @@ $$(OBJ)/.$(1)-$(3)-build:
 	touch $$@
 endef
 
-32_CONFIGURE_ARGS := --arch=x86
-64_CONFIGURE_ARGS := --arch=x86_64
+i386_CONFIGURE_ARGS := --arch=x86
+x86_64_CONFIGURE_ARGS := --arch=x86_64
 
 rules-configure = $(call create-rules-configure,$(1),$(call toupper,$(1)),$(2),$(3))

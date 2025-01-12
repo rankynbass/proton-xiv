@@ -1,7 +1,7 @@
 # parameters:
 #   $(1): lowercase package name
 #   $(2): uppercase package name
-#   $(3): 32/64, build type
+#   $(3): build target <arch>
 #
 define create-rules-cargo
 $(call create-rules-common,$(1),$(2),$(3))
@@ -24,8 +24,8 @@ endef
 
 rules-cargo = $(call create-rules-cargo,$(1),$(call toupper,$(1)),$(2))
 
-32_CARGO_TARGET := i686-unknown-linux-gnu
-64_CARGO_TARGET := x86_64-unknown-linux-gnu
+i386_CARGO_TARGET := i686-unknown-linux-gnu
+x86_64_CARGO_TARGET := x86_64-unknown-linux-gnu
 
-32_CARGO_ARGS := --target $(32_CARGO_TARGET)
-64_CARGO_ARGS := --target $(64_CARGO_TARGET)
+i386_CARGO_ARGS := --target $(i386_CARGO_TARGET)
+x86_64_CARGO_ARGS := --target $(x86_64_CARGO_TARGET)

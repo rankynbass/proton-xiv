@@ -1,7 +1,7 @@
 # parameters:
 #   $(1): lowercase package name
 #   $(2): uppercase package name
-#   $(3): 32/64, build type
+#   $(3): build target <arch>
 #   $(4): module name (with extension)
 #
 define create-rules-winemaker
@@ -38,7 +38,7 @@ $$(OBJ)/.$(1)-$(3)-build:
 	touch $$@
 endef
 
-32_WINEMAKER_ARGS := --wine32
-64_WINEMAKER_ARGS :=
+i386_WINEMAKER_ARGS := --wine32
+x86_64_WINEMAKER_ARGS :=
 
 rules-winemaker = $(call create-rules-winemaker,$(1),$(call toupper,$(1)),$(2),$(3))

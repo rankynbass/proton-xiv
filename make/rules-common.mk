@@ -1,7 +1,7 @@
 # parameters:
 #   $(1): lowercase package name
 #   $(2): uppercase package name
-#   $(3): 32/64, build type
+#   $(3): build target <arch>
 #   $(4): CROSS/<empty>, cross compile
 define create-rules-common
 $(2)_$(3)_OBJ := $$(OBJ)/obj-$(1)-$(3)
@@ -132,22 +132,22 @@ ifeq ($(1),wine)
 $(2)_$(3)_ENV += \
     CROSSCFLAGS="$$($(2)_$(3)_INCFLAGS) $$($(2)_CFLAGS) $$(COMMON_FLAGS) $$($(3)_COMMON_FLAGS)" \
     CROSSLDFLAGS="$$($(2)_$(3)_LIBFLAGS) $$($(2)_$(3)_LDFLAGS) $$($(2)_LDFLAGS) $$(CROSSLDFLAGS)" \
-    i386_AR="$$(CROSS32_TARGET)-ar" \
-    i386_RANLIB="$$(CROSS32_TARGET)-ranlib" \
-    i386_CC="$$(CROSS32_TARGET)-gcc" \
-    i386_CXX="$$(CROSS32_TARGET)-g++" \
-    i386_LD="$$(CROSS32_TARGET)-ld" \
-    i386_CFLAGS="$$($(2)_32_INCFLAGS) $$($(2)_CFLAGS) $$(COMMON_FLAGS) $$(32_COMMON_FLAGS)" \
-    i386_LDFLAGS="$$($(2)_32_LIBFLAGS) $$($(2)_32_LDFLAGS) $$($(2)_LDFLAGS) $$(CROSSLDFLAGS)" \
-    i386_PKG_CONFIG_LIBDIR="/usr/lib/$$(CROSS32_LIBDIR)/pkgconfig:/usr/share/pkgconfig" \
-    x86_64_AR="$$(CROSS64_TARGET)-ar" \
-    x86_64_RANLIB="$$(CROSS64_TARGET)-ranlib" \
-    x86_64_CC="$$(CROSS64_TARGET)-gcc" \
-    x86_64_CXX="$$(CROSS64_TARGET)-g++" \
-    x86_64_LD="$$(CROSS64_TARGET)-ld" \
-    x86_64_CFLAGS="$$($(2)_64_INCFLAGS) $$($(2)_CFLAGS) $$(COMMON_FLAGS) $$(64_COMMON_FLAGS)" \
-    x86_64_LDFLAGS="$$($(2)_64_LIBFLAGS) $$($(2)_64_LDFLAGS) $$($(2)_LDFLAGS) $$(CROSSLDFLAGS)" \
-    x86_64_PKG_CONFIG_LIBDIR="/usr/lib/$$(CROSS64_LIBDIR)/pkgconfig:/usr/share/pkgconfig" \
+    i386_AR="$$(CROSSi386_TARGET)-ar" \
+    i386_RANLIB="$$(CROSSi386_TARGET)-ranlib" \
+    i386_CC="$$(CROSSi386_TARGET)-gcc" \
+    i386_CXX="$$(CROSSi386_TARGET)-g++" \
+    i386_LD="$$(CROSSi386_TARGET)-ld" \
+    i386_CFLAGS="$$($(2)_i386_INCFLAGS) $$($(2)_CFLAGS) $$(COMMON_FLAGS) $$(32_COMMON_FLAGS)" \
+    i386_LDFLAGS="$$($(2)_i386_LIBFLAGS) $$($(2)_i386_LDFLAGS) $$($(2)_LDFLAGS) $$(CROSSLDFLAGS)" \
+    i386_PKG_CONFIG_LIBDIR="/usr/lib/$$(CROSSi386_LIBDIR)/pkgconfig:/usr/share/pkgconfig" \
+    x86_64_AR="$$(CROSSx86_64_TARGET)-ar" \
+    x86_64_RANLIB="$$(CROSSx86_64_TARGET)-ranlib" \
+    x86_64_CC="$$(CROSSx86_64_TARGET)-gcc" \
+    x86_64_CXX="$$(CROSSx86_64_TARGET)-g++" \
+    x86_64_LD="$$(CROSSx86_64_TARGET)-ld" \
+    x86_64_CFLAGS="$$($(2)_x86_64_INCFLAGS) $$($(2)_CFLAGS) $$(COMMON_FLAGS) $$(64_COMMON_FLAGS)" \
+    x86_64_LDFLAGS="$$($(2)_x86_64_LIBFLAGS) $$($(2)_x86_64_LDFLAGS) $$($(2)_LDFLAGS) $$(CROSSLDFLAGS)" \
+    x86_64_PKG_CONFIG_LIBDIR="/usr/lib/$$(CROSSx86_64_LIBDIR)/pkgconfig:/usr/share/pkgconfig" \
 
 endif
 
@@ -160,24 +160,24 @@ else
 install-strip = objcopy $(OBJCOPY_FLAGS) --strip-debug $(1) $(2)/$(notdir $(1)) && rm -f $(2)/$(notdir $(1)).debug
 endif
 
-32_TARGET := i686-linux-gnu
-64_TARGET := x86_64-linux-gnu
-CROSS32_TARGET := i686-w64-mingw32
-CROSS64_TARGET := x86_64-w64-mingw32
+i386_TARGET := i686-linux-gnu
+x86_64_TARGET := x86_64-linux-gnu
+CROSSi386_TARGET := i686-w64-mingw32
+CROSSx86_64_TARGET := x86_64-w64-mingw32
 
-32_LIBDIR := i386-linux-gnu
-64_LIBDIR := x86_64-linux-gnu
-CROSS32_LIBDIR := i386-w64-mingw32
-CROSS64_LIBDIR := x86_64-w64-mingw32
+i386_LIBDIR := i386-linux-gnu
+x86_64_LIBDIR := x86_64-linux-gnu
+CROSSi386_LIBDIR := i386-w64-mingw32
+CROSSx86_64_LIBDIR := x86_64-w64-mingw32
 
-32_WINEDIR := wine/i386-unix
-64_WINEDIR := wine/x86_64-unix
-CROSS32_WINEDIR := wine/i386-windows
-CROSS64_WINEDIR := wine/x86_64-windows
+i386_WINEDIR := wine/i386-unix
+x86_64_WINEDIR := wine/x86_64-unix
+CROSSi386_WINEDIR := wine/i386-windows
+CROSSx86_64_WINEDIR := wine/x86_64-windows
 
-$(OBJ)/.%-32-post-build:
+$(OBJ)/.%-i386-post-build:
 	touch $@
-$(OBJ)/.%-64-post-build:
+$(OBJ)/.%-x86_64-post-build:
 	touch $@
 
 rules-common = $(call create-rules-common,$(1),$(call toupper,$(1)),$(2),$(3))

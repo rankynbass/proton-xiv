@@ -1,7 +1,7 @@
 # parameters:
 #   $(1): lowercase package name
 #   $(2): uppercase package name
-#   $(3): 32/64, build type
+#   $(3): build target <arch>
 #   $(4): CROSS/<empty>, cross compile
 #
 define create-rules-cmake

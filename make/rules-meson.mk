@@ -1,7 +1,7 @@
 # parameters:
 #   $(1): lowercase package name
 #   $(2): uppercase package name
-#   $(3): 32/64, build type
+#   $(3): build target <arch>
 #   $(4): CROSS/<empty>, cross compile
 #
 define create-rules-meson
@@ -64,12 +64,12 @@ $$(OBJ)/.$(1)-$(3)-build:
 	touch $$@
 endef
 
-32_MESON_CPU := x86
-64_MESON_CPU := x86_64
+i386_MESON_CPU := x86
+x86_64_MESON_CPU := x86_64
 
-32_MESON_SYSTEM := linux
-64_MESON_SYSTEM := linux
-CROSS32_MESON_SYSTEM := windows
-CROSS64_MESON_SYSTEM := windows
+i386_MESON_SYSTEM := linux
+x86_64_MESON_SYSTEM := linux
+CROSSi386_MESON_SYSTEM := windows
+CROSSx86_64_MESON_SYSTEM := windows
 
 rules-meson = $(call create-rules-meson,$(1),$(call toupper,$(1)),$(2),$(3))
