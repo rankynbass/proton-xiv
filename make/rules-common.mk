@@ -1,8 +1,8 @@
 # parameters:
 #   $(1): lowercase package name
 #   $(2): uppercase package name
-#   $(3): build target <arch>
-#   $(4): CROSS/<empty>, cross compile
+#   $(3): build target arch
+#   $(4): build target os
 define create-rules-common
 $(2)_$(3)_OBJ := $$(OBJ)/obj-$(1)-$(3)
 $(2)_$(3)_DST := $$(OBJ)/dst-$(1)-$(3)
@@ -94,37 +94,36 @@ all: $(1)
 .PHONY: all
 
 $(2)_$(3)_INCFLAGS = $$(foreach d,$$($(2)_$(3)_DEPS),-I$$($$(d)_$(3)_INCDIR))
-$(2)_$(3)_LIBFLAGS = $$(foreach d,$$($(2)_$(3)_DEPS),-L$$($$(d)_$(3)_LIBDIR)/$$($(4)$(3)_LIBDIR)) \
-                    $$(foreach d,$$($(2)_$(3)_DEPS),-Wl,-rpath-link=$$($$(d)_$(3)_LIBDIR)/$$($(4)$(3)_LIBDIR)) \
+$(2)_$(3)_LIBFLAGS = $$(foreach d,$$($(2)_$(3)_DEPS),-L$$($$(d)_$(3)_LIBDIR)/$$($(3)-$(4)_LIBDIR)) \
+                    $$(foreach d,$$($(2)_$(3)_DEPS),-Wl,-rpath-link=$$($$(d)_$(3)_LIBDIR)/$$($(3)-$(4)_LIBDIR)) \
 
-# PKG_CONFIG is intentionally never using CROSS target, as it's missing
+# PKG_CONFIG is intentionally never using windows target, as it's missing
 # wrapper scripts in the toolchain, we use PKG_CONFIG_LIBDIR directly
 # instead.
 #
-# RC and WIDL are intentionally always using CROSS target, as their
-# native version doesn't exist.
-
+# RC and WIDL are intentionally always using windows target, as their
+# unix version doesn't exist.
 
 $(2)_$(3)_ENV = \
-    CARGO_TARGET_$$(call toupper,$$($(3)_CARGO_TARGET))_LINKER="$$($(4)$(3)_TARGET)-gcc" \
+    CARGO_TARGET_$$(call toupper,$$($(3)-$(4)_CARGO_TARGET))_LINKER="$$($(3)-$(4)_TARGET)-gcc" \
     CCACHE_BASEDIR="$$(CCACHE_BASEDIR)" \
     STRIP="$$(STRIP)" \
-    AR="$$($(4)$(3)_TARGET)-ar" \
-    RANLIB="$$($(4)$(3)_TARGET)-ranlib" \
-    CC="$$($(4)$(3)_TARGET)-gcc" \
-    CXX="$$($(4)$(3)_TARGET)-g++" \
-    LD="$$($(4)$(3)_TARGET)-ld" \
-    RC="$$(CROSS$(3)_TARGET)-windres" \
-    WIDL="$$(CROSS$(3)_TARGET)-widl" \
-    PKG_CONFIG="$$($(3)_TARGET)-pkg-config" \
+    AR="$$($(3)-$(4)_TARGET)-ar" \
+    RANLIB="$$($(3)-$(4)_TARGET)-ranlib" \
+    CC="$$($(3)-$(4)_TARGET)-gcc" \
+    CXX="$$($(3)-$(4)_TARGET)-g++" \
+    LD="$$($(3)-$(4)_TARGET)-ld" \
+    RC="$$($(3)-windows_TARGET)-windres" \
+    WIDL="$$($(3)-windows_TARGET)-widl" \
+    PKG_CONFIG="$$($(3)-unix_TARGET)-pkg-config" \
     PATH="$$(call list-join,:,$$(foreach d,$$($(2)_$(3)_DEPS),$$($$(d)_$(3)_BINDIR)),,:):$$$$PATH" \
-    LD_LIBRARY_PATH="$$(call list-join,:,$$(foreach d,$$($(2)_$(3)_DEPS),$$($$(d)_$(3)_LIBDIR)/$$($(4)$(3)_LIBDIR)),,:)$$$$LD_LIBRARY_PATH" \
-    PKG_CONFIG_PATH="$$(call list-join,:,$$(foreach d,$$($(2)_$(3)_DEPS),$$($$(d)_$(3)_LIBDIR)/$$($(4)$(3)_LIBDIR)/pkgconfig))" \
-    PKG_CONFIG_LIBDIR="/usr/lib/$$($(4)$(3)_LIBDIR)/pkgconfig:/usr/share/pkgconfig" \
+    LD_LIBRARY_PATH="$$(call list-join,:,$$(foreach d,$$($(2)_$(3)_DEPS),$$($$(d)_$(3)_LIBDIR)/$$($(3)-$(4)_LIBDIR)),,:)$$$$LD_LIBRARY_PATH" \
+    PKG_CONFIG_PATH="$$(call list-join,:,$$(foreach d,$$($(2)_$(3)_DEPS),$$($$(d)_$(3)_LIBDIR)/$$($(3)-$(4)_LIBDIR)/pkgconfig))" \
+    PKG_CONFIG_LIBDIR="/usr/lib/$$($(3)-$(4)_LIBDIR)/pkgconfig:/usr/share/pkgconfig" \
     CFLAGS="$$($(2)_$(3)_INCFLAGS) $$($(2)_CFLAGS) $$(COMMON_FLAGS) $$($(3)_COMMON_FLAGS)" \
     CPPFLAGS="$$($(2)_$(3)_INCFLAGS) $$($(2)_CPPFLAGS) $$(COMMON_FLAGS) $$($(3)_COMMON_FLAGS)" \
     CXXFLAGS="$$($(2)_$(3)_INCFLAGS) $$($(2)_CXXFLAGS) $$(COMMON_FLAGS) $$($(3)_COMMON_FLAGS) -std=c++17" \
-    LDFLAGS="$$($(2)_$(3)_LIBFLAGS) $$($(2)_$(3)_LDFLAGS) $$($(2)_LDFLAGS) $$($(4)LDFLAGS)" \
+    LDFLAGS="$$($(2)_$(3)_LIBFLAGS) $$($(2)_$(3)_LDFLAGS) $$($(2)_LDFLAGS) $$($(3)-$(4)_LDFLAGS)" \
     SOURCE_DATE_EPOCH="$$($(2)_$(3)_SOURCE_DATE_EPOCH)" \
 
 ifeq ($(1),wine)
@@ -132,22 +131,22 @@ ifeq ($(1),wine)
 $(2)_$(3)_ENV += \
     CROSSCFLAGS="$$($(2)_$(3)_INCFLAGS) $$($(2)_CFLAGS) $$(COMMON_FLAGS) $$($(3)_COMMON_FLAGS)" \
     CROSSLDFLAGS="$$($(2)_$(3)_LIBFLAGS) $$($(2)_$(3)_LDFLAGS) $$($(2)_LDFLAGS) $$(CROSSLDFLAGS)" \
-    i386_AR="$$(CROSSi386_TARGET)-ar" \
-    i386_RANLIB="$$(CROSSi386_TARGET)-ranlib" \
-    i386_CC="$$(CROSSi386_TARGET)-gcc" \
-    i386_CXX="$$(CROSSi386_TARGET)-g++" \
-    i386_LD="$$(CROSSi386_TARGET)-ld" \
+    i386_AR="$$(i386-windows_TARGET)-ar" \
+    i386_RANLIB="$$(i386-windows_TARGET)-ranlib" \
+    i386_CC="$$(i386-windows_TARGET)-gcc" \
+    i386_CXX="$$(i386-windows_TARGET)-g++" \
+    i386_LD="$$(i386-windows_TARGET)-ld" \
     i386_CFLAGS="$$($(2)_i386_INCFLAGS) $$($(2)_CFLAGS) $$(COMMON_FLAGS) $$(32_COMMON_FLAGS)" \
     i386_LDFLAGS="$$($(2)_i386_LIBFLAGS) $$($(2)_i386_LDFLAGS) $$($(2)_LDFLAGS) $$(CROSSLDFLAGS)" \
-    i386_PKG_CONFIG_LIBDIR="/usr/lib/$$(CROSSi386_LIBDIR)/pkgconfig:/usr/share/pkgconfig" \
-    x86_64_AR="$$(CROSSx86_64_TARGET)-ar" \
-    x86_64_RANLIB="$$(CROSSx86_64_TARGET)-ranlib" \
-    x86_64_CC="$$(CROSSx86_64_TARGET)-gcc" \
-    x86_64_CXX="$$(CROSSx86_64_TARGET)-g++" \
-    x86_64_LD="$$(CROSSx86_64_TARGET)-ld" \
+    i386_PKG_CONFIG_LIBDIR="/usr/lib/$$(i386-windows_LIBDIR)/pkgconfig:/usr/share/pkgconfig" \
+    x86_64_AR="$$(x86_64-windows_TARGET)-ar" \
+    x86_64_RANLIB="$$(x86_64-windows_TARGET)-ranlib" \
+    x86_64_CC="$$(x86_64-windows_TARGET)-gcc" \
+    x86_64_CXX="$$(x86_64-windows_TARGET)-g++" \
+    x86_64_LD="$$(x86_64-windows_TARGET)-ld" \
     x86_64_CFLAGS="$$($(2)_x86_64_INCFLAGS) $$($(2)_CFLAGS) $$(COMMON_FLAGS) $$(64_COMMON_FLAGS)" \
     x86_64_LDFLAGS="$$($(2)_x86_64_LIBFLAGS) $$($(2)_x86_64_LDFLAGS) $$($(2)_LDFLAGS) $$(CROSSLDFLAGS)" \
-    x86_64_PKG_CONFIG_LIBDIR="/usr/lib/$$(CROSSx86_64_LIBDIR)/pkgconfig:/usr/share/pkgconfig" \
+    x86_64_PKG_CONFIG_LIBDIR="/usr/lib/$$(x86_64-windows_LIBDIR)/pkgconfig:/usr/share/pkgconfig" \
 
 endif
 
@@ -160,20 +159,15 @@ else
 install-strip = objcopy $(OBJCOPY_FLAGS) --strip-debug $(1) $(2)/$(notdir $(1)) && rm -f $(2)/$(notdir $(1)).debug
 endif
 
-i386_TARGET := i686-linux-gnu
-x86_64_TARGET := x86_64-linux-gnu
-CROSSi386_TARGET := i686-w64-mingw32
-CROSSx86_64_TARGET := x86_64-w64-mingw32
+i386-unix_TARGET := i686-linux-gnu
+x86_64-unix_TARGET := x86_64-linux-gnu
+i386-windows_TARGET := i686-w64-mingw32
+x86_64-windows_TARGET := x86_64-w64-mingw32
 
-i386_LIBDIR := i386-linux-gnu
-x86_64_LIBDIR := x86_64-linux-gnu
-CROSSi386_LIBDIR := i386-w64-mingw32
-CROSSx86_64_LIBDIR := x86_64-w64-mingw32
-
-i386_WINEDIR := wine/i386-unix
-x86_64_WINEDIR := wine/x86_64-unix
-CROSSi386_WINEDIR := wine/i386-windows
-CROSSx86_64_WINEDIR := wine/x86_64-windows
+i386-unix_LIBDIR := i386-linux-gnu
+x86_64-unix_LIBDIR := x86_64-linux-gnu
+i386-windows_LIBDIR := i386-w64-mingw32
+x86_64-windows_LIBDIR := x86_64-w64-mingw32
 
 $(OBJ)/.%-i386-post-build:
 	touch $@

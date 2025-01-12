@@ -1,8 +1,8 @@
 # parameters:
 #   $(1): lowercase package name
 #   $(2): uppercase package name
-#   $(3): build target <arch>
-#   $(4): CROSS/<empty>, cross compile
+#   $(3): build target arch
+#   $(4): build target os
 #
 define create-rules-autoconf
 $(call create-rules-common,$(1),$(2),$(3),$(4))
@@ -19,7 +19,7 @@ $$(OBJ)/.$(1)-$(3)-configure: $$($(2)_SRC)/configure
 	$$($(2)_SRC)/configure $(--quiet?) -C \
 	    --prefix="$$($(2)_$(3)_DST)" \
 	    --libdir="$$($(2)_$(3)_DST)/lib" \
-	    --host="$$($(4)$(3)_TARGET)" \
+	    --host="$$($(3)-$(4)_TARGET)" \
 	    $$($(2)_$(3)_ENV) \
 	    $$($(3)_AUTOCONF_ARGS) \
 	    $$($(2)_AUTOCONF_ARGS) \

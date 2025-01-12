@@ -107,8 +107,8 @@ DAV1D_MESON_ARGS = \
 	-Denable_tests=false
 
 $(eval $(call rules-source,dav1d,$(SRCDIR)/dav1d))
-$(eval $(call rules-meson,dav1d,i386))
-$(eval $(call rules-meson,dav1d,x86_64))
+$(eval $(call rules-meson,dav1d,i386,unix))
+$(eval $(call rules-meson,dav1d,x86_64,unix))
 
 
 ##
@@ -119,8 +119,8 @@ GST_ORC_MESON_ARGS := \
 	-Dorc-test=disabled
 
 $(eval $(call rules-source,gst_orc,$(SRCDIR)/gst-orc))
-$(eval $(call rules-meson,gst_orc,i386))
-$(eval $(call rules-meson,gst_orc,x86_64))
+$(eval $(call rules-meson,gst_orc,i386,unix))
+$(eval $(call rules-meson,gst_orc,x86_64,unix))
 
 
 ##
@@ -136,8 +136,8 @@ GSTREAMER_MESON_ARGS := \
 GSTREAMER_DEPENDS = gst_orc
 
 $(eval $(call rules-source,gstreamer,$(SRCDIR)/gstreamer/subprojects/gstreamer))
-$(eval $(call rules-meson,gstreamer,i386))
-$(eval $(call rules-meson,gstreamer,x86_64))
+$(eval $(call rules-meson,gstreamer,i386,unix))
+$(eval $(call rules-meson,gstreamer,x86_64,unix))
 
 
 ##
@@ -145,8 +145,8 @@ $(eval $(call rules-meson,gstreamer,x86_64))
 ##
 
 $(eval $(call rules-source,graphene,$(SRCDIR)/graphene))
-$(eval $(call rules-meson,graphene,i386))
-$(eval $(call rules-meson,graphene,x86_64))
+$(eval $(call rules-meson,graphene,i386,unix))
+$(eval $(call rules-meson,graphene,x86_64,unix))
 
 
 ##
@@ -177,8 +177,8 @@ GST_BASE_MESON_ARGS := \
 GST_BASE_DEPENDS = gst_orc graphene gstreamer
 
 $(eval $(call rules-source,gst_base,$(SRCDIR)/gstreamer/subprojects/gst-plugins-base))
-$(eval $(call rules-meson,gst_base,i386))
-$(eval $(call rules-meson,gst_base,x86_64))
+$(eval $(call rules-meson,gst_base,i386,unix))
+$(eval $(call rules-meson,gst_base,x86_64,unix))
 
 
 ##
@@ -208,8 +208,8 @@ GST_GOOD_MESON_ARGS := \
 GST_GOOD_DEPENDS = gst_orc gstreamer gst_base
 
 $(eval $(call rules-source,gst_good,$(SRCDIR)/gstreamer/subprojects/gst-plugins-good/))
-$(eval $(call rules-meson,gst_good,i386))
-$(eval $(call rules-meson,gst_good,x86_64))
+$(eval $(call rules-meson,gst_good,i386,unix))
+$(eval $(call rules-meson,gst_good,x86_64,unix))
 
 ##
 ## gst-plugins-bad
@@ -224,8 +224,8 @@ GST_BAD_MESON_ARGS := \
 GST_BAD_DEPENDS = gst_orc gstreamer gst_base
 
 $(eval $(call rules-source,gst_bad,$(SRCDIR)/gstreamer/subprojects/gst-plugins-bad/))
-$(eval $(call rules-meson,gst_bad,i386))
-$(eval $(call rules-meson,gst_bad,x86_64))
+$(eval $(call rules-meson,gst_bad,i386,unix))
+$(eval $(call rules-meson,gst_bad,x86_64,unix))
 
 ##
 ## FFmpeg
@@ -241,8 +241,8 @@ FFMPEG_CONFIGURE_ARGS := \
 	--enable-demuxer=matroska \
 
 $(eval $(call rules-source,ffmpeg,$(SRCDIR)/ffmpeg))
-$(eval $(call rules-configure,ffmpeg,i386))
-$(eval $(call rules-configure,ffmpeg,x86_64))
+$(eval $(call rules-configure,ffmpeg,i386,unix))
+$(eval $(call rules-configure,ffmpeg,x86_64,unix))
 
 ## Only use ffmpeg to build gst-libav; we don't ship it.
 $(OBJ)/.ffmpeg-i386-dist:
@@ -257,8 +257,8 @@ $(OBJ)/.ffmpeg-x86_64-dist:
 GST_LIBAV_DEPENDS = gst_orc gstreamer gst_base ffmpeg
 
 $(eval $(call rules-source,gst_libav,$(SRCDIR)/gstreamer/subprojects/gst-libav))
-$(eval $(call rules-meson,gst_libav,i386))
-$(eval $(call rules-meson,gst_libav,x86_64))
+$(eval $(call rules-meson,gst_libav,i386,unix))
+$(eval $(call rules-meson,gst_libav,x86_64,unix))
 
 
 ##
@@ -271,8 +271,8 @@ GST_PLUGINS_RS_CARGO_ARGS = \
 GST_PLUGINS_RS_DEPENDS = gst_orc gstreamer gst_base dav1d
 
 $(eval $(call rules-source,gst_plugins_rs,$(SRCDIR)/gst-plugins-rs))
-$(eval $(call rules-cargo,gst_plugins_rs,i386))
-$(eval $(call rules-cargo,gst_plugins_rs,x86_64))
+$(eval $(call rules-cargo,gst_plugins_rs,i386,unix))
+$(eval $(call rules-cargo,gst_plugins_rs,x86_64,unix))
 
 $(OBJ)/.gst_plugins_rs-x86_64-post-build:
 	mkdir -p $(GST_PLUGINS_RS_x86_64_DST)/lib/x86_64-linux-gnu/gstreamer-1.0/
@@ -290,8 +290,8 @@ $(OBJ)/.gst_plugins_rs-i386-post-build:
 ##
 
 $(eval $(call rules-source,vulkan-headers,$(SRCDIR)/Vulkan-Headers))
-$(eval $(call rules-cmake,vulkan-headers,i386,CROSS))
-$(eval $(call rules-cmake,vulkan-headers,x86_64,CROSS))
+$(eval $(call rules-cmake,vulkan-headers,i386,windows))
+$(eval $(call rules-cmake,vulkan-headers,x86_64,windows))
 
 
 ##
@@ -299,8 +299,8 @@ $(eval $(call rules-cmake,vulkan-headers,x86_64,CROSS))
 ##
 
 $(eval $(call rules-source,spirv-headers,$(SRCDIR)/SPIRV-Headers))
-$(eval $(call rules-cmake,spirv-headers,i386,CROSS))
-$(eval $(call rules-cmake,spirv-headers,x86_64,CROSS))
+$(eval $(call rules-cmake,spirv-headers,i386,windows))
+$(eval $(call rules-cmake,spirv-headers,x86_64,windows))
 
 
 ##
@@ -308,8 +308,8 @@ $(eval $(call rules-cmake,spirv-headers,x86_64,CROSS))
 ##
 
 $(eval $(call rules-source,glslang,$(SRCDIR)/glslang))
-$(eval $(call rules-cmake,glslang,i386))
-$(eval $(call rules-cmake,glslang,x86_64))
+$(eval $(call rules-cmake,glslang,i386,unix))
+$(eval $(call rules-cmake,glslang,x86_64,unix))
 
 
 ##
@@ -320,8 +320,8 @@ LSTEAMCLIENT_DEPENDS = wine
 LSTEAMCLIENT_LDFLAGS = -static-libgcc -static-libstdc++
 
 $(eval $(call rules-source,lsteamclient,$(SRCDIR)/lsteamclient))
-$(eval $(call rules-makedep,lsteamclient,i386,CROSS))
-$(eval $(call rules-makedep,lsteamclient,x86_64,CROSS))
+$(eval $(call rules-makedep,lsteamclient,i386))
+$(eval $(call rules-makedep,lsteamclient,x86_64))
 
 
 ##
@@ -332,8 +332,8 @@ $(eval $(call rules-makedep,lsteamclient,x86_64,CROSS))
 OPENXR_CMAKE_ARGS = -DHAVE_FILESYSTEM_WITHOUT_LIB=0
 
 $(eval $(call rules-source,openxr,$(SRCDIR)/OpenXR-SDK))
-# $(eval $(call rules-cmake,openxr,i386))
-$(eval $(call rules-cmake,openxr,x86_64))
+# $(eval $(call rules-cmake,openxr,i386,unix))
+$(eval $(call rules-cmake,openxr,x86_64,unix))
 
 
 ##
@@ -345,7 +345,7 @@ WINEOPENXR_LDFLAGS = -lopenxr_loader
 WINEOPENXR_DEPENDS = wine openxr
 
 $(eval $(call rules-source,wineopenxr,$(SRCDIR)/wineopenxr))
-$(eval $(call rules-makedep,wineopenxr,x86_64,CROSS))
+$(eval $(call rules-makedep,wineopenxr,x86_64))
 
 DIST_WINEOPENXR64_JSON := $(DIST_PREFIX)/drive_c/openxr/wineopenxr64.json
 $(WINEOPENXR_SRC)/wineopenxr64.json: wineopenxr
@@ -372,8 +372,8 @@ STEAMEXE_LDFLAGS = \
 STEAMEXE_DEPENDS = wine
 
 $(eval $(call rules-source,steamexe,$(SRCDIR)/steam_helper))
-$(eval $(call rules-makedep,steamexe,i386,CROSS))
-$(eval $(call rules-makedep,steamexe,x86_64,CROSS))
+$(eval $(call rules-makedep,steamexe,i386))
+$(eval $(call rules-makedep,steamexe,x86_64))
 
 $(OBJ)/.steamexe-i386-post-build:
 	mkdir -p $(DST_LIBDIR)/i386-linux-gnu/
@@ -390,11 +390,11 @@ $(OBJ)/.steamexe-x86_64-post-build:
 ##
 
 $(eval $(call rules-source,piper,$(SRCDIR)/piper))
-$(eval $(call rules-cmake,piper,x86_64))
+$(eval $(call rules-cmake,piper,x86_64,unix))
 
 $(OBJ)/.piper-x86_64-post-build:
-	mkdir -p $(PIPER_x86_64_DST)/lib/$(x86_64_TARGET)
-	mv $(PIPER_x86_64_DST)/*.so* $(PIPER_x86_64_DST)/lib/$(x86_64_TARGET)
+	mkdir -p $(PIPER_x86_64_DST)/lib/$(x86_64-unix_TARGET)
+	mv $(PIPER_x86_64_DST)/*.so* $(PIPER_x86_64_DST)/lib/$(x86_64-unix_TARGET)
 	mkdir -p $(DST_DIR)/share
 	cp -a $(PIPER_x86_64_DST)/{espeak-ng-data,libtashkeel_model.ort} $(DST_DIR)/share/
 	touch $@
@@ -442,8 +442,8 @@ WINE_i386_LIBDIR = $(WINE_i386_DST)/lib
 WINE_x86_64_LIBDIR = $(WINE_x86_64_DST)/lib
 
 $(eval $(call rules-source,wine,$(SRCDIR)/wine))
-$(eval $(call rules-autoconf,wine,i386))
-$(eval $(call rules-autoconf,wine,x86_64))
+$(eval $(call rules-autoconf,wine,i386,unix))
+$(eval $(call rules-autoconf,wine,x86_64,unix))
 $(eval $(call rules-wine-requests,wine))
 
 $(OBJ)/.wine-post-source:
@@ -475,8 +475,8 @@ VRCLIENT_LDFLAGS = -static-libgcc -static-libstdc++
 VRCLIENT_DEPENDS = vulkan-headers wine
 
 $(eval $(call rules-source,vrclient,$(SRCDIR)/vrclient_x64))
-$(eval $(call rules-makedep,vrclient,i386,CROSS))
-$(eval $(call rules-makedep,vrclient,x86_64,CROSS))
+$(eval $(call rules-makedep,vrclient,i386))
+$(eval $(call rules-makedep,vrclient,x86_64))
 
 
 ##
@@ -495,8 +495,8 @@ DXVK_x86_64_MESON_ARGS = --bindir=$(DXVK_x86_64_DST)/lib/wine/dxvk/x86_64-window
 DXVK_DEPENDS = glslang
 
 $(eval $(call rules-source,dxvk,$(SRCDIR)/dxvk))
-$(eval $(call rules-meson,dxvk,i386,CROSS))
-$(eval $(call rules-meson,dxvk,x86_64,CROSS))
+$(eval $(call rules-meson,dxvk,i386,windows))
+$(eval $(call rules-meson,dxvk,x86_64,windows))
 
 $(OBJ)/.dxvk-post-source:
 	sed -re 's#@VCS_TAG@#$(shell git -C $(SRCDIR)/dxvk describe --always --abbrev=15 --dirty=0)#' \
@@ -515,8 +515,8 @@ DXVK_NVAPI_i386_MESON_ARGS = --bindir=$(DXVK_NVAPI_i386_DST)/lib/wine/nvapi/i386
 DXVK_NVAPI_x86_64_MESON_ARGS = --bindir=$(DXVK_NVAPI_x86_64_DST)/lib/wine/nvapi/x86_64-windows
 
 $(eval $(call rules-source,dxvk-nvapi,$(SRCDIR)/dxvk-nvapi))
-$(eval $(call rules-meson,dxvk-nvapi,i386,CROSS))
-$(eval $(call rules-meson,dxvk-nvapi,x86_64,CROSS))
+$(eval $(call rules-meson,dxvk-nvapi,i386,windows))
+$(eval $(call rules-meson,dxvk-nvapi,x86_64,windows))
 
 $(OBJ)/.dxvk-nvapi-post-source:
 	mkdir -p $(DST_LIBDIR)/wine/nvapi
@@ -560,8 +560,8 @@ VKD3D_i386_LIBDIR = $(VKD3D_i386_DST)/lib
 VKD3D_x86_64_LIBDIR = $(VKD3D_x86_64_DST)/lib
 
 $(eval $(call rules-source,vkd3d,$(SRCDIR)/vkd3d))
-$(eval $(call rules-autoconf,vkd3d,i386,CROSS))
-$(eval $(call rules-autoconf,vkd3d,x86_64,CROSS))
+$(eval $(call rules-autoconf,vkd3d,i386,windows))
+$(eval $(call rules-autoconf,vkd3d,x86_64,windows))
 
 $(OBJ)/.vkd3d-x86_64-post-build:
 	mkdir -p $(VKD3D_x86_64_LIBDIR)/vkd3d/x86_64-windows
@@ -596,8 +596,8 @@ ifneq ($(UNSTRIPPED_BUILD),)
 endif
 
 $(eval $(call rules-source,vkd3d-proton,$(SRCDIR)/vkd3d-proton))
-$(eval $(call rules-meson,vkd3d-proton,i386,CROSS))
-$(eval $(call rules-meson,vkd3d-proton,x86_64,CROSS))
+$(eval $(call rules-meson,vkd3d-proton,i386,windows))
+$(eval $(call rules-meson,vkd3d-proton,x86_64,windows))
 
 $(OBJ)/.vkd3d-proton-post-source:
 	sed -re 's#@VCS_TAG@#$(shell git -C $(SRCDIR)/vkd3d-proton describe --always --exclude=* --abbrev=15 --dirty=0)#' \
@@ -652,8 +652,8 @@ ifneq ($(wildcard $(SRCDIR)/eac-bridge/.*),)
 EAC_DEPENDS = wine
 
 $(eval $(call rules-source,eac,$(SRCDIR)/eac-bridge))
-$(eval $(call create-rules-common,eac,EAC,x86_64))
-$(eval $(call create-rules-common,eac,EAC,i386))
+$(eval $(call create-rules-common,eac,EAC,x86_64,unix))
+$(eval $(call create-rules-common,eac,EAC,i386,unix))
 
 
 $(OBJ)/.eac-x86_64-build:
@@ -689,7 +689,7 @@ endif
 SYMSTORE_DEPENDS = wine
 
 $(eval $(call rules-source,symstore,$(SRCDIR)/symstore))
-$(eval $(call create-rules-common,symstore,SYMSTORE,x86_64))
+$(eval $(call create-rules-common,symstore,SYMSTORE,x86_64,unix))
 
 $(OBJ)/.symstore-x86_64-build:
 	@echo ":: building symstore helper..." >&2

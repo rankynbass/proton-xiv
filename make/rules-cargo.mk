@@ -1,10 +1,11 @@
 # parameters:
 #   $(1): lowercase package name
 #   $(2): uppercase package name
-#   $(3): build target <arch>
+#   $(3): build target arch
+#   $(4): build target os
 #
 define create-rules-cargo
-$(call create-rules-common,$(1),$(2),$(3))
+$(call create-rules-common,$(1),$(2),$(3),$(4))
 
 $$(OBJ)/.$(1)-$(3)-configure:
 	@echo ":: configuring $(1)-$(3)..." >&2
@@ -16,16 +17,16 @@ $$(OBJ)/.$(1)-$(3)-build:
 	cargo build $(--quiet?) --release \
 	      $$(filter -j%,$$(MAKEFLAGS)) \
 	      --target-dir $$($(2)_$(3)_OBJ) \
-	      $$($(3)_CARGO_ARGS) \
+	      $$($(3)-$(4)_CARGO_ARGS) \
 	      $$($(2)_CARGO_ARGS) \
 	      $$($(2)_$(3)_CARGO_ARGS)
 	touch $$@
 endef
 
-rules-cargo = $(call create-rules-cargo,$(1),$(call toupper,$(1)),$(2))
+rules-cargo = $(call create-rules-cargo,$(1),$(call toupper,$(1)),$(2),$(3))
 
-i386_CARGO_TARGET := i686-unknown-linux-gnu
-x86_64_CARGO_TARGET := x86_64-unknown-linux-gnu
+i386-unix_CARGO_TARGET := i686-unknown-linux-gnu
+x86_64-unix_CARGO_TARGET := x86_64-unknown-linux-gnu
 
-i386_CARGO_ARGS := --target $(i386_CARGO_TARGET)
-x86_64_CARGO_ARGS := --target $(x86_64_CARGO_TARGET)
+i386-unix_CARGO_ARGS := --target $(i386-unix_CARGO_TARGET)
+x86_64-unix_CARGO_ARGS := --target $(x86_64-unix_CARGO_TARGET)

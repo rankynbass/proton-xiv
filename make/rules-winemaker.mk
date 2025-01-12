@@ -1,11 +1,11 @@
 # parameters:
 #   $(1): lowercase package name
 #   $(2): uppercase package name
-#   $(3): build target <arch>
+#   $(3): build target arch
 #   $(4): module name (with extension)
 #
 define create-rules-winemaker
-$(call create-rules-common,$(1),$(2),$(3))
+$(call create-rules-common,$(1),$(2),$(3),unix)
 $(2)_$(3)_OBJ := $$($(2)_$(3)_OBJ)/$(4)
 
 $$(OBJ)/.$(1)-$(3)-configure:
@@ -31,10 +31,10 @@ $$(OBJ)/.$(1)-$(3)-build:
 	$$(MAKE) -C "$$($(2)_$(3)_OBJ)" LIBRARIES="$$($(2)_LDFLAGS)"
 	cd "$$($(2)_$(3)_OBJ)" && touch "$(basename $(4)).spec" && env $$($(2)_$(3)_ENV) \
 	winebuild --$(lastword $(subst ., ,$(4))) --fake-module -E "$(basename $(4)).spec" -o "$(4).fake"
-	mkdir -p $$($(2)_$(3)_LIBDIR)/$($(3)_WINEDIR)
-	cp -a $$($(2)_$(3)_OBJ)/$(4).so $$($(2)_$(3)_LIBDIR)/$($(3)_WINEDIR)/
-	mkdir -p $$($(2)_$(3)_LIBDIR)/$(CROSS$(3)_WINEDIR)
-	cp -a $$($(2)_$(3)_OBJ)/$(4).fake $$($(2)_$(3)_LIBDIR)/$(CROSS$(3)_WINEDIR)/$(4)
+	mkdir -p $$($(2)_$(3)_LIBDIR)/wine/$(3)-unix
+	cp -a $$($(2)_$(3)_OBJ)/$(4).so $$($(2)_$(3)_LIBDIR)/wine/$(3)-unix/
+	mkdir -p $$($(2)_$(3)_LIBDIR)/wine/$(3)-windows
+	cp -a $$($(2)_$(3)_OBJ)/$(4).fake $$($(2)_$(3)_LIBDIR)/wine/$(3)-windows/$(4)
 	touch $$@
 endef
 
