@@ -17,9 +17,9 @@ $$(OBJ)/.$(1)-configure$(3):
 	    "-I$$(WINE_SRC)/include/wine" \
 	    "-I$$(WINE_DST$(3))/include/wine" \
 	    $(patsubst %.dll,--dll,$(patsubst %.exe,--guiexe,$(4))) \
+	    $$(WINEMAKER_ARGS_$(3)) \
 	    $$($(2)_WINEMAKER_ARGS) \
 	    $$($(2)_WINEMAKER_ARGS$(3)) \
-	    $(subst --wine64,,--wine$(3)) \
 	    .
 	sed -re 's@_LDFLAGS=@_LDFLAGS= $$$$(LDFLAGS) @' -i "$$($(2)_OBJ$(3))/Makefile"
 	touch $$@
@@ -37,5 +37,8 @@ $$(OBJ)/.$(1)-build$(3):
 	cp -a $$($(2)_OBJ$(3))/$(4).fake $$($(2)_LIBDIR$(3))/$(LIBDIR_WINE_CROSS$(3))/$(4)
 	touch $$@
 endef
+
+WINEMAKER_ARGS_32 := --wine32
+WINEMAKER_ARGS_64 :=
 
 rules-winemaker = $(call create-rules-winemaker,$(1),$(call toupper,$(1)),$(2),$(3))

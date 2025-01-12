@@ -20,8 +20,9 @@ $$(OBJ)/.$(1)-configure$(3): $$($(2)_SRC)/CMakeLists.txt
 	    -DCMAKE_SYSTEM_NAME=$(if $(4),Windows,) \
 	    -DCMAKE_SHARED_LIBRARY_PREFIX_C=$(if $(4),,lib) \
 	    -DCMAKE_IMPORT_LIBRARY_PREFIX_C=$(if $(4),,lib) \
+	    $$(CMAKE_ARGS_$(3)) \
 	    $$($(2)_CMAKE_ARGS) \
-	    $$($(2)_CMAKE_ARGS$(3))
+	    $$($(2)_CMAKE_ARGS$(3)) \
 
 	touch $$@
 

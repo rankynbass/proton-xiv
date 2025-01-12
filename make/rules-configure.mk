@@ -13,12 +13,12 @@ $$(OBJ)/.$(1)-configure$(3):
 	cd "$$($(2)_OBJ$(3))" && env $$($(2)_ENV$(3)) \
 	$$($(2)_SRC)/configure $(--quiet?) \
 	    --cross-prefix=$$(TARGET_$(3))- \
-	    --arch=$(CONFIGURE_ARCH$(3)) \
 	    --target-os=linux \
 	    --prefix="$$($(2)_DST$(3))" \
 	    --libdir="$$($(2)_LIBDIR$(3))/$$(LIBDIR_$(4)$(3))" \
+	    $$(CONFIGURE_ARGS_$(3)) \
 	    $$($(2)_CONFIGURE_ARGS) \
-	    $$($(2)_CONFIGURE_ARGS$(3))
+	    $$($(2)_CONFIGURE_ARGS$(3)) \
 
 	touch $$@
 
@@ -31,7 +31,7 @@ $$(OBJ)/.$(1)-build$(3):
 	touch $$@
 endef
 
-CONFIGURE_ARCH32 = x86
-CONFIGURE_ARCH64 = x86_64
+CONFIGURE_ARGS_32 := --arch=x86
+CONFIGURE_ARGS_64 := --arch=x86_64
 
 rules-configure = $(call create-rules-configure,$(1),$(call toupper,$(1)),$(2),$(3))

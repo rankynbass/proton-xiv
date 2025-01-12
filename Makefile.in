@@ -7,7 +7,6 @@ OBJ := $(abspath $(CURDIR))
 ifeq ($(filter s,$(MAKEFLAGS)),s)
 MAKEFLAGS += --quiet --no-print-directory
 --quiet? := --quiet
-CARGO_BUILD_ARGS := --quiet
 else
 MFLAGS += V=1 VERBOSE=1
 -v? := -v
@@ -52,7 +51,6 @@ else
     MESON_STRIP_ARG := --strip
 endif
 
-CARGO_BUILD_ARGS += --release
 OBJCOPY_FLAGS  := -p
 
 OPTIMIZE_FLAGS := -O2 -march=nocona -mtune=core-avx2 -mfpmath=sse
@@ -424,16 +422,16 @@ WINE_SOURCE_ARGS = \
   --exclude server/request_handlers.h \
   --exclude server/request_trace.h \
 
-WINE_CONFIGURE_ARGS = \
+WINE_AUTOCONF_ARGS = \
   --enable-werror \
   --with-mingw \
   --disable-tests
 
-WINE_CONFIGURE_ARGS32 = \
+WINE_AUTOCONF_ARGS32 = \
   VKD3D_PE_CFLAGS="-I$(VULKAN_HEADERS_DST32)/include -I$(VKD3D_DST32)/include/vkd3d" \
   VKD3D_PE_LIBS="-L$(VKD3D_LIBDIR32)/vkd3d/i386-windows -l:libvkd3d-1.dll -l:libvkd3d-shader-1.dll"
 
-WINE_CONFIGURE_ARGS64 = --enable-win64 \
+WINE_AUTOCONF_ARGS64 = --enable-win64 \
   VKD3D_PE_CFLAGS="-I$(VULKAN_HEADERS_DST64)/include -I$(VKD3D_DST64)/include/vkd3d" \
   VKD3D_PE_LIBS="-L$(VKD3D_LIBDIR64)/vkd3d/x86_64-windows -l:libvkd3d-1.dll -l:libvkd3d-shader-1.dll"
 
@@ -544,7 +542,7 @@ VKD3D_SOURCE_ARGS = \
   --exclude m4/ltversion.m4 \
   --exclude m4/lt~obsolete.m4 \
 
-VKD3D_CONFIGURE_ARGS = \
+VKD3D_AUTOCONF_ARGS = \
   --enable-silent-rules \
   --disable-doxygen-doc \
   --disable-tests \

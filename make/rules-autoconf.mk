@@ -21,8 +21,9 @@ $$(OBJ)/.$(1)-configure$(3): $$($(2)_SRC)/configure
 	    --libdir="$$($(2)_DST$(3))/lib" \
 	    --host="$$(TARGET_$(4)$(3))" \
 	    $$($(2)_ENV$(3)) \
-	    $$($(2)_CONFIGURE_ARGS) \
-	    $$($(2)_CONFIGURE_ARGS$(3))
+	    $$(AUTOCONF_ARGS_$(3)) \
+	    $$($(2)_AUTOCONF_ARGS) \
+	    $$($(2)_AUTOCONF_ARGS$(3)) \
 
 	touch $$@
 

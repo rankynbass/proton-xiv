@@ -52,6 +52,7 @@ $$(OBJ)/.$(1)-configure$(3): $$($(2)_SRC)/meson.build
 	      --libdir="lib/$$(LIBDIR_$(4)$(3))" \
 	      --buildtype=plain \
 	      $(if $(4),--cross-file="$$($(2)_OBJ$(3))/cross-$(3).txt",) \
+	      $$(MESON_ARGS_$(3)) \
 	      $$($(2)_MESON_ARGS) \
 	      $$($(2)_MESON_ARGS$(3)) \
 	      $$(MESON_STRIP_ARG)
