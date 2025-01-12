@@ -127,13 +127,7 @@ $(2)_$(3)_ENV = \
     LDFLAGS="$$($(2)_$(3)_LIBFLAGS) $$($(2)_$(3)_LDFLAGS) $$($(2)_LDFLAGS) $$($(4)LDFLAGS)" \
     SOURCE_DATE_EPOCH="$$($(2)_$(3)_SOURCE_DATE_EPOCH)" \
 
-ifneq ($(4),CROSS)
-
-# CROSS-prefixed variables for non-CROSS builds which may need to cross
-# compile some binaries.
-#
-# This is for instance used by Wine, but also Meson, as it requires the
-# environment variable to ones for native.
+ifeq ($(1),wine)
 
 $(2)_$(3)_ENV += \
     CROSSAR="$$(CROSS$(3)_TARGET)-ar" \
