@@ -6,6 +6,7 @@
 #
 define create-rules-meson
 $(call create-rules-common,$(1),$(2),$(3),$(4))
+ifneq ($(findstring $(3)-$(4),$(ARCHS)),)
 
 define $(2)_$(3)_MESON_CROSS
 cat <<EOF
@@ -62,6 +63,7 @@ $$(OBJ)/.$(1)-$(3)-build:
 	+env $$($(2)_$(3)_ENV) \
 	ninja -C "$$($(2)_$(3)_OBJ)" install
 	touch $$@
+endif
 endef
 
 i386_MESON_CPU := x86

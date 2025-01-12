@@ -6,6 +6,8 @@
 #
 define create-rules-winemaker
 $(call create-rules-common,$(1),$(2),$(3),unix)
+ifneq ($(findstring $(3)-unix,$(ARCHS)),)
+
 $(2)_$(3)_OBJ := $$($(2)_$(3)_OBJ)/$(4)
 
 $$(OBJ)/.$(1)-$(3)-configure:
@@ -36,6 +38,8 @@ $$(OBJ)/.$(1)-$(3)-build:
 	mkdir -p $$($(2)_$(3)_LIBDIR)/wine/$(3)-windows
 	cp -a $$($(2)_$(3)_OBJ)/$(4).fake $$($(2)_$(3)_LIBDIR)/wine/$(3)-windows/$(4)
 	touch $$@
+
+endif
 endef
 
 i386_WINEMAKER_ARGS := --wine32

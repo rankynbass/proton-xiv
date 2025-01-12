@@ -43,6 +43,15 @@ all-build: $(1)-build
 .PHONY: all-build
 
 
+ifeq ($$(findstring $(3)-$(4),$$(ARCHS)),)
+$$(OBJ)/.$(1)-$(3)-configure:
+	touch $$@
+$$(OBJ)/.$(1)-$(3)-build:
+	touch $$@
+$$(OBJ)/.$(1)-$(3)-dist:
+	touch $$@
+else
+
 $$(OBJ)/.$(1)-$(3)-dist: $$(OBJ)/.$(1)-$(3)-build
 $$(OBJ)/.$(1)-$(3)-dist: $$(OBJ)/.$(1)-$(3)-post-build
 
@@ -72,6 +81,8 @@ else
 	    -printf '--strip-debug\0%p\0$$(DST_LIBDIR)/%p\0' | \
 	    xargs $(--verbose?) -0 -r -P$$(J) -n3 objcopy $(OBJCOPY_FLAGS) --set-section-flags .text=contents,alloc,load,readonly,code
 	touch $$@
+endif
+
 endif
 
 $(1)-$(3)-dist: $$(OBJ)/.$(1)-$(3)-dist

@@ -6,6 +6,7 @@
 #
 define create-rules-cmake
 $(call create-rules-common,$(1),$(2),$(3),$(4))
+ifneq ($(findstring $(3)-$(4),$(ARCHS)),)
 
 $$($(2)_SRC)/CMakeLists.txt: | $$(OBJ)/.$(1)-post-source
 $$(OBJ)/.$(1)-$(3)-configure: $$($(2)_SRC)/CMakeLists.txt
@@ -30,6 +31,7 @@ $$(OBJ)/.$(1)-$(3)-build:
 	cd "$$($(2)_$(3)_OBJ)" && env $$($(2)_$(3)_ENV) \
 	$$(MAKE) install
 	touch $$@
+endif
 endef
 
 i386-unix_CMAKE_ARGS := -DCMAKE_SHARED_LIBRARY_PREFIX_C=lib -DCMAKE_IMPORT_LIBRARY_PREFIX_C=lib

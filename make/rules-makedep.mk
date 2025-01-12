@@ -5,6 +5,7 @@
 #
 define create-rules-makedep
 $(call create-rules-common,$(1),$(2),$(3),unix)
+ifneq ($(findstring $(3)-unix,$(ARCHS)),)
 
 $$(OBJ)/.$(1)-$(3)-configure:
 	@echo ":: configuring $(1)-$(3)..." >&2
@@ -49,6 +50,7 @@ $$(OBJ)/.$(1)-$(3)-build:
 	cd "$$($(2)_$(3)_OBJ)" && env $$($(2)_$(3)_ENV) \
 	$$(MAKE) install
 	touch $$@
+endif
 endef
 
 rules-makedep = $(call create-rules-makedep,$(1),$(call toupper,$(1)),$(2))

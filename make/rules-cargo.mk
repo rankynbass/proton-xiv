@@ -6,6 +6,7 @@
 #
 define create-rules-cargo
 $(call create-rules-common,$(1),$(2),$(3),$(4))
+ifneq ($(findstring $(3)-$(4),$(ARCHS)),)
 
 $$(OBJ)/.$(1)-$(3)-configure:
 	@echo ":: configuring $(1)-$(3)..." >&2
@@ -21,6 +22,7 @@ $$(OBJ)/.$(1)-$(3)-build:
 	      $$($(2)_CARGO_ARGS) \
 	      $$($(2)_$(3)_CARGO_ARGS)
 	touch $$@
+endif
 endef
 
 rules-cargo = $(call create-rules-cargo,$(1),$(call toupper,$(1)),$(2),$(3))

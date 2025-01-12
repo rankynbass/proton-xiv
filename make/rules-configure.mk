@@ -6,6 +6,7 @@
 #
 define create-rules-configure
 $(call create-rules-common,$(1),$(2),$(3),$(4))
+ifneq ($(findstring $(3)-$(4),$(ARCHS)),)
 
 $$(OBJ)/.$(1)-$(3)-configure:
 	@echo ":: configuring $(1)-$(3)..." >&2
@@ -28,6 +29,7 @@ $$(OBJ)/.$(1)-$(3)-build:
 	cd "$$($(2)_$(3)_OBJ)" && env $$($(2)_$(3)_ENV) \
 	$$(MAKE) install
 	touch $$@
+endif
 endef
 
 i386-unix_CONFIGURE_ARGS := --arch=x86 --target-os=linux
