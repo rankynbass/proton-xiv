@@ -119,14 +119,13 @@ def fixup_drive_links(default_pfx_dir):
 
 def make_default_pfx(default_pfx_dir, dist_dir):
     local_env = dict(os.environ)
+    libdir = dist_dir + '/lib/'
 
-    ld_path = dist_dir + "/lib/x86_64-linux-gnu:" + dist_dir + "/lib/i386-linux-gnu"
-    dll_path = dist_dir + "/lib/vkd3d/x86_64-windows:" + dist_dir + "/lib/vkd3d/i386-windows"
-
+    ld_path = ':'.join([libdir + "x86_64-linux-gnu", libdir + "i386-linux-gnu"])
     local_env["LD_LIBRARY_PATH"] = ld_path
     local_env["WINEPREFIX"] = default_pfx_dir
     local_env["WINEDEBUG"] = "-all"
-    local_env["WINEDLLPATH"] = dll_path
+    local_env["WINEDLLPATH"] = libdir + "vkd3d"
     runtime_args = []
 
     subprocess.run(runtime_args + ["/bin/bash", "-c",

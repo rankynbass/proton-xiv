@@ -40,7 +40,7 @@ from random import randrange
 #To enable debug logging, copy "user_settings.sample.py" to "user_settings.py"
 #and edit it if needed.
 
-CURRENT_PREFIX_VERSION="10.0-103"
+CURRENT_PREFIX_VERSION="10.0-104"
 
 PFX="Proton: "
 ld_path_var = "LD_LIBRARY_PATH"
@@ -742,6 +742,15 @@ class CompatData:
                     log("Removing stale builtin " + builtin)
                     os.remove(builtin)
 
+            stale_vkd3d = [self.prefix_dir + "/drive_c/windows/system32/libvkd3d-1.dll",
+                           self.prefix_dir + "/drive_c/windows/syswow64/libvkd3d-1.dll",
+                           self.prefix_dir + "/drive_c/windows/system32/libvkd3d-shader-1.dll",
+                           self.prefix_dir + "/drive_c/windows/syswow64/libvkd3d-shader-1.dll" ]
+            for dll in stale_vkd3d:
+                if file_exists(dll, follow_symlinks=False):
+                    log("Removing stale vkd3d dll " + dll)
+                    os.remove(dll)
+
         except ValueError:
             log("Prefix has an invalid version?! You may want to back up user files and delete this prefix.")
             #Just let the Wine upgrade happen and hope it works...
@@ -1034,16 +1043,6 @@ class CompatData:
 
                 makedirs(self.prefix_dir + "/drive_c/openxr")
                 try_copy(g_proton.default_pfx_dir + "drive_c/openxr/wineopenxr64.json", "drive_c/openxr",
-                        prefix=self.prefix_dir, track_file=tracked_files, link_debug=True)
-
-                #copy vkd3d files into place
-                try_copy(g_proton.lib_dir + "vkd3d/x86_64-windows/libvkd3d-1.dll", "drive_c/windows/system32",
-                        prefix=self.prefix_dir, track_file=tracked_files, link_debug=True)
-                try_copy(g_proton.lib_dir + "vkd3d/i386-windows/libvkd3d-1.dll", "drive_c/windows/syswow64",
-                        prefix=self.prefix_dir, track_file=tracked_files, link_debug=True)
-                try_copy(g_proton.lib_dir + "vkd3d/x86_64-windows/libvkd3d-shader-1.dll", "drive_c/windows/system32",
-                        prefix=self.prefix_dir, track_file=tracked_files, link_debug=True)
-                try_copy(g_proton.lib_dir + "vkd3d/i386-windows/libvkd3d-shader-1.dll", "drive_c/windows/syswow64",
                         prefix=self.prefix_dir, track_file=tracked_files, link_debug=True)
 
                 if use_wined3d:
@@ -1439,7 +1438,7 @@ class Session:
 
         prepend_to_env_str(self.env, ld_path_var, g_proton.lib_dir + "x86_64-linux-gnu:" + g_proton.lib_dir + "i386-linux-gnu", ":")
 
-        self.env["WINEDLLPATH"] = g_proton.lib_dir + "wine"
+        self.env["WINEDLLPATH"] = ':'.join([g_proton.lib_dir + "vkd3d", g_proton.lib_dir + "wine"])
 
         self.env["GST_PLUGIN_SYSTEM_PATH_1_0"] = g_proton.lib_dir + "x86_64-linux-gnu/gstreamer-1.0" + ":" + g_proton.lib_dir + "i386-linux-gnu/gstreamer-1.0"
         self.env["WINE_GST_REGISTRY_DIR"] = g_compatdata.path("gstreamer-1.0/")
