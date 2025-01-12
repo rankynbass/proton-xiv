@@ -94,8 +94,8 @@ all: $(1)
 .PHONY: all
 
 $(2)_$(3)_INCFLAGS = $$(foreach d,$$($(2)_$(3)_DEPS),-I$$($$(d)_$(3)_INCDIR))
-$(2)_$(3)_LIBFLAGS = $$(foreach d,$$($(2)_$(3)_DEPS),-L$$($$(d)_$(3)_LIBDIR)/$$($(3)-$(4)_LIBDIR)) \
-                    $$(foreach d,$$($(2)_$(3)_DEPS),-Wl,-rpath-link=$$($$(d)_$(3)_LIBDIR)/$$($(3)-$(4)_LIBDIR)) \
+$(2)_$(3)_LIBFLAGS = $$(foreach d,$$($(2)_$(3)_DEPS),-L$$($$(d)_$(3)_LIBDIR)/$$($(3)-$(4)_LIBDIR))
+$(2)_$(3)-unix_LIBFLAGS = $$(foreach d,$$($(2)_$(3)_DEPS),-Wl,-rpath-link=$$($$(d)_$(3)_LIBDIR)/$$($(3)-unix_LIBDIR))
 
 # PKG_CONFIG is intentionally never using windows target, as it's missing
 # wrapper scripts in the toolchain, we use PKG_CONFIG_LIBDIR directly
@@ -120,32 +120,36 @@ $(2)_$(3)_ENV = \
     LD_LIBRARY_PATH="$$(call list-join,:,$$(foreach d,$$($(2)_$(3)_DEPS),$$($$(d)_$(3)_LIBDIR)/$$($(3)-$(4)_LIBDIR)),,:)$$$$LD_LIBRARY_PATH" \
     PKG_CONFIG_PATH="$$(call list-join,:,$$(foreach d,$$($(2)_$(3)_DEPS),$$($$(d)_$(3)_LIBDIR)/$$($(3)-$(4)_LIBDIR)/pkgconfig))" \
     PKG_CONFIG_LIBDIR="/usr/lib/$$($(3)-$(4)_LIBDIR)/pkgconfig:/usr/share/pkgconfig" \
-    CFLAGS="$$($(2)_$(3)_INCFLAGS) $$($(2)_CFLAGS) $$(COMMON_FLAGS) $$($(3)_COMMON_FLAGS)" \
-    CPPFLAGS="$$($(2)_$(3)_INCFLAGS) $$($(2)_CPPFLAGS) $$(COMMON_FLAGS) $$($(3)_COMMON_FLAGS)" \
-    CXXFLAGS="$$($(2)_$(3)_INCFLAGS) $$($(2)_CXXFLAGS) $$(COMMON_FLAGS) $$($(3)_COMMON_FLAGS) -std=c++17" \
-    LDFLAGS="$$($(2)_$(3)_LIBFLAGS) $$($(2)_$(3)_LDFLAGS) $$($(2)_LDFLAGS) $$($(3)-$(4)_LDFLAGS)" \
+    CFLAGS="$$($(2)_$(3)_INCFLAGS) $$($(2)_CFLAGS) $$($(3)_CFLAGS) $$(CFLAGS)" \
+    CPPFLAGS="$$($(2)_$(3)_INCFLAGS) $$($(2)_CFLAGS) $$($(3)_CFLAGS) $$(CFLAGS)" \
+    CXXFLAGS="$$($(2)_$(3)_INCFLAGS) -std=c++17 $$($(2)_CFLAGS) $$($(3)_CFLAGS) $$(CFLAGS)" \
+    LDFLAGS="$$($(2)_$(3)-$(4)_LIBFLAGS) $$($(2)_$(3)_LIBFLAGS) $$($(2)_LDFLAGS) $$($(3)_LDFLAGS) $$(LDFLAGS)" \
     SOURCE_DATE_EPOCH="$$($(2)_$(3)_SOURCE_DATE_EPOCH)" \
 
 ifeq ($(1),wine)
 
 $(2)_$(3)_ENV += \
-    CROSSCFLAGS="$$($(2)_$(3)_INCFLAGS) $$($(2)_CFLAGS) $$(COMMON_FLAGS) $$($(3)_COMMON_FLAGS)" \
-    CROSSLDFLAGS="$$($(2)_$(3)_LIBFLAGS) $$($(2)_$(3)_LDFLAGS) $$($(2)_LDFLAGS) $$(CROSSLDFLAGS)" \
+    CROSSCFLAGS="$$($(2)_$(3)_INCFLAGS) $$($(2)_CFLAGS) $$($(3)_CFLAGS) $$(CFLAGS)" \
+    CROSSLDFLAGS="$$($(2)_$(3)-windows_LIBFLAGS) $$($(2)_$(3)_LIBFLAGS) $$($(2)_LDFLAGS) $$($(3)_LDFLAGS) $$(LDFLAGS)" \
     i386_AR="$$(i386-windows_TARGET)-ar" \
     i386_RANLIB="$$(i386-windows_TARGET)-ranlib" \
     i386_CC="$$(i386-windows_TARGET)-gcc" \
     i386_CXX="$$(i386-windows_TARGET)-g++" \
     i386_LD="$$(i386-windows_TARGET)-ld" \
-    i386_CFLAGS="$$($(2)_i386_INCFLAGS) $$($(2)_CFLAGS) $$(COMMON_FLAGS) $$(32_COMMON_FLAGS)" \
-    i386_LDFLAGS="$$($(2)_i386_LIBFLAGS) $$($(2)_i386_LDFLAGS) $$($(2)_LDFLAGS) $$(CROSSLDFLAGS)" \
+    i386_CFLAGS="$$($(2)_i386_INCFLAGS) $$($(2)_CFLAGS) $$(i386_CFLAGS) $$(CFLAGS)" \
+    i386_CPPFLAGS="$$($(2)_i386_INCFLAGS) $$($(2)_CFLAGS) $$(i386_CFLAGS) $$(CFLAGS)" \
+    i386_CXXFLAGS="$$($(2)_i386_INCFLAGS) -std=c++17 $$($(2)_CFLAGS) $$(i386_CFLAGS) $$(CFLAGS)" \
+    i386_LDFLAGS="$$($(2)_i386-windows_LIBFLAGS) $$($(2)_i386_LIBFLAGS) $$($(2)_LDFLAGS) $$(i386_LDFLAGS) $$(LDFLAGS)" \
     i386_PKG_CONFIG_LIBDIR="/usr/lib/$$(i386-windows_LIBDIR)/pkgconfig:/usr/share/pkgconfig" \
     x86_64_AR="$$(x86_64-windows_TARGET)-ar" \
     x86_64_RANLIB="$$(x86_64-windows_TARGET)-ranlib" \
     x86_64_CC="$$(x86_64-windows_TARGET)-gcc" \
     x86_64_CXX="$$(x86_64-windows_TARGET)-g++" \
     x86_64_LD="$$(x86_64-windows_TARGET)-ld" \
-    x86_64_CFLAGS="$$($(2)_x86_64_INCFLAGS) $$($(2)_CFLAGS) $$(COMMON_FLAGS) $$(64_COMMON_FLAGS)" \
-    x86_64_LDFLAGS="$$($(2)_x86_64_LIBFLAGS) $$($(2)_x86_64_LDFLAGS) $$($(2)_LDFLAGS) $$(CROSSLDFLAGS)" \
+    x86_64_CFLAGS="$$($(2)_x86_64_INCFLAGS) $$($(2)_CFLAGS) $$(x86_64_CFLAGS) $$(CFLAGS)" \
+    x86_64_CPPFLAGS="$$($(2)_x86_64_INCFLAGS) $$($(2)_CFLAGS) $$(x86_64_CFLAGS) $$(CFLAGS)" \
+    x86_64_CXXFLAGS="$$($(2)_x86_64_INCFLAGS) -std=c++17 $$($(2)_CFLAGS) $$(x86_64_CFLAGS) $$(CFLAGS)" \
+    x86_64_LDFLAGS="$$($(2)_x86_64-windows_LIBFLAGS) $$($(2)_x86_64_LIBFLAGS) $$($(2)_LDFLAGS) $$(x86_64_LDFLAGS) $$(LDFLAGS)" \
     x86_64_PKG_CONFIG_LIBDIR="/usr/lib/$$(x86_64-windows_LIBDIR)/pkgconfig:/usr/share/pkgconfig" \
 
 endif
