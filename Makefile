@@ -153,15 +153,15 @@ module: | $(BUILD_ROOT)/$(module)/lib/wine/x86_64-windows
 module: | $(BUILD_ROOT)/$(module)/lib/wine/x86_64-unix
 module: configure
 	$(MAKE) $(MFLAGS) $(MAKEOVERRIDES) -C $(BUILD_DIR)/ $(UNSTRIPPED) module=$(module) module && \
-	cp -f $(BUILD_DIR)/obj-wine32/dlls/$(module)/$(MODULE_PEFILE) $(BUILD_ROOT)/$(module)/lib/wine/i386-windows/ && \
-	cp -f $(BUILD_DIR)/obj-wine64/dlls/$(module)/$(MODULE_PEFILE) $(BUILD_ROOT)/$(module)/lib/wine/x86_64-windows/ && \
-	if [ -e $(BUILD_DIR)/obj-wine32/dlls/$(module)/$(MODULE_PEFILE).so ]; then \
-		cp -f $(BUILD_DIR)/obj-wine32/dlls/$(module)/$(MODULE_PEFILE).so $(BUILD_ROOT)/$(module)/lib/wine/i386-unix/ && \
-		cp -f $(BUILD_DIR)/obj-wine64/dlls/$(module)/$(MODULE_PEFILE).so $(BUILD_ROOT)/$(module)/lib/wine/x86_64-unix/; \
+	cp -f $(BUILD_DIR)/obj-wine-32/dlls/$(module)/$(MODULE_PEFILE) $(BUILD_ROOT)/$(module)/lib/wine/i386-windows/ && \
+	cp -f $(BUILD_DIR)/obj-wine-64/dlls/$(module)/$(MODULE_PEFILE) $(BUILD_ROOT)/$(module)/lib/wine/x86_64-windows/ && \
+	if [ -e $(BUILD_DIR)/obj-wine-32/dlls/$(module)/$(MODULE_PEFILE).so ]; then \
+		cp -f $(BUILD_DIR)/obj-wine-32/dlls/$(module)/$(MODULE_PEFILE).so $(BUILD_ROOT)/$(module)/lib/wine/i386-unix/ && \
+		cp -f $(BUILD_DIR)/obj-wine-64/dlls/$(module)/$(MODULE_PEFILE).so $(BUILD_ROOT)/$(module)/lib/wine/x86_64-unix/; \
 	fi
-	if [ -e $(BUILD_DIR)/obj-wine32/dlls/$(module)/$(MODULE_SOFILE) ]; then \
-		cp -f $(BUILD_DIR)/obj-wine32/dlls/$(module)/$(MODULE_SOFILE) $(BUILD_ROOT)/$(module)/lib/wine/i386-unix/ && \
-		cp -f $(BUILD_DIR)/obj-wine64/dlls/$(module)/$(MODULE_SOFILE) $(BUILD_ROOT)/$(module)/lib/wine/x86_64-unix/; \
+	if [ -e $(BUILD_DIR)/obj-wine-32/dlls/$(module)/$(MODULE_SOFILE) ]; then \
+		cp -f $(BUILD_DIR)/obj-wine-32/dlls/$(module)/$(MODULE_SOFILE) $(BUILD_ROOT)/$(module)/lib/wine/i386-unix/ && \
+		cp -f $(BUILD_DIR)/obj-wine-64/dlls/$(module)/$(MODULE_SOFILE) $(BUILD_ROOT)/$(module)/lib/wine/x86_64-unix/; \
 	fi
 
 any $(CONTAINERGOALS): configure

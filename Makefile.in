@@ -57,8 +57,8 @@ OPTIMIZE_FLAGS := -O2 -march=nocona -mtune=core-avx2 -mfpmath=sse
 SANITY_FLAGS   := -fwrapv -fno-strict-aliasing
 DEBUG_FLAGS    := -ggdb -ffunction-sections -fdata-sections -fno-omit-frame-pointer
 COMMON_FLAGS    = $(DEBUG_FLAGS) $(OPTIMIZE_FLAGS) $(SANITY_FLAGS) -ffile-prefix-map=$(CCACHE_BASEDIR)=.
-COMMON_FLAGS32 := -mstackrealign
-COMMON_FLAGS64 := -mcmodel=small
+32_COMMON_FLAGS := -mstackrealign
+64_COMMON_FLAGS := -mcmodel=small
 
 ifneq ($(SUPPRESS_WARNINGS),)
 	COMMON_FLAGS += -w
@@ -74,8 +74,8 @@ $(DST_DIR):
 	mkdir -p $@
 
 ifeq ($(CONTAINER),1) # inside the container
-BASE_SOURCE_DATE_EPOCH32 := $(BASE_SOURCE_DATE_EPOCH)
-BASE_SOURCE_DATE_EPOCH64 := $(shell expr $(BASE_SOURCE_DATE_EPOCH) - 10)
+32_SOURCE_DATE_EPOCH := $(BASE_SOURCE_DATE_EPOCH)
+64_SOURCE_DATE_EPOCH := $(shell expr $(BASE_SOURCE_DATE_EPOCH) - 10)
 
 # all, all-dist and dist are basically synonyms
 .PHONY: all all-dist dist
@@ -245,9 +245,9 @@ $(eval $(call rules-configure,ffmpeg,32))
 $(eval $(call rules-configure,ffmpeg,64))
 
 ## Only use ffmpeg to build gst-libav; we don't ship it.
-$(OBJ)/.ffmpeg-dist32:
+$(OBJ)/.ffmpeg-32-dist:
 	touch $@
-$(OBJ)/.ffmpeg-dist64:
+$(OBJ)/.ffmpeg-64-dist:
 	touch $@
 
 ##
@@ -274,14 +274,14 @@ $(eval $(call rules-source,gst_plugins_rs,$(SRCDIR)/gst-plugins-rs))
 $(eval $(call rules-cargo,gst_plugins_rs,32))
 $(eval $(call rules-cargo,gst_plugins_rs,64))
 
-$(OBJ)/.gst_plugins_rs-post-build64:
-	mkdir -p $(GST_PLUGINS_RS_DST64)/lib/x86_64-linux-gnu/gstreamer-1.0/
-	cp -a $(GST_PLUGINS_RS_OBJ64)/x86_64-unknown-linux-gnu/release/libgstdav1d.so $(GST_PLUGINS_RS_DST64)/lib/x86_64-linux-gnu/gstreamer-1.0/
+$(OBJ)/.gst_plugins_rs-64-post-build:
+	mkdir -p $(GST_PLUGINS_RS_64_DST)/lib/x86_64-linux-gnu/gstreamer-1.0/
+	cp -a $(GST_PLUGINS_RS_64_OBJ)/x86_64-unknown-linux-gnu/release/libgstdav1d.so $(GST_PLUGINS_RS_64_DST)/lib/x86_64-linux-gnu/gstreamer-1.0/
 	touch $@
 
-$(OBJ)/.gst_plugins_rs-post-build32:
-	mkdir -p $(GST_PLUGINS_RS_DST32)/lib/i386-linux-gnu/gstreamer-1.0/
-	cp -a $(GST_PLUGINS_RS_OBJ32)/i686-unknown-linux-gnu/release/libgstdav1d.so $(GST_PLUGINS_RS_DST32)/lib/i386-linux-gnu/gstreamer-1.0/
+$(OBJ)/.gst_plugins_rs-32-post-build:
+	mkdir -p $(GST_PLUGINS_RS_32_DST)/lib/i386-linux-gnu/gstreamer-1.0/
+	cp -a $(GST_PLUGINS_RS_32_OBJ)/i686-unknown-linux-gnu/release/libgstdav1d.so $(GST_PLUGINS_RS_32_DST)/lib/i386-linux-gnu/gstreamer-1.0/
 	touch $@
 
 
@@ -347,13 +347,13 @@ WINEOPENXR_DEPENDS = wine openxr
 $(eval $(call rules-source,wineopenxr,$(SRCDIR)/wineopenxr))
 $(eval $(call rules-makedep,wineopenxr,64,CROSS))
 
-DIST_WINEOPENXR_JSON64 := $(DIST_PREFIX)/drive_c/openxr/wineopenxr64.json
+DIST_WINEOPENXR64_JSON := $(DIST_PREFIX)/drive_c/openxr/wineopenxr64.json
 $(WINEOPENXR_SRC)/wineopenxr64.json: wineopenxr
-$(DIST_WINEOPENXR_JSON64): $(WINEOPENXR_SRC)/wineopenxr64.json default_pfx
+$(DIST_WINEOPENXR64_JSON): $(WINEOPENXR_SRC)/wineopenxr64.json default_pfx
 	mkdir -p $(dir $@)
 	cp -a $< $@
 
-all-dist: $(DIST_WINEOPENXR_JSON64)
+all-dist: $(DIST_WINEOPENXR64_JSON)
 
 
 ##
@@ -392,11 +392,11 @@ $(OBJ)/.steamexe-post-build64:
 $(eval $(call rules-source,piper,$(SRCDIR)/piper))
 $(eval $(call rules-cmake,piper,64))
 
-$(OBJ)/.piper-post-build64:
-	mkdir -p $(PIPER_DST64)/lib/$(TARGET_64)
-	mv $(PIPER_DST64)/*.so* $(PIPER_DST64)/lib/$(TARGET_64)
+$(OBJ)/.piper-64-post-build:
+	mkdir -p $(PIPER_64_DST)/lib/$(64_TARGET)
+	mv $(PIPER_64_DST)/*.so* $(PIPER_64_DST)/lib/$(64_TARGET)
 	mkdir -p $(DST_DIR)/share
-	cp -a $(PIPER_DST64)/{espeak-ng-data,libtashkeel_model.ort} $(DST_DIR)/share/
+	cp -a $(PIPER_64_DST)/{espeak-ng-data,libtashkeel_model.ort} $(DST_DIR)/share/
 	touch $@
 
 ##
@@ -427,19 +427,19 @@ WINE_AUTOCONF_ARGS = \
   --with-mingw \
   --disable-tests
 
-WINE_AUTOCONF_ARGS32 = \
-  VKD3D_PE_CFLAGS="-I$(VULKAN_HEADERS_DST32)/include -I$(VKD3D_DST32)/include/vkd3d" \
-  VKD3D_PE_LIBS="-L$(VKD3D_LIBDIR32)/vkd3d/i386-windows -l:libvkd3d-1.dll -l:libvkd3d-shader-1.dll"
+WINE_32_AUTOCONF_ARGS = \
+  VKD3D_PE_CFLAGS="-I$(VULKAN_HEADERS_32_DST)/include -I$(VKD3D_32_DST)/include/vkd3d" \
+  VKD3D_PE_LIBS="-L$(VKD3D_32_LIBDIR)/vkd3d/i386-windows -l:libvkd3d-1.dll -l:libvkd3d-shader-1.dll"
 
-WINE_AUTOCONF_ARGS64 = --enable-win64 \
-  VKD3D_PE_CFLAGS="-I$(VULKAN_HEADERS_DST64)/include -I$(VKD3D_DST64)/include/vkd3d" \
-  VKD3D_PE_LIBS="-L$(VKD3D_LIBDIR64)/vkd3d/x86_64-windows -l:libvkd3d-1.dll -l:libvkd3d-shader-1.dll"
+WINE_64_AUTOCONF_ARGS = --enable-win64 \
+  VKD3D_PE_CFLAGS="-I$(VULKAN_HEADERS_64_DST)/include -I$(VKD3D_64_DST)/include/vkd3d" \
+  VKD3D_PE_LIBS="-L$(VKD3D_64_LIBDIR)/vkd3d/x86_64-windows -l:libvkd3d-1.dll -l:libvkd3d-shader-1.dll"
 
 WINE_DEPENDS = gst_orc gstreamer gst_base vkd3d ffmpeg
-WINE_DEPENDS64 = piper
+WINE_64_DEPENDS = piper
 
-WINE_LIBDIR32 = $(WINE_DST32)/lib
-WINE_LIBDIR64 = $(WINE_DST64)/lib
+WINE_32_LIBDIR = $(WINE_32_DST)/lib
+WINE_64_LIBDIR = $(WINE_64_DST)/lib
 
 $(eval $(call rules-source,wine,$(SRCDIR)/wine))
 $(eval $(call rules-autoconf,wine,32))
@@ -451,19 +451,19 @@ $(OBJ)/.wine-post-source:
 	-cd $(WINE_SRC) && tools/make_specfiles
 	touch $@
 
-$(OBJ)/.wine-post-build64:
+$(OBJ)/.wine-64-post-build:
 	mkdir -p $(DST_DIR)/{bin,share}
-	$(call install-strip,$(WINE_DST64)/bin/wine64,$(DST_DIR)/bin)
-	$(call install-strip,$(WINE_DST64)/bin/wine64-preloader,$(DST_DIR)/bin)
-	$(call install-strip,$(WINE_DST64)/bin/wineserver,$(DST_DIR)/bin)
-	cp -a $(WINE_DST64)/share/wine $(DST_DIR)/share
-	cp -a $(WINE_DST64)/bin/msidb $(DST_DIR)/bin
+	$(call install-strip,$(WINE_64_DST)/bin/wine64,$(DST_DIR)/bin)
+	$(call install-strip,$(WINE_64_DST)/bin/wine64-preloader,$(DST_DIR)/bin)
+	$(call install-strip,$(WINE_64_DST)/bin/wineserver,$(DST_DIR)/bin)
+	cp -a $(WINE_64_DST)/share/wine $(DST_DIR)/share
+	cp -a $(WINE_64_DST)/bin/msidb $(DST_DIR)/bin
 	touch $@
 
-$(OBJ)/.wine-post-build32:
+$(OBJ)/.wine-32-post-build:
 	mkdir -p $(DST_DIR)/bin
-	$(call install-strip,$(WINE_DST32)/bin/wine,$(DST_DIR)/bin)
-	$(call install-strip,$(WINE_DST32)/bin/wine-preloader,$(DST_DIR)/bin)
+	$(call install-strip,$(WINE_32_DST)/bin/wine,$(DST_DIR)/bin)
+	$(call install-strip,$(WINE_32_DST)/bin/wine-preloader,$(DST_DIR)/bin)
 	touch $@
 
 
@@ -484,14 +484,14 @@ $(eval $(call rules-makedep,vrclient,64,CROSS))
 ##
 
 # wine builds DLLs with the same names, we need to differentiate the timestamps
-DXVK_SOURCE_DATE_EPOCH32 := $(shell expr $(BASE_SOURCE_DATE_EPOCH32) - 1)
-DXVK_SOURCE_DATE_EPOCH64 := $(shell expr $(BASE_SOURCE_DATE_EPOCH64) - 1)
+DXVK_32_SOURCE_DATE_EPOCH := $(shell expr $(32_SOURCE_DATE_EPOCH) - 1)
+DXVK_64_SOURCE_DATE_EPOCH := $(shell expr $(64_SOURCE_DATE_EPOCH) - 1)
 
 DXVK_SOURCE_ARGS = \
   --exclude version.h.in \
 
-DXVK_MESON_ARGS32 = --bindir=$(DXVK_DST32)/lib/wine/dxvk/i386-windows
-DXVK_MESON_ARGS64 = --bindir=$(DXVK_DST64)/lib/wine/dxvk/x86_64-windows
+DXVK_32_MESON_ARGS = --bindir=$(DXVK_32_DST)/lib/wine/dxvk/i386-windows
+DXVK_64_MESON_ARGS = --bindir=$(DXVK_64_DST)/lib/wine/dxvk/x86_64-windows
 DXVK_DEPENDS = glslang
 
 $(eval $(call rules-source,dxvk,$(SRCDIR)/dxvk))
@@ -511,8 +511,8 @@ $(OBJ)/.dxvk-post-source:
 ## dxvk-nvapi
 ##
 
-DXVK_NVAPI_MESON_ARGS32 = --bindir=$(DXVK_NVAPI_DST32)/lib/wine/nvapi/i386-windows
-DXVK_NVAPI_MESON_ARGS64 = --bindir=$(DXVK_NVAPI_DST64)/lib/wine/nvapi/x86_64-windows
+DXVK_NVAPI_32_MESON_ARGS = --bindir=$(DXVK_NVAPI_32_DST)/lib/wine/nvapi/i386-windows
+DXVK_NVAPI_64_MESON_ARGS = --bindir=$(DXVK_NVAPI_64_DST)/lib/wine/nvapi/x86_64-windows
 
 $(eval $(call rules-source,dxvk-nvapi,$(SRCDIR)/dxvk-nvapi))
 $(eval $(call rules-meson,dxvk-nvapi,32,CROSS))
@@ -556,23 +556,23 @@ VKD3D_CFLAGS = -fno-lto
 VKD3D_LDFLAGS = -static-libgcc $(CROSSLDFLAGS)
 VKD3D_DEPENDS = vulkan-headers spirv-headers
 
-VKD3D_LIBDIR32 = $(VKD3D_DST32)/lib
-VKD3D_LIBDIR64 = $(VKD3D_DST64)/lib
+VKD3D_32_LIBDIR = $(VKD3D_32_DST)/lib
+VKD3D_64_LIBDIR = $(VKD3D_64_DST)/lib
 
 $(eval $(call rules-source,vkd3d,$(SRCDIR)/vkd3d))
 $(eval $(call rules-autoconf,vkd3d,32,CROSS))
 $(eval $(call rules-autoconf,vkd3d,64,CROSS))
 
-$(OBJ)/.vkd3d-post-build64:
-	mkdir -p $(VKD3D_LIBDIR64)/vkd3d/x86_64-windows
-	mv $(VKD3D_DST64)/bin/libvkd3d-1.dll $(VKD3D_LIBDIR64)/vkd3d/x86_64-windows
-	mv $(VKD3D_DST64)/bin/libvkd3d-shader-1.dll $(VKD3D_LIBDIR64)/vkd3d/x86_64-windows
+$(OBJ)/.vkd3d-64-post-build:
+	mkdir -p $(VKD3D_64_LIBDIR)/vkd3d/x86_64-windows
+	mv $(VKD3D_64_DST)/bin/libvkd3d-1.dll $(VKD3D_64_LIBDIR)/vkd3d/x86_64-windows
+	mv $(VKD3D_64_DST)/bin/libvkd3d-shader-1.dll $(VKD3D_64_LIBDIR)/vkd3d/x86_64-windows
 	touch $@
 
-$(OBJ)/.vkd3d-post-build32:
-	mkdir -p $(VKD3D_LIBDIR32)/vkd3d/i386-windows
-	mv $(VKD3D_DST32)/bin/libvkd3d-1.dll $(VKD3D_LIBDIR32)/vkd3d/i386-windows
-	mv $(VKD3D_DST32)/bin/libvkd3d-shader-1.dll $(VKD3D_LIBDIR32)/vkd3d/i386-windows
+$(OBJ)/.vkd3d-32-post-build:
+	mkdir -p $(VKD3D_32_LIBDIR)/vkd3d/i386-windows
+	mv $(VKD3D_32_DST)/bin/libvkd3d-1.dll $(VKD3D_32_LIBDIR)/vkd3d/i386-windows
+	mv $(VKD3D_32_DST)/bin/libvkd3d-shader-1.dll $(VKD3D_32_LIBDIR)/vkd3d/i386-windows
 	touch $@
 
 ##
@@ -580,15 +580,15 @@ $(OBJ)/.vkd3d-post-build32:
 ##
 
 # wine builds DLLs with the same names, we need to differentiate the timestamps
-VKD3D_PROTON_SOURCE_DATE_EPOCH32 := $(shell expr $(BASE_SOURCE_DATE_EPOCH32) - 2)
-VKD3D_PROTON_SOURCE_DATE_EPOCH64 := $(shell expr $(BASE_SOURCE_DATE_EPOCH64) - 2)
+VKD3D_PROTON_32_SOURCE_DATE_EPOCH := $(shell expr $(32_SOURCE_DATE_EPOCH) - 2)
+VKD3D_PROTON_64_SOURCE_DATE_EPOCH := $(shell expr $(64_SOURCE_DATE_EPOCH) - 2)
 
 VKD3D_PROTON_SOURCE_ARGS = \
   --exclude vkd3d_build.h.in \
   --exclude vkd3d_version.h.in \
 
-VKD3D_PROTON_MESON_ARGS32 = --bindir=$(VKD3D_PROTON_DST32)/lib/wine/vkd3d-proton/i386-windows
-VKD3D_PROTON_MESON_ARGS64 = --bindir=$(VKD3D_PROTON_DST64)/lib/wine/vkd3d-proton/x86_64-windows
+VKD3D_PROTON_32_MESON_ARGS = --bindir=$(VKD3D_PROTON_32_DST)/lib/wine/vkd3d-proton/i386-windows
+VKD3D_PROTON_64_MESON_ARGS = --bindir=$(VKD3D_PROTON_64_DST)/lib/wine/vkd3d-proton/x86_64-windows
 VKD3D_PROTON_DEPENDS = glslang
 
 ifneq ($(UNSTRIPPED_BUILD),)
@@ -625,20 +625,20 @@ $(eval $(call rules-winemaker,battleye,32,beclient.dll))
 $(eval $(call rules-winemaker,battleye,64,beclient_x64.dll))
 
 $(OBJ)/.battleye-post-source:
-	mkdir -p $(BATTLEYE_OBJ32) && cp -a $(BATTLEYE_SRC)/beclient.spec $(BATTLEYE_OBJ32)/beclient.spec
-	mkdir -p $(BATTLEYE_OBJ64) && cp -a $(BATTLEYE_SRC)/beclient.spec $(BATTLEYE_OBJ64)/beclient_x64.spec
+	mkdir -p $(BATTLEYE_32_OBJ) && cp -a $(BATTLEYE_SRC)/beclient.spec $(BATTLEYE_32_OBJ)/beclient.spec
+	mkdir -p $(BATTLEYE_64_OBJ) && cp -a $(BATTLEYE_SRC)/beclient.spec $(BATTLEYE_64_OBJ)/beclient_x64.spec
 	touch $@
 
-$(OBJ)/.battleye-post-build64:
+$(OBJ)/.battleye-64-post-build:
 	mkdir -p $(OBJ)/dist-battleye/v1
-	cp -r $(BATTLEYE_DST64)/* $(OBJ)/dist-battleye/v1/
-	rm -rf $(BATTLEYE_DST64)/*
+	cp -r $(BATTLEYE_64_DST)/* $(OBJ)/dist-battleye/v1/
+	rm -rf $(BATTLEYE_64_DST)/*
 	touch $@
 
-$(OBJ)/.battleye-post-build32:
+$(OBJ)/.battleye-32-post-build:
 	mkdir -p $(OBJ)/dist-battleye/v1
-	cp -r $(BATTLEYE_DST32)/* $(OBJ)/dist-battleye/v1/
-	rm -rf $(BATTLEYE_DST32)/*
+	cp -r $(BATTLEYE_32_DST)/* $(OBJ)/dist-battleye/v1/
+	rm -rf $(BATTLEYE_32_DST)/*
 	touch $@
 
 endif
@@ -656,26 +656,26 @@ $(eval $(call create-rules-common,eac,EAC,64))
 $(eval $(call create-rules-common,eac,EAC,32))
 
 
-$(OBJ)/.eac-build64:
+$(OBJ)/.eac-64-build:
 	@echo ":: building 64bit eac..." >&2
-	rsync -arx "$(EAC_SRC)/" "$(EAC_OBJ64)/"
-	env $(EAC_ENV64) \
-	$(MAKE) -C "$(EAC_OBJ64)" WINE_OBJ="$(WINE_OBJ64)" HOST="x86_64-w64-mingw32" CROSSCXX="x86_64-w64-mingw32-g++" BIT="64"
+	rsync -arx "$(EAC_SRC)/" "$(EAC_64_OBJ)/"
+	env $(EAC_64_ENV) \
+	$(MAKE) -C "$(EAC_64_OBJ)" WINE_OBJ="$(WINE_64_OBJ)" HOST="x86_64-w64-mingw32" CROSSCXX="x86_64-w64-mingw32-g++" BIT="64"
 	mkdir -p $(OBJ)/dist-eac/v2/lib/x86_64-linux-gnu
-	$(call install-strip,$(EAC_OBJ64)/easyanticheat.so,$(OBJ)/dist-eac/v2/lib/x86_64-linux-gnu)
-	$(call install-strip,$(EAC_OBJ64)/easyanticheat.dll,$(OBJ)/dist-eac/v2/lib/x86_64-linux-gnu)
+	$(call install-strip,$(EAC_64_OBJ)/easyanticheat.so,$(OBJ)/dist-eac/v2/lib/x86_64-linux-gnu)
+	$(call install-strip,$(EAC_64_OBJ)/easyanticheat.dll,$(OBJ)/dist-eac/v2/lib/x86_64-linux-gnu)
 	cp $(OBJ)/dist-eac/v2/lib/x86_64-linux-gnu/easyanticheat.so $(OBJ)/dist-eac/v2/lib/x86_64-linux-gnu/easyanticheat_x64.so
 	cp $(OBJ)/dist-eac/v2/lib/x86_64-linux-gnu/easyanticheat.dll $(OBJ)/dist-eac/v2/lib/x86_64-linux-gnu/easyanticheat_x64.dll
 	touch $@
 
-$(OBJ)/.eac-build32:
+$(OBJ)/.eac-32-build:
 	@echo ":: building 32bit eac..." >&2
-	rsync -arx "$(EAC_SRC)/" "$(EAC_OBJ32)/"
-	env $(EAC_ENV32) \
-	$(MAKE) -C "$(EAC_OBJ32)" WINE_OBJ="$(WINE_OBJ32)" HOST="i686-w64-mingw32" CROSSCXX="i686-w64-mingw32-g++" BIT="32"
+	rsync -arx "$(EAC_SRC)/" "$(EAC_32_OBJ)/"
+	env $(EAC_32_ENV) \
+	$(MAKE) -C "$(EAC_32_OBJ)" WINE_OBJ="$(WINE_32_OBJ)" HOST="i686-w64-mingw32" CROSSCXX="i686-w64-mingw32-g++" BIT="32"
 	mkdir -p $(OBJ)/dist-eac/v2/lib32
-	$(call install-strip,$(EAC_OBJ32)/easyanticheat.so,$(OBJ)/dist-eac/v2/lib32)
-	$(call install-strip,$(EAC_OBJ32)/easyanticheat.dll,$(OBJ)/dist-eac/v2/lib32)
+	$(call install-strip,$(EAC_32_OBJ)/easyanticheat.so,$(OBJ)/dist-eac/v2/lib32)
+	$(call install-strip,$(EAC_32_OBJ)/easyanticheat.dll,$(OBJ)/dist-eac/v2/lib32)
 	mv $(OBJ)/dist-eac/v2/lib32/easyanticheat.so $(OBJ)/dist-eac/v2/lib32/easyanticheat_x86.so
 	mv $(OBJ)/dist-eac/v2/lib32/easyanticheat.dll $(OBJ)/dist-eac/v2/lib32/easyanticheat_x86.dll
 	touch $@
@@ -691,16 +691,16 @@ SYMSTORE_DEPENDS = wine
 $(eval $(call rules-source,symstore,$(SRCDIR)/symstore))
 $(eval $(call create-rules-common,symstore,SYMSTORE,64))
 
-$(OBJ)/.symstore-build64:
+$(OBJ)/.symstore-64-build:
 	@echo ":: building symstore helper..." >&2
-	rsync -arx "$(SYMSTORE_SRC)/" "$(SYMSTORE_OBJ64)/"
-	$(MAKE) -C "$(SYMSTORE_OBJ64)" SYMSTORE_CFLAGS="-I$(WINE_SRC)/include -I$(WINE_OBJ64)/include"
+	rsync -arx "$(SYMSTORE_SRC)/" "$(SYMSTORE_64_OBJ)/"
+	$(MAKE) -C "$(SYMSTORE_64_OBJ)" SYMSTORE_CFLAGS="-I$(WINE_SRC)/include -I$(WINE_64_OBJ)/include"
 	touch $@
 
 .PHONY: symstore-tarball
 symstore-tarball:
 	mkdir -p $(OBJ)/symstore/$(BUILD_NAME)
-	$(SYMSTORE_OBJ64)/symstore --skip-managed $(DST_BASE) $(OBJ)/symstore/$(BUILD_NAME)
+	$(SYMSTORE_64_OBJ)/symstore --skip-managed $(DST_BASE) $(OBJ)/symstore/$(BUILD_NAME)
 	cd $(OBJ)/symstore/$(BUILD_NAME) && zip -r ../$(BUILD_NAME)-symstore.zip . >& /dev/null
 
 ##
@@ -929,35 +929,33 @@ all-dist: $(DIST_FONTS)
 ##
 
 GECKO_VER := 2.47.4
-GECKO32_TARBALL := wine-gecko-$(GECKO_VER)-x86.tar.xz
-GECKO64_TARBALL := wine-gecko-$(GECKO_VER)-x86_64.tar.xz
-GECKO64_TARBALL_URL := https://dl.winehq.org/wine/wine-gecko/$(GECKO_VER)/$(GECKO64_TARBALL)
-GECKO32_TARBALL_URL := https://dl.winehq.org/wine/wine-gecko/$(GECKO_VER)/$(GECKO32_TARBALL)
-DIST_GECKO_DIR := $(DST_DIR)/share/wine/gecko
-DIST_GECKO32 := $(OBJ)/.gecko-dist32
-DIST_GECKO64 := $(OBJ)/.gecko-dist64
+GECKO_32_TARBALL := wine-gecko-$(GECKO_VER)-x86.tar.xz
+GECKO_64_TARBALL := wine-gecko-$(GECKO_VER)-x86_64.tar.xz
+GECKO_64_TARBALL_URL := https://dl.winehq.org/wine/wine-gecko/$(GECKO_VER)/$(GECKO_64_TARBALL)
+GECKO_32_TARBALL_URL := https://dl.winehq.org/wine/wine-gecko/$(GECKO_VER)/$(GECKO_32_TARBALL)
+GECKO_DST := $(DST_DIR)/share/wine/gecko
 
-$(SRC)/contrib/$(GECKO64_TARBALL):
+$(SRC)/contrib/$(GECKO_64_TARBALL):
 	mkdir -p $(dir $@)
-	wget --no-use-server-timestamps -O $@ $(GECKO64_TARBALL_URL) || (rm $@; false)
+	wget --no-use-server-timestamps -O $@ $(GECKO_64_TARBALL_URL) || (rm $@; false)
 
-$(SRC)/contrib/$(GECKO32_TARBALL):
+$(SRC)/contrib/$(GECKO_32_TARBALL):
 	mkdir -p $(dir $@)
-	wget --no-use-server-timestamps -O $@ $(GECKO32_TARBALL_URL) || (rm $@; false)
+	wget --no-use-server-timestamps -O $@ $(GECKO_32_TARBALL_URL) || (rm $@; false)
 
-$(DIST_GECKO32): $(SRC)/contrib/$(GECKO32_TARBALL)
-	mkdir -p $(DIST_GECKO_DIR)
-	rm -rf $(DIST_GECKO_DIR)/wine-gecko-$(GECKO_VER)-x86
-	tar --no-same-owner -xf $< -C $(DIST_GECKO_DIR)
+$(OBJ)/.gecko-32-dist: $(SRC)/contrib/$(GECKO_32_TARBALL)
+	mkdir -p $(GECKO_DST)
+	rm -rf $(GECKO_DST)/wine-gecko-$(GECKO_VER)-x86
+	tar --no-same-owner -xf $< -C $(GECKO_DST)
 	touch $@
 
-$(DIST_GECKO64): $(SRC)/contrib/$(GECKO64_TARBALL)
-	mkdir -p $(DIST_GECKO_DIR)
-	rm -rf $(DIST_GECKO_DIR)/wine-gecko-$(GECKO_VER)-x86_64
-	tar --no-same-owner -xf $< -C $(DIST_GECKO_DIR)
+$(OBJ)/.gecko-64-dist: $(SRC)/contrib/$(GECKO_64_TARBALL)
+	mkdir -p $(GECKO_DST)
+	rm -rf $(GECKO_DST)/wine-gecko-$(GECKO_VER)-x86_64
+	tar --no-same-owner -xf $< -C $(GECKO_DST)
 	touch $@
 
-all-dist: $(DIST_GECKO32) $(DIST_GECKO64)
+all-dist: $(OBJ)/.gecko-32-dist $(OBJ)/.gecko-64-dist
 
 
 ##
@@ -1011,43 +1009,41 @@ all-dist: $(DIST_XALIA)
 ##
 
 ICU_VER := 6.8.2
-DIST_ICU64_DIR := $(DST_LIBDIR)/wine/icu/x86_64-windows
-DIST_ICU64 := $(OBJ)/.icu-dist64
-ICU64_TARBALL := icu-$(ICU_VER)-x86_64.tar.xz
-DIST_ICU32_DIR := $(DST_LIBDIR)/wine/icu/i386-windows
-DIST_ICU32 := $(OBJ)/.icu-dist32
-ICU32_TARBALL := icu-$(ICU_VER)-x86.tar.xz
+ICU_64_DIST_DIR := $(DST_LIBDIR)/wine/icu/x86_64-windows
+ICU_64_TARBALL := icu-$(ICU_VER)-x86_64.tar.xz
+ICU_32_DIST_DIR := $(DST_LIBDIR)/wine/icu/i386-windows
+ICU_32_TARBALL := icu-$(ICU_VER)-x86.tar.xz
 
-$(DIST_ICU64): $(SRC)/icu/$(ICU64_TARBALL)
-	mkdir -p $(DIST_ICU64_DIR)
-	rm -rf $(DIST_ICU64_DIR)/*.dll
-	tar --no-same-owner -xf $< -C $(DIST_ICU64_DIR)
+$(OBJ)/.icu-64-dist: $(SRC)/icu/$(ICU_64_TARBALL)
+	mkdir -p $(ICU_64_DIST_DIR)
+	rm -rf $(ICU_64_DIST_DIR)/*.dll
+	tar --no-same-owner -xf $< -C $(ICU_64_DIST_DIR)
 	touch $@
 
-$(DIST_ICU32): $(SRC)/icu/$(ICU32_TARBALL)
-	mkdir -p $(DIST_ICU32_DIR)
-	rm -rf $(DIST_ICU32_DIR)/*.dll
-	tar --no-same-owner -xf $< -C $(DIST_ICU32_DIR)
+$(OBJ)/.icu-32-dist: $(SRC)/icu/$(ICU_32_TARBALL)
+	mkdir -p $(ICU_32_DIST_DIR)
+	rm -rf $(ICU_32_DIST_DIR)/*.dll
+	tar --no-same-owner -xf $< -C $(ICU_32_DIST_DIR)
 	touch $@
 
-all-dist: $(DIST_ICU64) $(DIST_ICU32)
+all-dist: $(OBJ)/.icu-64-dist $(OBJ)/.icu-32-dist
 
 
 ##
 ## openvr
 ##
 
-DIST_OVR32 := $(DST_LIBDIR)/wine/dxvk/i386-windows/openvr_api_dxvk.dll
-$(DIST_OVR32): $(SRCDIR)/openvr/bin/win32/openvr_api.dll | $(DST_DIR)
+OVR_32_DIST := $(DST_LIBDIR)/wine/dxvk/i386-windows/openvr_api_dxvk.dll
+$(OVR_32_DIST): $(SRCDIR)/openvr/bin/win32/openvr_api.dll | $(DST_DIR)
 	mkdir -p $(DST_LIBDIR)/wine/dxvk/i386-windows
 	cp -af $< $@
 
-DIST_OVR64 := $(DST_LIBDIR)/wine/dxvk/x86_64-windows/openvr_api_dxvk.dll
-$(DIST_OVR64): $(SRCDIR)/openvr/bin/win64/openvr_api.dll | $(DST_DIR)
+OVR_64_DIST := $(DST_LIBDIR)/wine/dxvk/x86_64-windows/openvr_api_dxvk.dll
+$(OVR_64_DIST): $(SRCDIR)/openvr/bin/win64/openvr_api.dll | $(DST_DIR)
 	mkdir -p $(DST_LIBDIR)/wine/dxvk/x86_64-windows
 	cp -af $< $@
 
-all-dist: $(DIST_OVR32) $(DIST_OVR64)
+all-dist: $(OVR_32_DIST) $(OVR_64_DIST)
 
 
 ##
@@ -1167,11 +1163,11 @@ redist: all
 
 .PHONY: module32 module64 module
 
-module32: | all-source wine-configure32
-	+$(BEAR) $(MAKE) -j$(J) $(filter -j%,$(MAKEFLAGS)) $(MFLAGS) $(MAKEOVERRIDES) -C $(WINE_OBJ32)/dlls/$(module)
+module32: | all-source wine-32-configure
+	+$(BEAR) $(MAKE) -j$(J) $(filter -j%,$(MAKEFLAGS)) $(MFLAGS) $(MAKEOVERRIDES) -C $(WINE_32_OBJ)/dlls/$(module)
 
-module64: | all-source wine-configure64
-	+$(BEAR) $(MAKE) -j$(J) $(filter -j%,$(MAKEFLAGS)) $(MFLAGS) $(MAKEOVERRIDES) -C $(WINE_OBJ64)/dlls/$(module)
+module64: | all-source wine-64-configure
+	+$(BEAR) $(MAKE) -j$(J) $(filter -j%,$(MAKEFLAGS)) $(MFLAGS) $(MAKEOVERRIDES) -C $(WINE_64_OBJ)/dlls/$(module)
 
 module: | all-source wine-configure
 module: module32 module64

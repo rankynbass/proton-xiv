@@ -11,27 +11,27 @@ $$($(2)_SRC)/configure: $$($(2)_ORIGIN)/configure.ac | $$(OBJ)/.$(1)-post-source
 	@echo ":: autoreconfing $(1)..." >&2
 	cd "$$($(2)_SRC)" && autoreconf -fiv
 
-$$(OBJ)/.$(1)-configure$(3): $$($(2)_SRC)/configure
-	@echo ":: configuring $(3)bit $(1)..." >&2
-	rm -rf "$$($(2)_OBJ$(3))/config.cache"
+$$(OBJ)/.$(1)-$(3)-configure: $$($(2)_SRC)/configure
+	@echo ":: configuring $(1)-$(3)..." >&2
+	rm -rf "$$($(2)_$(3)_OBJ)/config.cache"
 
-	cd "$$($(2)_OBJ$(3))" && env $$($(2)_ENV$(3)) \
+	cd "$$($(2)_$(3)_OBJ)" && env $$($(2)_$(3)_ENV) \
 	$$($(2)_SRC)/configure $(--quiet?) -C \
-	    --prefix="$$($(2)_DST$(3))" \
-	    --libdir="$$($(2)_DST$(3))/lib" \
-	    --host="$$(TARGET_$(4)$(3))" \
-	    $$($(2)_ENV$(3)) \
-	    $$(AUTOCONF_ARGS_$(3)) \
+	    --prefix="$$($(2)_$(3)_DST)" \
+	    --libdir="$$($(2)_$(3)_DST)/lib" \
+	    --host="$$($(4)$(3)_TARGET)" \
+	    $$($(2)_$(3)_ENV) \
+	    $$($(3)_AUTOCONF_ARGS) \
 	    $$($(2)_AUTOCONF_ARGS) \
-	    $$($(2)_AUTOCONF_ARGS$(3)) \
+	    $$($(2)_$(3)_AUTOCONF_ARGS)
 
 	touch $$@
 
-$$(OBJ)/.$(1)-build$(3):
-	@echo ":: building $(3)bit $(1)..." >&2
-	+cd "$$($(2)_OBJ$(3))" && env $$($(2)_ENV$(3)) \
+$$(OBJ)/.$(1)-$(3)-build:
+	@echo ":: building $(1)-$(3)..." >&2
+	+cd "$$($(2)_$(3)_OBJ)" && env $$($(2)_$(3)_ENV) \
 	$$(BEAR) $$(MAKE)
-	cd "$$($(2)_OBJ$(3))" && env $$($(2)_ENV$(3)) \
+	cd "$$($(2)_$(3)_OBJ)" && env $$($(2)_$(3)_ENV) \
 	$$(MAKE) install
 	touch $$@
 endef

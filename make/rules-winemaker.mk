@@ -6,39 +6,39 @@
 #
 define create-rules-winemaker
 $(call create-rules-common,$(1),$(2),$(3))
-$(2)_OBJ$(3) := $$($(2)_OBJ$(3))/$(4)
+$(2)_$(3)_OBJ := $$($(2)_$(3)_OBJ)/$(4)
 
-$$(OBJ)/.$(1)-configure$(3):
-	@echo ":: configuring $(3)bit $(1)..." >&2
-	rsync -arx "$$($(2)_SRC)/" "$$($(2)_OBJ$(3))/"
-	cd "$$($(2)_OBJ$(3))" && env $$($(2)_ENV$(3)) \
+$$(OBJ)/.$(1)-$(3)-configure:
+	@echo ":: configuring $(1)-$(3)..." >&2
+	rsync -arx "$$($(2)_SRC)/" "$$($(2)_$(3)_OBJ)/"
+	cd "$$($(2)_$(3)_OBJ)" && env $$($(2)_$(3)_ENV) \
 	winemaker --nosource-fix --nolower-include --nodlls --nomsvcrt \
 	    "-I$$(WINE_SRC)/include" \
 	    "-I$$(WINE_SRC)/include/wine" \
-	    "-I$$(WINE_DST$(3))/include/wine" \
+	    "-I$$(WINE_$(3)_DST)/include/wine" \
 	    $(patsubst %.dll,--dll,$(patsubst %.exe,--guiexe,$(4))) \
-	    $$(WINEMAKER_ARGS_$(3)) \
+	    $$($(3)_WINEMAKER_ARGS) \
 	    $$($(2)_WINEMAKER_ARGS) \
-	    $$($(2)_WINEMAKER_ARGS$(3)) \
+	    $$($(2)_$(3)_WINEMAKER_ARGS) \
 	    .
-	sed -re 's@_LDFLAGS=@_LDFLAGS= $$$$(LDFLAGS) @' -i "$$($(2)_OBJ$(3))/Makefile"
+	sed -re 's@_LDFLAGS=@_LDFLAGS= $$$$(LDFLAGS) @' -i "$$($(2)_$(3)_OBJ)/Makefile"
 	touch $$@
 
-$$(OBJ)/.$(1)-build$(3):
-	@echo ":: building $(3)bit $(1)..." >&2
-	rsync -arx "$$($(2)_SRC)/" "$$($(2)_OBJ$(3))/"
-	env $$($(2)_ENV$(3)) \
-	$$(MAKE) -C "$$($(2)_OBJ$(3))" LIBRARIES="$$($(2)_LDFLAGS)"
-	cd "$$($(2)_OBJ$(3))" && touch "$(basename $(4)).spec" && env $$($(2)_ENV$(3)) \
+$$(OBJ)/.$(1)-$(3)-build:
+	@echo ":: building $(1)-$(3)..." >&2
+	rsync -arx "$$($(2)_SRC)/" "$$($(2)_$(3)_OBJ)/"
+	env $$($(2)_$(3)_ENV) \
+	$$(MAKE) -C "$$($(2)_$(3)_OBJ)" LIBRARIES="$$($(2)_LDFLAGS)"
+	cd "$$($(2)_$(3)_OBJ)" && touch "$(basename $(4)).spec" && env $$($(2)_$(3)_ENV) \
 	winebuild --$(lastword $(subst ., ,$(4))) --fake-module -E "$(basename $(4)).spec" -o "$(4).fake"
-	mkdir -p $$($(2)_LIBDIR$(3))/$(LIBDIR_WINE_$(3))
-	cp -a $$($(2)_OBJ$(3))/$(4).so $$($(2)_LIBDIR$(3))/$(LIBDIR_WINE_$(3))/
-	mkdir -p $$($(2)_LIBDIR$(3))/$(LIBDIR_WINE_CROSS$(3))
-	cp -a $$($(2)_OBJ$(3))/$(4).fake $$($(2)_LIBDIR$(3))/$(LIBDIR_WINE_CROSS$(3))/$(4)
+	mkdir -p $$($(2)_$(3)_LIBDIR)/$($(3)_WINEDIR)
+	cp -a $$($(2)_$(3)_OBJ)/$(4).so $$($(2)_$(3)_LIBDIR)/$($(3)_WINEDIR)/
+	mkdir -p $$($(2)_$(3)_LIBDIR)/$(CROSS$(3)_WINEDIR)
+	cp -a $$($(2)_$(3)_OBJ)/$(4).fake $$($(2)_$(3)_LIBDIR)/$(CROSS$(3)_WINEDIR)/$(4)
 	touch $$@
 endef
 
-WINEMAKER_ARGS_32 := --wine32
-WINEMAKER_ARGS_64 :=
+32_WINEMAKER_ARGS := --wine32
+64_WINEMAKER_ARGS :=
 
 rules-winemaker = $(call create-rules-winemaker,$(1),$(call toupper,$(1)),$(2),$(3))

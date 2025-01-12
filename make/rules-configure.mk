@@ -7,31 +7,31 @@
 define create-rules-configure
 $(call create-rules-common,$(1),$(2),$(3),$(4))
 
-$$(OBJ)/.$(1)-configure$(3):
-	@echo ":: configuring $(3)bit $(1)..." >&2
+$$(OBJ)/.$(1)-$(3)-configure:
+	@echo ":: configuring $(1)-$(3)..." >&2
 
-	cd "$$($(2)_OBJ$(3))" && env $$($(2)_ENV$(3)) \
+	cd "$$($(2)_$(3)_OBJ)" && env $$($(2)_$(3)_ENV) \
 	$$($(2)_SRC)/configure $(--quiet?) \
-	    --cross-prefix=$$(TARGET_$(3))- \
+	    --cross-prefix=$$($(3)_TARGET)- \
 	    --target-os=linux \
-	    --prefix="$$($(2)_DST$(3))" \
-	    --libdir="$$($(2)_LIBDIR$(3))/$$(LIBDIR_$(4)$(3))" \
-	    $$(CONFIGURE_ARGS_$(3)) \
+	    --prefix="$$($(2)_$(3)_DST)" \
+	    --libdir="$$($(2)_$(3)_LIBDIR)/$$($(4)$(3)_LIBDIR)" \
+	    $$($(3)_CONFIGURE_ARGS) \
 	    $$($(2)_CONFIGURE_ARGS) \
-	    $$($(2)_CONFIGURE_ARGS$(3)) \
+	    $$($(2)_$(3)_CONFIGURE_ARGS)
 
 	touch $$@
 
-$$(OBJ)/.$(1)-build$(3):
-	@echo ":: building $(3)bit $(1)..." >&2
-	+cd "$$($(2)_OBJ$(3))" && env $$($(2)_ENV$(3)) \
+$$(OBJ)/.$(1)-$(3)-build:
+	@echo ":: building $(1)-$(3)..." >&2
+	+cd "$$($(2)_$(3)_OBJ)" && env $$($(2)_$(3)_ENV) \
 	$$(BEAR) $$(MAKE)
-	cd "$$($(2)_OBJ$(3))" && env $$($(2)_ENV$(3)) \
+	cd "$$($(2)_$(3)_OBJ)" && env $$($(2)_$(3)_ENV) \
 	$$(MAKE) install
 	touch $$@
 endef
 
-CONFIGURE_ARGS_32 := --arch=x86
-CONFIGURE_ARGS_64 := --arch=x86_64
+32_CONFIGURE_ARGS := --arch=x86
+64_CONFIGURE_ARGS := --arch=x86_64
 
 rules-configure = $(call create-rules-configure,$(1),$(call toupper,$(1)),$(2),$(3))

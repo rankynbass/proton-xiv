@@ -6,27 +6,26 @@
 define create-rules-cargo
 $(call create-rules-common,$(1),$(2),$(3))
 
-$$(OBJ)/.$(1)-configure$(3):
-	@echo ":: configuring $(3)bit $(1)..." >&2
+$$(OBJ)/.$(1)-$(3)-configure:
+	@echo ":: configuring $(1)-$(3)..." >&2
 	touch $$@
 
-$$(OBJ)/.$(1)-build$(3):
-	@echo ":: building $(3)bit $(1)..." >&2
-	cd $$($(2)_SRC) && env $$($(2)_ENV$(3)) \
+$$(OBJ)/.$(1)-$(3)-build:
+	@echo ":: building $(1)-$(3)..." >&2
+	cd $$($(2)_SRC) && env $$($(2)_$(3)_ENV) \
 	cargo build $(--quiet?) --release \
 	      $$(filter -j%,$$(MAKEFLAGS)) \
-	      --target-dir $$($(2)_OBJ$(3)) \
-	      $$(CARGO_ARGS_$(3)) \
+	      --target-dir $$($(2)_$(3)_OBJ) \
+	      $$($(3)_CARGO_ARGS) \
 	      $$($(2)_CARGO_ARGS) \
-	      $$($(2)_CARGO_ARGS$(3)) \
-
+	      $$($(2)_$(3)_CARGO_ARGS)
 	touch $$@
 endef
 
 rules-cargo = $(call create-rules-cargo,$(1),$(call toupper,$(1)),$(2))
 
-CARGO_TARGET_32 := i686-unknown-linux-gnu
-CARGO_TARGET_64 := x86_64-unknown-linux-gnu
+32_CARGO_TARGET := i686-unknown-linux-gnu
+64_CARGO_TARGET := x86_64-unknown-linux-gnu
 
-CARGO_ARGS_32 := --target $(CARGO_TARGET_32)
-CARGO_ARGS_64 := --target $(CARGO_TARGET_64)
+32_CARGO_ARGS := --target $(32_CARGO_TARGET)
+64_CARGO_ARGS := --target $(64_CARGO_TARGET)
