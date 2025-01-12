@@ -7,6 +7,7 @@ define create-rules-common
 $(2)_$(3)_OBJ := $$(OBJ)/obj-$(1)-$(3)
 $(2)_$(3)_DST := $$(OBJ)/dst-$(1)-$(3)
 $(2)_$(3)_DEPS := $$(call toupper,$$($(2)_DEPENDS)) $$(call toupper,$$($(2)_$(3)_DEPENDS))
+$(2)_$(3)_HOST_DEPS := $$(call toupper,$$($(2)_HOST_DEPENDS))
 
 $(2)_$(3)_BINDIR ?= $$($(2)_$(3)_DST)/bin
 $(2)_$(3)_LIBDIR ?= $$($(2)_$(3)_DST)/lib
@@ -15,6 +16,7 @@ $(2)_$(3)_INCDIR ?= $$($(2)_$(3)_DST)/include
 $$(OBJ)/.$(1)-$(3)-configure: $$(shell mkdir -p $$($(2)_$(3)_OBJ))
 $$(OBJ)/.$(1)-$(3)-configure: CCACHE_BASEDIR = $$($(2)_SRC)
 $$(OBJ)/.$(1)-$(3)-configure: $$(patsubst %,%-$(3)-build,$$($(2)_DEPENDS) $$($(2)_$(3)_DEPENDS))
+$$(OBJ)/.$(1)-$(3)-configure: $$(patsubst %,%-$$(HOST_ARCH)-build,$$($(2)_HOST_DEPENDS))
 $$(OBJ)/.$(1)-$(3)-configure: | $$(OBJ)/.$(1)-post-source
 
 $(1)-$(3)-configure: $$(OBJ)/.$(1)-$(3)-configure
@@ -126,9 +128,9 @@ $(2)_$(3)_ENV = \
     LD="$$($(3)-$(4)_TARGET)-ld" \
     RC="$$($(3)-windows_TARGET)-windres" \
     WIDL="$$($(3)-windows_TARGET)-widl" \
-    PKG_CONFIG="$$($(3)-unix_TARGET)-pkg-config" \
-    PATH="$$(call list-join,:,$$(foreach d,$$($(2)_$(3)_DEPS),$$($$(d)_$(3)_BINDIR)),,:):$$$$PATH" \
-    LD_LIBRARY_PATH="$$(call list-join,:,$$(foreach d,$$($(2)_$(3)_DEPS),$$($$(d)_$(3)_LIBDIR)/$$($(3)-$(4)_LIBDIR)),,:)$$$$LD_LIBRARY_PATH" \
+    PKG_CONFIG="$$($$(HOST_ARCH)-unix_TARGET)-pkg-config" \
+    PATH="$$(call list-join,:,$$(foreach d,$$($(2)_$(3)_HOST_DEPS),$$($$(d)_$$(HOST_ARCH)_BINDIR)),,:):$$$$PATH" \
+    LD_LIBRARY_PATH="$$(call list-join,:,$$(foreach d,$$($(2)_$(3)_HOST_DEPS),$$($$(d)_$$(HOST_ARCH)_LIBDIR)/$$($$(HOST_ARCH)-unix_LIBDIR)),,:)$$$$LD_LIBRARY_PATH" \
     PKG_CONFIG_PATH="$$(call list-join,:,$$(foreach d,$$($(2)_$(3)_DEPS),$$($$(d)_$(3)_LIBDIR)/$$($(3)-$(4)_LIBDIR)/pkgconfig))" \
     PKG_CONFIG_LIBDIR="/usr/lib/$$($(3)-$(4)_LIBDIR)/pkgconfig:/usr/share/pkgconfig" \
     CFLAGS="$$($(2)_$(3)_INCFLAGS) $$($(2)_CFLAGS) $$($(3)_CFLAGS) $$(CFLAGS)" \

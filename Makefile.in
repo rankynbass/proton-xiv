@@ -181,6 +181,7 @@ GST_BASE_MESON_ARGS := \
 	--wrap-mode nodownload \
 
 GST_BASE_DEPENDS = gst_orc graphene gstreamer
+GST_BASE_HOST_DEPENDS = gst_orc
 
 $(eval $(call rules-source,gst_base,$(SRCDIR)/gstreamer/subprojects/gst-plugins-base))
 $(eval $(call rules-meson,gst_base,i386,unix))
@@ -212,6 +213,7 @@ GST_GOOD_MESON_ARGS := \
 	-Dorc=enabled
 
 GST_GOOD_DEPENDS = gst_orc gstreamer gst_base
+GST_GOOD_HOST_DEPENDS = gst_orc
 
 $(eval $(call rules-source,gst_good,$(SRCDIR)/gstreamer/subprojects/gst-plugins-good/))
 $(eval $(call rules-meson,gst_good,i386,unix))
@@ -514,7 +516,7 @@ DXVK_SOURCE_ARGS = \
 
 DXVK_i386_MESON_ARGS = --bindir=$(DXVK_i386_DST)/lib/wine/dxvk/i386-windows
 DXVK_x86_64_MESON_ARGS = --bindir=$(DXVK_x86_64_DST)/lib/wine/dxvk/x86_64-windows
-DXVK_DEPENDS = glslang
+DXVK_HOST_DEPENDS = glslang
 
 $(eval $(call rules-source,dxvk,$(SRCDIR)/dxvk))
 $(eval $(call rules-meson,dxvk,i386,windows))
@@ -611,7 +613,7 @@ VKD3D_PROTON_SOURCE_ARGS = \
 
 VKD3D_PROTON_i386_MESON_ARGS = --bindir=$(VKD3D_PROTON_i386_DST)/lib/wine/vkd3d-proton/i386-windows
 VKD3D_PROTON_x86_64_MESON_ARGS = --bindir=$(VKD3D_PROTON_x86_64_DST)/lib/wine/vkd3d-proton/x86_64-windows
-VKD3D_PROTON_DEPENDS = glslang
+VKD3D_PROTON_HOST_DEPENDS = glslang
 
 ifneq ($(UNSTRIPPED_BUILD),)
 	VKD3D_PROTON_MESON_ARGS = -Denable_trace=true
