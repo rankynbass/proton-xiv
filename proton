@@ -529,6 +529,12 @@ class Proton:
         self.wineserver_bin = self.bin_dir + "wineserver"
         self.dist_lock = FileLock(self.path("dist.lock"), timeout=-1)
 
+        if os.environ.get("PROTON_USE_WOW64", None) == "1" or not file_exists(self.wine_bin, follow_symlinks=True):
+            self.bin_dir = self.path("files/bin-wow64/")
+            self.wine_bin = self.bin_dir + "wine"
+            self.wine64_bin = self.bin_dir + "wine"
+            self.wineserver_bin = self.bin_dir + "wineserver"
+
     def path(self, d):
         return self.base_dir + d
 
@@ -1673,6 +1679,7 @@ class Session:
                 self.log_file.write("Language: LC_ALL " + str(self.env.get("HOST_LC_ALL", None)) +
                                     ", LC_MESSAGES " + str(self.env.get("LC_MESSAGES", None)) +
                                     ", LC_CTYPE " + str(self.env.get("LC_CTYPE", None)) + "\n")
+                self.log_file.write("PATH: " + str(self.env.get("PATH", None)) + "\n")
 
                 #dump some important variables into the log header
                 for var in ["WINEDLLOVERRIDES", "WINEDEBUG"]:

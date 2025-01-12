@@ -458,11 +458,20 @@ ifeq ($(findstring i386,$(unix_ARCHS)),)
 	$(call install-strip,$(WINE_x86_64_DST)/bin/wineserver,$(DST_DIR)/bin)
 	cp -a $(WINE_x86_64_DST)/bin/msidb $(DST_DIR)/bin/
 else
+	cp -a $(WINE_x86_64_DST)/bin/wine64 $(WINE_x86_64_DST)/bin/wine
+	cp -a $(WINE_x86_64_DST)/bin/wine64-preloader $(WINE_x86_64_DST)/bin/wine-preloader
+
 	mkdir -p $(DST_DIR)/bin
 	$(call install-strip,$(WINE_x86_64_DST)/bin/wine64,$(DST_DIR)/bin)
 	$(call install-strip,$(WINE_x86_64_DST)/bin/wine64-preloader,$(DST_DIR)/bin)
 	$(call install-strip,$(WINE_x86_64_DST)/bin/wineserver,$(DST_DIR)/bin)
-	cp -a $(WINE_x86_64_DST)/bin/msidb $(DST_DIR)/bin
+	cp -a $(WINE_x86_64_DST)/bin/msidb $(DST_DIR)/bin/
+
+	mkdir -p $(DST_DIR)/bin-wow64
+	$(call install-strip,$(WINE_x86_64_DST)/bin/wine,$(DST_DIR)/bin-wow64)
+	$(call install-strip,$(WINE_x86_64_DST)/bin/wine-preloader,$(DST_DIR)/bin-wow64)
+	$(call install-strip,$(WINE_x86_64_DST)/bin/wineserver,$(DST_DIR)/bin-wow64)
+	cp -a $(WINE_x86_64_DST)/bin/msidb $(DST_DIR)/bin-wow64/
 endif
 
 	mkdir -p $(DST_DIR)/share
