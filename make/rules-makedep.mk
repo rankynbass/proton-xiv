@@ -7,7 +7,7 @@ define create-rules-makedep
 $(call create-rules-common,$(1),$(2),$(3),unix)
 ifneq ($(findstring $(3)-unix,$(ARCHS)),)
 
-$$(OBJ)/.$(1)-$(3)-configure:
+$$(OBJ)/.$(1)-$(3)-configure: $$(OBJ)/.wine-$$(HOST_ARCH)-tools
 	@echo ":: configuring $(1)-$(3)..." >&2
 
 	sed -e '/^all:$$$$/,$$$$c all:' \
@@ -16,7 +16,7 @@ $$(OBJ)/.$(1)-$(3)-configure:
 	    -e '/^srcdir/a objdir = $$(WINE_$(3)_OBJ)' \
 	    -e '/^prefix/c prefix = $$($(2)_$(3)_DST)' \
 	    -e '/^libdir/c libdir = $$($(2)_$(3)_LIBDIR)' \
-	    -e '/^toolsdir/c toolsdir = $$(WINE_$(3)_OBJ)' \
+	    -e '/^toolsdir/c toolsdir = $$(WINE_$$(HOST_ARCH)_OBJ)' \
 	    \
 	    -e '/^CFLAGS/c CFLAGS = $$($(2)_$(3)_INCFLAGS) $$($(2)_CFLAGS) $$($(3)_CFLAGS) $$(CFLAGS)' \
 	    -e '/^CPPFLAGS/c CPPFLAGS = $$($(2)_$(3)_INCFLAGS) $$($(2)_CFLAGS) $$($(3)_CFLAGS) $$(CFLAGS)' \
@@ -39,7 +39,7 @@ $$(OBJ)/.$(1)-$(3)-configure:
 	    $$(WINE_$(3)_OBJ)/Makefile > $$($(2)_$(3)_OBJ)/Makefile
 
 	cd "$$($(2)_$(3)_OBJ)" && env $$($(2)_$(3)_ENV) \
-	$$(WINE_$(3)_OBJ)/tools/makedep
+	$$(WINE_$$(HOST_ARCH)_OBJ)/tools/makedep
 
 	touch $$@
 

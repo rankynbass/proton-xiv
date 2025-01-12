@@ -15,6 +15,8 @@ endif
 
 SHELL := /bin/bash
 ARCHS := i386-unix x86_64-unix i386-windows x86_64-windows
+
+HOST_ARCH := $(shell uname -m)
 unix_ARCHS = $(subst -unix,,$(filter %-unix,$(ARCHS)))
 windows_ARCHS = $(subst -windows,,$(filter %-windows,$(ARCHS)))
 
@@ -98,6 +100,7 @@ include $(SRC)/make/rules-autoconf.mk
 include $(SRC)/make/rules-configure.mk
 include $(SRC)/make/rules-winemaker.mk
 include $(SRC)/make/rules-wine-requests.mk
+include $(SRC)/make/rules-wine-tools.mk
 include $(SRC)/make/rules-cargo.mk
 
 
@@ -449,9 +452,11 @@ WINE_i386_LIBDIR = $(WINE_i386_DST)/lib
 WINE_x86_64_LIBDIR = $(WINE_x86_64_DST)/lib
 
 $(eval $(call rules-source,wine,$(SRCDIR)/wine))
+$(eval $(call rules-wine-requests,wine))
+$(eval $(call rules-wine-tools,wine,i386,unix))
+$(eval $(call rules-wine-tools,wine,x86_64,unix))
 $(eval $(call rules-autoconf,wine,i386,unix))
 $(eval $(call rules-autoconf,wine,x86_64,unix))
-$(eval $(call rules-wine-requests,wine))
 
 $(OBJ)/.wine-post-source:
 	cd $(WINE_SRC) && XDG_CACHE_HOME=$(OBJ) dlls/winevulkan/make_vulkan -x vk.xml -X video.xml
