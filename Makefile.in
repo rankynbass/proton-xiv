@@ -36,8 +36,7 @@ unexport SOURCE_DATE_EPOCH
 
 DST_BASE := $(OBJ)/dist
 DST_DIR := $(DST_BASE)/files
-DST_LIBDIR32 := $(DST_DIR)/lib
-DST_LIBDIR64 := $(DST_DIR)/lib64
+DST_LIBDIR := $(DST_DIR)/lib
 DIST_PREFIX := $(DST_DIR)/share/default_pfx/
 DIST_VERSION := $(DST_BASE)/version
 DEPLOY_DIR := ./deploy
@@ -277,13 +276,13 @@ $(eval $(call rules-cargo,gst_plugins_rs,32))
 $(eval $(call rules-cargo,gst_plugins_rs,64))
 
 $(OBJ)/.gst_plugins_rs-post-build64:
-	mkdir -p $(GST_PLUGINS_RS_DST64)/lib64/gstreamer-1.0/
-	cp -a $(GST_PLUGINS_RS_OBJ64)/x86_64-unknown-linux-gnu/release/libgstdav1d.so $(GST_PLUGINS_RS_DST64)/lib64/gstreamer-1.0/
+	mkdir -p $(GST_PLUGINS_RS_DST64)/lib/x86_64-linux-gnu/gstreamer-1.0/
+	cp -a $(GST_PLUGINS_RS_OBJ64)/x86_64-unknown-linux-gnu/release/libgstdav1d.so $(GST_PLUGINS_RS_DST64)/lib/x86_64-linux-gnu/gstreamer-1.0/
 	touch $@
 
 $(OBJ)/.gst_plugins_rs-post-build32:
-	mkdir -p $(GST_PLUGINS_RS_DST32)/lib/gstreamer-1.0/
-	cp -a $(GST_PLUGINS_RS_OBJ32)/i686-unknown-linux-gnu/release/libgstdav1d.so $(GST_PLUGINS_RS_DST32)/lib/gstreamer-1.0/
+	mkdir -p $(GST_PLUGINS_RS_DST32)/lib/i386-linux-gnu/gstreamer-1.0/
+	cp -a $(GST_PLUGINS_RS_OBJ32)/i686-unknown-linux-gnu/release/libgstdav1d.so $(GST_PLUGINS_RS_DST32)/lib/i386-linux-gnu/gstreamer-1.0/
 	touch $@
 
 
@@ -378,11 +377,13 @@ $(eval $(call rules-makedep,steamexe,64))
 $(eval $(call rules-makedep,steamexe,32))
 
 $(OBJ)/.steamexe-post-build32:
-	cp $(SRC)/steam_helper/32/libsteam_api.so $(DST_LIBDIR32)/
+	mkdir -p $(DST_LIBDIR)/i386-linux-gnu/
+	cp $(SRC)/steam_helper/32/libsteam_api.so $(DST_LIBDIR)/i386-linux-gnu/
 	touch $@
 
 $(OBJ)/.steamexe-post-build64:
-	cp $(SRC)/steam_helper/64/libsteam_api.so $(DST_LIBDIR64)/
+	mkdir -p $(DST_LIBDIR)/x86_64-linux-gnu/
+	cp $(SRC)/steam_helper/64/libsteam_api.so $(DST_LIBDIR)/x86_64-linux-gnu/
 	touch $@
 
 ##
@@ -393,9 +394,9 @@ $(eval $(call rules-source,piper,$(SRCDIR)/piper))
 $(eval $(call rules-cmake,piper,64))
 
 $(OBJ)/.piper-post-build64:
-	mkdir -p $(PIPER_DST64)/lib64
+	mkdir -p $(PIPER_DST64)/lib/$(TARGET_64)
+	mv $(PIPER_DST64)/*.so* $(PIPER_DST64)/lib/$(TARGET_64)
 	mkdir -p $(DST_DIR)/share
-	mv $(PIPER_DST64)/*.so* $(PIPER_DST64)/lib64/
 	cp -a $(PIPER_DST64)/{espeak-ng-data,libtashkeel_model.ort} $(DST_DIR)/share/
 	touch $@
 
@@ -429,14 +430,17 @@ WINE_CONFIGURE_ARGS = \
 
 WINE_CONFIGURE_ARGS32 = \
   VKD3D_PE_CFLAGS="-I$(VULKAN_HEADERS_DST32)/include -I$(VKD3D_DST32)/include/vkd3d" \
-  VKD3D_PE_LIBS="-L$(VKD3D_LIBDIR32)/vkd3d -l:libvkd3d-1.dll -l:libvkd3d-shader-1.dll"
+  VKD3D_PE_LIBS="-L$(VKD3D_LIBDIR32)/vkd3d/i386-windows -l:libvkd3d-1.dll -l:libvkd3d-shader-1.dll"
 
 WINE_CONFIGURE_ARGS64 = --enable-win64 \
   VKD3D_PE_CFLAGS="-I$(VULKAN_HEADERS_DST64)/include -I$(VKD3D_DST64)/include/vkd3d" \
-  VKD3D_PE_LIBS="-L$(VKD3D_LIBDIR64)/vkd3d -l:libvkd3d-1.dll -l:libvkd3d-shader-1.dll"
+  VKD3D_PE_LIBS="-L$(VKD3D_LIBDIR64)/vkd3d/x86_64-windows -l:libvkd3d-1.dll -l:libvkd3d-shader-1.dll"
 
 WINE_DEPENDS = gst_orc gstreamer gst_base vkd3d ffmpeg
 WINE_DEPENDS64 = piper
+
+WINE_LIBDIR32 = $(WINE_DST32)/lib
+WINE_LIBDIR64 = $(WINE_DST64)/lib
 
 $(eval $(call rules-source,wine,$(SRCDIR)/wine))
 $(eval $(call rules-autoconf,wine,32))
@@ -487,8 +491,8 @@ DXVK_SOURCE_DATE_EPOCH64 := $(shell expr $(BASE_SOURCE_DATE_EPOCH64) - 1)
 DXVK_SOURCE_ARGS = \
   --exclude version.h.in \
 
-DXVK_MESON_ARGS32 = --bindir=$(DXVK_DST32)/lib/wine/dxvk
-DXVK_MESON_ARGS64 = --bindir=$(DXVK_DST64)/lib64/wine/dxvk
+DXVK_MESON_ARGS32 = --bindir=$(DXVK_DST32)/lib/wine/dxvk/i386-windows
+DXVK_MESON_ARGS64 = --bindir=$(DXVK_DST64)/lib/wine/dxvk/x86_64-windows
 DXVK_DEPENDS = glslang
 
 $(eval $(call rules-source,dxvk,$(SRCDIR)/dxvk))
@@ -498,12 +502,9 @@ $(eval $(call rules-meson,dxvk,64,CROSS))
 $(OBJ)/.dxvk-post-source:
 	sed -re 's#@VCS_TAG@#$(shell git -C $(SRCDIR)/dxvk describe --always --abbrev=15 --dirty=0)#' \
 	    $(SRCDIR)/dxvk/version.h.in > $(DXVK_SRC)/version.h.in
-	mkdir -p $(DST_DIR)/lib/wine/dxvk
-	mkdir -p $(DST_DIR)/lib64/wine/dxvk
-	rm -rf $(DST_DIR)/lib/wine/dxvk/version
-	rm -rf $(DST_DIR)/lib64/wine/dxvk/version
-	echo "$(shell git -C $(SRCDIR) submodule status -- dxvk)" > $(DST_DIR)/lib/wine/dxvk/version
-	echo "$(shell git -C $(SRCDIR) submodule status -- dxvk)" > $(DST_DIR)/lib64/wine/dxvk/version
+	mkdir -p $(DST_LIBDIR)/wine/dxvk
+	rm -rf $(DST_LIBDIR)/wine/dxvk/version
+	echo "$(shell git -C $(SRCDIR) submodule status -- dxvk)" > $(DST_LIBDIR)/wine/dxvk/version
 	touch $@
 
 
@@ -511,20 +512,17 @@ $(OBJ)/.dxvk-post-source:
 ## dxvk-nvapi
 ##
 
-DXVK_NVAPI_MESON_ARGS32 = --bindir=$(DXVK_NVAPI_DST32)/lib/wine/nvapi
-DXVK_NVAPI_MESON_ARGS64 = --bindir=$(DXVK_NVAPI_DST64)/lib64/wine/nvapi
+DXVK_NVAPI_MESON_ARGS32 = --bindir=$(DXVK_NVAPI_DST32)/lib/wine/nvapi/i386-windows
+DXVK_NVAPI_MESON_ARGS64 = --bindir=$(DXVK_NVAPI_DST64)/lib/wine/nvapi/x86_64-windows
 
 $(eval $(call rules-source,dxvk-nvapi,$(SRCDIR)/dxvk-nvapi))
 $(eval $(call rules-meson,dxvk-nvapi,32,CROSS))
 $(eval $(call rules-meson,dxvk-nvapi,64,CROSS))
 
 $(OBJ)/.dxvk-nvapi-post-source:
-	mkdir -p $(DST_DIR)/lib/wine/nvapi
-	mkdir -p $(DST_DIR)/lib64/wine/nvapi
-	rm -rf $(DST_DIR)/lib/wine/nvapi/version
-	rm -rf $(DST_DIR)/lib64/wine/nvapi/version
-	echo "$(shell git -C $(SRCDIR) submodule status -- dxvk-nvapi)" > $(DST_DIR)/lib/wine/nvapi/version
-	echo "$(shell git -C $(SRCDIR) submodule status -- dxvk-nvapi)" > $(DST_DIR)/lib64/wine/nvapi/version
+	mkdir -p $(DST_LIBDIR)/wine/nvapi
+	rm -rf $(DST_LIBDIR)/wine/nvapi/version
+	echo "$(shell git -C $(SRCDIR) submodule status -- dxvk-nvapi)" > $(DST_LIBDIR)/wine/nvapi/version
 	touch $@
 
 
@@ -559,20 +557,23 @@ VKD3D_CFLAGS = -fno-lto
 VKD3D_LDFLAGS = -static-libgcc $(CROSSLDFLAGS)
 VKD3D_DEPENDS = vulkan-headers spirv-headers
 
+VKD3D_LIBDIR32 = $(VKD3D_DST32)/lib
+VKD3D_LIBDIR64 = $(VKD3D_DST64)/lib
+
 $(eval $(call rules-source,vkd3d,$(SRCDIR)/vkd3d))
 $(eval $(call rules-autoconf,vkd3d,32,CROSS))
 $(eval $(call rules-autoconf,vkd3d,64,CROSS))
 
 $(OBJ)/.vkd3d-post-build64:
-	mkdir -p $(VKD3D_LIBDIR64)/vkd3d
-	mv $(VKD3D_DST64)/bin/libvkd3d-1.dll $(VKD3D_LIBDIR64)/vkd3d
-	mv $(VKD3D_DST64)/bin/libvkd3d-shader-1.dll $(VKD3D_LIBDIR64)/vkd3d
+	mkdir -p $(VKD3D_LIBDIR64)/vkd3d/x86_64-windows
+	mv $(VKD3D_DST64)/bin/libvkd3d-1.dll $(VKD3D_LIBDIR64)/vkd3d/x86_64-windows
+	mv $(VKD3D_DST64)/bin/libvkd3d-shader-1.dll $(VKD3D_LIBDIR64)/vkd3d/x86_64-windows
 	touch $@
 
 $(OBJ)/.vkd3d-post-build32:
-	mkdir -p $(VKD3D_LIBDIR32)/vkd3d
-	mv $(VKD3D_DST32)/bin/libvkd3d-1.dll $(VKD3D_LIBDIR32)/vkd3d
-	mv $(VKD3D_DST32)/bin/libvkd3d-shader-1.dll $(VKD3D_LIBDIR32)/vkd3d
+	mkdir -p $(VKD3D_LIBDIR32)/vkd3d/i386-windows
+	mv $(VKD3D_DST32)/bin/libvkd3d-1.dll $(VKD3D_LIBDIR32)/vkd3d/i386-windows
+	mv $(VKD3D_DST32)/bin/libvkd3d-shader-1.dll $(VKD3D_LIBDIR32)/vkd3d/i386-windows
 	touch $@
 
 ##
@@ -587,8 +588,8 @@ VKD3D_PROTON_SOURCE_ARGS = \
   --exclude vkd3d_build.h.in \
   --exclude vkd3d_version.h.in \
 
-VKD3D_PROTON_MESON_ARGS32 = --bindir=$(VKD3D_PROTON_DST32)/lib/wine/vkd3d-proton
-VKD3D_PROTON_MESON_ARGS64 = --bindir=$(VKD3D_PROTON_DST64)/lib64/wine/vkd3d-proton
+VKD3D_PROTON_MESON_ARGS32 = --bindir=$(VKD3D_PROTON_DST32)/lib/wine/vkd3d-proton/i386-windows
+VKD3D_PROTON_MESON_ARGS64 = --bindir=$(VKD3D_PROTON_DST64)/lib/wine/vkd3d-proton/x86_64-windows
 VKD3D_PROTON_DEPENDS = glslang
 
 ifneq ($(UNSTRIPPED_BUILD),)
@@ -604,12 +605,9 @@ $(OBJ)/.vkd3d-proton-post-source:
 	    $(SRCDIR)/vkd3d-proton/vkd3d_build.h.in > $(VKD3D_PROTON_SRC)/vkd3d_build.h.in
 	sed -re 's#@VCS_TAG@#$(shell git -C $(SRCDIR)/vkd3d-proton describe --always --tags --dirty=+)#' \
 	    $(SRCDIR)/vkd3d-proton/vkd3d_version.h.in > $(VKD3D_PROTON_SRC)/vkd3d_version.h.in
-	mkdir -p $(DST_DIR)/lib/wine/vkd3d-proton
-	mkdir -p $(DST_DIR)/lib64/wine/vkd3d-proton
-	rm -rf $(DST_DIR)/lib/wine/vkd3d-proton/version
-	rm -rf $(DST_DIR)/lib64/wine/vkd3d-proton/version
-	echo "$(shell git -C $(SRCDIR) submodule status -- vkd3d-proton)" > $(DST_DIR)/lib/wine/vkd3d-proton/version
-	echo "$(shell git -C $(SRCDIR) submodule status -- vkd3d-proton)" > $(DST_DIR)/lib64/wine/vkd3d-proton/version
+	mkdir -p $(DST_LIBDIR)/wine/vkd3d-proton
+	rm -rf $(DST_LIBDIR)/wine/vkd3d-proton/version
+	echo "$(shell git -C $(SRCDIR) submodule status -- vkd3d-proton)" > $(DST_LIBDIR)/wine/vkd3d-proton/version
 	touch $@
 
 
@@ -664,11 +662,11 @@ $(OBJ)/.eac-build64:
 	rsync -arx "$(EAC_SRC)/" "$(EAC_OBJ64)/"
 	env $(EAC_ENV64) \
 	$(MAKE) -C "$(EAC_OBJ64)" WINE_OBJ="$(WINE_OBJ64)" HOST="x86_64-w64-mingw32" CROSSCXX="x86_64-w64-mingw32-g++" BIT="64"
-	mkdir -p $(OBJ)/dist-eac/v2/lib64
-	$(call install-strip,$(EAC_OBJ64)/easyanticheat.so,$(OBJ)/dist-eac/v2/lib64)
-	$(call install-strip,$(EAC_OBJ64)/easyanticheat.dll,$(OBJ)/dist-eac/v2/lib64)
-	cp $(OBJ)/dist-eac/v2/lib64/easyanticheat.so $(OBJ)/dist-eac/v2/lib64/easyanticheat_x64.so
-	cp $(OBJ)/dist-eac/v2/lib64/easyanticheat.dll $(OBJ)/dist-eac/v2/lib64/easyanticheat_x64.dll
+	mkdir -p $(OBJ)/dist-eac/v2/lib/x86_64-linux-gnu
+	$(call install-strip,$(EAC_OBJ64)/easyanticheat.so,$(OBJ)/dist-eac/v2/lib/x86_64-linux-gnu)
+	$(call install-strip,$(EAC_OBJ64)/easyanticheat.dll,$(OBJ)/dist-eac/v2/lib/x86_64-linux-gnu)
+	cp $(OBJ)/dist-eac/v2/lib/x86_64-linux-gnu/easyanticheat.so $(OBJ)/dist-eac/v2/lib/x86_64-linux-gnu/easyanticheat_x64.so
+	cp $(OBJ)/dist-eac/v2/lib/x86_64-linux-gnu/easyanticheat.dll $(OBJ)/dist-eac/v2/lib/x86_64-linux-gnu/easyanticheat_x64.dll
 	touch $@
 
 $(OBJ)/.eac-build32:
@@ -1014,10 +1012,10 @@ all-dist: $(DIST_XALIA)
 ##
 
 ICU_VER := 6.8.2
-DIST_ICU64_DIR := $(DST_DIR)/lib64/icu
+DIST_ICU64_DIR := $(DST_LIBDIR)/wine/icu/x86_64-windows
 DIST_ICU64 := $(OBJ)/.icu-dist64
 ICU64_TARBALL := icu-$(ICU_VER)-x86_64.tar.xz
-DIST_ICU32_DIR := $(DST_DIR)/lib/icu
+DIST_ICU32_DIR := $(DST_LIBDIR)/wine/icu/i386-windows
 DIST_ICU32 := $(OBJ)/.icu-dist32
 ICU32_TARBALL := icu-$(ICU_VER)-x86.tar.xz
 
@@ -1040,14 +1038,14 @@ all-dist: $(DIST_ICU64) $(DIST_ICU32)
 ## openvr
 ##
 
-DIST_OVR32 := $(DST_LIBDIR32)/wine/dxvk/openvr_api_dxvk.dll
+DIST_OVR32 := $(DST_LIBDIR)/wine/dxvk/i386-windows/openvr_api_dxvk.dll
 $(DIST_OVR32): $(SRCDIR)/openvr/bin/win32/openvr_api.dll | $(DST_DIR)
-	mkdir -p $(DST_LIBDIR32)/wine/dxvk
+	mkdir -p $(DST_LIBDIR)/wine/dxvk/i386-windows
 	cp -af $< $@
 
-DIST_OVR64 := $(DST_LIBDIR64)/wine/dxvk/openvr_api_dxvk.dll
+DIST_OVR64 := $(DST_LIBDIR)/wine/dxvk/x86_64-windows/openvr_api_dxvk.dll
 $(DIST_OVR64): $(SRCDIR)/openvr/bin/win64/openvr_api.dll | $(DST_DIR)
-	mkdir -p $(DST_LIBDIR64)/wine/dxvk
+	mkdir -p $(DST_LIBDIR)/wine/dxvk/x86_64-windows
 	cp -af $< $@
 
 all-dist: $(DIST_OVR32) $(DIST_OVR64)
@@ -1058,8 +1056,7 @@ all-dist: $(DIST_OVR32) $(DIST_OVR64)
 ##
 
 default_pfx: wine gst_good gst_bad gst_libav gst_plugins_rs lsteamclient steamexe vrclient wineopenxr dxvk dxvk-nvapi vkd3d-proton
-	find $(DST_LIBDIR32)/wine -type f -execdir chmod a-w '{}' '+'
-	find $(DST_LIBDIR64)/wine -type f -execdir chmod a-w '{}' '+'
+	find $(DST_LIBDIR)/wine -type f -execdir chmod a-w '{}' '+'
 	rm -rf $(abspath $(DIST_PREFIX))
 	python3 $(SRCDIR)/default_pfx.py $(abspath $(DIST_PREFIX)) $(abspath $(DST_DIR))
 

@@ -49,7 +49,7 @@ $$(OBJ)/.$(1)-configure$(3): $$($(2)_SRC)/meson.build
 	env $$($(2)_ENV$(3)) \
 	meson "$$($(2)_OBJ$(3))" "$$($(2)_SRC)" \
 	      --prefix="$$($(2)_DST$(3))" \
-	      --libdir="lib$(subst 32,,$(3))" \
+	      --libdir="lib/$$(LIBDIR_$(4)$(3))" \
 	      --buildtype=plain \
 	      $(if $(4),--cross-file="$$($(2)_OBJ$(3))/cross-$(3).txt",) \
 	      $$($(2)_MESON_ARGS) \

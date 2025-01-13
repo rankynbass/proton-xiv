@@ -16,7 +16,7 @@ $$(OBJ)/.$(1)-configure$(3):
 	    --arch=$(CONFIGURE_ARCH$(3)) \
 	    --target-os=linux \
 	    --prefix="$$($(2)_DST$(3))" \
-	    --libdir="$$($(2)_DST$(3))/lib$(subst 32,,$(3))" \
+	    --libdir="$$($(2)_LIBDIR$(3))/$$(LIBDIR_$(4)$(3))" \
 	    $$($(2)_CONFIGURE_ARGS) \
 	    $$($(2)_CONFIGURE_ARGS$(3))
 

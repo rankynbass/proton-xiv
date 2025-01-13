@@ -62,7 +62,7 @@ def setup_dll_symlinks(default_pfx_dir, dist_dir):
                 if bitness == 32:
                     libdir = os.path.join(dist_dir, 'lib/wine/i386-windows')
                 elif bitness == 64:
-                    libdir = os.path.join(dist_dir, 'lib64/wine/x86_64-windows')
+                    libdir = os.path.join(dist_dir, 'lib/wine/x86_64-windows')
                 else:
                     continue
                 if os.path.exists(os.path.join(libdir, file_)):
@@ -120,8 +120,8 @@ def fixup_drive_links(default_pfx_dir):
 def make_default_pfx(default_pfx_dir, dist_dir):
     local_env = dict(os.environ)
 
-    ld_path = dist_dir + "/lib64:" + dist_dir + "/lib"
-    dll_path = dist_dir + "/lib64/vkd3d:" + dist_dir + "/lib/vkd3d"
+    ld_path = dist_dir + "/lib/x86_64-linux-gnu:" + dist_dir + "/lib/i386-linux-gnu"
+    dll_path = dist_dir + "/lib/vkd3d/x86_64-windows:" + dist_dir + "/lib/vkd3d/i386-windows"
 
     local_env["LD_LIBRARY_PATH"] = ld_path
     local_env["WINEPREFIX"] = default_pfx_dir

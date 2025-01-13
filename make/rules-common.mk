@@ -9,7 +9,7 @@ $(2)_DST$(3) := $$(OBJ)/dst-$(1)$(3)
 $(2)_DEPS$(3) := $$(call toupper,$$($(2)_DEPENDS)) $$(call toupper,$$($(2)_DEPENDS$(3)))
 
 $(2)_BINDIR$(3) ?= $$($(2)_DST$(3))/bin
-$(2)_LIBDIR$(3) ?= $$($(2)_DST$(3))/lib$(subst 32,,$(3))
+$(2)_LIBDIR$(3) ?= $$($(2)_DST$(3))/lib
 $(2)_INCDIR$(3) ?= $$($(2)_DST$(3))/include
 
 $$(OBJ)/.$(1)-configure$(3): $$(shell mkdir -p $$($(2)_OBJ$(3)))
@@ -55,14 +55,14 @@ $$(OBJ)/.$(1)-dist$(3):
 	    mkdir -p "$$(OBJ)/compile_commands/$(1)$(3)/"; \
 	    sed "s#$$($(2)_SRC)#$$($(2)_ORIGIN)#g" "$$($(2)_OBJ$(3))/compile_commands.json" > "$$(OBJ)/compile_commands/$(1)$(3)/compile_commands.json"; \
 	fi
-	mkdir -p $$($(2)_LIBDIR$(3))/ $$(DST_LIBDIR$(3))/
-	cd $$($(2)_LIBDIR$(3)) && find -type f -printf '$$(DST_LIBDIR$(3))/%h\0' | sort -z | uniq -z | xargs $(--verbose?) -0 -r -P$$(J) mkdir -p
-	cd $$($(2)_LIBDIR$(3)) && find -type l -printf '%p\0$$(DST_LIBDIR$(3))/%p\0' | xargs $(--verbose?) -0 -r -P$$(J) -n2 cp -a
+	mkdir -p $$($(2)_LIBDIR$(3))/ $$(DST_LIBDIR)/
+	cd $$($(2)_LIBDIR$(3)) && find -type f -printf '$$(DST_LIBDIR)/%h\0' | sort -z | uniq -z | xargs $(--verbose?) -0 -r -P$$(J) mkdir -p
+	cd $$($(2)_LIBDIR$(3)) && find -type l -printf '%p\0$$(DST_LIBDIR)/%p\0' | xargs $(--verbose?) -0 -r -P$$(J) -n2 cp -a
 	cd $$($(2)_LIBDIR$(3)) && find -type f -not '(' -iname '*.pc' -or -iname '*.cmake' -or -iname '*.a' -or -iname '*.la' -or -iname '*.def' -or -iname '*.h' ')' \
-	    -printf '--only-keep-debug\0%p\0$$(DST_LIBDIR$(3))/%p.debug\0' | \
+	    -printf '--only-keep-debug\0%p\0$$(DST_LIBDIR)/%p.debug\0' | \
 	    xargs $(--verbose?) -0 -r -P$$(J) -n3 objcopy -p --file-alignment=4096
 	cd $$($(2)_LIBDIR$(3)) && find -type f -not '(' -iname '*.pc' -or -iname '*.cmake' -or -iname '*.a' -or -iname '*.la' -or -iname '*.def' -or -iname '*.h' ')' \
-	    -printf '--add-gnu-debuglink=$$(DST_LIBDIR$(3))/%p.debug\0--strip-debug\0%p\0$$(DST_LIBDIR$(3))/%p\0' | \
+	    -printf '--add-gnu-debuglink=$$(DST_LIBDIR)/%p.debug\0--strip-debug\0%p\0$$(DST_LIBDIR)/%p\0' | \
 	    xargs $(--verbose?) -0 -r -P$$(J) -n4 objcopy -p --file-alignment=4096 --set-section-flags .text=contents,alloc,load,readonly,code
 	touch $$@
 else
@@ -72,13 +72,13 @@ $$(OBJ)/.$(1)-dist$(3):
 	    mkdir -p "$$(OBJ)/compile_commands/$(1)$(3)/"; \
 	    sed "s#$$($(2)_SRC)#$$($(2)_ORIGIN)#g" "$$($(2)_OBJ$(3))/compile_commands.json" > "$$(OBJ)/compile_commands/$(1)$(3)/compile_commands.json"; \
 	fi
-	mkdir -p $$($(2)_LIBDIR$(3))/ $$(DST_LIBDIR$(3))/
-	cd $$($(2)_LIBDIR$(3)) && find -type f -printf '$$(DST_LIBDIR$(3))/%h\0' | sort -z | uniq -z | xargs $(--verbose?) -0 -r -P$$(J) mkdir -p
-	cd $$($(2)_LIBDIR$(3)) && find -type l -printf '%p\0$$(DST_LIBDIR$(3))/%p\0' | xargs $(--verbose?) -0 -r -P$$(J) -n2 cp -a
+	mkdir -p $$($(2)_LIBDIR$(3))/ $$(DST_LIBDIR)/
+	cd $$($(2)_LIBDIR$(3)) && find -type f -printf '$$(DST_LIBDIR)/%h\0' | sort -z | uniq -z | xargs $(--verbose?) -0 -r -P$$(J) mkdir -p
+	cd $$($(2)_LIBDIR$(3)) && find -type l -printf '%p\0$$(DST_LIBDIR)/%p\0' | xargs $(--verbose?) -0 -r -P$$(J) -n2 cp -a
 	cd $$($(2)_LIBDIR$(3)) && find -type f -not '(' -iname '*.pc' -or -iname '*.cmake' -or -iname '*.a' -or -iname '*.la' -or -iname '*.def' -or -iname '*.h' ')' \
-	    -printf '$$(DST_LIBDIR$(3))/%p.debug\0' | xargs $(--verbose?) -0 -r -P$$(J) rm -f
+	    -printf '$$(DST_LIBDIR)/%p.debug\0' | xargs $(--verbose?) -0 -r -P$$(J) rm -f
 	cd $$($(2)_LIBDIR$(3)) && find -type f -not '(' -iname '*.pc' -or -iname '*.cmake' -or -iname '*.a' -or -iname '*.la' -or -iname '*.def' -or -iname '*.h' ')' \
-	    -printf '--strip-debug\0%p\0$$(DST_LIBDIR$(3))/%p\0' | \
+	    -printf '--strip-debug\0%p\0$$(DST_LIBDIR)/%p\0' | \
 	    xargs $(--verbose?) -0 -r -P$$(J) -n3 objcopy -p --file-alignment=4096 --set-section-flags .text=contents,alloc,load,readonly,code
 	touch $$@
 endif
@@ -103,8 +103,8 @@ all: $(1)
 .PHONY: all
 
 $(2)_INCFLAGS$(3) = $$(foreach d,$$($(2)_DEPS$(3)),-I$$($$(d)_INCDIR$(3)))
-$(2)_LIBFLAGS$(3) = $$(foreach d,$$($(2)_DEPS$(3)),-L$$($$(d)_LIBDIR$(3))) \
-                    $$(foreach d,$$($(2)_DEPS$(3)),-Wl,-rpath-link=$$($$(d)_LIBDIR$(3))) \
+$(2)_LIBFLAGS$(3) = $$(foreach d,$$($(2)_DEPS$(3)),-L$$($$(d)_LIBDIR$(3))/$$(LIBDIR_$(4)$(3))) \
+                    $$(foreach d,$$($(2)_DEPS$(3)),-Wl,-rpath-link=$$($$(d)_LIBDIR$(3))/$$(LIBDIR_$(4)$(3))) \
 
 # PKG_CONFIG is intentionally never using CROSS target, as it's missing
 # wrapper scripts in the toolchain, we use PKG_CONFIG_LIBDIR directly
@@ -127,9 +127,9 @@ $(2)_ENV$(3) = \
     WIDL="$$(TARGET_CROSS$(3))-widl" \
     PKG_CONFIG="$$(TARGET_$(3))-pkg-config" \
     PATH="$$(call list-join,:,$$(foreach d,$$($(2)_DEPS$(3)),$$($$(d)_BINDIR$(3))),,:):$$$$PATH" \
-    LD_LIBRARY_PATH="$$(call list-join,:,$$(foreach d,$$($(2)_DEPS$(3)),$$($$(d)_LIBDIR$(3))),,:)$$$$LD_LIBRARY_PATH" \
-    PKG_CONFIG_PATH="$$(call list-join,:,$$(foreach d,$$($(2)_DEPS$(3)),$$($$(d)_LIBDIR$(3))/pkgconfig))" \
-    PKG_CONFIG_LIBDIR="/usr/lib/$$(PKG_CONFIG_TARGET_$(4)$(3))/pkgconfig:/usr/share/pkgconfig" \
+    LD_LIBRARY_PATH="$$(call list-join,:,$$(foreach d,$$($(2)_DEPS$(3)),$$($$(d)_LIBDIR$(3))/$$(LIBDIR_$(4)$(3))),,:)$$$$LD_LIBRARY_PATH" \
+    PKG_CONFIG_PATH="$$(call list-join,:,$$(foreach d,$$($(2)_DEPS$(3)),$$($$(d)_LIBDIR$(3))/$$(LIBDIR_$(4)$(3))/pkgconfig))" \
+    PKG_CONFIG_LIBDIR="/usr/lib/$$(LIBDIR_$(4)$(3))/pkgconfig:/usr/share/pkgconfig" \
     CFLAGS="$$($(2)_INCFLAGS$(3)) $$($(2)_CFLAGS) $$(COMMON_FLAGS) $$(COMMON_FLAGS$(3))" \
     CPPFLAGS="$$($(2)_INCFLAGS$(3)) $$($(2)_CPPFLAGS) $$(COMMON_FLAGS) $$(COMMON_FLAGS$(3))" \
     CXXFLAGS="$$($(2)_INCFLAGS$(3)) $$($(2)_CXXFLAGS) $$(COMMON_FLAGS) $$(COMMON_FLAGS$(3)) -std=c++17" \
@@ -154,7 +154,7 @@ $(2)_ENV$(3) += \
     CROSSCPPFLAGS="$$($(2)_INCFLAGS$(3)) $$($(2)_CPPFLAGS) $$(COMMON_FLAGS) $$(COMMON_FLAGS$(3))" \
     CROSSCXXFLAGS="$$($(2)_INCFLAGS$(3)) $$($(2)_CXXFLAGS) $$(COMMON_FLAGS) $$(COMMON_FLAGS$(3)) -std=c++17" \
     CROSSLDFLAGS="$$($(2)_LIBFLAGS$(3)) $$($(2)_LDFLAGS$(3)) $$($(2)_LDFLAGS) $$(CROSSLDFLAGS)" \
-    CROSSPKG_CONFIG_LIBDIR="/usr/lib/$$(PKG_CONFIG_TARGET_CROSS$(3))/pkgconfig:/usr/share/pkgconfig" \
+    CROSSPKG_CONFIG_LIBDIR="/usr/lib/$$(LIBDIR_CROSS$(3))/pkgconfig:/usr/share/pkgconfig" \
 
 endif
 
@@ -172,10 +172,10 @@ TARGET_64 := x86_64-linux-gnu
 TARGET_CROSS32 := i686-w64-mingw32
 TARGET_CROSS64 := x86_64-w64-mingw32
 
-PKG_CONFIG_TARGET_32 := i386-linux-gnu
-PKG_CONFIG_TARGET_64 := x86_64-linux-gnu
-PKG_CONFIG_TARGET_CROSS32 := i386-w64-mingw32
-PKG_CONFIG_TARGET_CROSS64 := x86_64-w64-mingw32
+LIBDIR_32 := i386-linux-gnu
+LIBDIR_64 := x86_64-linux-gnu
+LIBDIR_CROSS32 := i386-w64-mingw32
+LIBDIR_CROSS64 := x86_64-w64-mingw32
 
 LIBDIR_WINE_32 := wine/i386-unix
 LIBDIR_WINE_64 := wine/x86_64-unix
