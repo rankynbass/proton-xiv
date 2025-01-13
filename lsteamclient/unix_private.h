@@ -66,10 +66,12 @@ struct callback_def
     void (*conv_w_from_u)(void *dst, const void *src);
 };
 extern const struct callback_def callback_data[];
+extern const struct callback_def wow64_callback_data[];
 extern const unsigned int callback_data_size;
+extern const unsigned int wow64_callback_data_size;
 
-void *alloc_callback_wtou( int id, void *callback, int *callback_len );
-void convert_callback_utow( int id, void *u_callback, int u_callback_len, void *w_callback, int w_callback_len );
+void *alloc_callback_wtou( int id, void *callback, int *callback_len, bool wow64 );
+void convert_callback_utow( int id, void *u_callback, int u_callback_len, void *w_callback, int w_callback_len, bool wow64 );
 
 extern NTSTATUS steamclient_init( void * );
 extern NTSTATUS steamclient_init_registry( void * );

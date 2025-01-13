@@ -1731,8 +1731,8 @@ with open('unixlib_generated.cpp', 'w') as file:
                 abis['w32'].write_converter('u64', {})
                 abis['u64'].write_converter('w32', path_conv_fields)
 
-    def write_callbacks(u_abi, w_abi):
-        out(u'const struct callback_def callback_data[] =\n{\n');
+    def write_callbacks(prefix, u_abi, w_abi):
+        out(f'const struct callback_def {prefix}callback_data[] =\n{{\n');
         values = set()
         for cbid, sdkver, abis in sorted(callbacks, key=lambda x: x[0]):
             name, value = abis[u_abi].name, (cbid, abis[w_abi].size, abis[u_abi].size)
@@ -1746,9 +1746,12 @@ with open('unixlib_generated.cpp', 'w') as file:
         out(u'};\n');
 
     out(u'#ifdef __i386__\n')
-    write_callbacks("u32", "w32")
+    out(u'const struct callback_def wow64_callback_data[] = {};\n')
+    write_callbacks("", "u32", "w32")
     out(u'#endif\n')
     out(u'#ifdef __x86_64__\n')
-    write_callbacks("u64", "w64")
+    write_callbacks("wow64_", "u64", "w32")
+    write_callbacks("", "u64", "w64")
     out(u'#endif\n')
+    out(u'const unsigned int wow64_callback_data_size = ARRAY_SIZE(wow64_callback_data);\n');
     out(u'const unsigned int callback_data_size = ARRAY_SIZE(callback_data);\n');

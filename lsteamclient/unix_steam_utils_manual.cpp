@@ -12,7 +12,7 @@ static NTSTATUS ISteamUtils_GetAPICallResult( Iface *iface, Params *params )
     int u_callback_len = params->cubCallback;
     void *u_callback;
 
-    if (!(u_callback = alloc_callback_wtou( params->iCallbackExpected, params->pCallback, &u_callback_len )))
+    if (!(u_callback = alloc_callback_wtou( params->iCallbackExpected, params->pCallback, &u_callback_len, false )))
     {
         params->_ret = FALSE;
         return 0;
@@ -23,7 +23,7 @@ static NTSTATUS ISteamUtils_GetAPICallResult( Iface *iface, Params *params )
     if (params->_ret && u_callback != params->pCallback)
     {
         convert_callback_utow( params->iCallbackExpected, u_callback, u_callback_len,
-                               params->pCallback, params->cubCallback );
+                               params->pCallback, params->cubCallback, false );
         free( u_callback );
     }
 

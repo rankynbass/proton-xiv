@@ -25,22 +25,24 @@ struct callback_entry
 static struct list callbacks = LIST_INIT( callbacks );
 static pthread_mutex_t callbacks_lock = PTHREAD_MUTEX_INITIALIZER;
 
-static const struct callback_def *find_first_callback_def_by_id( int id );
+static const struct callback_def *find_first_callback_def_by_id( int id, bool wow64 );
 
-static int callback_len_utow( int cb_id, int u_len )
+static int callback_len_utow( int cb_id, int u_len, bool wow64 )
 {
     const struct callback_def *c, *end;
 
-    if (!(c = find_first_callback_def_by_id( cb_id ))) return u_len;
+    if (!(c = find_first_callback_def_by_id( cb_id, wow64 ))) return u_len;
 
-    end = callback_data + callback_data_size;
+    if (wow64) end = wow64_callback_data + wow64_callback_data_size;
+    else end = callback_data + callback_data_size;
+
     while (c != end && c->id == cb_id)
     {
         if (c->u_callback_len == u_len) return c->w_callback_len;
         ++c;
     }
     ERR( "Unix len %d not found for callback %d.\n", u_len, cb_id );
-    return find_first_callback_def_by_id( cb_id )->w_callback_len;
+    return find_first_callback_def_by_id( cb_id, wow64 )->w_callback_len;
 }
 
 void queue_vtable_callback( struct w_iface *w_iface, enum callback_type type, uint64_t arg0, uint64_t arg1 )
@@ -319,7 +321,7 @@ NTSTATUS steamclient_Steam_BGetCallback( void *args )
         TRACE( "id %d, u_size %d.\n", params->u_msg->m_iCallback, params->u_msg->m_cubParam );
         params->w_msg->m_hSteamUser = params->u_msg->m_hSteamUser;
         params->w_msg->m_iCallback = params->u_msg->m_iCallback;
-        params->w_msg->m_cubParam = callback_len_utow( params->u_msg->m_iCallback, params->u_msg->m_cubParam );
+        params->w_msg->m_cubParam = callback_len_utow( params->u_msg->m_iCallback, params->u_msg->m_cubParam, false );
         params->_ret = true;
     }
 
@@ -331,7 +333,7 @@ NTSTATUS steamclient_callback_message_receive( void *args )
     struct steamclient_callback_message_receive_params *params = (struct steamclient_callback_message_receive_params *)args;
     convert_callback_utow( params->u_msg->m_iCallback, (void *)params->u_msg->m_pubParam,
                            params->u_msg->m_cubParam, (void *)params->w_msg->m_pubParam,
-                           params->w_msg->m_cubParam );
+                           params->w_msg->m_cubParam, false );
     if (params->w_msg->m_iCallback == 703 /* SteamAPICallCompleted_t::k_iCallback */)
     {
         SteamAPICallCompleted_t_137 *c = (SteamAPICallCompleted_t_137 *)params->w_msg->m_pubParam;
@@ -340,7 +342,7 @@ NTSTATUS steamclient_callback_message_receive( void *args )
         {
             int len;
 
-            len = callback_len_utow( c->m_iCallback, c->m_cubParam );
+            len = callback_len_utow( c->m_iCallback, c->m_cubParam, false );
             TRACE( "SteamAPICallCompleted_t id %d, size %d -> %d.\n", c->m_iCallback, c->m_cubParam, len );
             c->m_cubParam = len;
         }
@@ -365,14 +367,14 @@ NTSTATUS steamclient_Steam_GetAPICallResult( void *args )
     int u_callback_len = params->w_callback_len;
     void *u_callback;
 
-    if (!(u_callback = alloc_callback_wtou( params->id, params->w_callback, &u_callback_len ))) return false;
+    if (!(u_callback = alloc_callback_wtou( params->id, params->w_callback, &u_callback_len, false ))) return false;
 
     params->_ret = p_Steam_GetAPICallResult( params->pipe, params->call, u_callback, u_callback_len,
                                              params->id, params->failed );
 
     if (params->_ret && u_callback != params->w_callback)
     {
-        convert_callback_utow( params->id, u_callback, u_callback_len, params->w_callback, params->w_callback_len );
+        convert_callback_utow( params->id, u_callback, u_callback_len, params->w_callback, params->w_callback_len, false );
         free( u_callback );
     }
 
@@ -1038,33 +1040,40 @@ unsigned int steamclient_unix_path_to_dos_path( bool api_result, const char *src
     return r;
 }
 
-static const struct callback_def *find_first_callback_def_by_id( int id )
+static const struct callback_def *find_first_callback_def_by_id( int id, bool wow64 )
 {
+    const struct callback_def *data;
     unsigned int l, r, m;
 
+    if (wow64) r = wow64_callback_data_size;
+    else r = callback_data_size;
+    if (wow64) data = wow64_callback_data;
+    else data = callback_data;
+
     l = 0;
-    r = callback_data_size;
     while (l < r)
     {
         m = (l + r) /2;
-        if (callback_data[m].id == id)
+        if (data[m].id == id)
         {
-            while (m && callback_data[m - 1].id == id) --m;
-            return &callback_data[m];
+            while (m && data[m - 1].id == id) --m;
+            return &data[m];
         }
-        if (id < callback_data[m].id) r = m;
-        else                          l = m + 1;
+        if (id < data[m].id) r = m;
+        else                 l = m + 1;
     }
     return NULL;
 }
 
-void *alloc_callback_wtou( int id, void *callback, int *callback_len )
+void *alloc_callback_wtou( int id, void *callback, int *callback_len, bool wow64 )
 {
     const struct callback_def *c, *end, *best;
 
-    if (!(c = find_first_callback_def_by_id( id ))) return callback;
+    if (!(c = find_first_callback_def_by_id( id, wow64 ))) return callback;
 
-    end = callback_data + callback_data_size;
+    if (wow64) end = wow64_callback_data + wow64_callback_data_size;
+    else end = callback_data + callback_data_size;
+
     best = NULL;
     while (c != end && c->id == id)
     {
@@ -1080,7 +1089,7 @@ void *alloc_callback_wtou( int id, void *callback, int *callback_len )
     if (!best)
     {
         ERR( "len %d is too small for callback %d, using default.\n", *callback_len, id );
-        best = find_first_callback_def_by_id( id );
+        best = find_first_callback_def_by_id( id, wow64 );
     }
     if (best->w_callback_len != *callback_len)
         WARN( "Found len %d for id %d, len %d.\n", best->w_callback_len, id, *callback_len );
@@ -1088,17 +1097,19 @@ void *alloc_callback_wtou( int id, void *callback, int *callback_len )
     return malloc( *callback_len );
 }
 
-void convert_callback_utow(int id, void *u_callback, int u_callback_len, void *w_callback, int w_callback_len)
+void convert_callback_utow( int id, void *u_callback, int u_callback_len, void *w_callback, int w_callback_len, bool wow64 )
 {
     const struct callback_def *c, *end, *best;
 
-    if (!(c = find_first_callback_def_by_id( id )))
+    if (!(c = find_first_callback_def_by_id( id, wow64 )))
     {
         memcpy( w_callback, u_callback, u_callback_len );
         return;
     }
 
-    end = callback_data + callback_data_size;
+    if (wow64) end = wow64_callback_data + wow64_callback_data_size;
+    else end = callback_data + callback_data_size;
+
     best = NULL;
     while (c != end && c->id == id)
     {
@@ -1117,7 +1128,7 @@ void convert_callback_utow(int id, void *u_callback, int u_callback_len, void *w
     if (!best)
     {
         ERR( "Could not find id %d, u_callback_len %d, w_callback_len %d.\n", id, u_callback_len, w_callback_len );
-        best = find_first_callback_def_by_id( id );
+        best = find_first_callback_def_by_id( id, wow64 );
     }
 
     if (best->w_callback_len != w_callback_len || best->u_callback_len != u_callback_len)
@@ -1127,3 +1138,280 @@ void convert_callback_utow(int id, void *u_callback, int u_callback_len, void *w
     if (best->conv_w_from_u) best->conv_w_from_u( w_callback, u_callback );
     else                     memcpy( w_callback, u_callback, u_callback_len );
 }
+
+#ifdef __x86_64__
+
+struct buf32
+{
+    uint32_t pos32;
+    char *pos;
+
+    buf32() : pos(g_tmppath), pos32( (uint32_t)(UINT_PTR)g_tmppath ) {}
+
+    template< typename T > void append_str( ptr32< T* >& dst, const char *src )
+    {
+        size_t len = strlen( src ) + 1;
+
+        if (g_tmppath + TEMP_PATH_BUFFER_LENGTH - pos < len) return;
+        memcpy( pos, src, len );
+        pos += len;
+
+        dst.value = pos32;
+        pos32 += len;
+    }
+
+    void append_path( ptr32< const char * >& dst, const char *src )
+    {
+        size_t len;
+
+        steamclient_unix_path_to_dos_path( 1, src, pos, g_tmppath + TEMP_PATH_BUFFER_LENGTH - pos, 1 );
+        len = strlen( pos ) + 1;
+        pos += len;
+
+        dst.value = pos32;
+        pos32 += len;
+    }
+};
+
+u64_CallbackMsg_t::operator w32_CallbackMsg_t() const
+{
+    w32_CallbackMsg_t ret;
+    ret.m_hSteamUser = this->m_hSteamUser;
+    ret.m_iCallback = this->m_iCallback;
+    /*ret.m_pubParam = this->m_pubParam;*/
+    ret.m_cubParam = this->m_cubParam;
+    return ret;
+}
+
+u64_HTML_ChangedTitle_t::operator w32_HTML_ChangedTitle_t() const
+{
+    w32_HTML_ChangedTitle_t ret;
+    struct buf32 buf;
+
+    ret.unBrowserHandle = this->unBrowserHandle;
+    buf.append_str( ret.pchTitle, this->pchTitle );
+    return ret;
+}
+
+u64_HTML_ComboNeedsPaint_t::operator w32_HTML_ComboNeedsPaint_t() const
+{
+    w32_HTML_ComboNeedsPaint_t ret;
+    struct buf32 buf;
+
+    ret.unBrowserHandle = this->unBrowserHandle;
+    buf.append_str( ret.pBGRA, this->pBGRA );
+    ret.unWide = this->unWide;
+    ret.unTall = this->unTall;
+    return ret;
+}
+
+u64_HTML_FileOpenDialog_t::operator w32_HTML_FileOpenDialog_t() const
+{
+    w32_HTML_FileOpenDialog_t ret;
+    struct buf32 buf;
+
+    ret.unBrowserHandle = this->unBrowserHandle;
+    buf.append_str( ret.pchTitle, this->pchTitle );
+    buf.append_path( ret.pchInitialFile, this->pchInitialFile );
+    return ret;
+}
+
+u64_HTML_FinishedRequest_t::operator w32_HTML_FinishedRequest_t() const
+{
+    w32_HTML_FinishedRequest_t ret;
+    struct buf32 buf;
+
+    ret.unBrowserHandle = this->unBrowserHandle;
+    buf.append_path( ret.pchURL, this->pchURL );
+    buf.append_str( ret.pchPageTitle, this->pchPageTitle );
+    return ret;
+}
+
+u64_HTML_JSAlert_t::operator w32_HTML_JSAlert_t() const
+{
+    w32_HTML_JSAlert_t ret;
+    struct buf32 buf;
+
+    ret.unBrowserHandle = this->unBrowserHandle;
+    buf.append_str( ret.pchMessage, this->pchMessage );
+    return ret;
+}
+
+u64_HTML_JSConfirm_t::operator w32_HTML_JSConfirm_t() const
+{
+    w32_HTML_JSConfirm_t ret;
+    struct buf32 buf;
+
+    ret.unBrowserHandle = this->unBrowserHandle;
+    buf.append_str( ret.pchMessage, this->pchMessage );
+    return ret;
+}
+
+u64_HTML_LinkAtPosition_t::operator w32_HTML_LinkAtPosition_t() const
+{
+    w32_HTML_LinkAtPosition_t ret;
+    struct buf32 buf;
+
+    ret.unBrowserHandle = this->unBrowserHandle;
+    ret.x = this->x;
+    ret.y = this->y;
+    buf.append_path( ret.pchURL, this->pchURL );
+    ret.bInput = this->bInput;
+    ret.bLiveLink = this->bLiveLink;
+    return ret;
+}
+
+u64_HTML_NeedsPaint_t::operator w32_HTML_NeedsPaint_t() const
+{
+    w32_HTML_NeedsPaint_t ret;
+    struct buf32 buf;
+
+    ret.unBrowserHandle = this->unBrowserHandle;
+    buf.append_str( ret.pBGRA, this->pBGRA );
+    ret.unWide = this->unWide;
+    ret.unTall = this->unTall;
+    ret.unUpdateX = this->unUpdateX;
+    ret.unUpdateY = this->unUpdateY;
+    ret.unUpdateWide = this->unUpdateWide;
+    ret.unUpdateTall = this->unUpdateTall;
+    ret.unScrollX = this->unScrollX;
+    ret.unScrollY = this->unScrollY;
+    ret.flPageScale = this->flPageScale;
+    ret.unPageSerial = this->unPageSerial;
+    return ret;
+}
+
+u64_HTML_NewWindow_t_132x::operator w32_HTML_NewWindow_t_132x() const
+{
+    w32_HTML_NewWindow_t_132x ret;
+    struct buf32 buf;
+
+    ret.unBrowserHandle = this->unBrowserHandle;
+    buf.append_path( ret.pchURL, this->pchURL );
+    ret.unX = this->unX;
+    ret.unY = this->unY;
+    ret.unWide = this->unWide;
+    ret.unTall = this->unTall;
+    ret.unNewWindow_BrowserHandle_IGNORE = this->unNewWindow_BrowserHandle_IGNORE;
+    return ret;
+}
+
+u64_HTML_NewWindow_t_130x::operator w32_HTML_NewWindow_t_130x() const
+{
+    w32_HTML_NewWindow_t_130x ret;
+    struct buf32 buf;
+
+    ret.unBrowserHandle = this->unBrowserHandle;
+    buf.append_path( ret.pchURL, this->pchURL );
+    ret.unX = this->unX;
+    ret.unY = this->unY;
+    ret.unWide = this->unWide;
+    ret.unTall = this->unTall;
+    return ret;
+}
+
+u64_HTML_OpenLinkInNewTab_t::operator w32_HTML_OpenLinkInNewTab_t() const
+{
+    w32_HTML_OpenLinkInNewTab_t ret;
+    struct buf32 buf;
+
+    ret.unBrowserHandle = this->unBrowserHandle;
+    buf.append_path( ret.pchURL, this->pchURL );
+    return ret;
+}
+
+u64_HTML_ShowToolTip_t::operator w32_HTML_ShowToolTip_t() const
+{
+    w32_HTML_ShowToolTip_t ret;
+    struct buf32 buf;
+
+    ret.unBrowserHandle = this->unBrowserHandle;
+    buf.append_str( ret.pchMsg, this->pchMsg );
+    return ret;
+}
+
+u64_HTML_StartRequest_t::operator w32_HTML_StartRequest_t() const
+{
+    w32_HTML_StartRequest_t ret;
+    struct buf32 buf;
+
+    ret.unBrowserHandle = this->unBrowserHandle;
+    buf.append_path( ret.pchURL, this->pchURL );
+    buf.append_str( ret.pchTarget, this->pchTarget );
+    buf.append_str( ret.pchPostData, this->pchPostData );
+    ret.bIsRedirect = this->bIsRedirect;
+    return ret;
+}
+
+u64_HTML_StatusText_t::operator w32_HTML_StatusText_t() const
+{
+    w32_HTML_StatusText_t ret;
+    struct buf32 buf;
+
+    ret.unBrowserHandle = this->unBrowserHandle;
+    buf.append_str( ret.pchMsg, this->pchMsg );
+    return ret;
+}
+
+u64_HTML_URLChanged_t::operator w32_HTML_URLChanged_t() const
+{
+    w32_HTML_URLChanged_t ret;
+    struct buf32 buf;
+
+    ret.unBrowserHandle = this->unBrowserHandle;
+    buf.append_path( ret.pchURL, this->pchURL );
+    buf.append_str( ret.pchPostData, this->pchPostData );
+    ret.bIsRedirect = this->bIsRedirect;
+    buf.append_str( ret.pchPageTitle, this->pchPageTitle );
+    ret.bNewNavigation = this->bNewNavigation;
+    return ret;
+}
+
+u64_HTML_UpdateToolTip_t::operator w32_HTML_UpdateToolTip_t() const
+{
+    w32_HTML_UpdateToolTip_t ret;
+    struct buf32 buf;
+
+    ret.unBrowserHandle = this->unBrowserHandle;
+    buf.append_str( ret.pchMsg, this->pchMsg );
+    return ret;
+}
+
+u64_RemoteStorageDownloadUGCResult_t_123::operator w32_RemoteStorageDownloadUGCResult_t_123() const
+{
+    w32_RemoteStorageDownloadUGCResult_t_123 ret;
+    ret.m_eResult = this->m_eResult;
+    ret.m_hFile = this->m_hFile;
+    ret.m_nAppID = this->m_nAppID;
+    ret.m_nSizeInBytes = this->m_nSizeInBytes;
+    ret.m_pchFileName = this->m_pchFileName;
+    ret.m_ulSteamIDOwner = this->m_ulSteamIDOwner;
+    return ret;
+}
+
+u64_RemoteStorageDownloadUGCResult_t_116x::operator w32_RemoteStorageDownloadUGCResult_t_116x() const
+{
+    w32_RemoteStorageDownloadUGCResult_t_116x ret;
+    ret.m_eResult = this->m_eResult;
+    ret.m_hFile = this->m_hFile;
+    ret.m_nAppID = this->m_nAppID;
+    ret.m_nSizeInBytes = this->m_nSizeInBytes;
+    ret.m_pchFileName = this->m_pchFileName;
+    ret.m_ulSteamIDOwner = this->m_ulSteamIDOwner;
+    return ret;
+}
+
+u64_RemoteStorageDownloadUGCResult_t_111x::operator w32_RemoteStorageDownloadUGCResult_t_111x() const
+{
+    w32_RemoteStorageDownloadUGCResult_t_111x ret;
+    struct buf32 buf;
+
+    ret.m_eResult = this->m_eResult;
+    ret.m_hFile = this->m_hFile;
+    ret.m_nAppID = this->m_nAppID;
+    ret.m_nSizeInBytes = this->m_nSizeInBytes;
+    buf.append_str( ret.m_pchFileName, this->m_pchFileName );
+    ret.m_ulSteamIDOwner = this->m_ulSteamIDOwner;
+    return ret;
+}
+#endif
