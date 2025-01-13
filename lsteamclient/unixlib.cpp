@@ -259,27 +259,20 @@ u_void_SteamAPI_PostAPIResultInProcess_t manual_convert_DEPRECATED_Remove_SteamA
     return &u_void_steam_api_post_api_result_in_process;
 }
 
-NTSTATUS ISteamClient_SteamClient020_Set_SteamAPI_CCheckCallbackRegisteredInProcess( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamClient_Set_SteamAPI_CCheckCallbackRegisteredInProcess( Iface *iface, Params *params )
 {
-    struct ISteamClient_SteamClient020_Set_SteamAPI_CCheckCallbackRegisteredInProcess_params *params = (struct ISteamClient_SteamClient020_Set_SteamAPI_CCheckCallbackRegisteredInProcess_params *)args;
-    struct u_ISteamClient_SteamClient020 *iface = (struct u_ISteamClient_SteamClient020 *)params->u_iface;
     uint32_t (*U_CDECL lin_func)(int32_t) = manual_convert_Set_SteamAPI_CCheckCallbackRegisteredInProcess_func_156( params->func );
     iface->Set_SteamAPI_CCheckCallbackRegisteredInProcess( lin_func );
     return 0;
 }
 
-NTSTATUS ISteamClient_SteamClient021_Set_SteamAPI_CCheckCallbackRegisteredInProcess( void *args )
-{
-    struct ISteamClient_SteamClient021_Set_SteamAPI_CCheckCallbackRegisteredInProcess_params *params = (struct ISteamClient_SteamClient021_Set_SteamAPI_CCheckCallbackRegisteredInProcess_params *)args;
-    struct u_ISteamClient_SteamClient021 *iface = (struct u_ISteamClient_SteamClient021 *)params->u_iface;
-    uint32_t (*U_CDECL lin_func)(int32_t) = manual_convert_Set_SteamAPI_CCheckCallbackRegisteredInProcess_func_156( params->func );
-    iface->Set_SteamAPI_CCheckCallbackRegisteredInProcess( lin_func );
-    return 0;
-}
+LSTEAMCLIENT_UNIX_IMPL( ISteamClient, SteamClient020, Set_SteamAPI_CCheckCallbackRegisteredInProcess );
+LSTEAMCLIENT_UNIX_IMPL( ISteamClient, SteamClient021, Set_SteamAPI_CCheckCallbackRegisteredInProcess );
 
-NTSTATUS steamclient_next_callback( void *args )
+template< typename Params >
+static NTSTATUS steamclient_next_callback( Params *params )
 {
-    struct steamclient_next_callback_params *params = (struct steamclient_next_callback_params *)args;
     uint32_t capacity = params->size;
     struct list *ptr;
 
@@ -310,11 +303,11 @@ static void (*p_Steam_ReleaseThreadLocalMemory)( int );
 static bool (*p_Steam_IsKnownInterface)( const char * );
 static void (*p_Steam_NotifyMissingInterface)( int32_t, const char * );
 
-NTSTATUS steamclient_Steam_BGetCallback( void *args )
+template< typename Params >
+static NTSTATUS steamclient_Steam_BGetCallback( Params *params )
 {
-    struct steamclient_Steam_BGetCallback_params *params = (struct steamclient_Steam_BGetCallback_params *)args;
     u_CallbackMsg_t *u_msg = new u_CallbackMsg_t();
-    w_CallbackMsg_t *w_msg = params->w_msg;
+    auto *w_msg = &*params->w_msg;
 
     if (!u_msg || !p_Steam_BGetCallback( params->pipe, u_msg, params->ignored ))
         params->_ret = false;
@@ -331,11 +324,11 @@ NTSTATUS steamclient_Steam_BGetCallback( void *args )
     return 0;
 }
 
-NTSTATUS steamclient_callback_message_receive( void *args )
+template< typename Params >
+static NTSTATUS steamclient_callback_message_receive( Params *params )
 {
-    struct steamclient_callback_message_receive_params *params = (struct steamclient_callback_message_receive_params *)args;
     u_CallbackMsg_t *u_msg = (u_CallbackMsg_t *)(UINT_PTR)params->cookie;
-    w_CallbackMsg_t *w_msg = params->w_msg;
+    auto *w_msg = &*params->w_msg;
 
     if (!u_msg) return 0;
 
@@ -344,7 +337,7 @@ NTSTATUS steamclient_callback_message_receive( void *args )
                            w_msg->m_cubParam, false );
     if (w_msg->m_iCallback == 703 /* SteamAPICallCompleted_t::k_iCallback */)
     {
-        SteamAPICallCompleted_t_137 *c = (SteamAPICallCompleted_t_137 *)w_msg->m_pubParam;
+        SteamAPICallCompleted_t_137 *c = (SteamAPICallCompleted_t_137 *)u_msg->m_pubParam;
 
         if (sizeof(SteamAPICallCompleted_t_137) == w_msg->m_cubParam)
         {
@@ -359,19 +352,21 @@ NTSTATUS steamclient_callback_message_receive( void *args )
             WARN( "Unexpected SteamAPICallCompleted_t callback size %d, not doing API callback size conversion.", w_msg->m_cubParam );
         }
     }
+
+    delete u_msg;
     return 0;
 }
 
-NTSTATUS steamclient_Steam_FreeLastCallback( void *args )
+template< typename Params >
+static NTSTATUS steamclient_Steam_FreeLastCallback( Params *params )
 {
-    struct steamclient_Steam_FreeLastCallback_params *params = (struct steamclient_Steam_FreeLastCallback_params *)args;
     params->_ret = p_Steam_FreeLastCallback( params->pipe );
     return 0;
 }
 
-NTSTATUS steamclient_Steam_GetAPICallResult( void *args )
+template< typename Params >
+static NTSTATUS steamclient_Steam_GetAPICallResult( Params *params )
 {
-    struct steamclient_Steam_GetAPICallResult_params *params = (struct steamclient_Steam_GetAPICallResult_params *)args;
     int u_callback_len = params->w_callback_len;
     void *u_callback;
 
@@ -609,7 +604,8 @@ static void setup_proton_voice_files( u_ISteamClient_SteamClient017 *client, int
     setenv( "PROTON_VOICE_FILES", path, 1 );
 }
 
-NTSTATUS steamclient_init_registry( void *args )
+template< typename Params >
+static NTSTATUS steamclient_init_registry( Params *params )
 {
     u_ISteamClient_SteamClient017 *client;
     int pipe, user, error;
@@ -631,9 +627,9 @@ NTSTATUS steamclient_init_registry( void *args )
     return 0;
 }
 
-NTSTATUS steamclient_init( void *args )
+template< typename Params >
+static NTSTATUS steamclient_init( Params *params )
 {
-    struct steamclient_init_params *params = (struct steamclient_init_params *)args;
     char path[PATH_MAX], resolved_path[PATH_MAX];
     static void *steamclient;
 
@@ -706,9 +702,9 @@ template<> struct hash< struct u_buffer >
 static pthread_mutex_t buffer_cache_lock = PTHREAD_MUTEX_INITIALIZER;
 static std::unordered_map< struct u_buffer, void * > buffer_cache;
 
-NTSTATUS steamclient_get_unix_buffer( void *args )
+template< typename Params >
+static NTSTATUS steamclient_get_unix_buffer( Params *params )
 {
-    struct steamclient_get_unix_buffer_params *params = (struct steamclient_get_unix_buffer_params *)args;
     struct cache_entry *entry;
     struct rb_entry *ptr;
 
@@ -725,30 +721,30 @@ NTSTATUS steamclient_get_unix_buffer( void *args )
     return 0;
 }
 
-NTSTATUS steamclient_CreateInterface( void *args )
+template< typename Params >
+static NTSTATUS steamclient_CreateInterface( Params *params )
 {
-    struct steamclient_CreateInterface_params *params = (struct steamclient_CreateInterface_params *)args;
     params->_ret = p_CreateInterface( params->name, params->return_code );
     return 0;
 }
 
-NTSTATUS steamclient_Steam_ReleaseThreadLocalMemory( void *args )
+template< typename Params >
+static NTSTATUS steamclient_Steam_ReleaseThreadLocalMemory( Params *params )
 {
-    struct steamclient_Steam_ReleaseThreadLocalMemory_params *params = (struct steamclient_Steam_ReleaseThreadLocalMemory_params *)args;
     p_Steam_ReleaseThreadLocalMemory( params->thread_exit );
     return 0;
 }
 
-NTSTATUS steamclient_Steam_IsKnownInterface( void *args )
+template< typename Params >
+static NTSTATUS steamclient_Steam_IsKnownInterface( Params *params )
 {
-    struct steamclient_Steam_IsKnownInterface_params *params = (struct steamclient_Steam_IsKnownInterface_params *)args;
     params->_ret = p_Steam_IsKnownInterface( params->version );
     return 0;
 }
 
-NTSTATUS steamclient_Steam_NotifyMissingInterface( void *args )
+template< typename Params >
+static NTSTATUS steamclient_Steam_NotifyMissingInterface( Params *params )
 {
-    struct steamclient_Steam_NotifyMissingInterface_params *params = (struct steamclient_Steam_NotifyMissingInterface_params *)args;
     p_Steam_NotifyMissingInterface( params->pipe, params->version );
     return 0;
 }
@@ -1146,6 +1142,22 @@ void convert_callback_utow( int id, void *u_callback, int u_callback_len, void *
     if (best->conv_w_from_u) best->conv_w_from_u( w_callback, u_callback );
     else                     memcpy( w_callback, u_callback, u_callback_len );
 }
+
+#define STEAMCLIENT_UNIX_FUNC( name ) \
+    NTSTATUS name( void *args ) { return name( (struct name ## _params *)args ); }
+
+STEAMCLIENT_UNIX_FUNC( steamclient_init )
+STEAMCLIENT_UNIX_FUNC( steamclient_init_registry )
+STEAMCLIENT_UNIX_FUNC( steamclient_next_callback )
+STEAMCLIENT_UNIX_FUNC( steamclient_get_unix_buffer )
+STEAMCLIENT_UNIX_FUNC( steamclient_CreateInterface )
+STEAMCLIENT_UNIX_FUNC( steamclient_Steam_GetAPICallResult )
+STEAMCLIENT_UNIX_FUNC( steamclient_Steam_BGetCallback )
+STEAMCLIENT_UNIX_FUNC( steamclient_callback_message_receive )
+STEAMCLIENT_UNIX_FUNC( steamclient_Steam_FreeLastCallback )
+STEAMCLIENT_UNIX_FUNC( steamclient_Steam_ReleaseThreadLocalMemory )
+STEAMCLIENT_UNIX_FUNC( steamclient_Steam_IsKnownInterface )
+STEAMCLIENT_UNIX_FUNC( steamclient_Steam_NotifyMissingInterface )
 
 #ifdef __x86_64__
 
