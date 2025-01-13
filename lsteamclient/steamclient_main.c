@@ -486,17 +486,14 @@ int8_t CDECL Steam_FreeLastCallback( int32_t pipe )
 
 int8_t CDECL Steam_BGetCallback( int32_t pipe, w_CallbackMsg_t *win_msg, int32_t *ignored )
 {
-    u_CallbackMsg_t u_msg;
     struct steamclient_Steam_BGetCallback_params params =
     {
         .pipe = pipe,
         .w_msg = win_msg,
         .ignored = ignored,
-        .u_msg = &u_msg,
     };
     struct steamclient_callback_message_receive_params receive_params =
     {
-        .u_msg = &u_msg,
         .w_msg = win_msg,
     };
 
@@ -513,6 +510,7 @@ next_event:
         SetLastError(0);
         return FALSE;
     }
+    receive_params.cookie = params.cookie;
 
     if (!(win_msg->m_pubParam = HeapAlloc( GetProcessHeap(), 0, win_msg->m_cubParam ))) return FALSE;
     last_callback_data = win_msg->m_pubParam;

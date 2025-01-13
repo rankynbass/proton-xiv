@@ -142,14 +142,14 @@ struct steamclient_Steam_BGetCallback_params
 {
     int8_t _ret;
     uint32_t pipe;
+    uint64_t cookie;
     w_CallbackMsg_t *w_msg;
     int32_t *ignored;
-    u_CallbackMsg_t *u_msg;
 };
 
 struct steamclient_callback_message_receive_params
 {
-    u_CallbackMsg_t *u_msg;
+    uint64_t cookie;
     w_CallbackMsg_t *w_msg;
 };
 

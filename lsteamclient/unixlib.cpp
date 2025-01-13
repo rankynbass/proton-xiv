@@ -313,15 +313,18 @@ static void (*p_Steam_NotifyMissingInterface)( int32_t, const char * );
 NTSTATUS steamclient_Steam_BGetCallback( void *args )
 {
     struct steamclient_Steam_BGetCallback_params *params = (struct steamclient_Steam_BGetCallback_params *)args;
+    u_CallbackMsg_t *u_msg = new u_CallbackMsg_t();
+    w_CallbackMsg_t *w_msg = params->w_msg;
 
-    if (!p_Steam_BGetCallback( params->pipe, params->u_msg, params->ignored ))
+    if (!u_msg || !p_Steam_BGetCallback( params->pipe, u_msg, params->ignored ))
         params->_ret = false;
     else
     {
-        TRACE( "id %d, u_size %d.\n", params->u_msg->m_iCallback, params->u_msg->m_cubParam );
-        params->w_msg->m_hSteamUser = params->u_msg->m_hSteamUser;
-        params->w_msg->m_iCallback = params->u_msg->m_iCallback;
-        params->w_msg->m_cubParam = callback_len_utow( params->u_msg->m_iCallback, params->u_msg->m_cubParam, false );
+        TRACE( "id %d, u_size %d.\n", u_msg->m_iCallback, u_msg->m_cubParam );
+        w_msg->m_hSteamUser = u_msg->m_hSteamUser;
+        w_msg->m_iCallback = u_msg->m_iCallback;
+        w_msg->m_cubParam = callback_len_utow( u_msg->m_iCallback, u_msg->m_cubParam, false );
+        params->cookie = (UINT_PTR)u_msg;
         params->_ret = true;
     }
 
@@ -331,14 +334,19 @@ NTSTATUS steamclient_Steam_BGetCallback( void *args )
 NTSTATUS steamclient_callback_message_receive( void *args )
 {
     struct steamclient_callback_message_receive_params *params = (struct steamclient_callback_message_receive_params *)args;
-    convert_callback_utow( params->u_msg->m_iCallback, (void *)params->u_msg->m_pubParam,
-                           params->u_msg->m_cubParam, (void *)params->w_msg->m_pubParam,
-                           params->w_msg->m_cubParam, false );
-    if (params->w_msg->m_iCallback == 703 /* SteamAPICallCompleted_t::k_iCallback */)
-    {
-        SteamAPICallCompleted_t_137 *c = (SteamAPICallCompleted_t_137 *)params->w_msg->m_pubParam;
+    u_CallbackMsg_t *u_msg = (u_CallbackMsg_t *)(UINT_PTR)params->cookie;
+    w_CallbackMsg_t *w_msg = params->w_msg;
 
-        if (sizeof(SteamAPICallCompleted_t_137) == params->w_msg->m_cubParam)
+    if (!u_msg) return 0;
+
+    convert_callback_utow( u_msg->m_iCallback, (void *)u_msg->m_pubParam,
+                           u_msg->m_cubParam, (void *)w_msg->m_pubParam,
+                           w_msg->m_cubParam, false );
+    if (w_msg->m_iCallback == 703 /* SteamAPICallCompleted_t::k_iCallback */)
+    {
+        SteamAPICallCompleted_t_137 *c = (SteamAPICallCompleted_t_137 *)w_msg->m_pubParam;
+
+        if (sizeof(SteamAPICallCompleted_t_137) == w_msg->m_cubParam)
         {
             int len;
 
@@ -348,7 +356,7 @@ NTSTATUS steamclient_callback_message_receive( void *args )
         }
         else
         {
-            WARN( "Unexpected SteamAPICallCompleted_t callback size %d, not doing API callback size conversion.", params->w_msg->m_cubParam );
+            WARN( "Unexpected SteamAPICallCompleted_t callback size %d, not doing API callback size conversion.", w_msg->m_cubParam );
         }
     }
     return 0;
