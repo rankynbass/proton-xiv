@@ -201,36 +201,40 @@ static NTSTATUS steamclient_networking_message_release( Params *params, bool wow
 template< typename Iface, typename Params, typename Umsg >
 static NTSTATUS ISteamNetworkingSockets_ReceiveMessagesOnConnection( Iface *iface, Params *params, bool wow64, Umsg const& )
 {
-    Umsg *u_msgs[params->nMaxMessages];
+    Umsg **u_msgs = new Umsg*[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnConnection( params->hConn, u_msgs, params->nMaxMessages );
     if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
+    delete[] u_msgs;
     return 0;
 }
 
 template< typename Iface, typename Params, typename Umsg >
 static NTSTATUS ISteamNetworkingSockets_ReceiveMessagesOnListenSocket( Iface *iface, Params *params, bool wow64, Umsg const& )
 {
-    Umsg *u_msgs[params->nMaxMessages];
+    Umsg **u_msgs = new Umsg*[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnListenSocket( params->hSocket, u_msgs, params->nMaxMessages );
     if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
+    delete[] u_msgs;
     return 0;
 }
 
 template< typename Iface, typename Params, typename Umsg >
 static NTSTATUS ISteamNetworkingSockets_SendMessages( Iface *iface, Params *params, bool wow64, Umsg const& )
 {
-    Umsg *u_msgs[params->nMessages];
+    Umsg **u_msgs = new Umsg*[params->nMessages];
     send_messages_wtou( params->nMessages, params->pMessages, u_msgs );
     iface->SendMessages( params->nMessages, u_msgs, params->pOutMessageNumberOrResult );
+    delete[] u_msgs;
     return 0;
 }
 
 template< typename Iface, typename Params, typename Umsg >
 static NTSTATUS ISteamNetworkingSockets_ReceiveMessagesOnPollGroup( Iface *iface, Params *params, bool wow64, Umsg const& )
 {
-    Umsg *u_msgs[params->nMaxMessages];
+    Umsg **u_msgs = new Umsg*[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnPollGroup( params->hPollGroup, u_msgs, params->nMaxMessages );
     if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
+    delete[] u_msgs;
     return 0;
 }
 
@@ -397,18 +401,20 @@ static NTSTATUS ISteamNetworkingUtils_SetConfigValue( u_ISteamNetworkingUtils_St
 template< typename Iface, typename Params, typename Umsg >
 static NTSTATUS ISteamNetworkingFakeUDPPort_ReceiveMessages( Iface *iface, Params *params, bool wow64, Umsg const& )
 {
-    Umsg *u_msgs[params->nMaxMessages];
+    Umsg **u_msgs = new Umsg*[params->nMaxMessages];
     params->_ret = iface->ReceiveMessages( u_msgs, params->nMaxMessages );
     if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
+    delete[] u_msgs;
     return 0;
 }
 
 template< typename Iface, typename Params, typename Umsg >
 static NTSTATUS ISteamNetworkingMessages_ReceiveMessagesOnChannel( Iface *iface, Params *params, bool wow64, Umsg const& )
 {
-    Umsg *u_msgs[params->nMaxMessages];
+    Umsg **u_msgs = new Umsg*[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnChannel( params->nLocalChannel, u_msgs, params->nMaxMessages );
     if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
+    delete[] u_msgs;
     return 0;
 }
 
