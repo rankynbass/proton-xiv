@@ -6274,7 +6274,7 @@ extern "C" const unixlib_entry_t __wine_unix_call_funcs[] =
     ISteamUtils_SteamUtils010_DismissGamepadTextInput,
 };
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 extern "C" const unixlib_entry_t __wine_unix_call_wow64_funcs[] =
 {
     wow64_steamclient_init,
@@ -15011,7 +15011,7 @@ C_ASSERT( sizeof(u32_SteamUGCDetails_t_126().m_unVotesDown) >= 4 );
 C_ASSERT( offsetof(u32_SteamUGCDetails_t_126, m_flScore) == 9756 );
 C_ASSERT( sizeof(u32_SteamUGCDetails_t_126().m_flScore) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_SteamUGCDetails_t_160::operator u64_SteamUGCDetails_t_160() const
 {
     u64_SteamUGCDetails_t_160 ret;
@@ -15046,7 +15046,7 @@ w64_SteamUGCDetails_t_160::operator u64_SteamUGCDetails_t_160() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamUGCDetails_t_160::operator w64_SteamUGCDetails_t_160() const
 {
     w64_SteamUGCDetails_t_160 ret;
@@ -15151,7 +15151,7 @@ u32_SteamUGCDetails_t_160::operator w32_SteamUGCDetails_t_160() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_SteamUGCDetails_t_160::operator u64_SteamUGCDetails_t_160() const
 {
     u64_SteamUGCDetails_t_160 ret;
@@ -15186,7 +15186,7 @@ w32_SteamUGCDetails_t_160::operator u64_SteamUGCDetails_t_160() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamUGCDetails_t_160::operator w32_SteamUGCDetails_t_160() const
 {
     w32_SteamUGCDetails_t_160 ret;
@@ -15221,7 +15221,7 @@ u64_SteamUGCDetails_t_160::operator w32_SteamUGCDetails_t_160() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_SteamUGCDetails_t_128x::operator u64_SteamUGCDetails_t_128x() const
 {
     u64_SteamUGCDetails_t_128x ret;
@@ -15255,7 +15255,7 @@ w64_SteamUGCDetails_t_128x::operator u64_SteamUGCDetails_t_128x() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamUGCDetails_t_128x::operator w64_SteamUGCDetails_t_128x() const
 {
     w64_SteamUGCDetails_t_128x ret;
@@ -15357,7 +15357,7 @@ u32_SteamUGCDetails_t_128x::operator w32_SteamUGCDetails_t_128x() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_SteamUGCDetails_t_128x::operator u64_SteamUGCDetails_t_128x() const
 {
     u64_SteamUGCDetails_t_128x ret;
@@ -15391,7 +15391,7 @@ w32_SteamUGCDetails_t_128x::operator u64_SteamUGCDetails_t_128x() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamUGCDetails_t_128x::operator w32_SteamUGCDetails_t_128x() const
 {
     w32_SteamUGCDetails_t_128x ret;
@@ -15425,7 +15425,7 @@ u64_SteamUGCDetails_t_128x::operator w32_SteamUGCDetails_t_128x() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_SteamUGCDetails_t_126::operator u64_SteamUGCDetails_t_126() const
 {
     u64_SteamUGCDetails_t_126 ret;
@@ -15458,7 +15458,7 @@ w64_SteamUGCDetails_t_126::operator u64_SteamUGCDetails_t_126() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamUGCDetails_t_126::operator w64_SteamUGCDetails_t_126() const
 {
     w64_SteamUGCDetails_t_126 ret;
@@ -15557,7 +15557,7 @@ u32_SteamUGCDetails_t_126::operator w32_SteamUGCDetails_t_126() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_SteamUGCDetails_t_126::operator u64_SteamUGCDetails_t_126() const
 {
     u64_SteamUGCDetails_t_126 ret;
@@ -15590,7 +15590,7 @@ w32_SteamUGCDetails_t_126::operator u64_SteamUGCDetails_t_126() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamUGCDetails_t_126::operator w32_SteamUGCDetails_t_126() const
 {
     w32_SteamUGCDetails_t_126 ret;
@@ -15655,7 +15655,7 @@ C_ASSERT( sizeof(u32_AddAppDependencyResult_t().m_nPublishedFileId) >= 8 );
 C_ASSERT( offsetof(u32_AddAppDependencyResult_t, m_nAppID) == 12 );
 C_ASSERT( sizeof(u32_AddAppDependencyResult_t().m_nAppID) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_AddAppDependencyResult_t::operator u64_AddAppDependencyResult_t() const
 {
     u64_AddAppDependencyResult_t ret;
@@ -15666,7 +15666,7 @@ w64_AddAppDependencyResult_t::operator u64_AddAppDependencyResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_AddAppDependencyResult_t::operator w64_AddAppDependencyResult_t() const
 {
     w64_AddAppDependencyResult_t ret;
@@ -15699,7 +15699,7 @@ u32_AddAppDependencyResult_t::operator w32_AddAppDependencyResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_AddAppDependencyResult_t::operator u64_AddAppDependencyResult_t() const
 {
     u64_AddAppDependencyResult_t ret;
@@ -15710,7 +15710,7 @@ w32_AddAppDependencyResult_t::operator u64_AddAppDependencyResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_AddAppDependencyResult_t::operator w32_AddAppDependencyResult_t() const
 {
     w32_AddAppDependencyResult_t ret;
@@ -15753,7 +15753,7 @@ C_ASSERT( sizeof(u32_AddUGCDependencyResult_t().m_nPublishedFileId) >= 8 );
 C_ASSERT( offsetof(u32_AddUGCDependencyResult_t, m_nChildPublishedFileId) == 12 );
 C_ASSERT( sizeof(u32_AddUGCDependencyResult_t().m_nChildPublishedFileId) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_AddUGCDependencyResult_t::operator u64_AddUGCDependencyResult_t() const
 {
     u64_AddUGCDependencyResult_t ret;
@@ -15764,7 +15764,7 @@ w64_AddUGCDependencyResult_t::operator u64_AddUGCDependencyResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_AddUGCDependencyResult_t::operator w64_AddUGCDependencyResult_t() const
 {
     w64_AddUGCDependencyResult_t ret;
@@ -15797,7 +15797,7 @@ u32_AddUGCDependencyResult_t::operator w32_AddUGCDependencyResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_AddUGCDependencyResult_t::operator u64_AddUGCDependencyResult_t() const
 {
     u64_AddUGCDependencyResult_t ret;
@@ -15808,7 +15808,7 @@ w32_AddUGCDependencyResult_t::operator u64_AddUGCDependencyResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_AddUGCDependencyResult_t::operator w32_AddUGCDependencyResult_t() const
 {
     w32_AddUGCDependencyResult_t ret;
@@ -15883,7 +15883,7 @@ C_ASSERT( sizeof(u32_CreateBeaconCallback_t().m_eResult) >= 4 );
 C_ASSERT( offsetof(u32_CreateBeaconCallback_t, m_ulBeaconID) == 4 );
 C_ASSERT( sizeof(u32_CreateBeaconCallback_t().m_ulBeaconID) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_CreateBeaconCallback_t::operator u64_CreateBeaconCallback_t() const
 {
     u64_CreateBeaconCallback_t ret;
@@ -15893,7 +15893,7 @@ w64_CreateBeaconCallback_t::operator u64_CreateBeaconCallback_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_CreateBeaconCallback_t::operator w64_CreateBeaconCallback_t() const
 {
     w64_CreateBeaconCallback_t ret;
@@ -15923,7 +15923,7 @@ u32_CreateBeaconCallback_t::operator w32_CreateBeaconCallback_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_CreateBeaconCallback_t::operator u64_CreateBeaconCallback_t() const
 {
     u64_CreateBeaconCallback_t ret;
@@ -15933,7 +15933,7 @@ w32_CreateBeaconCallback_t::operator u64_CreateBeaconCallback_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_CreateBeaconCallback_t::operator w32_CreateBeaconCallback_t() const
 {
     w32_CreateBeaconCallback_t ret;
@@ -15975,7 +15975,7 @@ C_ASSERT( sizeof(u32_CreateItemResult_t().m_nPublishedFileId) >= 8 );
 C_ASSERT( offsetof(u32_CreateItemResult_t, m_bUserNeedsToAcceptWorkshopLegalAgreement) == 12 );
 C_ASSERT( sizeof(u32_CreateItemResult_t().m_bUserNeedsToAcceptWorkshopLegalAgreement) >= 1 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_CreateItemResult_t::operator u64_CreateItemResult_t() const
 {
     u64_CreateItemResult_t ret;
@@ -15986,7 +15986,7 @@ w64_CreateItemResult_t::operator u64_CreateItemResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_CreateItemResult_t::operator w64_CreateItemResult_t() const
 {
     w64_CreateItemResult_t ret;
@@ -16019,7 +16019,7 @@ u32_CreateItemResult_t::operator w32_CreateItemResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_CreateItemResult_t::operator u64_CreateItemResult_t() const
 {
     u64_CreateItemResult_t ret;
@@ -16030,7 +16030,7 @@ w32_CreateItemResult_t::operator u64_CreateItemResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_CreateItemResult_t::operator w32_CreateItemResult_t() const
 {
     w32_CreateItemResult_t ret;
@@ -16065,7 +16065,7 @@ C_ASSERT( sizeof(u32_DeleteItemResult_t().m_eResult) >= 4 );
 C_ASSERT( offsetof(u32_DeleteItemResult_t, m_nPublishedFileId) == 4 );
 C_ASSERT( sizeof(u32_DeleteItemResult_t().m_nPublishedFileId) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_DeleteItemResult_t::operator u64_DeleteItemResult_t() const
 {
     u64_DeleteItemResult_t ret;
@@ -16075,7 +16075,7 @@ w64_DeleteItemResult_t::operator u64_DeleteItemResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_DeleteItemResult_t::operator w64_DeleteItemResult_t() const
 {
     w64_DeleteItemResult_t ret;
@@ -16105,7 +16105,7 @@ u32_DeleteItemResult_t::operator w32_DeleteItemResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_DeleteItemResult_t::operator u64_DeleteItemResult_t() const
 {
     u64_DeleteItemResult_t ret;
@@ -16115,7 +16115,7 @@ w32_DeleteItemResult_t::operator u64_DeleteItemResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_DeleteItemResult_t::operator w32_DeleteItemResult_t() const
 {
     w32_DeleteItemResult_t ret;
@@ -16157,7 +16157,7 @@ C_ASSERT( sizeof(u32_DownloadItemResult_t().m_nPublishedFileId) >= 8 );
 C_ASSERT( offsetof(u32_DownloadItemResult_t, m_eResult) == 12 );
 C_ASSERT( sizeof(u32_DownloadItemResult_t().m_eResult) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_DownloadItemResult_t::operator u64_DownloadItemResult_t() const
 {
     u64_DownloadItemResult_t ret;
@@ -16168,7 +16168,7 @@ w64_DownloadItemResult_t::operator u64_DownloadItemResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_DownloadItemResult_t::operator w64_DownloadItemResult_t() const
 {
     w64_DownloadItemResult_t ret;
@@ -16201,7 +16201,7 @@ u32_DownloadItemResult_t::operator w32_DownloadItemResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_DownloadItemResult_t::operator u64_DownloadItemResult_t() const
 {
     u64_DownloadItemResult_t ret;
@@ -16212,7 +16212,7 @@ w32_DownloadItemResult_t::operator u64_DownloadItemResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_DownloadItemResult_t::operator w32_DownloadItemResult_t() const
 {
     w32_DownloadItemResult_t ret;
@@ -16247,7 +16247,7 @@ C_ASSERT( sizeof(u32_EndGameResultCallback_t().m_eResult) >= 4 );
 C_ASSERT( offsetof(u32_EndGameResultCallback_t, ullUniqueGameID) == 4 );
 C_ASSERT( sizeof(u32_EndGameResultCallback_t().ullUniqueGameID) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_EndGameResultCallback_t::operator u64_EndGameResultCallback_t() const
 {
     u64_EndGameResultCallback_t ret;
@@ -16257,7 +16257,7 @@ w64_EndGameResultCallback_t::operator u64_EndGameResultCallback_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_EndGameResultCallback_t::operator w64_EndGameResultCallback_t() const
 {
     w64_EndGameResultCallback_t ret;
@@ -16287,7 +16287,7 @@ u32_EndGameResultCallback_t::operator w32_EndGameResultCallback_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_EndGameResultCallback_t::operator u64_EndGameResultCallback_t() const
 {
     u64_EndGameResultCallback_t ret;
@@ -16297,7 +16297,7 @@ w32_EndGameResultCallback_t::operator u64_EndGameResultCallback_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_EndGameResultCallback_t::operator w32_EndGameResultCallback_t() const
 {
     w32_EndGameResultCallback_t ret;
@@ -16347,7 +16347,7 @@ C_ASSERT( sizeof(u32_FileDetailsResult_t().m_FileSHA) >= 20 );
 C_ASSERT( offsetof(u32_FileDetailsResult_t, m_unFlags) == 32 );
 C_ASSERT( sizeof(u32_FileDetailsResult_t().m_unFlags) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_FileDetailsResult_t::operator u64_FileDetailsResult_t() const
 {
     u64_FileDetailsResult_t ret;
@@ -16359,7 +16359,7 @@ w64_FileDetailsResult_t::operator u64_FileDetailsResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_FileDetailsResult_t::operator w64_FileDetailsResult_t() const
 {
     w64_FileDetailsResult_t ret;
@@ -16395,7 +16395,7 @@ u32_FileDetailsResult_t::operator w32_FileDetailsResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_FileDetailsResult_t::operator u64_FileDetailsResult_t() const
 {
     u64_FileDetailsResult_t ret;
@@ -16407,7 +16407,7 @@ w32_FileDetailsResult_t::operator u64_FileDetailsResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_FileDetailsResult_t::operator w32_FileDetailsResult_t() const
 {
     w32_FileDetailsResult_t ret;
@@ -16547,7 +16547,7 @@ C_ASSERT( sizeof(u32_GSReputation_t_108().m_ulBannedGameID) >= 8 );
 C_ASSERT( offsetof(u32_GSReputation_t_108, m_unBanExpires) == 28 );
 C_ASSERT( sizeof(u32_GSReputation_t_108().m_unBanExpires) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_GSReputation_t_123::operator u64_GSReputation_t_123() const
 {
     u64_GSReputation_t_123 ret;
@@ -16562,7 +16562,7 @@ w64_GSReputation_t_123::operator u64_GSReputation_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_GSReputation_t_123::operator w64_GSReputation_t_123() const
 {
     w64_GSReputation_t_123 ret;
@@ -16607,7 +16607,7 @@ u32_GSReputation_t_123::operator w32_GSReputation_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_GSReputation_t_123::operator u64_GSReputation_t_123() const
 {
     u64_GSReputation_t_123 ret;
@@ -16622,7 +16622,7 @@ w32_GSReputation_t_123::operator u64_GSReputation_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_GSReputation_t_123::operator w32_GSReputation_t_123() const
 {
     w32_GSReputation_t_123 ret;
@@ -16667,7 +16667,7 @@ u32_GSReputation_t_108::operator w32_GSReputation_t_108() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_GSReputation_t_108::operator u64_GSReputation_t_108() const
 {
     u64_GSReputation_t_108 ret;
@@ -16682,7 +16682,7 @@ w32_GSReputation_t_108::operator u64_GSReputation_t_108() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_GSReputation_t_108::operator w32_GSReputation_t_108() const
 {
     w32_GSReputation_t_108 ret;
@@ -16745,7 +16745,7 @@ C_ASSERT( sizeof(u32_GetAppDependenciesResult_t().m_nNumAppDependencies) >= 4 );
 C_ASSERT( offsetof(u32_GetAppDependenciesResult_t, m_nTotalNumAppDependencies) == 144 );
 C_ASSERT( sizeof(u32_GetAppDependenciesResult_t().m_nTotalNumAppDependencies) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_GetAppDependenciesResult_t::operator u64_GetAppDependenciesResult_t() const
 {
     u64_GetAppDependenciesResult_t ret;
@@ -16758,7 +16758,7 @@ w64_GetAppDependenciesResult_t::operator u64_GetAppDependenciesResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_GetAppDependenciesResult_t::operator w64_GetAppDependenciesResult_t() const
 {
     w64_GetAppDependenciesResult_t ret;
@@ -16797,7 +16797,7 @@ u32_GetAppDependenciesResult_t::operator w32_GetAppDependenciesResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_GetAppDependenciesResult_t::operator u64_GetAppDependenciesResult_t() const
 {
     u64_GetAppDependenciesResult_t ret;
@@ -16810,7 +16810,7 @@ w32_GetAppDependenciesResult_t::operator u64_GetAppDependenciesResult_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_GetAppDependenciesResult_t::operator w32_GetAppDependenciesResult_t() const
 {
     w32_GetAppDependenciesResult_t ret;
@@ -16847,7 +16847,7 @@ C_ASSERT( sizeof(u32_HTML_ChangedTitle_t().unBrowserHandle) >= 4 );
 C_ASSERT( offsetof(u32_HTML_ChangedTitle_t, pchTitle) == 4 );
 C_ASSERT( sizeof(u32_HTML_ChangedTitle_t().pchTitle) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTML_ChangedTitle_t::operator u64_HTML_ChangedTitle_t() const
 {
     u64_HTML_ChangedTitle_t ret;
@@ -16857,7 +16857,7 @@ w64_HTML_ChangedTitle_t::operator u64_HTML_ChangedTitle_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTML_ChangedTitle_t::operator w64_HTML_ChangedTitle_t() const
 {
     w64_HTML_ChangedTitle_t ret;
@@ -16907,7 +16907,7 @@ C_ASSERT( sizeof(u32_HTML_ComboNeedsPaint_t().unWide) >= 4 );
 C_ASSERT( offsetof(u32_HTML_ComboNeedsPaint_t, unTall) == 12 );
 C_ASSERT( sizeof(u32_HTML_ComboNeedsPaint_t().unTall) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTML_ComboNeedsPaint_t::operator u64_HTML_ComboNeedsPaint_t() const
 {
     u64_HTML_ComboNeedsPaint_t ret;
@@ -16919,7 +16919,7 @@ w64_HTML_ComboNeedsPaint_t::operator u64_HTML_ComboNeedsPaint_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTML_ComboNeedsPaint_t::operator w64_HTML_ComboNeedsPaint_t() const
 {
     w64_HTML_ComboNeedsPaint_t ret;
@@ -16963,7 +16963,7 @@ C_ASSERT( sizeof(u32_HTML_FileOpenDialog_t().pchTitle) >= 4 );
 C_ASSERT( offsetof(u32_HTML_FileOpenDialog_t, pchInitialFile) == 8 );
 C_ASSERT( sizeof(u32_HTML_FileOpenDialog_t().pchInitialFile) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTML_FileOpenDialog_t::operator u64_HTML_FileOpenDialog_t() const
 {
     u64_HTML_FileOpenDialog_t ret;
@@ -16974,7 +16974,7 @@ w64_HTML_FileOpenDialog_t::operator u64_HTML_FileOpenDialog_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTML_FileOpenDialog_t::operator w64_HTML_FileOpenDialog_t() const
 {
     w64_HTML_FileOpenDialog_t ret;
@@ -17041,7 +17041,7 @@ C_ASSERT( sizeof(u32_HTML_FinishedRequest_t().pchURL) >= 4 );
 C_ASSERT( offsetof(u32_HTML_FinishedRequest_t, pchPageTitle) == 8 );
 C_ASSERT( sizeof(u32_HTML_FinishedRequest_t().pchPageTitle) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTML_FinishedRequest_t::operator u64_HTML_FinishedRequest_t() const
 {
     u64_HTML_FinishedRequest_t ret;
@@ -17052,7 +17052,7 @@ w64_HTML_FinishedRequest_t::operator u64_HTML_FinishedRequest_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTML_FinishedRequest_t::operator w64_HTML_FinishedRequest_t() const
 {
     w64_HTML_FinishedRequest_t ret;
@@ -17111,7 +17111,7 @@ C_ASSERT( sizeof(u32_HTML_JSAlert_t().unBrowserHandle) >= 4 );
 C_ASSERT( offsetof(u32_HTML_JSAlert_t, pchMessage) == 4 );
 C_ASSERT( sizeof(u32_HTML_JSAlert_t().pchMessage) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTML_JSAlert_t::operator u64_HTML_JSAlert_t() const
 {
     u64_HTML_JSAlert_t ret;
@@ -17121,7 +17121,7 @@ w64_HTML_JSAlert_t::operator u64_HTML_JSAlert_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTML_JSAlert_t::operator w64_HTML_JSAlert_t() const
 {
     w64_HTML_JSAlert_t ret;
@@ -17155,7 +17155,7 @@ C_ASSERT( sizeof(u32_HTML_JSConfirm_t().unBrowserHandle) >= 4 );
 C_ASSERT( offsetof(u32_HTML_JSConfirm_t, pchMessage) == 4 );
 C_ASSERT( sizeof(u32_HTML_JSConfirm_t().pchMessage) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTML_JSConfirm_t::operator u64_HTML_JSConfirm_t() const
 {
     u64_HTML_JSConfirm_t ret;
@@ -17165,7 +17165,7 @@ w64_HTML_JSConfirm_t::operator u64_HTML_JSConfirm_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTML_JSConfirm_t::operator w64_HTML_JSConfirm_t() const
 {
     w64_HTML_JSConfirm_t ret;
@@ -17231,7 +17231,7 @@ C_ASSERT( sizeof(u32_HTML_LinkAtPosition_t().bInput) >= 1 );
 C_ASSERT( offsetof(u32_HTML_LinkAtPosition_t, bLiveLink) == 17 );
 C_ASSERT( sizeof(u32_HTML_LinkAtPosition_t().bLiveLink) >= 1 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTML_LinkAtPosition_t::operator u64_HTML_LinkAtPosition_t() const
 {
     u64_HTML_LinkAtPosition_t ret;
@@ -17245,7 +17245,7 @@ w64_HTML_LinkAtPosition_t::operator u64_HTML_LinkAtPosition_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTML_LinkAtPosition_t::operator w64_HTML_LinkAtPosition_t() const
 {
     w64_HTML_LinkAtPosition_t ret;
@@ -17393,7 +17393,7 @@ C_ASSERT( sizeof(u32_HTML_NeedsPaint_t().flPageScale) >= 4 );
 C_ASSERT( offsetof(u32_HTML_NeedsPaint_t, unPageSerial) == 44 );
 C_ASSERT( sizeof(u32_HTML_NeedsPaint_t().unPageSerial) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTML_NeedsPaint_t::operator u64_HTML_NeedsPaint_t() const
 {
     u64_HTML_NeedsPaint_t ret;
@@ -17413,7 +17413,7 @@ w64_HTML_NeedsPaint_t::operator u64_HTML_NeedsPaint_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTML_NeedsPaint_t::operator w64_HTML_NeedsPaint_t() const
 {
     w64_HTML_NeedsPaint_t ret;
@@ -17553,7 +17553,7 @@ C_ASSERT( sizeof(u32_HTML_NewWindow_t_130x().unWide) >= 4 );
 C_ASSERT( offsetof(u32_HTML_NewWindow_t_130x, unTall) == 20 );
 C_ASSERT( sizeof(u32_HTML_NewWindow_t_130x().unTall) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTML_NewWindow_t_132x::operator u64_HTML_NewWindow_t_132x() const
 {
     u64_HTML_NewWindow_t_132x ret;
@@ -17568,7 +17568,7 @@ w64_HTML_NewWindow_t_132x::operator u64_HTML_NewWindow_t_132x() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTML_NewWindow_t_132x::operator w64_HTML_NewWindow_t_132x() const
 {
     w64_HTML_NewWindow_t_132x ret;
@@ -17615,7 +17615,7 @@ u32_HTML_NewWindow_t_132x::operator w32_HTML_NewWindow_t_132x() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTML_NewWindow_t_130x::operator u64_HTML_NewWindow_t_130x() const
 {
     u64_HTML_NewWindow_t_130x ret;
@@ -17629,7 +17629,7 @@ w64_HTML_NewWindow_t_130x::operator u64_HTML_NewWindow_t_130x() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTML_NewWindow_t_130x::operator w64_HTML_NewWindow_t_130x() const
 {
     w64_HTML_NewWindow_t_130x ret;
@@ -17697,7 +17697,7 @@ C_ASSERT( sizeof(u32_HTML_OpenLinkInNewTab_t().unBrowserHandle) >= 4 );
 C_ASSERT( offsetof(u32_HTML_OpenLinkInNewTab_t, pchURL) == 4 );
 C_ASSERT( sizeof(u32_HTML_OpenLinkInNewTab_t().pchURL) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTML_OpenLinkInNewTab_t::operator u64_HTML_OpenLinkInNewTab_t() const
 {
     u64_HTML_OpenLinkInNewTab_t ret;
@@ -17707,7 +17707,7 @@ w64_HTML_OpenLinkInNewTab_t::operator u64_HTML_OpenLinkInNewTab_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTML_OpenLinkInNewTab_t::operator w64_HTML_OpenLinkInNewTab_t() const
 {
     w64_HTML_OpenLinkInNewTab_t ret;
@@ -17763,7 +17763,7 @@ C_ASSERT( sizeof(u32_HTML_ShowToolTip_t().unBrowserHandle) >= 4 );
 C_ASSERT( offsetof(u32_HTML_ShowToolTip_t, pchMsg) == 4 );
 C_ASSERT( sizeof(u32_HTML_ShowToolTip_t().pchMsg) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTML_ShowToolTip_t::operator u64_HTML_ShowToolTip_t() const
 {
     u64_HTML_ShowToolTip_t ret;
@@ -17773,7 +17773,7 @@ w64_HTML_ShowToolTip_t::operator u64_HTML_ShowToolTip_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTML_ShowToolTip_t::operator w64_HTML_ShowToolTip_t() const
 {
     w64_HTML_ShowToolTip_t ret;
@@ -17831,7 +17831,7 @@ C_ASSERT( sizeof(u32_HTML_StartRequest_t().pchPostData) >= 4 );
 C_ASSERT( offsetof(u32_HTML_StartRequest_t, bIsRedirect) == 16 );
 C_ASSERT( sizeof(u32_HTML_StartRequest_t().bIsRedirect) >= 1 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTML_StartRequest_t::operator u64_HTML_StartRequest_t() const
 {
     u64_HTML_StartRequest_t ret;
@@ -17844,7 +17844,7 @@ w64_HTML_StartRequest_t::operator u64_HTML_StartRequest_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTML_StartRequest_t::operator w64_HTML_StartRequest_t() const
 {
     w64_HTML_StartRequest_t ret;
@@ -17909,7 +17909,7 @@ C_ASSERT( sizeof(u32_HTML_StatusText_t().unBrowserHandle) >= 4 );
 C_ASSERT( offsetof(u32_HTML_StatusText_t, pchMsg) == 4 );
 C_ASSERT( sizeof(u32_HTML_StatusText_t().pchMsg) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTML_StatusText_t::operator u64_HTML_StatusText_t() const
 {
     u64_HTML_StatusText_t ret;
@@ -17919,7 +17919,7 @@ w64_HTML_StatusText_t::operator u64_HTML_StatusText_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTML_StatusText_t::operator w64_HTML_StatusText_t() const
 {
     w64_HTML_StatusText_t ret;
@@ -17985,7 +17985,7 @@ C_ASSERT( sizeof(u32_HTML_URLChanged_t().pchPageTitle) >= 4 );
 C_ASSERT( offsetof(u32_HTML_URLChanged_t, bNewNavigation) == 20 );
 C_ASSERT( sizeof(u32_HTML_URLChanged_t().bNewNavigation) >= 1 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTML_URLChanged_t::operator u64_HTML_URLChanged_t() const
 {
     u64_HTML_URLChanged_t ret;
@@ -17999,7 +17999,7 @@ w64_HTML_URLChanged_t::operator u64_HTML_URLChanged_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTML_URLChanged_t::operator w64_HTML_URLChanged_t() const
 {
     w64_HTML_URLChanged_t ret;
@@ -18067,7 +18067,7 @@ C_ASSERT( sizeof(u32_HTML_UpdateToolTip_t().unBrowserHandle) >= 4 );
 C_ASSERT( offsetof(u32_HTML_UpdateToolTip_t, pchMsg) == 4 );
 C_ASSERT( sizeof(u32_HTML_UpdateToolTip_t().pchMsg) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTML_UpdateToolTip_t::operator u64_HTML_UpdateToolTip_t() const
 {
     u64_HTML_UpdateToolTip_t ret;
@@ -18077,7 +18077,7 @@ w64_HTML_UpdateToolTip_t::operator u64_HTML_UpdateToolTip_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTML_UpdateToolTip_t::operator w64_HTML_UpdateToolTip_t() const
 {
     w64_HTML_UpdateToolTip_t ret;
@@ -18215,7 +18215,7 @@ C_ASSERT( sizeof(u32_HTTPRequestCompleted_t_115().m_bRequestSuccessful) >= 1 );
 C_ASSERT( offsetof(u32_HTTPRequestCompleted_t_115, m_eStatusCode) == 16 );
 C_ASSERT( sizeof(u32_HTTPRequestCompleted_t_115().m_eStatusCode) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTTPRequestCompleted_t_132x::operator u64_HTTPRequestCompleted_t_132x() const
 {
     u64_HTTPRequestCompleted_t_132x ret;
@@ -18228,7 +18228,7 @@ w64_HTTPRequestCompleted_t_132x::operator u64_HTTPRequestCompleted_t_132x() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTTPRequestCompleted_t_132x::operator w64_HTTPRequestCompleted_t_132x() const
 {
     w64_HTTPRequestCompleted_t_132x ret;
@@ -18267,7 +18267,7 @@ u32_HTTPRequestCompleted_t_132x::operator w32_HTTPRequestCompleted_t_132x() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_HTTPRequestCompleted_t_132x::operator u64_HTTPRequestCompleted_t_132x() const
 {
     u64_HTTPRequestCompleted_t_132x ret;
@@ -18280,7 +18280,7 @@ w32_HTTPRequestCompleted_t_132x::operator u64_HTTPRequestCompleted_t_132x() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTTPRequestCompleted_t_132x::operator w32_HTTPRequestCompleted_t_132x() const
 {
     w32_HTTPRequestCompleted_t_132x ret;
@@ -18293,7 +18293,7 @@ u64_HTTPRequestCompleted_t_132x::operator w32_HTTPRequestCompleted_t_132x() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTTPRequestCompleted_t_123::operator u64_HTTPRequestCompleted_t_123() const
 {
     u64_HTTPRequestCompleted_t_123 ret;
@@ -18305,7 +18305,7 @@ w64_HTTPRequestCompleted_t_123::operator u64_HTTPRequestCompleted_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTTPRequestCompleted_t_123::operator w64_HTTPRequestCompleted_t_123() const
 {
     w64_HTTPRequestCompleted_t_123 ret;
@@ -18341,7 +18341,7 @@ u32_HTTPRequestCompleted_t_123::operator w32_HTTPRequestCompleted_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_HTTPRequestCompleted_t_123::operator u64_HTTPRequestCompleted_t_123() const
 {
     u64_HTTPRequestCompleted_t_123 ret;
@@ -18353,7 +18353,7 @@ w32_HTTPRequestCompleted_t_123::operator u64_HTTPRequestCompleted_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTTPRequestCompleted_t_123::operator w32_HTTPRequestCompleted_t_123() const
 {
     w32_HTTPRequestCompleted_t_123 ret;
@@ -18389,7 +18389,7 @@ u32_HTTPRequestCompleted_t_115::operator w32_HTTPRequestCompleted_t_115() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_HTTPRequestCompleted_t_115::operator u64_HTTPRequestCompleted_t_115() const
 {
     u64_HTTPRequestCompleted_t_115 ret;
@@ -18401,7 +18401,7 @@ w32_HTTPRequestCompleted_t_115::operator u64_HTTPRequestCompleted_t_115() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTTPRequestCompleted_t_115::operator w32_HTTPRequestCompleted_t_115() const
 {
     w32_HTTPRequestCompleted_t_115 ret;
@@ -18493,7 +18493,7 @@ C_ASSERT( sizeof(u32_HTTPRequestDataReceived_t_121x().m_cOffset) >= 4 );
 C_ASSERT( offsetof(u32_HTTPRequestDataReceived_t_121x, m_cBytesReceived) == 16 );
 C_ASSERT( sizeof(u32_HTTPRequestDataReceived_t_121x().m_cBytesReceived) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTTPRequestDataReceived_t_123::operator u64_HTTPRequestDataReceived_t_123() const
 {
     u64_HTTPRequestDataReceived_t_123 ret;
@@ -18505,7 +18505,7 @@ w64_HTTPRequestDataReceived_t_123::operator u64_HTTPRequestDataReceived_t_123() 
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTTPRequestDataReceived_t_123::operator w64_HTTPRequestDataReceived_t_123() const
 {
     w64_HTTPRequestDataReceived_t_123 ret;
@@ -18541,7 +18541,7 @@ u32_HTTPRequestDataReceived_t_123::operator w32_HTTPRequestDataReceived_t_123() 
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_HTTPRequestDataReceived_t_123::operator u64_HTTPRequestDataReceived_t_123() const
 {
     u64_HTTPRequestDataReceived_t_123 ret;
@@ -18553,7 +18553,7 @@ w32_HTTPRequestDataReceived_t_123::operator u64_HTTPRequestDataReceived_t_123() 
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTTPRequestDataReceived_t_123::operator w32_HTTPRequestDataReceived_t_123() const
 {
     w32_HTTPRequestDataReceived_t_123 ret;
@@ -18589,7 +18589,7 @@ u32_HTTPRequestDataReceived_t_121x::operator w32_HTTPRequestDataReceived_t_121x(
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_HTTPRequestDataReceived_t_121x::operator u64_HTTPRequestDataReceived_t_121x() const
 {
     u64_HTTPRequestDataReceived_t_121x ret;
@@ -18601,7 +18601,7 @@ w32_HTTPRequestDataReceived_t_121x::operator u64_HTTPRequestDataReceived_t_121x(
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTTPRequestDataReceived_t_121x::operator w32_HTTPRequestDataReceived_t_121x() const
 {
     w32_HTTPRequestDataReceived_t_121x ret;
@@ -18661,7 +18661,7 @@ C_ASSERT( sizeof(u32_HTTPRequestHeadersReceived_t_121x().m_hRequest) >= 4 );
 C_ASSERT( offsetof(u32_HTTPRequestHeadersReceived_t_121x, m_ulContextValue) == 4 );
 C_ASSERT( sizeof(u32_HTTPRequestHeadersReceived_t_121x().m_ulContextValue) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_HTTPRequestHeadersReceived_t_123::operator u64_HTTPRequestHeadersReceived_t_123() const
 {
     u64_HTTPRequestHeadersReceived_t_123 ret;
@@ -18671,7 +18671,7 @@ w64_HTTPRequestHeadersReceived_t_123::operator u64_HTTPRequestHeadersReceived_t_
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTTPRequestHeadersReceived_t_123::operator w64_HTTPRequestHeadersReceived_t_123() const
 {
     w64_HTTPRequestHeadersReceived_t_123 ret;
@@ -18701,7 +18701,7 @@ u32_HTTPRequestHeadersReceived_t_123::operator w32_HTTPRequestHeadersReceived_t_
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_HTTPRequestHeadersReceived_t_123::operator u64_HTTPRequestHeadersReceived_t_123() const
 {
     u64_HTTPRequestHeadersReceived_t_123 ret;
@@ -18711,7 +18711,7 @@ w32_HTTPRequestHeadersReceived_t_123::operator u64_HTTPRequestHeadersReceived_t_
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTTPRequestHeadersReceived_t_123::operator w32_HTTPRequestHeadersReceived_t_123() const
 {
     w32_HTTPRequestHeadersReceived_t_123 ret;
@@ -18741,7 +18741,7 @@ u32_HTTPRequestHeadersReceived_t_121x::operator w32_HTTPRequestHeadersReceived_t
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_HTTPRequestHeadersReceived_t_121x::operator u64_HTTPRequestHeadersReceived_t_121x() const
 {
     u64_HTTPRequestHeadersReceived_t_121x ret;
@@ -18751,7 +18751,7 @@ w32_HTTPRequestHeadersReceived_t_121x::operator u64_HTTPRequestHeadersReceived_t
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HTTPRequestHeadersReceived_t_121x::operator w32_HTTPRequestHeadersReceived_t_121x() const
 {
     w32_HTTPRequestHeadersReceived_t_121x ret;
@@ -18825,7 +18825,7 @@ C_ASSERT( sizeof(u32_ItemInstalled_t_130().m_unAppID) >= 4 );
 C_ASSERT( offsetof(u32_ItemInstalled_t_130, m_nPublishedFileId) == 4 );
 C_ASSERT( sizeof(u32_ItemInstalled_t_130().m_nPublishedFileId) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_ItemInstalled_t_160::operator u64_ItemInstalled_t_160() const
 {
     u64_ItemInstalled_t_160 ret;
@@ -18837,7 +18837,7 @@ w64_ItemInstalled_t_160::operator u64_ItemInstalled_t_160() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_ItemInstalled_t_160::operator w64_ItemInstalled_t_160() const
 {
     w64_ItemInstalled_t_160 ret;
@@ -18873,7 +18873,7 @@ u32_ItemInstalled_t_160::operator w32_ItemInstalled_t_160() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_ItemInstalled_t_160::operator u64_ItemInstalled_t_160() const
 {
     u64_ItemInstalled_t_160 ret;
@@ -18885,7 +18885,7 @@ w32_ItemInstalled_t_160::operator u64_ItemInstalled_t_160() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_ItemInstalled_t_160::operator w32_ItemInstalled_t_160() const
 {
     w32_ItemInstalled_t_160 ret;
@@ -18897,7 +18897,7 @@ u64_ItemInstalled_t_160::operator w32_ItemInstalled_t_160() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_ItemInstalled_t_130::operator u64_ItemInstalled_t_130() const
 {
     u64_ItemInstalled_t_130 ret;
@@ -18907,7 +18907,7 @@ w64_ItemInstalled_t_130::operator u64_ItemInstalled_t_130() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_ItemInstalled_t_130::operator w64_ItemInstalled_t_130() const
 {
     w64_ItemInstalled_t_130 ret;
@@ -18937,7 +18937,7 @@ u32_ItemInstalled_t_130::operator w32_ItemInstalled_t_130() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_ItemInstalled_t_130::operator u64_ItemInstalled_t_130() const
 {
     u64_ItemInstalled_t_130 ret;
@@ -18947,7 +18947,7 @@ w32_ItemInstalled_t_130::operator u64_ItemInstalled_t_130() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_ItemInstalled_t_130::operator w32_ItemInstalled_t_130() const
 {
     w32_ItemInstalled_t_130 ret;
@@ -18997,7 +18997,7 @@ C_ASSERT( sizeof(u32_JoinPartyCallback_t().m_SteamIDBeaconOwner) >= 8 );
 C_ASSERT( offsetof(u32_JoinPartyCallback_t, m_rgchConnectString) == 20 );
 C_ASSERT( sizeof(u32_JoinPartyCallback_t().m_rgchConnectString) >= 256 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_JoinPartyCallback_t::operator u64_JoinPartyCallback_t() const
 {
     u64_JoinPartyCallback_t ret;
@@ -19009,7 +19009,7 @@ w64_JoinPartyCallback_t::operator u64_JoinPartyCallback_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_JoinPartyCallback_t::operator w64_JoinPartyCallback_t() const
 {
     w64_JoinPartyCallback_t ret;
@@ -19045,7 +19045,7 @@ u32_JoinPartyCallback_t::operator w32_JoinPartyCallback_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_JoinPartyCallback_t::operator u64_JoinPartyCallback_t() const
 {
     u64_JoinPartyCallback_t ret;
@@ -19057,7 +19057,7 @@ w32_JoinPartyCallback_t::operator u64_JoinPartyCallback_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_JoinPartyCallback_t::operator w32_JoinPartyCallback_t() const
 {
     w32_JoinPartyCallback_t ret;
@@ -19205,7 +19205,7 @@ C_ASSERT( sizeof(u32_LeaderboardEntry_t_104().m_nScore) >= 4 );
 C_ASSERT( offsetof(u32_LeaderboardEntry_t_104, m_cDetails) == 16 );
 C_ASSERT( sizeof(u32_LeaderboardEntry_t_104().m_cDetails) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_LeaderboardEntry_t_123::operator u64_LeaderboardEntry_t_123() const
 {
     u64_LeaderboardEntry_t_123 ret;
@@ -19218,7 +19218,7 @@ w64_LeaderboardEntry_t_123::operator u64_LeaderboardEntry_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_LeaderboardEntry_t_123::operator w64_LeaderboardEntry_t_123() const
 {
     w64_LeaderboardEntry_t_123 ret;
@@ -19257,7 +19257,7 @@ u32_LeaderboardEntry_t_123::operator w32_LeaderboardEntry_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_LeaderboardEntry_t_123::operator u64_LeaderboardEntry_t_123() const
 {
     u64_LeaderboardEntry_t_123 ret;
@@ -19270,7 +19270,7 @@ w32_LeaderboardEntry_t_123::operator u64_LeaderboardEntry_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_LeaderboardEntry_t_123::operator w32_LeaderboardEntry_t_123() const
 {
     w32_LeaderboardEntry_t_123 ret;
@@ -19309,7 +19309,7 @@ u32_LeaderboardEntry_t_111x::operator w32_LeaderboardEntry_t_111x() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_LeaderboardEntry_t_111x::operator u64_LeaderboardEntry_t_111x() const
 {
     u64_LeaderboardEntry_t_111x ret;
@@ -19322,7 +19322,7 @@ w32_LeaderboardEntry_t_111x::operator u64_LeaderboardEntry_t_111x() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_LeaderboardEntry_t_111x::operator w32_LeaderboardEntry_t_111x() const
 {
     w32_LeaderboardEntry_t_111x ret;
@@ -19335,7 +19335,7 @@ u64_LeaderboardEntry_t_111x::operator w32_LeaderboardEntry_t_111x() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_LeaderboardEntry_t_104::operator u64_LeaderboardEntry_t_104() const
 {
     u64_LeaderboardEntry_t_104 ret;
@@ -19347,7 +19347,7 @@ w32_LeaderboardEntry_t_104::operator u64_LeaderboardEntry_t_104() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_LeaderboardEntry_t_104::operator w32_LeaderboardEntry_t_104() const
 {
     w32_LeaderboardEntry_t_104 ret;
@@ -19471,7 +19471,7 @@ C_ASSERT( sizeof(u32_LeaderboardScoreUploaded_t_104().m_nGlobalRankNew) >= 4 );
 C_ASSERT( offsetof(u32_LeaderboardScoreUploaded_t_104, m_nGlobalRankPrevious) == 24 );
 C_ASSERT( sizeof(u32_LeaderboardScoreUploaded_t_104().m_nGlobalRankPrevious) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_LeaderboardScoreUploaded_t_123::operator u64_LeaderboardScoreUploaded_t_123() const
 {
     u64_LeaderboardScoreUploaded_t_123 ret;
@@ -19485,7 +19485,7 @@ w64_LeaderboardScoreUploaded_t_123::operator u64_LeaderboardScoreUploaded_t_123(
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_LeaderboardScoreUploaded_t_123::operator w64_LeaderboardScoreUploaded_t_123() const
 {
     w64_LeaderboardScoreUploaded_t_123 ret;
@@ -19527,7 +19527,7 @@ u32_LeaderboardScoreUploaded_t_123::operator w32_LeaderboardScoreUploaded_t_123(
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_LeaderboardScoreUploaded_t_123::operator u64_LeaderboardScoreUploaded_t_123() const
 {
     u64_LeaderboardScoreUploaded_t_123 ret;
@@ -19541,7 +19541,7 @@ w32_LeaderboardScoreUploaded_t_123::operator u64_LeaderboardScoreUploaded_t_123(
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_LeaderboardScoreUploaded_t_123::operator w32_LeaderboardScoreUploaded_t_123() const
 {
     w32_LeaderboardScoreUploaded_t_123 ret;
@@ -19583,7 +19583,7 @@ u32_LeaderboardScoreUploaded_t_104::operator w32_LeaderboardScoreUploaded_t_104(
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_LeaderboardScoreUploaded_t_104::operator u64_LeaderboardScoreUploaded_t_104() const
 {
     u64_LeaderboardScoreUploaded_t_104 ret;
@@ -19597,7 +19597,7 @@ w32_LeaderboardScoreUploaded_t_104::operator u64_LeaderboardScoreUploaded_t_104(
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_LeaderboardScoreUploaded_t_104::operator w32_LeaderboardScoreUploaded_t_104() const
 {
     w32_LeaderboardScoreUploaded_t_104 ret;
@@ -19659,7 +19659,7 @@ C_ASSERT( sizeof(u32_LeaderboardUGCSet_t_111x().m_eResult) >= 4 );
 C_ASSERT( offsetof(u32_LeaderboardUGCSet_t_111x, m_hSteamLeaderboard) == 4 );
 C_ASSERT( sizeof(u32_LeaderboardUGCSet_t_111x().m_hSteamLeaderboard) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_LeaderboardUGCSet_t_123::operator u64_LeaderboardUGCSet_t_123() const
 {
     u64_LeaderboardUGCSet_t_123 ret;
@@ -19669,7 +19669,7 @@ w64_LeaderboardUGCSet_t_123::operator u64_LeaderboardUGCSet_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_LeaderboardUGCSet_t_123::operator w64_LeaderboardUGCSet_t_123() const
 {
     w64_LeaderboardUGCSet_t_123 ret;
@@ -19699,7 +19699,7 @@ u32_LeaderboardUGCSet_t_123::operator w32_LeaderboardUGCSet_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_LeaderboardUGCSet_t_123::operator u64_LeaderboardUGCSet_t_123() const
 {
     u64_LeaderboardUGCSet_t_123 ret;
@@ -19709,7 +19709,7 @@ w32_LeaderboardUGCSet_t_123::operator u64_LeaderboardUGCSet_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_LeaderboardUGCSet_t_123::operator w32_LeaderboardUGCSet_t_123() const
 {
     w32_LeaderboardUGCSet_t_123 ret;
@@ -19739,7 +19739,7 @@ u32_LeaderboardUGCSet_t_111x::operator w32_LeaderboardUGCSet_t_111x() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_LeaderboardUGCSet_t_111x::operator u64_LeaderboardUGCSet_t_111x() const
 {
     u64_LeaderboardUGCSet_t_111x ret;
@@ -19749,7 +19749,7 @@ w32_LeaderboardUGCSet_t_111x::operator u64_LeaderboardUGCSet_t_111x() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_LeaderboardUGCSet_t_111x::operator w32_LeaderboardUGCSet_t_111x() const
 {
     w32_LeaderboardUGCSet_t_111x ret;
@@ -19807,7 +19807,7 @@ C_ASSERT( sizeof(u32_LobbyCreated_t_099u().m_eResult) >= 4 );
 C_ASSERT( offsetof(u32_LobbyCreated_t_099u, m_ulSteamIDLobby) == 4 );
 C_ASSERT( sizeof(u32_LobbyCreated_t_099u().m_ulSteamIDLobby) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_LobbyCreated_t_123::operator u64_LobbyCreated_t_123() const
 {
     u64_LobbyCreated_t_123 ret;
@@ -19817,7 +19817,7 @@ w64_LobbyCreated_t_123::operator u64_LobbyCreated_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_LobbyCreated_t_123::operator w64_LobbyCreated_t_123() const
 {
     w64_LobbyCreated_t_123 ret;
@@ -19847,7 +19847,7 @@ u32_LobbyCreated_t_123::operator w32_LobbyCreated_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_LobbyCreated_t_123::operator u64_LobbyCreated_t_123() const
 {
     u64_LobbyCreated_t_123 ret;
@@ -19857,7 +19857,7 @@ w32_LobbyCreated_t_123::operator u64_LobbyCreated_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_LobbyCreated_t_123::operator w32_LobbyCreated_t_123() const
 {
     w32_LobbyCreated_t_123 ret;
@@ -19887,7 +19887,7 @@ u32_LobbyCreated_t_099u::operator w32_LobbyCreated_t_099u() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_LobbyCreated_t_099u::operator u64_LobbyCreated_t_099u() const
 {
     u64_LobbyCreated_t_099u ret;
@@ -19897,7 +19897,7 @@ w32_LobbyCreated_t_099u::operator u64_LobbyCreated_t_099u() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_LobbyCreated_t_099u::operator w32_LobbyCreated_t_099u() const
 {
     w32_LobbyCreated_t_099u ret;
@@ -19971,7 +19971,7 @@ C_ASSERT( sizeof(u32_MicroTxnAuthorizationResponse_t_109().m_ulOrderID) >= 8 );
 C_ASSERT( offsetof(u32_MicroTxnAuthorizationResponse_t_109, m_bAuthorized) == 12 );
 C_ASSERT( sizeof(u32_MicroTxnAuthorizationResponse_t_109().m_bAuthorized) >= 1 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_MicroTxnAuthorizationResponse_t_123::operator u64_MicroTxnAuthorizationResponse_t_123() const
 {
     u64_MicroTxnAuthorizationResponse_t_123 ret;
@@ -19982,7 +19982,7 @@ w64_MicroTxnAuthorizationResponse_t_123::operator u64_MicroTxnAuthorizationRespo
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_MicroTxnAuthorizationResponse_t_123::operator w64_MicroTxnAuthorizationResponse_t_123() const
 {
     w64_MicroTxnAuthorizationResponse_t_123 ret;
@@ -20015,7 +20015,7 @@ u32_MicroTxnAuthorizationResponse_t_123::operator w32_MicroTxnAuthorizationRespo
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_MicroTxnAuthorizationResponse_t_123::operator u64_MicroTxnAuthorizationResponse_t_123() const
 {
     u64_MicroTxnAuthorizationResponse_t_123 ret;
@@ -20026,7 +20026,7 @@ w32_MicroTxnAuthorizationResponse_t_123::operator u64_MicroTxnAuthorizationRespo
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_MicroTxnAuthorizationResponse_t_123::operator w32_MicroTxnAuthorizationResponse_t_123() const
 {
     w32_MicroTxnAuthorizationResponse_t_123 ret;
@@ -20059,7 +20059,7 @@ u32_MicroTxnAuthorizationResponse_t_109::operator w32_MicroTxnAuthorizationRespo
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_MicroTxnAuthorizationResponse_t_109::operator u64_MicroTxnAuthorizationResponse_t_109() const
 {
     u64_MicroTxnAuthorizationResponse_t_109 ret;
@@ -20070,7 +20070,7 @@ w32_MicroTxnAuthorizationResponse_t_109::operator u64_MicroTxnAuthorizationRespo
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_MicroTxnAuthorizationResponse_t_109::operator w32_MicroTxnAuthorizationResponse_t_109() const
 {
     w32_MicroTxnAuthorizationResponse_t_109 ret;
@@ -20145,7 +20145,7 @@ C_ASSERT( sizeof(u32_PS3TrophiesInstalled_t_112x().m_eResult) >= 4 );
 C_ASSERT( offsetof(u32_PS3TrophiesInstalled_t_112x, m_ulRequiredDiskSpace) == 12 );
 C_ASSERT( sizeof(u32_PS3TrophiesInstalled_t_112x().m_ulRequiredDiskSpace) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_PS3TrophiesInstalled_t_123::operator u64_PS3TrophiesInstalled_t_123() const
 {
     u64_PS3TrophiesInstalled_t_123 ret;
@@ -20156,7 +20156,7 @@ w64_PS3TrophiesInstalled_t_123::operator u64_PS3TrophiesInstalled_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_PS3TrophiesInstalled_t_123::operator w64_PS3TrophiesInstalled_t_123() const
 {
     w64_PS3TrophiesInstalled_t_123 ret;
@@ -20189,7 +20189,7 @@ u32_PS3TrophiesInstalled_t_123::operator w32_PS3TrophiesInstalled_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_PS3TrophiesInstalled_t_123::operator u64_PS3TrophiesInstalled_t_123() const
 {
     u64_PS3TrophiesInstalled_t_123 ret;
@@ -20200,7 +20200,7 @@ w32_PS3TrophiesInstalled_t_123::operator u64_PS3TrophiesInstalled_t_123() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_PS3TrophiesInstalled_t_123::operator w32_PS3TrophiesInstalled_t_123() const
 {
     w32_PS3TrophiesInstalled_t_123 ret;
@@ -20233,7 +20233,7 @@ u32_PS3TrophiesInstalled_t_112x::operator w32_PS3TrophiesInstalled_t_112x() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_PS3TrophiesInstalled_t_112x::operator u64_PS3TrophiesInstalled_t_112x() const
 {
     u64_PS3TrophiesInstalled_t_112x ret;
@@ -20244,7 +20244,7 @@ w32_PS3TrophiesInstalled_t_112x::operator u64_PS3TrophiesInstalled_t_112x() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_PS3TrophiesInstalled_t_112x::operator w32_PS3TrophiesInstalled_t_112x() const
 {
     w32_PS3TrophiesInstalled_t_112x ret;
@@ -20351,7 +20351,7 @@ C_ASSERT( sizeof(u32_RemoteStorageAppSyncProgress_t_111x().m_dAppPercentComplete
 C_ASSERT( offsetof(u32_RemoteStorageAppSyncProgress_t_111x, m_bUploading) == 276 );
 C_ASSERT( sizeof(u32_RemoteStorageAppSyncProgress_t_111x().m_bUploading) >= 1 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageAppSyncProgress_t_123::operator u64_RemoteStorageAppSyncProgress_t_123() const
 {
     u64_RemoteStorageAppSyncProgress_t_123 ret;
@@ -20364,7 +20364,7 @@ w64_RemoteStorageAppSyncProgress_t_123::operator u64_RemoteStorageAppSyncProgres
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageAppSyncProgress_t_123::operator w64_RemoteStorageAppSyncProgress_t_123() const
 {
     w64_RemoteStorageAppSyncProgress_t_123 ret;
@@ -20403,7 +20403,7 @@ u32_RemoteStorageAppSyncProgress_t_123::operator w32_RemoteStorageAppSyncProgres
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageAppSyncProgress_t_123::operator u64_RemoteStorageAppSyncProgress_t_123() const
 {
     u64_RemoteStorageAppSyncProgress_t_123 ret;
@@ -20416,7 +20416,7 @@ w32_RemoteStorageAppSyncProgress_t_123::operator u64_RemoteStorageAppSyncProgres
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageAppSyncProgress_t_123::operator w32_RemoteStorageAppSyncProgress_t_123() const
 {
     w32_RemoteStorageAppSyncProgress_t_123 ret;
@@ -20455,7 +20455,7 @@ u32_RemoteStorageAppSyncProgress_t_111x::operator w32_RemoteStorageAppSyncProgre
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageAppSyncProgress_t_111x::operator u64_RemoteStorageAppSyncProgress_t_111x() const
 {
     u64_RemoteStorageAppSyncProgress_t_111x ret;
@@ -20468,7 +20468,7 @@ w32_RemoteStorageAppSyncProgress_t_111x::operator u64_RemoteStorageAppSyncProgre
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageAppSyncProgress_t_111x::operator w32_RemoteStorageAppSyncProgress_t_111x() const
 {
     w32_RemoteStorageAppSyncProgress_t_111x ret;
@@ -20529,7 +20529,7 @@ C_ASSERT( sizeof(u32_RemoteStorageDeletePublishedFileResult_t_116x().m_eResult) 
 C_ASSERT( offsetof(u32_RemoteStorageDeletePublishedFileResult_t_116x, m_nPublishedFileId) == 4 );
 C_ASSERT( sizeof(u32_RemoteStorageDeletePublishedFileResult_t_116x().m_nPublishedFileId) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageDeletePublishedFileResult_t_123::operator u64_RemoteStorageDeletePublishedFileResult_t_123() const
 {
     u64_RemoteStorageDeletePublishedFileResult_t_123 ret;
@@ -20539,7 +20539,7 @@ w64_RemoteStorageDeletePublishedFileResult_t_123::operator u64_RemoteStorageDele
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageDeletePublishedFileResult_t_123::operator w64_RemoteStorageDeletePublishedFileResult_t_123() const
 {
     w64_RemoteStorageDeletePublishedFileResult_t_123 ret;
@@ -20569,7 +20569,7 @@ u32_RemoteStorageDeletePublishedFileResult_t_123::operator w32_RemoteStorageDele
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageDeletePublishedFileResult_t_123::operator u64_RemoteStorageDeletePublishedFileResult_t_123() const
 {
     u64_RemoteStorageDeletePublishedFileResult_t_123 ret;
@@ -20579,7 +20579,7 @@ w32_RemoteStorageDeletePublishedFileResult_t_123::operator u64_RemoteStorageDele
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageDeletePublishedFileResult_t_123::operator w32_RemoteStorageDeletePublishedFileResult_t_123() const
 {
     w32_RemoteStorageDeletePublishedFileResult_t_123 ret;
@@ -20609,7 +20609,7 @@ u32_RemoteStorageDeletePublishedFileResult_t_116x::operator w32_RemoteStorageDel
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageDeletePublishedFileResult_t_116x::operator u64_RemoteStorageDeletePublishedFileResult_t_116x() const
 {
     u64_RemoteStorageDeletePublishedFileResult_t_116x ret;
@@ -20619,7 +20619,7 @@ w32_RemoteStorageDeletePublishedFileResult_t_116x::operator u64_RemoteStorageDel
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageDeletePublishedFileResult_t_116x::operator w32_RemoteStorageDeletePublishedFileResult_t_116x() const
 {
     w32_RemoteStorageDeletePublishedFileResult_t_116x ret;
@@ -20797,7 +20797,7 @@ C_ASSERT( sizeof(u32_RemoteStorageDownloadUGCResult_t_111x().m_pchFileName) >= 4
 C_ASSERT( offsetof(u32_RemoteStorageDownloadUGCResult_t_111x, m_ulSteamIDOwner) == 24 );
 C_ASSERT( sizeof(u32_RemoteStorageDownloadUGCResult_t_111x().m_ulSteamIDOwner) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageDownloadUGCResult_t_123::operator u64_RemoteStorageDownloadUGCResult_t_123() const
 {
     u64_RemoteStorageDownloadUGCResult_t_123 ret;
@@ -20811,7 +20811,7 @@ w64_RemoteStorageDownloadUGCResult_t_123::operator u64_RemoteStorageDownloadUGCR
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageDownloadUGCResult_t_123::operator w64_RemoteStorageDownloadUGCResult_t_123() const
 {
     w64_RemoteStorageDownloadUGCResult_t_123 ret;
@@ -20989,7 +20989,7 @@ C_ASSERT( sizeof(u32_RemoteStorageEnumerateUserPublishedFilesResult_t_116x().m_n
 C_ASSERT( offsetof(u32_RemoteStorageEnumerateUserPublishedFilesResult_t_116x, m_rgPublishedFileId) == 12 );
 C_ASSERT( sizeof(u32_RemoteStorageEnumerateUserPublishedFilesResult_t_116x().m_rgPublishedFileId) >= 400 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageEnumerateUserPublishedFilesResult_t_123::operator u64_RemoteStorageEnumerateUserPublishedFilesResult_t_123() const
 {
     u64_RemoteStorageEnumerateUserPublishedFilesResult_t_123 ret;
@@ -21001,7 +21001,7 @@ w64_RemoteStorageEnumerateUserPublishedFilesResult_t_123::operator u64_RemoteSto
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageEnumerateUserPublishedFilesResult_t_123::operator w64_RemoteStorageEnumerateUserPublishedFilesResult_t_123() const
 {
     w64_RemoteStorageEnumerateUserPublishedFilesResult_t_123 ret;
@@ -21037,7 +21037,7 @@ u32_RemoteStorageEnumerateUserPublishedFilesResult_t_123::operator w32_RemoteSto
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageEnumerateUserPublishedFilesResult_t_123::operator u64_RemoteStorageEnumerateUserPublishedFilesResult_t_123() const
 {
     u64_RemoteStorageEnumerateUserPublishedFilesResult_t_123 ret;
@@ -21049,7 +21049,7 @@ w32_RemoteStorageEnumerateUserPublishedFilesResult_t_123::operator u64_RemoteSto
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageEnumerateUserPublishedFilesResult_t_123::operator w32_RemoteStorageEnumerateUserPublishedFilesResult_t_123() const
 {
     w32_RemoteStorageEnumerateUserPublishedFilesResult_t_123 ret;
@@ -21085,7 +21085,7 @@ u32_RemoteStorageEnumerateUserPublishedFilesResult_t_116x::operator w32_RemoteSt
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageEnumerateUserPublishedFilesResult_t_116x::operator u64_RemoteStorageEnumerateUserPublishedFilesResult_t_116x() const
 {
     u64_RemoteStorageEnumerateUserPublishedFilesResult_t_116x ret;
@@ -21097,7 +21097,7 @@ w32_RemoteStorageEnumerateUserPublishedFilesResult_t_116x::operator u64_RemoteSt
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageEnumerateUserPublishedFilesResult_t_116x::operator w32_RemoteStorageEnumerateUserPublishedFilesResult_t_116x() const
 {
     w32_RemoteStorageEnumerateUserPublishedFilesResult_t_116x ret;
@@ -21189,7 +21189,7 @@ C_ASSERT( sizeof(u32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119()
 C_ASSERT( offsetof(u32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119, m_rgPublishedFileId) == 12 );
 C_ASSERT( sizeof(u32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119().m_rgPublishedFileId) >= 400 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123::operator u64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123() const
 {
     u64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123 ret;
@@ -21201,7 +21201,7 @@ w64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123::operator u64_Remo
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123::operator w64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123() const
 {
     w64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123 ret;
@@ -21237,7 +21237,7 @@ u32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123::operator w32_Remo
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123::operator u64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123() const
 {
     u64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123 ret;
@@ -21249,7 +21249,7 @@ w32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123::operator u64_Remo
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123::operator w32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123() const
 {
     w32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123 ret;
@@ -21285,7 +21285,7 @@ u32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119::operator w32_Remo
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119::operator u64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119() const
 {
     u64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119 ret;
@@ -21297,7 +21297,7 @@ w32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119::operator u64_Remo
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119::operator w32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119() const
 {
     w32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119 ret;
@@ -21405,7 +21405,7 @@ C_ASSERT( sizeof(u32_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x().m_
 C_ASSERT( offsetof(u32_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x, m_rgRTimeSubscribed) == 412 );
 C_ASSERT( sizeof(u32_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x().m_rgRTimeSubscribed) >= 200 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageEnumerateUserSubscribedFilesResult_t_123::operator u64_RemoteStorageEnumerateUserSubscribedFilesResult_t_123() const
 {
     u64_RemoteStorageEnumerateUserSubscribedFilesResult_t_123 ret;
@@ -21418,7 +21418,7 @@ w64_RemoteStorageEnumerateUserSubscribedFilesResult_t_123::operator u64_RemoteSt
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageEnumerateUserSubscribedFilesResult_t_123::operator w64_RemoteStorageEnumerateUserSubscribedFilesResult_t_123() const
 {
     w64_RemoteStorageEnumerateUserSubscribedFilesResult_t_123 ret;
@@ -21457,7 +21457,7 @@ u32_RemoteStorageEnumerateUserSubscribedFilesResult_t_123::operator w32_RemoteSt
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageEnumerateUserSubscribedFilesResult_t_123::operator u64_RemoteStorageEnumerateUserSubscribedFilesResult_t_123() const
 {
     u64_RemoteStorageEnumerateUserSubscribedFilesResult_t_123 ret;
@@ -21470,7 +21470,7 @@ w32_RemoteStorageEnumerateUserSubscribedFilesResult_t_123::operator u64_RemoteSt
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageEnumerateUserSubscribedFilesResult_t_123::operator w32_RemoteStorageEnumerateUserSubscribedFilesResult_t_123() const
 {
     w32_RemoteStorageEnumerateUserSubscribedFilesResult_t_123 ret;
@@ -21509,7 +21509,7 @@ u32_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x::operator w32_RemoteS
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x::operator u64_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x() const
 {
     u64_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x ret;
@@ -21522,7 +21522,7 @@ w32_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x::operator u64_RemoteS
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x::operator w32_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x() const
 {
     w32_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x ret;
@@ -21695,7 +21695,7 @@ C_ASSERT( sizeof(u32_RemoteStorageEnumerateWorkshopFilesResult_t_119().m_rgPubli
 C_ASSERT( offsetof(u32_RemoteStorageEnumerateWorkshopFilesResult_t_119, m_rgScore) == 412 );
 C_ASSERT( sizeof(u32_RemoteStorageEnumerateWorkshopFilesResult_t_119().m_rgScore) >= 200 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageEnumerateWorkshopFilesResult_t_125::operator u64_RemoteStorageEnumerateWorkshopFilesResult_t_125() const
 {
     u64_RemoteStorageEnumerateWorkshopFilesResult_t_125 ret;
@@ -21710,7 +21710,7 @@ w64_RemoteStorageEnumerateWorkshopFilesResult_t_125::operator u64_RemoteStorageE
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageEnumerateWorkshopFilesResult_t_125::operator w64_RemoteStorageEnumerateWorkshopFilesResult_t_125() const
 {
     w64_RemoteStorageEnumerateWorkshopFilesResult_t_125 ret;
@@ -21755,7 +21755,7 @@ u32_RemoteStorageEnumerateWorkshopFilesResult_t_125::operator w32_RemoteStorageE
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageEnumerateWorkshopFilesResult_t_125::operator u64_RemoteStorageEnumerateWorkshopFilesResult_t_125() const
 {
     u64_RemoteStorageEnumerateWorkshopFilesResult_t_125 ret;
@@ -21770,7 +21770,7 @@ w32_RemoteStorageEnumerateWorkshopFilesResult_t_125::operator u64_RemoteStorageE
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageEnumerateWorkshopFilesResult_t_125::operator w32_RemoteStorageEnumerateWorkshopFilesResult_t_125() const
 {
     w32_RemoteStorageEnumerateWorkshopFilesResult_t_125 ret;
@@ -21785,7 +21785,7 @@ u64_RemoteStorageEnumerateWorkshopFilesResult_t_125::operator w32_RemoteStorageE
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageEnumerateWorkshopFilesResult_t_123::operator u64_RemoteStorageEnumerateWorkshopFilesResult_t_123() const
 {
     u64_RemoteStorageEnumerateWorkshopFilesResult_t_123 ret;
@@ -21798,7 +21798,7 @@ w64_RemoteStorageEnumerateWorkshopFilesResult_t_123::operator u64_RemoteStorageE
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageEnumerateWorkshopFilesResult_t_123::operator w64_RemoteStorageEnumerateWorkshopFilesResult_t_123() const
 {
     w64_RemoteStorageEnumerateWorkshopFilesResult_t_123 ret;
@@ -21837,7 +21837,7 @@ u32_RemoteStorageEnumerateWorkshopFilesResult_t_123::operator w32_RemoteStorageE
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageEnumerateWorkshopFilesResult_t_123::operator u64_RemoteStorageEnumerateWorkshopFilesResult_t_123() const
 {
     u64_RemoteStorageEnumerateWorkshopFilesResult_t_123 ret;
@@ -21850,7 +21850,7 @@ w32_RemoteStorageEnumerateWorkshopFilesResult_t_123::operator u64_RemoteStorageE
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageEnumerateWorkshopFilesResult_t_123::operator w32_RemoteStorageEnumerateWorkshopFilesResult_t_123() const
 {
     w32_RemoteStorageEnumerateWorkshopFilesResult_t_123 ret;
@@ -21889,7 +21889,7 @@ u32_RemoteStorageEnumerateWorkshopFilesResult_t_119::operator w32_RemoteStorageE
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageEnumerateWorkshopFilesResult_t_119::operator u64_RemoteStorageEnumerateWorkshopFilesResult_t_119() const
 {
     u64_RemoteStorageEnumerateWorkshopFilesResult_t_119 ret;
@@ -21902,7 +21902,7 @@ w32_RemoteStorageEnumerateWorkshopFilesResult_t_119::operator u64_RemoteStorageE
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageEnumerateWorkshopFilesResult_t_119::operator w32_RemoteStorageEnumerateWorkshopFilesResult_t_119() const
 {
     w32_RemoteStorageEnumerateWorkshopFilesResult_t_119 ret;
@@ -21995,7 +21995,7 @@ C_ASSERT( sizeof(u32_RemoteStorageFileShareResult_t_111x().m_eResult) >= 4 );
 C_ASSERT( offsetof(u32_RemoteStorageFileShareResult_t_111x, m_hFile) == 4 );
 C_ASSERT( sizeof(u32_RemoteStorageFileShareResult_t_111x().m_hFile) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageFileShareResult_t_128x::operator u64_RemoteStorageFileShareResult_t_128x() const
 {
     u64_RemoteStorageFileShareResult_t_128x ret;
@@ -22006,7 +22006,7 @@ w64_RemoteStorageFileShareResult_t_128x::operator u64_RemoteStorageFileShareResu
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageFileShareResult_t_128x::operator w64_RemoteStorageFileShareResult_t_128x() const
 {
     w64_RemoteStorageFileShareResult_t_128x ret;
@@ -22039,7 +22039,7 @@ u32_RemoteStorageFileShareResult_t_128x::operator w32_RemoteStorageFileShareResu
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageFileShareResult_t_128x::operator u64_RemoteStorageFileShareResult_t_128x() const
 {
     u64_RemoteStorageFileShareResult_t_128x ret;
@@ -22050,7 +22050,7 @@ w32_RemoteStorageFileShareResult_t_128x::operator u64_RemoteStorageFileShareResu
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageFileShareResult_t_128x::operator w32_RemoteStorageFileShareResult_t_128x() const
 {
     w32_RemoteStorageFileShareResult_t_128x ret;
@@ -22061,7 +22061,7 @@ u64_RemoteStorageFileShareResult_t_128x::operator w32_RemoteStorageFileShareResu
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageFileShareResult_t_123::operator u64_RemoteStorageFileShareResult_t_123() const
 {
     u64_RemoteStorageFileShareResult_t_123 ret;
@@ -22071,7 +22071,7 @@ w64_RemoteStorageFileShareResult_t_123::operator u64_RemoteStorageFileShareResul
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageFileShareResult_t_123::operator w64_RemoteStorageFileShareResult_t_123() const
 {
     w64_RemoteStorageFileShareResult_t_123 ret;
@@ -22101,7 +22101,7 @@ u32_RemoteStorageFileShareResult_t_123::operator w32_RemoteStorageFileShareResul
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageFileShareResult_t_123::operator u64_RemoteStorageFileShareResult_t_123() const
 {
     u64_RemoteStorageFileShareResult_t_123 ret;
@@ -22111,7 +22111,7 @@ w32_RemoteStorageFileShareResult_t_123::operator u64_RemoteStorageFileShareResul
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageFileShareResult_t_123::operator w32_RemoteStorageFileShareResult_t_123() const
 {
     w32_RemoteStorageFileShareResult_t_123 ret;
@@ -22141,7 +22141,7 @@ u32_RemoteStorageFileShareResult_t_111x::operator w32_RemoteStorageFileShareResu
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageFileShareResult_t_111x::operator u64_RemoteStorageFileShareResult_t_111x() const
 {
     u64_RemoteStorageFileShareResult_t_111x ret;
@@ -22151,7 +22151,7 @@ w32_RemoteStorageFileShareResult_t_111x::operator u64_RemoteStorageFileShareResu
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageFileShareResult_t_111x::operator w32_RemoteStorageFileShareResult_t_111x() const
 {
     w32_RemoteStorageFileShareResult_t_111x ret;
@@ -23121,7 +23121,7 @@ C_ASSERT( sizeof(u32_RemoteStorageGetPublishedFileDetailsResult_t_116x().m_bTags
 C_ASSERT( offsetof(u32_RemoteStorageGetPublishedFileDetailsResult_t_116x, m_pchFileName) == 1471 );
 C_ASSERT( sizeof(u32_RemoteStorageGetPublishedFileDetailsResult_t_116x().m_pchFileName) >= 260 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageGetPublishedFileDetailsResult_t_126::operator u64_RemoteStorageGetPublishedFileDetailsResult_t_126() const
 {
     u64_RemoteStorageGetPublishedFileDetailsResult_t_126 ret;
@@ -23150,7 +23150,7 @@ w64_RemoteStorageGetPublishedFileDetailsResult_t_126::operator u64_RemoteStorage
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageGetPublishedFileDetailsResult_t_126::operator w64_RemoteStorageGetPublishedFileDetailsResult_t_126() const
 {
     w64_RemoteStorageGetPublishedFileDetailsResult_t_126 ret;
@@ -23237,7 +23237,7 @@ u32_RemoteStorageGetPublishedFileDetailsResult_t_126::operator w32_RemoteStorage
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageGetPublishedFileDetailsResult_t_126::operator u64_RemoteStorageGetPublishedFileDetailsResult_t_126() const
 {
     u64_RemoteStorageGetPublishedFileDetailsResult_t_126 ret;
@@ -23266,7 +23266,7 @@ w32_RemoteStorageGetPublishedFileDetailsResult_t_126::operator u64_RemoteStorage
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageGetPublishedFileDetailsResult_t_126::operator w32_RemoteStorageGetPublishedFileDetailsResult_t_126() const
 {
     w32_RemoteStorageGetPublishedFileDetailsResult_t_126 ret;
@@ -23295,7 +23295,7 @@ u64_RemoteStorageGetPublishedFileDetailsResult_t_126::operator w32_RemoteStorage
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageGetPublishedFileDetailsResult_t_123::operator u64_RemoteStorageGetPublishedFileDetailsResult_t_123() const
 {
     u64_RemoteStorageGetPublishedFileDetailsResult_t_123 ret;
@@ -23323,7 +23323,7 @@ w64_RemoteStorageGetPublishedFileDetailsResult_t_123::operator u64_RemoteStorage
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageGetPublishedFileDetailsResult_t_123::operator w64_RemoteStorageGetPublishedFileDetailsResult_t_123() const
 {
     w64_RemoteStorageGetPublishedFileDetailsResult_t_123 ret;
@@ -23407,7 +23407,7 @@ u32_RemoteStorageGetPublishedFileDetailsResult_t_123::operator w32_RemoteStorage
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageGetPublishedFileDetailsResult_t_123::operator u64_RemoteStorageGetPublishedFileDetailsResult_t_123() const
 {
     u64_RemoteStorageGetPublishedFileDetailsResult_t_123 ret;
@@ -23435,7 +23435,7 @@ w32_RemoteStorageGetPublishedFileDetailsResult_t_123::operator u64_RemoteStorage
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageGetPublishedFileDetailsResult_t_123::operator w32_RemoteStorageGetPublishedFileDetailsResult_t_123() const
 {
     w32_RemoteStorageGetPublishedFileDetailsResult_t_123 ret;
@@ -23519,7 +23519,7 @@ u32_RemoteStorageGetPublishedFileDetailsResult_t_119x::operator w32_RemoteStorag
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageGetPublishedFileDetailsResult_t_119x::operator u64_RemoteStorageGetPublishedFileDetailsResult_t_119x() const
 {
     u64_RemoteStorageGetPublishedFileDetailsResult_t_119x ret;
@@ -23547,7 +23547,7 @@ w32_RemoteStorageGetPublishedFileDetailsResult_t_119x::operator u64_RemoteStorag
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageGetPublishedFileDetailsResult_t_119x::operator w32_RemoteStorageGetPublishedFileDetailsResult_t_119x() const
 {
     w32_RemoteStorageGetPublishedFileDetailsResult_t_119x ret;
@@ -23629,7 +23629,7 @@ u32_RemoteStorageGetPublishedFileDetailsResult_t_119::operator w32_RemoteStorage
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageGetPublishedFileDetailsResult_t_119::operator u64_RemoteStorageGetPublishedFileDetailsResult_t_119() const
 {
     u64_RemoteStorageGetPublishedFileDetailsResult_t_119 ret;
@@ -23656,7 +23656,7 @@ w32_RemoteStorageGetPublishedFileDetailsResult_t_119::operator u64_RemoteStorage
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageGetPublishedFileDetailsResult_t_119::operator w32_RemoteStorageGetPublishedFileDetailsResult_t_119() const
 {
     w32_RemoteStorageGetPublishedFileDetailsResult_t_119 ret;
@@ -23735,7 +23735,7 @@ u32_RemoteStorageGetPublishedFileDetailsResult_t_118::operator w32_RemoteStorage
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageGetPublishedFileDetailsResult_t_118::operator u64_RemoteStorageGetPublishedFileDetailsResult_t_118() const
 {
     u64_RemoteStorageGetPublishedFileDetailsResult_t_118 ret;
@@ -23761,7 +23761,7 @@ w32_RemoteStorageGetPublishedFileDetailsResult_t_118::operator u64_RemoteStorage
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageGetPublishedFileDetailsResult_t_118::operator w32_RemoteStorageGetPublishedFileDetailsResult_t_118() const
 {
     w32_RemoteStorageGetPublishedFileDetailsResult_t_118 ret;
@@ -23835,7 +23835,7 @@ u32_RemoteStorageGetPublishedFileDetailsResult_t_116x::operator w32_RemoteStorag
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageGetPublishedFileDetailsResult_t_116x::operator u64_RemoteStorageGetPublishedFileDetailsResult_t_116x() const
 {
     u64_RemoteStorageGetPublishedFileDetailsResult_t_116x ret;
@@ -23859,7 +23859,7 @@ w32_RemoteStorageGetPublishedFileDetailsResult_t_116x::operator u64_RemoteStorag
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageGetPublishedFileDetailsResult_t_116x::operator w32_RemoteStorageGetPublishedFileDetailsResult_t_116x() const
 {
     w32_RemoteStorageGetPublishedFileDetailsResult_t_116x ret;
@@ -23995,7 +23995,7 @@ C_ASSERT( sizeof(u32_RemoteStorageGetPublishedItemVoteDetailsResult_t_119().m_nR
 C_ASSERT( offsetof(u32_RemoteStorageGetPublishedItemVoteDetailsResult_t_119, m_fScore) == 24 );
 C_ASSERT( sizeof(u32_RemoteStorageGetPublishedItemVoteDetailsResult_t_119().m_fScore) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageGetPublishedItemVoteDetailsResult_t_123::operator u64_RemoteStorageGetPublishedItemVoteDetailsResult_t_123() const
 {
     u64_RemoteStorageGetPublishedItemVoteDetailsResult_t_123 ret;
@@ -24009,7 +24009,7 @@ w64_RemoteStorageGetPublishedItemVoteDetailsResult_t_123::operator u64_RemoteSto
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageGetPublishedItemVoteDetailsResult_t_123::operator w64_RemoteStorageGetPublishedItemVoteDetailsResult_t_123() const
 {
     w64_RemoteStorageGetPublishedItemVoteDetailsResult_t_123 ret;
@@ -24051,7 +24051,7 @@ u32_RemoteStorageGetPublishedItemVoteDetailsResult_t_123::operator w32_RemoteSto
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageGetPublishedItemVoteDetailsResult_t_123::operator u64_RemoteStorageGetPublishedItemVoteDetailsResult_t_123() const
 {
     u64_RemoteStorageGetPublishedItemVoteDetailsResult_t_123 ret;
@@ -24065,7 +24065,7 @@ w32_RemoteStorageGetPublishedItemVoteDetailsResult_t_123::operator u64_RemoteSto
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageGetPublishedItemVoteDetailsResult_t_123::operator w32_RemoteStorageGetPublishedItemVoteDetailsResult_t_123() const
 {
     w32_RemoteStorageGetPublishedItemVoteDetailsResult_t_123 ret;
@@ -24107,7 +24107,7 @@ u32_RemoteStorageGetPublishedItemVoteDetailsResult_t_119::operator w32_RemoteSto
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageGetPublishedItemVoteDetailsResult_t_119::operator u64_RemoteStorageGetPublishedItemVoteDetailsResult_t_119() const
 {
     u64_RemoteStorageGetPublishedItemVoteDetailsResult_t_119 ret;
@@ -24121,7 +24121,7 @@ w32_RemoteStorageGetPublishedItemVoteDetailsResult_t_119::operator u64_RemoteSto
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageGetPublishedItemVoteDetailsResult_t_119::operator w32_RemoteStorageGetPublishedItemVoteDetailsResult_t_119() const
 {
     w32_RemoteStorageGetPublishedItemVoteDetailsResult_t_119 ret;
@@ -24215,7 +24215,7 @@ C_ASSERT( sizeof(u32_RemoteStoragePublishFileResult_t_116x().m_eResult) >= 4 );
 C_ASSERT( offsetof(u32_RemoteStoragePublishFileResult_t_116x, m_nPublishedFileId) == 4 );
 C_ASSERT( sizeof(u32_RemoteStoragePublishFileResult_t_116x().m_nPublishedFileId) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStoragePublishFileResult_t_125::operator u64_RemoteStoragePublishFileResult_t_125() const
 {
     u64_RemoteStoragePublishFileResult_t_125 ret;
@@ -24226,7 +24226,7 @@ w64_RemoteStoragePublishFileResult_t_125::operator u64_RemoteStoragePublishFileR
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStoragePublishFileResult_t_125::operator w64_RemoteStoragePublishFileResult_t_125() const
 {
     w64_RemoteStoragePublishFileResult_t_125 ret;
@@ -24259,7 +24259,7 @@ u32_RemoteStoragePublishFileResult_t_125::operator w32_RemoteStoragePublishFileR
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStoragePublishFileResult_t_125::operator u64_RemoteStoragePublishFileResult_t_125() const
 {
     u64_RemoteStoragePublishFileResult_t_125 ret;
@@ -24270,7 +24270,7 @@ w32_RemoteStoragePublishFileResult_t_125::operator u64_RemoteStoragePublishFileR
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStoragePublishFileResult_t_125::operator w32_RemoteStoragePublishFileResult_t_125() const
 {
     w32_RemoteStoragePublishFileResult_t_125 ret;
@@ -24281,7 +24281,7 @@ u64_RemoteStoragePublishFileResult_t_125::operator w32_RemoteStoragePublishFileR
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStoragePublishFileResult_t_123::operator u64_RemoteStoragePublishFileResult_t_123() const
 {
     u64_RemoteStoragePublishFileResult_t_123 ret;
@@ -24291,7 +24291,7 @@ w64_RemoteStoragePublishFileResult_t_123::operator u64_RemoteStoragePublishFileR
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStoragePublishFileResult_t_123::operator w64_RemoteStoragePublishFileResult_t_123() const
 {
     w64_RemoteStoragePublishFileResult_t_123 ret;
@@ -24321,7 +24321,7 @@ u32_RemoteStoragePublishFileResult_t_123::operator w32_RemoteStoragePublishFileR
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStoragePublishFileResult_t_123::operator u64_RemoteStoragePublishFileResult_t_123() const
 {
     u64_RemoteStoragePublishFileResult_t_123 ret;
@@ -24331,7 +24331,7 @@ w32_RemoteStoragePublishFileResult_t_123::operator u64_RemoteStoragePublishFileR
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStoragePublishFileResult_t_123::operator w32_RemoteStoragePublishFileResult_t_123() const
 {
     w32_RemoteStoragePublishFileResult_t_123 ret;
@@ -24361,7 +24361,7 @@ u32_RemoteStoragePublishFileResult_t_116x::operator w32_RemoteStoragePublishFile
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStoragePublishFileResult_t_116x::operator u64_RemoteStoragePublishFileResult_t_116x() const
 {
     u64_RemoteStoragePublishFileResult_t_116x ret;
@@ -24371,7 +24371,7 @@ w32_RemoteStoragePublishFileResult_t_116x::operator u64_RemoteStoragePublishFile
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStoragePublishFileResult_t_116x::operator w32_RemoteStoragePublishFileResult_t_116x() const
 {
     w32_RemoteStoragePublishFileResult_t_116x ret;
@@ -24413,7 +24413,7 @@ C_ASSERT( sizeof(u32_RemoteStoragePublishedFileUpdated_t().m_nAppID) >= 4 );
 C_ASSERT( offsetof(u32_RemoteStoragePublishedFileUpdated_t, m_ulUnused) == 12 );
 C_ASSERT( sizeof(u32_RemoteStoragePublishedFileUpdated_t().m_ulUnused) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStoragePublishedFileUpdated_t::operator u64_RemoteStoragePublishedFileUpdated_t() const
 {
     u64_RemoteStoragePublishedFileUpdated_t ret;
@@ -24424,7 +24424,7 @@ w64_RemoteStoragePublishedFileUpdated_t::operator u64_RemoteStoragePublishedFile
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStoragePublishedFileUpdated_t::operator w64_RemoteStoragePublishedFileUpdated_t() const
 {
     w64_RemoteStoragePublishedFileUpdated_t ret;
@@ -24457,7 +24457,7 @@ u32_RemoteStoragePublishedFileUpdated_t::operator w32_RemoteStoragePublishedFile
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStoragePublishedFileUpdated_t::operator u64_RemoteStoragePublishedFileUpdated_t() const
 {
     u64_RemoteStoragePublishedFileUpdated_t ret;
@@ -24468,7 +24468,7 @@ w32_RemoteStoragePublishedFileUpdated_t::operator u64_RemoteStoragePublishedFile
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStoragePublishedFileUpdated_t::operator w32_RemoteStoragePublishedFileUpdated_t() const
 {
     w32_RemoteStoragePublishedFileUpdated_t ret;
@@ -24543,7 +24543,7 @@ C_ASSERT( sizeof(u32_RemoteStorageSetUserPublishedFileActionResult_t_119().m_nPu
 C_ASSERT( offsetof(u32_RemoteStorageSetUserPublishedFileActionResult_t_119, m_eAction) == 12 );
 C_ASSERT( sizeof(u32_RemoteStorageSetUserPublishedFileActionResult_t_119().m_eAction) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageSetUserPublishedFileActionResult_t_123::operator u64_RemoteStorageSetUserPublishedFileActionResult_t_123() const
 {
     u64_RemoteStorageSetUserPublishedFileActionResult_t_123 ret;
@@ -24554,7 +24554,7 @@ w64_RemoteStorageSetUserPublishedFileActionResult_t_123::operator u64_RemoteStor
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageSetUserPublishedFileActionResult_t_123::operator w64_RemoteStorageSetUserPublishedFileActionResult_t_123() const
 {
     w64_RemoteStorageSetUserPublishedFileActionResult_t_123 ret;
@@ -24587,7 +24587,7 @@ u32_RemoteStorageSetUserPublishedFileActionResult_t_123::operator w32_RemoteStor
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageSetUserPublishedFileActionResult_t_123::operator u64_RemoteStorageSetUserPublishedFileActionResult_t_123() const
 {
     u64_RemoteStorageSetUserPublishedFileActionResult_t_123 ret;
@@ -24598,7 +24598,7 @@ w32_RemoteStorageSetUserPublishedFileActionResult_t_123::operator u64_RemoteStor
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageSetUserPublishedFileActionResult_t_123::operator w32_RemoteStorageSetUserPublishedFileActionResult_t_123() const
 {
     w32_RemoteStorageSetUserPublishedFileActionResult_t_123 ret;
@@ -24631,7 +24631,7 @@ u32_RemoteStorageSetUserPublishedFileActionResult_t_119::operator w32_RemoteStor
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageSetUserPublishedFileActionResult_t_119::operator u64_RemoteStorageSetUserPublishedFileActionResult_t_119() const
 {
     u64_RemoteStorageSetUserPublishedFileActionResult_t_119 ret;
@@ -24642,7 +24642,7 @@ w32_RemoteStorageSetUserPublishedFileActionResult_t_119::operator u64_RemoteStor
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageSetUserPublishedFileActionResult_t_119::operator w32_RemoteStorageSetUserPublishedFileActionResult_t_119() const
 {
     w32_RemoteStorageSetUserPublishedFileActionResult_t_119 ret;
@@ -24693,7 +24693,7 @@ C_ASSERT( sizeof(u32_RemoteStorageSubscribePublishedFileResult_t_116x) >= 4 );
 C_ASSERT( offsetof(u32_RemoteStorageSubscribePublishedFileResult_t_116x, m_eResult) == 0 );
 C_ASSERT( sizeof(u32_RemoteStorageSubscribePublishedFileResult_t_116x().m_eResult) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageSubscribePublishedFileResult_t_123::operator u64_RemoteStorageSubscribePublishedFileResult_t_123() const
 {
     u64_RemoteStorageSubscribePublishedFileResult_t_123 ret;
@@ -24703,7 +24703,7 @@ w64_RemoteStorageSubscribePublishedFileResult_t_123::operator u64_RemoteStorageS
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageSubscribePublishedFileResult_t_123::operator w64_RemoteStorageSubscribePublishedFileResult_t_123() const
 {
     w64_RemoteStorageSubscribePublishedFileResult_t_123 ret;
@@ -24733,7 +24733,7 @@ u32_RemoteStorageSubscribePublishedFileResult_t_123::operator w32_RemoteStorageS
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageSubscribePublishedFileResult_t_123::operator u64_RemoteStorageSubscribePublishedFileResult_t_123() const
 {
     u64_RemoteStorageSubscribePublishedFileResult_t_123 ret;
@@ -24743,7 +24743,7 @@ w32_RemoteStorageSubscribePublishedFileResult_t_123::operator u64_RemoteStorageS
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageSubscribePublishedFileResult_t_123::operator w32_RemoteStorageSubscribePublishedFileResult_t_123() const
 {
     w32_RemoteStorageSubscribePublishedFileResult_t_123 ret;
@@ -24753,7 +24753,7 @@ u64_RemoteStorageSubscribePublishedFileResult_t_123::operator w32_RemoteStorageS
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageSubscribePublishedFileResult_t_116x::operator u64_RemoteStorageSubscribePublishedFileResult_t_116x() const
 {
     u64_RemoteStorageSubscribePublishedFileResult_t_116x ret;
@@ -24762,7 +24762,7 @@ w32_RemoteStorageSubscribePublishedFileResult_t_116x::operator u64_RemoteStorage
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageSubscribePublishedFileResult_t_116x::operator w32_RemoteStorageSubscribePublishedFileResult_t_116x() const
 {
     w32_RemoteStorageSubscribePublishedFileResult_t_116x ret;
@@ -24811,7 +24811,7 @@ C_ASSERT( sizeof(u32_RemoteStorageUnsubscribePublishedFileResult_t_116x) >= 4 );
 C_ASSERT( offsetof(u32_RemoteStorageUnsubscribePublishedFileResult_t_116x, m_eResult) == 0 );
 C_ASSERT( sizeof(u32_RemoteStorageUnsubscribePublishedFileResult_t_116x().m_eResult) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageUnsubscribePublishedFileResult_t_123::operator u64_RemoteStorageUnsubscribePublishedFileResult_t_123() const
 {
     u64_RemoteStorageUnsubscribePublishedFileResult_t_123 ret;
@@ -24821,7 +24821,7 @@ w64_RemoteStorageUnsubscribePublishedFileResult_t_123::operator u64_RemoteStorag
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageUnsubscribePublishedFileResult_t_123::operator w64_RemoteStorageUnsubscribePublishedFileResult_t_123() const
 {
     w64_RemoteStorageUnsubscribePublishedFileResult_t_123 ret;
@@ -24851,7 +24851,7 @@ u32_RemoteStorageUnsubscribePublishedFileResult_t_123::operator w32_RemoteStorag
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageUnsubscribePublishedFileResult_t_123::operator u64_RemoteStorageUnsubscribePublishedFileResult_t_123() const
 {
     u64_RemoteStorageUnsubscribePublishedFileResult_t_123 ret;
@@ -24861,7 +24861,7 @@ w32_RemoteStorageUnsubscribePublishedFileResult_t_123::operator u64_RemoteStorag
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageUnsubscribePublishedFileResult_t_123::operator w32_RemoteStorageUnsubscribePublishedFileResult_t_123() const
 {
     w32_RemoteStorageUnsubscribePublishedFileResult_t_123 ret;
@@ -24871,7 +24871,7 @@ u64_RemoteStorageUnsubscribePublishedFileResult_t_123::operator w32_RemoteStorag
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageUnsubscribePublishedFileResult_t_116x::operator u64_RemoteStorageUnsubscribePublishedFileResult_t_116x() const
 {
     u64_RemoteStorageUnsubscribePublishedFileResult_t_116x ret;
@@ -24880,7 +24880,7 @@ w32_RemoteStorageUnsubscribePublishedFileResult_t_116x::operator u64_RemoteStora
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageUnsubscribePublishedFileResult_t_116x::operator w32_RemoteStorageUnsubscribePublishedFileResult_t_116x() const
 {
     w32_RemoteStorageUnsubscribePublishedFileResult_t_116x ret;
@@ -25081,7 +25081,7 @@ C_ASSERT( sizeof(u32_RemoteStorageUpdatePublishedFileResult_t_116x().m_eResult) 
 C_ASSERT( offsetof(u32_RemoteStorageUpdatePublishedFileResult_t_116x, m_nPublishedFileId) == 4 );
 C_ASSERT( sizeof(u32_RemoteStorageUpdatePublishedFileResult_t_116x().m_nPublishedFileId) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageUpdatePublishedFileResult_t_125::operator u64_RemoteStorageUpdatePublishedFileResult_t_125() const
 {
     u64_RemoteStorageUpdatePublishedFileResult_t_125 ret;
@@ -25092,7 +25092,7 @@ w64_RemoteStorageUpdatePublishedFileResult_t_125::operator u64_RemoteStorageUpda
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageUpdatePublishedFileResult_t_125::operator w64_RemoteStorageUpdatePublishedFileResult_t_125() const
 {
     w64_RemoteStorageUpdatePublishedFileResult_t_125 ret;
@@ -25125,7 +25125,7 @@ u32_RemoteStorageUpdatePublishedFileResult_t_125::operator w32_RemoteStorageUpda
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageUpdatePublishedFileResult_t_125::operator u64_RemoteStorageUpdatePublishedFileResult_t_125() const
 {
     u64_RemoteStorageUpdatePublishedFileResult_t_125 ret;
@@ -25136,7 +25136,7 @@ w32_RemoteStorageUpdatePublishedFileResult_t_125::operator u64_RemoteStorageUpda
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageUpdatePublishedFileResult_t_125::operator w32_RemoteStorageUpdatePublishedFileResult_t_125() const
 {
     w32_RemoteStorageUpdatePublishedFileResult_t_125 ret;
@@ -25147,7 +25147,7 @@ u64_RemoteStorageUpdatePublishedFileResult_t_125::operator w32_RemoteStorageUpda
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageUpdatePublishedFileResult_t_123::operator u64_RemoteStorageUpdatePublishedFileResult_t_123() const
 {
     u64_RemoteStorageUpdatePublishedFileResult_t_123 ret;
@@ -25157,7 +25157,7 @@ w64_RemoteStorageUpdatePublishedFileResult_t_123::operator u64_RemoteStorageUpda
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageUpdatePublishedFileResult_t_123::operator w64_RemoteStorageUpdatePublishedFileResult_t_123() const
 {
     w64_RemoteStorageUpdatePublishedFileResult_t_123 ret;
@@ -25187,7 +25187,7 @@ u32_RemoteStorageUpdatePublishedFileResult_t_123::operator w32_RemoteStorageUpda
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageUpdatePublishedFileResult_t_123::operator u64_RemoteStorageUpdatePublishedFileResult_t_123() const
 {
     u64_RemoteStorageUpdatePublishedFileResult_t_123 ret;
@@ -25197,7 +25197,7 @@ w32_RemoteStorageUpdatePublishedFileResult_t_123::operator u64_RemoteStorageUpda
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageUpdatePublishedFileResult_t_123::operator w32_RemoteStorageUpdatePublishedFileResult_t_123() const
 {
     w32_RemoteStorageUpdatePublishedFileResult_t_123 ret;
@@ -25227,7 +25227,7 @@ u32_RemoteStorageUpdatePublishedFileResult_t_116x::operator w32_RemoteStorageUpd
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageUpdatePublishedFileResult_t_116x::operator u64_RemoteStorageUpdatePublishedFileResult_t_116x() const
 {
     u64_RemoteStorageUpdatePublishedFileResult_t_116x ret;
@@ -25237,7 +25237,7 @@ w32_RemoteStorageUpdatePublishedFileResult_t_116x::operator u64_RemoteStorageUpd
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageUpdatePublishedFileResult_t_116x::operator w32_RemoteStorageUpdatePublishedFileResult_t_116x() const
 {
     w32_RemoteStorageUpdatePublishedFileResult_t_116x ret;
@@ -25295,7 +25295,7 @@ C_ASSERT( sizeof(u32_RemoteStorageUpdateUserPublishedItemVoteResult_t_119().m_eR
 C_ASSERT( offsetof(u32_RemoteStorageUpdateUserPublishedItemVoteResult_t_119, m_nPublishedFileId) == 4 );
 C_ASSERT( sizeof(u32_RemoteStorageUpdateUserPublishedItemVoteResult_t_119().m_nPublishedFileId) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageUpdateUserPublishedItemVoteResult_t_123::operator u64_RemoteStorageUpdateUserPublishedItemVoteResult_t_123() const
 {
     u64_RemoteStorageUpdateUserPublishedItemVoteResult_t_123 ret;
@@ -25305,7 +25305,7 @@ w64_RemoteStorageUpdateUserPublishedItemVoteResult_t_123::operator u64_RemoteSto
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageUpdateUserPublishedItemVoteResult_t_123::operator w64_RemoteStorageUpdateUserPublishedItemVoteResult_t_123() const
 {
     w64_RemoteStorageUpdateUserPublishedItemVoteResult_t_123 ret;
@@ -25335,7 +25335,7 @@ u32_RemoteStorageUpdateUserPublishedItemVoteResult_t_123::operator w32_RemoteSto
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageUpdateUserPublishedItemVoteResult_t_123::operator u64_RemoteStorageUpdateUserPublishedItemVoteResult_t_123() const
 {
     u64_RemoteStorageUpdateUserPublishedItemVoteResult_t_123 ret;
@@ -25345,7 +25345,7 @@ w32_RemoteStorageUpdateUserPublishedItemVoteResult_t_123::operator u64_RemoteSto
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageUpdateUserPublishedItemVoteResult_t_123::operator w32_RemoteStorageUpdateUserPublishedItemVoteResult_t_123() const
 {
     w32_RemoteStorageUpdateUserPublishedItemVoteResult_t_123 ret;
@@ -25375,7 +25375,7 @@ u32_RemoteStorageUpdateUserPublishedItemVoteResult_t_119::operator w32_RemoteSto
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageUpdateUserPublishedItemVoteResult_t_119::operator u64_RemoteStorageUpdateUserPublishedItemVoteResult_t_119() const
 {
     u64_RemoteStorageUpdateUserPublishedItemVoteResult_t_119 ret;
@@ -25385,7 +25385,7 @@ w32_RemoteStorageUpdateUserPublishedItemVoteResult_t_119::operator u64_RemoteSto
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageUpdateUserPublishedItemVoteResult_t_119::operator w32_RemoteStorageUpdateUserPublishedItemVoteResult_t_119() const
 {
     w32_RemoteStorageUpdateUserPublishedItemVoteResult_t_119 ret;
@@ -25459,7 +25459,7 @@ C_ASSERT( sizeof(u32_RemoteStorageUserVoteDetails_t_119().m_nPublishedFileId) >=
 C_ASSERT( offsetof(u32_RemoteStorageUserVoteDetails_t_119, m_eVote) == 12 );
 C_ASSERT( sizeof(u32_RemoteStorageUserVoteDetails_t_119().m_eVote) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoteStorageUserVoteDetails_t_123::operator u64_RemoteStorageUserVoteDetails_t_123() const
 {
     u64_RemoteStorageUserVoteDetails_t_123 ret;
@@ -25470,7 +25470,7 @@ w64_RemoteStorageUserVoteDetails_t_123::operator u64_RemoteStorageUserVoteDetail
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageUserVoteDetails_t_123::operator w64_RemoteStorageUserVoteDetails_t_123() const
 {
     w64_RemoteStorageUserVoteDetails_t_123 ret;
@@ -25503,7 +25503,7 @@ u32_RemoteStorageUserVoteDetails_t_123::operator w32_RemoteStorageUserVoteDetail
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageUserVoteDetails_t_123::operator u64_RemoteStorageUserVoteDetails_t_123() const
 {
     u64_RemoteStorageUserVoteDetails_t_123 ret;
@@ -25514,7 +25514,7 @@ w32_RemoteStorageUserVoteDetails_t_123::operator u64_RemoteStorageUserVoteDetail
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageUserVoteDetails_t_123::operator w32_RemoteStorageUserVoteDetails_t_123() const
 {
     w32_RemoteStorageUserVoteDetails_t_123 ret;
@@ -25547,7 +25547,7 @@ u32_RemoteStorageUserVoteDetails_t_119::operator w32_RemoteStorageUserVoteDetail
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageUserVoteDetails_t_119::operator u64_RemoteStorageUserVoteDetails_t_119() const
 {
     u64_RemoteStorageUserVoteDetails_t_119 ret;
@@ -25558,7 +25558,7 @@ w32_RemoteStorageUserVoteDetails_t_119::operator u64_RemoteStorageUserVoteDetail
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoteStorageUserVoteDetails_t_119::operator w32_RemoteStorageUserVoteDetails_t_119() const
 {
     w32_RemoteStorageUserVoteDetails_t_119 ret;
@@ -25601,7 +25601,7 @@ C_ASSERT( sizeof(u32_RemoveAppDependencyResult_t().m_nPublishedFileId) >= 8 );
 C_ASSERT( offsetof(u32_RemoveAppDependencyResult_t, m_nAppID) == 12 );
 C_ASSERT( sizeof(u32_RemoveAppDependencyResult_t().m_nAppID) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoveAppDependencyResult_t::operator u64_RemoveAppDependencyResult_t() const
 {
     u64_RemoveAppDependencyResult_t ret;
@@ -25612,7 +25612,7 @@ w64_RemoveAppDependencyResult_t::operator u64_RemoveAppDependencyResult_t() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoveAppDependencyResult_t::operator w64_RemoveAppDependencyResult_t() const
 {
     w64_RemoveAppDependencyResult_t ret;
@@ -25645,7 +25645,7 @@ u32_RemoveAppDependencyResult_t::operator w32_RemoveAppDependencyResult_t() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoveAppDependencyResult_t::operator u64_RemoveAppDependencyResult_t() const
 {
     u64_RemoveAppDependencyResult_t ret;
@@ -25656,7 +25656,7 @@ w32_RemoveAppDependencyResult_t::operator u64_RemoveAppDependencyResult_t() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoveAppDependencyResult_t::operator w32_RemoveAppDependencyResult_t() const
 {
     w32_RemoveAppDependencyResult_t ret;
@@ -25699,7 +25699,7 @@ C_ASSERT( sizeof(u32_RemoveUGCDependencyResult_t().m_nPublishedFileId) >= 8 );
 C_ASSERT( offsetof(u32_RemoveUGCDependencyResult_t, m_nChildPublishedFileId) == 12 );
 C_ASSERT( sizeof(u32_RemoveUGCDependencyResult_t().m_nChildPublishedFileId) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RemoveUGCDependencyResult_t::operator u64_RemoveUGCDependencyResult_t() const
 {
     u64_RemoveUGCDependencyResult_t ret;
@@ -25710,7 +25710,7 @@ w64_RemoveUGCDependencyResult_t::operator u64_RemoveUGCDependencyResult_t() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoveUGCDependencyResult_t::operator w64_RemoveUGCDependencyResult_t() const
 {
     w64_RemoveUGCDependencyResult_t ret;
@@ -25743,7 +25743,7 @@ u32_RemoveUGCDependencyResult_t::operator w32_RemoveUGCDependencyResult_t() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoveUGCDependencyResult_t::operator u64_RemoveUGCDependencyResult_t() const
 {
     u64_RemoveUGCDependencyResult_t ret;
@@ -25754,7 +25754,7 @@ w32_RemoveUGCDependencyResult_t::operator u64_RemoveUGCDependencyResult_t() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RemoveUGCDependencyResult_t::operator w32_RemoveUGCDependencyResult_t() const
 {
     w32_RemoveUGCDependencyResult_t ret;
@@ -25797,7 +25797,7 @@ C_ASSERT( sizeof(u32_RequestPlayersForGameFinalResultCallback_t().m_ullSearchID)
 C_ASSERT( offsetof(u32_RequestPlayersForGameFinalResultCallback_t, m_ullUniqueGameID) == 12 );
 C_ASSERT( sizeof(u32_RequestPlayersForGameFinalResultCallback_t().m_ullUniqueGameID) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RequestPlayersForGameFinalResultCallback_t::operator u64_RequestPlayersForGameFinalResultCallback_t() const
 {
     u64_RequestPlayersForGameFinalResultCallback_t ret;
@@ -25808,7 +25808,7 @@ w64_RequestPlayersForGameFinalResultCallback_t::operator u64_RequestPlayersForGa
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RequestPlayersForGameFinalResultCallback_t::operator w64_RequestPlayersForGameFinalResultCallback_t() const
 {
     w64_RequestPlayersForGameFinalResultCallback_t ret;
@@ -25841,7 +25841,7 @@ u32_RequestPlayersForGameFinalResultCallback_t::operator w32_RequestPlayersForGa
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RequestPlayersForGameFinalResultCallback_t::operator u64_RequestPlayersForGameFinalResultCallback_t() const
 {
     u64_RequestPlayersForGameFinalResultCallback_t ret;
@@ -25852,7 +25852,7 @@ w32_RequestPlayersForGameFinalResultCallback_t::operator u64_RequestPlayersForGa
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RequestPlayersForGameFinalResultCallback_t::operator w32_RequestPlayersForGameFinalResultCallback_t() const
 {
     w32_RequestPlayersForGameFinalResultCallback_t ret;
@@ -25887,7 +25887,7 @@ C_ASSERT( sizeof(u32_RequestPlayersForGameProgressCallback_t().m_eResult) >= 4 )
 C_ASSERT( offsetof(u32_RequestPlayersForGameProgressCallback_t, m_ullSearchID) == 4 );
 C_ASSERT( sizeof(u32_RequestPlayersForGameProgressCallback_t().m_ullSearchID) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RequestPlayersForGameProgressCallback_t::operator u64_RequestPlayersForGameProgressCallback_t() const
 {
     u64_RequestPlayersForGameProgressCallback_t ret;
@@ -25897,7 +25897,7 @@ w64_RequestPlayersForGameProgressCallback_t::operator u64_RequestPlayersForGameP
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RequestPlayersForGameProgressCallback_t::operator w64_RequestPlayersForGameProgressCallback_t() const
 {
     w64_RequestPlayersForGameProgressCallback_t ret;
@@ -25927,7 +25927,7 @@ u32_RequestPlayersForGameProgressCallback_t::operator w32_RequestPlayersForGameP
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RequestPlayersForGameProgressCallback_t::operator u64_RequestPlayersForGameProgressCallback_t() const
 {
     u64_RequestPlayersForGameProgressCallback_t ret;
@@ -25937,7 +25937,7 @@ w32_RequestPlayersForGameProgressCallback_t::operator u64_RequestPlayersForGameP
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RequestPlayersForGameProgressCallback_t::operator w32_RequestPlayersForGameProgressCallback_t() const
 {
     w32_RequestPlayersForGameProgressCallback_t ret;
@@ -26035,7 +26035,7 @@ C_ASSERT( sizeof(u32_RequestPlayersForGameResultCallback_t().m_nSuggestedTeamInd
 C_ASSERT( offsetof(u32_RequestPlayersForGameResultCallback_t, m_ullUniqueGameID) == 48 );
 C_ASSERT( sizeof(u32_RequestPlayersForGameResultCallback_t().m_ullUniqueGameID) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RequestPlayersForGameResultCallback_t::operator u64_RequestPlayersForGameResultCallback_t() const
 {
     u64_RequestPlayersForGameResultCallback_t ret;
@@ -26053,7 +26053,7 @@ w64_RequestPlayersForGameResultCallback_t::operator u64_RequestPlayersForGameRes
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RequestPlayersForGameResultCallback_t::operator w64_RequestPlayersForGameResultCallback_t() const
 {
     w64_RequestPlayersForGameResultCallback_t ret;
@@ -26107,7 +26107,7 @@ u32_RequestPlayersForGameResultCallback_t::operator w32_RequestPlayersForGameRes
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RequestPlayersForGameResultCallback_t::operator u64_RequestPlayersForGameResultCallback_t() const
 {
     u64_RequestPlayersForGameResultCallback_t ret;
@@ -26125,7 +26125,7 @@ w32_RequestPlayersForGameResultCallback_t::operator u64_RequestPlayersForGameRes
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RequestPlayersForGameResultCallback_t::operator w32_RequestPlayersForGameResultCallback_t() const
 {
     w32_RequestPlayersForGameResultCallback_t ret;
@@ -26207,7 +26207,7 @@ C_ASSERT( sizeof(u32_SteamInputConfigurationLoaded_t().m_bUsesSteamInputAPI) >= 
 C_ASSERT( offsetof(u32_SteamInputConfigurationLoaded_t, m_bUsesGamepadAPI) == 29 );
 C_ASSERT( sizeof(u32_SteamInputConfigurationLoaded_t().m_bUsesGamepadAPI) >= 1 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_SteamInputConfigurationLoaded_t::operator u64_SteamInputConfigurationLoaded_t() const
 {
     u64_SteamInputConfigurationLoaded_t ret;
@@ -26222,7 +26222,7 @@ w64_SteamInputConfigurationLoaded_t::operator u64_SteamInputConfigurationLoaded_
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamInputConfigurationLoaded_t::operator w64_SteamInputConfigurationLoaded_t() const
 {
     w64_SteamInputConfigurationLoaded_t ret;
@@ -26267,7 +26267,7 @@ u32_SteamInputConfigurationLoaded_t::operator w32_SteamInputConfigurationLoaded_
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_SteamInputConfigurationLoaded_t::operator u64_SteamInputConfigurationLoaded_t() const
 {
     u64_SteamInputConfigurationLoaded_t ret;
@@ -26282,7 +26282,7 @@ w32_SteamInputConfigurationLoaded_t::operator u64_SteamInputConfigurationLoaded_
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamInputConfigurationLoaded_t::operator w32_SteamInputConfigurationLoaded_t() const
 {
     w32_SteamInputConfigurationLoaded_t ret;
@@ -26345,7 +26345,7 @@ C_ASSERT( sizeof(u32_SteamInputGamepadSlotChange_t().m_nOldGamepadSlot) >= 4 );
 C_ASSERT( offsetof(u32_SteamInputGamepadSlotChange_t, m_nNewGamepadSlot) == 20 );
 C_ASSERT( sizeof(u32_SteamInputGamepadSlotChange_t().m_nNewGamepadSlot) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_SteamInputGamepadSlotChange_t::operator u64_SteamInputGamepadSlotChange_t() const
 {
     u64_SteamInputGamepadSlotChange_t ret;
@@ -26358,7 +26358,7 @@ w64_SteamInputGamepadSlotChange_t::operator u64_SteamInputGamepadSlotChange_t() 
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamInputGamepadSlotChange_t::operator w64_SteamInputGamepadSlotChange_t() const
 {
     w64_SteamInputGamepadSlotChange_t ret;
@@ -26397,7 +26397,7 @@ u32_SteamInputGamepadSlotChange_t::operator w32_SteamInputGamepadSlotChange_t() 
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_SteamInputGamepadSlotChange_t::operator u64_SteamInputGamepadSlotChange_t() const
 {
     u64_SteamInputGamepadSlotChange_t ret;
@@ -26410,7 +26410,7 @@ w32_SteamInputGamepadSlotChange_t::operator u64_SteamInputGamepadSlotChange_t() 
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamInputGamepadSlotChange_t::operator w32_SteamInputGamepadSlotChange_t() const
 {
     w32_SteamInputGamepadSlotChange_t ret;
@@ -26455,7 +26455,7 @@ C_ASSERT( sizeof(u32_SteamInventoryStartPurchaseResult_t().m_ulOrderID) >= 8 );
 C_ASSERT( offsetof(u32_SteamInventoryStartPurchaseResult_t, m_ulTransID) == 12 );
 C_ASSERT( sizeof(u32_SteamInventoryStartPurchaseResult_t().m_ulTransID) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_SteamInventoryStartPurchaseResult_t::operator u64_SteamInventoryStartPurchaseResult_t() const
 {
     u64_SteamInventoryStartPurchaseResult_t ret;
@@ -26466,7 +26466,7 @@ w64_SteamInventoryStartPurchaseResult_t::operator u64_SteamInventoryStartPurchas
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamInventoryStartPurchaseResult_t::operator w64_SteamInventoryStartPurchaseResult_t() const
 {
     w64_SteamInventoryStartPurchaseResult_t ret;
@@ -26499,7 +26499,7 @@ u32_SteamInventoryStartPurchaseResult_t::operator w32_SteamInventoryStartPurchas
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_SteamInventoryStartPurchaseResult_t::operator u64_SteamInventoryStartPurchaseResult_t() const
 {
     u64_SteamInventoryStartPurchaseResult_t ret;
@@ -26510,7 +26510,7 @@ w32_SteamInventoryStartPurchaseResult_t::operator u64_SteamInventoryStartPurchas
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamInventoryStartPurchaseResult_t::operator w32_SteamInventoryStartPurchaseResult_t() const
 {
     w32_SteamInventoryStartPurchaseResult_t ret;
@@ -26617,7 +26617,7 @@ C_ASSERT( sizeof(u32_SteamNetConnectionStatusChangedCallback_t_151().m_info) >= 
 C_ASSERT( offsetof(u32_SteamNetConnectionStatusChangedCallback_t_151, m_eOldState) == 572 );
 C_ASSERT( sizeof(u32_SteamNetConnectionStatusChangedCallback_t_151().m_eOldState) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_SteamNetConnectionStatusChangedCallback_t_153a::operator u64_SteamNetConnectionStatusChangedCallback_t_153a() const
 {
     u64_SteamNetConnectionStatusChangedCallback_t_153a ret;
@@ -26628,7 +26628,7 @@ w64_SteamNetConnectionStatusChangedCallback_t_153a::operator u64_SteamNetConnect
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamNetConnectionStatusChangedCallback_t_153a::operator w64_SteamNetConnectionStatusChangedCallback_t_153a() const
 {
     w64_SteamNetConnectionStatusChangedCallback_t_153a ret;
@@ -26661,7 +26661,7 @@ u32_SteamNetConnectionStatusChangedCallback_t_153a::operator w32_SteamNetConnect
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_SteamNetConnectionStatusChangedCallback_t_153a::operator u64_SteamNetConnectionStatusChangedCallback_t_153a() const
 {
     u64_SteamNetConnectionStatusChangedCallback_t_153a ret;
@@ -26672,7 +26672,7 @@ w32_SteamNetConnectionStatusChangedCallback_t_153a::operator u64_SteamNetConnect
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamNetConnectionStatusChangedCallback_t_153a::operator w32_SteamNetConnectionStatusChangedCallback_t_153a() const
 {
     w32_SteamNetConnectionStatusChangedCallback_t_153a ret;
@@ -26683,7 +26683,7 @@ u64_SteamNetConnectionStatusChangedCallback_t_153a::operator w32_SteamNetConnect
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_SteamNetConnectionStatusChangedCallback_t_144::operator u64_SteamNetConnectionStatusChangedCallback_t_144() const
 {
     u64_SteamNetConnectionStatusChangedCallback_t_144 ret;
@@ -26694,7 +26694,7 @@ w64_SteamNetConnectionStatusChangedCallback_t_144::operator u64_SteamNetConnecti
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamNetConnectionStatusChangedCallback_t_144::operator w64_SteamNetConnectionStatusChangedCallback_t_144() const
 {
     w64_SteamNetConnectionStatusChangedCallback_t_144 ret;
@@ -26727,7 +26727,7 @@ u32_SteamNetConnectionStatusChangedCallback_t_144::operator w32_SteamNetConnecti
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_SteamNetConnectionStatusChangedCallback_t_144::operator u64_SteamNetConnectionStatusChangedCallback_t_144() const
 {
     u64_SteamNetConnectionStatusChangedCallback_t_144 ret;
@@ -26738,7 +26738,7 @@ w32_SteamNetConnectionStatusChangedCallback_t_144::operator u64_SteamNetConnecti
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamNetConnectionStatusChangedCallback_t_144::operator w32_SteamNetConnectionStatusChangedCallback_t_144() const
 {
     w32_SteamNetConnectionStatusChangedCallback_t_144 ret;
@@ -26749,7 +26749,7 @@ u64_SteamNetConnectionStatusChangedCallback_t_144::operator w32_SteamNetConnecti
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_SteamNetConnectionStatusChangedCallback_t_151::operator u64_SteamNetConnectionStatusChangedCallback_t_151() const
 {
     u64_SteamNetConnectionStatusChangedCallback_t_151 ret;
@@ -26760,7 +26760,7 @@ w64_SteamNetConnectionStatusChangedCallback_t_151::operator u64_SteamNetConnecti
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamNetConnectionStatusChangedCallback_t_151::operator w64_SteamNetConnectionStatusChangedCallback_t_151() const
 {
     w64_SteamNetConnectionStatusChangedCallback_t_151 ret;
@@ -26793,7 +26793,7 @@ u32_SteamNetConnectionStatusChangedCallback_t_151::operator w32_SteamNetConnecti
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_SteamNetConnectionStatusChangedCallback_t_151::operator u64_SteamNetConnectionStatusChangedCallback_t_151() const
 {
     u64_SteamNetConnectionStatusChangedCallback_t_151 ret;
@@ -26804,7 +26804,7 @@ w32_SteamNetConnectionStatusChangedCallback_t_151::operator u64_SteamNetConnecti
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamNetConnectionStatusChangedCallback_t_151::operator w32_SteamNetConnectionStatusChangedCallback_t_151() const
 {
     w32_SteamNetConnectionStatusChangedCallback_t_151 ret;
@@ -27287,7 +27287,7 @@ C_ASSERT( sizeof(u32_SteamPartyBeaconLocation_t().m_eType) >= 4 );
 C_ASSERT( offsetof(u32_SteamPartyBeaconLocation_t, m_ulLocationID) == 4 );
 C_ASSERT( sizeof(u32_SteamPartyBeaconLocation_t().m_ulLocationID) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_SteamPartyBeaconLocation_t::operator u64_SteamPartyBeaconLocation_t() const
 {
     u64_SteamPartyBeaconLocation_t ret;
@@ -27297,7 +27297,7 @@ w64_SteamPartyBeaconLocation_t::operator u64_SteamPartyBeaconLocation_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamPartyBeaconLocation_t::operator w64_SteamPartyBeaconLocation_t() const
 {
     w64_SteamPartyBeaconLocation_t ret;
@@ -27327,7 +27327,7 @@ u32_SteamPartyBeaconLocation_t::operator w32_SteamPartyBeaconLocation_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_SteamPartyBeaconLocation_t::operator u64_SteamPartyBeaconLocation_t() const
 {
     u64_SteamPartyBeaconLocation_t ret;
@@ -27337,7 +27337,7 @@ w32_SteamPartyBeaconLocation_t::operator u64_SteamPartyBeaconLocation_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamPartyBeaconLocation_t::operator w32_SteamPartyBeaconLocation_t() const
 {
     w32_SteamPartyBeaconLocation_t ret;
@@ -27435,7 +27435,7 @@ C_ASSERT( sizeof(u32_SteamUGCRequestUGCDetailsResult_t_126) >= 9760 );
 C_ASSERT( offsetof(u32_SteamUGCRequestUGCDetailsResult_t_126, m_details) == 0 );
 C_ASSERT( sizeof(u32_SteamUGCRequestUGCDetailsResult_t_126().m_details) >= 9760 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_SteamUGCRequestUGCDetailsResult_t_160::operator u64_SteamUGCRequestUGCDetailsResult_t_160() const
 {
     u64_SteamUGCRequestUGCDetailsResult_t_160 ret;
@@ -27445,7 +27445,7 @@ w64_SteamUGCRequestUGCDetailsResult_t_160::operator u64_SteamUGCRequestUGCDetail
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamUGCRequestUGCDetailsResult_t_160::operator w64_SteamUGCRequestUGCDetailsResult_t_160() const
 {
     w64_SteamUGCRequestUGCDetailsResult_t_160 ret;
@@ -27475,7 +27475,7 @@ u32_SteamUGCRequestUGCDetailsResult_t_160::operator w32_SteamUGCRequestUGCDetail
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_SteamUGCRequestUGCDetailsResult_t_160::operator u64_SteamUGCRequestUGCDetailsResult_t_160() const
 {
     u64_SteamUGCRequestUGCDetailsResult_t_160 ret;
@@ -27485,7 +27485,7 @@ w32_SteamUGCRequestUGCDetailsResult_t_160::operator u64_SteamUGCRequestUGCDetail
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamUGCRequestUGCDetailsResult_t_160::operator w32_SteamUGCRequestUGCDetailsResult_t_160() const
 {
     w32_SteamUGCRequestUGCDetailsResult_t_160 ret;
@@ -27495,7 +27495,7 @@ u64_SteamUGCRequestUGCDetailsResult_t_160::operator w32_SteamUGCRequestUGCDetail
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_SteamUGCRequestUGCDetailsResult_t_128x::operator u64_SteamUGCRequestUGCDetailsResult_t_128x() const
 {
     u64_SteamUGCRequestUGCDetailsResult_t_128x ret;
@@ -27505,7 +27505,7 @@ w64_SteamUGCRequestUGCDetailsResult_t_128x::operator u64_SteamUGCRequestUGCDetai
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamUGCRequestUGCDetailsResult_t_128x::operator w64_SteamUGCRequestUGCDetailsResult_t_128x() const
 {
     w64_SteamUGCRequestUGCDetailsResult_t_128x ret;
@@ -27535,7 +27535,7 @@ u32_SteamUGCRequestUGCDetailsResult_t_128x::operator w32_SteamUGCRequestUGCDetai
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_SteamUGCRequestUGCDetailsResult_t_128x::operator u64_SteamUGCRequestUGCDetailsResult_t_128x() const
 {
     u64_SteamUGCRequestUGCDetailsResult_t_128x ret;
@@ -27545,7 +27545,7 @@ w32_SteamUGCRequestUGCDetailsResult_t_128x::operator u64_SteamUGCRequestUGCDetai
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamUGCRequestUGCDetailsResult_t_128x::operator w32_SteamUGCRequestUGCDetailsResult_t_128x() const
 {
     w32_SteamUGCRequestUGCDetailsResult_t_128x ret;
@@ -27555,7 +27555,7 @@ u64_SteamUGCRequestUGCDetailsResult_t_128x::operator w32_SteamUGCRequestUGCDetai
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_SteamUGCRequestUGCDetailsResult_t_129::operator u64_SteamUGCRequestUGCDetailsResult_t_129() const
 {
     u64_SteamUGCRequestUGCDetailsResult_t_129 ret;
@@ -27565,7 +27565,7 @@ w64_SteamUGCRequestUGCDetailsResult_t_129::operator u64_SteamUGCRequestUGCDetail
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamUGCRequestUGCDetailsResult_t_129::operator w64_SteamUGCRequestUGCDetailsResult_t_129() const
 {
     w64_SteamUGCRequestUGCDetailsResult_t_129 ret;
@@ -27595,7 +27595,7 @@ u32_SteamUGCRequestUGCDetailsResult_t_129::operator w32_SteamUGCRequestUGCDetail
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_SteamUGCRequestUGCDetailsResult_t_129::operator u64_SteamUGCRequestUGCDetailsResult_t_129() const
 {
     u64_SteamUGCRequestUGCDetailsResult_t_129 ret;
@@ -27605,7 +27605,7 @@ w32_SteamUGCRequestUGCDetailsResult_t_129::operator u64_SteamUGCRequestUGCDetail
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamUGCRequestUGCDetailsResult_t_129::operator w32_SteamUGCRequestUGCDetailsResult_t_129() const
 {
     w32_SteamUGCRequestUGCDetailsResult_t_129 ret;
@@ -27615,7 +27615,7 @@ u64_SteamUGCRequestUGCDetailsResult_t_129::operator w32_SteamUGCRequestUGCDetail
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_SteamUGCRequestUGCDetailsResult_t_126::operator u64_SteamUGCRequestUGCDetailsResult_t_126() const
 {
     u64_SteamUGCRequestUGCDetailsResult_t_126 ret;
@@ -27624,7 +27624,7 @@ w64_SteamUGCRequestUGCDetailsResult_t_126::operator u64_SteamUGCRequestUGCDetail
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamUGCRequestUGCDetailsResult_t_126::operator w64_SteamUGCRequestUGCDetailsResult_t_126() const
 {
     w64_SteamUGCRequestUGCDetailsResult_t_126 ret;
@@ -27651,7 +27651,7 @@ u32_SteamUGCRequestUGCDetailsResult_t_126::operator w32_SteamUGCRequestUGCDetail
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_SteamUGCRequestUGCDetailsResult_t_126::operator u64_SteamUGCRequestUGCDetailsResult_t_126() const
 {
     u64_SteamUGCRequestUGCDetailsResult_t_126 ret;
@@ -27660,7 +27660,7 @@ w32_SteamUGCRequestUGCDetailsResult_t_126::operator u64_SteamUGCRequestUGCDetail
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SteamUGCRequestUGCDetailsResult_t_126::operator w32_SteamUGCRequestUGCDetailsResult_t_126() const
 {
     w32_SteamUGCRequestUGCDetailsResult_t_126 ret;
@@ -27701,7 +27701,7 @@ C_ASSERT( sizeof(u32_SubmitPlayerResultResultCallback_t().ullUniqueGameID) >= 8 
 C_ASSERT( offsetof(u32_SubmitPlayerResultResultCallback_t, steamIDPlayer) == 12 );
 C_ASSERT( sizeof(u32_SubmitPlayerResultResultCallback_t().steamIDPlayer) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_SubmitPlayerResultResultCallback_t::operator u64_SubmitPlayerResultResultCallback_t() const
 {
     u64_SubmitPlayerResultResultCallback_t ret;
@@ -27712,7 +27712,7 @@ w64_SubmitPlayerResultResultCallback_t::operator u64_SubmitPlayerResultResultCal
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SubmitPlayerResultResultCallback_t::operator w64_SubmitPlayerResultResultCallback_t() const
 {
     w64_SubmitPlayerResultResultCallback_t ret;
@@ -27745,7 +27745,7 @@ u32_SubmitPlayerResultResultCallback_t::operator w32_SubmitPlayerResultResultCal
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_SubmitPlayerResultResultCallback_t::operator u64_SubmitPlayerResultResultCallback_t() const
 {
     u64_SubmitPlayerResultResultCallback_t ret;
@@ -27756,7 +27756,7 @@ w32_SubmitPlayerResultResultCallback_t::operator u64_SubmitPlayerResultResultCal
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_SubmitPlayerResultResultCallback_t::operator w32_SubmitPlayerResultResultCallback_t() const
 {
     w32_SubmitPlayerResultResultCallback_t ret;
@@ -27880,7 +27880,7 @@ const struct callback_def callback_data[] =
     { 5302, 162, 16, 12, []( void *d, const void *s ){ *(w32_CreateBeaconCallback_t *)d = *(const u32_CreateBeaconCallback_t *)s; } },
 };
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 const struct callback_def wow64_callback_data[] =
 {
     { 152, 162, 24, 16, []( void *d, const void *s ){ *(w32_MicroTxnAuthorizationResponse_t_123 *)d = *(const u64_MicroTxnAuthorizationResponse_t_123 *)s; } },

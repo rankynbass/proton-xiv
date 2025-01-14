@@ -13,7 +13,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_RequestCurrentStats
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_RequestCurrentStats( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_RequestCurrentStats_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_RequestCurrentStats_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetStat( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetStat( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetStat_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetStat_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetStat_2( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetStat_2( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetStat_2_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetStat_2_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_SetStat( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_SetStat( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_SetStat_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_SetStat_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_SetStat_2( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_SetStat_2( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_SetStat_2_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_SetStat_2_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_UpdateAvgRateStat( 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_UpdateAvgRateStat( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_UpdateAvgRateStat_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_UpdateAvgRateStat_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievement( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievement( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievement_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievement_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_SetAchievement( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_SetAchievement( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_SetAchievement_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_SetAchievement_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_ClearAchievement( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_ClearAchievement( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_ClearAchievement_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_ClearAchievement_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementAndUn
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementAndUnlockTime( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementAndUnlockTime_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementAndUnlockTime_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_StoreStats( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_StoreStats( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_StoreStats_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_StoreStats_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementIcon(
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementIcon( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementIcon_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementIcon_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementDispl
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementDisplayAttribute( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementDisplayAttribute_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementDisplayAttribute_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_IndicateAchievement
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_IndicateAchievementProgress( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_IndicateAchievementProgress_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_IndicateAchievementProgress_params *)args;
@@ -265,7 +265,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetNumAchievements(
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetNumAchievements( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetNumAchievements_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetNumAchievements_params *)args;
@@ -283,7 +283,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementName(
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementName( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementName_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementName_params *)args;
@@ -301,7 +301,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_RequestUserStats( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_RequestUserStats( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_RequestUserStats_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_RequestUserStats_params *)args;
@@ -319,7 +319,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetUserStat( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetUserStat( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetUserStat_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetUserStat_params *)args;
@@ -337,7 +337,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetUserStat_2( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetUserStat_2( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetUserStat_2_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetUserStat_2_params *)args;
@@ -355,7 +355,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetUserAchievement(
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetUserAchievement( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetUserAchievement_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetUserAchievement_params *)args;
@@ -373,7 +373,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetUserAchievementA
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetUserAchievementAndUnlockTime( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetUserAchievementAndUnlockTime_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetUserAchievementAndUnlockTime_params *)args;
@@ -391,7 +391,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_ResetAllStats( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_ResetAllStats( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_ResetAllStats_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_ResetAllStats_params *)args;
@@ -409,7 +409,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_FindOrCreateLeaderb
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_FindOrCreateLeaderboard( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_FindOrCreateLeaderboard_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_FindOrCreateLeaderboard_params *)args;
@@ -427,7 +427,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_FindLeaderboard( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_FindLeaderboard( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_FindLeaderboard_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_FindLeaderboard_params *)args;
@@ -445,7 +445,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetLeaderboardName(
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetLeaderboardName( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetLeaderboardName_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetLeaderboardName_params *)args;
@@ -463,7 +463,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetLeaderboardEntry
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetLeaderboardEntryCount( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetLeaderboardEntryCount_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetLeaderboardEntryCount_params *)args;
@@ -481,7 +481,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetLeaderboardSortM
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetLeaderboardSortMethod( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetLeaderboardSortMethod_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetLeaderboardSortMethod_params *)args;
@@ -499,7 +499,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetLeaderboardDispl
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetLeaderboardDisplayType( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetLeaderboardDisplayType_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetLeaderboardDisplayType_params *)args;
@@ -517,7 +517,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_DownloadLeaderboard
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_DownloadLeaderboardEntries( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_DownloadLeaderboardEntries_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_DownloadLeaderboardEntries_params *)args;
@@ -535,7 +535,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_DownloadLeaderboard
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_DownloadLeaderboardEntriesForUsers( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_DownloadLeaderboardEntriesForUsers_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_DownloadLeaderboardEntriesForUsers_params *)args;
@@ -555,7 +555,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetDownloadedLeader
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetDownloadedLeaderboardEntry( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetDownloadedLeaderboardEntry_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetDownloadedLeaderboardEntry_params *)args;
@@ -575,7 +575,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_UploadLeaderboardSc
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_UploadLeaderboardScore( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_UploadLeaderboardScore_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_UploadLeaderboardScore_params *)args;
@@ -593,7 +593,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_AttachLeaderboardUG
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_AttachLeaderboardUGC( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_AttachLeaderboardUGC_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_AttachLeaderboardUGC_params *)args;
@@ -611,7 +611,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetNumberOfCurrentP
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetNumberOfCurrentPlayers( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetNumberOfCurrentPlayers_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetNumberOfCurrentPlayers_params *)args;
@@ -629,7 +629,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_RequestGlobalAchiev
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_RequestGlobalAchievementPercentages( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_RequestGlobalAchievementPercentages_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_RequestGlobalAchievementPercentages_params *)args;
@@ -647,7 +647,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetMostAchievedAchi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetMostAchievedAchievementInfo( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetMostAchievedAchievementInfo_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetMostAchievedAchievementInfo_params *)args;
@@ -665,7 +665,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetNextMostAchieved
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetNextMostAchievedAchievementInfo( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetNextMostAchievedAchievementInfo_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetNextMostAchievedAchievementInfo_params *)args;
@@ -683,7 +683,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementAchie
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementAchievedPercent( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementAchievedPercent_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetAchievementAchievedPercent_params *)args;
@@ -701,7 +701,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_RequestGlobalStats(
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_RequestGlobalStats( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_RequestGlobalStats_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_RequestGlobalStats_params *)args;
@@ -719,7 +719,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetGlobalStat( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetGlobalStat( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetGlobalStat_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetGlobalStat_params *)args;
@@ -737,7 +737,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetGlobalStat_2( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetGlobalStat_2( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetGlobalStat_2_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetGlobalStat_2_params *)args;
@@ -755,7 +755,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetGlobalStatHistor
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetGlobalStatHistory( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetGlobalStatHistory_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetGlobalStatHistory_params *)args;
@@ -773,7 +773,7 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetGlobalStatHistor
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetGlobalStatHistory_2( void *args )
 {
     struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetGlobalStatHistory_2_params *params = (struct wow64_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011_GetGlobalStatHistory_2_params *)args;

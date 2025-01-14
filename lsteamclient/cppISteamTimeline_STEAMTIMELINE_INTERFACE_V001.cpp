@@ -13,7 +13,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_SetTimelineStateDescription
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_SetTimelineStateDescription( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_SetTimelineStateDescription_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_SetTimelineStateDescription_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_ClearTimelineStateDescripti
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_ClearTimelineStateDescription( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_ClearTimelineStateDescription_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_ClearTimelineStateDescription_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_AddTimelineEvent( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_AddTimelineEvent( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_AddTimelineEvent_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_AddTimelineEvent_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_SetTimelineGameMode( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_SetTimelineGameMode( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_SetTimelineGameMode_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_SetTimelineGameMode_params *)args;

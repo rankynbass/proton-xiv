@@ -44,7 +44,7 @@ struct w_iface *create_winISteamAppTicket_STEAMAPPTICKET_INTERFACE_VERSION001( s
 
 void init_winISteamAppTicket_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamAppTicket_STEAMAPPTICKET_INTERFACE_VERSION001_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

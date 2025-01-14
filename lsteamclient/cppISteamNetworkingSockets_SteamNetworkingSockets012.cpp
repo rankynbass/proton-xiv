@@ -13,7 +13,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_CreateListenSocketIP(
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateListenSocketIP( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateListenSocketIP_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateListenSocketIP_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_ConnectByIPAddress( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ConnectByIPAddress( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ConnectByIPAddress_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ConnectByIPAddress_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_CreateListenSocketP2P
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateListenSocketP2P( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateListenSocketP2P_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateListenSocketP2P_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_ConnectP2P( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ConnectP2P( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ConnectP2P_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ConnectP2P_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_AcceptConnection( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_AcceptConnection( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_AcceptConnection_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_AcceptConnection_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_CloseConnection( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CloseConnection( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CloseConnection_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CloseConnection_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_CloseListenSocket( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CloseListenSocket( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CloseListenSocket_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CloseListenSocket_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_SetConnectionUserData
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_SetConnectionUserData( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_SetConnectionUserData_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_SetConnectionUserData_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_GetConnectionUserData
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetConnectionUserData( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetConnectionUserData_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetConnectionUserData_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_SetConnectionName( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_SetConnectionName( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_SetConnectionName_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_SetConnectionName_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_GetConnectionName( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetConnectionName( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetConnectionName_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetConnectionName_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_SendMessageToConnecti
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_SendMessageToConnection( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_SendMessageToConnection_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_SendMessageToConnection_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_FlushMessagesOnConnec
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_FlushMessagesOnConnection( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_FlushMessagesOnConnection_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_FlushMessagesOnConnection_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_GetConnectionInfo( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetConnectionInfo( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetConnectionInfo_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetConnectionInfo_params *)args;
@@ -265,7 +265,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_GetConnectionRealTime
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetConnectionRealTimeStatus( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetConnectionRealTimeStatus_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetConnectionRealTimeStatus_params *)args;
@@ -283,7 +283,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_GetDetailedConnection
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetDetailedConnectionStatus( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetDetailedConnectionStatus_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetDetailedConnectionStatus_params *)args;
@@ -301,7 +301,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_GetListenSocketAddres
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetListenSocketAddress( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetListenSocketAddress_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetListenSocketAddress_params *)args;
@@ -319,7 +319,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_CreateSocketPair( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateSocketPair( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateSocketPair_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateSocketPair_params *)args;
@@ -337,7 +337,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_ConfigureConnectionLa
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ConfigureConnectionLanes( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ConfigureConnectionLanes_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ConfigureConnectionLanes_params *)args;
@@ -355,7 +355,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_GetIdentity( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetIdentity( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetIdentity_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetIdentity_params *)args;
@@ -373,7 +373,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_InitAuthentication( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_InitAuthentication( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_InitAuthentication_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_InitAuthentication_params *)args;
@@ -391,7 +391,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_GetAuthenticationStat
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetAuthenticationStatus( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetAuthenticationStatus_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetAuthenticationStatus_params *)args;
@@ -409,7 +409,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_CreatePollGroup( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreatePollGroup( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreatePollGroup_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreatePollGroup_params *)args;
@@ -427,7 +427,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_DestroyPollGroup( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_DestroyPollGroup( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_DestroyPollGroup_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_DestroyPollGroup_params *)args;
@@ -445,7 +445,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_SetConnectionPollGrou
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_SetConnectionPollGroup( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_SetConnectionPollGroup_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_SetConnectionPollGroup_params *)args;
@@ -463,7 +463,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_ReceivedRelayAuthTick
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ReceivedRelayAuthTicket( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ReceivedRelayAuthTicket_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ReceivedRelayAuthTicket_params *)args;
@@ -481,7 +481,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_FindRelayAuthTicketFo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_FindRelayAuthTicketForServer( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_FindRelayAuthTicketForServer_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_FindRelayAuthTicketForServer_params *)args;
@@ -499,7 +499,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_ConnectToHostedDedica
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ConnectToHostedDedicatedServer( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ConnectToHostedDedicatedServer_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ConnectToHostedDedicatedServer_params *)args;
@@ -517,7 +517,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_GetHostedDedicatedSer
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetHostedDedicatedServerPort( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetHostedDedicatedServerPort_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetHostedDedicatedServerPort_params *)args;
@@ -535,7 +535,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_GetHostedDedicatedSer
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetHostedDedicatedServerPOPID( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetHostedDedicatedServerPOPID_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetHostedDedicatedServerPOPID_params *)args;
@@ -553,7 +553,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_GetHostedDedicatedSer
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetHostedDedicatedServerAddress( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetHostedDedicatedServerAddress_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetHostedDedicatedServerAddress_params *)args;
@@ -571,7 +571,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_CreateHostedDedicated
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateHostedDedicatedServerListenSocket( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateHostedDedicatedServerListenSocket_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateHostedDedicatedServerListenSocket_params *)args;
@@ -589,7 +589,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_GetGameCoordinatorSer
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetGameCoordinatorServerLogin( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetGameCoordinatorServerLogin_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetGameCoordinatorServerLogin_params *)args;
@@ -607,7 +607,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_ConnectP2PCustomSigna
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ConnectP2PCustomSignaling( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ConnectP2PCustomSignaling_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ConnectP2PCustomSignaling_params *)args;
@@ -625,7 +625,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_ReceivedP2PCustomSign
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ReceivedP2PCustomSignal( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ReceivedP2PCustomSignal_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ReceivedP2PCustomSignal_params *)args;
@@ -643,7 +643,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_GetCertificateRequest
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetCertificateRequest( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetCertificateRequest_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetCertificateRequest_params *)args;
@@ -661,7 +661,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_SetCertificate( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_SetCertificate( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_SetCertificate_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_SetCertificate_params *)args;
@@ -679,7 +679,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_ResetIdentity( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ResetIdentity( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ResetIdentity_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_ResetIdentity_params *)args;
@@ -697,7 +697,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_RunCallbacks( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_RunCallbacks( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_RunCallbacks_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_RunCallbacks_params *)args;
@@ -715,7 +715,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_BeginAsyncRequestFake
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_BeginAsyncRequestFakeIP( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_BeginAsyncRequestFakeIP_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_BeginAsyncRequestFakeIP_params *)args;
@@ -733,7 +733,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_GetFakeIP( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetFakeIP( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetFakeIP_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetFakeIP_params *)args;
@@ -751,7 +751,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_CreateListenSocketP2P
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateListenSocketP2PFakeIP( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateListenSocketP2PFakeIP_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateListenSocketP2PFakeIP_params *)args;
@@ -769,7 +769,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_GetRemoteFakeIPForCon
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetRemoteFakeIPForConnection( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetRemoteFakeIPForConnection_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_GetRemoteFakeIPForConnection_params *)args;
@@ -787,7 +787,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_CreateFakeUDPPort( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateFakeUDPPort( void *args )
 {
     struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateFakeUDPPort_params *params = (struct wow64_ISteamNetworkingSockets_SteamNetworkingSockets012_CreateFakeUDPPort_params *)args;

@@ -13,7 +13,7 @@ NTSTATUS ISteamMasterServerUpdater_SteamMasterServerUpdater001_SetActive( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_SetActive( void *args )
 {
     struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_SetActive_params *params = (struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_SetActive_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamMasterServerUpdater_SteamMasterServerUpdater001_SetHeartbeatInter
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_SetHeartbeatInterval( void *args )
 {
     struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_SetHeartbeatInterval_params *params = (struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_SetHeartbeatInterval_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamMasterServerUpdater_SteamMasterServerUpdater001_HandleIncomingPac
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_HandleIncomingPacket( void *args )
 {
     struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_HandleIncomingPacket_params *params = (struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_HandleIncomingPacket_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamMasterServerUpdater_SteamMasterServerUpdater001_GetNextOutgoingPa
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_GetNextOutgoingPacket( void *args )
 {
     struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_GetNextOutgoingPacket_params *params = (struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_GetNextOutgoingPacket_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamMasterServerUpdater_SteamMasterServerUpdater001_SetBasicServerDat
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_SetBasicServerData( void *args )
 {
     struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_SetBasicServerData_params *params = (struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_SetBasicServerData_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamMasterServerUpdater_SteamMasterServerUpdater001_ClearAllKeyValues
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_ClearAllKeyValues( void *args )
 {
     struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_ClearAllKeyValues_params *params = (struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_ClearAllKeyValues_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamMasterServerUpdater_SteamMasterServerUpdater001_SetKeyValue( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_SetKeyValue( void *args )
 {
     struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_SetKeyValue_params *params = (struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_SetKeyValue_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS ISteamMasterServerUpdater_SteamMasterServerUpdater001_NotifyShutdown( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_NotifyShutdown( void *args )
 {
     struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_NotifyShutdown_params *params = (struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_NotifyShutdown_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS ISteamMasterServerUpdater_SteamMasterServerUpdater001_WasRestartRequest
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_WasRestartRequested( void *args )
 {
     struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_WasRestartRequested_params *params = (struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_WasRestartRequested_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS ISteamMasterServerUpdater_SteamMasterServerUpdater001_ForceHeartbeat( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_ForceHeartbeat( void *args )
 {
     struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_ForceHeartbeat_params *params = (struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_ForceHeartbeat_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS ISteamMasterServerUpdater_SteamMasterServerUpdater001_AddMasterServer( 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_AddMasterServer( void *args )
 {
     struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_AddMasterServer_params *params = (struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_AddMasterServer_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS ISteamMasterServerUpdater_SteamMasterServerUpdater001_RemoveMasterServe
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_RemoveMasterServer( void *args )
 {
     struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_RemoveMasterServer_params *params = (struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_RemoveMasterServer_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS ISteamMasterServerUpdater_SteamMasterServerUpdater001_GetNumMasterServe
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_GetNumMasterServers( void *args )
 {
     struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_GetNumMasterServers_params *params = (struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_GetNumMasterServers_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS ISteamMasterServerUpdater_SteamMasterServerUpdater001_GetMasterServerAd
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_GetMasterServerAddress( void *args )
 {
     struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_GetMasterServerAddress_params *params = (struct wow64_ISteamMasterServerUpdater_SteamMasterServerUpdater001_GetMasterServerAddress_params *)args;

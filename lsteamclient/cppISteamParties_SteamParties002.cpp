@@ -13,7 +13,7 @@ NTSTATUS ISteamParties_SteamParties002_GetNumActiveBeacons( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParties_SteamParties002_GetNumActiveBeacons( void *args )
 {
     struct wow64_ISteamParties_SteamParties002_GetNumActiveBeacons_params *params = (struct wow64_ISteamParties_SteamParties002_GetNumActiveBeacons_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamParties_SteamParties002_GetBeaconByIndex( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParties_SteamParties002_GetBeaconByIndex( void *args )
 {
     struct wow64_ISteamParties_SteamParties002_GetBeaconByIndex_params *params = (struct wow64_ISteamParties_SteamParties002_GetBeaconByIndex_params *)args;
@@ -51,7 +51,7 @@ NTSTATUS ISteamParties_SteamParties002_GetBeaconDetails( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParties_SteamParties002_GetBeaconDetails( void *args )
 {
     struct wow64_ISteamParties_SteamParties002_GetBeaconDetails_params *params = (struct wow64_ISteamParties_SteamParties002_GetBeaconDetails_params *)args;
@@ -71,7 +71,7 @@ NTSTATUS ISteamParties_SteamParties002_JoinParty( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParties_SteamParties002_JoinParty( void *args )
 {
     struct wow64_ISteamParties_SteamParties002_JoinParty_params *params = (struct wow64_ISteamParties_SteamParties002_JoinParty_params *)args;
@@ -89,7 +89,7 @@ NTSTATUS ISteamParties_SteamParties002_GetNumAvailableBeaconLocations( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParties_SteamParties002_GetNumAvailableBeaconLocations( void *args )
 {
     struct wow64_ISteamParties_SteamParties002_GetNumAvailableBeaconLocations_params *params = (struct wow64_ISteamParties_SteamParties002_GetNumAvailableBeaconLocations_params *)args;
@@ -109,7 +109,7 @@ NTSTATUS ISteamParties_SteamParties002_GetAvailableBeaconLocations( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParties_SteamParties002_GetAvailableBeaconLocations( void *args )
 {
     struct wow64_ISteamParties_SteamParties002_GetAvailableBeaconLocations_params *params = (struct wow64_ISteamParties_SteamParties002_GetAvailableBeaconLocations_params *)args;
@@ -131,7 +131,7 @@ NTSTATUS ISteamParties_SteamParties002_CreateBeacon( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParties_SteamParties002_CreateBeacon( void *args )
 {
     struct wow64_ISteamParties_SteamParties002_CreateBeacon_params *params = (struct wow64_ISteamParties_SteamParties002_CreateBeacon_params *)args;
@@ -151,7 +151,7 @@ NTSTATUS ISteamParties_SteamParties002_OnReservationCompleted( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParties_SteamParties002_OnReservationCompleted( void *args )
 {
     struct wow64_ISteamParties_SteamParties002_OnReservationCompleted_params *params = (struct wow64_ISteamParties_SteamParties002_OnReservationCompleted_params *)args;
@@ -169,7 +169,7 @@ NTSTATUS ISteamParties_SteamParties002_CancelReservation( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParties_SteamParties002_CancelReservation( void *args )
 {
     struct wow64_ISteamParties_SteamParties002_CancelReservation_params *params = (struct wow64_ISteamParties_SteamParties002_CancelReservation_params *)args;
@@ -187,7 +187,7 @@ NTSTATUS ISteamParties_SteamParties002_ChangeNumOpenSlots( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParties_SteamParties002_ChangeNumOpenSlots( void *args )
 {
     struct wow64_ISteamParties_SteamParties002_ChangeNumOpenSlots_params *params = (struct wow64_ISteamParties_SteamParties002_ChangeNumOpenSlots_params *)args;
@@ -205,7 +205,7 @@ NTSTATUS ISteamParties_SteamParties002_DestroyBeacon( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParties_SteamParties002_DestroyBeacon( void *args )
 {
     struct wow64_ISteamParties_SteamParties002_DestroyBeacon_params *params = (struct wow64_ISteamParties_SteamParties002_DestroyBeacon_params *)args;
@@ -224,7 +224,7 @@ NTSTATUS ISteamParties_SteamParties002_GetBeaconLocationData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParties_SteamParties002_GetBeaconLocationData( void *args )
 {
     struct wow64_ISteamParties_SteamParties002_GetBeaconLocationData_params *params = (struct wow64_ISteamParties_SteamParties002_GetBeaconLocationData_params *)args;

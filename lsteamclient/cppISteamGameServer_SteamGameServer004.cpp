@@ -13,7 +13,7 @@ NTSTATUS ISteamGameServer_SteamGameServer004_LogOn( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServer_SteamGameServer004_LogOn( void *args )
 {
     struct wow64_ISteamGameServer_SteamGameServer004_LogOn_params *params = (struct wow64_ISteamGameServer_SteamGameServer004_LogOn_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamGameServer_SteamGameServer004_LogOff( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServer_SteamGameServer004_LogOff( void *args )
 {
     struct wow64_ISteamGameServer_SteamGameServer004_LogOff_params *params = (struct wow64_ISteamGameServer_SteamGameServer004_LogOff_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamGameServer_SteamGameServer004_BLoggedOn( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServer_SteamGameServer004_BLoggedOn( void *args )
 {
     struct wow64_ISteamGameServer_SteamGameServer004_BLoggedOn_params *params = (struct wow64_ISteamGameServer_SteamGameServer004_BLoggedOn_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamGameServer_SteamGameServer004_BSecure( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServer_SteamGameServer004_BSecure( void *args )
 {
     struct wow64_ISteamGameServer_SteamGameServer004_BSecure_params *params = (struct wow64_ISteamGameServer_SteamGameServer004_BSecure_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamGameServer_SteamGameServer004_GetSteamID( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServer_SteamGameServer004_GetSteamID( void *args )
 {
     struct wow64_ISteamGameServer_SteamGameServer004_GetSteamID_params *params = (struct wow64_ISteamGameServer_SteamGameServer004_GetSteamID_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamGameServer_SteamGameServer004_SendUserConnectAndAuthenticate( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServer_SteamGameServer004_SendUserConnectAndAuthenticate( void *args )
 {
     struct wow64_ISteamGameServer_SteamGameServer004_SendUserConnectAndAuthenticate_params *params = (struct wow64_ISteamGameServer_SteamGameServer004_SendUserConnectAndAuthenticate_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamGameServer_SteamGameServer004_CreateUnauthenticatedUserConnection
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServer_SteamGameServer004_CreateUnauthenticatedUserConnection( void *args )
 {
     struct wow64_ISteamGameServer_SteamGameServer004_CreateUnauthenticatedUserConnection_params *params = (struct wow64_ISteamGameServer_SteamGameServer004_CreateUnauthenticatedUserConnection_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS ISteamGameServer_SteamGameServer004_SendUserDisconnect( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServer_SteamGameServer004_SendUserDisconnect( void *args )
 {
     struct wow64_ISteamGameServer_SteamGameServer004_SendUserDisconnect_params *params = (struct wow64_ISteamGameServer_SteamGameServer004_SendUserDisconnect_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS ISteamGameServer_SteamGameServer004_BUpdateUserData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServer_SteamGameServer004_BUpdateUserData( void *args )
 {
     struct wow64_ISteamGameServer_SteamGameServer004_BUpdateUserData_params *params = (struct wow64_ISteamGameServer_SteamGameServer004_BUpdateUserData_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS ISteamGameServer_SteamGameServer004_BSetServerType( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServer_SteamGameServer004_BSetServerType( void *args )
 {
     struct wow64_ISteamGameServer_SteamGameServer004_BSetServerType_params *params = (struct wow64_ISteamGameServer_SteamGameServer004_BSetServerType_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS ISteamGameServer_SteamGameServer004_UpdateServerStatus( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServer_SteamGameServer004_UpdateServerStatus( void *args )
 {
     struct wow64_ISteamGameServer_SteamGameServer004_UpdateServerStatus_params *params = (struct wow64_ISteamGameServer_SteamGameServer004_UpdateServerStatus_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS ISteamGameServer_SteamGameServer004_UpdateSpectatorPort( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServer_SteamGameServer004_UpdateSpectatorPort( void *args )
 {
     struct wow64_ISteamGameServer_SteamGameServer004_UpdateSpectatorPort_params *params = (struct wow64_ISteamGameServer_SteamGameServer004_UpdateSpectatorPort_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS ISteamGameServer_SteamGameServer004_SetGameType( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServer_SteamGameServer004_SetGameType( void *args )
 {
     struct wow64_ISteamGameServer_SteamGameServer004_SetGameType_params *params = (struct wow64_ISteamGameServer_SteamGameServer004_SetGameType_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS ISteamGameServer_SteamGameServer004_BGetUserAchievementStatus( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServer_SteamGameServer004_BGetUserAchievementStatus( void *args )
 {
     struct wow64_ISteamGameServer_SteamGameServer004_BGetUserAchievementStatus_params *params = (struct wow64_ISteamGameServer_SteamGameServer004_BGetUserAchievementStatus_params *)args;

@@ -2583,7 +2583,7 @@ struct w_iface *create_winISteamController_SteamController008( struct u_iface u_
 
 void init_winISteamController_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamController_STEAMCONTROLLER_INTERFACE_VERSION_rtti( base );
     init_winISteamController_SteamController003_rtti( base );
     init_winISteamController_SteamController004_rtti( base );
@@ -2591,5 +2591,5 @@ void init_winISteamController_rtti( char *base )
     init_winISteamController_SteamController006_rtti( base );
     init_winISteamController_SteamController007_rtti( base );
     init_winISteamController_SteamController008_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

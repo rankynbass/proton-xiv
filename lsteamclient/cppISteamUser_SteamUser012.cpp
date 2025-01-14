@@ -13,7 +13,7 @@ NTSTATUS ISteamUser_SteamUser012_GetHSteamUser( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser012_GetHSteamUser( void *args )
 {
     struct wow64_ISteamUser_SteamUser012_GetHSteamUser_params *params = (struct wow64_ISteamUser_SteamUser012_GetHSteamUser_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamUser_SteamUser012_BLoggedOn( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser012_BLoggedOn( void *args )
 {
     struct wow64_ISteamUser_SteamUser012_BLoggedOn_params *params = (struct wow64_ISteamUser_SteamUser012_BLoggedOn_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamUser_SteamUser012_GetSteamID( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser012_GetSteamID( void *args )
 {
     struct wow64_ISteamUser_SteamUser012_GetSteamID_params *params = (struct wow64_ISteamUser_SteamUser012_GetSteamID_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamUser_SteamUser012_InitiateGameConnection( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser012_InitiateGameConnection( void *args )
 {
     struct wow64_ISteamUser_SteamUser012_InitiateGameConnection_params *params = (struct wow64_ISteamUser_SteamUser012_InitiateGameConnection_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamUser_SteamUser012_TerminateGameConnection( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser012_TerminateGameConnection( void *args )
 {
     struct wow64_ISteamUser_SteamUser012_TerminateGameConnection_params *params = (struct wow64_ISteamUser_SteamUser012_TerminateGameConnection_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamUser_SteamUser012_TrackAppUsageEvent( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser012_TrackAppUsageEvent( void *args )
 {
     struct wow64_ISteamUser_SteamUser012_TrackAppUsageEvent_params *params = (struct wow64_ISteamUser_SteamUser012_TrackAppUsageEvent_params *)args;
@@ -122,7 +122,7 @@ NTSTATUS ISteamUser_SteamUser012_GetUserDataFolder( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser012_GetUserDataFolder( void *args )
 {
     struct wow64_ISteamUser_SteamUser012_GetUserDataFolder_params *params = (struct wow64_ISteamUser_SteamUser012_GetUserDataFolder_params *)args;
@@ -141,7 +141,7 @@ NTSTATUS ISteamUser_SteamUser012_StartVoiceRecording( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser012_StartVoiceRecording( void *args )
 {
     struct wow64_ISteamUser_SteamUser012_StartVoiceRecording_params *params = (struct wow64_ISteamUser_SteamUser012_StartVoiceRecording_params *)args;
@@ -159,7 +159,7 @@ NTSTATUS ISteamUser_SteamUser012_StopVoiceRecording( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser012_StopVoiceRecording( void *args )
 {
     struct wow64_ISteamUser_SteamUser012_StopVoiceRecording_params *params = (struct wow64_ISteamUser_SteamUser012_StopVoiceRecording_params *)args;
@@ -177,7 +177,7 @@ NTSTATUS ISteamUser_SteamUser012_GetCompressedVoice( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser012_GetCompressedVoice( void *args )
 {
     struct wow64_ISteamUser_SteamUser012_GetCompressedVoice_params *params = (struct wow64_ISteamUser_SteamUser012_GetCompressedVoice_params *)args;
@@ -195,7 +195,7 @@ NTSTATUS ISteamUser_SteamUser012_DecompressVoice( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser012_DecompressVoice( void *args )
 {
     struct wow64_ISteamUser_SteamUser012_DecompressVoice_params *params = (struct wow64_ISteamUser_SteamUser012_DecompressVoice_params *)args;
@@ -213,7 +213,7 @@ NTSTATUS ISteamUser_SteamUser012_GetAuthSessionTicket( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser012_GetAuthSessionTicket( void *args )
 {
     struct wow64_ISteamUser_SteamUser012_GetAuthSessionTicket_params *params = (struct wow64_ISteamUser_SteamUser012_GetAuthSessionTicket_params *)args;
@@ -231,7 +231,7 @@ NTSTATUS ISteamUser_SteamUser012_BeginAuthSession( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser012_BeginAuthSession( void *args )
 {
     struct wow64_ISteamUser_SteamUser012_BeginAuthSession_params *params = (struct wow64_ISteamUser_SteamUser012_BeginAuthSession_params *)args;
@@ -249,7 +249,7 @@ NTSTATUS ISteamUser_SteamUser012_EndAuthSession( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser012_EndAuthSession( void *args )
 {
     struct wow64_ISteamUser_SteamUser012_EndAuthSession_params *params = (struct wow64_ISteamUser_SteamUser012_EndAuthSession_params *)args;
@@ -267,7 +267,7 @@ NTSTATUS ISteamUser_SteamUser012_CancelAuthTicket( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser012_CancelAuthTicket( void *args )
 {
     struct wow64_ISteamUser_SteamUser012_CancelAuthTicket_params *params = (struct wow64_ISteamUser_SteamUser012_CancelAuthTicket_params *)args;
@@ -285,7 +285,7 @@ NTSTATUS ISteamUser_SteamUser012_UserHasLicenseForApp( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser012_UserHasLicenseForApp( void *args )
 {
     struct wow64_ISteamUser_SteamUser012_UserHasLicenseForApp_params *params = (struct wow64_ISteamUser_SteamUser012_UserHasLicenseForApp_params *)args;

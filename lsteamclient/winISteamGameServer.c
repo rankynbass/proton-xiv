@@ -5224,7 +5224,7 @@ struct w_iface *create_winISteamGameServer_SteamGameServer015( struct u_iface u_
 
 void init_winISteamGameServer_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamGameServer_SteamGameServer002_rtti( base );
     init_winISteamGameServer_SteamGameServer003_rtti( base );
     init_winISteamGameServer_SteamGameServer004_rtti( base );
@@ -5237,5 +5237,5 @@ void init_winISteamGameServer_rtti( char *base )
     init_winISteamGameServer_SteamGameServer013_rtti( base );
     init_winISteamGameServer_SteamGameServer014_rtti( base );
     init_winISteamGameServer_SteamGameServer015_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

@@ -3125,7 +3125,7 @@ struct u32_SteamUGCDetails_t_160
 typedef w32_SteamUGCDetails_t_160 w_SteamUGCDetails_t_160;
 typedef u32_SteamUGCDetails_t_160 u_SteamUGCDetails_t_160;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamUGCDetails_t_160 w_SteamUGCDetails_t_160;
 typedef u64_SteamUGCDetails_t_160 u_SteamUGCDetails_t_160;
 #endif
@@ -3288,7 +3288,7 @@ struct u32_SteamUGCDetails_t_128x
 typedef w32_SteamUGCDetails_t_128x w_SteamUGCDetails_t_128x;
 typedef u32_SteamUGCDetails_t_128x u_SteamUGCDetails_t_128x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamUGCDetails_t_128x w_SteamUGCDetails_t_128x;
 typedef u64_SteamUGCDetails_t_128x u_SteamUGCDetails_t_128x;
 #endif
@@ -3445,7 +3445,7 @@ struct u32_SteamUGCDetails_t_126
 typedef w32_SteamUGCDetails_t_126 w_SteamUGCDetails_t_126;
 typedef u32_SteamUGCDetails_t_126 u_SteamUGCDetails_t_126;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamUGCDetails_t_126 w_SteamUGCDetails_t_126;
 typedef u64_SteamUGCDetails_t_126 u_SteamUGCDetails_t_126;
 #endif
@@ -3512,7 +3512,7 @@ struct u32_AddAppDependencyResult_t
 typedef w32_AddAppDependencyResult_t w_AddAppDependencyResult_t;
 typedef u32_AddAppDependencyResult_t u_AddAppDependencyResult_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_AddAppDependencyResult_t w_AddAppDependencyResult_t;
 typedef u64_AddAppDependencyResult_t u_AddAppDependencyResult_t;
 #endif
@@ -3577,7 +3577,7 @@ struct u32_AddUGCDependencyResult_t
 typedef w32_AddUGCDependencyResult_t w_AddUGCDependencyResult_t;
 typedef u32_AddUGCDependencyResult_t u_AddUGCDependencyResult_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_AddUGCDependencyResult_t w_AddUGCDependencyResult_t;
 typedef u64_AddUGCDependencyResult_t u_AddUGCDependencyResult_t;
 #endif
@@ -3637,7 +3637,7 @@ struct w32_CallbackMsg_t
 typedef w32_CallbackMsg_t w_CallbackMsg_t;
 typedef u32_CallbackMsg_t u_CallbackMsg_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_CallbackMsg_t w_CallbackMsg_t;
 typedef u64_CallbackMsg_t u_CallbackMsg_t;
 #endif
@@ -3698,7 +3698,7 @@ struct u32_CreateBeaconCallback_t
 typedef w32_CreateBeaconCallback_t w_CreateBeaconCallback_t;
 typedef u32_CreateBeaconCallback_t u_CreateBeaconCallback_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_CreateBeaconCallback_t w_CreateBeaconCallback_t;
 typedef u64_CreateBeaconCallback_t u_CreateBeaconCallback_t;
 #endif
@@ -3767,7 +3767,7 @@ struct u32_CreateItemResult_t
 typedef w32_CreateItemResult_t w_CreateItemResult_t;
 typedef u32_CreateItemResult_t u_CreateItemResult_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_CreateItemResult_t w_CreateItemResult_t;
 typedef u64_CreateItemResult_t u_CreateItemResult_t;
 #endif
@@ -3828,7 +3828,7 @@ struct u32_DeleteItemResult_t
 typedef w32_DeleteItemResult_t w_DeleteItemResult_t;
 typedef u32_DeleteItemResult_t u_DeleteItemResult_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_DeleteItemResult_t w_DeleteItemResult_t;
 typedef u64_DeleteItemResult_t u_DeleteItemResult_t;
 #endif
@@ -3895,7 +3895,7 @@ struct u32_DownloadItemResult_t
 typedef w32_DownloadItemResult_t w_DownloadItemResult_t;
 typedef u32_DownloadItemResult_t u_DownloadItemResult_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_DownloadItemResult_t w_DownloadItemResult_t;
 typedef u64_DownloadItemResult_t u_DownloadItemResult_t;
 #endif
@@ -3956,7 +3956,7 @@ struct u32_EndGameResultCallback_t
 typedef w32_EndGameResultCallback_t w_EndGameResultCallback_t;
 typedef u32_EndGameResultCallback_t u_EndGameResultCallback_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_EndGameResultCallback_t w_EndGameResultCallback_t;
 typedef u64_EndGameResultCallback_t u_EndGameResultCallback_t;
 #endif
@@ -4025,7 +4025,7 @@ struct u32_FileDetailsResult_t
 typedef w32_FileDetailsResult_t w_FileDetailsResult_t;
 typedef u32_FileDetailsResult_t u_FileDetailsResult_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_FileDetailsResult_t w_FileDetailsResult_t;
 typedef u64_FileDetailsResult_t u_FileDetailsResult_t;
 #endif
@@ -4114,7 +4114,7 @@ struct u32_GSReputation_t_123
 typedef w32_GSReputation_t_123 w_GSReputation_t_123;
 typedef u32_GSReputation_t_123 u_GSReputation_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_GSReputation_t_123 w_GSReputation_t_123;
 typedef u64_GSReputation_t_123 u_GSReputation_t_123;
 #endif
@@ -4182,7 +4182,7 @@ struct u32_GSReputation_t_108
 typedef w32_GSReputation_t_108 w_GSReputation_t_108;
 typedef u32_GSReputation_t_108 u_GSReputation_t_108;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_GSReputation_t_108 w_GSReputation_t_108;
 typedef u64_GSReputation_t_108 u_GSReputation_t_108;
 #endif
@@ -4255,7 +4255,7 @@ struct u32_GetAppDependenciesResult_t
 typedef w32_GetAppDependenciesResult_t w_GetAppDependenciesResult_t;
 typedef u32_GetAppDependenciesResult_t u_GetAppDependenciesResult_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_GetAppDependenciesResult_t w_GetAppDependenciesResult_t;
 typedef u64_GetAppDependenciesResult_t u_GetAppDependenciesResult_t;
 #endif
@@ -4301,7 +4301,7 @@ struct w32_HTML_ChangedTitle_t
 typedef w32_HTML_ChangedTitle_t w_HTML_ChangedTitle_t;
 typedef u32_HTML_ChangedTitle_t u_HTML_ChangedTitle_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTML_ChangedTitle_t w_HTML_ChangedTitle_t;
 typedef u64_HTML_ChangedTitle_t u_HTML_ChangedTitle_t;
 #endif
@@ -4353,7 +4353,7 @@ struct w32_HTML_ComboNeedsPaint_t
 typedef w32_HTML_ComboNeedsPaint_t w_HTML_ComboNeedsPaint_t;
 typedef u32_HTML_ComboNeedsPaint_t u_HTML_ComboNeedsPaint_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTML_ComboNeedsPaint_t w_HTML_ComboNeedsPaint_t;
 typedef u64_HTML_ComboNeedsPaint_t u_HTML_ComboNeedsPaint_t;
 #endif
@@ -4417,7 +4417,7 @@ struct u32_HTML_FileOpenDialog_t
 typedef w32_HTML_FileOpenDialog_t w_HTML_FileOpenDialog_t;
 typedef u32_HTML_FileOpenDialog_t u_HTML_FileOpenDialog_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTML_FileOpenDialog_t w_HTML_FileOpenDialog_t;
 typedef u64_HTML_FileOpenDialog_t u_HTML_FileOpenDialog_t;
 #endif
@@ -4481,7 +4481,7 @@ struct u32_HTML_FinishedRequest_t
 typedef w32_HTML_FinishedRequest_t w_HTML_FinishedRequest_t;
 typedef u32_HTML_FinishedRequest_t u_HTML_FinishedRequest_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTML_FinishedRequest_t w_HTML_FinishedRequest_t;
 typedef u64_HTML_FinishedRequest_t u_HTML_FinishedRequest_t;
 #endif
@@ -4527,7 +4527,7 @@ struct w32_HTML_JSAlert_t
 typedef w32_HTML_JSAlert_t w_HTML_JSAlert_t;
 typedef u32_HTML_JSAlert_t u_HTML_JSAlert_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTML_JSAlert_t w_HTML_JSAlert_t;
 typedef u64_HTML_JSAlert_t u_HTML_JSAlert_t;
 #endif
@@ -4573,7 +4573,7 @@ struct w32_HTML_JSConfirm_t
 typedef w32_HTML_JSConfirm_t w_HTML_JSConfirm_t;
 typedef u32_HTML_JSConfirm_t u_HTML_JSConfirm_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTML_JSConfirm_t w_HTML_JSConfirm_t;
 typedef u64_HTML_JSConfirm_t u_HTML_JSConfirm_t;
 #endif
@@ -4653,7 +4653,7 @@ struct u32_HTML_LinkAtPosition_t
 typedef w32_HTML_LinkAtPosition_t w_HTML_LinkAtPosition_t;
 typedef u32_HTML_LinkAtPosition_t u_HTML_LinkAtPosition_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTML_LinkAtPosition_t w_HTML_LinkAtPosition_t;
 typedef u64_HTML_LinkAtPosition_t u_HTML_LinkAtPosition_t;
 #endif
@@ -4729,7 +4729,7 @@ struct w32_HTML_NeedsPaint_t
 typedef w32_HTML_NeedsPaint_t w_HTML_NeedsPaint_t;
 typedef u32_HTML_NeedsPaint_t u_HTML_NeedsPaint_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTML_NeedsPaint_t w_HTML_NeedsPaint_t;
 typedef u64_HTML_NeedsPaint_t u_HTML_NeedsPaint_t;
 #endif
@@ -4810,7 +4810,7 @@ struct u32_HTML_NewWindow_t_132x
 typedef w32_HTML_NewWindow_t_132x w_HTML_NewWindow_t_132x;
 typedef u32_HTML_NewWindow_t_132x u_HTML_NewWindow_t_132x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTML_NewWindow_t_132x w_HTML_NewWindow_t_132x;
 typedef u64_HTML_NewWindow_t_132x u_HTML_NewWindow_t_132x;
 #endif
@@ -4886,7 +4886,7 @@ struct u32_HTML_NewWindow_t_130x
 typedef w32_HTML_NewWindow_t_130x w_HTML_NewWindow_t_130x;
 typedef u32_HTML_NewWindow_t_130x u_HTML_NewWindow_t_130x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTML_NewWindow_t_130x w_HTML_NewWindow_t_130x;
 typedef u64_HTML_NewWindow_t_130x u_HTML_NewWindow_t_130x;
 #endif
@@ -4946,7 +4946,7 @@ struct u32_HTML_OpenLinkInNewTab_t
 typedef w32_HTML_OpenLinkInNewTab_t w_HTML_OpenLinkInNewTab_t;
 typedef u32_HTML_OpenLinkInNewTab_t u_HTML_OpenLinkInNewTab_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTML_OpenLinkInNewTab_t w_HTML_OpenLinkInNewTab_t;
 typedef u64_HTML_OpenLinkInNewTab_t u_HTML_OpenLinkInNewTab_t;
 #endif
@@ -4992,7 +4992,7 @@ struct w32_HTML_ShowToolTip_t
 typedef w32_HTML_ShowToolTip_t w_HTML_ShowToolTip_t;
 typedef u32_HTML_ShowToolTip_t u_HTML_ShowToolTip_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTML_ShowToolTip_t w_HTML_ShowToolTip_t;
 typedef u64_HTML_ShowToolTip_t u_HTML_ShowToolTip_t;
 #endif
@@ -5068,7 +5068,7 @@ struct u32_HTML_StartRequest_t
 typedef w32_HTML_StartRequest_t w_HTML_StartRequest_t;
 typedef u32_HTML_StartRequest_t u_HTML_StartRequest_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTML_StartRequest_t w_HTML_StartRequest_t;
 typedef u64_HTML_StartRequest_t u_HTML_StartRequest_t;
 #endif
@@ -5114,7 +5114,7 @@ struct w32_HTML_StatusText_t
 typedef w32_HTML_StatusText_t w_HTML_StatusText_t;
 typedef u32_HTML_StatusText_t u_HTML_StatusText_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTML_StatusText_t w_HTML_StatusText_t;
 typedef u64_HTML_StatusText_t u_HTML_StatusText_t;
 #endif
@@ -5198,7 +5198,7 @@ struct u32_HTML_URLChanged_t
 typedef w32_HTML_URLChanged_t w_HTML_URLChanged_t;
 typedef u32_HTML_URLChanged_t u_HTML_URLChanged_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTML_URLChanged_t w_HTML_URLChanged_t;
 typedef u64_HTML_URLChanged_t u_HTML_URLChanged_t;
 #endif
@@ -5244,7 +5244,7 @@ struct w32_HTML_UpdateToolTip_t
 typedef w32_HTML_UpdateToolTip_t w_HTML_UpdateToolTip_t;
 typedef u32_HTML_UpdateToolTip_t u_HTML_UpdateToolTip_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTML_UpdateToolTip_t w_HTML_UpdateToolTip_t;
 typedef u64_HTML_UpdateToolTip_t u_HTML_UpdateToolTip_t;
 #endif
@@ -5323,7 +5323,7 @@ struct u32_HTTPRequestCompleted_t_132x
 typedef w32_HTTPRequestCompleted_t_132x w_HTTPRequestCompleted_t_132x;
 typedef u32_HTTPRequestCompleted_t_132x u_HTTPRequestCompleted_t_132x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTTPRequestCompleted_t_132x w_HTTPRequestCompleted_t_132x;
 typedef u64_HTTPRequestCompleted_t_132x u_HTTPRequestCompleted_t_132x;
 #endif
@@ -5396,7 +5396,7 @@ struct u32_HTTPRequestCompleted_t_123
 typedef w32_HTTPRequestCompleted_t_123 w_HTTPRequestCompleted_t_123;
 typedef u32_HTTPRequestCompleted_t_123 u_HTTPRequestCompleted_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTTPRequestCompleted_t_123 w_HTTPRequestCompleted_t_123;
 typedef u64_HTTPRequestCompleted_t_123 u_HTTPRequestCompleted_t_123;
 #endif
@@ -5452,7 +5452,7 @@ struct u32_HTTPRequestCompleted_t_115
 typedef w32_HTTPRequestCompleted_t_115 w_HTTPRequestCompleted_t_115;
 typedef u32_HTTPRequestCompleted_t_115 u_HTTPRequestCompleted_t_115;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTTPRequestCompleted_t_115 w_HTTPRequestCompleted_t_115;
 typedef u64_HTTPRequestCompleted_t_115 u_HTTPRequestCompleted_t_115;
 #endif
@@ -5521,7 +5521,7 @@ struct u32_HTTPRequestDataReceived_t_123
 typedef w32_HTTPRequestDataReceived_t_123 w_HTTPRequestDataReceived_t_123;
 typedef u32_HTTPRequestDataReceived_t_123 u_HTTPRequestDataReceived_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTTPRequestDataReceived_t_123 w_HTTPRequestDataReceived_t_123;
 typedef u64_HTTPRequestDataReceived_t_123 u_HTTPRequestDataReceived_t_123;
 #endif
@@ -5574,7 +5574,7 @@ struct u32_HTTPRequestDataReceived_t_121x
 typedef w32_HTTPRequestDataReceived_t_121x w_HTTPRequestDataReceived_t_121x;
 typedef u32_HTTPRequestDataReceived_t_121x u_HTTPRequestDataReceived_t_121x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTTPRequestDataReceived_t_121x w_HTTPRequestDataReceived_t_121x;
 typedef u64_HTTPRequestDataReceived_t_121x u_HTTPRequestDataReceived_t_121x;
 #endif
@@ -5635,7 +5635,7 @@ struct u32_HTTPRequestHeadersReceived_t_123
 typedef w32_HTTPRequestHeadersReceived_t_123 w_HTTPRequestHeadersReceived_t_123;
 typedef u32_HTTPRequestHeadersReceived_t_123 u_HTTPRequestHeadersReceived_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTTPRequestHeadersReceived_t_123 w_HTTPRequestHeadersReceived_t_123;
 typedef u64_HTTPRequestHeadersReceived_t_123 u_HTTPRequestHeadersReceived_t_123;
 #endif
@@ -5682,7 +5682,7 @@ struct u32_HTTPRequestHeadersReceived_t_121x
 typedef w32_HTTPRequestHeadersReceived_t_121x w_HTTPRequestHeadersReceived_t_121x;
 typedef u32_HTTPRequestHeadersReceived_t_121x u_HTTPRequestHeadersReceived_t_121x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HTTPRequestHeadersReceived_t_121x w_HTTPRequestHeadersReceived_t_121x;
 typedef u64_HTTPRequestHeadersReceived_t_121x u_HTTPRequestHeadersReceived_t_121x;
 #endif
@@ -5871,7 +5871,7 @@ struct u32_ItemInstalled_t_160
 typedef w32_ItemInstalled_t_160 w_ItemInstalled_t_160;
 typedef u32_ItemInstalled_t_160 u_ItemInstalled_t_160;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_ItemInstalled_t_160 w_ItemInstalled_t_160;
 typedef u64_ItemInstalled_t_160 u_ItemInstalled_t_160;
 #endif
@@ -5932,7 +5932,7 @@ struct u32_ItemInstalled_t_130
 typedef w32_ItemInstalled_t_130 w_ItemInstalled_t_130;
 typedef u32_ItemInstalled_t_130 u_ItemInstalled_t_130;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_ItemInstalled_t_130 w_ItemInstalled_t_130;
 typedef u64_ItemInstalled_t_130 u_ItemInstalled_t_130;
 #endif
@@ -6001,7 +6001,7 @@ struct u32_JoinPartyCallback_t
 typedef w32_JoinPartyCallback_t w_JoinPartyCallback_t;
 typedef u32_JoinPartyCallback_t u_JoinPartyCallback_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_JoinPartyCallback_t w_JoinPartyCallback_t;
 typedef u64_JoinPartyCallback_t u_JoinPartyCallback_t;
 #endif
@@ -6074,7 +6074,7 @@ struct u32_LeaderboardEntry_t_123
 typedef w32_LeaderboardEntry_t_123 w_LeaderboardEntry_t_123;
 typedef u32_LeaderboardEntry_t_123 u_LeaderboardEntry_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_LeaderboardEntry_t_123 w_LeaderboardEntry_t_123;
 typedef u64_LeaderboardEntry_t_123 u_LeaderboardEntry_t_123;
 #endif
@@ -6130,7 +6130,7 @@ struct u32_LeaderboardEntry_t_111x
 typedef w32_LeaderboardEntry_t_111x w_LeaderboardEntry_t_111x;
 typedef u32_LeaderboardEntry_t_111x u_LeaderboardEntry_t_111x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_LeaderboardEntry_t_111x w_LeaderboardEntry_t_111x;
 typedef u64_LeaderboardEntry_t_111x u_LeaderboardEntry_t_111x;
 #endif
@@ -6165,7 +6165,7 @@ struct w32_LeaderboardEntry_t_104
 typedef w32_LeaderboardEntry_t_104 w_LeaderboardEntry_t_104;
 typedef u32_LeaderboardEntry_t_104 u_LeaderboardEntry_t_104;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_LeaderboardEntry_t_104 w_LeaderboardEntry_t_104;
 typedef u64_LeaderboardEntry_t_104 u_LeaderboardEntry_t_104;
 #endif
@@ -6248,7 +6248,7 @@ struct u32_LeaderboardScoreUploaded_t_123
 typedef w32_LeaderboardScoreUploaded_t_123 w_LeaderboardScoreUploaded_t_123;
 typedef u32_LeaderboardScoreUploaded_t_123 u_LeaderboardScoreUploaded_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_LeaderboardScoreUploaded_t_123 w_LeaderboardScoreUploaded_t_123;
 typedef u64_LeaderboardScoreUploaded_t_123 u_LeaderboardScoreUploaded_t_123;
 #endif
@@ -6311,7 +6311,7 @@ struct u32_LeaderboardScoreUploaded_t_104
 typedef w32_LeaderboardScoreUploaded_t_104 w_LeaderboardScoreUploaded_t_104;
 typedef u32_LeaderboardScoreUploaded_t_104 u_LeaderboardScoreUploaded_t_104;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_LeaderboardScoreUploaded_t_104 w_LeaderboardScoreUploaded_t_104;
 typedef u64_LeaderboardScoreUploaded_t_104 u_LeaderboardScoreUploaded_t_104;
 #endif
@@ -6372,7 +6372,7 @@ struct u32_LeaderboardUGCSet_t_123
 typedef w32_LeaderboardUGCSet_t_123 w_LeaderboardUGCSet_t_123;
 typedef u32_LeaderboardUGCSet_t_123 u_LeaderboardUGCSet_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_LeaderboardUGCSet_t_123 w_LeaderboardUGCSet_t_123;
 typedef u64_LeaderboardUGCSet_t_123 u_LeaderboardUGCSet_t_123;
 #endif
@@ -6419,7 +6419,7 @@ struct u32_LeaderboardUGCSet_t_111x
 typedef w32_LeaderboardUGCSet_t_111x w_LeaderboardUGCSet_t_111x;
 typedef u32_LeaderboardUGCSet_t_111x u_LeaderboardUGCSet_t_111x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_LeaderboardUGCSet_t_111x w_LeaderboardUGCSet_t_111x;
 typedef u64_LeaderboardUGCSet_t_111x u_LeaderboardUGCSet_t_111x;
 #endif
@@ -6480,7 +6480,7 @@ struct u32_LobbyCreated_t_123
 typedef w32_LobbyCreated_t_123 w_LobbyCreated_t_123;
 typedef u32_LobbyCreated_t_123 u_LobbyCreated_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_LobbyCreated_t_123 w_LobbyCreated_t_123;
 typedef u64_LobbyCreated_t_123 u_LobbyCreated_t_123;
 #endif
@@ -6527,7 +6527,7 @@ struct u32_LobbyCreated_t_099u
 typedef w32_LobbyCreated_t_099u w_LobbyCreated_t_099u;
 typedef u32_LobbyCreated_t_099u u_LobbyCreated_t_099u;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_LobbyCreated_t_099u w_LobbyCreated_t_099u;
 typedef u64_LobbyCreated_t_099u u_LobbyCreated_t_099u;
 #endif
@@ -6596,7 +6596,7 @@ struct u32_MicroTxnAuthorizationResponse_t_123
 typedef w32_MicroTxnAuthorizationResponse_t_123 w_MicroTxnAuthorizationResponse_t_123;
 typedef u32_MicroTxnAuthorizationResponse_t_123 u_MicroTxnAuthorizationResponse_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_MicroTxnAuthorizationResponse_t_123 w_MicroTxnAuthorizationResponse_t_123;
 typedef u64_MicroTxnAuthorizationResponse_t_123 u_MicroTxnAuthorizationResponse_t_123;
 #endif
@@ -6649,7 +6649,7 @@ struct u32_MicroTxnAuthorizationResponse_t_109
 typedef w32_MicroTxnAuthorizationResponse_t_109 w_MicroTxnAuthorizationResponse_t_109;
 typedef u32_MicroTxnAuthorizationResponse_t_109 u_MicroTxnAuthorizationResponse_t_109;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_MicroTxnAuthorizationResponse_t_109 w_MicroTxnAuthorizationResponse_t_109;
 typedef u64_MicroTxnAuthorizationResponse_t_109 u_MicroTxnAuthorizationResponse_t_109;
 #endif
@@ -6714,7 +6714,7 @@ struct u32_PS3TrophiesInstalled_t_123
 typedef w32_PS3TrophiesInstalled_t_123 w_PS3TrophiesInstalled_t_123;
 typedef u32_PS3TrophiesInstalled_t_123 u_PS3TrophiesInstalled_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_PS3TrophiesInstalled_t_123 w_PS3TrophiesInstalled_t_123;
 typedef u64_PS3TrophiesInstalled_t_123 u_PS3TrophiesInstalled_t_123;
 #endif
@@ -6764,7 +6764,7 @@ struct u32_PS3TrophiesInstalled_t_112x
 typedef w32_PS3TrophiesInstalled_t_112x w_PS3TrophiesInstalled_t_112x;
 typedef u32_PS3TrophiesInstalled_t_112x u_PS3TrophiesInstalled_t_112x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_PS3TrophiesInstalled_t_112x w_PS3TrophiesInstalled_t_112x;
 typedef u64_PS3TrophiesInstalled_t_112x u_PS3TrophiesInstalled_t_112x;
 #endif
@@ -6841,7 +6841,7 @@ struct u32_RemoteStorageAppSyncProgress_t_123
 typedef w32_RemoteStorageAppSyncProgress_t_123 w_RemoteStorageAppSyncProgress_t_123;
 typedef u32_RemoteStorageAppSyncProgress_t_123 u_RemoteStorageAppSyncProgress_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageAppSyncProgress_t_123 w_RemoteStorageAppSyncProgress_t_123;
 typedef u64_RemoteStorageAppSyncProgress_t_123 u_RemoteStorageAppSyncProgress_t_123;
 #endif
@@ -6900,7 +6900,7 @@ struct u32_RemoteStorageAppSyncProgress_t_111x
 typedef w32_RemoteStorageAppSyncProgress_t_111x w_RemoteStorageAppSyncProgress_t_111x;
 typedef u32_RemoteStorageAppSyncProgress_t_111x u_RemoteStorageAppSyncProgress_t_111x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageAppSyncProgress_t_111x w_RemoteStorageAppSyncProgress_t_111x;
 typedef u64_RemoteStorageAppSyncProgress_t_111x u_RemoteStorageAppSyncProgress_t_111x;
 #endif
@@ -6961,7 +6961,7 @@ struct u32_RemoteStorageDeletePublishedFileResult_t_123
 typedef w32_RemoteStorageDeletePublishedFileResult_t_123 w_RemoteStorageDeletePublishedFileResult_t_123;
 typedef u32_RemoteStorageDeletePublishedFileResult_t_123 u_RemoteStorageDeletePublishedFileResult_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageDeletePublishedFileResult_t_123 w_RemoteStorageDeletePublishedFileResult_t_123;
 typedef u64_RemoteStorageDeletePublishedFileResult_t_123 u_RemoteStorageDeletePublishedFileResult_t_123;
 #endif
@@ -7008,7 +7008,7 @@ struct u32_RemoteStorageDeletePublishedFileResult_t_116x
 typedef w32_RemoteStorageDeletePublishedFileResult_t_116x w_RemoteStorageDeletePublishedFileResult_t_116x;
 typedef u32_RemoteStorageDeletePublishedFileResult_t_116x u_RemoteStorageDeletePublishedFileResult_t_116x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageDeletePublishedFileResult_t_116x w_RemoteStorageDeletePublishedFileResult_t_116x;
 typedef u64_RemoteStorageDeletePublishedFileResult_t_116x u_RemoteStorageDeletePublishedFileResult_t_116x;
 #endif
@@ -7087,7 +7087,7 @@ struct u32_RemoteStorageDownloadUGCResult_t_123
 typedef w32_RemoteStorageDownloadUGCResult_t_123 w_RemoteStorageDownloadUGCResult_t_123;
 typedef u32_RemoteStorageDownloadUGCResult_t_123 u_RemoteStorageDownloadUGCResult_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageDownloadUGCResult_t_123 w_RemoteStorageDownloadUGCResult_t_123;
 typedef u64_RemoteStorageDownloadUGCResult_t_123 u_RemoteStorageDownloadUGCResult_t_123;
 #endif
@@ -7148,7 +7148,7 @@ struct u32_RemoteStorageDownloadUGCResult_t_116x
 typedef w32_RemoteStorageDownloadUGCResult_t_116x w_RemoteStorageDownloadUGCResult_t_116x;
 typedef u32_RemoteStorageDownloadUGCResult_t_116x u_RemoteStorageDownloadUGCResult_t_116x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageDownloadUGCResult_t_116x w_RemoteStorageDownloadUGCResult_t_116x;
 typedef u64_RemoteStorageDownloadUGCResult_t_116x u_RemoteStorageDownloadUGCResult_t_116x;
 #endif
@@ -7208,7 +7208,7 @@ struct u32_RemoteStorageDownloadUGCResult_t_111x
 typedef w32_RemoteStorageDownloadUGCResult_t_111x w_RemoteStorageDownloadUGCResult_t_111x;
 typedef u32_RemoteStorageDownloadUGCResult_t_111x u_RemoteStorageDownloadUGCResult_t_111x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageDownloadUGCResult_t_111x w_RemoteStorageDownloadUGCResult_t_111x;
 typedef u64_RemoteStorageDownloadUGCResult_t_111x u_RemoteStorageDownloadUGCResult_t_111x;
 #endif
@@ -7277,7 +7277,7 @@ struct u32_RemoteStorageEnumerateUserPublishedFilesResult_t_123
 typedef w32_RemoteStorageEnumerateUserPublishedFilesResult_t_123 w_RemoteStorageEnumerateUserPublishedFilesResult_t_123;
 typedef u32_RemoteStorageEnumerateUserPublishedFilesResult_t_123 u_RemoteStorageEnumerateUserPublishedFilesResult_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageEnumerateUserPublishedFilesResult_t_123 w_RemoteStorageEnumerateUserPublishedFilesResult_t_123;
 typedef u64_RemoteStorageEnumerateUserPublishedFilesResult_t_123 u_RemoteStorageEnumerateUserPublishedFilesResult_t_123;
 #endif
@@ -7330,7 +7330,7 @@ struct u32_RemoteStorageEnumerateUserPublishedFilesResult_t_116x
 typedef w32_RemoteStorageEnumerateUserPublishedFilesResult_t_116x w_RemoteStorageEnumerateUserPublishedFilesResult_t_116x;
 typedef u32_RemoteStorageEnumerateUserPublishedFilesResult_t_116x u_RemoteStorageEnumerateUserPublishedFilesResult_t_116x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageEnumerateUserPublishedFilesResult_t_116x w_RemoteStorageEnumerateUserPublishedFilesResult_t_116x;
 typedef u64_RemoteStorageEnumerateUserPublishedFilesResult_t_116x u_RemoteStorageEnumerateUserPublishedFilesResult_t_116x;
 #endif
@@ -7399,7 +7399,7 @@ struct u32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123
 typedef w32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123 w_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123;
 typedef u32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123 u_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123 w_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123;
 typedef u64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123 u_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123;
 #endif
@@ -7452,7 +7452,7 @@ struct u32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119
 typedef w32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119 w_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119;
 typedef u32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119 u_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119 w_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119;
 typedef u64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119 u_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119;
 #endif
@@ -7525,7 +7525,7 @@ struct u32_RemoteStorageEnumerateUserSubscribedFilesResult_t_123
 typedef w32_RemoteStorageEnumerateUserSubscribedFilesResult_t_123 w_RemoteStorageEnumerateUserSubscribedFilesResult_t_123;
 typedef u32_RemoteStorageEnumerateUserSubscribedFilesResult_t_123 u_RemoteStorageEnumerateUserSubscribedFilesResult_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageEnumerateUserSubscribedFilesResult_t_123 w_RemoteStorageEnumerateUserSubscribedFilesResult_t_123;
 typedef u64_RemoteStorageEnumerateUserSubscribedFilesResult_t_123 u_RemoteStorageEnumerateUserSubscribedFilesResult_t_123;
 #endif
@@ -7581,7 +7581,7 @@ struct u32_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x
 typedef w32_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x w_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x;
 typedef u32_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x u_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x w_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x;
 typedef u64_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x u_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x;
 #endif
@@ -7662,7 +7662,7 @@ struct u32_RemoteStorageEnumerateWorkshopFilesResult_t_125
 typedef w32_RemoteStorageEnumerateWorkshopFilesResult_t_125 w_RemoteStorageEnumerateWorkshopFilesResult_t_125;
 typedef u32_RemoteStorageEnumerateWorkshopFilesResult_t_125 u_RemoteStorageEnumerateWorkshopFilesResult_t_125;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageEnumerateWorkshopFilesResult_t_125 w_RemoteStorageEnumerateWorkshopFilesResult_t_125;
 typedef u64_RemoteStorageEnumerateWorkshopFilesResult_t_125 u_RemoteStorageEnumerateWorkshopFilesResult_t_125;
 #endif
@@ -7735,7 +7735,7 @@ struct u32_RemoteStorageEnumerateWorkshopFilesResult_t_123
 typedef w32_RemoteStorageEnumerateWorkshopFilesResult_t_123 w_RemoteStorageEnumerateWorkshopFilesResult_t_123;
 typedef u32_RemoteStorageEnumerateWorkshopFilesResult_t_123 u_RemoteStorageEnumerateWorkshopFilesResult_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageEnumerateWorkshopFilesResult_t_123 w_RemoteStorageEnumerateWorkshopFilesResult_t_123;
 typedef u64_RemoteStorageEnumerateWorkshopFilesResult_t_123 u_RemoteStorageEnumerateWorkshopFilesResult_t_123;
 #endif
@@ -7791,7 +7791,7 @@ struct u32_RemoteStorageEnumerateWorkshopFilesResult_t_119
 typedef w32_RemoteStorageEnumerateWorkshopFilesResult_t_119 w_RemoteStorageEnumerateWorkshopFilesResult_t_119;
 typedef u32_RemoteStorageEnumerateWorkshopFilesResult_t_119 u_RemoteStorageEnumerateWorkshopFilesResult_t_119;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageEnumerateWorkshopFilesResult_t_119 w_RemoteStorageEnumerateWorkshopFilesResult_t_119;
 typedef u64_RemoteStorageEnumerateWorkshopFilesResult_t_119 u_RemoteStorageEnumerateWorkshopFilesResult_t_119;
 #endif
@@ -7858,7 +7858,7 @@ struct u32_RemoteStorageFileShareResult_t_128x
 typedef w32_RemoteStorageFileShareResult_t_128x w_RemoteStorageFileShareResult_t_128x;
 typedef u32_RemoteStorageFileShareResult_t_128x u_RemoteStorageFileShareResult_t_128x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageFileShareResult_t_128x w_RemoteStorageFileShareResult_t_128x;
 typedef u64_RemoteStorageFileShareResult_t_128x u_RemoteStorageFileShareResult_t_128x;
 #endif
@@ -7919,7 +7919,7 @@ struct u32_RemoteStorageFileShareResult_t_123
 typedef w32_RemoteStorageFileShareResult_t_123 w_RemoteStorageFileShareResult_t_123;
 typedef u32_RemoteStorageFileShareResult_t_123 u_RemoteStorageFileShareResult_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageFileShareResult_t_123 w_RemoteStorageFileShareResult_t_123;
 typedef u64_RemoteStorageFileShareResult_t_123 u_RemoteStorageFileShareResult_t_123;
 #endif
@@ -7966,7 +7966,7 @@ struct u32_RemoteStorageFileShareResult_t_111x
 typedef w32_RemoteStorageFileShareResult_t_111x w_RemoteStorageFileShareResult_t_111x;
 typedef u32_RemoteStorageFileShareResult_t_111x u_RemoteStorageFileShareResult_t_111x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageFileShareResult_t_111x w_RemoteStorageFileShareResult_t_111x;
 typedef u64_RemoteStorageFileShareResult_t_111x u_RemoteStorageFileShareResult_t_111x;
 #endif
@@ -8115,7 +8115,7 @@ struct u32_RemoteStorageGetPublishedFileDetailsResult_t_126
 typedef w32_RemoteStorageGetPublishedFileDetailsResult_t_126 w_RemoteStorageGetPublishedFileDetailsResult_t_126;
 typedef u32_RemoteStorageGetPublishedFileDetailsResult_t_126 u_RemoteStorageGetPublishedFileDetailsResult_t_126;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageGetPublishedFileDetailsResult_t_126 w_RemoteStorageGetPublishedFileDetailsResult_t_126;
 typedef u64_RemoteStorageGetPublishedFileDetailsResult_t_126 u_RemoteStorageGetPublishedFileDetailsResult_t_126;
 #endif
@@ -8256,7 +8256,7 @@ struct u32_RemoteStorageGetPublishedFileDetailsResult_t_123
 typedef w32_RemoteStorageGetPublishedFileDetailsResult_t_123 w_RemoteStorageGetPublishedFileDetailsResult_t_123;
 typedef u32_RemoteStorageGetPublishedFileDetailsResult_t_123 u_RemoteStorageGetPublishedFileDetailsResult_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageGetPublishedFileDetailsResult_t_123 w_RemoteStorageGetPublishedFileDetailsResult_t_123;
 typedef u64_RemoteStorageGetPublishedFileDetailsResult_t_123 u_RemoteStorageGetPublishedFileDetailsResult_t_123;
 #endif
@@ -8363,7 +8363,7 @@ struct u32_RemoteStorageGetPublishedFileDetailsResult_t_119x
 typedef w32_RemoteStorageGetPublishedFileDetailsResult_t_119x w_RemoteStorageGetPublishedFileDetailsResult_t_119x;
 typedef u32_RemoteStorageGetPublishedFileDetailsResult_t_119x u_RemoteStorageGetPublishedFileDetailsResult_t_119x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageGetPublishedFileDetailsResult_t_119x w_RemoteStorageGetPublishedFileDetailsResult_t_119x;
 typedef u64_RemoteStorageGetPublishedFileDetailsResult_t_119x u_RemoteStorageGetPublishedFileDetailsResult_t_119x;
 #endif
@@ -8469,7 +8469,7 @@ struct u32_RemoteStorageGetPublishedFileDetailsResult_t_119
 typedef w32_RemoteStorageGetPublishedFileDetailsResult_t_119 w_RemoteStorageGetPublishedFileDetailsResult_t_119;
 typedef u32_RemoteStorageGetPublishedFileDetailsResult_t_119 u_RemoteStorageGetPublishedFileDetailsResult_t_119;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageGetPublishedFileDetailsResult_t_119 w_RemoteStorageGetPublishedFileDetailsResult_t_119;
 typedef u64_RemoteStorageGetPublishedFileDetailsResult_t_119 u_RemoteStorageGetPublishedFileDetailsResult_t_119;
 #endif
@@ -8572,7 +8572,7 @@ struct u32_RemoteStorageGetPublishedFileDetailsResult_t_118
 typedef w32_RemoteStorageGetPublishedFileDetailsResult_t_118 w_RemoteStorageGetPublishedFileDetailsResult_t_118;
 typedef u32_RemoteStorageGetPublishedFileDetailsResult_t_118 u_RemoteStorageGetPublishedFileDetailsResult_t_118;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageGetPublishedFileDetailsResult_t_118 w_RemoteStorageGetPublishedFileDetailsResult_t_118;
 typedef u64_RemoteStorageGetPublishedFileDetailsResult_t_118 u_RemoteStorageGetPublishedFileDetailsResult_t_118;
 #endif
@@ -8667,7 +8667,7 @@ struct u32_RemoteStorageGetPublishedFileDetailsResult_t_116x
 typedef w32_RemoteStorageGetPublishedFileDetailsResult_t_116x w_RemoteStorageGetPublishedFileDetailsResult_t_116x;
 typedef u32_RemoteStorageGetPublishedFileDetailsResult_t_116x u_RemoteStorageGetPublishedFileDetailsResult_t_116x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageGetPublishedFileDetailsResult_t_116x w_RemoteStorageGetPublishedFileDetailsResult_t_116x;
 typedef u64_RemoteStorageGetPublishedFileDetailsResult_t_116x u_RemoteStorageGetPublishedFileDetailsResult_t_116x;
 #endif
@@ -8744,7 +8744,7 @@ struct u32_RemoteStorageGetPublishedItemVoteDetailsResult_t_123
 typedef w32_RemoteStorageGetPublishedItemVoteDetailsResult_t_123 w_RemoteStorageGetPublishedItemVoteDetailsResult_t_123;
 typedef u32_RemoteStorageGetPublishedItemVoteDetailsResult_t_123 u_RemoteStorageGetPublishedItemVoteDetailsResult_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageGetPublishedItemVoteDetailsResult_t_123 w_RemoteStorageGetPublishedItemVoteDetailsResult_t_123;
 typedef u64_RemoteStorageGetPublishedItemVoteDetailsResult_t_123 u_RemoteStorageGetPublishedItemVoteDetailsResult_t_123;
 #endif
@@ -8803,7 +8803,7 @@ struct u32_RemoteStorageGetPublishedItemVoteDetailsResult_t_119
 typedef w32_RemoteStorageGetPublishedItemVoteDetailsResult_t_119 w_RemoteStorageGetPublishedItemVoteDetailsResult_t_119;
 typedef u32_RemoteStorageGetPublishedItemVoteDetailsResult_t_119 u_RemoteStorageGetPublishedItemVoteDetailsResult_t_119;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageGetPublishedItemVoteDetailsResult_t_119 w_RemoteStorageGetPublishedItemVoteDetailsResult_t_119;
 typedef u64_RemoteStorageGetPublishedItemVoteDetailsResult_t_119 u_RemoteStorageGetPublishedItemVoteDetailsResult_t_119;
 #endif
@@ -8872,7 +8872,7 @@ struct u32_RemoteStoragePublishFileResult_t_125
 typedef w32_RemoteStoragePublishFileResult_t_125 w_RemoteStoragePublishFileResult_t_125;
 typedef u32_RemoteStoragePublishFileResult_t_125 u_RemoteStoragePublishFileResult_t_125;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStoragePublishFileResult_t_125 w_RemoteStoragePublishFileResult_t_125;
 typedef u64_RemoteStoragePublishFileResult_t_125 u_RemoteStoragePublishFileResult_t_125;
 #endif
@@ -8933,7 +8933,7 @@ struct u32_RemoteStoragePublishFileResult_t_123
 typedef w32_RemoteStoragePublishFileResult_t_123 w_RemoteStoragePublishFileResult_t_123;
 typedef u32_RemoteStoragePublishFileResult_t_123 u_RemoteStoragePublishFileResult_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStoragePublishFileResult_t_123 w_RemoteStoragePublishFileResult_t_123;
 typedef u64_RemoteStoragePublishFileResult_t_123 u_RemoteStoragePublishFileResult_t_123;
 #endif
@@ -8980,7 +8980,7 @@ struct u32_RemoteStoragePublishFileResult_t_116x
 typedef w32_RemoteStoragePublishFileResult_t_116x w_RemoteStoragePublishFileResult_t_116x;
 typedef u32_RemoteStoragePublishFileResult_t_116x u_RemoteStoragePublishFileResult_t_116x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStoragePublishFileResult_t_116x w_RemoteStoragePublishFileResult_t_116x;
 typedef u64_RemoteStoragePublishFileResult_t_116x u_RemoteStoragePublishFileResult_t_116x;
 #endif
@@ -9045,7 +9045,7 @@ struct u32_RemoteStoragePublishedFileUpdated_t
 typedef w32_RemoteStoragePublishedFileUpdated_t w_RemoteStoragePublishedFileUpdated_t;
 typedef u32_RemoteStoragePublishedFileUpdated_t u_RemoteStoragePublishedFileUpdated_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStoragePublishedFileUpdated_t w_RemoteStoragePublishedFileUpdated_t;
 typedef u64_RemoteStoragePublishedFileUpdated_t u_RemoteStoragePublishedFileUpdated_t;
 #endif
@@ -9112,7 +9112,7 @@ struct u32_RemoteStorageSetUserPublishedFileActionResult_t_123
 typedef w32_RemoteStorageSetUserPublishedFileActionResult_t_123 w_RemoteStorageSetUserPublishedFileActionResult_t_123;
 typedef u32_RemoteStorageSetUserPublishedFileActionResult_t_123 u_RemoteStorageSetUserPublishedFileActionResult_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageSetUserPublishedFileActionResult_t_123 w_RemoteStorageSetUserPublishedFileActionResult_t_123;
 typedef u64_RemoteStorageSetUserPublishedFileActionResult_t_123 u_RemoteStorageSetUserPublishedFileActionResult_t_123;
 #endif
@@ -9164,7 +9164,7 @@ struct u32_RemoteStorageSetUserPublishedFileActionResult_t_119
 typedef w32_RemoteStorageSetUserPublishedFileActionResult_t_119 w_RemoteStorageSetUserPublishedFileActionResult_t_119;
 typedef u32_RemoteStorageSetUserPublishedFileActionResult_t_119 u_RemoteStorageSetUserPublishedFileActionResult_t_119;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageSetUserPublishedFileActionResult_t_119 w_RemoteStorageSetUserPublishedFileActionResult_t_119;
 typedef u64_RemoteStorageSetUserPublishedFileActionResult_t_119 u_RemoteStorageSetUserPublishedFileActionResult_t_119;
 #endif
@@ -9225,7 +9225,7 @@ struct u32_RemoteStorageSubscribePublishedFileResult_t_123
 typedef w32_RemoteStorageSubscribePublishedFileResult_t_123 w_RemoteStorageSubscribePublishedFileResult_t_123;
 typedef u32_RemoteStorageSubscribePublishedFileResult_t_123 u_RemoteStorageSubscribePublishedFileResult_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageSubscribePublishedFileResult_t_123 w_RemoteStorageSubscribePublishedFileResult_t_123;
 typedef u64_RemoteStorageSubscribePublishedFileResult_t_123 u_RemoteStorageSubscribePublishedFileResult_t_123;
 #endif
@@ -9254,7 +9254,7 @@ struct w32_RemoteStorageSubscribePublishedFileResult_t_116x
 typedef w32_RemoteStorageSubscribePublishedFileResult_t_116x w_RemoteStorageSubscribePublishedFileResult_t_116x;
 typedef u32_RemoteStorageSubscribePublishedFileResult_t_116x u_RemoteStorageSubscribePublishedFileResult_t_116x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageSubscribePublishedFileResult_t_116x w_RemoteStorageSubscribePublishedFileResult_t_116x;
 typedef u64_RemoteStorageSubscribePublishedFileResult_t_116x u_RemoteStorageSubscribePublishedFileResult_t_116x;
 #endif
@@ -9315,7 +9315,7 @@ struct u32_RemoteStorageUnsubscribePublishedFileResult_t_123
 typedef w32_RemoteStorageUnsubscribePublishedFileResult_t_123 w_RemoteStorageUnsubscribePublishedFileResult_t_123;
 typedef u32_RemoteStorageUnsubscribePublishedFileResult_t_123 u_RemoteStorageUnsubscribePublishedFileResult_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageUnsubscribePublishedFileResult_t_123 w_RemoteStorageUnsubscribePublishedFileResult_t_123;
 typedef u64_RemoteStorageUnsubscribePublishedFileResult_t_123 u_RemoteStorageUnsubscribePublishedFileResult_t_123;
 #endif
@@ -9344,7 +9344,7 @@ struct w32_RemoteStorageUnsubscribePublishedFileResult_t_116x
 typedef w32_RemoteStorageUnsubscribePublishedFileResult_t_116x w_RemoteStorageUnsubscribePublishedFileResult_t_116x;
 typedef u32_RemoteStorageUnsubscribePublishedFileResult_t_116x u_RemoteStorageUnsubscribePublishedFileResult_t_116x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageUnsubscribePublishedFileResult_t_116x w_RemoteStorageUnsubscribePublishedFileResult_t_116x;
 typedef u64_RemoteStorageUnsubscribePublishedFileResult_t_116x u_RemoteStorageUnsubscribePublishedFileResult_t_116x;
 #endif
@@ -9400,7 +9400,7 @@ struct w32_RemoteStorageUpdatePublishedFileRequest_t
 typedef w32_RemoteStorageUpdatePublishedFileRequest_t w_RemoteStorageUpdatePublishedFileRequest_t;
 typedef u32_RemoteStorageUpdatePublishedFileRequest_t u_RemoteStorageUpdatePublishedFileRequest_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageUpdatePublishedFileRequest_t w_RemoteStorageUpdatePublishedFileRequest_t;
 typedef u64_RemoteStorageUpdatePublishedFileRequest_t u_RemoteStorageUpdatePublishedFileRequest_t;
 #endif
@@ -9469,7 +9469,7 @@ struct u32_RemoteStorageUpdatePublishedFileResult_t_125
 typedef w32_RemoteStorageUpdatePublishedFileResult_t_125 w_RemoteStorageUpdatePublishedFileResult_t_125;
 typedef u32_RemoteStorageUpdatePublishedFileResult_t_125 u_RemoteStorageUpdatePublishedFileResult_t_125;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageUpdatePublishedFileResult_t_125 w_RemoteStorageUpdatePublishedFileResult_t_125;
 typedef u64_RemoteStorageUpdatePublishedFileResult_t_125 u_RemoteStorageUpdatePublishedFileResult_t_125;
 #endif
@@ -9530,7 +9530,7 @@ struct u32_RemoteStorageUpdatePublishedFileResult_t_123
 typedef w32_RemoteStorageUpdatePublishedFileResult_t_123 w_RemoteStorageUpdatePublishedFileResult_t_123;
 typedef u32_RemoteStorageUpdatePublishedFileResult_t_123 u_RemoteStorageUpdatePublishedFileResult_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageUpdatePublishedFileResult_t_123 w_RemoteStorageUpdatePublishedFileResult_t_123;
 typedef u64_RemoteStorageUpdatePublishedFileResult_t_123 u_RemoteStorageUpdatePublishedFileResult_t_123;
 #endif
@@ -9577,7 +9577,7 @@ struct u32_RemoteStorageUpdatePublishedFileResult_t_116x
 typedef w32_RemoteStorageUpdatePublishedFileResult_t_116x w_RemoteStorageUpdatePublishedFileResult_t_116x;
 typedef u32_RemoteStorageUpdatePublishedFileResult_t_116x u_RemoteStorageUpdatePublishedFileResult_t_116x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageUpdatePublishedFileResult_t_116x w_RemoteStorageUpdatePublishedFileResult_t_116x;
 typedef u64_RemoteStorageUpdatePublishedFileResult_t_116x u_RemoteStorageUpdatePublishedFileResult_t_116x;
 #endif
@@ -9638,7 +9638,7 @@ struct u32_RemoteStorageUpdateUserPublishedItemVoteResult_t_123
 typedef w32_RemoteStorageUpdateUserPublishedItemVoteResult_t_123 w_RemoteStorageUpdateUserPublishedItemVoteResult_t_123;
 typedef u32_RemoteStorageUpdateUserPublishedItemVoteResult_t_123 u_RemoteStorageUpdateUserPublishedItemVoteResult_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageUpdateUserPublishedItemVoteResult_t_123 w_RemoteStorageUpdateUserPublishedItemVoteResult_t_123;
 typedef u64_RemoteStorageUpdateUserPublishedItemVoteResult_t_123 u_RemoteStorageUpdateUserPublishedItemVoteResult_t_123;
 #endif
@@ -9685,7 +9685,7 @@ struct u32_RemoteStorageUpdateUserPublishedItemVoteResult_t_119
 typedef w32_RemoteStorageUpdateUserPublishedItemVoteResult_t_119 w_RemoteStorageUpdateUserPublishedItemVoteResult_t_119;
 typedef u32_RemoteStorageUpdateUserPublishedItemVoteResult_t_119 u_RemoteStorageUpdateUserPublishedItemVoteResult_t_119;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageUpdateUserPublishedItemVoteResult_t_119 w_RemoteStorageUpdateUserPublishedItemVoteResult_t_119;
 typedef u64_RemoteStorageUpdateUserPublishedItemVoteResult_t_119 u_RemoteStorageUpdateUserPublishedItemVoteResult_t_119;
 #endif
@@ -9752,7 +9752,7 @@ struct u32_RemoteStorageUserVoteDetails_t_123
 typedef w32_RemoteStorageUserVoteDetails_t_123 w_RemoteStorageUserVoteDetails_t_123;
 typedef u32_RemoteStorageUserVoteDetails_t_123 u_RemoteStorageUserVoteDetails_t_123;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageUserVoteDetails_t_123 w_RemoteStorageUserVoteDetails_t_123;
 typedef u64_RemoteStorageUserVoteDetails_t_123 u_RemoteStorageUserVoteDetails_t_123;
 #endif
@@ -9804,7 +9804,7 @@ struct u32_RemoteStorageUserVoteDetails_t_119
 typedef w32_RemoteStorageUserVoteDetails_t_119 w_RemoteStorageUserVoteDetails_t_119;
 typedef u32_RemoteStorageUserVoteDetails_t_119 u_RemoteStorageUserVoteDetails_t_119;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoteStorageUserVoteDetails_t_119 w_RemoteStorageUserVoteDetails_t_119;
 typedef u64_RemoteStorageUserVoteDetails_t_119 u_RemoteStorageUserVoteDetails_t_119;
 #endif
@@ -9871,7 +9871,7 @@ struct u32_RemoveAppDependencyResult_t
 typedef w32_RemoveAppDependencyResult_t w_RemoveAppDependencyResult_t;
 typedef u32_RemoveAppDependencyResult_t u_RemoveAppDependencyResult_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoveAppDependencyResult_t w_RemoveAppDependencyResult_t;
 typedef u64_RemoveAppDependencyResult_t u_RemoveAppDependencyResult_t;
 #endif
@@ -9936,7 +9936,7 @@ struct u32_RemoveUGCDependencyResult_t
 typedef w32_RemoveUGCDependencyResult_t w_RemoveUGCDependencyResult_t;
 typedef u32_RemoveUGCDependencyResult_t u_RemoveUGCDependencyResult_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RemoveUGCDependencyResult_t w_RemoveUGCDependencyResult_t;
 typedef u64_RemoveUGCDependencyResult_t u_RemoveUGCDependencyResult_t;
 #endif
@@ -10001,7 +10001,7 @@ struct u32_RequestPlayersForGameFinalResultCallback_t
 typedef w32_RequestPlayersForGameFinalResultCallback_t w_RequestPlayersForGameFinalResultCallback_t;
 typedef u32_RequestPlayersForGameFinalResultCallback_t u_RequestPlayersForGameFinalResultCallback_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RequestPlayersForGameFinalResultCallback_t w_RequestPlayersForGameFinalResultCallback_t;
 typedef u64_RequestPlayersForGameFinalResultCallback_t u_RequestPlayersForGameFinalResultCallback_t;
 #endif
@@ -10062,7 +10062,7 @@ struct u32_RequestPlayersForGameProgressCallback_t
 typedef w32_RequestPlayersForGameProgressCallback_t w_RequestPlayersForGameProgressCallback_t;
 typedef u32_RequestPlayersForGameProgressCallback_t u_RequestPlayersForGameProgressCallback_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RequestPlayersForGameProgressCallback_t w_RequestPlayersForGameProgressCallback_t;
 typedef u64_RequestPlayersForGameProgressCallback_t u_RequestPlayersForGameProgressCallback_t;
 #endif
@@ -10157,7 +10157,7 @@ struct u32_RequestPlayersForGameResultCallback_t
 typedef w32_RequestPlayersForGameResultCallback_t w_RequestPlayersForGameResultCallback_t;
 typedef u32_RequestPlayersForGameResultCallback_t u_RequestPlayersForGameResultCallback_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RequestPlayersForGameResultCallback_t w_RequestPlayersForGameResultCallback_t;
 typedef u64_RequestPlayersForGameResultCallback_t u_RequestPlayersForGameResultCallback_t;
 #endif
@@ -10242,7 +10242,7 @@ struct u32_SteamInputConfigurationLoaded_t
 typedef w32_SteamInputConfigurationLoaded_t w_SteamInputConfigurationLoaded_t;
 typedef u32_SteamInputConfigurationLoaded_t u_SteamInputConfigurationLoaded_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamInputConfigurationLoaded_t w_SteamInputConfigurationLoaded_t;
 typedef u64_SteamInputConfigurationLoaded_t u_SteamInputConfigurationLoaded_t;
 #endif
@@ -10317,7 +10317,7 @@ struct u32_SteamInputGamepadSlotChange_t
 typedef w32_SteamInputGamepadSlotChange_t w_SteamInputGamepadSlotChange_t;
 typedef u32_SteamInputGamepadSlotChange_t u_SteamInputGamepadSlotChange_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamInputGamepadSlotChange_t w_SteamInputGamepadSlotChange_t;
 typedef u64_SteamInputGamepadSlotChange_t u_SteamInputGamepadSlotChange_t;
 #endif
@@ -10382,7 +10382,7 @@ struct u32_SteamInventoryStartPurchaseResult_t
 typedef w32_SteamInventoryStartPurchaseResult_t w_SteamInventoryStartPurchaseResult_t;
 typedef u32_SteamInventoryStartPurchaseResult_t u_SteamInventoryStartPurchaseResult_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamInventoryStartPurchaseResult_t w_SteamInventoryStartPurchaseResult_t;
 typedef u64_SteamInventoryStartPurchaseResult_t u_SteamInventoryStartPurchaseResult_t;
 #endif
@@ -10449,7 +10449,7 @@ struct u32_SteamNetConnectionStatusChangedCallback_t_153a
 typedef w32_SteamNetConnectionStatusChangedCallback_t_153a w_SteamNetConnectionStatusChangedCallback_t_153a;
 typedef u32_SteamNetConnectionStatusChangedCallback_t_153a u_SteamNetConnectionStatusChangedCallback_t_153a;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamNetConnectionStatusChangedCallback_t_153a w_SteamNetConnectionStatusChangedCallback_t_153a;
 typedef u64_SteamNetConnectionStatusChangedCallback_t_153a u_SteamNetConnectionStatusChangedCallback_t_153a;
 #endif
@@ -10516,7 +10516,7 @@ struct u32_SteamNetConnectionStatusChangedCallback_t_144
 typedef w32_SteamNetConnectionStatusChangedCallback_t_144 w_SteamNetConnectionStatusChangedCallback_t_144;
 typedef u32_SteamNetConnectionStatusChangedCallback_t_144 u_SteamNetConnectionStatusChangedCallback_t_144;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamNetConnectionStatusChangedCallback_t_144 w_SteamNetConnectionStatusChangedCallback_t_144;
 typedef u64_SteamNetConnectionStatusChangedCallback_t_144 u_SteamNetConnectionStatusChangedCallback_t_144;
 #endif
@@ -10583,7 +10583,7 @@ struct u32_SteamNetConnectionStatusChangedCallback_t_151
 typedef w32_SteamNetConnectionStatusChangedCallback_t_151 w_SteamNetConnectionStatusChangedCallback_t_151;
 typedef u32_SteamNetConnectionStatusChangedCallback_t_151 u_SteamNetConnectionStatusChangedCallback_t_151;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamNetConnectionStatusChangedCallback_t_151 w_SteamNetConnectionStatusChangedCallback_t_151;
 typedef u64_SteamNetConnectionStatusChangedCallback_t_151 u_SteamNetConnectionStatusChangedCallback_t_151;
 #endif
@@ -10694,7 +10694,7 @@ struct u32_SteamNetworkingMessage_t_153a
 typedef w32_SteamNetworkingMessage_t_153a w_SteamNetworkingMessage_t_153a;
 typedef u32_SteamNetworkingMessage_t_153a u_SteamNetworkingMessage_t_153a;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamNetworkingMessage_t_153a w_SteamNetworkingMessage_t_153a;
 typedef u64_SteamNetworkingMessage_t_153a u_SteamNetworkingMessage_t_153a;
 #endif
@@ -10794,7 +10794,7 @@ struct u32_SteamNetworkingMessage_t_147
 typedef w32_SteamNetworkingMessage_t_147 w_SteamNetworkingMessage_t_147;
 typedef u32_SteamNetworkingMessage_t_147 u_SteamNetworkingMessage_t_147;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamNetworkingMessage_t_147 w_SteamNetworkingMessage_t_147;
 typedef u64_SteamNetworkingMessage_t_147 u_SteamNetworkingMessage_t_147;
 #endif
@@ -10894,7 +10894,7 @@ struct u32_SteamNetworkingMessage_t_151
 typedef w32_SteamNetworkingMessage_t_151 w_SteamNetworkingMessage_t_151;
 typedef u32_SteamNetworkingMessage_t_151 u_SteamNetworkingMessage_t_151;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamNetworkingMessage_t_151 w_SteamNetworkingMessage_t_151;
 typedef u64_SteamNetworkingMessage_t_151 u_SteamNetworkingMessage_t_151;
 #endif
@@ -10990,7 +10990,7 @@ struct u32_SteamNetworkingMessage_t_144
 typedef w32_SteamNetworkingMessage_t_144 w_SteamNetworkingMessage_t_144;
 typedef u32_SteamNetworkingMessage_t_144 u_SteamNetworkingMessage_t_144;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamNetworkingMessage_t_144 w_SteamNetworkingMessage_t_144;
 typedef u64_SteamNetworkingMessage_t_144 u_SteamNetworkingMessage_t_144;
 #endif
@@ -11004,7 +11004,7 @@ struct w64_SteamParamStringArray_t
 #ifdef __cplusplus
     operator w32_SteamParamStringArray_t() const;
 #endif /* __cplusplus */
-#if defined(__cplusplus) && defined(__x86_64__)
+#if defined(__cplusplus) && (defined(__x86_64__) || defined(__aarch64__))
     w64_SteamParamStringArray_t() = default;
     w64_SteamParamStringArray_t( w32_SteamParamStringArray_t const& );
     ~w64_SteamParamStringArray_t();
@@ -11027,7 +11027,7 @@ struct w32_SteamParamStringArray_t
 typedef w32_SteamParamStringArray_t w_SteamParamStringArray_t;
 typedef u32_SteamParamStringArray_t u_SteamParamStringArray_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamParamStringArray_t w_SteamParamStringArray_t;
 typedef u64_SteamParamStringArray_t u_SteamParamStringArray_t;
 #endif
@@ -11088,7 +11088,7 @@ struct u32_SteamPartyBeaconLocation_t
 typedef w32_SteamPartyBeaconLocation_t w_SteamPartyBeaconLocation_t;
 typedef u32_SteamPartyBeaconLocation_t u_SteamPartyBeaconLocation_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamPartyBeaconLocation_t w_SteamPartyBeaconLocation_t;
 typedef u64_SteamPartyBeaconLocation_t u_SteamPartyBeaconLocation_t;
 #endif
@@ -11151,7 +11151,7 @@ struct u32_SteamUGCRequestUGCDetailsResult_t_160
 typedef w32_SteamUGCRequestUGCDetailsResult_t_160 w_SteamUGCRequestUGCDetailsResult_t_160;
 typedef u32_SteamUGCRequestUGCDetailsResult_t_160 u_SteamUGCRequestUGCDetailsResult_t_160;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamUGCRequestUGCDetailsResult_t_160 w_SteamUGCRequestUGCDetailsResult_t_160;
 typedef u64_SteamUGCRequestUGCDetailsResult_t_160 u_SteamUGCRequestUGCDetailsResult_t_160;
 #endif
@@ -11214,7 +11214,7 @@ struct u32_SteamUGCRequestUGCDetailsResult_t_128x
 typedef w32_SteamUGCRequestUGCDetailsResult_t_128x w_SteamUGCRequestUGCDetailsResult_t_128x;
 typedef u32_SteamUGCRequestUGCDetailsResult_t_128x u_SteamUGCRequestUGCDetailsResult_t_128x;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamUGCRequestUGCDetailsResult_t_128x w_SteamUGCRequestUGCDetailsResult_t_128x;
 typedef u64_SteamUGCRequestUGCDetailsResult_t_128x u_SteamUGCRequestUGCDetailsResult_t_128x;
 #endif
@@ -11277,7 +11277,7 @@ struct u32_SteamUGCRequestUGCDetailsResult_t_129
 typedef w32_SteamUGCRequestUGCDetailsResult_t_129 w_SteamUGCRequestUGCDetailsResult_t_129;
 typedef u32_SteamUGCRequestUGCDetailsResult_t_129 u_SteamUGCRequestUGCDetailsResult_t_129;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamUGCRequestUGCDetailsResult_t_129 w_SteamUGCRequestUGCDetailsResult_t_129;
 typedef u64_SteamUGCRequestUGCDetailsResult_t_129 u_SteamUGCRequestUGCDetailsResult_t_129;
 #endif
@@ -11332,7 +11332,7 @@ struct u32_SteamUGCRequestUGCDetailsResult_t_126
 typedef w32_SteamUGCRequestUGCDetailsResult_t_126 w_SteamUGCRequestUGCDetailsResult_t_126;
 typedef u32_SteamUGCRequestUGCDetailsResult_t_126 u_SteamUGCRequestUGCDetailsResult_t_126;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SteamUGCRequestUGCDetailsResult_t_126 w_SteamUGCRequestUGCDetailsResult_t_126;
 typedef u64_SteamUGCRequestUGCDetailsResult_t_126 u_SteamUGCRequestUGCDetailsResult_t_126;
 #endif
@@ -11397,7 +11397,7 @@ struct u32_SubmitPlayerResultResultCallback_t
 typedef w32_SubmitPlayerResultResultCallback_t w_SubmitPlayerResultResultCallback_t;
 typedef u32_SubmitPlayerResultResultCallback_t u_SubmitPlayerResultResultCallback_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_SubmitPlayerResultResultCallback_t w_SubmitPlayerResultResultCallback_t;
 typedef u64_SubmitPlayerResultResultCallback_t u_SubmitPlayerResultResultCallback_t;
 #endif

@@ -356,7 +356,7 @@ struct networking_message
         w_SteamNetworkingMessage_t_144 w_msg_144;
         w_SteamNetworkingMessage_t_147 w_msg_147;
         w_SteamNetworkingMessage_t_153a w_msg_153a;
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
         w32_SteamNetworkingMessage_t_144 w32_msg_144;
         w32_SteamNetworkingMessage_t_147 w32_msg_147;
         w32_SteamNetworkingMessage_t_153a w32_msg_153a;
@@ -373,7 +373,7 @@ struct networking_message
     w_SteamNetworkingMessage_t_144& w_msg( w_SteamNetworkingMessage_t_144 const& ) { return this->w_msg_144; }
     w_SteamNetworkingMessage_t_147& w_msg( w_SteamNetworkingMessage_t_147 const& ) { return this->w_msg_147; }
     w_SteamNetworkingMessage_t_153a& w_msg( w_SteamNetworkingMessage_t_153a const& ) { return this->w_msg_153a; }
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     static struct networking_message *from_w( const w32_SteamNetworkingMessage_t_144* w_msg ) { return CONTAINING_RECORD( w_msg, struct networking_message, w32_msg_144 ); }
     static struct networking_message *from_w( const w32_SteamNetworkingMessage_t_147* w_msg ) { return CONTAINING_RECORD( w_msg, struct networking_message, w32_msg_147 ); }
     static struct networking_message *from_w( const w32_SteamNetworkingMessage_t_153a* w_msg ) { return CONTAINING_RECORD( w_msg, struct networking_message, w32_msg_153a ); }

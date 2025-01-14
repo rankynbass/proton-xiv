@@ -652,11 +652,19 @@ static NTSTATUS steamclient_init( Params *params, bool wow64 )
         strcpy( path, "steamclient.dylib" );
     }
 #else /* __APPLE__ */
-#ifdef __x86_64__
-    snprintf( path, PATH_MAX, "%s/.steam/sdk64/steamclient.so", getenv( "HOME" ) );
+#if defined(__x86_64__)
+#define STEAM_ARCH "64"
+#elif defined(__i386__)
+#define STEAM_ARCH "32"
+#elif defined(__aarch64__)
+#define STEAM_ARCH "arm64"
 #else
-    snprintf( path, PATH_MAX, "%s/.steam/sdk32/steamclient.so", getenv( "HOME" ) );
+#error Unknown target architecture
 #endif
+
+    snprintf( path, PATH_MAX, "%s/.steam/sdk" STEAM_ARCH "/steamclient.so", getenv( "HOME" ) );
+#undef STEAM_ARCH
+
     if (realpath( path, resolved_path ))
     {
         strcpy( path, resolved_path );
@@ -1158,7 +1166,7 @@ void convert_callback_utow( int id, void *u_callback, int u_callback_len, void *
     else                     memcpy( w_callback, u_callback, u_callback_len );
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 #define STEAMCLIENT_UNIX_WOW64_FUNC( name ) \
     NTSTATUS wow64_ ## name( void *args ) { return name( (struct wow64_ ## name ## _params *)args, true ); }
 #else
@@ -1182,7 +1190,7 @@ STEAMCLIENT_UNIX_FUNC( steamclient_Steam_ReleaseThreadLocalMemory )
 STEAMCLIENT_UNIX_FUNC( steamclient_Steam_IsKnownInterface )
 STEAMCLIENT_UNIX_FUNC( steamclient_Steam_NotifyMissingInterface )
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 
 struct buf32
 {

@@ -426,8 +426,8 @@ struct w_iface *create_winISteamMatchmakingServers_SteamMatchMakingServers002( s
 
 void init_winISteamMatchmakingServers_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamMatchmakingServers_SteamMatchMakingServers001_rtti( base );
     init_winISteamMatchmakingServers_SteamMatchMakingServers002_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

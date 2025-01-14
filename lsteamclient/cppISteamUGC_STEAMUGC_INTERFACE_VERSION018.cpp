@@ -13,7 +13,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateQueryUserUGCRequest( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateQueryUserUGCRequest( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateQueryUserUGCRequest_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateQueryUserUGCRequest_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateQueryAllUGCRequest( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateQueryAllUGCRequest( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateQueryAllUGCRequest_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateQueryAllUGCRequest_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateQueryAllUGCRequest_2( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateQueryAllUGCRequest_2( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateQueryAllUGCRequest_2_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateQueryAllUGCRequest_2_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateQueryUGCDetailsRequest( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateQueryUGCDetailsRequest( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateQueryUGCDetailsRequest_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateQueryUGCDetailsRequest_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SendQueryUGCRequest( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SendQueryUGCRequest( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SendQueryUGCRequest_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SendQueryUGCRequest_params *)args;
@@ -105,7 +105,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCResult( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCResult( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCResult_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCResult_params *)args;
@@ -125,7 +125,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCNumTags( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCNumTags( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCNumTags_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCNumTags_params *)args;
@@ -143,7 +143,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCTag( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCTag( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCTag_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCTag_params *)args;
@@ -161,7 +161,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCTagDisplayName( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCTagDisplayName( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCTagDisplayName_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCTagDisplayName_params *)args;
@@ -179,7 +179,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCPreviewURL( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCPreviewURL( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCPreviewURL_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCPreviewURL_params *)args;
@@ -197,7 +197,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCMetadata( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCMetadata( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCMetadata_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCMetadata_params *)args;
@@ -215,7 +215,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCChildren( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCChildren( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCChildren_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCChildren_params *)args;
@@ -233,7 +233,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCStatistic( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCStatistic( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCStatistic_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCStatistic_params *)args;
@@ -251,7 +251,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCNumAdditionalPreview
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCNumAdditionalPreviews( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCNumAdditionalPreviews_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCNumAdditionalPreviews_params *)args;
@@ -270,7 +270,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCAdditionalPreview( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCAdditionalPreview( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCAdditionalPreview_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCAdditionalPreview_params *)args;
@@ -289,7 +289,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCNumKeyValueTags( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCNumKeyValueTags( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCNumKeyValueTags_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCNumKeyValueTags_params *)args;
@@ -307,7 +307,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCKeyValueTag( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCKeyValueTag( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCKeyValueTag_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCKeyValueTag_params *)args;
@@ -325,7 +325,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCKeyValueTag_2( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCKeyValueTag_2( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCKeyValueTag_2_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCKeyValueTag_2_params *)args;
@@ -343,7 +343,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCContentDescriptors( 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCContentDescriptors( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCContentDescriptors_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetQueryUGCContentDescriptors_params *)args;
@@ -361,7 +361,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_ReleaseQueryUGCRequest( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_ReleaseQueryUGCRequest( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_ReleaseQueryUGCRequest_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_ReleaseQueryUGCRequest_params *)args;
@@ -379,7 +379,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddRequiredTag( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddRequiredTag( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddRequiredTag_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddRequiredTag_params *)args;
@@ -398,7 +398,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddRequiredTagGroup( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddRequiredTagGroup( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddRequiredTagGroup_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddRequiredTagGroup_params *)args;
@@ -418,7 +418,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddExcludedTag( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddExcludedTag( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddExcludedTag_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddExcludedTag_params *)args;
@@ -436,7 +436,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnOnlyIDs( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnOnlyIDs( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnOnlyIDs_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnOnlyIDs_params *)args;
@@ -454,7 +454,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnKeyValueTags( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnKeyValueTags( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnKeyValueTags_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnKeyValueTags_params *)args;
@@ -472,7 +472,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnLongDescription( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnLongDescription( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnLongDescription_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnLongDescription_params *)args;
@@ -490,7 +490,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnMetadata( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnMetadata( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnMetadata_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnMetadata_params *)args;
@@ -508,7 +508,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnChildren( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnChildren( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnChildren_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnChildren_params *)args;
@@ -526,7 +526,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnAdditionalPreviews( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnAdditionalPreviews( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnAdditionalPreviews_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnAdditionalPreviews_params *)args;
@@ -544,7 +544,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnTotalOnly( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnTotalOnly( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnTotalOnly_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnTotalOnly_params *)args;
@@ -562,7 +562,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnPlaytimeStats( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnPlaytimeStats( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnPlaytimeStats_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetReturnPlaytimeStats_params *)args;
@@ -580,7 +580,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetLanguage( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetLanguage( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetLanguage_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetLanguage_params *)args;
@@ -598,7 +598,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetAllowCachedResponse( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetAllowCachedResponse( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetAllowCachedResponse_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetAllowCachedResponse_params *)args;
@@ -616,7 +616,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetCloudFileNameFilter( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetCloudFileNameFilter( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetCloudFileNameFilter_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetCloudFileNameFilter_params *)args;
@@ -634,7 +634,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetMatchAnyTag( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetMatchAnyTag( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetMatchAnyTag_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetMatchAnyTag_params *)args;
@@ -652,7 +652,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetSearchText( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetSearchText( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetSearchText_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetSearchText_params *)args;
@@ -670,7 +670,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetRankedByTrendDays( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetRankedByTrendDays( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetRankedByTrendDays_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetRankedByTrendDays_params *)args;
@@ -688,7 +688,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetTimeCreatedDateRange( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetTimeCreatedDateRange( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetTimeCreatedDateRange_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetTimeCreatedDateRange_params *)args;
@@ -706,7 +706,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetTimeUpdatedDateRange( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetTimeUpdatedDateRange( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetTimeUpdatedDateRange_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetTimeUpdatedDateRange_params *)args;
@@ -724,7 +724,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddRequiredKeyValueTag( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddRequiredKeyValueTag( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddRequiredKeyValueTag_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddRequiredKeyValueTag_params *)args;
@@ -742,7 +742,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RequestUGCDetails( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RequestUGCDetails( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RequestUGCDetails_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RequestUGCDetails_params *)args;
@@ -760,7 +760,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateItem( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateItem( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateItem_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_CreateItem_params *)args;
@@ -778,7 +778,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_StartItemUpdate( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_StartItemUpdate( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_StartItemUpdate_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_StartItemUpdate_params *)args;
@@ -796,7 +796,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemTitle( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemTitle( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemTitle_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemTitle_params *)args;
@@ -814,7 +814,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemDescription( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemDescription( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemDescription_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemDescription_params *)args;
@@ -832,7 +832,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemUpdateLanguage( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemUpdateLanguage( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemUpdateLanguage_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemUpdateLanguage_params *)args;
@@ -850,7 +850,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemMetadata( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemMetadata( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemMetadata_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemMetadata_params *)args;
@@ -868,7 +868,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemVisibility( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemVisibility( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemVisibility_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemVisibility_params *)args;
@@ -887,7 +887,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemTags( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemTags( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemTags_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemTags_params *)args;
@@ -909,7 +909,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemContent( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemContent( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemContent_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemContent_params *)args;
@@ -931,7 +931,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemPreview( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemPreview( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemPreview_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetItemPreview_params *)args;
@@ -951,7 +951,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetAllowLegacyUpload( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetAllowLegacyUpload( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetAllowLegacyUpload_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetAllowLegacyUpload_params *)args;
@@ -969,7 +969,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveAllItemKeyValueTags( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveAllItemKeyValueTags( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveAllItemKeyValueTags_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveAllItemKeyValueTags_params *)args;
@@ -987,7 +987,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveItemKeyValueTags( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveItemKeyValueTags( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveItemKeyValueTags_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveItemKeyValueTags_params *)args;
@@ -1005,7 +1005,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddItemKeyValueTag( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddItemKeyValueTag( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddItemKeyValueTag_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddItemKeyValueTag_params *)args;
@@ -1025,7 +1025,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddItemPreviewFile( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddItemPreviewFile( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddItemPreviewFile_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddItemPreviewFile_params *)args;
@@ -1045,7 +1045,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddItemPreviewVideo( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddItemPreviewVideo( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddItemPreviewVideo_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddItemPreviewVideo_params *)args;
@@ -1065,7 +1065,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_UpdateItemPreviewFile( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_UpdateItemPreviewFile( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_UpdateItemPreviewFile_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_UpdateItemPreviewFile_params *)args;
@@ -1085,7 +1085,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_UpdateItemPreviewVideo( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_UpdateItemPreviewVideo( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_UpdateItemPreviewVideo_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_UpdateItemPreviewVideo_params *)args;
@@ -1103,7 +1103,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveItemPreview( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveItemPreview( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveItemPreview_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveItemPreview_params *)args;
@@ -1121,7 +1121,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddContentDescriptor( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddContentDescriptor( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddContentDescriptor_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddContentDescriptor_params *)args;
@@ -1139,7 +1139,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveContentDescriptor( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveContentDescriptor( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveContentDescriptor_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveContentDescriptor_params *)args;
@@ -1157,7 +1157,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SubmitItemUpdate( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SubmitItemUpdate( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SubmitItemUpdate_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SubmitItemUpdate_params *)args;
@@ -1175,7 +1175,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetItemUpdateProgress( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetItemUpdateProgress( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetItemUpdateProgress_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetItemUpdateProgress_params *)args;
@@ -1193,7 +1193,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetUserItemVote( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetUserItemVote( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetUserItemVote_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SetUserItemVote_params *)args;
@@ -1211,7 +1211,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetUserItemVote( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetUserItemVote( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetUserItemVote_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetUserItemVote_params *)args;
@@ -1229,7 +1229,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddItemToFavorites( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddItemToFavorites( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddItemToFavorites_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddItemToFavorites_params *)args;
@@ -1247,7 +1247,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveItemFromFavorites( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveItemFromFavorites( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveItemFromFavorites_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveItemFromFavorites_params *)args;
@@ -1265,7 +1265,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SubscribeItem( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SubscribeItem( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SubscribeItem_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SubscribeItem_params *)args;
@@ -1283,7 +1283,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_UnsubscribeItem( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_UnsubscribeItem( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_UnsubscribeItem_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_UnsubscribeItem_params *)args;
@@ -1301,7 +1301,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetNumSubscribedItems( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetNumSubscribedItems( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetNumSubscribedItems_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetNumSubscribedItems_params *)args;
@@ -1319,7 +1319,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetSubscribedItems( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetSubscribedItems( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetSubscribedItems_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetSubscribedItems_params *)args;
@@ -1337,7 +1337,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetItemState( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetItemState( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetItemState_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetItemState_params *)args;
@@ -1356,7 +1356,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetItemInstallInfo( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetItemInstallInfo( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetItemInstallInfo_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetItemInstallInfo_params *)args;
@@ -1375,7 +1375,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetItemDownloadInfo( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetItemDownloadInfo( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetItemDownloadInfo_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetItemDownloadInfo_params *)args;
@@ -1393,7 +1393,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_DownloadItem( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_DownloadItem( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_DownloadItem_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_DownloadItem_params *)args;
@@ -1413,7 +1413,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_BInitWorkshopForGameServer( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_BInitWorkshopForGameServer( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_BInitWorkshopForGameServer_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_BInitWorkshopForGameServer_params *)args;
@@ -1433,7 +1433,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SuspendDownloads( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SuspendDownloads( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SuspendDownloads_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_SuspendDownloads_params *)args;
@@ -1451,7 +1451,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_StartPlaytimeTracking( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_StartPlaytimeTracking( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_StartPlaytimeTracking_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_StartPlaytimeTracking_params *)args;
@@ -1469,7 +1469,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_StopPlaytimeTracking( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_StopPlaytimeTracking( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_StopPlaytimeTracking_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_StopPlaytimeTracking_params *)args;
@@ -1487,7 +1487,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_StopPlaytimeTrackingForAllItems
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_StopPlaytimeTrackingForAllItems( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_StopPlaytimeTrackingForAllItems_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_StopPlaytimeTrackingForAllItems_params *)args;
@@ -1505,7 +1505,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddDependency( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddDependency( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddDependency_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddDependency_params *)args;
@@ -1523,7 +1523,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveDependency( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveDependency( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveDependency_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveDependency_params *)args;
@@ -1541,7 +1541,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddAppDependency( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddAppDependency( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddAppDependency_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_AddAppDependency_params *)args;
@@ -1559,7 +1559,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveAppDependency( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveAppDependency( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveAppDependency_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_RemoveAppDependency_params *)args;
@@ -1577,7 +1577,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetAppDependencies( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetAppDependencies( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetAppDependencies_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetAppDependencies_params *)args;
@@ -1595,7 +1595,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_DeleteItem( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_DeleteItem( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_DeleteItem_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_DeleteItem_params *)args;
@@ -1613,7 +1613,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_ShowWorkshopEULA( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_ShowWorkshopEULA( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_ShowWorkshopEULA_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_ShowWorkshopEULA_params *)args;
@@ -1631,7 +1631,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetWorkshopEULAStatus( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetWorkshopEULAStatus( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetWorkshopEULAStatus_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetWorkshopEULAStatus_params *)args;
@@ -1649,7 +1649,7 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetUserContentDescriptorPrefere
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetUserContentDescriptorPreferences( void *args )
 {
     struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetUserContentDescriptorPreferences_params *params = (struct wow64_ISteamUGC_STEAMUGC_INTERFACE_VERSION018_GetUserContentDescriptorPreferences_params *)args;

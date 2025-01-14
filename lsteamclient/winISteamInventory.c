@@ -1622,9 +1622,9 @@ struct w_iface *create_winISteamInventory_STEAMINVENTORY_INTERFACE_V003( struct 
 
 void init_winISteamInventory_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamInventory_STEAMINVENTORY_INTERFACE_V001_rtti( base );
     init_winISteamInventory_STEAMINVENTORY_INTERFACE_V002_rtti( base );
     init_winISteamInventory_STEAMINVENTORY_INTERFACE_V003_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

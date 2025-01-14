@@ -473,7 +473,7 @@ struct w_iface *create_winISteamMusicRemote_STEAMMUSICREMOTE_INTERFACE_VERSION00
 
 void init_winISteamMusicRemote_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamMusicRemote_STEAMMUSICREMOTE_INTERFACE_VERSION001_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

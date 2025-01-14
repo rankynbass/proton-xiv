@@ -25,11 +25,6 @@ typedef void (*vtable_ptr)(void);
 extern "C" {
 #endif
 
-#define W_CDECL   __cdecl
-#define W_STDCALL __stdcall
-#define U_CDECL   __attribute__((sysv_abi))
-#define U_STDCALL __attribute__((sysv_abi))
-
 struct u_iface;
 struct w_iface
 {

@@ -27,8 +27,14 @@
 
 #define W_CDECL   __cdecl
 #define W_STDCALL __stdcall
+
+#if defined(WINE_UNIX_LIB)
 #define U_CDECL   __attribute__((sysv_abi))
 #define U_STDCALL __attribute__((sysv_abi))
+#else
+#define U_CDECL
+#define U_STDCALL
+#endif
 
 #if defined(__cplusplus)
 template< typename T >
@@ -62,7 +68,7 @@ struct ptr32
 #define W32_PTR( decl, name, type ) decl
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 #define U64_PTR( decl, name, type ) decl
 #define U32_PTR( decl, name, type ) uint32_t name
 #define W64_PTR( decl, name, type ) decl

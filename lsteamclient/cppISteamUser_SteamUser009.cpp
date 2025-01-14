@@ -13,7 +13,7 @@ NTSTATUS ISteamUser_SteamUser009_GetHSteamUser( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser009_GetHSteamUser( void *args )
 {
     struct wow64_ISteamUser_SteamUser009_GetHSteamUser_params *params = (struct wow64_ISteamUser_SteamUser009_GetHSteamUser_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamUser_SteamUser009_BLoggedOn( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser009_BLoggedOn( void *args )
 {
     struct wow64_ISteamUser_SteamUser009_BLoggedOn_params *params = (struct wow64_ISteamUser_SteamUser009_BLoggedOn_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamUser_SteamUser009_GetSteamID( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser009_GetSteamID( void *args )
 {
     struct wow64_ISteamUser_SteamUser009_GetSteamID_params *params = (struct wow64_ISteamUser_SteamUser009_GetSteamID_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamUser_SteamUser009_InitiateGameConnection( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser009_InitiateGameConnection( void *args )
 {
     struct wow64_ISteamUser_SteamUser009_InitiateGameConnection_params *params = (struct wow64_ISteamUser_SteamUser009_InitiateGameConnection_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamUser_SteamUser009_TerminateGameConnection( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser009_TerminateGameConnection( void *args )
 {
     struct wow64_ISteamUser_SteamUser009_TerminateGameConnection_params *params = (struct wow64_ISteamUser_SteamUser009_TerminateGameConnection_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamUser_SteamUser009_TrackAppUsageEvent( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser009_TrackAppUsageEvent( void *args )
 {
     struct wow64_ISteamUser_SteamUser009_TrackAppUsageEvent_params *params = (struct wow64_ISteamUser_SteamUser009_TrackAppUsageEvent_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamUser_SteamUser009_RefreshSteam2Login( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUser_SteamUser009_RefreshSteam2Login( void *args )
 {
     struct wow64_ISteamUser_SteamUser009_RefreshSteam2Login_params *params = (struct wow64_ISteamUser_SteamUser009_RefreshSteam2Login_params *)args;

@@ -13,7 +13,7 @@ NTSTATUS ISteamClient_SteamClient018_CreateSteamPipe( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_CreateSteamPipe( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_CreateSteamPipe_params *params = (struct wow64_ISteamClient_SteamClient018_CreateSteamPipe_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamClient_SteamClient018_BReleaseSteamPipe( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_BReleaseSteamPipe( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_BReleaseSteamPipe_params *params = (struct wow64_ISteamClient_SteamClient018_BReleaseSteamPipe_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamClient_SteamClient018_ConnectToGlobalUser( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_ConnectToGlobalUser( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_ConnectToGlobalUser_params *params = (struct wow64_ISteamClient_SteamClient018_ConnectToGlobalUser_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamClient_SteamClient018_CreateLocalUser( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_CreateLocalUser( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_CreateLocalUser_params *params = (struct wow64_ISteamClient_SteamClient018_CreateLocalUser_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamClient_SteamClient018_ReleaseUser( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_ReleaseUser( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_ReleaseUser_params *params = (struct wow64_ISteamClient_SteamClient018_ReleaseUser_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamUser( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamUser( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamUser_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamUser_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamGameServer( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamGameServer( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamGameServer_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamGameServer_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS ISteamClient_SteamClient018_SetLocalIPBinding( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_SetLocalIPBinding( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_SetLocalIPBinding_params *params = (struct wow64_ISteamClient_SteamClient018_SetLocalIPBinding_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamFriends( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamFriends( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamFriends_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamFriends_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamUtils( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamUtils( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamUtils_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamUtils_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamMatchmaking( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamMatchmaking( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamMatchmaking_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamMatchmaking_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamMatchmakingServers( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamMatchmakingServers( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamMatchmakingServers_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamMatchmakingServers_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamGenericInterface( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamGenericInterface( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamGenericInterface_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamGenericInterface_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamUserStats( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamUserStats( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamUserStats_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamUserStats_params *)args;
@@ -265,7 +265,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamGameServerStats( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamGameServerStats( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamGameServerStats_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamGameServerStats_params *)args;
@@ -283,7 +283,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamApps( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamApps( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamApps_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamApps_params *)args;
@@ -301,7 +301,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamNetworking( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamNetworking( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamNetworking_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamNetworking_params *)args;
@@ -319,7 +319,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamRemoteStorage( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamRemoteStorage( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamRemoteStorage_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamRemoteStorage_params *)args;
@@ -337,7 +337,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamScreenshots( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamScreenshots( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamScreenshots_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamScreenshots_params *)args;
@@ -355,7 +355,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamGameSearch( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamGameSearch( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamGameSearch_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamGameSearch_params *)args;
@@ -373,7 +373,7 @@ NTSTATUS ISteamClient_SteamClient018_RunFrame( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_RunFrame( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_RunFrame_params *params = (struct wow64_ISteamClient_SteamClient018_RunFrame_params *)args;
@@ -391,7 +391,7 @@ NTSTATUS ISteamClient_SteamClient018_GetIPCCallCount( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetIPCCallCount( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetIPCCallCount_params *params = (struct wow64_ISteamClient_SteamClient018_GetIPCCallCount_params *)args;
@@ -410,7 +410,7 @@ NTSTATUS ISteamClient_SteamClient018_SetWarningMessageHook( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_SetWarningMessageHook( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_SetWarningMessageHook_params *params = (struct wow64_ISteamClient_SteamClient018_SetWarningMessageHook_params *)args;
@@ -429,7 +429,7 @@ NTSTATUS ISteamClient_SteamClient018_BShutdownIfAllPipesClosed( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_BShutdownIfAllPipesClosed( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_BShutdownIfAllPipesClosed_params *params = (struct wow64_ISteamClient_SteamClient018_BShutdownIfAllPipesClosed_params *)args;
@@ -447,7 +447,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamHTTP( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamHTTP( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamHTTP_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamHTTP_params *)args;
@@ -465,7 +465,7 @@ NTSTATUS ISteamClient_SteamClient018_DEPRECATED_GetISteamUnifiedMessages( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_DEPRECATED_GetISteamUnifiedMessages( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_DEPRECATED_GetISteamUnifiedMessages_params *params = (struct wow64_ISteamClient_SteamClient018_DEPRECATED_GetISteamUnifiedMessages_params *)args;
@@ -483,7 +483,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamController( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamController( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamController_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamController_params *)args;
@@ -501,7 +501,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamUGC( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamUGC( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamUGC_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamUGC_params *)args;
@@ -519,7 +519,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamAppList( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamAppList( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamAppList_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamAppList_params *)args;
@@ -537,7 +537,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamMusic( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamMusic( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamMusic_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamMusic_params *)args;
@@ -555,7 +555,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamMusicRemote( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamMusicRemote( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamMusicRemote_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamMusicRemote_params *)args;
@@ -573,7 +573,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamHTMLSurface( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamHTMLSurface( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamHTMLSurface_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamHTMLSurface_params *)args;
@@ -592,7 +592,7 @@ NTSTATUS ISteamClient_SteamClient018_DEPRECATED_Set_SteamAPI_CPostAPIResultInPro
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_DEPRECATED_Set_SteamAPI_CPostAPIResultInProcess( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_DEPRECATED_Set_SteamAPI_CPostAPIResultInProcess_params *params = (struct wow64_ISteamClient_SteamClient018_DEPRECATED_Set_SteamAPI_CPostAPIResultInProcess_params *)args;
@@ -612,7 +612,7 @@ NTSTATUS ISteamClient_SteamClient018_DEPRECATED_Remove_SteamAPI_CPostAPIResultIn
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_DEPRECATED_Remove_SteamAPI_CPostAPIResultInProcess( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_DEPRECATED_Remove_SteamAPI_CPostAPIResultInProcess_params *params = (struct wow64_ISteamClient_SteamClient018_DEPRECATED_Remove_SteamAPI_CPostAPIResultInProcess_params *)args;
@@ -632,7 +632,7 @@ NTSTATUS ISteamClient_SteamClient018_Set_SteamAPI_CCheckCallbackRegisteredInProc
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_Set_SteamAPI_CCheckCallbackRegisteredInProcess( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_Set_SteamAPI_CCheckCallbackRegisteredInProcess_params *params = (struct wow64_ISteamClient_SteamClient018_Set_SteamAPI_CCheckCallbackRegisteredInProcess_params *)args;
@@ -651,7 +651,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamInventory( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamInventory( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamInventory_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamInventory_params *)args;
@@ -669,7 +669,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamVideo( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamVideo( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamVideo_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamVideo_params *)args;
@@ -687,7 +687,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamParentalSettings( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamParentalSettings( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamParentalSettings_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamParentalSettings_params *)args;
@@ -705,7 +705,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamInput( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamInput( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamInput_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamInput_params *)args;
@@ -723,7 +723,7 @@ NTSTATUS ISteamClient_SteamClient018_GetISteamParties( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamClient_SteamClient018_GetISteamParties( void *args )
 {
     struct wow64_ISteamClient_SteamClient018_GetISteamParties_params *params = (struct wow64_ISteamClient_SteamClient018_GetISteamParties_params *)args;

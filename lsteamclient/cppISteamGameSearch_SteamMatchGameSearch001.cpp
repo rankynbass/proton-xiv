@@ -13,7 +13,7 @@ NTSTATUS ISteamGameSearch_SteamMatchGameSearch001_AddGameSearchParams( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameSearch_SteamMatchGameSearch001_AddGameSearchParams( void *args )
 {
     struct wow64_ISteamGameSearch_SteamMatchGameSearch001_AddGameSearchParams_params *params = (struct wow64_ISteamGameSearch_SteamMatchGameSearch001_AddGameSearchParams_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamGameSearch_SteamMatchGameSearch001_SearchForGameWithLobby( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameSearch_SteamMatchGameSearch001_SearchForGameWithLobby( void *args )
 {
     struct wow64_ISteamGameSearch_SteamMatchGameSearch001_SearchForGameWithLobby_params *params = (struct wow64_ISteamGameSearch_SteamMatchGameSearch001_SearchForGameWithLobby_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamGameSearch_SteamMatchGameSearch001_SearchForGameSolo( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameSearch_SteamMatchGameSearch001_SearchForGameSolo( void *args )
 {
     struct wow64_ISteamGameSearch_SteamMatchGameSearch001_SearchForGameSolo_params *params = (struct wow64_ISteamGameSearch_SteamMatchGameSearch001_SearchForGameSolo_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamGameSearch_SteamMatchGameSearch001_AcceptGame( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameSearch_SteamMatchGameSearch001_AcceptGame( void *args )
 {
     struct wow64_ISteamGameSearch_SteamMatchGameSearch001_AcceptGame_params *params = (struct wow64_ISteamGameSearch_SteamMatchGameSearch001_AcceptGame_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamGameSearch_SteamMatchGameSearch001_DeclineGame( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameSearch_SteamMatchGameSearch001_DeclineGame( void *args )
 {
     struct wow64_ISteamGameSearch_SteamMatchGameSearch001_DeclineGame_params *params = (struct wow64_ISteamGameSearch_SteamMatchGameSearch001_DeclineGame_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamGameSearch_SteamMatchGameSearch001_RetrieveConnectionDetails( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameSearch_SteamMatchGameSearch001_RetrieveConnectionDetails( void *args )
 {
     struct wow64_ISteamGameSearch_SteamMatchGameSearch001_RetrieveConnectionDetails_params *params = (struct wow64_ISteamGameSearch_SteamMatchGameSearch001_RetrieveConnectionDetails_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamGameSearch_SteamMatchGameSearch001_EndGameSearch( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameSearch_SteamMatchGameSearch001_EndGameSearch( void *args )
 {
     struct wow64_ISteamGameSearch_SteamMatchGameSearch001_EndGameSearch_params *params = (struct wow64_ISteamGameSearch_SteamMatchGameSearch001_EndGameSearch_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS ISteamGameSearch_SteamMatchGameSearch001_SetGameHostParams( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameSearch_SteamMatchGameSearch001_SetGameHostParams( void *args )
 {
     struct wow64_ISteamGameSearch_SteamMatchGameSearch001_SetGameHostParams_params *params = (struct wow64_ISteamGameSearch_SteamMatchGameSearch001_SetGameHostParams_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS ISteamGameSearch_SteamMatchGameSearch001_SetConnectionDetails( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameSearch_SteamMatchGameSearch001_SetConnectionDetails( void *args )
 {
     struct wow64_ISteamGameSearch_SteamMatchGameSearch001_SetConnectionDetails_params *params = (struct wow64_ISteamGameSearch_SteamMatchGameSearch001_SetConnectionDetails_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS ISteamGameSearch_SteamMatchGameSearch001_RequestPlayersForGame( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameSearch_SteamMatchGameSearch001_RequestPlayersForGame( void *args )
 {
     struct wow64_ISteamGameSearch_SteamMatchGameSearch001_RequestPlayersForGame_params *params = (struct wow64_ISteamGameSearch_SteamMatchGameSearch001_RequestPlayersForGame_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS ISteamGameSearch_SteamMatchGameSearch001_HostConfirmGameStart( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameSearch_SteamMatchGameSearch001_HostConfirmGameStart( void *args )
 {
     struct wow64_ISteamGameSearch_SteamMatchGameSearch001_HostConfirmGameStart_params *params = (struct wow64_ISteamGameSearch_SteamMatchGameSearch001_HostConfirmGameStart_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS ISteamGameSearch_SteamMatchGameSearch001_CancelRequestPlayersForGame( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameSearch_SteamMatchGameSearch001_CancelRequestPlayersForGame( void *args )
 {
     struct wow64_ISteamGameSearch_SteamMatchGameSearch001_CancelRequestPlayersForGame_params *params = (struct wow64_ISteamGameSearch_SteamMatchGameSearch001_CancelRequestPlayersForGame_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS ISteamGameSearch_SteamMatchGameSearch001_SubmitPlayerResult( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameSearch_SteamMatchGameSearch001_SubmitPlayerResult( void *args )
 {
     struct wow64_ISteamGameSearch_SteamMatchGameSearch001_SubmitPlayerResult_params *params = (struct wow64_ISteamGameSearch_SteamMatchGameSearch001_SubmitPlayerResult_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS ISteamGameSearch_SteamMatchGameSearch001_EndGame( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameSearch_SteamMatchGameSearch001_EndGame( void *args )
 {
     struct wow64_ISteamGameSearch_SteamMatchGameSearch001_EndGame_params *params = (struct wow64_ISteamGameSearch_SteamMatchGameSearch001_EndGame_params *)args;

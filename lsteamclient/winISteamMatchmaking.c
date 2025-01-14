@@ -4293,7 +4293,7 @@ struct w_iface *create_winISteamMatchmaking_SteamMatchMaking009( struct u_iface 
 
 void init_winISteamMatchmaking_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamMatchmaking_SteamMatchMaking001_rtti( base );
     init_winISteamMatchmaking_SteamMatchMaking002_rtti( base );
     init_winISteamMatchmaking_SteamMatchMaking003_rtti( base );
@@ -4303,5 +4303,5 @@ void init_winISteamMatchmaking_rtti( char *base )
     init_winISteamMatchmaking_SteamMatchMaking007_rtti( base );
     init_winISteamMatchmaking_SteamMatchMaking008_rtti( base );
     init_winISteamMatchmaking_SteamMatchMaking009_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

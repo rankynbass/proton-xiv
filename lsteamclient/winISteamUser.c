@@ -6660,7 +6660,7 @@ struct w_iface *create_winISteamUser_SteamUser023( struct u_iface u_iface )
 
 void init_winISteamUser_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamUser_SteamUser004_rtti( base );
     init_winISteamUser_SteamUser005_rtti( base );
     init_winISteamUser_SteamUser006_rtti( base );
@@ -6681,5 +6681,5 @@ void init_winISteamUser_rtti( char *base )
     init_winISteamUser_SteamUser021_rtti( base );
     init_winISteamUser_SteamUser022_rtti( base );
     init_winISteamUser_SteamUser023_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

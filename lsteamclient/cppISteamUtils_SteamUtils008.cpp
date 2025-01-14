@@ -13,7 +13,7 @@ NTSTATUS ISteamUtils_SteamUtils008_GetSecondsSinceAppActive( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_GetSecondsSinceAppActive( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_GetSecondsSinceAppActive_params *params = (struct wow64_ISteamUtils_SteamUtils008_GetSecondsSinceAppActive_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamUtils_SteamUtils008_GetSecondsSinceComputerActive( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_GetSecondsSinceComputerActive( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_GetSecondsSinceComputerActive_params *params = (struct wow64_ISteamUtils_SteamUtils008_GetSecondsSinceComputerActive_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamUtils_SteamUtils008_GetConnectedUniverse( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_GetConnectedUniverse( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_GetConnectedUniverse_params *params = (struct wow64_ISteamUtils_SteamUtils008_GetConnectedUniverse_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamUtils_SteamUtils008_GetServerRealTime( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_GetServerRealTime( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_GetServerRealTime_params *params = (struct wow64_ISteamUtils_SteamUtils008_GetServerRealTime_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamUtils_SteamUtils008_GetIPCountry( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_GetIPCountry( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_GetIPCountry_params *params = (struct wow64_ISteamUtils_SteamUtils008_GetIPCountry_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamUtils_SteamUtils008_GetImageSize( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_GetImageSize( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_GetImageSize_params *params = (struct wow64_ISteamUtils_SteamUtils008_GetImageSize_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamUtils_SteamUtils008_GetImageRGBA( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_GetImageRGBA( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_GetImageRGBA_params *params = (struct wow64_ISteamUtils_SteamUtils008_GetImageRGBA_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS ISteamUtils_SteamUtils008_GetCSERIPPort( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_GetCSERIPPort( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_GetCSERIPPort_params *params = (struct wow64_ISteamUtils_SteamUtils008_GetCSERIPPort_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS ISteamUtils_SteamUtils008_GetCurrentBatteryPower( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_GetCurrentBatteryPower( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_GetCurrentBatteryPower_params *params = (struct wow64_ISteamUtils_SteamUtils008_GetCurrentBatteryPower_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS ISteamUtils_SteamUtils008_GetAppID( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_GetAppID( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_GetAppID_params *params = (struct wow64_ISteamUtils_SteamUtils008_GetAppID_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS ISteamUtils_SteamUtils008_SetOverlayNotificationPosition( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_SetOverlayNotificationPosition( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_SetOverlayNotificationPosition_params *params = (struct wow64_ISteamUtils_SteamUtils008_SetOverlayNotificationPosition_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS ISteamUtils_SteamUtils008_IsAPICallCompleted( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_IsAPICallCompleted( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_IsAPICallCompleted_params *params = (struct wow64_ISteamUtils_SteamUtils008_IsAPICallCompleted_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS ISteamUtils_SteamUtils008_GetAPICallFailureReason( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_GetAPICallFailureReason( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_GetAPICallFailureReason_params *params = (struct wow64_ISteamUtils_SteamUtils008_GetAPICallFailureReason_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS ISteamUtils_SteamUtils008_RunFrame( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_RunFrame( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_RunFrame_params *params = (struct wow64_ISteamUtils_SteamUtils008_RunFrame_params *)args;
@@ -265,7 +265,7 @@ NTSTATUS ISteamUtils_SteamUtils008_GetIPCCallCount( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_GetIPCCallCount( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_GetIPCCallCount_params *params = (struct wow64_ISteamUtils_SteamUtils008_GetIPCCallCount_params *)args;
@@ -284,7 +284,7 @@ NTSTATUS ISteamUtils_SteamUtils008_SetWarningMessageHook( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_SetWarningMessageHook( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_SetWarningMessageHook_params *params = (struct wow64_ISteamUtils_SteamUtils008_SetWarningMessageHook_params *)args;
@@ -303,7 +303,7 @@ NTSTATUS ISteamUtils_SteamUtils008_IsOverlayEnabled( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_IsOverlayEnabled( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_IsOverlayEnabled_params *params = (struct wow64_ISteamUtils_SteamUtils008_IsOverlayEnabled_params *)args;
@@ -321,7 +321,7 @@ NTSTATUS ISteamUtils_SteamUtils008_BOverlayNeedsPresent( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_BOverlayNeedsPresent( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_BOverlayNeedsPresent_params *params = (struct wow64_ISteamUtils_SteamUtils008_BOverlayNeedsPresent_params *)args;
@@ -341,7 +341,7 @@ NTSTATUS ISteamUtils_SteamUtils008_CheckFileSignature( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_CheckFileSignature( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_CheckFileSignature_params *params = (struct wow64_ISteamUtils_SteamUtils008_CheckFileSignature_params *)args;
@@ -361,7 +361,7 @@ NTSTATUS ISteamUtils_SteamUtils008_ShowGamepadTextInput( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_ShowGamepadTextInput( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_ShowGamepadTextInput_params *params = (struct wow64_ISteamUtils_SteamUtils008_ShowGamepadTextInput_params *)args;
@@ -379,7 +379,7 @@ NTSTATUS ISteamUtils_SteamUtils008_GetEnteredGamepadTextLength( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_GetEnteredGamepadTextLength( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_GetEnteredGamepadTextLength_params *params = (struct wow64_ISteamUtils_SteamUtils008_GetEnteredGamepadTextLength_params *)args;
@@ -397,7 +397,7 @@ NTSTATUS ISteamUtils_SteamUtils008_GetEnteredGamepadTextInput( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_GetEnteredGamepadTextInput( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_GetEnteredGamepadTextInput_params *params = (struct wow64_ISteamUtils_SteamUtils008_GetEnteredGamepadTextInput_params *)args;
@@ -415,7 +415,7 @@ NTSTATUS ISteamUtils_SteamUtils008_GetSteamUILanguage( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_GetSteamUILanguage( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_GetSteamUILanguage_params *params = (struct wow64_ISteamUtils_SteamUtils008_GetSteamUILanguage_params *)args;
@@ -433,7 +433,7 @@ NTSTATUS ISteamUtils_SteamUtils008_IsSteamRunningInVR( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_IsSteamRunningInVR( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_IsSteamRunningInVR_params *params = (struct wow64_ISteamUtils_SteamUtils008_IsSteamRunningInVR_params *)args;
@@ -451,7 +451,7 @@ NTSTATUS ISteamUtils_SteamUtils008_SetOverlayNotificationInset( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_SetOverlayNotificationInset( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_SetOverlayNotificationInset_params *params = (struct wow64_ISteamUtils_SteamUtils008_SetOverlayNotificationInset_params *)args;
@@ -469,7 +469,7 @@ NTSTATUS ISteamUtils_SteamUtils008_IsSteamInBigPictureMode( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_IsSteamInBigPictureMode( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_IsSteamInBigPictureMode_params *params = (struct wow64_ISteamUtils_SteamUtils008_IsSteamInBigPictureMode_params *)args;
@@ -487,7 +487,7 @@ NTSTATUS ISteamUtils_SteamUtils008_StartVRDashboard( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamUtils_SteamUtils008_StartVRDashboard( void *args )
 {
     struct wow64_ISteamUtils_SteamUtils008_StartVRDashboard_params *params = (struct wow64_ISteamUtils_SteamUtils008_StartVRDashboard_params *)args;

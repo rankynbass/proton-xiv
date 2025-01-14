@@ -2645,11 +2645,11 @@ struct w_iface *create_winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_0
 
 void init_winISteamHTMLSurface_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_001_rtti( base );
     init_winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_002_rtti( base );
     init_winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_003_rtti( base );
     init_winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_004_rtti( base );
     init_winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_005_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

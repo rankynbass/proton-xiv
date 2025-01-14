@@ -13,7 +13,7 @@ NTSTATUS ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_WriteScreenshot
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_WriteScreenshot( void *args )
 {
     struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_WriteScreenshot_params *params = (struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_WriteScreenshot_params *)args;
@@ -35,7 +35,7 @@ NTSTATUS ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_AddScreenshotTo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_AddScreenshotToLibrary( void *args )
 {
     struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_AddScreenshotToLibrary_params *params = (struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_AddScreenshotToLibrary_params *)args;
@@ -57,7 +57,7 @@ NTSTATUS ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_TriggerScreensh
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_TriggerScreenshot( void *args )
 {
     struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_TriggerScreenshot_params *params = (struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_TriggerScreenshot_params *)args;
@@ -75,7 +75,7 @@ NTSTATUS ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_HookScreenshots
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_HookScreenshots( void *args )
 {
     struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_HookScreenshots_params *params = (struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_HookScreenshots_params *)args;
@@ -93,7 +93,7 @@ NTSTATUS ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_SetLocation( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_SetLocation( void *args )
 {
     struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_SetLocation_params *params = (struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_SetLocation_params *)args;
@@ -111,7 +111,7 @@ NTSTATUS ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_TagUser( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_TagUser( void *args )
 {
     struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_TagUser_params *params = (struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_TagUser_params *)args;
@@ -129,7 +129,7 @@ NTSTATUS ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_TagPublishedFil
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_TagPublishedFile( void *args )
 {
     struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_TagPublishedFile_params *params = (struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_TagPublishedFile_params *)args;
@@ -147,7 +147,7 @@ NTSTATUS ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_IsScreenshotsHo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_IsScreenshotsHooked( void *args )
 {
     struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_IsScreenshotsHooked_params *params = (struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_IsScreenshotsHooked_params *)args;
@@ -169,7 +169,7 @@ NTSTATUS ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_AddVRScreenshot
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_AddVRScreenshotToLibrary( void *args )
 {
     struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_AddVRScreenshotToLibrary_params *params = (struct wow64_ISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003_AddVRScreenshotToLibrary_params *)args;

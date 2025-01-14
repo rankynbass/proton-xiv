@@ -13,7 +13,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetTimelineTooltip( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetTimelineTooltip( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetTimelineTooltip_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetTimelineTooltip_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_ClearTimelineTooltip( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_ClearTimelineTooltip( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_ClearTimelineTooltip_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_ClearTimelineTooltip_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetTimelineGameMode( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetTimelineGameMode( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetTimelineGameMode_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetTimelineGameMode_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddInstantaneousTimelineEve
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddInstantaneousTimelineEvent( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddInstantaneousTimelineEvent_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddInstantaneousTimelineEvent_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddRangeTimelineEvent( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddRangeTimelineEvent( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddRangeTimelineEvent_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddRangeTimelineEvent_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_StartRangeTimelineEvent( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_StartRangeTimelineEvent( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_StartRangeTimelineEvent_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_StartRangeTimelineEvent_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_UpdateRangeTimelineEvent( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_UpdateRangeTimelineEvent( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_UpdateRangeTimelineEvent_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_UpdateRangeTimelineEvent_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_EndRangeTimelineEvent( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_EndRangeTimelineEvent( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_EndRangeTimelineEvent_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_EndRangeTimelineEvent_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_RemoveTimelineEvent( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_RemoveTimelineEvent( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_RemoveTimelineEvent_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_RemoveTimelineEvent_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_DoesEventRecordingExist( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_DoesEventRecordingExist( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_DoesEventRecordingExist_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_DoesEventRecordingExist_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_StartGamePhase( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_StartGamePhase( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_StartGamePhase_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_StartGamePhase_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_EndGamePhase( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_EndGamePhase( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_EndGamePhase_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_EndGamePhase_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetGamePhaseID( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetGamePhaseID( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetGamePhaseID_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetGamePhaseID_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_DoesGamePhaseRecordingExist
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_DoesGamePhaseRecordingExist( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_DoesGamePhaseRecordingExist_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_DoesGamePhaseRecordingExist_params *)args;
@@ -265,7 +265,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddGamePhaseTag( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddGamePhaseTag( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddGamePhaseTag_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddGamePhaseTag_params *)args;
@@ -283,7 +283,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetGamePhaseAttribute( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetGamePhaseAttribute( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetGamePhaseAttribute_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetGamePhaseAttribute_params *)args;
@@ -301,7 +301,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_OpenOverlayToGamePhase( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_OpenOverlayToGamePhase( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_OpenOverlayToGamePhase_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_OpenOverlayToGamePhase_params *)args;
@@ -319,7 +319,7 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_OpenOverlayToTimelineEvent(
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_OpenOverlayToTimelineEvent( void *args )
 {
     struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_OpenOverlayToTimelineEvent_params *params = (struct wow64_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_OpenOverlayToTimelineEvent_params *)args;

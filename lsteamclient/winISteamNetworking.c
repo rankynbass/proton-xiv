@@ -1870,12 +1870,12 @@ struct w_iface *create_winISteamNetworking_SteamNetworking006( struct u_iface u_
 
 void init_winISteamNetworking_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamNetworking_SteamNetworking001_rtti( base );
     init_winISteamNetworking_SteamNetworking002_rtti( base );
     init_winISteamNetworking_SteamNetworking003_rtti( base );
     init_winISteamNetworking_SteamNetworking004_rtti( base );
     init_winISteamNetworking_SteamNetworking005_rtti( base );
     init_winISteamNetworking_SteamNetworking006_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

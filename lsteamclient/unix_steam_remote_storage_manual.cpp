@@ -6,7 +6,7 @@
 
 WINE_DEFAULT_DEBUG_CHANNEL(steamclient);
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RemoteStorageUpdatePublishedFileRequest_t::operator u64_RemoteStorageUpdatePublishedFileRequest_t() const
 {
     u64_RemoteStorageUpdatePublishedFileRequest_t ret;

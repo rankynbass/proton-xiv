@@ -13,7 +13,7 @@ NTSTATUS ISteamFriends_SteamFriends006_GetPersonaName( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_GetPersonaName( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_GetPersonaName_params *params = (struct wow64_ISteamFriends_SteamFriends006_GetPersonaName_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamFriends_SteamFriends006_SetPersonaName( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_SetPersonaName( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_SetPersonaName_params *params = (struct wow64_ISteamFriends_SteamFriends006_SetPersonaName_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamFriends_SteamFriends006_GetPersonaState( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_GetPersonaState( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_GetPersonaState_params *params = (struct wow64_ISteamFriends_SteamFriends006_GetPersonaState_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamFriends_SteamFriends006_GetFriendCount( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_GetFriendCount( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_GetFriendCount_params *params = (struct wow64_ISteamFriends_SteamFriends006_GetFriendCount_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamFriends_SteamFriends006_GetFriendByIndex( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_GetFriendByIndex( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_GetFriendByIndex_params *params = (struct wow64_ISteamFriends_SteamFriends006_GetFriendByIndex_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamFriends_SteamFriends006_GetFriendRelationship( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_GetFriendRelationship( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_GetFriendRelationship_params *params = (struct wow64_ISteamFriends_SteamFriends006_GetFriendRelationship_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamFriends_SteamFriends006_GetFriendPersonaState( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_GetFriendPersonaState( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_GetFriendPersonaState_params *params = (struct wow64_ISteamFriends_SteamFriends006_GetFriendPersonaState_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS ISteamFriends_SteamFriends006_GetFriendPersonaName( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_GetFriendPersonaName( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_GetFriendPersonaName_params *params = (struct wow64_ISteamFriends_SteamFriends006_GetFriendPersonaName_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS ISteamFriends_SteamFriends006_GetFriendAvatar( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_GetFriendAvatar( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_GetFriendAvatar_params *params = (struct wow64_ISteamFriends_SteamFriends006_GetFriendAvatar_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS ISteamFriends_SteamFriends006_GetFriendGamePlayed( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_GetFriendGamePlayed( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_GetFriendGamePlayed_params *params = (struct wow64_ISteamFriends_SteamFriends006_GetFriendGamePlayed_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS ISteamFriends_SteamFriends006_GetFriendPersonaNameHistory( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_GetFriendPersonaNameHistory( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_GetFriendPersonaNameHistory_params *params = (struct wow64_ISteamFriends_SteamFriends006_GetFriendPersonaNameHistory_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS ISteamFriends_SteamFriends006_HasFriend( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_HasFriend( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_HasFriend_params *params = (struct wow64_ISteamFriends_SteamFriends006_HasFriend_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS ISteamFriends_SteamFriends006_GetClanCount( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_GetClanCount( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_GetClanCount_params *params = (struct wow64_ISteamFriends_SteamFriends006_GetClanCount_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS ISteamFriends_SteamFriends006_GetClanByIndex( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_GetClanByIndex( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_GetClanByIndex_params *params = (struct wow64_ISteamFriends_SteamFriends006_GetClanByIndex_params *)args;
@@ -265,7 +265,7 @@ NTSTATUS ISteamFriends_SteamFriends006_GetClanName( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_GetClanName( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_GetClanName_params *params = (struct wow64_ISteamFriends_SteamFriends006_GetClanName_params *)args;
@@ -283,7 +283,7 @@ NTSTATUS ISteamFriends_SteamFriends006_GetClanTag( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_GetClanTag( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_GetClanTag_params *params = (struct wow64_ISteamFriends_SteamFriends006_GetClanTag_params *)args;
@@ -301,7 +301,7 @@ NTSTATUS ISteamFriends_SteamFriends006_GetFriendCountFromSource( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_GetFriendCountFromSource( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_GetFriendCountFromSource_params *params = (struct wow64_ISteamFriends_SteamFriends006_GetFriendCountFromSource_params *)args;
@@ -319,7 +319,7 @@ NTSTATUS ISteamFriends_SteamFriends006_GetFriendFromSourceByIndex( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_GetFriendFromSourceByIndex( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_GetFriendFromSourceByIndex_params *params = (struct wow64_ISteamFriends_SteamFriends006_GetFriendFromSourceByIndex_params *)args;
@@ -337,7 +337,7 @@ NTSTATUS ISteamFriends_SteamFriends006_IsUserInSource( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_IsUserInSource( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_IsUserInSource_params *params = (struct wow64_ISteamFriends_SteamFriends006_IsUserInSource_params *)args;
@@ -355,7 +355,7 @@ NTSTATUS ISteamFriends_SteamFriends006_SetInGameVoiceSpeaking( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_SetInGameVoiceSpeaking( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_SetInGameVoiceSpeaking_params *params = (struct wow64_ISteamFriends_SteamFriends006_SetInGameVoiceSpeaking_params *)args;
@@ -373,7 +373,7 @@ NTSTATUS ISteamFriends_SteamFriends006_ActivateGameOverlay( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_ActivateGameOverlay( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_ActivateGameOverlay_params *params = (struct wow64_ISteamFriends_SteamFriends006_ActivateGameOverlay_params *)args;
@@ -391,7 +391,7 @@ NTSTATUS ISteamFriends_SteamFriends006_ActivateGameOverlayToUser( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_ActivateGameOverlayToUser( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_ActivateGameOverlayToUser_params *params = (struct wow64_ISteamFriends_SteamFriends006_ActivateGameOverlayToUser_params *)args;
@@ -411,7 +411,7 @@ NTSTATUS ISteamFriends_SteamFriends006_ActivateGameOverlayToWebPage( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_ActivateGameOverlayToWebPage( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_ActivateGameOverlayToWebPage_params *params = (struct wow64_ISteamFriends_SteamFriends006_ActivateGameOverlayToWebPage_params *)args;
@@ -431,7 +431,7 @@ NTSTATUS ISteamFriends_SteamFriends006_ActivateGameOverlayToStore( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_ActivateGameOverlayToStore( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_ActivateGameOverlayToStore_params *params = (struct wow64_ISteamFriends_SteamFriends006_ActivateGameOverlayToStore_params *)args;
@@ -449,7 +449,7 @@ NTSTATUS ISteamFriends_SteamFriends006_SetPlayedWith( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_SetPlayedWith( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_SetPlayedWith_params *params = (struct wow64_ISteamFriends_SteamFriends006_SetPlayedWith_params *)args;
@@ -467,7 +467,7 @@ NTSTATUS ISteamFriends_SteamFriends006_ActivateGameOverlayInviteDialog( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamFriends_SteamFriends006_ActivateGameOverlayInviteDialog( void *args )
 {
     struct wow64_ISteamFriends_SteamFriends006_ActivateGameOverlayInviteDialog_params *params = (struct wow64_ISteamFriends_SteamFriends006_ActivateGameOverlayInviteDialog_params *)args;

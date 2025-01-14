@@ -13,7 +13,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetResultStatus( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetResultStatus( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetResultStatus_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetResultStatus_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetResultItems( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetResultItems( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetResultItems_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetResultItems_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetResultItemProperty( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetResultItemProperty( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetResultItemProperty_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetResultItemProperty_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetResultTimestamp( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetResultTimestamp( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetResultTimestamp_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetResultTimestamp_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_CheckResultSteamID( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_CheckResultSteamID( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_CheckResultSteamID_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_CheckResultSteamID_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_DestroyResult( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_DestroyResult( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_DestroyResult_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_DestroyResult_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetAllItems( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetAllItems( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetAllItems_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetAllItems_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemsByID( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemsByID( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemsByID_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemsByID_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SerializeResult( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SerializeResult( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SerializeResult_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SerializeResult_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_DeserializeResult( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_DeserializeResult( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_DeserializeResult_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_DeserializeResult_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GenerateItems( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GenerateItems( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GenerateItems_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GenerateItems_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GrantPromoItems( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GrantPromoItems( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GrantPromoItems_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GrantPromoItems_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_AddPromoItem( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_AddPromoItem( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_AddPromoItem_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_AddPromoItem_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_AddPromoItems( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_AddPromoItems( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_AddPromoItems_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_AddPromoItems_params *)args;
@@ -265,7 +265,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_ConsumeItem( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_ConsumeItem( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_ConsumeItem_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_ConsumeItem_params *)args;
@@ -283,7 +283,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_ExchangeItems( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_ExchangeItems( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_ExchangeItems_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_ExchangeItems_params *)args;
@@ -301,7 +301,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_TransferItemQuantity( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_TransferItemQuantity( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_TransferItemQuantity_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_TransferItemQuantity_params *)args;
@@ -319,7 +319,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SendItemDropHeartbeat( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SendItemDropHeartbeat( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SendItemDropHeartbeat_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SendItemDropHeartbeat_params *)args;
@@ -337,7 +337,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_TriggerItemDrop( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_TriggerItemDrop( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_TriggerItemDrop_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_TriggerItemDrop_params *)args;
@@ -355,7 +355,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_TradeItems( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_TradeItems( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_TradeItems_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_TradeItems_params *)args;
@@ -373,7 +373,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_LoadItemDefinitions( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_LoadItemDefinitions( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_LoadItemDefinitions_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_LoadItemDefinitions_params *)args;
@@ -391,7 +391,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemDefinitionIDs( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemDefinitionIDs( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemDefinitionIDs_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemDefinitionIDs_params *)args;
@@ -409,7 +409,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemDefinitionProperty
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemDefinitionProperty( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemDefinitionProperty_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemDefinitionProperty_params *)args;
@@ -427,7 +427,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_RequestEligiblePromoItemD
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_RequestEligiblePromoItemDefinitionsIDs( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_RequestEligiblePromoItemDefinitionsIDs_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_RequestEligiblePromoItemDefinitionsIDs_params *)args;
@@ -445,7 +445,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetEligiblePromoItemDefin
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetEligiblePromoItemDefinitionIDs( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetEligiblePromoItemDefinitionIDs_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetEligiblePromoItemDefinitionIDs_params *)args;
@@ -463,7 +463,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_StartPurchase( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_StartPurchase( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_StartPurchase_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_StartPurchase_params *)args;
@@ -481,7 +481,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_RequestPrices( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_RequestPrices( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_RequestPrices_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_RequestPrices_params *)args;
@@ -499,7 +499,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetNumItemsWithPrices( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetNumItemsWithPrices( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetNumItemsWithPrices_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetNumItemsWithPrices_params *)args;
@@ -517,7 +517,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemsWithPrices( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemsWithPrices( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemsWithPrices_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemsWithPrices_params *)args;
@@ -535,7 +535,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemPrice( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemPrice( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemPrice_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_GetItemPrice_params *)args;
@@ -553,7 +553,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_StartUpdateProperties( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_StartUpdateProperties( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_StartUpdateProperties_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_StartUpdateProperties_params *)args;
@@ -571,7 +571,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_RemoveProperty( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_RemoveProperty( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_RemoveProperty_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_RemoveProperty_params *)args;
@@ -589,7 +589,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SetProperty( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SetProperty( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SetProperty_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SetProperty_params *)args;
@@ -607,7 +607,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SetProperty_2( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SetProperty_2( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SetProperty_2_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SetProperty_2_params *)args;
@@ -625,7 +625,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SetProperty_3( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SetProperty_3( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SetProperty_3_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SetProperty_3_params *)args;
@@ -643,7 +643,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SetProperty_4( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SetProperty_4( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SetProperty_4_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SetProperty_4_params *)args;
@@ -661,7 +661,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SubmitUpdateProperties( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SubmitUpdateProperties( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SubmitUpdateProperties_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_SubmitUpdateProperties_params *)args;
@@ -679,7 +679,7 @@ NTSTATUS ISteamInventory_STEAMINVENTORY_INTERFACE_V003_InspectItem( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_InspectItem( void *args )
 {
     struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_InspectItem_params *params = (struct wow64_ISteamInventory_STEAMINVENTORY_INTERFACE_V003_InspectItem_params *)args;

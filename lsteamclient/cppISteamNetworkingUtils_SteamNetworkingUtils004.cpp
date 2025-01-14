@@ -13,7 +13,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_GetRelayNetworkStatus( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetRelayNetworkStatus( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetRelayNetworkStatus_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetRelayNetworkStatus_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_GetLocalPingLocation( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetLocalPingLocation( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetLocalPingLocation_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetLocalPingLocation_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_EstimatePingTimeBetweenTw
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_EstimatePingTimeBetweenTwoLocations( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_EstimatePingTimeBetweenTwoLocations_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_EstimatePingTimeBetweenTwoLocations_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_EstimatePingTimeFromLocal
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_EstimatePingTimeFromLocalHost( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_EstimatePingTimeFromLocalHost_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_EstimatePingTimeFromLocalHost_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_ConvertPingLocationToStri
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_ConvertPingLocationToString( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_ConvertPingLocationToString_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_ConvertPingLocationToString_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_ParsePingLocationString( 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_ParsePingLocationString( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_ParsePingLocationString_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_ParsePingLocationString_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_CheckPingDataUpToDate( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_CheckPingDataUpToDate( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_CheckPingDataUpToDate_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_CheckPingDataUpToDate_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_GetPingToDataCenter( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetPingToDataCenter( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetPingToDataCenter_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetPingToDataCenter_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_GetDirectPingToPOP( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetDirectPingToPOP( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetDirectPingToPOP_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetDirectPingToPOP_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_GetPOPCount( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetPOPCount( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetPOPCount_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetPOPCount_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_GetPOPList( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetPOPList( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetPOPList_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetPOPList_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_GetLocalTimestamp( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetLocalTimestamp( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetLocalTimestamp_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetLocalTimestamp_params *)args;
@@ -230,7 +230,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_SetDebugOutputFunction( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SetDebugOutputFunction( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SetDebugOutputFunction_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SetDebugOutputFunction_params *)args;
@@ -249,7 +249,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_GetIPv4FakeIPType( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetIPv4FakeIPType( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetIPv4FakeIPType_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetIPv4FakeIPType_params *)args;
@@ -267,7 +267,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_GetRealIdentityForFakeIP(
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetRealIdentityForFakeIP( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetRealIdentityForFakeIP_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetRealIdentityForFakeIP_params *)args;
@@ -285,7 +285,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_GetConfigValue( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetConfigValue( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetConfigValue_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetConfigValue_params *)args;
@@ -303,7 +303,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_GetConfigValueInfo( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetConfigValueInfo( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetConfigValueInfo_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_GetConfigValueInfo_params *)args;
@@ -321,7 +321,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_IterateGenericEditableCon
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_IterateGenericEditableConfigValues( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_IterateGenericEditableConfigValues_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_IterateGenericEditableConfigValues_params *)args;
@@ -339,7 +339,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIPAddr_ToS
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIPAddr_ToString( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIPAddr_ToString_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIPAddr_ToString_params *)args;
@@ -357,7 +357,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIPAddr_Par
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIPAddr_ParseString( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIPAddr_ParseString_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIPAddr_ParseString_params *)args;
@@ -375,7 +375,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIPAddr_Get
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIPAddr_GetFakeIPType( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIPAddr_GetFakeIPType_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIPAddr_GetFakeIPType_params *)args;
@@ -393,7 +393,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIdentity_T
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIdentity_ToString( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIdentity_ToString_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIdentity_ToString_params *)args;
@@ -411,7 +411,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIdentity_P
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIdentity_ParseString( void *args )
 {
     struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIdentity_ParseString_params *params = (struct wow64_ISteamNetworkingUtils_SteamNetworkingUtils004_SteamNetworkingIdentity_ParseString_params *)args;

@@ -13,7 +13,7 @@ NTSTATUS ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionCount( 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionCount( void *args )
 {
     struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionCount_params *params = (struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionCount_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionID( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionID( void *args )
 {
     struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionID_params *params = (struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionID_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionSteamID
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionSteamID( void *args )
 {
     struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionSteamID_params *params = (struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionSteamID_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionClientN
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionClientName( void *args )
 {
     struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionClientName_params *params = (struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionClientName_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionClientF
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionClientFormFactor( void *args )
 {
     struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionClientFormFactor_params *params = (struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionClientFormFactor_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_BGetSessionClient
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_BGetSessionClientResolution( void *args )
 {
     struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_BGetSessionClientResolution_params *params = (struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_BGetSessionClientResolution_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_ShowRemotePlayTog
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_ShowRemotePlayTogetherUI( void *args )
 {
     struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_ShowRemotePlayTogetherUI_params *params = (struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_ShowRemotePlayTogetherUI_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_BSendRemotePlayTo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_BSendRemotePlayTogetherInvite( void *args )
 {
     struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_BSendRemotePlayTogetherInvite_params *params = (struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_BSendRemotePlayTogetherInvite_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_BEnableRemotePlay
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_BEnableRemotePlayTogetherDirectInput( void *args )
 {
     struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_BEnableRemotePlayTogetherDirectInput_params *params = (struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_BEnableRemotePlayTogetherDirectInput_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_DisableRemotePlay
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_DisableRemotePlayTogetherDirectInput( void *args )
 {
     struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_DisableRemotePlayTogetherDirectInput_params *params = (struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_DisableRemotePlayTogetherDirectInput_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetInput( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetInput( void *args )
 {
     struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetInput_params *params = (struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetInput_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_SetMouseVisibilit
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_SetMouseVisibility( void *args )
 {
     struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_SetMouseVisibility_params *params = (struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_SetMouseVisibility_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_SetMousePosition(
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_SetMousePosition( void *args )
 {
     struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_SetMousePosition_params *params = (struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_SetMousePosition_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_CreateMouseCursor
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_CreateMouseCursor( void *args )
 {
     struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_CreateMouseCursor_params *params = (struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_CreateMouseCursor_params *)args;
@@ -265,7 +265,7 @@ NTSTATUS ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_SetMouseCursor( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_SetMouseCursor( void *args )
 {
     struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_SetMouseCursor_params *params = (struct wow64_ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_SetMouseCursor_params *)args;

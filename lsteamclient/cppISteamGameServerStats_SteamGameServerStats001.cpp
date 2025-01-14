@@ -13,7 +13,7 @@ NTSTATUS ISteamGameServerStats_SteamGameServerStats001_RequestUserStats( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServerStats_SteamGameServerStats001_RequestUserStats( void *args )
 {
     struct wow64_ISteamGameServerStats_SteamGameServerStats001_RequestUserStats_params *params = (struct wow64_ISteamGameServerStats_SteamGameServerStats001_RequestUserStats_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamGameServerStats_SteamGameServerStats001_GetUserStat( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServerStats_SteamGameServerStats001_GetUserStat( void *args )
 {
     struct wow64_ISteamGameServerStats_SteamGameServerStats001_GetUserStat_params *params = (struct wow64_ISteamGameServerStats_SteamGameServerStats001_GetUserStat_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamGameServerStats_SteamGameServerStats001_GetUserStat_2( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServerStats_SteamGameServerStats001_GetUserStat_2( void *args )
 {
     struct wow64_ISteamGameServerStats_SteamGameServerStats001_GetUserStat_2_params *params = (struct wow64_ISteamGameServerStats_SteamGameServerStats001_GetUserStat_2_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamGameServerStats_SteamGameServerStats001_GetUserAchievement( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServerStats_SteamGameServerStats001_GetUserAchievement( void *args )
 {
     struct wow64_ISteamGameServerStats_SteamGameServerStats001_GetUserAchievement_params *params = (struct wow64_ISteamGameServerStats_SteamGameServerStats001_GetUserAchievement_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamGameServerStats_SteamGameServerStats001_SetUserStat( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServerStats_SteamGameServerStats001_SetUserStat( void *args )
 {
     struct wow64_ISteamGameServerStats_SteamGameServerStats001_SetUserStat_params *params = (struct wow64_ISteamGameServerStats_SteamGameServerStats001_SetUserStat_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamGameServerStats_SteamGameServerStats001_SetUserStat_2( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServerStats_SteamGameServerStats001_SetUserStat_2( void *args )
 {
     struct wow64_ISteamGameServerStats_SteamGameServerStats001_SetUserStat_2_params *params = (struct wow64_ISteamGameServerStats_SteamGameServerStats001_SetUserStat_2_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamGameServerStats_SteamGameServerStats001_UpdateUserAvgRateStat( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServerStats_SteamGameServerStats001_UpdateUserAvgRateStat( void *args )
 {
     struct wow64_ISteamGameServerStats_SteamGameServerStats001_UpdateUserAvgRateStat_params *params = (struct wow64_ISteamGameServerStats_SteamGameServerStats001_UpdateUserAvgRateStat_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS ISteamGameServerStats_SteamGameServerStats001_SetUserAchievement( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServerStats_SteamGameServerStats001_SetUserAchievement( void *args )
 {
     struct wow64_ISteamGameServerStats_SteamGameServerStats001_SetUserAchievement_params *params = (struct wow64_ISteamGameServerStats_SteamGameServerStats001_SetUserAchievement_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS ISteamGameServerStats_SteamGameServerStats001_ClearUserAchievement( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServerStats_SteamGameServerStats001_ClearUserAchievement( void *args )
 {
     struct wow64_ISteamGameServerStats_SteamGameServerStats001_ClearUserAchievement_params *params = (struct wow64_ISteamGameServerStats_SteamGameServerStats001_ClearUserAchievement_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS ISteamGameServerStats_SteamGameServerStats001_StoreUserStats( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameServerStats_SteamGameServerStats001_StoreUserStats( void *args )
 {
     struct wow64_ISteamGameServerStats_SteamGameServerStats001_StoreUserStats_params *params = (struct wow64_ISteamGameServerStats_SteamGameServerStats001_StoreUserStats_params *)args;

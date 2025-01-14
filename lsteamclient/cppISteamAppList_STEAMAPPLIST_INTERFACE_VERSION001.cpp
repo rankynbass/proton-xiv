@@ -13,7 +13,7 @@ NTSTATUS ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetNumInstalledApps( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetNumInstalledApps( void *args )
 {
     struct wow64_ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetNumInstalledApps_params *params = (struct wow64_ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetNumInstalledApps_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetInstalledApps( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetInstalledApps( void *args )
 {
     struct wow64_ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetInstalledApps_params *params = (struct wow64_ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetInstalledApps_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetAppName( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetAppName( void *args )
 {
     struct wow64_ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetAppName_params *params = (struct wow64_ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetAppName_params *)args;
@@ -68,7 +68,7 @@ NTSTATUS ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetAppInstallDir( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetAppInstallDir( void *args )
 {
     struct wow64_ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetAppInstallDir_params *params = (struct wow64_ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetAppInstallDir_params *)args;
@@ -87,7 +87,7 @@ NTSTATUS ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetAppBuildId( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetAppBuildId( void *args )
 {
     struct wow64_ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetAppBuildId_params *params = (struct wow64_ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetAppBuildId_params *)args;

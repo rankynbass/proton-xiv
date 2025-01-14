@@ -201,9 +201,9 @@ struct w_iface *create_winISteamVideo_STEAMVIDEO_INTERFACE_V007( struct u_iface 
 
 void init_winISteamVideo_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamVideo_STEAMVIDEO_INTERFACE_V001_rtti( base );
     init_winISteamVideo_STEAMVIDEO_INTERFACE_V002_rtti( base );
     init_winISteamVideo_STEAMVIDEO_INTERFACE_V007_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

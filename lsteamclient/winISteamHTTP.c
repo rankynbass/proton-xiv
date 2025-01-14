@@ -1088,9 +1088,9 @@ struct w_iface *create_winISteamHTTP_STEAMHTTP_INTERFACE_VERSION003( struct u_if
 
 void init_winISteamHTTP_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamHTTP_STEAMHTTP_INTERFACE_VERSION001_rtti( base );
     init_winISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_rtti( base );
     init_winISteamHTTP_STEAMHTTP_INTERFACE_VERSION003_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

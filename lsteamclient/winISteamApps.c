@@ -1953,7 +1953,7 @@ struct w_iface *create_winISteamApps_STEAMAPPS_INTERFACE_VERSION008( struct u_if
 
 void init_winISteamApps_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamApps_STEAMAPPS_INTERFACE_VERSION001_rtti( base );
     init_winISteamApps_STEAMAPPS_INTERFACE_VERSION002_rtti( base );
     init_winISteamApps_STEAMAPPS_INTERFACE_VERSION003_rtti( base );
@@ -1962,5 +1962,5 @@ void init_winISteamApps_rtti( char *base )
     init_winISteamApps_STEAMAPPS_INTERFACE_VERSION006_rtti( base );
     init_winISteamApps_STEAMAPPS_INTERFACE_VERSION007_rtti( base );
     init_winISteamApps_STEAMAPPS_INTERFACE_VERSION008_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

@@ -15,7 +15,7 @@ NTSTATUS ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_Init( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_Init( void *args )
 {
     struct wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_Init_params *params = (struct wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_Init_params *)args;
@@ -35,7 +35,7 @@ NTSTATUS ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_Shutdown( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_Shutdown( void *args )
 {
     struct wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_Shutdown_params *params = (struct wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_Shutdown_params *)args;
@@ -53,7 +53,7 @@ NTSTATUS ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_RunFrame( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_RunFrame( void *args )
 {
     struct wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_RunFrame_params *params = (struct wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_RunFrame_params *)args;
@@ -71,7 +71,7 @@ NTSTATUS ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_GetControllerState( 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_GetControllerState( void *args )
 {
     struct wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_GetControllerState_params *params = (struct wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_GetControllerState_params *)args;
@@ -89,7 +89,7 @@ NTSTATUS ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_TriggerHapticPulse( 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_TriggerHapticPulse( void *args )
 {
     struct wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_TriggerHapticPulse_params *params = (struct wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_TriggerHapticPulse_params *)args;
@@ -107,7 +107,7 @@ NTSTATUS ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_SetOverrideMode( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_SetOverrideMode( void *args )
 {
     struct wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_SetOverrideMode_params *params = (struct wow64_ISteamController_STEAMCONTROLLER_INTERFACE_VERSION_SetOverrideMode_params *)args;

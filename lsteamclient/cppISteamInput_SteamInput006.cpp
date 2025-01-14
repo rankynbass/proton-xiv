@@ -13,7 +13,7 @@ NTSTATUS ISteamInput_SteamInput006_Init( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_Init( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_Init_params *params = (struct wow64_ISteamInput_SteamInput006_Init_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamInput_SteamInput006_Shutdown( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_Shutdown( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_Shutdown_params *params = (struct wow64_ISteamInput_SteamInput006_Shutdown_params *)args;
@@ -51,7 +51,7 @@ NTSTATUS ISteamInput_SteamInput006_SetInputActionManifestFilePath( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_SetInputActionManifestFilePath( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_SetInputActionManifestFilePath_params *params = (struct wow64_ISteamInput_SteamInput006_SetInputActionManifestFilePath_params *)args;
@@ -71,7 +71,7 @@ NTSTATUS ISteamInput_SteamInput006_RunFrame( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_RunFrame( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_RunFrame_params *params = (struct wow64_ISteamInput_SteamInput006_RunFrame_params *)args;
@@ -89,7 +89,7 @@ NTSTATUS ISteamInput_SteamInput006_BWaitForData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_BWaitForData( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_BWaitForData_params *params = (struct wow64_ISteamInput_SteamInput006_BWaitForData_params *)args;
@@ -107,7 +107,7 @@ NTSTATUS ISteamInput_SteamInput006_BNewDataAvailable( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_BNewDataAvailable( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_BNewDataAvailable_params *params = (struct wow64_ISteamInput_SteamInput006_BNewDataAvailable_params *)args;
@@ -125,7 +125,7 @@ NTSTATUS ISteamInput_SteamInput006_GetConnectedControllers( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetConnectedControllers( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetConnectedControllers_params *params = (struct wow64_ISteamInput_SteamInput006_GetConnectedControllers_params *)args;
@@ -143,7 +143,7 @@ NTSTATUS ISteamInput_SteamInput006_EnableDeviceCallbacks( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_EnableDeviceCallbacks( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_EnableDeviceCallbacks_params *params = (struct wow64_ISteamInput_SteamInput006_EnableDeviceCallbacks_params *)args;
@@ -161,7 +161,7 @@ NTSTATUS ISteamInput_SteamInput006_GetActionSetHandle( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetActionSetHandle( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetActionSetHandle_params *params = (struct wow64_ISteamInput_SteamInput006_GetActionSetHandle_params *)args;
@@ -179,7 +179,7 @@ NTSTATUS ISteamInput_SteamInput006_ActivateActionSet( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_ActivateActionSet( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_ActivateActionSet_params *params = (struct wow64_ISteamInput_SteamInput006_ActivateActionSet_params *)args;
@@ -197,7 +197,7 @@ NTSTATUS ISteamInput_SteamInput006_GetCurrentActionSet( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetCurrentActionSet( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetCurrentActionSet_params *params = (struct wow64_ISteamInput_SteamInput006_GetCurrentActionSet_params *)args;
@@ -215,7 +215,7 @@ NTSTATUS ISteamInput_SteamInput006_ActivateActionSetLayer( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_ActivateActionSetLayer( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_ActivateActionSetLayer_params *params = (struct wow64_ISteamInput_SteamInput006_ActivateActionSetLayer_params *)args;
@@ -233,7 +233,7 @@ NTSTATUS ISteamInput_SteamInput006_DeactivateActionSetLayer( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_DeactivateActionSetLayer( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_DeactivateActionSetLayer_params *params = (struct wow64_ISteamInput_SteamInput006_DeactivateActionSetLayer_params *)args;
@@ -251,7 +251,7 @@ NTSTATUS ISteamInput_SteamInput006_DeactivateAllActionSetLayers( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_DeactivateAllActionSetLayers( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_DeactivateAllActionSetLayers_params *params = (struct wow64_ISteamInput_SteamInput006_DeactivateAllActionSetLayers_params *)args;
@@ -269,7 +269,7 @@ NTSTATUS ISteamInput_SteamInput006_GetActiveActionSetLayers( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetActiveActionSetLayers( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetActiveActionSetLayers_params *params = (struct wow64_ISteamInput_SteamInput006_GetActiveActionSetLayers_params *)args;
@@ -287,7 +287,7 @@ NTSTATUS ISteamInput_SteamInput006_GetDigitalActionHandle( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetDigitalActionHandle( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetDigitalActionHandle_params *params = (struct wow64_ISteamInput_SteamInput006_GetDigitalActionHandle_params *)args;
@@ -305,7 +305,7 @@ NTSTATUS ISteamInput_SteamInput006_GetDigitalActionData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetDigitalActionData( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetDigitalActionData_params *params = (struct wow64_ISteamInput_SteamInput006_GetDigitalActionData_params *)args;
@@ -323,7 +323,7 @@ NTSTATUS ISteamInput_SteamInput006_GetDigitalActionOrigins( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetDigitalActionOrigins( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetDigitalActionOrigins_params *params = (struct wow64_ISteamInput_SteamInput006_GetDigitalActionOrigins_params *)args;
@@ -341,7 +341,7 @@ NTSTATUS ISteamInput_SteamInput006_GetStringForDigitalActionName( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetStringForDigitalActionName( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetStringForDigitalActionName_params *params = (struct wow64_ISteamInput_SteamInput006_GetStringForDigitalActionName_params *)args;
@@ -359,7 +359,7 @@ NTSTATUS ISteamInput_SteamInput006_GetAnalogActionHandle( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetAnalogActionHandle( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetAnalogActionHandle_params *params = (struct wow64_ISteamInput_SteamInput006_GetAnalogActionHandle_params *)args;
@@ -377,7 +377,7 @@ NTSTATUS ISteamInput_SteamInput006_GetAnalogActionData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetAnalogActionData( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetAnalogActionData_params *params = (struct wow64_ISteamInput_SteamInput006_GetAnalogActionData_params *)args;
@@ -395,7 +395,7 @@ NTSTATUS ISteamInput_SteamInput006_GetAnalogActionOrigins( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetAnalogActionOrigins( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetAnalogActionOrigins_params *params = (struct wow64_ISteamInput_SteamInput006_GetAnalogActionOrigins_params *)args;
@@ -413,7 +413,7 @@ NTSTATUS ISteamInput_SteamInput006_GetStringForActionOrigin( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetStringForActionOrigin( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetStringForActionOrigin_params *params = (struct wow64_ISteamInput_SteamInput006_GetStringForActionOrigin_params *)args;
@@ -431,7 +431,7 @@ NTSTATUS ISteamInput_SteamInput006_GetStringForAnalogActionName( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetStringForAnalogActionName( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetStringForAnalogActionName_params *params = (struct wow64_ISteamInput_SteamInput006_GetStringForAnalogActionName_params *)args;
@@ -449,7 +449,7 @@ NTSTATUS ISteamInput_SteamInput006_StopAnalogActionMomentum( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_StopAnalogActionMomentum( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_StopAnalogActionMomentum_params *params = (struct wow64_ISteamInput_SteamInput006_StopAnalogActionMomentum_params *)args;
@@ -467,7 +467,7 @@ NTSTATUS ISteamInput_SteamInput006_GetMotionData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetMotionData( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetMotionData_params *params = (struct wow64_ISteamInput_SteamInput006_GetMotionData_params *)args;
@@ -485,7 +485,7 @@ NTSTATUS ISteamInput_SteamInput006_TriggerVibration( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_TriggerVibration( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_TriggerVibration_params *params = (struct wow64_ISteamInput_SteamInput006_TriggerVibration_params *)args;
@@ -503,7 +503,7 @@ NTSTATUS ISteamInput_SteamInput006_TriggerVibrationExtended( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_TriggerVibrationExtended( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_TriggerVibrationExtended_params *params = (struct wow64_ISteamInput_SteamInput006_TriggerVibrationExtended_params *)args;
@@ -521,7 +521,7 @@ NTSTATUS ISteamInput_SteamInput006_TriggerSimpleHapticEvent( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_TriggerSimpleHapticEvent( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_TriggerSimpleHapticEvent_params *params = (struct wow64_ISteamInput_SteamInput006_TriggerSimpleHapticEvent_params *)args;
@@ -539,7 +539,7 @@ NTSTATUS ISteamInput_SteamInput006_SetLEDColor( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_SetLEDColor( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_SetLEDColor_params *params = (struct wow64_ISteamInput_SteamInput006_SetLEDColor_params *)args;
@@ -557,7 +557,7 @@ NTSTATUS ISteamInput_SteamInput006_Legacy_TriggerHapticPulse( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_Legacy_TriggerHapticPulse( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_Legacy_TriggerHapticPulse_params *params = (struct wow64_ISteamInput_SteamInput006_Legacy_TriggerHapticPulse_params *)args;
@@ -575,7 +575,7 @@ NTSTATUS ISteamInput_SteamInput006_Legacy_TriggerRepeatedHapticPulse( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_Legacy_TriggerRepeatedHapticPulse( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_Legacy_TriggerRepeatedHapticPulse_params *params = (struct wow64_ISteamInput_SteamInput006_Legacy_TriggerRepeatedHapticPulse_params *)args;
@@ -593,7 +593,7 @@ NTSTATUS ISteamInput_SteamInput006_ShowBindingPanel( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_ShowBindingPanel( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_ShowBindingPanel_params *params = (struct wow64_ISteamInput_SteamInput006_ShowBindingPanel_params *)args;
@@ -611,7 +611,7 @@ NTSTATUS ISteamInput_SteamInput006_GetInputTypeForHandle( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetInputTypeForHandle( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetInputTypeForHandle_params *params = (struct wow64_ISteamInput_SteamInput006_GetInputTypeForHandle_params *)args;
@@ -629,7 +629,7 @@ NTSTATUS ISteamInput_SteamInput006_GetControllerForGamepadIndex( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetControllerForGamepadIndex( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetControllerForGamepadIndex_params *params = (struct wow64_ISteamInput_SteamInput006_GetControllerForGamepadIndex_params *)args;
@@ -647,7 +647,7 @@ NTSTATUS ISteamInput_SteamInput006_GetGamepadIndexForController( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetGamepadIndexForController( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetGamepadIndexForController_params *params = (struct wow64_ISteamInput_SteamInput006_GetGamepadIndexForController_params *)args;
@@ -665,7 +665,7 @@ NTSTATUS ISteamInput_SteamInput006_GetStringForXboxOrigin( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetStringForXboxOrigin( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetStringForXboxOrigin_params *params = (struct wow64_ISteamInput_SteamInput006_GetStringForXboxOrigin_params *)args;
@@ -683,7 +683,7 @@ NTSTATUS ISteamInput_SteamInput006_GetActionOriginFromXboxOrigin( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetActionOriginFromXboxOrigin( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetActionOriginFromXboxOrigin_params *params = (struct wow64_ISteamInput_SteamInput006_GetActionOriginFromXboxOrigin_params *)args;
@@ -701,7 +701,7 @@ NTSTATUS ISteamInput_SteamInput006_TranslateActionOrigin( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_TranslateActionOrigin( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_TranslateActionOrigin_params *params = (struct wow64_ISteamInput_SteamInput006_TranslateActionOrigin_params *)args;
@@ -719,7 +719,7 @@ NTSTATUS ISteamInput_SteamInput006_GetDeviceBindingRevision( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetDeviceBindingRevision( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetDeviceBindingRevision_params *params = (struct wow64_ISteamInput_SteamInput006_GetDeviceBindingRevision_params *)args;
@@ -737,7 +737,7 @@ NTSTATUS ISteamInput_SteamInput006_GetRemotePlaySessionID( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetRemotePlaySessionID( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetRemotePlaySessionID_params *params = (struct wow64_ISteamInput_SteamInput006_GetRemotePlaySessionID_params *)args;
@@ -755,7 +755,7 @@ NTSTATUS ISteamInput_SteamInput006_GetSessionInputConfigurationSettings( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_GetSessionInputConfigurationSettings( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_GetSessionInputConfigurationSettings_params *params = (struct wow64_ISteamInput_SteamInput006_GetSessionInputConfigurationSettings_params *)args;
@@ -773,7 +773,7 @@ NTSTATUS ISteamInput_SteamInput006_SetDualSenseTriggerEffect( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamInput_SteamInput006_SetDualSenseTriggerEffect( void *args )
 {
     struct wow64_ISteamInput_SteamInput006_SetDualSenseTriggerEffect_params *params = (struct wow64_ISteamInput_SteamInput006_SetDualSenseTriggerEffect_params *)args;

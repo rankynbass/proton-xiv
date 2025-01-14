@@ -13,7 +13,7 @@ NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers001_GetServerDetails( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_GetServerDetails( void *args )
 {
     struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_GetServerDetails_params *params = (struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_GetServerDetails_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers001_CancelQuery( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_CancelQuery( void *args )
 {
     struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_CancelQuery_params *params = (struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_CancelQuery_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers001_RefreshQuery( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_RefreshQuery( void *args )
 {
     struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_RefreshQuery_params *params = (struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_RefreshQuery_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers001_IsRefreshing( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_IsRefreshing( void *args )
 {
     struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_IsRefreshing_params *params = (struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_IsRefreshing_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers001_GetServerCount( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_GetServerCount( void *args )
 {
     struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_GetServerCount_params *params = (struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_GetServerCount_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers001_RefreshServer( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_RefreshServer( void *args )
 {
     struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_RefreshServer_params *params = (struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_RefreshServer_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers001_CancelServerQuery( 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_CancelServerQuery( void *args )
 {
     struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_CancelServerQuery_params *params = (struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers001_CancelServerQuery_params *)args;

@@ -281,8 +281,8 @@ struct w_iface *create_winISteamNetworkingSocketsSerialized_SteamNetworkingSocke
 
 void init_winISteamNetworkingSocketsSerialized_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamNetworkingSocketsSerialized_SteamNetworkingSocketsSerialized002_rtti( base );
     init_winISteamNetworkingSocketsSerialized_SteamNetworkingSocketsSerialized003_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

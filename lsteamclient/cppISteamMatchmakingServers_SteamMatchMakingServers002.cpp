@@ -13,7 +13,7 @@ NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_CancelServerQuery( 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmakingServers_SteamMatchMakingServers002_CancelServerQuery( void *args )
 {
     struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers002_CancelServerQuery_params *params = (struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers002_CancelServerQuery_params *)args;

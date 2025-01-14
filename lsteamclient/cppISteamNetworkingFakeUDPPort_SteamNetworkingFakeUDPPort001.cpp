@@ -13,7 +13,7 @@ NTSTATUS ISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001_DestroyFakeUD
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001_DestroyFakeUDPPort( void *args )
 {
     struct wow64_ISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001_DestroyFakeUDPPort_params *params = (struct wow64_ISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001_DestroyFakeUDPPort_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001_SendMessageTo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001_SendMessageToFakeIP( void *args )
 {
     struct wow64_ISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001_SendMessageToFakeIP_params *params = (struct wow64_ISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001_SendMessageToFakeIP_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001_ScheduleClean
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001_ScheduleCleanup( void *args )
 {
     struct wow64_ISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001_ScheduleCleanup_params *params = (struct wow64_ISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001_ScheduleCleanup_params *)args;

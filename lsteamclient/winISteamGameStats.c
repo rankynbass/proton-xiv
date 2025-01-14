@@ -240,7 +240,7 @@ struct w_iface *create_winISteamGameStats_SteamGameStats001( struct u_iface u_if
 
 void init_winISteamGameStats_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamGameStats_SteamGameStats001_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

@@ -1418,10 +1418,10 @@ struct w_iface *create_winISteamNetworkingUtils_SteamNetworkingUtils004( struct 
 
 void init_winISteamNetworkingUtils_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamNetworkingUtils_SteamNetworkingUtils001_rtti( base );
     init_winISteamNetworkingUtils_SteamNetworkingUtils002_rtti( base );
     init_winISteamNetworkingUtils_SteamNetworkingUtils003_rtti( base );
     init_winISteamNetworkingUtils_SteamNetworkingUtils004_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

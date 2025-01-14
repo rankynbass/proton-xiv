@@ -453,7 +453,7 @@ LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingUtils, SteamNetworkingUtils004, SetConfi
 LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingFakeUDPPort, SteamNetworkingFakeUDPPort001, ReceiveMessages, u_SteamNetworkingMessage_t_153a() );
 LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingMessages, SteamNetworkingMessages002, ReceiveMessagesOnChannel, u_SteamNetworkingMessage_t_153a() );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 #define STEAMCLIENT_UNIX_WOW64_FUNC( name, version, ... ) \
     NTSTATUS wow64_ ## name ## _ ## version( void *args ) { return name( (struct wow64_ ## name ## _ ## version ## _params *)args, true, ## __VA_ARGS__ ); }
 #else

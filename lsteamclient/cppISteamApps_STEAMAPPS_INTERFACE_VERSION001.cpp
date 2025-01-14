@@ -13,7 +13,7 @@ NTSTATUS ISteamApps_STEAMAPPS_INTERFACE_VERSION001_GetAppData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamApps_STEAMAPPS_INTERFACE_VERSION001_GetAppData( void *args )
 {
     struct wow64_ISteamApps_STEAMAPPS_INTERFACE_VERSION001_GetAppData_params *params = (struct wow64_ISteamApps_STEAMAPPS_INTERFACE_VERSION001_GetAppData_params *)args;

@@ -13,7 +13,7 @@ NTSTATUS ISteamController_SteamController007_Init( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_Init( void *args )
 {
     struct wow64_ISteamController_SteamController007_Init_params *params = (struct wow64_ISteamController_SteamController007_Init_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamController_SteamController007_Shutdown( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_Shutdown( void *args )
 {
     struct wow64_ISteamController_SteamController007_Shutdown_params *params = (struct wow64_ISteamController_SteamController007_Shutdown_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamController_SteamController007_RunFrame( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_RunFrame( void *args )
 {
     struct wow64_ISteamController_SteamController007_RunFrame_params *params = (struct wow64_ISteamController_SteamController007_RunFrame_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamController_SteamController007_GetConnectedControllers( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetConnectedControllers( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetConnectedControllers_params *params = (struct wow64_ISteamController_SteamController007_GetConnectedControllers_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamController_SteamController007_GetActionSetHandle( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetActionSetHandle( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetActionSetHandle_params *params = (struct wow64_ISteamController_SteamController007_GetActionSetHandle_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamController_SteamController007_ActivateActionSet( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_ActivateActionSet( void *args )
 {
     struct wow64_ISteamController_SteamController007_ActivateActionSet_params *params = (struct wow64_ISteamController_SteamController007_ActivateActionSet_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamController_SteamController007_GetCurrentActionSet( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetCurrentActionSet( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetCurrentActionSet_params *params = (struct wow64_ISteamController_SteamController007_GetCurrentActionSet_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS ISteamController_SteamController007_ActivateActionSetLayer( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_ActivateActionSetLayer( void *args )
 {
     struct wow64_ISteamController_SteamController007_ActivateActionSetLayer_params *params = (struct wow64_ISteamController_SteamController007_ActivateActionSetLayer_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS ISteamController_SteamController007_DeactivateActionSetLayer( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_DeactivateActionSetLayer( void *args )
 {
     struct wow64_ISteamController_SteamController007_DeactivateActionSetLayer_params *params = (struct wow64_ISteamController_SteamController007_DeactivateActionSetLayer_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS ISteamController_SteamController007_DeactivateAllActionSetLayers( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_DeactivateAllActionSetLayers( void *args )
 {
     struct wow64_ISteamController_SteamController007_DeactivateAllActionSetLayers_params *params = (struct wow64_ISteamController_SteamController007_DeactivateAllActionSetLayers_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS ISteamController_SteamController007_GetActiveActionSetLayers( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetActiveActionSetLayers( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetActiveActionSetLayers_params *params = (struct wow64_ISteamController_SteamController007_GetActiveActionSetLayers_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS ISteamController_SteamController007_GetDigitalActionHandle( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetDigitalActionHandle( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetDigitalActionHandle_params *params = (struct wow64_ISteamController_SteamController007_GetDigitalActionHandle_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS ISteamController_SteamController007_GetDigitalActionData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetDigitalActionData( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetDigitalActionData_params *params = (struct wow64_ISteamController_SteamController007_GetDigitalActionData_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS ISteamController_SteamController007_GetDigitalActionOrigins( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetDigitalActionOrigins( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetDigitalActionOrigins_params *params = (struct wow64_ISteamController_SteamController007_GetDigitalActionOrigins_params *)args;
@@ -265,7 +265,7 @@ NTSTATUS ISteamController_SteamController007_GetAnalogActionHandle( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetAnalogActionHandle( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetAnalogActionHandle_params *params = (struct wow64_ISteamController_SteamController007_GetAnalogActionHandle_params *)args;
@@ -283,7 +283,7 @@ NTSTATUS ISteamController_SteamController007_GetAnalogActionData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetAnalogActionData( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetAnalogActionData_params *params = (struct wow64_ISteamController_SteamController007_GetAnalogActionData_params *)args;
@@ -301,7 +301,7 @@ NTSTATUS ISteamController_SteamController007_GetAnalogActionOrigins( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetAnalogActionOrigins( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetAnalogActionOrigins_params *params = (struct wow64_ISteamController_SteamController007_GetAnalogActionOrigins_params *)args;
@@ -319,7 +319,7 @@ NTSTATUS ISteamController_SteamController007_GetStringForActionOrigin( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetStringForActionOrigin( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetStringForActionOrigin_params *params = (struct wow64_ISteamController_SteamController007_GetStringForActionOrigin_params *)args;
@@ -337,7 +337,7 @@ NTSTATUS ISteamController_SteamController007_StopAnalogActionMomentum( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_StopAnalogActionMomentum( void *args )
 {
     struct wow64_ISteamController_SteamController007_StopAnalogActionMomentum_params *params = (struct wow64_ISteamController_SteamController007_StopAnalogActionMomentum_params *)args;
@@ -355,7 +355,7 @@ NTSTATUS ISteamController_SteamController007_GetMotionData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetMotionData( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetMotionData_params *params = (struct wow64_ISteamController_SteamController007_GetMotionData_params *)args;
@@ -373,7 +373,7 @@ NTSTATUS ISteamController_SteamController007_TriggerHapticPulse( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_TriggerHapticPulse( void *args )
 {
     struct wow64_ISteamController_SteamController007_TriggerHapticPulse_params *params = (struct wow64_ISteamController_SteamController007_TriggerHapticPulse_params *)args;
@@ -391,7 +391,7 @@ NTSTATUS ISteamController_SteamController007_TriggerRepeatedHapticPulse( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_TriggerRepeatedHapticPulse( void *args )
 {
     struct wow64_ISteamController_SteamController007_TriggerRepeatedHapticPulse_params *params = (struct wow64_ISteamController_SteamController007_TriggerRepeatedHapticPulse_params *)args;
@@ -409,7 +409,7 @@ NTSTATUS ISteamController_SteamController007_TriggerVibration( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_TriggerVibration( void *args )
 {
     struct wow64_ISteamController_SteamController007_TriggerVibration_params *params = (struct wow64_ISteamController_SteamController007_TriggerVibration_params *)args;
@@ -427,7 +427,7 @@ NTSTATUS ISteamController_SteamController007_SetLEDColor( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_SetLEDColor( void *args )
 {
     struct wow64_ISteamController_SteamController007_SetLEDColor_params *params = (struct wow64_ISteamController_SteamController007_SetLEDColor_params *)args;
@@ -445,7 +445,7 @@ NTSTATUS ISteamController_SteamController007_ShowBindingPanel( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_ShowBindingPanel( void *args )
 {
     struct wow64_ISteamController_SteamController007_ShowBindingPanel_params *params = (struct wow64_ISteamController_SteamController007_ShowBindingPanel_params *)args;
@@ -463,7 +463,7 @@ NTSTATUS ISteamController_SteamController007_GetInputTypeForHandle( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetInputTypeForHandle( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetInputTypeForHandle_params *params = (struct wow64_ISteamController_SteamController007_GetInputTypeForHandle_params *)args;
@@ -481,7 +481,7 @@ NTSTATUS ISteamController_SteamController007_GetControllerForGamepadIndex( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetControllerForGamepadIndex( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetControllerForGamepadIndex_params *params = (struct wow64_ISteamController_SteamController007_GetControllerForGamepadIndex_params *)args;
@@ -499,7 +499,7 @@ NTSTATUS ISteamController_SteamController007_GetGamepadIndexForController( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetGamepadIndexForController( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetGamepadIndexForController_params *params = (struct wow64_ISteamController_SteamController007_GetGamepadIndexForController_params *)args;
@@ -517,7 +517,7 @@ NTSTATUS ISteamController_SteamController007_GetStringForXboxOrigin( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetStringForXboxOrigin( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetStringForXboxOrigin_params *params = (struct wow64_ISteamController_SteamController007_GetStringForXboxOrigin_params *)args;
@@ -535,7 +535,7 @@ NTSTATUS ISteamController_SteamController007_GetActionOriginFromXboxOrigin( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetActionOriginFromXboxOrigin( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetActionOriginFromXboxOrigin_params *params = (struct wow64_ISteamController_SteamController007_GetActionOriginFromXboxOrigin_params *)args;
@@ -553,7 +553,7 @@ NTSTATUS ISteamController_SteamController007_TranslateActionOrigin( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_TranslateActionOrigin( void *args )
 {
     struct wow64_ISteamController_SteamController007_TranslateActionOrigin_params *params = (struct wow64_ISteamController_SteamController007_TranslateActionOrigin_params *)args;
@@ -571,7 +571,7 @@ NTSTATUS ISteamController_SteamController007_GetControllerBindingRevision( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamController_SteamController007_GetControllerBindingRevision( void *args )
 {
     struct wow64_ISteamController_SteamController007_GetControllerBindingRevision_params *params = (struct wow64_ISteamController_SteamController007_GetControllerBindingRevision_params *)args;

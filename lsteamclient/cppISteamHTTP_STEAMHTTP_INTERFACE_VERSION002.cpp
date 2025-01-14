@@ -13,7 +13,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_CreateHTTPRequest( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_CreateHTTPRequest( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_CreateHTTPRequest_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_CreateHTTPRequest_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestContextValue( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestContextValue( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestContextValue_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestContextValue_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestNetworkActivity
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestNetworkActivityTimeout( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestNetworkActivityTimeout_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestNetworkActivityTimeout_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestHeaderValue( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestHeaderValue( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestHeaderValue_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestHeaderValue_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestGetOrPostParame
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestGetOrPostParameter( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestGetOrPostParameter_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestGetOrPostParameter_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SendHTTPRequest( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SendHTTPRequest( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SendHTTPRequest_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SendHTTPRequest_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SendHTTPRequestAndStreamRespo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SendHTTPRequestAndStreamResponse( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SendHTTPRequestAndStreamResponse_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SendHTTPRequestAndStreamResponse_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_DeferHTTPRequest( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_DeferHTTPRequest( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_DeferHTTPRequest_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_DeferHTTPRequest_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_PrioritizeHTTPRequest( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_PrioritizeHTTPRequest( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_PrioritizeHTTPRequest_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_PrioritizeHTTPRequest_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPResponseHeaderSize( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPResponseHeaderSize( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPResponseHeaderSize_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPResponseHeaderSize_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPResponseHeaderValue( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPResponseHeaderValue( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPResponseHeaderValue_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPResponseHeaderValue_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPResponseBodySize( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPResponseBodySize( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPResponseBodySize_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPResponseBodySize_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPResponseBodyData( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPResponseBodyData( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPResponseBodyData_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPResponseBodyData_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPStreamingResponseBodyD
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPStreamingResponseBodyData( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPStreamingResponseBodyData_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPStreamingResponseBodyData_params *)args;
@@ -265,7 +265,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_ReleaseHTTPRequest( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_ReleaseHTTPRequest( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_ReleaseHTTPRequest_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_ReleaseHTTPRequest_params *)args;
@@ -283,7 +283,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPDownloadProgressPct( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPDownloadProgressPct( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPDownloadProgressPct_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPDownloadProgressPct_params *)args;
@@ -301,7 +301,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestRawPostBody( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestRawPostBody( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestRawPostBody_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestRawPostBody_params *)args;
@@ -319,7 +319,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_CreateCookieContainer( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_CreateCookieContainer( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_CreateCookieContainer_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_CreateCookieContainer_params *)args;
@@ -337,7 +337,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_ReleaseCookieContainer( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_ReleaseCookieContainer( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_ReleaseCookieContainer_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_ReleaseCookieContainer_params *)args;
@@ -355,7 +355,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetCookie( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetCookie( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetCookie_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetCookie_params *)args;
@@ -373,7 +373,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestCookieContainer
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestCookieContainer( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestCookieContainer_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestCookieContainer_params *)args;
@@ -391,7 +391,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestUserAgentInfo( 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestUserAgentInfo( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestUserAgentInfo_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestUserAgentInfo_params *)args;
@@ -409,7 +409,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestRequiresVerifie
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestRequiresVerifiedCertificate( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestRequiresVerifiedCertificate_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestRequiresVerifiedCertificate_params *)args;
@@ -427,7 +427,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestAbsoluteTimeout
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestAbsoluteTimeoutMS( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestAbsoluteTimeoutMS_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_SetHTTPRequestAbsoluteTimeoutMS_params *)args;
@@ -445,7 +445,7 @@ NTSTATUS ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPRequestWasTimedOut( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPRequestWasTimedOut( void *args )
 {
     struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPRequestWasTimedOut_params *params = (struct wow64_ISteamHTTP_STEAMHTTP_INTERFACE_VERSION002_GetHTTPRequestWasTimedOut_params *)args;

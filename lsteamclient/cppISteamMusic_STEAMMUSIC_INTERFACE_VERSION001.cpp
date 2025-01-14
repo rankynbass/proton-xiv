@@ -13,7 +13,7 @@ NTSTATUS ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_BIsEnabled( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_BIsEnabled( void *args )
 {
     struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_BIsEnabled_params *params = (struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_BIsEnabled_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_BIsPlaying( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_BIsPlaying( void *args )
 {
     struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_BIsPlaying_params *params = (struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_BIsPlaying_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_GetPlaybackStatus( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_GetPlaybackStatus( void *args )
 {
     struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_GetPlaybackStatus_params *params = (struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_GetPlaybackStatus_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_Play( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_Play( void *args )
 {
     struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_Play_params *params = (struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_Play_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_Pause( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_Pause( void *args )
 {
     struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_Pause_params *params = (struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_Pause_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_PlayPrevious( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_PlayPrevious( void *args )
 {
     struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_PlayPrevious_params *params = (struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_PlayPrevious_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_PlayNext( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_PlayNext( void *args )
 {
     struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_PlayNext_params *params = (struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_PlayNext_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_SetVolume( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_SetVolume( void *args )
 {
     struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_SetVolume_params *params = (struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_SetVolume_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_GetVolume( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_GetVolume( void *args )
 {
     struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_GetVolume_params *params = (struct wow64_ISteamMusic_STEAMMUSIC_INTERFACE_VERSION001_GetVolume_params *)args;

@@ -13,7 +13,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_GetFavoriteGameCount( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_GetFavoriteGameCount( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetFavoriteGameCount_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetFavoriteGameCount_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_GetFavoriteGame( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_GetFavoriteGame( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetFavoriteGame_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetFavoriteGame_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_AddFavoriteGame( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_AddFavoriteGame( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_AddFavoriteGame_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_AddFavoriteGame_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_RemoveFavoriteGame( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_RemoveFavoriteGame( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_RemoveFavoriteGame_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_RemoveFavoriteGame_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_RequestLobbyList( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_RequestLobbyList( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_RequestLobbyList_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_RequestLobbyList_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListStringFilter( 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListStringFilter( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListStringFilter_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListStringFilter_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListNumericalFilte
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListNumericalFilter( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListNumericalFilter_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListNumericalFilter_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListNearValueFilte
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListNearValueFilter( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListNearValueFilter_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListNearValueFilter_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListFilterSlotsAva
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListFilterSlotsAvailable( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListFilterSlotsAvailable_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListFilterSlotsAvailable_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListDistanceFilter
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListDistanceFilter( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListDistanceFilter_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListDistanceFilter_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListResultCountFil
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListResultCountFilter( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListResultCountFilter_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListResultCountFilter_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListCompatibleMemb
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListCompatibleMembersFilter( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListCompatibleMembersFilter_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_AddRequestLobbyListCompatibleMembersFilter_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_GetLobbyByIndex( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyByIndex( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyByIndex_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyByIndex_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_CreateLobby( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_CreateLobby( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_CreateLobby_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_CreateLobby_params *)args;
@@ -265,7 +265,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_JoinLobby( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_JoinLobby( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_JoinLobby_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_JoinLobby_params *)args;
@@ -283,7 +283,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_LeaveLobby( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_LeaveLobby( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_LeaveLobby_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_LeaveLobby_params *)args;
@@ -301,7 +301,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_InviteUserToLobby( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_InviteUserToLobby( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_InviteUserToLobby_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_InviteUserToLobby_params *)args;
@@ -319,7 +319,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_GetNumLobbyMembers( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_GetNumLobbyMembers( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetNumLobbyMembers_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetNumLobbyMembers_params *)args;
@@ -337,7 +337,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_GetLobbyMemberByIndex( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyMemberByIndex( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyMemberByIndex_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyMemberByIndex_params *)args;
@@ -355,7 +355,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_GetLobbyData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyData( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyData_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyData_params *)args;
@@ -373,7 +373,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_SetLobbyData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyData( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyData_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyData_params *)args;
@@ -391,7 +391,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_GetLobbyDataCount( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyDataCount( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyDataCount_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyDataCount_params *)args;
@@ -409,7 +409,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_GetLobbyDataByIndex( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyDataByIndex( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyDataByIndex_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyDataByIndex_params *)args;
@@ -427,7 +427,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_DeleteLobbyData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_DeleteLobbyData( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_DeleteLobbyData_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_DeleteLobbyData_params *)args;
@@ -445,7 +445,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_GetLobbyMemberData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyMemberData( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyMemberData_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyMemberData_params *)args;
@@ -463,7 +463,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_SetLobbyMemberData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyMemberData( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyMemberData_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyMemberData_params *)args;
@@ -481,7 +481,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_SendLobbyChatMsg( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_SendLobbyChatMsg( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_SendLobbyChatMsg_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_SendLobbyChatMsg_params *)args;
@@ -499,7 +499,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_GetLobbyChatEntry( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyChatEntry( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyChatEntry_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyChatEntry_params *)args;
@@ -517,7 +517,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_RequestLobbyData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_RequestLobbyData( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_RequestLobbyData_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_RequestLobbyData_params *)args;
@@ -535,7 +535,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_SetLobbyGameServer( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyGameServer( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyGameServer_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyGameServer_params *)args;
@@ -553,7 +553,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_GetLobbyGameServer( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyGameServer( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyGameServer_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyGameServer_params *)args;
@@ -571,7 +571,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_SetLobbyMemberLimit( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyMemberLimit( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyMemberLimit_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyMemberLimit_params *)args;
@@ -589,7 +589,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_GetLobbyMemberLimit( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyMemberLimit( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyMemberLimit_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyMemberLimit_params *)args;
@@ -607,7 +607,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_SetLobbyType( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyType( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyType_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyType_params *)args;
@@ -625,7 +625,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_SetLobbyJoinable( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyJoinable( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyJoinable_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyJoinable_params *)args;
@@ -643,7 +643,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_GetLobbyOwner( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyOwner( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyOwner_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_GetLobbyOwner_params *)args;
@@ -661,7 +661,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_SetLobbyOwner( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyOwner( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyOwner_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_SetLobbyOwner_params *)args;
@@ -679,7 +679,7 @@ NTSTATUS ISteamMatchmaking_SteamMatchMaking009_SetLinkedLobby( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamMatchmaking_SteamMatchMaking009_SetLinkedLobby( void *args )
 {
     struct wow64_ISteamMatchmaking_SteamMatchMaking009_SetLinkedLobby_params *params = (struct wow64_ISteamMatchmaking_SteamMatchMaking009_SetLinkedLobby_params *)args;

@@ -9685,7 +9685,7 @@ struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSI
 
 void init_winISteamRemoteStorage_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION001_rtti( base );
     init_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION002_rtti( base );
     init_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION003_rtti( base );
@@ -9701,5 +9701,5 @@ void init_winISteamRemoteStorage_rtti( char *base )
     init_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION013_rtti( base );
     init_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION014_rtti( base );
     init_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION016_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

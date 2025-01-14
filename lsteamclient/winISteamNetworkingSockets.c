@@ -3261,12 +3261,12 @@ struct w_iface *create_winISteamNetworkingSockets_SteamNetworkingSockets012( str
 
 void init_winISteamNetworkingSockets_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winISteamNetworkingSockets_SteamNetworkingSockets002_rtti( base );
     init_winISteamNetworkingSockets_SteamNetworkingSockets004_rtti( base );
     init_winISteamNetworkingSockets_SteamNetworkingSockets006_rtti( base );
     init_winISteamNetworkingSockets_SteamNetworkingSockets008_rtti( base );
     init_winISteamNetworkingSockets_SteamNetworkingSockets009_rtti( base );
     init_winISteamNetworkingSockets_SteamNetworkingSockets012_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

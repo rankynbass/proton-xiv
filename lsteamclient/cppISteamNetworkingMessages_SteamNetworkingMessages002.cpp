@@ -13,7 +13,7 @@ NTSTATUS ISteamNetworkingMessages_SteamNetworkingMessages002_SendMessageToUser( 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingMessages_SteamNetworkingMessages002_SendMessageToUser( void *args )
 {
     struct wow64_ISteamNetworkingMessages_SteamNetworkingMessages002_SendMessageToUser_params *params = (struct wow64_ISteamNetworkingMessages_SteamNetworkingMessages002_SendMessageToUser_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamNetworkingMessages_SteamNetworkingMessages002_AcceptSessionWithUs
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingMessages_SteamNetworkingMessages002_AcceptSessionWithUser( void *args )
 {
     struct wow64_ISteamNetworkingMessages_SteamNetworkingMessages002_AcceptSessionWithUser_params *params = (struct wow64_ISteamNetworkingMessages_SteamNetworkingMessages002_AcceptSessionWithUser_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamNetworkingMessages_SteamNetworkingMessages002_CloseSessionWithUse
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingMessages_SteamNetworkingMessages002_CloseSessionWithUser( void *args )
 {
     struct wow64_ISteamNetworkingMessages_SteamNetworkingMessages002_CloseSessionWithUser_params *params = (struct wow64_ISteamNetworkingMessages_SteamNetworkingMessages002_CloseSessionWithUser_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamNetworkingMessages_SteamNetworkingMessages002_CloseChannelWithUse
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingMessages_SteamNetworkingMessages002_CloseChannelWithUser( void *args )
 {
     struct wow64_ISteamNetworkingMessages_SteamNetworkingMessages002_CloseChannelWithUser_params *params = (struct wow64_ISteamNetworkingMessages_SteamNetworkingMessages002_CloseChannelWithUser_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamNetworkingMessages_SteamNetworkingMessages002_GetSessionConnectio
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamNetworkingMessages_SteamNetworkingMessages002_GetSessionConnectionInfo( void *args )
 {
     struct wow64_ISteamNetworkingMessages_SteamNetworkingMessages002_GetSessionConnectionInfo_params *params = (struct wow64_ISteamNetworkingMessages_SteamNetworkingMessages002_GetSessionConnectionInfo_params *)args;

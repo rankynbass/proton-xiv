@@ -13,7 +13,7 @@ NTSTATUS ISteamGameCoordinator_SteamGameCoordinator001_SendMessage( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameCoordinator_SteamGameCoordinator001_SendMessage( void *args )
 {
     struct wow64_ISteamGameCoordinator_SteamGameCoordinator001_SendMessage_params *params = (struct wow64_ISteamGameCoordinator_SteamGameCoordinator001_SendMessage_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamGameCoordinator_SteamGameCoordinator001_IsMessageAvailable( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameCoordinator_SteamGameCoordinator001_IsMessageAvailable( void *args )
 {
     struct wow64_ISteamGameCoordinator_SteamGameCoordinator001_IsMessageAvailable_params *params = (struct wow64_ISteamGameCoordinator_SteamGameCoordinator001_IsMessageAvailable_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamGameCoordinator_SteamGameCoordinator001_RetrieveMessage( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamGameCoordinator_SteamGameCoordinator001_RetrieveMessage( void *args )
 {
     struct wow64_ISteamGameCoordinator_SteamGameCoordinator001_RetrieveMessage_params *params = (struct wow64_ISteamGameCoordinator_SteamGameCoordinator001_RetrieveMessage_params *)args;

@@ -596,7 +596,7 @@ class Struct:
             out(u'#endif /* __cplusplus */\n')
 
         if self.name in ARRAY_WOW64_STRUCTS and '64' in prefix:
-            out(u'#if defined(__cplusplus) && defined(__x86_64__)\n')
+            out(u'#if defined(__cplusplus) && (defined(__x86_64__) || defined(__aarch64__))\n')
             out(f'    {prefix}{version}() = default;\n')
             out(f'    {prefix}{version}( w32_{version} const& );\n')
             out(f'    ~{prefix}{version}();\n')
@@ -619,7 +619,7 @@ class Struct:
         u_bits = abi[1:3] if abi[0] == 'u' else self._abi[1:3]
 
         if u_bits == '64':
-            out(u'#ifdef __x86_64__\n')
+            out(u'#if defined(__x86_64__) || defined(__aarch64__)\n')
         elif u_bits == '32':
             out(u'#ifdef __i386__\n')
         else:
@@ -1236,7 +1236,7 @@ def handle_class(klass):
             if is_manual_method(klass, method, "u"):
                 continue
             handle_method_cpp(method, klass.name, out, False)
-            out(u'\n#ifdef __x86_64__\n')
+            out(u'\n#if defined(__x86_64__) || defined(__aarch64__)\n')
             handle_method_cpp(method, klass.name, out, True)
             out(u'#endif\n\n')
 
@@ -1473,7 +1473,7 @@ for name in sorted(set(k.name for k in all_classes.values())):
         out = file.write
         out(f'void init_win{name}_rtti( char *base )\n')
         out(u'{\n')
-        out(u'#ifdef __x86_64__\n')
+        out(u'#if defined(__x86_64__) || defined(__aarch64__)\n')
 
 for _, klass in sorted(all_classes.items()):
     with open(f"win{klass.name}.c", "a") as file:
@@ -1483,7 +1483,7 @@ for _, klass in sorted(all_classes.items()):
 for name in sorted(set(k.name for k in all_classes.values())):
     with open(f"win{name}.c", "a") as file:
         out = file.write
-        out(u'#endif /* __x86_64__ */\n')
+        out(u'#endif /* defined(__x86_64__) || defined(__aarch64__) */\n')
         out(u'}\n')
 
 
@@ -1621,7 +1621,7 @@ with open('steamclient_structs_generated.h', 'w') as file:
             out(f'typedef w32_{version} w_{version};\n')
             out(f'typedef u32_{version} u_{version};\n')
             out(u'#endif\n')
-            out(u'#ifdef __x86_64__\n')
+            out(u'#if defined(__x86_64__) || defined(__aarch64__)\n')
             out(f'typedef w64_{version} w_{version};\n')
             out(f'typedef u64_{version} u_{version};\n')
             out(u'#endif\n')
@@ -1721,7 +1721,7 @@ with open('unixlib_generated.cpp', 'w') as file:
     out(u'};\n')
     out(u'\n')
 
-    out(u'#ifdef __x86_64__\n')
+    out(u'#if defined(__x86_64__) || defined(__aarch64__)\n')
     out(u'extern "C" const unixlib_entry_t __wine_unix_call_wow64_funcs[] =\n')
     out(u'{\n')
     for func in UNIX_FUNCS:
@@ -1812,7 +1812,7 @@ with open('unixlib_generated.cpp', 'w') as file:
     out(u'const struct callback_def wow64_callback_data[] = {};\n')
     write_callbacks("", "u32", "w32")
     out(u'#endif\n')
-    out(u'#ifdef __x86_64__\n')
+    out(u'#if defined(__x86_64__) || defined(__aarch64__)\n')
     write_callbacks("wow64_", "u64", "w32")
     write_callbacks("", "u64", "w64")
     out(u'#endif\n')

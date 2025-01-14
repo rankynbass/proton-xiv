@@ -13,7 +13,7 @@ NTSTATUS ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsPa
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsParentalLockEnabled( void *args )
 {
     struct wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsParentalLockEnabled_params *params = (struct wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsParentalLockEnabled_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsPa
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsParentalLockLocked( void *args )
 {
     struct wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsParentalLockLocked_params *params = (struct wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsParentalLockLocked_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsAp
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsAppBlocked( void *args )
 {
     struct wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsAppBlocked_params *params = (struct wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsAppBlocked_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsAp
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsAppInBlockList( void *args )
 {
     struct wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsAppInBlockList_params *params = (struct wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsAppInBlockList_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsFe
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsFeatureBlocked( void *args )
 {
     struct wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsFeatureBlocked_params *params = (struct wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsFeatureBlocked_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsFe
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsFeatureInBlockList( void *args )
 {
     struct wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsFeatureInBlockList_params *params = (struct wow64_ISteamParentalSettings_STEAMPARENTALSETTINGS_INTERFACE_VERSION001_BIsFeatureInBlockList_params *)args;
