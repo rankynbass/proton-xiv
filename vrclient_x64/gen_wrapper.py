@@ -415,7 +415,7 @@ class Struct:
         u_bits = abi[1:3] if abi[0] == 'u' else self._abi[1:3]
 
         if u_bits == '64':
-            out(u'#ifdef __x86_64__\n')
+            out(u'#if defined(__x86_64__) || defined(__aarch64__)\n')
         elif u_bits == '32':
             out(u'#ifdef __i386__\n')
         else:
@@ -1001,7 +1001,7 @@ def handle_class(klass):
             if is_manual_method(klass, method, "u"):
                 continue
             handle_method_cpp(method, klass.name, out, False)
-            out(u'\n#ifdef __x86_64__\n')
+            out(u'\n#if defined(__x86_64__) || defined(__aarch64__)\n')
             handle_method_cpp(method, klass.name, out, True)
             out(u'#endif\n\n')
 
@@ -1187,20 +1187,25 @@ def generate_flatapi_c():
     with open("flatapi.c", "w") as f:
         f.write(r"""/* This file is auto-generated, do not edit. */
 
+#if 0
+#pragma makedep arm64ec_x64
+#endif
+
 #include <stdarg.h>
 
 #include "windef.h"
 #include "winbase.h"
+#include "wine/debug.h"
 
 #include "flatapi.h"
 
-#ifdef __i386__
+#if defined(__i386__)
 __ASM_GLOBAL_FUNC(call_flat_method,
     "popl %eax\n\t"
     "pushl %ecx\n\t"
     "pushl %eax\n\t"
     "jmp *%edx");
-#else
+#elif defined(__x86_64__)
 // handles "this" and up to 3 parameters
 __ASM_GLOBAL_FUNC(call_flat_method,
     "movq %r8, %r9\n\t" // shift over arguments
@@ -1253,6 +1258,14 @@ extern void call_flat_method_f(void);
         f.write('    return call_flat_method%s_f;\n' % max_c_api_param_count)
         f.write('}\n')
 
+        f.write('#else\n\n')
+        f.write('WINE_DEFAULT_DEBUG_CHANNEL(vrclient);\n\n')
+        f.write('pfn_call_flat_method\n')
+        f.write('get_call_flat_method_pfn( int param_count, BOOL has_floats, BOOL is_4th_float )\n')
+        f.write('{\n')
+        f.write('    ERR("Not implemented!\\n");\n')
+        f.write('    return NULL;\n')
+        f.write('}\n\n')
         f.write("#endif\n")
 
 
@@ -1458,7 +1471,7 @@ for name in sorted(set(k.name for k in all_classes.values())):
         out = file.write
         out(f'void init_win{name}_rtti( char *base )\n')
         out(u'{\n')
-        out(u'#ifdef __x86_64__\n')
+        out(u'#if defined(__x86_64__) || defined(__aarch64__)\n')
 
 for _, klass in sorted(all_classes.items()):
     with open(f"win{klass.name}.c", "a") as file:
@@ -1468,7 +1481,7 @@ for _, klass in sorted(all_classes.items()):
 for name in sorted(set(k.name for k in all_classes.values())):
     with open(f"win{name}.c", "a") as file:
         out = file.write
-        out(u'#endif /* __x86_64__ */\n')
+        out(u'#endif /* defined(__x86_64__) || defined(__aarch64__) */\n')
         out(u'}\n')
 
 
@@ -1623,7 +1636,7 @@ with open('vrclient_structs_generated.h', 'w') as file:
             out(f'typedef w32_{version} w_{version};\n')
             out(f'typedef u32_{version} u_{version};\n')
             out(u'#endif\n')
-            out(u'#ifdef __x86_64__\n')
+            out(u'#if defined(__x86_64__) || defined(__aarch64__)\n')
             out(f'typedef w64_{version} w_{version};\n')
             out(f'typedef u64_{version} u_{version};\n')
             out(u'#endif\n')
@@ -1719,7 +1732,7 @@ with open('unixlib_generated.cpp', 'w') as file:
     out(u'};\n')
     out(u'\n')
 
-    out(u'#ifdef __x86_64__\n')
+    out(u'#if defined(__x86_64__) || defined(__aarch64__)\n')
     out(u'extern "C" const unixlib_entry_t __wine_unix_call_wow64_funcs[] =\n')
     out(u'{\n')
     for func in UNIX_FUNCS:

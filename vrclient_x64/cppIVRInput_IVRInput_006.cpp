@@ -15,7 +15,7 @@ NTSTATUS IVRInput_IVRInput_006_SetActionManifestPath( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_SetActionManifestPath( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_SetActionManifestPath_params *params = (struct wow64_IVRInput_IVRInput_006_SetActionManifestPath_params *)args;
@@ -35,7 +35,7 @@ NTSTATUS IVRInput_IVRInput_006_GetActionSetHandle( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetActionSetHandle( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetActionSetHandle_params *params = (struct wow64_IVRInput_IVRInput_006_GetActionSetHandle_params *)args;
@@ -53,7 +53,7 @@ NTSTATUS IVRInput_IVRInput_006_GetActionHandle( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetActionHandle( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetActionHandle_params *params = (struct wow64_IVRInput_IVRInput_006_GetActionHandle_params *)args;
@@ -71,7 +71,7 @@ NTSTATUS IVRInput_IVRInput_006_GetInputSourceHandle( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetInputSourceHandle( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetInputSourceHandle_params *params = (struct wow64_IVRInput_IVRInput_006_GetInputSourceHandle_params *)args;
@@ -89,7 +89,7 @@ NTSTATUS IVRInput_IVRInput_006_UpdateActionState( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_UpdateActionState( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_UpdateActionState_params *params = (struct wow64_IVRInput_IVRInput_006_UpdateActionState_params *)args;
@@ -111,7 +111,7 @@ NTSTATUS IVRInput_IVRInput_006_GetDigitalActionData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetDigitalActionData( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetDigitalActionData_params *params = (struct wow64_IVRInput_IVRInput_006_GetDigitalActionData_params *)args;
@@ -137,7 +137,7 @@ NTSTATUS IVRInput_IVRInput_006_GetAnalogActionData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetAnalogActionData( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetAnalogActionData_params *params = (struct wow64_IVRInput_IVRInput_006_GetAnalogActionData_params *)args;
@@ -163,7 +163,7 @@ NTSTATUS IVRInput_IVRInput_006_GetPoseActionDataRelativeToNow( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetPoseActionDataRelativeToNow( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetPoseActionDataRelativeToNow_params *params = (struct wow64_IVRInput_IVRInput_006_GetPoseActionDataRelativeToNow_params *)args;
@@ -189,7 +189,7 @@ NTSTATUS IVRInput_IVRInput_006_GetPoseActionDataForNextFrame( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetPoseActionDataForNextFrame( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetPoseActionDataForNextFrame_params *params = (struct wow64_IVRInput_IVRInput_006_GetPoseActionDataForNextFrame_params *)args;
@@ -215,7 +215,7 @@ NTSTATUS IVRInput_IVRInput_006_GetSkeletalActionData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetSkeletalActionData( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetSkeletalActionData_params *params = (struct wow64_IVRInput_IVRInput_006_GetSkeletalActionData_params *)args;
@@ -237,7 +237,7 @@ NTSTATUS IVRInput_IVRInput_006_GetBoneCount( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetBoneCount( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetBoneCount_params *params = (struct wow64_IVRInput_IVRInput_006_GetBoneCount_params *)args;
@@ -255,7 +255,7 @@ NTSTATUS IVRInput_IVRInput_006_GetBoneHierarchy( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetBoneHierarchy( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetBoneHierarchy_params *params = (struct wow64_IVRInput_IVRInput_006_GetBoneHierarchy_params *)args;
@@ -273,7 +273,7 @@ NTSTATUS IVRInput_IVRInput_006_GetBoneName( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetBoneName( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetBoneName_params *params = (struct wow64_IVRInput_IVRInput_006_GetBoneName_params *)args;
@@ -291,7 +291,7 @@ NTSTATUS IVRInput_IVRInput_006_GetSkeletalReferenceTransforms( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetSkeletalReferenceTransforms( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetSkeletalReferenceTransforms_params *params = (struct wow64_IVRInput_IVRInput_006_GetSkeletalReferenceTransforms_params *)args;
@@ -309,7 +309,7 @@ NTSTATUS IVRInput_IVRInput_006_GetSkeletalTrackingLevel( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetSkeletalTrackingLevel( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetSkeletalTrackingLevel_params *params = (struct wow64_IVRInput_IVRInput_006_GetSkeletalTrackingLevel_params *)args;
@@ -327,7 +327,7 @@ NTSTATUS IVRInput_IVRInput_006_GetSkeletalBoneData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetSkeletalBoneData( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetSkeletalBoneData_params *params = (struct wow64_IVRInput_IVRInput_006_GetSkeletalBoneData_params *)args;
@@ -345,7 +345,7 @@ NTSTATUS IVRInput_IVRInput_006_GetSkeletalSummaryData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetSkeletalSummaryData( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetSkeletalSummaryData_params *params = (struct wow64_IVRInput_IVRInput_006_GetSkeletalSummaryData_params *)args;
@@ -363,7 +363,7 @@ NTSTATUS IVRInput_IVRInput_006_GetSkeletalBoneDataCompressed( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetSkeletalBoneDataCompressed( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetSkeletalBoneDataCompressed_params *params = (struct wow64_IVRInput_IVRInput_006_GetSkeletalBoneDataCompressed_params *)args;
@@ -381,7 +381,7 @@ NTSTATUS IVRInput_IVRInput_006_DecompressSkeletalBoneData( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_DecompressSkeletalBoneData( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_DecompressSkeletalBoneData_params *params = (struct wow64_IVRInput_IVRInput_006_DecompressSkeletalBoneData_params *)args;
@@ -399,7 +399,7 @@ NTSTATUS IVRInput_IVRInput_006_TriggerHapticVibrationAction( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_TriggerHapticVibrationAction( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_TriggerHapticVibrationAction_params *params = (struct wow64_IVRInput_IVRInput_006_TriggerHapticVibrationAction_params *)args;
@@ -417,7 +417,7 @@ NTSTATUS IVRInput_IVRInput_006_GetActionOrigins( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetActionOrigins( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetActionOrigins_params *params = (struct wow64_IVRInput_IVRInput_006_GetActionOrigins_params *)args;
@@ -435,7 +435,7 @@ NTSTATUS IVRInput_IVRInput_006_GetOriginLocalizedName( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetOriginLocalizedName( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetOriginLocalizedName_params *params = (struct wow64_IVRInput_IVRInput_006_GetOriginLocalizedName_params *)args;
@@ -457,7 +457,7 @@ NTSTATUS IVRInput_IVRInput_006_GetOriginTrackedDeviceInfo( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_GetOriginTrackedDeviceInfo( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_GetOriginTrackedDeviceInfo_params *params = (struct wow64_IVRInput_IVRInput_006_GetOriginTrackedDeviceInfo_params *)args;
@@ -479,7 +479,7 @@ NTSTATUS IVRInput_IVRInput_006_ShowActionOrigins( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_ShowActionOrigins( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_ShowActionOrigins_params *params = (struct wow64_IVRInput_IVRInput_006_ShowActionOrigins_params *)args;
@@ -497,7 +497,7 @@ NTSTATUS IVRInput_IVRInput_006_ShowBindingsForActionSet( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_ShowBindingsForActionSet( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_ShowBindingsForActionSet_params *params = (struct wow64_IVRInput_IVRInput_006_ShowBindingsForActionSet_params *)args;
@@ -515,7 +515,7 @@ NTSTATUS IVRInput_IVRInput_006_IsUsingLegacyInput( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRInput_IVRInput_006_IsUsingLegacyInput( void *args )
 {
     struct wow64_IVRInput_IVRInput_006_IsUsingLegacyInput_params *params = (struct wow64_IVRInput_IVRInput_006_IsUsingLegacyInput_params *)args;

@@ -17,7 +17,7 @@ NTSTATUS IVRScreenshots_IVRScreenshots_001_RequestScreenshot( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRScreenshots_IVRScreenshots_001_RequestScreenshot( void *args )
 {
     struct wow64_IVRScreenshots_IVRScreenshots_001_RequestScreenshot_params *params = (struct wow64_IVRScreenshots_IVRScreenshots_001_RequestScreenshot_params *)args;
@@ -39,7 +39,7 @@ NTSTATUS IVRScreenshots_IVRScreenshots_001_HookScreenshot( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRScreenshots_IVRScreenshots_001_HookScreenshot( void *args )
 {
     struct wow64_IVRScreenshots_IVRScreenshots_001_HookScreenshot_params *params = (struct wow64_IVRScreenshots_IVRScreenshots_001_HookScreenshot_params *)args;
@@ -57,7 +57,7 @@ NTSTATUS IVRScreenshots_IVRScreenshots_001_GetScreenshotPropertyType( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRScreenshots_IVRScreenshots_001_GetScreenshotPropertyType( void *args )
 {
     struct wow64_IVRScreenshots_IVRScreenshots_001_GetScreenshotPropertyType_params *params = (struct wow64_IVRScreenshots_IVRScreenshots_001_GetScreenshotPropertyType_params *)args;
@@ -76,7 +76,7 @@ NTSTATUS IVRScreenshots_IVRScreenshots_001_GetScreenshotPropertyFilename( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRScreenshots_IVRScreenshots_001_GetScreenshotPropertyFilename( void *args )
 {
     struct wow64_IVRScreenshots_IVRScreenshots_001_GetScreenshotPropertyFilename_params *params = (struct wow64_IVRScreenshots_IVRScreenshots_001_GetScreenshotPropertyFilename_params *)args;
@@ -95,7 +95,7 @@ NTSTATUS IVRScreenshots_IVRScreenshots_001_UpdateScreenshotProgress( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRScreenshots_IVRScreenshots_001_UpdateScreenshotProgress( void *args )
 {
     struct wow64_IVRScreenshots_IVRScreenshots_001_UpdateScreenshotProgress_params *params = (struct wow64_IVRScreenshots_IVRScreenshots_001_UpdateScreenshotProgress_params *)args;
@@ -117,7 +117,7 @@ NTSTATUS IVRScreenshots_IVRScreenshots_001_TakeStereoScreenshot( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRScreenshots_IVRScreenshots_001_TakeStereoScreenshot( void *args )
 {
     struct wow64_IVRScreenshots_IVRScreenshots_001_TakeStereoScreenshot_params *params = (struct wow64_IVRScreenshots_IVRScreenshots_001_TakeStereoScreenshot_params *)args;
@@ -143,7 +143,7 @@ NTSTATUS IVRScreenshots_IVRScreenshots_001_SubmitScreenshot( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRScreenshots_IVRScreenshots_001_SubmitScreenshot( void *args )
 {
     struct wow64_IVRScreenshots_IVRScreenshots_001_SubmitScreenshot_params *params = (struct wow64_IVRScreenshots_IVRScreenshots_001_SubmitScreenshot_params *)args;

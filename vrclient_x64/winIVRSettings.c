@@ -739,9 +739,9 @@ void destroy_winIVRSettings_IVRSettings_003_FnTable(struct w_iface *object)
 
 void init_winIVRSettings_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winIVRSettings_IVRSettings_001_rtti( base );
     init_winIVRSettings_IVRSettings_002_rtti( base );
     init_winIVRSettings_IVRSettings_003_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

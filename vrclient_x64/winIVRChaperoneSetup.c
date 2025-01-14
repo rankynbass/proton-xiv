@@ -990,9 +990,9 @@ void destroy_winIVRChaperoneSetup_IVRChaperoneSetup_006_FnTable(struct w_iface *
 
 void init_winIVRChaperoneSetup_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winIVRChaperoneSetup_IVRChaperoneSetup_004_rtti( base );
     init_winIVRChaperoneSetup_IVRChaperoneSetup_005_rtti( base );
     init_winIVRChaperoneSetup_IVRChaperoneSetup_006_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

@@ -195,8 +195,8 @@ void destroy_winIVRNotifications_IVRNotifications_002_FnTable(struct w_iface *ob
 
 void init_winIVRNotifications_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winIVRNotifications_IVRNotifications_001_rtti( base );
     init_winIVRNotifications_IVRNotifications_002_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

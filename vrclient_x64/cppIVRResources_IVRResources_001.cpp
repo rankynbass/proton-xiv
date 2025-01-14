@@ -13,7 +13,7 @@ NTSTATUS IVRResources_IVRResources_001_LoadSharedResource( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRResources_IVRResources_001_LoadSharedResource( void *args )
 {
     struct wow64_IVRResources_IVRResources_001_LoadSharedResource_params *params = (struct wow64_IVRResources_IVRResources_001_LoadSharedResource_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS IVRResources_IVRResources_001_GetResourceFullPath( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRResources_IVRResources_001_GetResourceFullPath( void *args )
 {
     struct wow64_IVRResources_IVRResources_001_GetResourceFullPath_params *params = (struct wow64_IVRResources_IVRResources_001_GetResourceFullPath_params *)args;

@@ -1893,7 +1893,7 @@ struct w32_RenderModel_TextureMap_t_1237
 typedef w32_RenderModel_TextureMap_t_1237 w_RenderModel_TextureMap_t_1237;
 typedef u32_RenderModel_TextureMap_t_1237 u_RenderModel_TextureMap_t_1237;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RenderModel_TextureMap_t_1237 w_RenderModel_TextureMap_t_1237;
 typedef u64_RenderModel_TextureMap_t_1237 u_RenderModel_TextureMap_t_1237;
 #endif
@@ -1946,7 +1946,7 @@ struct w32_RenderModel_TextureMap_t_11111
 typedef w32_RenderModel_TextureMap_t_11111 w_RenderModel_TextureMap_t_11111;
 typedef u32_RenderModel_TextureMap_t_11111 u_RenderModel_TextureMap_t_11111;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RenderModel_TextureMap_t_11111 w_RenderModel_TextureMap_t_11111;
 typedef u64_RenderModel_TextureMap_t_11111 u_RenderModel_TextureMap_t_11111;
 #endif
@@ -1995,7 +1995,7 @@ struct w32_RenderModel_TextureMap_t_090
 typedef w32_RenderModel_TextureMap_t_090 w_RenderModel_TextureMap_t_090;
 typedef u32_RenderModel_TextureMap_t_090 u_RenderModel_TextureMap_t_090;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RenderModel_TextureMap_t_090 w_RenderModel_TextureMap_t_090;
 typedef u64_RenderModel_TextureMap_t_090 u_RenderModel_TextureMap_t_090;
 #endif
@@ -2028,7 +2028,7 @@ struct w32_Texture_t
 typedef w32_Texture_t w_Texture_t;
 typedef u32_Texture_t u_Texture_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_Texture_t w_Texture_t;
 typedef u64_Texture_t u_Texture_t;
 #endif
@@ -2061,7 +2061,7 @@ struct w32_VRTextureDepthInfo_t
 typedef w32_VRTextureDepthInfo_t w_VRTextureDepthInfo_t;
 typedef u32_VRTextureDepthInfo_t u_VRTextureDepthInfo_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VRTextureDepthInfo_t w_VRTextureDepthInfo_t;
 typedef u64_VRTextureDepthInfo_t u_VRTextureDepthInfo_t;
 #endif
@@ -2092,7 +2092,7 @@ struct w32_AppOverrideKeys_t
 typedef w32_AppOverrideKeys_t w_AppOverrideKeys_t;
 typedef u32_AppOverrideKeys_t u_AppOverrideKeys_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_AppOverrideKeys_t w_AppOverrideKeys_t;
 typedef u64_AppOverrideKeys_t u_AppOverrideKeys_t;
 #endif
@@ -2159,7 +2159,7 @@ struct w32_COpenVRContext_11030
 typedef w32_COpenVRContext_11030 w_COpenVRContext_11030;
 typedef u32_COpenVRContext_11030 u_COpenVRContext_11030;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_COpenVRContext_11030 w_COpenVRContext_11030;
 typedef u64_COpenVRContext_11030 u_COpenVRContext_11030;
 #endif
@@ -2222,7 +2222,7 @@ struct w32_COpenVRContext_1517
 typedef w32_COpenVRContext_1517 w_COpenVRContext_1517;
 typedef u32_COpenVRContext_1517 u_COpenVRContext_1517;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_COpenVRContext_1517 w_COpenVRContext_1517;
 typedef u64_COpenVRContext_1517 u_COpenVRContext_1517;
 #endif
@@ -2283,7 +2283,7 @@ struct w32_COpenVRContext_1210
 typedef w32_COpenVRContext_1210 w_COpenVRContext_1210;
 typedef u32_COpenVRContext_1210 u_COpenVRContext_1210;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_COpenVRContext_1210 w_COpenVRContext_1210;
 typedef u64_COpenVRContext_1210 u_COpenVRContext_1210;
 #endif
@@ -2342,7 +2342,7 @@ struct w32_COpenVRContext_1016
 typedef w32_COpenVRContext_1016 w_COpenVRContext_1016;
 typedef u32_COpenVRContext_1016 u_COpenVRContext_1016;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_COpenVRContext_1016 w_COpenVRContext_1016;
 typedef u64_COpenVRContext_1016 u_COpenVRContext_1016;
 #endif
@@ -2399,7 +2399,7 @@ struct w32_COpenVRContext_1015
 typedef w32_COpenVRContext_1015 w_COpenVRContext_1015;
 typedef u32_COpenVRContext_1015 u_COpenVRContext_1015;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_COpenVRContext_1015 w_COpenVRContext_1015;
 typedef u64_COpenVRContext_1015 u_COpenVRContext_1015;
 #endif
@@ -2452,7 +2452,7 @@ struct w32_COpenVRContext_108
 typedef w32_COpenVRContext_108 w_COpenVRContext_108;
 typedef u32_COpenVRContext_108 u_COpenVRContext_108;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_COpenVRContext_108 w_COpenVRContext_108;
 typedef u64_COpenVRContext_108 u_COpenVRContext_108;
 #endif
@@ -2503,7 +2503,7 @@ struct w32_COpenVRContext_102
 typedef w32_COpenVRContext_102 w_COpenVRContext_102;
 typedef u32_COpenVRContext_102 u_COpenVRContext_102;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_COpenVRContext_102 w_COpenVRContext_102;
 typedef u64_COpenVRContext_102 u_COpenVRContext_102;
 #endif
@@ -2552,7 +2552,7 @@ struct w32_COpenVRContext_101
 typedef w32_COpenVRContext_101 w_COpenVRContext_101;
 typedef u32_COpenVRContext_101 u_COpenVRContext_101;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_COpenVRContext_101 w_COpenVRContext_101;
 typedef u64_COpenVRContext_101 u_COpenVRContext_101;
 #endif
@@ -2599,7 +2599,7 @@ struct w32_COpenVRContext_100
 typedef w32_COpenVRContext_100 w_COpenVRContext_100;
 typedef u32_COpenVRContext_100 u_COpenVRContext_100;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_COpenVRContext_100 w_COpenVRContext_100;
 typedef u64_COpenVRContext_100 u_COpenVRContext_100;
 #endif
@@ -2644,7 +2644,7 @@ struct w32_COpenVRContext_0917
 typedef w32_COpenVRContext_0917 w_COpenVRContext_0917;
 typedef u32_COpenVRContext_0917 u_COpenVRContext_0917;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_COpenVRContext_0917 w_COpenVRContext_0917;
 typedef u64_COpenVRContext_0917 u_COpenVRContext_0917;
 #endif
@@ -2706,7 +2706,7 @@ struct u32_CameraVideoStreamFrameHeader_t_1017
 typedef w32_CameraVideoStreamFrameHeader_t_1017 w_CameraVideoStreamFrameHeader_t_1017;
 typedef u32_CameraVideoStreamFrameHeader_t_1017 u_CameraVideoStreamFrameHeader_t_1017;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_CameraVideoStreamFrameHeader_t_1017 w_CameraVideoStreamFrameHeader_t_1017;
 typedef u64_CameraVideoStreamFrameHeader_t_1017 u_CameraVideoStreamFrameHeader_t_1017;
 #endif
@@ -2745,7 +2745,7 @@ struct w32_CameraVideoStreamFrameHeader_t_100
 typedef w32_CameraVideoStreamFrameHeader_t_100 w_CameraVideoStreamFrameHeader_t_100;
 typedef u32_CameraVideoStreamFrameHeader_t_100 u_CameraVideoStreamFrameHeader_t_100;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_CameraVideoStreamFrameHeader_t_100 w_CameraVideoStreamFrameHeader_t_100;
 typedef u64_CameraVideoStreamFrameHeader_t_100 u_CameraVideoStreamFrameHeader_t_100;
 #endif
@@ -2875,7 +2875,7 @@ struct u32_CameraVideoStreamFrame_t_0914
 typedef w32_CameraVideoStreamFrame_t_0914 w_CameraVideoStreamFrame_t_0914;
 typedef u32_CameraVideoStreamFrame_t_0914 u_CameraVideoStreamFrame_t_0914;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_CameraVideoStreamFrame_t_0914 w_CameraVideoStreamFrame_t_0914;
 typedef u64_CameraVideoStreamFrame_t_0914 u_CameraVideoStreamFrame_t_0914;
 #endif
@@ -2960,7 +2960,7 @@ struct w32_CameraVideoStreamFrame_t_0912
 typedef w32_CameraVideoStreamFrame_t_0912 w_CameraVideoStreamFrame_t_0912;
 typedef u32_CameraVideoStreamFrame_t_0912 u_CameraVideoStreamFrame_t_0912;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_CameraVideoStreamFrame_t_0912 w_CameraVideoStreamFrame_t_0912;
 typedef u64_CameraVideoStreamFrame_t_0912 u_CameraVideoStreamFrame_t_0912;
 #endif
@@ -3039,7 +3039,7 @@ struct w32_Compositor_FrameTiming_1017
 typedef w32_Compositor_FrameTiming_1017 w_Compositor_FrameTiming_1017;
 typedef u32_Compositor_FrameTiming_1017 u_Compositor_FrameTiming_1017;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_Compositor_FrameTiming_1017 w_Compositor_FrameTiming_1017;
 typedef u64_Compositor_FrameTiming_1017 u_Compositor_FrameTiming_1017;
 #endif
@@ -3114,7 +3114,7 @@ struct w32_Compositor_FrameTiming_103a
 typedef w32_Compositor_FrameTiming_103a w_Compositor_FrameTiming_103a;
 typedef u32_Compositor_FrameTiming_103a u_Compositor_FrameTiming_103a;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_Compositor_FrameTiming_103a w_Compositor_FrameTiming_103a;
 typedef u64_Compositor_FrameTiming_103a u_Compositor_FrameTiming_103a;
 #endif
@@ -3259,7 +3259,7 @@ struct u32_Compositor_FrameTiming_102
 typedef w32_Compositor_FrameTiming_102 w_Compositor_FrameTiming_102;
 typedef u32_Compositor_FrameTiming_102 u_Compositor_FrameTiming_102;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_Compositor_FrameTiming_102 w_Compositor_FrameTiming_102;
 typedef u64_Compositor_FrameTiming_102 u_Compositor_FrameTiming_102;
 #endif
@@ -3334,7 +3334,7 @@ struct w32_Compositor_FrameTiming_0920
 typedef w32_Compositor_FrameTiming_0920 w_Compositor_FrameTiming_0920;
 typedef u32_Compositor_FrameTiming_0920 u_Compositor_FrameTiming_0920;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_Compositor_FrameTiming_0920 w_Compositor_FrameTiming_0920;
 typedef u64_Compositor_FrameTiming_0920 u_Compositor_FrameTiming_0920;
 #endif
@@ -3405,7 +3405,7 @@ struct w32_Compositor_FrameTiming_0915
 typedef w32_Compositor_FrameTiming_0915 w_Compositor_FrameTiming_0915;
 typedef u32_Compositor_FrameTiming_0915 u_Compositor_FrameTiming_0915;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_Compositor_FrameTiming_0915 w_Compositor_FrameTiming_0915;
 typedef u64_Compositor_FrameTiming_0915 u_Compositor_FrameTiming_0915;
 #endif
@@ -3532,7 +3532,7 @@ struct u32_Compositor_FrameTiming_0914
 typedef w32_Compositor_FrameTiming_0914 w_Compositor_FrameTiming_0914;
 typedef u32_Compositor_FrameTiming_0914 u_Compositor_FrameTiming_0914;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_Compositor_FrameTiming_0914 w_Compositor_FrameTiming_0914;
 typedef u64_Compositor_FrameTiming_0914 u_Compositor_FrameTiming_0914;
 #endif
@@ -3653,7 +3653,7 @@ struct u32_Compositor_FrameTiming_0913
 typedef w32_Compositor_FrameTiming_0913 w_Compositor_FrameTiming_0913;
 typedef u32_Compositor_FrameTiming_0913 u_Compositor_FrameTiming_0913;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_Compositor_FrameTiming_0913 w_Compositor_FrameTiming_0913;
 typedef u64_Compositor_FrameTiming_0913 u_Compositor_FrameTiming_0913;
 #endif
@@ -3772,7 +3772,7 @@ struct u32_Compositor_FrameTiming_0912
 typedef w32_Compositor_FrameTiming_0912 w_Compositor_FrameTiming_0912;
 typedef u32_Compositor_FrameTiming_0912 u_Compositor_FrameTiming_0912;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_Compositor_FrameTiming_0912 w_Compositor_FrameTiming_0912;
 typedef u64_Compositor_FrameTiming_0912 u_Compositor_FrameTiming_0912;
 #endif
@@ -3883,7 +3883,7 @@ struct u32_Compositor_FrameTiming_093
 typedef w32_Compositor_FrameTiming_093 w_Compositor_FrameTiming_093;
 typedef u32_Compositor_FrameTiming_093 u_Compositor_FrameTiming_093;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_Compositor_FrameTiming_093 w_Compositor_FrameTiming_093;
 typedef u64_Compositor_FrameTiming_093 u_Compositor_FrameTiming_093;
 #endif
@@ -3962,7 +3962,7 @@ struct u32_Compositor_FrameTiming_090
 typedef w32_Compositor_FrameTiming_090 w_Compositor_FrameTiming_090;
 typedef u32_Compositor_FrameTiming_090 u_Compositor_FrameTiming_090;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_Compositor_FrameTiming_090 w_Compositor_FrameTiming_090;
 typedef u64_Compositor_FrameTiming_090 u_Compositor_FrameTiming_090;
 #endif
@@ -3996,7 +3996,7 @@ struct w32_D3D12TextureData_t
 typedef w32_D3D12TextureData_t w_D3D12TextureData_t;
 typedef u32_D3D12TextureData_t u_D3D12TextureData_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_D3D12TextureData_t w_D3D12TextureData_t;
 typedef u64_D3D12TextureData_t u_D3D12TextureData_t;
 #endif
@@ -4028,7 +4028,7 @@ struct w32_HiddenAreaMesh_t
 typedef w32_HiddenAreaMesh_t w_HiddenAreaMesh_t;
 typedef u32_HiddenAreaMesh_t u_HiddenAreaMesh_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_HiddenAreaMesh_t w_HiddenAreaMesh_t;
 typedef u64_HiddenAreaMesh_t u_HiddenAreaMesh_t;
 #endif
@@ -4139,7 +4139,7 @@ struct u32_InputAnalogActionData_t
 typedef w32_InputAnalogActionData_t w_InputAnalogActionData_t;
 typedef u32_InputAnalogActionData_t u_InputAnalogActionData_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_InputAnalogActionData_t w_InputAnalogActionData_t;
 typedef u64_InputAnalogActionData_t u_InputAnalogActionData_t;
 #endif
@@ -4199,7 +4199,7 @@ struct u32_InputDigitalActionData_t
 typedef w32_InputDigitalActionData_t w_InputDigitalActionData_t;
 typedef u32_InputDigitalActionData_t u_InputDigitalActionData_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_InputDigitalActionData_t w_InputDigitalActionData_t;
 typedef u64_InputDigitalActionData_t u_InputDigitalActionData_t;
 #endif
@@ -4249,7 +4249,7 @@ struct u32_InputOriginInfo_t
 typedef w32_InputOriginInfo_t w_InputOriginInfo_t;
 typedef u32_InputOriginInfo_t u_InputOriginInfo_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_InputOriginInfo_t w_InputOriginInfo_t;
 typedef u64_InputOriginInfo_t u_InputOriginInfo_t;
 #endif
@@ -4300,7 +4300,7 @@ struct u32_InputPoseActionData_t
 typedef w32_InputPoseActionData_t w_InputPoseActionData_t;
 typedef u32_InputPoseActionData_t u_InputPoseActionData_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_InputPoseActionData_t w_InputPoseActionData_t;
 typedef u64_InputPoseActionData_t u_InputPoseActionData_t;
 #endif
@@ -4348,7 +4348,7 @@ struct u32_InputSkeletalActionData_t_113b
 typedef w32_InputSkeletalActionData_t_113b w_InputSkeletalActionData_t_113b;
 typedef u32_InputSkeletalActionData_t_113b u_InputSkeletalActionData_t_113b;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_InputSkeletalActionData_t_113b w_InputSkeletalActionData_t_113b;
 typedef u64_InputSkeletalActionData_t_113b u_InputSkeletalActionData_t_113b;
 #endif
@@ -4401,7 +4401,7 @@ struct u32_InputSkeletalActionData_t_1016
 typedef w32_InputSkeletalActionData_t_1016 w_InputSkeletalActionData_t_1016;
 typedef u32_InputSkeletalActionData_t_1016 u_InputSkeletalActionData_t_1016;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_InputSkeletalActionData_t_1016 w_InputSkeletalActionData_t_1016;
 typedef u64_InputSkeletalActionData_t_1016 u_InputSkeletalActionData_t_1016;
 #endif
@@ -4449,7 +4449,7 @@ struct u32_InputSkeletonActionData_t
 typedef w32_InputSkeletonActionData_t w_InputSkeletonActionData_t;
 typedef u32_InputSkeletonActionData_t u_InputSkeletonActionData_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_InputSkeletonActionData_t w_InputSkeletonActionData_t;
 typedef u64_InputSkeletonActionData_t u_InputSkeletonActionData_t;
 #endif
@@ -4485,7 +4485,7 @@ struct w32_NotificationBitmap
 typedef w32_NotificationBitmap w_NotificationBitmap;
 typedef u32_NotificationBitmap u_NotificationBitmap;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_NotificationBitmap w_NotificationBitmap;
 typedef u64_NotificationBitmap u_NotificationBitmap;
 #endif
@@ -4521,7 +4521,7 @@ struct w32_NotificationBitmap_t
 typedef w32_NotificationBitmap_t w_NotificationBitmap_t;
 typedef u32_NotificationBitmap_t u_NotificationBitmap_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_NotificationBitmap_t w_NotificationBitmap_t;
 typedef u64_NotificationBitmap_t u_NotificationBitmap_t;
 #endif
@@ -4576,7 +4576,7 @@ struct w32_RenderModel_t_0912
 typedef w32_RenderModel_t_0912 w_RenderModel_t_0912;
 typedef u32_RenderModel_t_0912 u_RenderModel_t_0912;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RenderModel_t_0912 w_RenderModel_t_0912;
 typedef u64_RenderModel_t_0912 u_RenderModel_t_0912;
 #endif
@@ -4635,7 +4635,7 @@ struct w32_RenderModel_t_090
 typedef w32_RenderModel_t_090 w_RenderModel_t_090;
 typedef u32_RenderModel_t_090 u_RenderModel_t_090;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_RenderModel_t_090 w_RenderModel_t_090;
 typedef u64_RenderModel_t_090 u_RenderModel_t_090;
 #endif
@@ -4704,7 +4704,7 @@ struct u32_VRControllerState001_t
 typedef w32_VRControllerState001_t w_VRControllerState001_t;
 typedef u32_VRControllerState001_t u_VRControllerState001_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VRControllerState001_t w_VRControllerState001_t;
 typedef u64_VRControllerState001_t u_VRControllerState001_t;
 #endif
@@ -4773,7 +4773,7 @@ struct u32_VREvent_t_223
 typedef w32_VREvent_t_223 w_VREvent_t_223;
 typedef u32_VREvent_t_223 u_VREvent_t_223;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_223 w_VREvent_t_223;
 typedef u64_VREvent_t_223 u_VREvent_t_223;
 #endif
@@ -4842,7 +4842,7 @@ struct u32_VREvent_t_2010
 typedef w32_VREvent_t_2010 w_VREvent_t_2010;
 typedef u32_VREvent_t_2010 u_VREvent_t_2010;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_2010 w_VREvent_t_2010;
 typedef u64_VREvent_t_2010 u_VREvent_t_2010;
 #endif
@@ -4911,7 +4911,7 @@ struct u32_VREvent_t_1168
 typedef w32_VREvent_t_1168 w_VREvent_t_1168;
 typedef u32_VREvent_t_1168 u_VREvent_t_1168;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_1168 w_VREvent_t_1168;
 typedef u64_VREvent_t_1168 u_VREvent_t_1168;
 #endif
@@ -4980,7 +4980,7 @@ struct u32_VREvent_t_11030
 typedef w32_VREvent_t_11030 w_VREvent_t_11030;
 typedef u32_VREvent_t_11030 u_VREvent_t_11030;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_11030 w_VREvent_t_11030;
 typedef u64_VREvent_t_11030 u_VREvent_t_11030;
 #endif
@@ -5049,7 +5049,7 @@ struct u32_VREvent_t_1322
 typedef w32_VREvent_t_1322 w_VREvent_t_1322;
 typedef u32_VREvent_t_1322 u_VREvent_t_1322;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_1322 w_VREvent_t_1322;
 typedef u64_VREvent_t_1322 u_VREvent_t_1322;
 #endif
@@ -5118,7 +5118,7 @@ struct u32_VREvent_t_1210
 typedef w32_VREvent_t_1210 w_VREvent_t_1210;
 typedef u32_VREvent_t_1210 u_VREvent_t_1210;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_1210 w_VREvent_t_1210;
 typedef u64_VREvent_t_1210 u_VREvent_t_1210;
 #endif
@@ -5187,7 +5187,7 @@ struct u32_VREvent_t_113b
 typedef w32_VREvent_t_113b w_VREvent_t_113b;
 typedef u32_VREvent_t_113b u_VREvent_t_113b;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_113b w_VREvent_t_113b;
 typedef u64_VREvent_t_113b u_VREvent_t_113b;
 #endif
@@ -5256,7 +5256,7 @@ struct u32_VREvent_t_1016
 typedef w32_VREvent_t_1016 w_VREvent_t_1016;
 typedef u32_VREvent_t_1016 u_VREvent_t_1016;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_1016 w_VREvent_t_1016;
 typedef u64_VREvent_t_1016 u_VREvent_t_1016;
 #endif
@@ -5325,7 +5325,7 @@ struct u32_VREvent_t_1015
 typedef w32_VREvent_t_1015 w_VREvent_t_1015;
 typedef u32_VREvent_t_1015 u_VREvent_t_1015;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_1015 w_VREvent_t_1015;
 typedef u64_VREvent_t_1015 u_VREvent_t_1015;
 #endif
@@ -5394,7 +5394,7 @@ struct u32_VREvent_t_1014
 typedef w32_VREvent_t_1014 w_VREvent_t_1014;
 typedef u32_VREvent_t_1014 u_VREvent_t_1014;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_1014 w_VREvent_t_1014;
 typedef u64_VREvent_t_1014 u_VREvent_t_1014;
 #endif
@@ -5463,7 +5463,7 @@ struct u32_VREvent_t_1013
 typedef w32_VREvent_t_1013 w_VREvent_t_1013;
 typedef u32_VREvent_t_1013 u_VREvent_t_1013;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_1013 w_VREvent_t_1013;
 typedef u64_VREvent_t_1013 u_VREvent_t_1013;
 #endif
@@ -5532,7 +5532,7 @@ struct u32_VREvent_t_1012
 typedef w32_VREvent_t_1012 w_VREvent_t_1012;
 typedef u32_VREvent_t_1012 u_VREvent_t_1012;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_1012 w_VREvent_t_1012;
 typedef u64_VREvent_t_1012 u_VREvent_t_1012;
 #endif
@@ -5601,7 +5601,7 @@ struct u32_VREvent_t_1011
 typedef w32_VREvent_t_1011 w_VREvent_t_1011;
 typedef u32_VREvent_t_1011 u_VREvent_t_1011;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_1011 w_VREvent_t_1011;
 typedef u64_VREvent_t_1011 u_VREvent_t_1011;
 #endif
@@ -5670,7 +5670,7 @@ struct u32_VREvent_t_106
 typedef w32_VREvent_t_106 w_VREvent_t_106;
 typedef u32_VREvent_t_106 u_VREvent_t_106;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_106 w_VREvent_t_106;
 typedef u64_VREvent_t_106 u_VREvent_t_106;
 #endif
@@ -5739,7 +5739,7 @@ struct u32_VREvent_t_105
 typedef w32_VREvent_t_105 w_VREvent_t_105;
 typedef u32_VREvent_t_105 u_VREvent_t_105;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_105 w_VREvent_t_105;
 typedef u64_VREvent_t_105 u_VREvent_t_105;
 #endif
@@ -5808,7 +5808,7 @@ struct u32_VREvent_t_103
 typedef w32_VREvent_t_103 w_VREvent_t_103;
 typedef u32_VREvent_t_103 u_VREvent_t_103;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_103 w_VREvent_t_103;
 typedef u64_VREvent_t_103 u_VREvent_t_103;
 #endif
@@ -5877,7 +5877,7 @@ struct u32_VREvent_t_102
 typedef w32_VREvent_t_102 w_VREvent_t_102;
 typedef u32_VREvent_t_102 u_VREvent_t_102;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_102 w_VREvent_t_102;
 typedef u64_VREvent_t_102 u_VREvent_t_102;
 #endif
@@ -5946,7 +5946,7 @@ struct u32_VREvent_t_101
 typedef w32_VREvent_t_101 w_VREvent_t_101;
 typedef u32_VREvent_t_101 u_VREvent_t_101;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_101 w_VREvent_t_101;
 typedef u64_VREvent_t_101 u_VREvent_t_101;
 #endif
@@ -6015,7 +6015,7 @@ struct u32_VREvent_t_0918
 typedef w32_VREvent_t_0918 w_VREvent_t_0918;
 typedef u32_VREvent_t_0918 u_VREvent_t_0918;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_0918 w_VREvent_t_0918;
 typedef u64_VREvent_t_0918 u_VREvent_t_0918;
 #endif
@@ -6084,7 +6084,7 @@ struct u32_VREvent_t_0915
 typedef w32_VREvent_t_0915 w_VREvent_t_0915;
 typedef u32_VREvent_t_0915 u_VREvent_t_0915;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_0915 w_VREvent_t_0915;
 typedef u64_VREvent_t_0915 u_VREvent_t_0915;
 #endif
@@ -6153,7 +6153,7 @@ struct u32_VREvent_t_0914
 typedef w32_VREvent_t_0914 w_VREvent_t_0914;
 typedef u32_VREvent_t_0914 u_VREvent_t_0914;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_0914 w_VREvent_t_0914;
 typedef u64_VREvent_t_0914 u_VREvent_t_0914;
 #endif
@@ -6222,7 +6222,7 @@ struct u32_VREvent_t_0912
 typedef w32_VREvent_t_0912 w_VREvent_t_0912;
 typedef u32_VREvent_t_0912 u_VREvent_t_0912;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_0912 w_VREvent_t_0912;
 typedef u64_VREvent_t_0912 u_VREvent_t_0912;
 #endif
@@ -6291,7 +6291,7 @@ struct u32_VREvent_t_0910
 typedef w32_VREvent_t_0910 w_VREvent_t_0910;
 typedef u32_VREvent_t_0910 u_VREvent_t_0910;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_0910 w_VREvent_t_0910;
 typedef u64_VREvent_t_0910 u_VREvent_t_0910;
 #endif
@@ -6360,7 +6360,7 @@ struct u32_VREvent_t_097
 typedef w32_VREvent_t_097 w_VREvent_t_097;
 typedef u32_VREvent_t_097 u_VREvent_t_097;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_097 w_VREvent_t_097;
 typedef u64_VREvent_t_097 u_VREvent_t_097;
 #endif
@@ -6429,7 +6429,7 @@ struct u32_VREvent_t_093
 typedef w32_VREvent_t_093 w_VREvent_t_093;
 typedef u32_VREvent_t_093 u_VREvent_t_093;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_093 w_VREvent_t_093;
 typedef u64_VREvent_t_093 u_VREvent_t_093;
 #endif
@@ -6498,7 +6498,7 @@ struct u32_VREvent_t_092
 typedef w32_VREvent_t_092 w_VREvent_t_092;
 typedef u32_VREvent_t_092 u_VREvent_t_092;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_092 w_VREvent_t_092;
 typedef u64_VREvent_t_092 u_VREvent_t_092;
 #endif
@@ -6567,7 +6567,7 @@ struct u32_VREvent_t_090
 typedef w32_VREvent_t_090 w_VREvent_t_090;
 typedef u32_VREvent_t_090 u_VREvent_t_090;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VREvent_t_090 w_VREvent_t_090;
 typedef u64_VREvent_t_090 u_VREvent_t_090;
 #endif
@@ -6599,7 +6599,7 @@ struct w32_VRNativeDevice_t
 typedef w32_VRNativeDevice_t w_VRNativeDevice_t;
 typedef u32_VRNativeDevice_t u_VRNativeDevice_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VRNativeDevice_t w_VRNativeDevice_t;
 typedef u64_VRNativeDevice_t u_VRNativeDevice_t;
 #endif
@@ -6648,7 +6648,7 @@ struct u32_VROverlayView_t
 typedef w32_VROverlayView_t w_VROverlayView_t;
 typedef u32_VROverlayView_t u_VROverlayView_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VROverlayView_t w_VROverlayView_t;
 typedef u64_VROverlayView_t u_VROverlayView_t;
 #endif
@@ -6683,7 +6683,7 @@ struct w32_VRTextureWithDepth_t
 typedef w32_VRTextureWithDepth_t w_VRTextureWithDepth_t;
 typedef u32_VRTextureWithDepth_t u_VRTextureWithDepth_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VRTextureWithDepth_t w_VRTextureWithDepth_t;
 typedef u64_VRTextureWithDepth_t u_VRTextureWithDepth_t;
 #endif
@@ -6720,7 +6720,7 @@ struct w32_VRTextureWithPoseAndDepth_t
 typedef w32_VRTextureWithPoseAndDepth_t w_VRTextureWithPoseAndDepth_t;
 typedef u32_VRTextureWithPoseAndDepth_t u_VRTextureWithPoseAndDepth_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VRTextureWithPoseAndDepth_t w_VRTextureWithPoseAndDepth_t;
 typedef u64_VRTextureWithPoseAndDepth_t u_VRTextureWithPoseAndDepth_t;
 #endif
@@ -6755,7 +6755,7 @@ struct w32_VRTextureWithPose_t
 typedef w32_VRTextureWithPose_t w_VRTextureWithPose_t;
 typedef u32_VRTextureWithPose_t u_VRTextureWithPose_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VRTextureWithPose_t w_VRTextureWithPose_t;
 typedef u64_VRTextureWithPose_t u_VRTextureWithPose_t;
 #endif
@@ -6793,7 +6793,7 @@ struct w32_VRVulkanDevice_t
 typedef w32_VRVulkanDevice_t w_VRVulkanDevice_t;
 typedef u32_VRVulkanDevice_t u_VRVulkanDevice_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VRVulkanDevice_t w_VRVulkanDevice_t;
 typedef u64_VRVulkanDevice_t u_VRVulkanDevice_t;
 #endif
@@ -6870,7 +6870,7 @@ struct u32_VRVulkanTextureArrayData_t
 typedef w32_VRVulkanTextureArrayData_t w_VRVulkanTextureArrayData_t;
 typedef u32_VRVulkanTextureArrayData_t u_VRVulkanTextureArrayData_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VRVulkanTextureArrayData_t w_VRVulkanTextureArrayData_t;
 typedef u64_VRVulkanTextureArrayData_t u_VRVulkanTextureArrayData_t;
 #endif
@@ -6919,7 +6919,7 @@ struct w32_VRVulkanTextureData_t
 typedef w32_VRVulkanTextureData_t w_VRVulkanTextureData_t;
 typedef u32_VRVulkanTextureData_t u_VRVulkanTextureData_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VRVulkanTextureData_t w_VRVulkanTextureData_t;
 typedef u64_VRVulkanTextureData_t u_VRVulkanTextureData_t;
 #endif
@@ -6968,7 +6968,7 @@ struct w32_VulkanData_t
 typedef w32_VulkanData_t w_VulkanData_t;
 typedef u32_VulkanData_t u_VulkanData_t;
 #endif
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 typedef w64_VulkanData_t w_VulkanData_t;
 typedef u64_VulkanData_t u_VulkanData_t;
 #endif

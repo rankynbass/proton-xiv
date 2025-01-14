@@ -13,7 +13,7 @@ NTSTATUS IVRChaperoneSetup_IVRChaperoneSetup_004_CommitWorkingCopy( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_CommitWorkingCopy( void *args )
 {
     struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_CommitWorkingCopy_params *params = (struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_CommitWorkingCopy_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS IVRChaperoneSetup_IVRChaperoneSetup_004_RevertWorkingCopy( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_RevertWorkingCopy( void *args )
 {
     struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_RevertWorkingCopy_params *params = (struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_RevertWorkingCopy_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingPlayAreaSize( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingPlayAreaSize( void *args )
 {
     struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingPlayAreaSize_params *params = (struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingPlayAreaSize_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingPlayAreaRect( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingPlayAreaRect( void *args )
 {
     struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingPlayAreaRect_params *params = (struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingPlayAreaRect_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingCollisionBoundsInfo( 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingCollisionBoundsInfo( void *args )
 {
     struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingCollisionBoundsInfo_params *params = (struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingCollisionBoundsInfo_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS IVRChaperoneSetup_IVRChaperoneSetup_004_GetLiveCollisionBoundsInfo( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetLiveCollisionBoundsInfo( void *args )
 {
     struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetLiveCollisionBoundsInfo_params *params = (struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetLiveCollisionBoundsInfo_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingSeatedZeroPoseToRawTr
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingSeatedZeroPoseToRawTrackingPose( void *args )
 {
     struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingSeatedZeroPoseToRawTrackingPose_params *params = (struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingSeatedZeroPoseToRawTrackingPose_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingStandingZeroPoseToRaw
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingStandingZeroPoseToRawTrackingPose( void *args )
 {
     struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingStandingZeroPoseToRawTrackingPose_params *params = (struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingStandingZeroPoseToRawTrackingPose_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingPlayAreaSize( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingPlayAreaSize( void *args )
 {
     struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingPlayAreaSize_params *params = (struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingPlayAreaSize_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingCollisionBoundsInfo( 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingCollisionBoundsInfo( void *args )
 {
     struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingCollisionBoundsInfo_params *params = (struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingCollisionBoundsInfo_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingSeatedZeroPoseToRawTr
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingSeatedZeroPoseToRawTrackingPose( void *args )
 {
     struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingSeatedZeroPoseToRawTrackingPose_params *params = (struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingSeatedZeroPoseToRawTrackingPose_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingStandingZeroPoseToRaw
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingStandingZeroPoseToRawTrackingPose( void *args )
 {
     struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingStandingZeroPoseToRawTrackingPose_params *params = (struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingStandingZeroPoseToRawTrackingPose_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS IVRChaperoneSetup_IVRChaperoneSetup_004_ReloadFromDisk( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_ReloadFromDisk( void *args )
 {
     struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_ReloadFromDisk_params *params = (struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_ReloadFromDisk_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS IVRChaperoneSetup_IVRChaperoneSetup_004_GetLiveSeatedZeroPoseToRawTrack
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetLiveSeatedZeroPoseToRawTrackingPose( void *args )
 {
     struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetLiveSeatedZeroPoseToRawTrackingPose_params *params = (struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetLiveSeatedZeroPoseToRawTrackingPose_params *)args;
@@ -265,7 +265,7 @@ NTSTATUS IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingWallTagInfo( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingWallTagInfo( void *args )
 {
     struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingWallTagInfo_params *params = (struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingWallTagInfo_params *)args;
@@ -283,7 +283,7 @@ NTSTATUS IVRChaperoneSetup_IVRChaperoneSetup_004_GetLiveWallTagInfo( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetLiveWallTagInfo( void *args )
 {
     struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetLiveWallTagInfo_params *params = (struct wow64_IVRChaperoneSetup_IVRChaperoneSetup_004_GetLiveWallTagInfo_params *)args;

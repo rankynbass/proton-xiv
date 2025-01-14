@@ -26765,7 +26765,7 @@ void destroy_winIVROverlay_IVROverlay_027_FnTable(struct w_iface *object)
 
 void init_winIVROverlay_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winIVROverlay_IVROverlay_001_rtti( base );
     init_winIVROverlay_IVROverlay_002_rtti( base );
     init_winIVROverlay_IVROverlay_003_rtti( base );
@@ -26789,5 +26789,5 @@ void init_winIVROverlay_rtti( char *base )
     init_winIVROverlay_IVROverlay_025_rtti( base );
     init_winIVROverlay_IVROverlay_026_rtti( base );
     init_winIVROverlay_IVROverlay_027_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

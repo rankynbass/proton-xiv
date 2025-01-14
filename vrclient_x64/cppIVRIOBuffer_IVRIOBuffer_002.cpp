@@ -13,7 +13,7 @@ NTSTATUS IVRIOBuffer_IVRIOBuffer_002_Open( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRIOBuffer_IVRIOBuffer_002_Open( void *args )
 {
     struct wow64_IVRIOBuffer_IVRIOBuffer_002_Open_params *params = (struct wow64_IVRIOBuffer_IVRIOBuffer_002_Open_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS IVRIOBuffer_IVRIOBuffer_002_Close( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRIOBuffer_IVRIOBuffer_002_Close( void *args )
 {
     struct wow64_IVRIOBuffer_IVRIOBuffer_002_Close_params *params = (struct wow64_IVRIOBuffer_IVRIOBuffer_002_Close_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS IVRIOBuffer_IVRIOBuffer_002_Read( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRIOBuffer_IVRIOBuffer_002_Read( void *args )
 {
     struct wow64_IVRIOBuffer_IVRIOBuffer_002_Read_params *params = (struct wow64_IVRIOBuffer_IVRIOBuffer_002_Read_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS IVRIOBuffer_IVRIOBuffer_002_Write( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRIOBuffer_IVRIOBuffer_002_Write( void *args )
 {
     struct wow64_IVRIOBuffer_IVRIOBuffer_002_Write_params *params = (struct wow64_IVRIOBuffer_IVRIOBuffer_002_Write_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS IVRIOBuffer_IVRIOBuffer_002_PropertyContainer( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRIOBuffer_IVRIOBuffer_002_PropertyContainer( void *args )
 {
     struct wow64_IVRIOBuffer_IVRIOBuffer_002_PropertyContainer_params *params = (struct wow64_IVRIOBuffer_IVRIOBuffer_002_PropertyContainer_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS IVRIOBuffer_IVRIOBuffer_002_HasReaders( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRIOBuffer_IVRIOBuffer_002_HasReaders( void *args )
 {
     struct wow64_IVRIOBuffer_IVRIOBuffer_002_HasReaders_params *params = (struct wow64_IVRIOBuffer_IVRIOBuffer_002_HasReaders_params *)args;

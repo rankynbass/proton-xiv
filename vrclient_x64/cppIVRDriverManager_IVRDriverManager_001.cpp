@@ -13,7 +13,7 @@ NTSTATUS IVRDriverManager_IVRDriverManager_001_GetDriverCount( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRDriverManager_IVRDriverManager_001_GetDriverCount( void *args )
 {
     struct wow64_IVRDriverManager_IVRDriverManager_001_GetDriverCount_params *params = (struct wow64_IVRDriverManager_IVRDriverManager_001_GetDriverCount_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS IVRDriverManager_IVRDriverManager_001_GetDriverName( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRDriverManager_IVRDriverManager_001_GetDriverName( void *args )
 {
     struct wow64_IVRDriverManager_IVRDriverManager_001_GetDriverName_params *params = (struct wow64_IVRDriverManager_IVRDriverManager_001_GetDriverName_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS IVRDriverManager_IVRDriverManager_001_GetDriverHandle( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRDriverManager_IVRDriverManager_001_GetDriverHandle( void *args )
 {
     struct wow64_IVRDriverManager_IVRDriverManager_001_GetDriverHandle_params *params = (struct wow64_IVRDriverManager_IVRDriverManager_001_GetDriverHandle_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS IVRDriverManager_IVRDriverManager_001_IsEnabled( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRDriverManager_IVRDriverManager_001_IsEnabled( void *args )
 {
     struct wow64_IVRDriverManager_IVRDriverManager_001_IsEnabled_params *params = (struct wow64_IVRDriverManager_IVRDriverManager_001_IsEnabled_params *)args;

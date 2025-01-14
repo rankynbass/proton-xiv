@@ -13,7 +13,7 @@ NTSTATUS IVRSettings_IVRSettings_002_GetSettingsErrorNameFromEnum( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSettings_IVRSettings_002_GetSettingsErrorNameFromEnum( void *args )
 {
     struct wow64_IVRSettings_IVRSettings_002_GetSettingsErrorNameFromEnum_params *params = (struct wow64_IVRSettings_IVRSettings_002_GetSettingsErrorNameFromEnum_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS IVRSettings_IVRSettings_002_Sync( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSettings_IVRSettings_002_Sync( void *args )
 {
     struct wow64_IVRSettings_IVRSettings_002_Sync_params *params = (struct wow64_IVRSettings_IVRSettings_002_Sync_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS IVRSettings_IVRSettings_002_SetBool( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSettings_IVRSettings_002_SetBool( void *args )
 {
     struct wow64_IVRSettings_IVRSettings_002_SetBool_params *params = (struct wow64_IVRSettings_IVRSettings_002_SetBool_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS IVRSettings_IVRSettings_002_SetInt32( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSettings_IVRSettings_002_SetInt32( void *args )
 {
     struct wow64_IVRSettings_IVRSettings_002_SetInt32_params *params = (struct wow64_IVRSettings_IVRSettings_002_SetInt32_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS IVRSettings_IVRSettings_002_SetFloat( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSettings_IVRSettings_002_SetFloat( void *args )
 {
     struct wow64_IVRSettings_IVRSettings_002_SetFloat_params *params = (struct wow64_IVRSettings_IVRSettings_002_SetFloat_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS IVRSettings_IVRSettings_002_SetString( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSettings_IVRSettings_002_SetString( void *args )
 {
     struct wow64_IVRSettings_IVRSettings_002_SetString_params *params = (struct wow64_IVRSettings_IVRSettings_002_SetString_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS IVRSettings_IVRSettings_002_GetBool( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSettings_IVRSettings_002_GetBool( void *args )
 {
     struct wow64_IVRSettings_IVRSettings_002_GetBool_params *params = (struct wow64_IVRSettings_IVRSettings_002_GetBool_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS IVRSettings_IVRSettings_002_GetInt32( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSettings_IVRSettings_002_GetInt32( void *args )
 {
     struct wow64_IVRSettings_IVRSettings_002_GetInt32_params *params = (struct wow64_IVRSettings_IVRSettings_002_GetInt32_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS IVRSettings_IVRSettings_002_GetFloat( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSettings_IVRSettings_002_GetFloat( void *args )
 {
     struct wow64_IVRSettings_IVRSettings_002_GetFloat_params *params = (struct wow64_IVRSettings_IVRSettings_002_GetFloat_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS IVRSettings_IVRSettings_002_GetString( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSettings_IVRSettings_002_GetString( void *args )
 {
     struct wow64_IVRSettings_IVRSettings_002_GetString_params *params = (struct wow64_IVRSettings_IVRSettings_002_GetString_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS IVRSettings_IVRSettings_002_RemoveSection( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSettings_IVRSettings_002_RemoveSection( void *args )
 {
     struct wow64_IVRSettings_IVRSettings_002_RemoveSection_params *params = (struct wow64_IVRSettings_IVRSettings_002_RemoveSection_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS IVRSettings_IVRSettings_002_RemoveKeyInSection( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSettings_IVRSettings_002_RemoveKeyInSection( void *args )
 {
     struct wow64_IVRSettings_IVRSettings_002_RemoveKeyInSection_params *params = (struct wow64_IVRSettings_IVRSettings_002_RemoveKeyInSection_params *)args;

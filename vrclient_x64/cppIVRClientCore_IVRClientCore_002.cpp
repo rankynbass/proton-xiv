@@ -13,7 +13,7 @@ NTSTATUS IVRClientCore_IVRClientCore_002_Cleanup( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRClientCore_IVRClientCore_002_Cleanup( void *args )
 {
     struct wow64_IVRClientCore_IVRClientCore_002_Cleanup_params *params = (struct wow64_IVRClientCore_IVRClientCore_002_Cleanup_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS IVRClientCore_IVRClientCore_002_IsInterfaceVersionValid( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRClientCore_IVRClientCore_002_IsInterfaceVersionValid( void *args )
 {
     struct wow64_IVRClientCore_IVRClientCore_002_IsInterfaceVersionValid_params *params = (struct wow64_IVRClientCore_IVRClientCore_002_IsInterfaceVersionValid_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS IVRClientCore_IVRClientCore_002_GetGenericInterface( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRClientCore_IVRClientCore_002_GetGenericInterface( void *args )
 {
     struct wow64_IVRClientCore_IVRClientCore_002_GetGenericInterface_params *params = (struct wow64_IVRClientCore_IVRClientCore_002_GetGenericInterface_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS IVRClientCore_IVRClientCore_002_BIsHmdPresent( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRClientCore_IVRClientCore_002_BIsHmdPresent( void *args )
 {
     struct wow64_IVRClientCore_IVRClientCore_002_BIsHmdPresent_params *params = (struct wow64_IVRClientCore_IVRClientCore_002_BIsHmdPresent_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS IVRClientCore_IVRClientCore_002_GetEnglishStringForHmdError( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRClientCore_IVRClientCore_002_GetEnglishStringForHmdError( void *args )
 {
     struct wow64_IVRClientCore_IVRClientCore_002_GetEnglishStringForHmdError_params *params = (struct wow64_IVRClientCore_IVRClientCore_002_GetEnglishStringForHmdError_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS IVRClientCore_IVRClientCore_002_GetIDForVRInitError( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRClientCore_IVRClientCore_002_GetIDForVRInitError( void *args )
 {
     struct wow64_IVRClientCore_IVRClientCore_002_GetIDForVRInitError_params *params = (struct wow64_IVRClientCore_IVRClientCore_002_GetIDForVRInitError_params *)args;

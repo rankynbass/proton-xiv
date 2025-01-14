@@ -11814,7 +11814,7 @@ void destroy_winIVRSystem_IVRSystem_022_FnTable(struct w_iface *object)
 
 void init_winIVRSystem_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winIVRSystem_IVRSystem_003_rtti( base );
     init_winIVRSystem_IVRSystem_004_rtti( base );
     init_winIVRSystem_IVRSystem_005_rtti( base );
@@ -11831,5 +11831,5 @@ void init_winIVRSystem_rtti( char *base )
     init_winIVRSystem_IVRSystem_020_rtti( base );
     init_winIVRSystem_IVRSystem_021_rtti( base );
     init_winIVRSystem_IVRSystem_022_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

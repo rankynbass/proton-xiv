@@ -3021,7 +3021,7 @@ void destroy_winIVRApplications_IVRApplications_007_FnTable(struct w_iface *obje
 
 void init_winIVRApplications_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winIVRApplications_IVRApplications_001_rtti( base );
     init_winIVRApplications_IVRApplications_002_rtti( base );
     init_winIVRApplications_IVRApplications_003_rtti( base );
@@ -3029,5 +3029,5 @@ void init_winIVRApplications_rtti( char *base )
     init_winIVRApplications_IVRApplications_005_rtti( base );
     init_winIVRApplications_IVRApplications_006_rtti( base );
     init_winIVRApplications_IVRApplications_007_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

@@ -39,10 +39,10 @@ BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, void *reserved)
     {
         case DLL_PROCESS_ATTACH:
             DisableThreadLibraryCalls(instance);
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
             init_type_info_rtti( (char *)instance );
             init_rtti( (char *)instance );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
             __wine_init_unix_call();
             break;
 
@@ -113,8 +113,10 @@ static int load_vrclient(void)
     WCHAR pathW[PATH_MAX];
     DWORD sz;
 
-#ifdef _WIN64
+#if defined(__x86_64__) && !defined(__arm64ec__)
     static const char append_path[] = "/bin/linux64/vrclient.so";
+#elif defined(__arm64ec__)
+    static const char append_path[] = "/bin/linuxarm64/vrclient.so";
 #else
     static const char append_path[] = "/bin/vrclient.so";
 #endif

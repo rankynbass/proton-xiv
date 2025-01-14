@@ -59,7 +59,7 @@ struct ptr32
 #define W32_PTR( decl, name, type ) decl
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 #define U64_PTR( decl, name, type ) decl
 #define U32_PTR( decl, name, type ) uint32_t name
 #define W64_PTR( decl, name, type ) decl
@@ -68,7 +68,7 @@ struct ptr32
 #else /* __cplusplus */
 #define W32_PTR( decl, name, type ) struct ptr32 name
 #endif /* __cplusplus */
-#endif
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 
 typedef struct HmdColor_t HmdColor_t;
 typedef struct HmdMatrix33_t HmdMatrix33_t;

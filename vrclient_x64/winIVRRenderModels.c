@@ -1083,11 +1083,11 @@ void destroy_winIVRRenderModels_IVRRenderModels_006_FnTable(struct w_iface *obje
 
 void init_winIVRRenderModels_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winIVRRenderModels_IVRRenderModels_001_rtti( base );
     init_winIVRRenderModels_IVRRenderModels_002_rtti( base );
     init_winIVRRenderModels_IVRRenderModels_004_rtti( base );
     init_winIVRRenderModels_IVRRenderModels_005_rtti( base );
     init_winIVRRenderModels_IVRRenderModels_006_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

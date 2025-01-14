@@ -178,7 +178,7 @@ void destroy_winIVRScreenshots_IVRScreenshots_001_FnTable(struct w_iface *object
 
 void init_winIVRScreenshots_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winIVRScreenshots_IVRScreenshots_001_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

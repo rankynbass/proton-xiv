@@ -13,7 +13,7 @@ NTSTATUS IVRRenderModels_IVRRenderModels_002_GetRenderModelName( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRRenderModels_IVRRenderModels_002_GetRenderModelName( void *args )
 {
     struct wow64_IVRRenderModels_IVRRenderModels_002_GetRenderModelName_params *params = (struct wow64_IVRRenderModels_IVRRenderModels_002_GetRenderModelName_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS IVRRenderModels_IVRRenderModels_002_GetRenderModelCount( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRRenderModels_IVRRenderModels_002_GetRenderModelCount( void *args )
 {
     struct wow64_IVRRenderModels_IVRRenderModels_002_GetRenderModelCount_params *params = (struct wow64_IVRRenderModels_IVRRenderModels_002_GetRenderModelCount_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS IVRRenderModels_IVRRenderModels_002_GetComponentCount( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRRenderModels_IVRRenderModels_002_GetComponentCount( void *args )
 {
     struct wow64_IVRRenderModels_IVRRenderModels_002_GetComponentCount_params *params = (struct wow64_IVRRenderModels_IVRRenderModels_002_GetComponentCount_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS IVRRenderModels_IVRRenderModels_002_GetComponentName( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRRenderModels_IVRRenderModels_002_GetComponentName( void *args )
 {
     struct wow64_IVRRenderModels_IVRRenderModels_002_GetComponentName_params *params = (struct wow64_IVRRenderModels_IVRRenderModels_002_GetComponentName_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS IVRRenderModels_IVRRenderModels_002_GetComponentButtonMask( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRRenderModels_IVRRenderModels_002_GetComponentButtonMask( void *args )
 {
     struct wow64_IVRRenderModels_IVRRenderModels_002_GetComponentButtonMask_params *params = (struct wow64_IVRRenderModels_IVRRenderModels_002_GetComponentButtonMask_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS IVRRenderModels_IVRRenderModels_002_GetComponentRenderModelName( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRRenderModels_IVRRenderModels_002_GetComponentRenderModelName( void *args )
 {
     struct wow64_IVRRenderModels_IVRRenderModels_002_GetComponentRenderModelName_params *params = (struct wow64_IVRRenderModels_IVRRenderModels_002_GetComponentRenderModelName_params *)args;
@@ -123,7 +123,7 @@ NTSTATUS IVRRenderModels_IVRRenderModels_002_GetComponentState( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRRenderModels_IVRRenderModels_002_GetComponentState( void *args )
 {
     struct wow64_IVRRenderModels_IVRRenderModels_002_GetComponentState_params *params = (struct wow64_IVRRenderModels_IVRRenderModels_002_GetComponentState_params *)args;
@@ -143,7 +143,7 @@ NTSTATUS IVRRenderModels_IVRRenderModels_002_RenderModelHasComponent( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRRenderModels_IVRRenderModels_002_RenderModelHasComponent( void *args )
 {
     struct wow64_IVRRenderModels_IVRRenderModels_002_RenderModelHasComponent_params *params = (struct wow64_IVRRenderModels_IVRRenderModels_002_RenderModelHasComponent_params *)args;

@@ -13,7 +13,7 @@ NTSTATUS IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewSize( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewSize( void *args )
 {
     struct wow64_IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewSize_params *params = (struct wow64_IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewSize_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewSize( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewSize( void *args )
 {
     struct wow64_IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewSize_params *params = (struct wow64_IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewSize_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewMode( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewMode( void *args )
 {
     struct wow64_IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewMode_params *params = (struct wow64_IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewMode_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewMode( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewMode( void *args )
 {
     struct wow64_IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewMode_params *params = (struct wow64_IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewMode_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewCropped( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewCropped( void *args )
 {
     struct wow64_IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewCropped_params *params = (struct wow64_IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewCropped_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewCropped( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewCropped( void *args )
 {
     struct wow64_IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewCropped_params *params = (struct wow64_IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewCropped_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewAspectRatio( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewAspectRatio( void *args )
 {
     struct wow64_IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewAspectRatio_params *params = (struct wow64_IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewAspectRatio_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewBlendRange( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewBlendRange( void *args )
 {
     struct wow64_IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewBlendRange_params *params = (struct wow64_IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewBlendRange_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewBlendRange( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewBlendRange( void *args )
 {
     struct wow64_IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewBlendRange_params *params = (struct wow64_IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewBlendRange_params *)args;

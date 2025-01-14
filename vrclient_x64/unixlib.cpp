@@ -406,12 +406,12 @@ static NTSTATUS vrclient_get_unix_buffer( Params *params, bool wow64 )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 #define VRCLIENT_UNIX_WOW64_FUNC( name ) \
     NTSTATUS wow64_ ## name( void *args ) { return name( (struct wow64_ ## name ## _params *)args, true ); }
-#else
+#else /* defined(__x86_64__) || defined(__aarch64__) */
 #define VRCLIENT_UNIX_WOW64_FUNC( name )
-#endif
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 
 #define VRCLIENT_UNIX_FUNC( name ) \
     NTSTATUS name( void *args ) { return name( (struct name ## _params *)args, false ); } \

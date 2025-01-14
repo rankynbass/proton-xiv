@@ -13,7 +13,7 @@ NTSTATUS IVRMailbox_IVRMailbox_001_undoc1( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRMailbox_IVRMailbox_001_undoc1( void *args )
 {
     struct wow64_IVRMailbox_IVRMailbox_001_undoc1_params *params = (struct wow64_IVRMailbox_IVRMailbox_001_undoc1_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS IVRMailbox_IVRMailbox_001_undoc2( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRMailbox_IVRMailbox_001_undoc2( void *args )
 {
     struct wow64_IVRMailbox_IVRMailbox_001_undoc2_params *params = (struct wow64_IVRMailbox_IVRMailbox_001_undoc2_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS IVRMailbox_IVRMailbox_001_undoc4( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRMailbox_IVRMailbox_001_undoc4( void *args )
 {
     struct wow64_IVRMailbox_IVRMailbox_001_undoc4_params *params = (struct wow64_IVRMailbox_IVRMailbox_001_undoc4_params *)args;

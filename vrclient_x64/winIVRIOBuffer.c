@@ -289,8 +289,8 @@ void destroy_winIVRIOBuffer_IVRIOBuffer_002_FnTable(struct w_iface *object)
 
 void init_winIVRIOBuffer_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winIVRIOBuffer_IVRIOBuffer_001_rtti( base );
     init_winIVRIOBuffer_IVRIOBuffer_002_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

@@ -13,7 +13,7 @@ NTSTATUS IVRTrackedCamera_IVRTrackedCamera_005_GetCameraErrorNameFromEnum( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetCameraErrorNameFromEnum( void *args )
 {
     struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetCameraErrorNameFromEnum_params *params = (struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetCameraErrorNameFromEnum_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS IVRTrackedCamera_IVRTrackedCamera_005_HasCamera( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRTrackedCamera_IVRTrackedCamera_005_HasCamera( void *args )
 {
     struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_HasCamera_params *params = (struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_HasCamera_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS IVRTrackedCamera_IVRTrackedCamera_005_GetCameraFrameSize( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetCameraFrameSize( void *args )
 {
     struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetCameraFrameSize_params *params = (struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetCameraFrameSize_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS IVRTrackedCamera_IVRTrackedCamera_005_GetCameraIntrinsics( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetCameraIntrinsics( void *args )
 {
     struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetCameraIntrinsics_params *params = (struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetCameraIntrinsics_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS IVRTrackedCamera_IVRTrackedCamera_005_GetCameraProjection( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetCameraProjection( void *args )
 {
     struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetCameraProjection_params *params = (struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetCameraProjection_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS IVRTrackedCamera_IVRTrackedCamera_005_AcquireVideoStreamingService( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRTrackedCamera_IVRTrackedCamera_005_AcquireVideoStreamingService( void *args )
 {
     struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_AcquireVideoStreamingService_params *params = (struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_AcquireVideoStreamingService_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS IVRTrackedCamera_IVRTrackedCamera_005_ReleaseVideoStreamingService( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRTrackedCamera_IVRTrackedCamera_005_ReleaseVideoStreamingService( void *args )
 {
     struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_ReleaseVideoStreamingService_params *params = (struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_ReleaseVideoStreamingService_params *)args;
@@ -143,7 +143,7 @@ NTSTATUS IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamFrameBuffer( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamFrameBuffer( void *args )
 {
     struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamFrameBuffer_params *params = (struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamFrameBuffer_params *)args;
@@ -165,7 +165,7 @@ NTSTATUS IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureSize( void *
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureSize( void *args )
 {
     struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureSize_params *params = (struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureSize_params *)args;
@@ -187,7 +187,7 @@ NTSTATUS IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureD3D11( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureD3D11( void *args )
 {
     struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureD3D11_params *params = (struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureD3D11_params *)args;
@@ -215,7 +215,7 @@ NTSTATUS IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureGL( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureGL( void *args )
 {
     struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureGL_params *params = (struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureGL_params *)args;
@@ -237,7 +237,7 @@ NTSTATUS IVRTrackedCamera_IVRTrackedCamera_005_ReleaseVideoStreamTextureGL( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRTrackedCamera_IVRTrackedCamera_005_ReleaseVideoStreamTextureGL( void *args )
 {
     struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_ReleaseVideoStreamTextureGL_params *params = (struct wow64_IVRTrackedCamera_IVRTrackedCamera_005_ReleaseVideoStreamTextureGL_params *)args;

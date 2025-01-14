@@ -36,7 +36,7 @@ static w_VRVulkanTextureData_t *get_vulkan_texture_depth_data( const w_VRTexture
     return (w_VRVulkanTextureData_t *)w_texture->depth.handle;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 static const w32_VRTextureWithPose_t *get_texture_with_pose( const w32_Texture_t *w_texture )
 {
     return (const w32_VRTextureWithPose_t *)w_texture;
@@ -66,7 +66,7 @@ static w32_VRVulkanTextureData_t *get_vulkan_texture_depth_data( const w32_VRTex
 {
     return (w32_VRVulkanTextureData_t *)(void *)w_texture->depth.handle;
 }
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 
 template< typename WVulkanTextureData >
 static u_VRVulkanTextureData_t *unwrap_texture_vkdata( const WVulkanTextureData *w_vkdata, u_VRVulkanTextureData_t *u_vkdata )
@@ -154,14 +154,14 @@ static void unwrap_texture( u_Texture_t *u_texture, const WTexture *w_texture, u
     if (w_texture->eType == TextureType_Vulkan) u_texture->handle = unwrap_vulkan_texture_data( w_texture, flags, u_vkdata );
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 static u_Texture_t *unwrap_submit_texture_data( const ptr32< const w32_Texture_t *> ptr, uint32_t flags, u_VRTextureWithPoseAndDepth_t *u_texture,
                                                 u_VRVulkanTextureArrayData_t *u_vkdata, u_VRVulkanTextureData_t *u_depth_vkdata )
 {
     const w32_Texture_t *w_texture = ptr;
     return unwrap_submit_texture_data( w_texture, flags, u_texture, u_vkdata, u_depth_vkdata );
 }
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 
 template< typename Iface, typename Params >
 static NTSTATUS IVRCompositor_GetVulkanDeviceExtensionsRequired( Iface *iface, Params *params, bool wow64 )

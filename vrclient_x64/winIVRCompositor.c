@@ -11550,7 +11550,7 @@ void destroy_winIVRCompositor_IVRCompositor_028_FnTable(struct w_iface *object)
 
 void init_winIVRCompositor_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winIVRCompositor_IVRCompositor_005_rtti( base );
     init_winIVRCompositor_IVRCompositor_006_rtti( base );
     init_winIVRCompositor_IVRCompositor_007_rtti( base );
@@ -11573,5 +11573,5 @@ void init_winIVRCompositor_rtti( char *base )
     init_winIVRCompositor_IVRCompositor_026_rtti( base );
     init_winIVRCompositor_IVRCompositor_027_rtti( base );
     init_winIVRCompositor_IVRCompositor_028_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

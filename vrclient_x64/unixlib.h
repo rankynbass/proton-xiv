@@ -25,9 +25,9 @@ struct render_model
     union
     {
         w_RenderModel_t_0912 w_0912;
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
         w32_RenderModel_t_0912 w32_0912;
-#endif
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
     };
     union
     {
@@ -38,11 +38,11 @@ struct render_model
     static struct render_model *from_w( w_RenderModel_t_0912 const* w_map ) { return CONTAINING_RECORD( w_map, struct render_model, w_0912 ); }
     u_RenderModel_t_0912*& u_model( w_RenderModel_t_0912 const& ) { return this->u_0912; }
     w_RenderModel_t_0912& w_model( w_RenderModel_t_0912 const& ) { return this->w_0912; }
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     static struct render_model *from_w( w32_RenderModel_t_0912 const* w_map ) { return CONTAINING_RECORD( w_map, struct render_model, w32_0912 ); }
     u_RenderModel_t_0912*& u_model( w32_RenderModel_t_0912 const& ) { return this->u_0912; }
     w32_RenderModel_t_0912& w_model( w32_RenderModel_t_0912 const& ) { return this->w32_0912; }
-#endif
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 #endif /* __cplusplus */
 };
 
@@ -52,10 +52,10 @@ struct render_model_texture_map
     {
         w_RenderModel_TextureMap_t_090 w_090;
         w_RenderModel_TextureMap_t_1237 w_1237;
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
         w32_RenderModel_TextureMap_t_090 w32_090;
         w32_RenderModel_TextureMap_t_1237 w32_1237;
-#endif
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
     };
     union
     {
@@ -70,14 +70,14 @@ struct render_model_texture_map
     u_RenderModel_TextureMap_t_1237*& u_map( w_RenderModel_TextureMap_t_1237 const& ) { return this->u_1237; }
     w_RenderModel_TextureMap_t_090& w_map( w_RenderModel_TextureMap_t_090 const& ) { return this->w_090; }
     w_RenderModel_TextureMap_t_1237& w_map( w_RenderModel_TextureMap_t_1237 const& ) { return this->w_1237; }
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     static struct render_model_texture_map *from_w( const w32_RenderModel_TextureMap_t_090* w_map ) { return CONTAINING_RECORD( w_map, struct render_model_texture_map, w32_090 ); }
     static struct render_model_texture_map *from_w( const w32_RenderModel_TextureMap_t_1237* w_map ) { return CONTAINING_RECORD( w_map, struct render_model_texture_map, w32_1237 ); }
     u_RenderModel_TextureMap_t_090*& u_map( w32_RenderModel_TextureMap_t_090 const& ) { return this->u_090; }
     u_RenderModel_TextureMap_t_1237*& u_map( w32_RenderModel_TextureMap_t_1237 const& ) { return this->u_1237; }
     w32_RenderModel_TextureMap_t_090& w_map( w32_RenderModel_TextureMap_t_090 const& ) { return this->w32_090; }
     w32_RenderModel_TextureMap_t_1237& w_map( w32_RenderModel_TextureMap_t_1237 const& ) { return this->w32_1237; }
-#endif
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 #endif /* __cplusplus */
 };
 

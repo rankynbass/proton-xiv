@@ -13,7 +13,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetWindowBounds( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetWindowBounds( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetWindowBounds_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetWindowBounds_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetRecommendedRenderTargetSize( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetRecommendedRenderTargetSize( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetRecommendedRenderTargetSize_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetRecommendedRenderTargetSize_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetEyeOutputViewport( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetEyeOutputViewport( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetEyeOutputViewport_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetEyeOutputViewport_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetProjectionMatrix( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetProjectionMatrix( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetProjectionMatrix_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetProjectionMatrix_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetProjectionRaw( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetProjectionRaw( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetProjectionRaw_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetProjectionRaw_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS IVRSystem_IVRSystem_003_ComputeDistortion( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_ComputeDistortion( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_ComputeDistortion_params *params = (struct wow64_IVRSystem_IVRSystem_003_ComputeDistortion_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetEyeToHeadTransform( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetEyeToHeadTransform( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetEyeToHeadTransform_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetEyeToHeadTransform_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetTimeSinceLastVsync( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetTimeSinceLastVsync( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetTimeSinceLastVsync_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetTimeSinceLastVsync_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetD3D9AdapterIndex( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetD3D9AdapterIndex( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetD3D9AdapterIndex_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetD3D9AdapterIndex_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetDXGIOutputInfo( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetDXGIOutputInfo( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetDXGIOutputInfo_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetDXGIOutputInfo_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS IVRSystem_IVRSystem_003_AttachToWindow( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_AttachToWindow( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_AttachToWindow_params *params = (struct wow64_IVRSystem_IVRSystem_003_AttachToWindow_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetDeviceToAbsoluteTrackingPose( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetDeviceToAbsoluteTrackingPose( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetDeviceToAbsoluteTrackingPose_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetDeviceToAbsoluteTrackingPose_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS IVRSystem_IVRSystem_003_ResetSeatedZeroPose( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_ResetSeatedZeroPose( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_ResetSeatedZeroPose_params *params = (struct wow64_IVRSystem_IVRSystem_003_ResetSeatedZeroPose_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetSeatedZeroPoseToStandingAbsoluteTrackingPose
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetSeatedZeroPoseToStandingAbsoluteTrackingPose( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params *)args;
@@ -268,7 +268,7 @@ NTSTATUS IVRSystem_IVRSystem_003_LoadRenderModel( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_LoadRenderModel( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_LoadRenderModel_params *params = (struct wow64_IVRSystem_IVRSystem_003_LoadRenderModel_params *)args;
@@ -292,7 +292,7 @@ NTSTATUS IVRSystem_IVRSystem_003_FreeRenderModel( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_FreeRenderModel( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_FreeRenderModel_params *params = (struct wow64_IVRSystem_IVRSystem_003_FreeRenderModel_params *)args;
@@ -313,7 +313,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetTrackedDeviceClass( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetTrackedDeviceClass( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetTrackedDeviceClass_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetTrackedDeviceClass_params *)args;
@@ -331,7 +331,7 @@ NTSTATUS IVRSystem_IVRSystem_003_IsTrackedDeviceConnected( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_IsTrackedDeviceConnected( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_IsTrackedDeviceConnected_params *params = (struct wow64_IVRSystem_IVRSystem_003_IsTrackedDeviceConnected_params *)args;
@@ -349,7 +349,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetBoolTrackedDeviceProperty( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetBoolTrackedDeviceProperty( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetBoolTrackedDeviceProperty_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetBoolTrackedDeviceProperty_params *)args;
@@ -367,7 +367,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetFloatTrackedDeviceProperty( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetFloatTrackedDeviceProperty( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetFloatTrackedDeviceProperty_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetFloatTrackedDeviceProperty_params *)args;
@@ -385,7 +385,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetInt32TrackedDeviceProperty( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetInt32TrackedDeviceProperty( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetInt32TrackedDeviceProperty_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetInt32TrackedDeviceProperty_params *)args;
@@ -403,7 +403,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetUint64TrackedDeviceProperty( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetUint64TrackedDeviceProperty( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetUint64TrackedDeviceProperty_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetUint64TrackedDeviceProperty_params *)args;
@@ -421,7 +421,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetMatrix34TrackedDeviceProperty( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetMatrix34TrackedDeviceProperty( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetMatrix34TrackedDeviceProperty_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetMatrix34TrackedDeviceProperty_params *)args;
@@ -439,7 +439,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetStringTrackedDeviceProperty( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetStringTrackedDeviceProperty( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetStringTrackedDeviceProperty_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetStringTrackedDeviceProperty_params *)args;
@@ -457,7 +457,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetPropErrorNameFromEnum( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetPropErrorNameFromEnum( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetPropErrorNameFromEnum_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetPropErrorNameFromEnum_params *)args;
@@ -478,7 +478,7 @@ NTSTATUS IVRSystem_IVRSystem_003_PollNextEvent( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_PollNextEvent( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_PollNextEvent_params *params = (struct wow64_IVRSystem_IVRSystem_003_PollNextEvent_params *)args;
@@ -502,7 +502,7 @@ NTSTATUS IVRSystem_IVRSystem_003_PollNextEventWithPose( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_PollNextEventWithPose( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_PollNextEventWithPose_params *params = (struct wow64_IVRSystem_IVRSystem_003_PollNextEventWithPose_params *)args;
@@ -523,7 +523,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetEventTypeNameFromEnum( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetEventTypeNameFromEnum( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetEventTypeNameFromEnum_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetEventTypeNameFromEnum_params *)args;
@@ -541,7 +541,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetHiddenAreaMesh( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetHiddenAreaMesh( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetHiddenAreaMesh_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetHiddenAreaMesh_params *)args;
@@ -562,7 +562,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetControllerState( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetControllerState( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetControllerState_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetControllerState_params *)args;
@@ -586,7 +586,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetControllerStateWithPose( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetControllerStateWithPose( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetControllerStateWithPose_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetControllerStateWithPose_params *)args;
@@ -607,7 +607,7 @@ NTSTATUS IVRSystem_IVRSystem_003_TriggerHapticPulse( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_TriggerHapticPulse( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_TriggerHapticPulse_params *params = (struct wow64_IVRSystem_IVRSystem_003_TriggerHapticPulse_params *)args;
@@ -625,7 +625,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetButtonIdNameFromEnum( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetButtonIdNameFromEnum( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetButtonIdNameFromEnum_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetButtonIdNameFromEnum_params *)args;
@@ -643,7 +643,7 @@ NTSTATUS IVRSystem_IVRSystem_003_GetControllerAxisTypeNameFromEnum( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_GetControllerAxisTypeNameFromEnum( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_GetControllerAxisTypeNameFromEnum_params *params = (struct wow64_IVRSystem_IVRSystem_003_GetControllerAxisTypeNameFromEnum_params *)args;
@@ -661,7 +661,7 @@ NTSTATUS IVRSystem_IVRSystem_003_HandleControllerOverlayInteractionAsMouse( void
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_HandleControllerOverlayInteractionAsMouse( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_HandleControllerOverlayInteractionAsMouse_params *params = (struct wow64_IVRSystem_IVRSystem_003_HandleControllerOverlayInteractionAsMouse_params *)args;
@@ -679,7 +679,7 @@ NTSTATUS IVRSystem_IVRSystem_003_CaptureInputFocus( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_CaptureInputFocus( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_CaptureInputFocus_params *params = (struct wow64_IVRSystem_IVRSystem_003_CaptureInputFocus_params *)args;
@@ -697,7 +697,7 @@ NTSTATUS IVRSystem_IVRSystem_003_ReleaseInputFocus( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_ReleaseInputFocus( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_ReleaseInputFocus_params *params = (struct wow64_IVRSystem_IVRSystem_003_ReleaseInputFocus_params *)args;
@@ -715,7 +715,7 @@ NTSTATUS IVRSystem_IVRSystem_003_IsInputFocusCapturedByAnotherProcess( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRSystem_IVRSystem_003_IsInputFocusCapturedByAnotherProcess( void *args )
 {
     struct wow64_IVRSystem_IVRSystem_003_IsInputFocusCapturedByAnotherProcess_params *params = (struct wow64_IVRSystem_IVRSystem_003_IsInputFocusCapturedByAnotherProcess_params *)args;

@@ -13,7 +13,7 @@ NTSTATUS IVROverlay_IVROverlay_002_FindOverlay( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_FindOverlay( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_FindOverlay_params *params = (struct wow64_IVROverlay_IVROverlay_002_FindOverlay_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS IVROverlay_IVROverlay_002_CreateOverlay( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_CreateOverlay( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_CreateOverlay_params *params = (struct wow64_IVROverlay_IVROverlay_002_CreateOverlay_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS IVROverlay_IVROverlay_002_DestroyOverlay( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_DestroyOverlay( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_DestroyOverlay_params *params = (struct wow64_IVROverlay_IVROverlay_002_DestroyOverlay_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS IVROverlay_IVROverlay_002_SetHighQualityOverlay( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_SetHighQualityOverlay( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_SetHighQualityOverlay_params *params = (struct wow64_IVROverlay_IVROverlay_002_SetHighQualityOverlay_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS IVROverlay_IVROverlay_002_GetHighQualityOverlay( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_GetHighQualityOverlay( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_GetHighQualityOverlay_params *params = (struct wow64_IVROverlay_IVROverlay_002_GetHighQualityOverlay_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS IVROverlay_IVROverlay_002_GetOverlayErrorNameFromEnum( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_GetOverlayErrorNameFromEnum( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_GetOverlayErrorNameFromEnum_params *params = (struct wow64_IVROverlay_IVROverlay_002_GetOverlayErrorNameFromEnum_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS IVROverlay_IVROverlay_002_SetOverlayFlag( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_SetOverlayFlag( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_SetOverlayFlag_params *params = (struct wow64_IVROverlay_IVROverlay_002_SetOverlayFlag_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS IVROverlay_IVROverlay_002_GetOverlayFlag( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_GetOverlayFlag( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_GetOverlayFlag_params *params = (struct wow64_IVROverlay_IVROverlay_002_GetOverlayFlag_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS IVROverlay_IVROverlay_002_SetOverlayColor( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_SetOverlayColor( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_SetOverlayColor_params *params = (struct wow64_IVROverlay_IVROverlay_002_SetOverlayColor_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS IVROverlay_IVROverlay_002_GetOverlayColor( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_GetOverlayColor( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_GetOverlayColor_params *params = (struct wow64_IVROverlay_IVROverlay_002_GetOverlayColor_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS IVROverlay_IVROverlay_002_SetOverlayAlpha( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_SetOverlayAlpha( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_SetOverlayAlpha_params *params = (struct wow64_IVROverlay_IVROverlay_002_SetOverlayAlpha_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS IVROverlay_IVROverlay_002_GetOverlayAlpha( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_GetOverlayAlpha( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_GetOverlayAlpha_params *params = (struct wow64_IVROverlay_IVROverlay_002_GetOverlayAlpha_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS IVROverlay_IVROverlay_002_SetOverlayGamma( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_SetOverlayGamma( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_SetOverlayGamma_params *params = (struct wow64_IVROverlay_IVROverlay_002_SetOverlayGamma_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS IVROverlay_IVROverlay_002_GetOverlayGamma( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_GetOverlayGamma( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_GetOverlayGamma_params *params = (struct wow64_IVROverlay_IVROverlay_002_GetOverlayGamma_params *)args;
@@ -265,7 +265,7 @@ NTSTATUS IVROverlay_IVROverlay_002_SetOverlayWidthInMeters( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_SetOverlayWidthInMeters( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_SetOverlayWidthInMeters_params *params = (struct wow64_IVROverlay_IVROverlay_002_SetOverlayWidthInMeters_params *)args;
@@ -283,7 +283,7 @@ NTSTATUS IVROverlay_IVROverlay_002_GetOverlayWidthInMeters( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_GetOverlayWidthInMeters( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_GetOverlayWidthInMeters_params *params = (struct wow64_IVROverlay_IVROverlay_002_GetOverlayWidthInMeters_params *)args;
@@ -301,7 +301,7 @@ NTSTATUS IVROverlay_IVROverlay_002_SetOverlayTextureBounds( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_SetOverlayTextureBounds( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_SetOverlayTextureBounds_params *params = (struct wow64_IVROverlay_IVROverlay_002_SetOverlayTextureBounds_params *)args;
@@ -319,7 +319,7 @@ NTSTATUS IVROverlay_IVROverlay_002_GetOverlayTextureBounds( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_GetOverlayTextureBounds( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_GetOverlayTextureBounds_params *params = (struct wow64_IVROverlay_IVROverlay_002_GetOverlayTextureBounds_params *)args;
@@ -337,7 +337,7 @@ NTSTATUS IVROverlay_IVROverlay_002_GetOverlayTransformType( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_GetOverlayTransformType( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_GetOverlayTransformType_params *params = (struct wow64_IVROverlay_IVROverlay_002_GetOverlayTransformType_params *)args;
@@ -355,7 +355,7 @@ NTSTATUS IVROverlay_IVROverlay_002_SetOverlayTransformAbsolute( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_SetOverlayTransformAbsolute( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_SetOverlayTransformAbsolute_params *params = (struct wow64_IVROverlay_IVROverlay_002_SetOverlayTransformAbsolute_params *)args;
@@ -373,7 +373,7 @@ NTSTATUS IVROverlay_IVROverlay_002_GetOverlayTransformAbsolute( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_GetOverlayTransformAbsolute( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_GetOverlayTransformAbsolute_params *params = (struct wow64_IVROverlay_IVROverlay_002_GetOverlayTransformAbsolute_params *)args;
@@ -391,7 +391,7 @@ NTSTATUS IVROverlay_IVROverlay_002_SetOverlayTransformTrackedDeviceRelative( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_SetOverlayTransformTrackedDeviceRelative( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_SetOverlayTransformTrackedDeviceRelative_params *params = (struct wow64_IVROverlay_IVROverlay_002_SetOverlayTransformTrackedDeviceRelative_params *)args;
@@ -409,7 +409,7 @@ NTSTATUS IVROverlay_IVROverlay_002_GetOverlayTransformTrackedDeviceRelative( voi
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_GetOverlayTransformTrackedDeviceRelative( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_GetOverlayTransformTrackedDeviceRelative_params *params = (struct wow64_IVROverlay_IVROverlay_002_GetOverlayTransformTrackedDeviceRelative_params *)args;
@@ -427,7 +427,7 @@ NTSTATUS IVROverlay_IVROverlay_002_ShowOverlay( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_ShowOverlay( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_ShowOverlay_params *params = (struct wow64_IVROverlay_IVROverlay_002_ShowOverlay_params *)args;
@@ -445,7 +445,7 @@ NTSTATUS IVROverlay_IVROverlay_002_HideOverlay( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_HideOverlay( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_HideOverlay_params *params = (struct wow64_IVROverlay_IVROverlay_002_HideOverlay_params *)args;
@@ -463,7 +463,7 @@ NTSTATUS IVROverlay_IVROverlay_002_IsOverlayVisible( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_IsOverlayVisible( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_IsOverlayVisible_params *params = (struct wow64_IVROverlay_IVROverlay_002_IsOverlayVisible_params *)args;
@@ -484,7 +484,7 @@ NTSTATUS IVROverlay_IVROverlay_002_PollNextOverlayEvent( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_PollNextOverlayEvent( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_PollNextOverlayEvent_params *params = (struct wow64_IVROverlay_IVROverlay_002_PollNextOverlayEvent_params *)args;
@@ -505,7 +505,7 @@ NTSTATUS IVROverlay_IVROverlay_002_GetOverlayInputMethod( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_GetOverlayInputMethod( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_GetOverlayInputMethod_params *params = (struct wow64_IVROverlay_IVROverlay_002_GetOverlayInputMethod_params *)args;
@@ -523,7 +523,7 @@ NTSTATUS IVROverlay_IVROverlay_002_SetOverlayInputMethod( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_SetOverlayInputMethod( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_SetOverlayInputMethod_params *params = (struct wow64_IVROverlay_IVROverlay_002_SetOverlayInputMethod_params *)args;
@@ -541,7 +541,7 @@ NTSTATUS IVROverlay_IVROverlay_002_GetOverlayMouseScale( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_GetOverlayMouseScale( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_GetOverlayMouseScale_params *params = (struct wow64_IVROverlay_IVROverlay_002_GetOverlayMouseScale_params *)args;
@@ -559,7 +559,7 @@ NTSTATUS IVROverlay_IVROverlay_002_SetOverlayMouseScale( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_SetOverlayMouseScale( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_SetOverlayMouseScale_params *params = (struct wow64_IVROverlay_IVROverlay_002_SetOverlayMouseScale_params *)args;
@@ -577,7 +577,7 @@ NTSTATUS IVROverlay_IVROverlay_002_ComputeOverlayIntersection( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_ComputeOverlayIntersection( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_ComputeOverlayIntersection_params *params = (struct wow64_IVROverlay_IVROverlay_002_ComputeOverlayIntersection_params *)args;
@@ -595,7 +595,7 @@ NTSTATUS IVROverlay_IVROverlay_002_HandleControllerOverlayInteractionAsMouse( vo
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_HandleControllerOverlayInteractionAsMouse( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_HandleControllerOverlayInteractionAsMouse_params *params = (struct wow64_IVROverlay_IVROverlay_002_HandleControllerOverlayInteractionAsMouse_params *)args;
@@ -613,7 +613,7 @@ NTSTATUS IVROverlay_IVROverlay_002_ClearOverlayTexture( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_ClearOverlayTexture( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_ClearOverlayTexture_params *params = (struct wow64_IVROverlay_IVROverlay_002_ClearOverlayTexture_params *)args;
@@ -631,7 +631,7 @@ NTSTATUS IVROverlay_IVROverlay_002_SetOverlayRaw( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_SetOverlayRaw( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_SetOverlayRaw_params *params = (struct wow64_IVROverlay_IVROverlay_002_SetOverlayRaw_params *)args;
@@ -651,7 +651,7 @@ NTSTATUS IVROverlay_IVROverlay_002_SetOverlayFromFile( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_SetOverlayFromFile( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_SetOverlayFromFile_params *params = (struct wow64_IVROverlay_IVROverlay_002_SetOverlayFromFile_params *)args;
@@ -671,7 +671,7 @@ NTSTATUS IVROverlay_IVROverlay_002_CreateDashboardOverlay( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_CreateDashboardOverlay( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_CreateDashboardOverlay_params *params = (struct wow64_IVROverlay_IVROverlay_002_CreateDashboardOverlay_params *)args;
@@ -689,7 +689,7 @@ NTSTATUS IVROverlay_IVROverlay_002_IsDashboardVisible( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_IsDashboardVisible( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_IsDashboardVisible_params *params = (struct wow64_IVROverlay_IVROverlay_002_IsDashboardVisible_params *)args;
@@ -707,7 +707,7 @@ NTSTATUS IVROverlay_IVROverlay_002_IsActiveDashboardOverlay( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_IsActiveDashboardOverlay( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_IsActiveDashboardOverlay_params *params = (struct wow64_IVROverlay_IVROverlay_002_IsActiveDashboardOverlay_params *)args;
@@ -725,7 +725,7 @@ NTSTATUS IVROverlay_IVROverlay_002_SetDashboardOverlaySceneProcess( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_SetDashboardOverlaySceneProcess( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_SetDashboardOverlaySceneProcess_params *params = (struct wow64_IVROverlay_IVROverlay_002_SetDashboardOverlaySceneProcess_params *)args;
@@ -743,7 +743,7 @@ NTSTATUS IVROverlay_IVROverlay_002_GetDashboardOverlaySceneProcess( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlay_IVROverlay_002_GetDashboardOverlaySceneProcess( void *args )
 {
     struct wow64_IVROverlay_IVROverlay_002_GetDashboardOverlaySceneProcess_params *params = (struct wow64_IVROverlay_IVROverlay_002_GetDashboardOverlaySceneProcess_params *)args;

@@ -13,7 +13,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_SetTrackingSpace( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_SetTrackingSpace( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_SetTrackingSpace_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_SetTrackingSpace_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_GetTrackingSpace( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_GetTrackingSpace( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_GetTrackingSpace_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_GetTrackingSpace_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_WaitGetPoses( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_WaitGetPoses( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_WaitGetPoses_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_WaitGetPoses_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_GetLastPoses( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_GetLastPoses( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_GetLastPoses_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_GetLastPoses_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_ClearLastSubmittedFrame( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_ClearLastSubmittedFrame( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_ClearLastSubmittedFrame_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_ClearLastSubmittedFrame_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_PostPresentHandoff( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_PostPresentHandoff( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_PostPresentHandoff_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_PostPresentHandoff_params *)args;
@@ -124,7 +124,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_GetFrameTiming( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_GetFrameTiming( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_GetFrameTiming_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_GetFrameTiming_params *)args;
@@ -145,7 +145,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_GetFrameTimeRemaining( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_GetFrameTimeRemaining( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_GetFrameTimeRemaining_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_GetFrameTimeRemaining_params *)args;
@@ -163,7 +163,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_FadeToColor( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_FadeToColor( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_FadeToColor_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_FadeToColor_params *)args;
@@ -181,7 +181,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_FadeGrid( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_FadeGrid( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_FadeGrid_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_FadeGrid_params *)args;
@@ -199,7 +199,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_ClearSkyboxOverride( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_ClearSkyboxOverride( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_ClearSkyboxOverride_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_ClearSkyboxOverride_params *)args;
@@ -217,7 +217,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_CompositorBringToFront( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_CompositorBringToFront( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_CompositorBringToFront_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_CompositorBringToFront_params *)args;
@@ -235,7 +235,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_CompositorGoToBack( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_CompositorGoToBack( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_CompositorGoToBack_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_CompositorGoToBack_params *)args;
@@ -253,7 +253,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_CompositorQuit( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_CompositorQuit( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_CompositorQuit_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_CompositorQuit_params *)args;
@@ -271,7 +271,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_IsFullscreen( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_IsFullscreen( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_IsFullscreen_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_IsFullscreen_params *)args;
@@ -289,7 +289,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_GetCurrentSceneFocusProcess( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_GetCurrentSceneFocusProcess( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_GetCurrentSceneFocusProcess_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_GetCurrentSceneFocusProcess_params *)args;
@@ -307,7 +307,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_GetLastFrameRenderer( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_GetLastFrameRenderer( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_GetLastFrameRenderer_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_GetLastFrameRenderer_params *)args;
@@ -325,7 +325,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_CanRenderScene( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_CanRenderScene( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_CanRenderScene_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_CanRenderScene_params *)args;
@@ -343,7 +343,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_ShowMirrorWindow( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_ShowMirrorWindow( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_ShowMirrorWindow_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_ShowMirrorWindow_params *)args;
@@ -361,7 +361,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_HideMirrorWindow( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_HideMirrorWindow( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_HideMirrorWindow_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_HideMirrorWindow_params *)args;
@@ -379,7 +379,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_IsMirrorWindowVisible( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_IsMirrorWindowVisible( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_IsMirrorWindowVisible_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_IsMirrorWindowVisible_params *)args;
@@ -397,7 +397,7 @@ NTSTATUS IVRCompositor_IVRCompositor_010_CompositorDumpImages( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRCompositor_IVRCompositor_010_CompositorDumpImages( void *args )
 {
     struct wow64_IVRCompositor_IVRCompositor_010_CompositorDumpImages_params *params = (struct wow64_IVRCompositor_IVRCompositor_010_CompositorDumpImages_params *)args;

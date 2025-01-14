@@ -9292,7 +9292,7 @@ C_ASSERT( sizeof(u32_RenderModel_TextureMap_t_090().unHeight) >= 2 );
 C_ASSERT( offsetof(u32_RenderModel_TextureMap_t_090, rubTextureMapData) == 4 );
 C_ASSERT( sizeof(u32_RenderModel_TextureMap_t_090().rubTextureMapData) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RenderModel_TextureMap_t_1237::operator u64_RenderModel_TextureMap_t_1237() const
 {
     u64_RenderModel_TextureMap_t_1237 ret;
@@ -9305,7 +9305,7 @@ w64_RenderModel_TextureMap_t_1237::operator u64_RenderModel_TextureMap_t_1237() 
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RenderModel_TextureMap_t_1237::operator w64_RenderModel_TextureMap_t_1237() const
 {
     w64_RenderModel_TextureMap_t_1237 ret;
@@ -9318,7 +9318,7 @@ u64_RenderModel_TextureMap_t_1237::operator w64_RenderModel_TextureMap_t_1237() 
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RenderModel_TextureMap_t_1237::operator u64_RenderModel_TextureMap_t_1237() const
 {
     u64_RenderModel_TextureMap_t_1237 ret;
@@ -9331,7 +9331,7 @@ w32_RenderModel_TextureMap_t_1237::operator u64_RenderModel_TextureMap_t_1237() 
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RenderModel_TextureMap_t_1237::operator w32_RenderModel_TextureMap_t_1237() const
 {
     w32_RenderModel_TextureMap_t_1237 ret;
@@ -9344,7 +9344,7 @@ u64_RenderModel_TextureMap_t_1237::operator w32_RenderModel_TextureMap_t_1237() 
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RenderModel_TextureMap_t_11111::operator u64_RenderModel_TextureMap_t_11111() const
 {
     u64_RenderModel_TextureMap_t_11111 ret;
@@ -9356,7 +9356,7 @@ w64_RenderModel_TextureMap_t_11111::operator u64_RenderModel_TextureMap_t_11111(
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RenderModel_TextureMap_t_11111::operator w64_RenderModel_TextureMap_t_11111() const
 {
     w64_RenderModel_TextureMap_t_11111 ret;
@@ -9368,7 +9368,7 @@ u64_RenderModel_TextureMap_t_11111::operator w64_RenderModel_TextureMap_t_11111(
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RenderModel_TextureMap_t_11111::operator u64_RenderModel_TextureMap_t_11111() const
 {
     u64_RenderModel_TextureMap_t_11111 ret;
@@ -9380,7 +9380,7 @@ w32_RenderModel_TextureMap_t_11111::operator u64_RenderModel_TextureMap_t_11111(
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RenderModel_TextureMap_t_11111::operator w32_RenderModel_TextureMap_t_11111() const
 {
     w32_RenderModel_TextureMap_t_11111 ret;
@@ -9392,7 +9392,7 @@ u64_RenderModel_TextureMap_t_11111::operator w32_RenderModel_TextureMap_t_11111(
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RenderModel_TextureMap_t_090::operator u64_RenderModel_TextureMap_t_090() const
 {
     u64_RenderModel_TextureMap_t_090 ret;
@@ -9403,7 +9403,7 @@ w64_RenderModel_TextureMap_t_090::operator u64_RenderModel_TextureMap_t_090() co
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RenderModel_TextureMap_t_090::operator w64_RenderModel_TextureMap_t_090() const
 {
     w64_RenderModel_TextureMap_t_090 ret;
@@ -9414,7 +9414,7 @@ u64_RenderModel_TextureMap_t_090::operator w64_RenderModel_TextureMap_t_090() co
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RenderModel_TextureMap_t_090::operator u64_RenderModel_TextureMap_t_090() const
 {
     u64_RenderModel_TextureMap_t_090 ret;
@@ -9425,7 +9425,7 @@ w32_RenderModel_TextureMap_t_090::operator u64_RenderModel_TextureMap_t_090() co
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RenderModel_TextureMap_t_090::operator w32_RenderModel_TextureMap_t_090() const
 {
     w32_RenderModel_TextureMap_t_090 ret;
@@ -9468,7 +9468,7 @@ C_ASSERT( sizeof(u32_Texture_t().eType) >= 4 );
 C_ASSERT( offsetof(u32_Texture_t, eColorSpace) == 8 );
 C_ASSERT( sizeof(u32_Texture_t().eColorSpace) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_Texture_t::operator u64_Texture_t() const
 {
     u64_Texture_t ret;
@@ -9479,7 +9479,7 @@ w32_Texture_t::operator u64_Texture_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_Texture_t::operator w32_Texture_t() const
 {
     w32_Texture_t ret;
@@ -9522,7 +9522,7 @@ C_ASSERT( sizeof(u32_VRTextureDepthInfo_t().mProjection) >= 64 );
 C_ASSERT( offsetof(u32_VRTextureDepthInfo_t, vRange) == 68 );
 C_ASSERT( sizeof(u32_VRTextureDepthInfo_t().vRange) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VRTextureDepthInfo_t::operator u64_VRTextureDepthInfo_t() const
 {
     u64_VRTextureDepthInfo_t ret;
@@ -9533,7 +9533,7 @@ w32_VRTextureDepthInfo_t::operator u64_VRTextureDepthInfo_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VRTextureDepthInfo_t::operator w32_VRTextureDepthInfo_t() const
 {
     w32_VRTextureDepthInfo_t ret;
@@ -9568,7 +9568,7 @@ C_ASSERT( sizeof(u32_AppOverrideKeys_t().pchKey) >= 4 );
 C_ASSERT( offsetof(u32_AppOverrideKeys_t, pchValue) == 4 );
 C_ASSERT( sizeof(u32_AppOverrideKeys_t().pchValue) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_AppOverrideKeys_t::operator u64_AppOverrideKeys_t() const
 {
     u64_AppOverrideKeys_t ret;
@@ -9578,7 +9578,7 @@ w32_AppOverrideKeys_t::operator u64_AppOverrideKeys_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_AppOverrideKeys_t::operator w32_AppOverrideKeys_t() const
 {
     w32_AppOverrideKeys_t ret;
@@ -10946,7 +10946,7 @@ u32_CameraVideoStreamFrameHeader_t_1017::operator w32_CameraVideoStreamFrameHead
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_CameraVideoStreamFrameHeader_t_1017::operator u64_CameraVideoStreamFrameHeader_t_1017() const
 {
     u64_CameraVideoStreamFrameHeader_t_1017 ret;
@@ -10961,7 +10961,7 @@ w32_CameraVideoStreamFrameHeader_t_1017::operator u64_CameraVideoStreamFrameHead
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_CameraVideoStreamFrameHeader_t_1017::operator w32_CameraVideoStreamFrameHeader_t_1017() const
 {
     w32_CameraVideoStreamFrameHeader_t_1017 ret;
@@ -10976,7 +10976,7 @@ u64_CameraVideoStreamFrameHeader_t_1017::operator w32_CameraVideoStreamFrameHead
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_CameraVideoStreamFrameHeader_t_100::operator u64_CameraVideoStreamFrameHeader_t_100() const
 {
     u64_CameraVideoStreamFrameHeader_t_100 ret;
@@ -10990,7 +10990,7 @@ w32_CameraVideoStreamFrameHeader_t_100::operator u64_CameraVideoStreamFrameHeade
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_CameraVideoStreamFrameHeader_t_100::operator w32_CameraVideoStreamFrameHeader_t_100() const
 {
     w32_CameraVideoStreamFrameHeader_t_100 ret;
@@ -11276,7 +11276,7 @@ C_ASSERT( sizeof(u32_CameraVideoStreamFrame_t_0912().m_Pad) >= 16 );
 C_ASSERT( offsetof(u32_CameraVideoStreamFrame_t_0912, m_pImageData) == 116 );
 C_ASSERT( sizeof(u32_CameraVideoStreamFrame_t_0912().m_pImageData) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_CameraVideoStreamFrame_t_0914::operator u64_CameraVideoStreamFrame_t_0914() const
 {
     u64_CameraVideoStreamFrame_t_0914 ret;
@@ -11302,7 +11302,7 @@ w64_CameraVideoStreamFrame_t_0914::operator u64_CameraVideoStreamFrame_t_0914() 
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_CameraVideoStreamFrame_t_0914::operator w64_CameraVideoStreamFrame_t_0914() const
 {
     w64_CameraVideoStreamFrame_t_0914 ret;
@@ -11380,7 +11380,7 @@ u32_CameraVideoStreamFrame_t_0914::operator w32_CameraVideoStreamFrame_t_0914() 
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_CameraVideoStreamFrame_t_0914::operator u64_CameraVideoStreamFrame_t_0914() const
 {
     u64_CameraVideoStreamFrame_t_0914 ret;
@@ -11406,7 +11406,7 @@ w32_CameraVideoStreamFrame_t_0914::operator u64_CameraVideoStreamFrame_t_0914() 
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_CameraVideoStreamFrame_t_0914::operator w32_CameraVideoStreamFrame_t_0914() const
 {
     w32_CameraVideoStreamFrame_t_0914 ret;
@@ -11432,7 +11432,7 @@ u64_CameraVideoStreamFrame_t_0914::operator w32_CameraVideoStreamFrame_t_0914() 
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_CameraVideoStreamFrame_t_0912::operator u64_CameraVideoStreamFrame_t_0912() const
 {
     u64_CameraVideoStreamFrame_t_0912 ret;
@@ -11454,7 +11454,7 @@ w64_CameraVideoStreamFrame_t_0912::operator u64_CameraVideoStreamFrame_t_0912() 
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_CameraVideoStreamFrame_t_0912::operator w64_CameraVideoStreamFrame_t_0912() const
 {
     w64_CameraVideoStreamFrame_t_0912 ret;
@@ -11476,7 +11476,7 @@ u64_CameraVideoStreamFrame_t_0912::operator w64_CameraVideoStreamFrame_t_0912() 
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_CameraVideoStreamFrame_t_0912::operator u64_CameraVideoStreamFrame_t_0912() const
 {
     u64_CameraVideoStreamFrame_t_0912 ret;
@@ -11498,7 +11498,7 @@ w32_CameraVideoStreamFrame_t_0912::operator u64_CameraVideoStreamFrame_t_0912() 
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_CameraVideoStreamFrame_t_0912::operator w32_CameraVideoStreamFrame_t_0912() const
 {
     w32_CameraVideoStreamFrame_t_0912 ret;
@@ -13112,7 +13112,7 @@ C_ASSERT( sizeof(u32_Compositor_FrameTiming_090().frameIndex) >= 4 );
 C_ASSERT( offsetof(u32_Compositor_FrameTiming_090, pose) == 24 );
 C_ASSERT( sizeof(u32_Compositor_FrameTiming_090().pose) >= 80 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_Compositor_FrameTiming_1017::operator u64_Compositor_FrameTiming_1017() const
 {
     u64_Compositor_FrameTiming_1017 ret;
@@ -13146,7 +13146,7 @@ w32_Compositor_FrameTiming_1017::operator u64_Compositor_FrameTiming_1017() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_Compositor_FrameTiming_1017::operator w32_Compositor_FrameTiming_1017() const
 {
     w32_Compositor_FrameTiming_1017 ret;
@@ -13180,7 +13180,7 @@ u64_Compositor_FrameTiming_1017::operator w32_Compositor_FrameTiming_1017() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_Compositor_FrameTiming_103a::operator u64_Compositor_FrameTiming_103a() const
 {
     u64_Compositor_FrameTiming_103a ret;
@@ -13212,7 +13212,7 @@ w32_Compositor_FrameTiming_103a::operator u64_Compositor_FrameTiming_103a() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_Compositor_FrameTiming_103a::operator w32_Compositor_FrameTiming_103a() const
 {
     w32_Compositor_FrameTiming_103a ret;
@@ -13244,7 +13244,7 @@ u64_Compositor_FrameTiming_103a::operator w32_Compositor_FrameTiming_103a() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_Compositor_FrameTiming_102::operator u64_Compositor_FrameTiming_102() const
 {
     u64_Compositor_FrameTiming_102 ret;
@@ -13275,7 +13275,7 @@ w64_Compositor_FrameTiming_102::operator u64_Compositor_FrameTiming_102() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_Compositor_FrameTiming_102::operator w64_Compositor_FrameTiming_102() const
 {
     w64_Compositor_FrameTiming_102 ret;
@@ -13368,7 +13368,7 @@ u32_Compositor_FrameTiming_102::operator w32_Compositor_FrameTiming_102() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_Compositor_FrameTiming_102::operator u64_Compositor_FrameTiming_102() const
 {
     u64_Compositor_FrameTiming_102 ret;
@@ -13399,7 +13399,7 @@ w32_Compositor_FrameTiming_102::operator u64_Compositor_FrameTiming_102() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_Compositor_FrameTiming_102::operator w32_Compositor_FrameTiming_102() const
 {
     w32_Compositor_FrameTiming_102 ret;
@@ -13430,7 +13430,7 @@ u64_Compositor_FrameTiming_102::operator w32_Compositor_FrameTiming_102() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_Compositor_FrameTiming_0920::operator u64_Compositor_FrameTiming_0920() const
 {
     u64_Compositor_FrameTiming_0920 ret;
@@ -13461,7 +13461,7 @@ w32_Compositor_FrameTiming_0920::operator u64_Compositor_FrameTiming_0920() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_Compositor_FrameTiming_0920::operator w32_Compositor_FrameTiming_0920() const
 {
     w32_Compositor_FrameTiming_0920 ret;
@@ -13492,7 +13492,7 @@ u64_Compositor_FrameTiming_0920::operator w32_Compositor_FrameTiming_0920() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_Compositor_FrameTiming_0915::operator u64_Compositor_FrameTiming_0915() const
 {
     u64_Compositor_FrameTiming_0915 ret;
@@ -13522,7 +13522,7 @@ w32_Compositor_FrameTiming_0915::operator u64_Compositor_FrameTiming_0915() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_Compositor_FrameTiming_0915::operator w32_Compositor_FrameTiming_0915() const
 {
     w32_Compositor_FrameTiming_0915 ret;
@@ -13552,7 +13552,7 @@ u64_Compositor_FrameTiming_0915::operator w32_Compositor_FrameTiming_0915() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_Compositor_FrameTiming_0914::operator u64_Compositor_FrameTiming_0914() const
 {
     u64_Compositor_FrameTiming_0914 ret;
@@ -13578,7 +13578,7 @@ w64_Compositor_FrameTiming_0914::operator u64_Compositor_FrameTiming_0914() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_Compositor_FrameTiming_0914::operator w64_Compositor_FrameTiming_0914() const
 {
     w64_Compositor_FrameTiming_0914 ret;
@@ -13656,7 +13656,7 @@ u32_Compositor_FrameTiming_0914::operator w32_Compositor_FrameTiming_0914() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_Compositor_FrameTiming_0914::operator u64_Compositor_FrameTiming_0914() const
 {
     u64_Compositor_FrameTiming_0914 ret;
@@ -13682,7 +13682,7 @@ w32_Compositor_FrameTiming_0914::operator u64_Compositor_FrameTiming_0914() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_Compositor_FrameTiming_0914::operator w32_Compositor_FrameTiming_0914() const
 {
     w32_Compositor_FrameTiming_0914 ret;
@@ -13708,7 +13708,7 @@ u64_Compositor_FrameTiming_0914::operator w32_Compositor_FrameTiming_0914() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_Compositor_FrameTiming_0913::operator u64_Compositor_FrameTiming_0913() const
 {
     u64_Compositor_FrameTiming_0913 ret;
@@ -13733,7 +13733,7 @@ w64_Compositor_FrameTiming_0913::operator u64_Compositor_FrameTiming_0913() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_Compositor_FrameTiming_0913::operator w64_Compositor_FrameTiming_0913() const
 {
     w64_Compositor_FrameTiming_0913 ret;
@@ -13808,7 +13808,7 @@ u32_Compositor_FrameTiming_0913::operator w32_Compositor_FrameTiming_0913() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_Compositor_FrameTiming_0913::operator u64_Compositor_FrameTiming_0913() const
 {
     u64_Compositor_FrameTiming_0913 ret;
@@ -13833,7 +13833,7 @@ w32_Compositor_FrameTiming_0913::operator u64_Compositor_FrameTiming_0913() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_Compositor_FrameTiming_0913::operator w32_Compositor_FrameTiming_0913() const
 {
     w32_Compositor_FrameTiming_0913 ret;
@@ -13858,7 +13858,7 @@ u64_Compositor_FrameTiming_0913::operator w32_Compositor_FrameTiming_0913() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_Compositor_FrameTiming_0912::operator u64_Compositor_FrameTiming_0912() const
 {
     u64_Compositor_FrameTiming_0912 ret;
@@ -13882,7 +13882,7 @@ w64_Compositor_FrameTiming_0912::operator u64_Compositor_FrameTiming_0912() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_Compositor_FrameTiming_0912::operator w64_Compositor_FrameTiming_0912() const
 {
     w64_Compositor_FrameTiming_0912 ret;
@@ -13954,7 +13954,7 @@ u32_Compositor_FrameTiming_0912::operator w32_Compositor_FrameTiming_0912() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_Compositor_FrameTiming_0912::operator u64_Compositor_FrameTiming_0912() const
 {
     u64_Compositor_FrameTiming_0912 ret;
@@ -13978,7 +13978,7 @@ w32_Compositor_FrameTiming_0912::operator u64_Compositor_FrameTiming_0912() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_Compositor_FrameTiming_0912::operator w32_Compositor_FrameTiming_0912() const
 {
     w32_Compositor_FrameTiming_0912 ret;
@@ -14002,7 +14002,7 @@ u64_Compositor_FrameTiming_0912::operator w32_Compositor_FrameTiming_0912() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_Compositor_FrameTiming_093::operator u64_Compositor_FrameTiming_093() const
 {
     u64_Compositor_FrameTiming_093 ret;
@@ -14024,7 +14024,7 @@ w64_Compositor_FrameTiming_093::operator u64_Compositor_FrameTiming_093() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_Compositor_FrameTiming_093::operator w64_Compositor_FrameTiming_093() const
 {
     w64_Compositor_FrameTiming_093 ret;
@@ -14090,7 +14090,7 @@ u32_Compositor_FrameTiming_093::operator w32_Compositor_FrameTiming_093() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_Compositor_FrameTiming_093::operator u64_Compositor_FrameTiming_093() const
 {
     u64_Compositor_FrameTiming_093 ret;
@@ -14112,7 +14112,7 @@ w32_Compositor_FrameTiming_093::operator u64_Compositor_FrameTiming_093() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_Compositor_FrameTiming_093::operator w32_Compositor_FrameTiming_093() const
 {
     w32_Compositor_FrameTiming_093 ret;
@@ -14134,7 +14134,7 @@ u64_Compositor_FrameTiming_093::operator w32_Compositor_FrameTiming_093() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_Compositor_FrameTiming_090::operator u64_Compositor_FrameTiming_090() const
 {
     u64_Compositor_FrameTiming_090 ret;
@@ -14148,7 +14148,7 @@ w64_Compositor_FrameTiming_090::operator u64_Compositor_FrameTiming_090() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_Compositor_FrameTiming_090::operator w64_Compositor_FrameTiming_090() const
 {
     w64_Compositor_FrameTiming_090 ret;
@@ -14190,7 +14190,7 @@ u32_Compositor_FrameTiming_090::operator w32_Compositor_FrameTiming_090() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_Compositor_FrameTiming_090::operator u64_Compositor_FrameTiming_090() const
 {
     u64_Compositor_FrameTiming_090 ret;
@@ -14204,7 +14204,7 @@ w32_Compositor_FrameTiming_090::operator u64_Compositor_FrameTiming_090() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_Compositor_FrameTiming_090::operator w32_Compositor_FrameTiming_090() const
 {
     w32_Compositor_FrameTiming_090 ret;
@@ -14250,7 +14250,7 @@ C_ASSERT( sizeof(u32_D3D12TextureData_t().m_pCommandQueue) >= 4 );
 C_ASSERT( offsetof(u32_D3D12TextureData_t, m_nNodeMask) == 8 );
 C_ASSERT( sizeof(u32_D3D12TextureData_t().m_nNodeMask) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_D3D12TextureData_t::operator u64_D3D12TextureData_t() const
 {
     u64_D3D12TextureData_t ret;
@@ -14261,7 +14261,7 @@ w32_D3D12TextureData_t::operator u64_D3D12TextureData_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_D3D12TextureData_t::operator w32_D3D12TextureData_t() const
 {
     w32_D3D12TextureData_t ret;
@@ -14296,7 +14296,7 @@ C_ASSERT( sizeof(u32_HiddenAreaMesh_t().pVertexData) >= 4 );
 C_ASSERT( offsetof(u32_HiddenAreaMesh_t, unTriangleCount) == 4 );
 C_ASSERT( sizeof(u32_HiddenAreaMesh_t().unTriangleCount) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_HiddenAreaMesh_t::operator u64_HiddenAreaMesh_t() const
 {
     u64_HiddenAreaMesh_t ret;
@@ -14306,7 +14306,7 @@ w32_HiddenAreaMesh_t::operator u64_HiddenAreaMesh_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_HiddenAreaMesh_t::operator w32_HiddenAreaMesh_t() const
 {
     w32_HiddenAreaMesh_t ret;
@@ -14430,7 +14430,7 @@ u32_InputAnalogActionData_t::operator w32_InputAnalogActionData_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_InputAnalogActionData_t::operator u64_InputAnalogActionData_t() const
 {
     u64_InputAnalogActionData_t ret;
@@ -14447,7 +14447,7 @@ w32_InputAnalogActionData_t::operator u64_InputAnalogActionData_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_InputAnalogActionData_t::operator w32_InputAnalogActionData_t() const
 {
     w32_InputAnalogActionData_t ret;
@@ -14538,7 +14538,7 @@ u32_InputDigitalActionData_t::operator w32_InputDigitalActionData_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_InputDigitalActionData_t::operator u64_InputDigitalActionData_t() const
 {
     u64_InputDigitalActionData_t ret;
@@ -14551,7 +14551,7 @@ w32_InputDigitalActionData_t::operator u64_InputDigitalActionData_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_InputDigitalActionData_t::operator w32_InputDigitalActionData_t() const
 {
     w32_InputDigitalActionData_t ret;
@@ -14618,7 +14618,7 @@ u32_InputOriginInfo_t::operator w32_InputOriginInfo_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_InputOriginInfo_t::operator u64_InputOriginInfo_t() const
 {
     u64_InputOriginInfo_t ret;
@@ -14629,7 +14629,7 @@ w32_InputOriginInfo_t::operator u64_InputOriginInfo_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_InputOriginInfo_t::operator w32_InputOriginInfo_t() const
 {
     w32_InputOriginInfo_t ret;
@@ -14694,7 +14694,7 @@ u32_InputPoseActionData_t::operator w32_InputPoseActionData_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_InputPoseActionData_t::operator u64_InputPoseActionData_t() const
 {
     u64_InputPoseActionData_t ret;
@@ -14705,7 +14705,7 @@ w32_InputPoseActionData_t::operator u64_InputPoseActionData_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_InputPoseActionData_t::operator w32_InputPoseActionData_t() const
 {
     w32_InputPoseActionData_t ret;
@@ -14792,7 +14792,7 @@ u32_InputSkeletalActionData_t_113b::operator w32_InputSkeletalActionData_t_113b(
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_InputSkeletalActionData_t_113b::operator u64_InputSkeletalActionData_t_113b() const
 {
     u64_InputSkeletalActionData_t_113b ret;
@@ -14802,7 +14802,7 @@ w32_InputSkeletalActionData_t_113b::operator u64_InputSkeletalActionData_t_113b(
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_InputSkeletalActionData_t_113b::operator w32_InputSkeletalActionData_t_113b() const
 {
     w32_InputSkeletalActionData_t_113b ret;
@@ -14834,7 +14834,7 @@ u32_InputSkeletalActionData_t_1016::operator w32_InputSkeletalActionData_t_1016(
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_InputSkeletalActionData_t_1016::operator u64_InputSkeletalActionData_t_1016() const
 {
     u64_InputSkeletalActionData_t_1016 ret;
@@ -14845,7 +14845,7 @@ w32_InputSkeletalActionData_t_1016::operator u64_InputSkeletalActionData_t_1016(
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_InputSkeletalActionData_t_1016::operator w32_InputSkeletalActionData_t_1016() const
 {
     w32_InputSkeletalActionData_t_1016 ret;
@@ -14900,7 +14900,7 @@ u32_InputSkeletonActionData_t::operator w32_InputSkeletonActionData_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_InputSkeletonActionData_t::operator u64_InputSkeletonActionData_t() const
 {
     u64_InputSkeletonActionData_t ret;
@@ -14910,7 +14910,7 @@ w32_InputSkeletonActionData_t::operator u64_InputSkeletonActionData_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_InputSkeletonActionData_t::operator w32_InputSkeletonActionData_t() const
 {
     w32_InputSkeletonActionData_t ret;
@@ -14960,7 +14960,7 @@ C_ASSERT( sizeof(u32_NotificationBitmap().height) >= 4 );
 C_ASSERT( offsetof(u32_NotificationBitmap, depth) == 12 );
 C_ASSERT( sizeof(u32_NotificationBitmap().depth) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_NotificationBitmap::operator u64_NotificationBitmap() const
 {
     u64_NotificationBitmap ret;
@@ -14972,7 +14972,7 @@ w32_NotificationBitmap::operator u64_NotificationBitmap() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_NotificationBitmap::operator w32_NotificationBitmap() const
 {
     w32_NotificationBitmap ret;
@@ -15024,7 +15024,7 @@ C_ASSERT( sizeof(u32_NotificationBitmap_t().m_nHeight) >= 4 );
 C_ASSERT( offsetof(u32_NotificationBitmap_t, m_nBytesPerPixel) == 12 );
 C_ASSERT( sizeof(u32_NotificationBitmap_t().m_nBytesPerPixel) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_NotificationBitmap_t::operator u64_NotificationBitmap_t() const
 {
     u64_NotificationBitmap_t ret;
@@ -15036,7 +15036,7 @@ w32_NotificationBitmap_t::operator u64_NotificationBitmap_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_NotificationBitmap_t::operator w32_NotificationBitmap_t() const
 {
     w32_NotificationBitmap_t ret;
@@ -15152,7 +15152,7 @@ C_ASSERT( sizeof(u32_RenderModel_t_090().unTriangleCount) >= 4 );
 C_ASSERT( offsetof(u32_RenderModel_t_090, diffuseTexture) == 24 );
 C_ASSERT( sizeof(u32_RenderModel_t_090().diffuseTexture) >= 8 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RenderModel_t_0912::operator u64_RenderModel_t_0912() const
 {
     u64_RenderModel_t_0912 ret;
@@ -15165,7 +15165,7 @@ w64_RenderModel_t_0912::operator u64_RenderModel_t_0912() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RenderModel_t_0912::operator w64_RenderModel_t_0912() const
 {
     w64_RenderModel_t_0912 ret;
@@ -15178,7 +15178,7 @@ u64_RenderModel_t_0912::operator w64_RenderModel_t_0912() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RenderModel_t_0912::operator u64_RenderModel_t_0912() const
 {
     u64_RenderModel_t_0912 ret;
@@ -15191,7 +15191,7 @@ w32_RenderModel_t_0912::operator u64_RenderModel_t_0912() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RenderModel_t_0912::operator w32_RenderModel_t_0912() const
 {
     w32_RenderModel_t_0912 ret;
@@ -15204,7 +15204,7 @@ u64_RenderModel_t_0912::operator w32_RenderModel_t_0912() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_RenderModel_t_090::operator u64_RenderModel_t_090() const
 {
     u64_RenderModel_t_090 ret;
@@ -15218,7 +15218,7 @@ w64_RenderModel_t_090::operator u64_RenderModel_t_090() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RenderModel_t_090::operator w64_RenderModel_t_090() const
 {
     w64_RenderModel_t_090 ret;
@@ -15232,7 +15232,7 @@ u64_RenderModel_t_090::operator w64_RenderModel_t_090() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_RenderModel_t_090::operator u64_RenderModel_t_090() const
 {
     u64_RenderModel_t_090 ret;
@@ -15246,7 +15246,7 @@ w32_RenderModel_t_090::operator u64_RenderModel_t_090() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_RenderModel_t_090::operator w32_RenderModel_t_090() const
 {
     w32_RenderModel_t_090 ret;
@@ -15300,7 +15300,7 @@ C_ASSERT( sizeof(u32_VRControllerState001_t().ulButtonTouched) >= 8 );
 C_ASSERT( offsetof(u32_VRControllerState001_t, rAxis) == 20 );
 C_ASSERT( sizeof(u32_VRControllerState001_t().rAxis) >= 40 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VRControllerState001_t::operator u64_VRControllerState001_t() const
 {
     u64_VRControllerState001_t ret;
@@ -15312,7 +15312,7 @@ w64_VRControllerState001_t::operator u64_VRControllerState001_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VRControllerState001_t::operator w64_VRControllerState001_t() const
 {
     w64_VRControllerState001_t ret;
@@ -15348,7 +15348,7 @@ u32_VRControllerState001_t::operator w32_VRControllerState001_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VRControllerState001_t::operator u64_VRControllerState001_t() const
 {
     u64_VRControllerState001_t ret;
@@ -15360,7 +15360,7 @@ w32_VRControllerState001_t::operator u64_VRControllerState001_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VRControllerState001_t::operator w32_VRControllerState001_t() const
 {
     w32_VRControllerState001_t ret;
@@ -16452,7 +16452,7 @@ C_ASSERT( sizeof(u32_VREvent_t_090().data) >= 16 );
 C_ASSERT( offsetof(u32_VREvent_t_090, eventAgeSeconds) == 24 );
 C_ASSERT( sizeof(u32_VREvent_t_090().eventAgeSeconds) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_223::operator u64_VREvent_t_223() const
 {
     u64_VREvent_t_223 ret;
@@ -16464,7 +16464,7 @@ w64_VREvent_t_223::operator u64_VREvent_t_223() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_223::operator w64_VREvent_t_223() const
 {
     w64_VREvent_t_223 ret;
@@ -16500,7 +16500,7 @@ u32_VREvent_t_223::operator w32_VREvent_t_223() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_223::operator u64_VREvent_t_223() const
 {
     u64_VREvent_t_223 ret;
@@ -16512,7 +16512,7 @@ w32_VREvent_t_223::operator u64_VREvent_t_223() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_223::operator w32_VREvent_t_223() const
 {
     w32_VREvent_t_223 ret;
@@ -16524,7 +16524,7 @@ u64_VREvent_t_223::operator w32_VREvent_t_223() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_2010::operator u64_VREvent_t_2010() const
 {
     u64_VREvent_t_2010 ret;
@@ -16536,7 +16536,7 @@ w64_VREvent_t_2010::operator u64_VREvent_t_2010() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_2010::operator w64_VREvent_t_2010() const
 {
     w64_VREvent_t_2010 ret;
@@ -16572,7 +16572,7 @@ u32_VREvent_t_2010::operator w32_VREvent_t_2010() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_2010::operator u64_VREvent_t_2010() const
 {
     u64_VREvent_t_2010 ret;
@@ -16584,7 +16584,7 @@ w32_VREvent_t_2010::operator u64_VREvent_t_2010() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_2010::operator w32_VREvent_t_2010() const
 {
     w32_VREvent_t_2010 ret;
@@ -16596,7 +16596,7 @@ u64_VREvent_t_2010::operator w32_VREvent_t_2010() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_1168::operator u64_VREvent_t_1168() const
 {
     u64_VREvent_t_1168 ret;
@@ -16608,7 +16608,7 @@ w64_VREvent_t_1168::operator u64_VREvent_t_1168() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1168::operator w64_VREvent_t_1168() const
 {
     w64_VREvent_t_1168 ret;
@@ -16644,7 +16644,7 @@ u32_VREvent_t_1168::operator w32_VREvent_t_1168() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_1168::operator u64_VREvent_t_1168() const
 {
     u64_VREvent_t_1168 ret;
@@ -16656,7 +16656,7 @@ w32_VREvent_t_1168::operator u64_VREvent_t_1168() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1168::operator w32_VREvent_t_1168() const
 {
     w32_VREvent_t_1168 ret;
@@ -16668,7 +16668,7 @@ u64_VREvent_t_1168::operator w32_VREvent_t_1168() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_11030::operator u64_VREvent_t_11030() const
 {
     u64_VREvent_t_11030 ret;
@@ -16680,7 +16680,7 @@ w64_VREvent_t_11030::operator u64_VREvent_t_11030() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_11030::operator w64_VREvent_t_11030() const
 {
     w64_VREvent_t_11030 ret;
@@ -16716,7 +16716,7 @@ u32_VREvent_t_11030::operator w32_VREvent_t_11030() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_11030::operator u64_VREvent_t_11030() const
 {
     u64_VREvent_t_11030 ret;
@@ -16728,7 +16728,7 @@ w32_VREvent_t_11030::operator u64_VREvent_t_11030() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_11030::operator w32_VREvent_t_11030() const
 {
     w32_VREvent_t_11030 ret;
@@ -16740,7 +16740,7 @@ u64_VREvent_t_11030::operator w32_VREvent_t_11030() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_1322::operator u64_VREvent_t_1322() const
 {
     u64_VREvent_t_1322 ret;
@@ -16752,7 +16752,7 @@ w64_VREvent_t_1322::operator u64_VREvent_t_1322() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1322::operator w64_VREvent_t_1322() const
 {
     w64_VREvent_t_1322 ret;
@@ -16788,7 +16788,7 @@ u32_VREvent_t_1322::operator w32_VREvent_t_1322() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_1322::operator u64_VREvent_t_1322() const
 {
     u64_VREvent_t_1322 ret;
@@ -16800,7 +16800,7 @@ w32_VREvent_t_1322::operator u64_VREvent_t_1322() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1322::operator w32_VREvent_t_1322() const
 {
     w32_VREvent_t_1322 ret;
@@ -16812,7 +16812,7 @@ u64_VREvent_t_1322::operator w32_VREvent_t_1322() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_1210::operator u64_VREvent_t_1210() const
 {
     u64_VREvent_t_1210 ret;
@@ -16824,7 +16824,7 @@ w64_VREvent_t_1210::operator u64_VREvent_t_1210() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1210::operator w64_VREvent_t_1210() const
 {
     w64_VREvent_t_1210 ret;
@@ -16860,7 +16860,7 @@ u32_VREvent_t_1210::operator w32_VREvent_t_1210() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_1210::operator u64_VREvent_t_1210() const
 {
     u64_VREvent_t_1210 ret;
@@ -16872,7 +16872,7 @@ w32_VREvent_t_1210::operator u64_VREvent_t_1210() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1210::operator w32_VREvent_t_1210() const
 {
     w32_VREvent_t_1210 ret;
@@ -16884,7 +16884,7 @@ u64_VREvent_t_1210::operator w32_VREvent_t_1210() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_113b::operator u64_VREvent_t_113b() const
 {
     u64_VREvent_t_113b ret;
@@ -16896,7 +16896,7 @@ w64_VREvent_t_113b::operator u64_VREvent_t_113b() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_113b::operator w64_VREvent_t_113b() const
 {
     w64_VREvent_t_113b ret;
@@ -16932,7 +16932,7 @@ u32_VREvent_t_113b::operator w32_VREvent_t_113b() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_113b::operator u64_VREvent_t_113b() const
 {
     u64_VREvent_t_113b ret;
@@ -16944,7 +16944,7 @@ w32_VREvent_t_113b::operator u64_VREvent_t_113b() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_113b::operator w32_VREvent_t_113b() const
 {
     w32_VREvent_t_113b ret;
@@ -16956,7 +16956,7 @@ u64_VREvent_t_113b::operator w32_VREvent_t_113b() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_1016::operator u64_VREvent_t_1016() const
 {
     u64_VREvent_t_1016 ret;
@@ -16968,7 +16968,7 @@ w64_VREvent_t_1016::operator u64_VREvent_t_1016() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1016::operator w64_VREvent_t_1016() const
 {
     w64_VREvent_t_1016 ret;
@@ -17004,7 +17004,7 @@ u32_VREvent_t_1016::operator w32_VREvent_t_1016() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_1016::operator u64_VREvent_t_1016() const
 {
     u64_VREvent_t_1016 ret;
@@ -17016,7 +17016,7 @@ w32_VREvent_t_1016::operator u64_VREvent_t_1016() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1016::operator w32_VREvent_t_1016() const
 {
     w32_VREvent_t_1016 ret;
@@ -17028,7 +17028,7 @@ u64_VREvent_t_1016::operator w32_VREvent_t_1016() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_1015::operator u64_VREvent_t_1015() const
 {
     u64_VREvent_t_1015 ret;
@@ -17040,7 +17040,7 @@ w64_VREvent_t_1015::operator u64_VREvent_t_1015() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1015::operator w64_VREvent_t_1015() const
 {
     w64_VREvent_t_1015 ret;
@@ -17076,7 +17076,7 @@ u32_VREvent_t_1015::operator w32_VREvent_t_1015() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_1015::operator u64_VREvent_t_1015() const
 {
     u64_VREvent_t_1015 ret;
@@ -17088,7 +17088,7 @@ w32_VREvent_t_1015::operator u64_VREvent_t_1015() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1015::operator w32_VREvent_t_1015() const
 {
     w32_VREvent_t_1015 ret;
@@ -17100,7 +17100,7 @@ u64_VREvent_t_1015::operator w32_VREvent_t_1015() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_1014::operator u64_VREvent_t_1014() const
 {
     u64_VREvent_t_1014 ret;
@@ -17112,7 +17112,7 @@ w64_VREvent_t_1014::operator u64_VREvent_t_1014() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1014::operator w64_VREvent_t_1014() const
 {
     w64_VREvent_t_1014 ret;
@@ -17148,7 +17148,7 @@ u32_VREvent_t_1014::operator w32_VREvent_t_1014() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_1014::operator u64_VREvent_t_1014() const
 {
     u64_VREvent_t_1014 ret;
@@ -17160,7 +17160,7 @@ w32_VREvent_t_1014::operator u64_VREvent_t_1014() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1014::operator w32_VREvent_t_1014() const
 {
     w32_VREvent_t_1014 ret;
@@ -17172,7 +17172,7 @@ u64_VREvent_t_1014::operator w32_VREvent_t_1014() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_1013::operator u64_VREvent_t_1013() const
 {
     u64_VREvent_t_1013 ret;
@@ -17184,7 +17184,7 @@ w64_VREvent_t_1013::operator u64_VREvent_t_1013() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1013::operator w64_VREvent_t_1013() const
 {
     w64_VREvent_t_1013 ret;
@@ -17220,7 +17220,7 @@ u32_VREvent_t_1013::operator w32_VREvent_t_1013() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_1013::operator u64_VREvent_t_1013() const
 {
     u64_VREvent_t_1013 ret;
@@ -17232,7 +17232,7 @@ w32_VREvent_t_1013::operator u64_VREvent_t_1013() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1013::operator w32_VREvent_t_1013() const
 {
     w32_VREvent_t_1013 ret;
@@ -17244,7 +17244,7 @@ u64_VREvent_t_1013::operator w32_VREvent_t_1013() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_1012::operator u64_VREvent_t_1012() const
 {
     u64_VREvent_t_1012 ret;
@@ -17256,7 +17256,7 @@ w64_VREvent_t_1012::operator u64_VREvent_t_1012() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1012::operator w64_VREvent_t_1012() const
 {
     w64_VREvent_t_1012 ret;
@@ -17292,7 +17292,7 @@ u32_VREvent_t_1012::operator w32_VREvent_t_1012() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_1012::operator u64_VREvent_t_1012() const
 {
     u64_VREvent_t_1012 ret;
@@ -17304,7 +17304,7 @@ w32_VREvent_t_1012::operator u64_VREvent_t_1012() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1012::operator w32_VREvent_t_1012() const
 {
     w32_VREvent_t_1012 ret;
@@ -17316,7 +17316,7 @@ u64_VREvent_t_1012::operator w32_VREvent_t_1012() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_1011::operator u64_VREvent_t_1011() const
 {
     u64_VREvent_t_1011 ret;
@@ -17328,7 +17328,7 @@ w64_VREvent_t_1011::operator u64_VREvent_t_1011() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1011::operator w64_VREvent_t_1011() const
 {
     w64_VREvent_t_1011 ret;
@@ -17364,7 +17364,7 @@ u32_VREvent_t_1011::operator w32_VREvent_t_1011() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_1011::operator u64_VREvent_t_1011() const
 {
     u64_VREvent_t_1011 ret;
@@ -17376,7 +17376,7 @@ w32_VREvent_t_1011::operator u64_VREvent_t_1011() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_1011::operator w32_VREvent_t_1011() const
 {
     w32_VREvent_t_1011 ret;
@@ -17388,7 +17388,7 @@ u64_VREvent_t_1011::operator w32_VREvent_t_1011() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_106::operator u64_VREvent_t_106() const
 {
     u64_VREvent_t_106 ret;
@@ -17400,7 +17400,7 @@ w64_VREvent_t_106::operator u64_VREvent_t_106() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_106::operator w64_VREvent_t_106() const
 {
     w64_VREvent_t_106 ret;
@@ -17436,7 +17436,7 @@ u32_VREvent_t_106::operator w32_VREvent_t_106() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_106::operator u64_VREvent_t_106() const
 {
     u64_VREvent_t_106 ret;
@@ -17448,7 +17448,7 @@ w32_VREvent_t_106::operator u64_VREvent_t_106() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_106::operator w32_VREvent_t_106() const
 {
     w32_VREvent_t_106 ret;
@@ -17460,7 +17460,7 @@ u64_VREvent_t_106::operator w32_VREvent_t_106() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_105::operator u64_VREvent_t_105() const
 {
     u64_VREvent_t_105 ret;
@@ -17472,7 +17472,7 @@ w64_VREvent_t_105::operator u64_VREvent_t_105() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_105::operator w64_VREvent_t_105() const
 {
     w64_VREvent_t_105 ret;
@@ -17508,7 +17508,7 @@ u32_VREvent_t_105::operator w32_VREvent_t_105() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_105::operator u64_VREvent_t_105() const
 {
     u64_VREvent_t_105 ret;
@@ -17520,7 +17520,7 @@ w32_VREvent_t_105::operator u64_VREvent_t_105() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_105::operator w32_VREvent_t_105() const
 {
     w32_VREvent_t_105 ret;
@@ -17532,7 +17532,7 @@ u64_VREvent_t_105::operator w32_VREvent_t_105() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_103::operator u64_VREvent_t_103() const
 {
     u64_VREvent_t_103 ret;
@@ -17544,7 +17544,7 @@ w64_VREvent_t_103::operator u64_VREvent_t_103() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_103::operator w64_VREvent_t_103() const
 {
     w64_VREvent_t_103 ret;
@@ -17580,7 +17580,7 @@ u32_VREvent_t_103::operator w32_VREvent_t_103() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_103::operator u64_VREvent_t_103() const
 {
     u64_VREvent_t_103 ret;
@@ -17592,7 +17592,7 @@ w32_VREvent_t_103::operator u64_VREvent_t_103() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_103::operator w32_VREvent_t_103() const
 {
     w32_VREvent_t_103 ret;
@@ -17604,7 +17604,7 @@ u64_VREvent_t_103::operator w32_VREvent_t_103() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_102::operator u64_VREvent_t_102() const
 {
     u64_VREvent_t_102 ret;
@@ -17616,7 +17616,7 @@ w64_VREvent_t_102::operator u64_VREvent_t_102() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_102::operator w64_VREvent_t_102() const
 {
     w64_VREvent_t_102 ret;
@@ -17652,7 +17652,7 @@ u32_VREvent_t_102::operator w32_VREvent_t_102() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_102::operator u64_VREvent_t_102() const
 {
     u64_VREvent_t_102 ret;
@@ -17664,7 +17664,7 @@ w32_VREvent_t_102::operator u64_VREvent_t_102() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_102::operator w32_VREvent_t_102() const
 {
     w32_VREvent_t_102 ret;
@@ -17676,7 +17676,7 @@ u64_VREvent_t_102::operator w32_VREvent_t_102() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_101::operator u64_VREvent_t_101() const
 {
     u64_VREvent_t_101 ret;
@@ -17688,7 +17688,7 @@ w64_VREvent_t_101::operator u64_VREvent_t_101() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_101::operator w64_VREvent_t_101() const
 {
     w64_VREvent_t_101 ret;
@@ -17724,7 +17724,7 @@ u32_VREvent_t_101::operator w32_VREvent_t_101() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_101::operator u64_VREvent_t_101() const
 {
     u64_VREvent_t_101 ret;
@@ -17736,7 +17736,7 @@ w32_VREvent_t_101::operator u64_VREvent_t_101() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_101::operator w32_VREvent_t_101() const
 {
     w32_VREvent_t_101 ret;
@@ -17748,7 +17748,7 @@ u64_VREvent_t_101::operator w32_VREvent_t_101() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_0918::operator u64_VREvent_t_0918() const
 {
     u64_VREvent_t_0918 ret;
@@ -17760,7 +17760,7 @@ w64_VREvent_t_0918::operator u64_VREvent_t_0918() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_0918::operator w64_VREvent_t_0918() const
 {
     w64_VREvent_t_0918 ret;
@@ -17796,7 +17796,7 @@ u32_VREvent_t_0918::operator w32_VREvent_t_0918() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_0918::operator u64_VREvent_t_0918() const
 {
     u64_VREvent_t_0918 ret;
@@ -17808,7 +17808,7 @@ w32_VREvent_t_0918::operator u64_VREvent_t_0918() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_0918::operator w32_VREvent_t_0918() const
 {
     w32_VREvent_t_0918 ret;
@@ -17820,7 +17820,7 @@ u64_VREvent_t_0918::operator w32_VREvent_t_0918() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_0915::operator u64_VREvent_t_0915() const
 {
     u64_VREvent_t_0915 ret;
@@ -17832,7 +17832,7 @@ w64_VREvent_t_0915::operator u64_VREvent_t_0915() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_0915::operator w64_VREvent_t_0915() const
 {
     w64_VREvent_t_0915 ret;
@@ -17868,7 +17868,7 @@ u32_VREvent_t_0915::operator w32_VREvent_t_0915() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_0915::operator u64_VREvent_t_0915() const
 {
     u64_VREvent_t_0915 ret;
@@ -17880,7 +17880,7 @@ w32_VREvent_t_0915::operator u64_VREvent_t_0915() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_0915::operator w32_VREvent_t_0915() const
 {
     w32_VREvent_t_0915 ret;
@@ -17892,7 +17892,7 @@ u64_VREvent_t_0915::operator w32_VREvent_t_0915() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_0914::operator u64_VREvent_t_0914() const
 {
     u64_VREvent_t_0914 ret;
@@ -17904,7 +17904,7 @@ w64_VREvent_t_0914::operator u64_VREvent_t_0914() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_0914::operator w64_VREvent_t_0914() const
 {
     w64_VREvent_t_0914 ret;
@@ -17940,7 +17940,7 @@ u32_VREvent_t_0914::operator w32_VREvent_t_0914() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_0914::operator u64_VREvent_t_0914() const
 {
     u64_VREvent_t_0914 ret;
@@ -17952,7 +17952,7 @@ w32_VREvent_t_0914::operator u64_VREvent_t_0914() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_0914::operator w32_VREvent_t_0914() const
 {
     w32_VREvent_t_0914 ret;
@@ -17964,7 +17964,7 @@ u64_VREvent_t_0914::operator w32_VREvent_t_0914() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_0912::operator u64_VREvent_t_0912() const
 {
     u64_VREvent_t_0912 ret;
@@ -17976,7 +17976,7 @@ w64_VREvent_t_0912::operator u64_VREvent_t_0912() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_0912::operator w64_VREvent_t_0912() const
 {
     w64_VREvent_t_0912 ret;
@@ -18012,7 +18012,7 @@ u32_VREvent_t_0912::operator w32_VREvent_t_0912() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_0912::operator u64_VREvent_t_0912() const
 {
     u64_VREvent_t_0912 ret;
@@ -18024,7 +18024,7 @@ w32_VREvent_t_0912::operator u64_VREvent_t_0912() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_0912::operator w32_VREvent_t_0912() const
 {
     w32_VREvent_t_0912 ret;
@@ -18036,7 +18036,7 @@ u64_VREvent_t_0912::operator w32_VREvent_t_0912() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_0910::operator u64_VREvent_t_0910() const
 {
     u64_VREvent_t_0910 ret;
@@ -18048,7 +18048,7 @@ w64_VREvent_t_0910::operator u64_VREvent_t_0910() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_0910::operator w64_VREvent_t_0910() const
 {
     w64_VREvent_t_0910 ret;
@@ -18084,7 +18084,7 @@ u32_VREvent_t_0910::operator w32_VREvent_t_0910() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_0910::operator u64_VREvent_t_0910() const
 {
     u64_VREvent_t_0910 ret;
@@ -18096,7 +18096,7 @@ w32_VREvent_t_0910::operator u64_VREvent_t_0910() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_0910::operator w32_VREvent_t_0910() const
 {
     w32_VREvent_t_0910 ret;
@@ -18108,7 +18108,7 @@ u64_VREvent_t_0910::operator w32_VREvent_t_0910() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_097::operator u64_VREvent_t_097() const
 {
     u64_VREvent_t_097 ret;
@@ -18120,7 +18120,7 @@ w64_VREvent_t_097::operator u64_VREvent_t_097() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_097::operator w64_VREvent_t_097() const
 {
     w64_VREvent_t_097 ret;
@@ -18156,7 +18156,7 @@ u32_VREvent_t_097::operator w32_VREvent_t_097() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_097::operator u64_VREvent_t_097() const
 {
     u64_VREvent_t_097 ret;
@@ -18168,7 +18168,7 @@ w32_VREvent_t_097::operator u64_VREvent_t_097() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_097::operator w32_VREvent_t_097() const
 {
     w32_VREvent_t_097 ret;
@@ -18180,7 +18180,7 @@ u64_VREvent_t_097::operator w32_VREvent_t_097() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_093::operator u64_VREvent_t_093() const
 {
     u64_VREvent_t_093 ret;
@@ -18192,7 +18192,7 @@ w64_VREvent_t_093::operator u64_VREvent_t_093() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_093::operator w64_VREvent_t_093() const
 {
     w64_VREvent_t_093 ret;
@@ -18228,7 +18228,7 @@ u32_VREvent_t_093::operator w32_VREvent_t_093() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_093::operator u64_VREvent_t_093() const
 {
     u64_VREvent_t_093 ret;
@@ -18240,7 +18240,7 @@ w32_VREvent_t_093::operator u64_VREvent_t_093() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_093::operator w32_VREvent_t_093() const
 {
     w32_VREvent_t_093 ret;
@@ -18252,7 +18252,7 @@ u64_VREvent_t_093::operator w32_VREvent_t_093() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_092::operator u64_VREvent_t_092() const
 {
     u64_VREvent_t_092 ret;
@@ -18264,7 +18264,7 @@ w64_VREvent_t_092::operator u64_VREvent_t_092() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_092::operator w64_VREvent_t_092() const
 {
     w64_VREvent_t_092 ret;
@@ -18300,7 +18300,7 @@ u32_VREvent_t_092::operator w32_VREvent_t_092() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_092::operator u64_VREvent_t_092() const
 {
     u64_VREvent_t_092 ret;
@@ -18312,7 +18312,7 @@ w32_VREvent_t_092::operator u64_VREvent_t_092() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_092::operator w32_VREvent_t_092() const
 {
     w32_VREvent_t_092 ret;
@@ -18324,7 +18324,7 @@ u64_VREvent_t_092::operator w32_VREvent_t_092() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w64_VREvent_t_090::operator u64_VREvent_t_090() const
 {
     u64_VREvent_t_090 ret;
@@ -18336,7 +18336,7 @@ w64_VREvent_t_090::operator u64_VREvent_t_090() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_090::operator w64_VREvent_t_090() const
 {
     w64_VREvent_t_090 ret;
@@ -18372,7 +18372,7 @@ u32_VREvent_t_090::operator w32_VREvent_t_090() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VREvent_t_090::operator u64_VREvent_t_090() const
 {
     u64_VREvent_t_090 ret;
@@ -18384,7 +18384,7 @@ w32_VREvent_t_090::operator u64_VREvent_t_090() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VREvent_t_090::operator w32_VREvent_t_090() const
 {
     w32_VREvent_t_090 ret;
@@ -18420,7 +18420,7 @@ C_ASSERT( sizeof(u32_VRNativeDevice_t().handle) >= 4 );
 C_ASSERT( offsetof(u32_VRNativeDevice_t, eType) == 4 );
 C_ASSERT( sizeof(u32_VRNativeDevice_t().eType) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VRNativeDevice_t::operator u64_VRNativeDevice_t() const
 {
     u64_VRNativeDevice_t ret;
@@ -18430,7 +18430,7 @@ w32_VRNativeDevice_t::operator u64_VRNativeDevice_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VRNativeDevice_t::operator w32_VRNativeDevice_t() const
 {
     w32_VRNativeDevice_t ret;
@@ -18494,7 +18494,7 @@ u32_VROverlayView_t::operator w32_VROverlayView_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VROverlayView_t::operator u64_VROverlayView_t() const
 {
     u64_VROverlayView_t ret;
@@ -18505,7 +18505,7 @@ w32_VROverlayView_t::operator u64_VROverlayView_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VROverlayView_t::operator w32_VROverlayView_t() const
 {
     w32_VROverlayView_t ret;
@@ -18556,7 +18556,7 @@ C_ASSERT( sizeof(u32_VRTextureWithDepth_t().eColorSpace) >= 4 );
 C_ASSERT( offsetof(u32_VRTextureWithDepth_t, depth) == 12 );
 C_ASSERT( sizeof(u32_VRTextureWithDepth_t().depth) >= 76 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VRTextureWithDepth_t::operator u64_VRTextureWithDepth_t() const
 {
     u64_VRTextureWithDepth_t ret;
@@ -18568,7 +18568,7 @@ w32_VRTextureWithDepth_t::operator u64_VRTextureWithDepth_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VRTextureWithDepth_t::operator w32_VRTextureWithDepth_t() const
 {
     w32_VRTextureWithDepth_t ret;
@@ -18628,7 +18628,7 @@ C_ASSERT( sizeof(u32_VRTextureWithPoseAndDepth_t().mDeviceToAbsoluteTracking) >=
 C_ASSERT( offsetof(u32_VRTextureWithPoseAndDepth_t, depth) == 60 );
 C_ASSERT( sizeof(u32_VRTextureWithPoseAndDepth_t().depth) >= 76 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VRTextureWithPoseAndDepth_t::operator u64_VRTextureWithPoseAndDepth_t() const
 {
     u64_VRTextureWithPoseAndDepth_t ret;
@@ -18641,7 +18641,7 @@ w32_VRTextureWithPoseAndDepth_t::operator u64_VRTextureWithPoseAndDepth_t() cons
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VRTextureWithPoseAndDepth_t::operator w32_VRTextureWithPoseAndDepth_t() const
 {
     w32_VRTextureWithPoseAndDepth_t ret;
@@ -18694,7 +18694,7 @@ C_ASSERT( sizeof(u32_VRTextureWithPose_t().eColorSpace) >= 4 );
 C_ASSERT( offsetof(u32_VRTextureWithPose_t, mDeviceToAbsoluteTracking) == 12 );
 C_ASSERT( sizeof(u32_VRTextureWithPose_t().mDeviceToAbsoluteTracking) >= 48 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VRTextureWithPose_t::operator u64_VRTextureWithPose_t() const
 {
     u64_VRTextureWithPose_t ret;
@@ -18706,7 +18706,7 @@ w32_VRTextureWithPose_t::operator u64_VRTextureWithPose_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VRTextureWithPose_t::operator w32_VRTextureWithPose_t() const
 {
     w32_VRTextureWithPose_t ret;
@@ -18766,7 +18766,7 @@ C_ASSERT( sizeof(u32_VRVulkanDevice_t().m_pQueue) >= 4 );
 C_ASSERT( offsetof(u32_VRVulkanDevice_t, m_uQueueFamilyIndex) == 16 );
 C_ASSERT( sizeof(u32_VRVulkanDevice_t().m_uQueueFamilyIndex) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VRVulkanDevice_t::operator u64_VRVulkanDevice_t() const
 {
     u64_VRVulkanDevice_t ret;
@@ -18779,7 +18779,7 @@ w32_VRVulkanDevice_t::operator u64_VRVulkanDevice_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VRVulkanDevice_t::operator w32_VRVulkanDevice_t() const
 {
     w32_VRVulkanDevice_t ret;
@@ -18936,7 +18936,7 @@ u32_VRVulkanTextureArrayData_t::operator w32_VRVulkanTextureArrayData_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VRVulkanTextureArrayData_t::operator u64_VRVulkanTextureArrayData_t() const
 {
     u64_VRVulkanTextureArrayData_t ret;
@@ -18956,7 +18956,7 @@ w32_VRVulkanTextureArrayData_t::operator u64_VRVulkanTextureArrayData_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VRVulkanTextureArrayData_t::operator w32_VRVulkanTextureArrayData_t() const
 {
     w32_VRVulkanTextureArrayData_t ret;
@@ -19064,7 +19064,7 @@ C_ASSERT( sizeof(u32_VRVulkanTextureData_t().m_nFormat) >= 4 );
 C_ASSERT( offsetof(u32_VRVulkanTextureData_t, m_nSampleCount) == 40 );
 C_ASSERT( sizeof(u32_VRVulkanTextureData_t().m_nSampleCount) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VRVulkanTextureData_t::operator u64_VRVulkanTextureData_t() const
 {
     u64_VRVulkanTextureData_t ret;
@@ -19082,7 +19082,7 @@ w32_VRVulkanTextureData_t::operator u64_VRVulkanTextureData_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VRVulkanTextureData_t::operator w32_VRVulkanTextureData_t() const
 {
     w32_VRVulkanTextureData_t ret;
@@ -19188,7 +19188,7 @@ C_ASSERT( sizeof(u32_VulkanData_t().m_nFormat) >= 4 );
 C_ASSERT( offsetof(u32_VulkanData_t, m_nSampleCount) == 40 );
 C_ASSERT( sizeof(u32_VulkanData_t().m_nSampleCount) >= 4 );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 w32_VulkanData_t::operator u64_VulkanData_t() const
 {
     u64_VulkanData_t ret;
@@ -19206,7 +19206,7 @@ w32_VulkanData_t::operator u64_VulkanData_t() const
 }
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 u64_VulkanData_t::operator w32_VulkanData_t() const
 {
     w32_VulkanData_t ret;

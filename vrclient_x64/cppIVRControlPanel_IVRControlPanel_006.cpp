@@ -13,7 +13,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc1( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc1( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc1_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc1_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc2( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc2( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc2_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc2_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc3( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc3( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc3_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc3_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc4( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc4( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc4_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc4_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc5( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc5( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc5_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc5_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc6( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc6( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc6_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc6_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc7( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc7( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc7_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc7_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc8( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc8( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc8_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc8_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc9( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc9( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc9_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc9_params *)args;
@@ -175,7 +175,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc10( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc10( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc10_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc10_params *)args;
@@ -193,7 +193,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc11( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc11( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc11_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc11_params *)args;
@@ -211,7 +211,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc12( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc12( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc12_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc12_params *)args;
@@ -229,7 +229,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc13( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc13( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc13_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc13_params *)args;
@@ -247,7 +247,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc14( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc14( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc14_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc14_params *)args;
@@ -265,7 +265,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc15( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc15( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc15_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc15_params *)args;
@@ -283,7 +283,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc16( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc16( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc16_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc16_params *)args;
@@ -301,7 +301,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc17( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc17( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc17_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc17_params *)args;
@@ -319,7 +319,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc18( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc18( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc18_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc18_params *)args;
@@ -337,7 +337,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc19( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc19( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc19_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc19_params *)args;
@@ -355,7 +355,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc20( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc20( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc20_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc20_params *)args;
@@ -373,7 +373,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc21( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc21( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc21_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc21_params *)args;
@@ -391,7 +391,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc22( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc22( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc22_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc22_params *)args;
@@ -411,7 +411,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc23( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc23( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc23_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc23_params *)args;
@@ -431,7 +431,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc24( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc24( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc24_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc24_params *)args;
@@ -449,7 +449,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc25( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc25( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc25_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc25_params *)args;
@@ -467,7 +467,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc26( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc26( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc26_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc26_params *)args;
@@ -487,7 +487,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc27( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc27( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc27_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc27_params *)args;
@@ -507,7 +507,7 @@ NTSTATUS IVRControlPanel_IVRControlPanel_006_undoc28( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRControlPanel_IVRControlPanel_006_undoc28( void *args )
 {
     struct wow64_IVRControlPanel_IVRControlPanel_006_undoc28_params *params = (struct wow64_IVRControlPanel_IVRControlPanel_006_undoc28_params *)args;

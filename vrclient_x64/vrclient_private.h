@@ -68,7 +68,7 @@ struct compositor_data
     VkFence vk_fences[4];
     int command_buffer_index;
 
-#ifndef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     /* Digital action state change fixup hack. */
     struct
     {
@@ -79,7 +79,7 @@ struct compositor_data
     } digital_actions_state[128];
     unsigned int digital_action_count;
     LARGE_INTEGER qpf_freq;
-#endif
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 };
 
 extern struct compositor_data compositor_data;

@@ -19,7 +19,7 @@ NTSTATUS IVROverlayView_IVROverlayView_003_AcquireOverlayView( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlayView_IVROverlayView_003_AcquireOverlayView( void *args )
 {
     struct wow64_IVROverlayView_IVROverlayView_003_AcquireOverlayView_params *params = (struct wow64_IVROverlayView_IVROverlayView_003_AcquireOverlayView_params *)args;
@@ -46,7 +46,7 @@ NTSTATUS IVROverlayView_IVROverlayView_003_ReleaseOverlayView( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlayView_IVROverlayView_003_ReleaseOverlayView( void *args )
 {
     struct wow64_IVROverlayView_IVROverlayView_003_ReleaseOverlayView_params *params = (struct wow64_IVROverlayView_IVROverlayView_003_ReleaseOverlayView_params *)args;
@@ -69,7 +69,7 @@ NTSTATUS IVROverlayView_IVROverlayView_003_PostOverlayEvent( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlayView_IVROverlayView_003_PostOverlayEvent( void *args )
 {
     struct wow64_IVROverlayView_IVROverlayView_003_PostOverlayEvent_params *params = (struct wow64_IVROverlayView_IVROverlayView_003_PostOverlayEvent_params *)args;
@@ -89,7 +89,7 @@ NTSTATUS IVROverlayView_IVROverlayView_003_IsViewingPermitted( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVROverlayView_IVROverlayView_003_IsViewingPermitted( void *args )
 {
     struct wow64_IVROverlayView_IVROverlayView_003_IsViewingPermitted_params *params = (struct wow64_IVROverlayView_IVROverlayView_003_IsViewingPermitted_params *)args;

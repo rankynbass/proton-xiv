@@ -1630,12 +1630,12 @@ void destroy_winIVRTrackedCamera_IVRTrackedCamera_006_FnTable(struct w_iface *ob
 
 void init_winIVRTrackedCamera_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winIVRTrackedCamera_IVRTrackedCamera_001_rtti( base );
     init_winIVRTrackedCamera_IVRTrackedCamera_002_rtti( base );
     init_winIVRTrackedCamera_IVRTrackedCamera_003_rtti( base );
     init_winIVRTrackedCamera_IVRTrackedCamera_004_rtti( base );
     init_winIVRTrackedCamera_IVRTrackedCamera_005_rtti( base );
     init_winIVRTrackedCamera_IVRTrackedCamera_006_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }

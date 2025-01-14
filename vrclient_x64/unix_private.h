@@ -42,7 +42,7 @@ extern char *vrclient_dos_to_unix_path( const char *src );
 extern void vrclient_free_path( char *path );
 extern unsigned int vrclient_unix_path_to_dos_path( bool api_result, const char *src, char *dst, uint32_t dst_bytes );
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 #define VRCLIENT_UNIX_WOW64_IMPL( iface, version, method, ... ) \
     NTSTATUS wow64_ ## iface ## _ ## iface ## _ ## version ## _ ## method( void *args ) \
     { \
@@ -50,9 +50,9 @@ extern unsigned int vrclient_unix_path_to_dos_path( bool api_result, const char 
         auto u_iface = (struct u_ ## iface ## _ ## iface ## _ ## version *)params->u_iface; \
         return iface ## _ ## method( u_iface, params, true, ## __VA_ARGS__ ); \
     }
-#else
+#else /* defined(__x86_64__) || defined(__aarch64__) */
 #define VRCLIENT_UNIX_WOW64_IMPL( iface, version, method, ... )
-#endif
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 
 #define VRCLIENT_UNIX_IMPL( iface, version, method, ... ) \
     NTSTATUS iface ## _ ## iface ## _ ## version ## _ ## method( void *args ) \

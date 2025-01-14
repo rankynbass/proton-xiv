@@ -15,7 +15,7 @@ NTSTATUS IVRApplications_IVRApplications_002_AddApplicationManifest( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_AddApplicationManifest( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_AddApplicationManifest_params *params = (struct wow64_IVRApplications_IVRApplications_002_AddApplicationManifest_params *)args;
@@ -37,7 +37,7 @@ NTSTATUS IVRApplications_IVRApplications_002_RemoveApplicationManifest( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_RemoveApplicationManifest( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_RemoveApplicationManifest_params *params = (struct wow64_IVRApplications_IVRApplications_002_RemoveApplicationManifest_params *)args;
@@ -57,7 +57,7 @@ NTSTATUS IVRApplications_IVRApplications_002_IsApplicationInstalled( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_IsApplicationInstalled( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_IsApplicationInstalled_params *params = (struct wow64_IVRApplications_IVRApplications_002_IsApplicationInstalled_params *)args;
@@ -75,7 +75,7 @@ NTSTATUS IVRApplications_IVRApplications_002_GetApplicationCount( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_GetApplicationCount( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_GetApplicationCount_params *params = (struct wow64_IVRApplications_IVRApplications_002_GetApplicationCount_params *)args;
@@ -93,7 +93,7 @@ NTSTATUS IVRApplications_IVRApplications_002_GetApplicationKeyByIndex( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_GetApplicationKeyByIndex( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_GetApplicationKeyByIndex_params *params = (struct wow64_IVRApplications_IVRApplications_002_GetApplicationKeyByIndex_params *)args;
@@ -111,7 +111,7 @@ NTSTATUS IVRApplications_IVRApplications_002_GetApplicationKeyByProcessId( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_GetApplicationKeyByProcessId( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_GetApplicationKeyByProcessId_params *params = (struct wow64_IVRApplications_IVRApplications_002_GetApplicationKeyByProcessId_params *)args;
@@ -129,7 +129,7 @@ NTSTATUS IVRApplications_IVRApplications_002_LaunchApplication( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_LaunchApplication( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_LaunchApplication_params *params = (struct wow64_IVRApplications_IVRApplications_002_LaunchApplication_params *)args;
@@ -147,7 +147,7 @@ NTSTATUS IVRApplications_IVRApplications_002_LaunchDashboardOverlay( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_LaunchDashboardOverlay( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_LaunchDashboardOverlay_params *params = (struct wow64_IVRApplications_IVRApplications_002_LaunchDashboardOverlay_params *)args;
@@ -165,7 +165,7 @@ NTSTATUS IVRApplications_IVRApplications_002_IdentifyApplication( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_IdentifyApplication( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_IdentifyApplication_params *params = (struct wow64_IVRApplications_IVRApplications_002_IdentifyApplication_params *)args;
@@ -183,7 +183,7 @@ NTSTATUS IVRApplications_IVRApplications_002_GetApplicationProcessId( void *args
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_GetApplicationProcessId( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_GetApplicationProcessId_params *params = (struct wow64_IVRApplications_IVRApplications_002_GetApplicationProcessId_params *)args;
@@ -201,7 +201,7 @@ NTSTATUS IVRApplications_IVRApplications_002_GetApplicationsErrorNameFromEnum( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_GetApplicationsErrorNameFromEnum( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_GetApplicationsErrorNameFromEnum_params *params = (struct wow64_IVRApplications_IVRApplications_002_GetApplicationsErrorNameFromEnum_params *)args;
@@ -219,7 +219,7 @@ NTSTATUS IVRApplications_IVRApplications_002_GetApplicationPropertyString( void 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_GetApplicationPropertyString( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_GetApplicationPropertyString_params *params = (struct wow64_IVRApplications_IVRApplications_002_GetApplicationPropertyString_params *)args;
@@ -237,7 +237,7 @@ NTSTATUS IVRApplications_IVRApplications_002_GetApplicationPropertyBool( void *a
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_GetApplicationPropertyBool( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_GetApplicationPropertyBool_params *params = (struct wow64_IVRApplications_IVRApplications_002_GetApplicationPropertyBool_params *)args;
@@ -255,7 +255,7 @@ NTSTATUS IVRApplications_IVRApplications_002_SetApplicationAutoLaunch( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_SetApplicationAutoLaunch( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_SetApplicationAutoLaunch_params *params = (struct wow64_IVRApplications_IVRApplications_002_SetApplicationAutoLaunch_params *)args;
@@ -273,7 +273,7 @@ NTSTATUS IVRApplications_IVRApplications_002_GetApplicationAutoLaunch( void *arg
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_GetApplicationAutoLaunch( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_GetApplicationAutoLaunch_params *params = (struct wow64_IVRApplications_IVRApplications_002_GetApplicationAutoLaunch_params *)args;
@@ -291,7 +291,7 @@ NTSTATUS IVRApplications_IVRApplications_002_GetStartingApplication( void *args 
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_GetStartingApplication( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_GetStartingApplication_params *params = (struct wow64_IVRApplications_IVRApplications_002_GetStartingApplication_params *)args;
@@ -309,7 +309,7 @@ NTSTATUS IVRApplications_IVRApplications_002_GetTransitionState( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_GetTransitionState( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_GetTransitionState_params *params = (struct wow64_IVRApplications_IVRApplications_002_GetTransitionState_params *)args;
@@ -327,7 +327,7 @@ NTSTATUS IVRApplications_IVRApplications_002_PerformApplicationPrelaunchCheck( v
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_PerformApplicationPrelaunchCheck( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_PerformApplicationPrelaunchCheck_params *params = (struct wow64_IVRApplications_IVRApplications_002_PerformApplicationPrelaunchCheck_params *)args;
@@ -345,7 +345,7 @@ NTSTATUS IVRApplications_IVRApplications_002_GetApplicationsTransitionStateNameF
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_GetApplicationsTransitionStateNameFromEnum( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_GetApplicationsTransitionStateNameFromEnum_params *params = (struct wow64_IVRApplications_IVRApplications_002_GetApplicationsTransitionStateNameFromEnum_params *)args;
@@ -363,7 +363,7 @@ NTSTATUS IVRApplications_IVRApplications_002_IsQuitUserPromptRequested( void *ar
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRApplications_IVRApplications_002_IsQuitUserPromptRequested( void *args )
 {
     struct wow64_IVRApplications_IVRApplications_002_IsQuitUserPromptRequested_params *params = (struct wow64_IVRApplications_IVRApplications_002_IsQuitUserPromptRequested_params *)args;

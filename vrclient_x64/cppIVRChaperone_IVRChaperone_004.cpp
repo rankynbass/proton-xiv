@@ -13,7 +13,7 @@ NTSTATUS IVRChaperone_IVRChaperone_004_GetCalibrationState( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperone_IVRChaperone_004_GetCalibrationState( void *args )
 {
     struct wow64_IVRChaperone_IVRChaperone_004_GetCalibrationState_params *params = (struct wow64_IVRChaperone_IVRChaperone_004_GetCalibrationState_params *)args;
@@ -31,7 +31,7 @@ NTSTATUS IVRChaperone_IVRChaperone_004_GetPlayAreaSize( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperone_IVRChaperone_004_GetPlayAreaSize( void *args )
 {
     struct wow64_IVRChaperone_IVRChaperone_004_GetPlayAreaSize_params *params = (struct wow64_IVRChaperone_IVRChaperone_004_GetPlayAreaSize_params *)args;
@@ -49,7 +49,7 @@ NTSTATUS IVRChaperone_IVRChaperone_004_GetPlayAreaRect( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperone_IVRChaperone_004_GetPlayAreaRect( void *args )
 {
     struct wow64_IVRChaperone_IVRChaperone_004_GetPlayAreaRect_params *params = (struct wow64_IVRChaperone_IVRChaperone_004_GetPlayAreaRect_params *)args;
@@ -67,7 +67,7 @@ NTSTATUS IVRChaperone_IVRChaperone_004_ReloadInfo( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperone_IVRChaperone_004_ReloadInfo( void *args )
 {
     struct wow64_IVRChaperone_IVRChaperone_004_ReloadInfo_params *params = (struct wow64_IVRChaperone_IVRChaperone_004_ReloadInfo_params *)args;
@@ -85,7 +85,7 @@ NTSTATUS IVRChaperone_IVRChaperone_004_SetSceneColor( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperone_IVRChaperone_004_SetSceneColor( void *args )
 {
     struct wow64_IVRChaperone_IVRChaperone_004_SetSceneColor_params *params = (struct wow64_IVRChaperone_IVRChaperone_004_SetSceneColor_params *)args;
@@ -103,7 +103,7 @@ NTSTATUS IVRChaperone_IVRChaperone_004_GetBoundsColor( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperone_IVRChaperone_004_GetBoundsColor( void *args )
 {
     struct wow64_IVRChaperone_IVRChaperone_004_GetBoundsColor_params *params = (struct wow64_IVRChaperone_IVRChaperone_004_GetBoundsColor_params *)args;
@@ -121,7 +121,7 @@ NTSTATUS IVRChaperone_IVRChaperone_004_AreBoundsVisible( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperone_IVRChaperone_004_AreBoundsVisible( void *args )
 {
     struct wow64_IVRChaperone_IVRChaperone_004_AreBoundsVisible_params *params = (struct wow64_IVRChaperone_IVRChaperone_004_AreBoundsVisible_params *)args;
@@ -139,7 +139,7 @@ NTSTATUS IVRChaperone_IVRChaperone_004_ForceBoundsVisible( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperone_IVRChaperone_004_ForceBoundsVisible( void *args )
 {
     struct wow64_IVRChaperone_IVRChaperone_004_ForceBoundsVisible_params *params = (struct wow64_IVRChaperone_IVRChaperone_004_ForceBoundsVisible_params *)args;
@@ -157,7 +157,7 @@ NTSTATUS IVRChaperone_IVRChaperone_004_ResetZeroPose( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRChaperone_IVRChaperone_004_ResetZeroPose( void *args )
 {
     struct wow64_IVRChaperone_IVRChaperone_004_ResetZeroPose_params *params = (struct wow64_IVRChaperone_IVRChaperone_004_ResetZeroPose_params *)args;

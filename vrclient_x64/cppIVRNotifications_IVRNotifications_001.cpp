@@ -13,7 +13,7 @@ NTSTATUS IVRNotifications_IVRNotifications_001_GetErrorString( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRNotifications_IVRNotifications_001_GetErrorString( void *args )
 {
     struct wow64_IVRNotifications_IVRNotifications_001_GetErrorString_params *params = (struct wow64_IVRNotifications_IVRNotifications_001_GetErrorString_params *)args;
@@ -33,7 +33,7 @@ NTSTATUS IVRNotifications_IVRNotifications_001_CreateNotification( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRNotifications_IVRNotifications_001_CreateNotification( void *args )
 {
     struct wow64_IVRNotifications_IVRNotifications_001_CreateNotification_params *params = (struct wow64_IVRNotifications_IVRNotifications_001_CreateNotification_params *)args;
@@ -53,7 +53,7 @@ NTSTATUS IVRNotifications_IVRNotifications_001_DismissNotification( void *args )
     return 0;
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 NTSTATUS wow64_IVRNotifications_IVRNotifications_001_DismissNotification( void *args )
 {
     struct wow64_IVRNotifications_IVRNotifications_001_DismissNotification_params *params = (struct wow64_IVRNotifications_IVRNotifications_001_DismissNotification_params *)args;

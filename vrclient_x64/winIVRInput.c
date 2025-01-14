@@ -2977,12 +2977,12 @@ void destroy_winIVRInput_IVRInput_010_FnTable(struct w_iface *object)
 
 void init_winIVRInput_rtti( char *base )
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
     init_winIVRInput_IVRInput_003_rtti( base );
     init_winIVRInput_IVRInput_004_rtti( base );
     init_winIVRInput_IVRInput_005_rtti( base );
     init_winIVRInput_IVRInput_006_rtti( base );
     init_winIVRInput_IVRInput_007_rtti( base );
     init_winIVRInput_IVRInput_010_rtti( base );
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(__aarch64__) */
 }
