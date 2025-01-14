@@ -226,12 +226,15 @@ static NTSTATUS IVRCompositor_GetVulkanDeviceExtensionsRequired( Iface *iface, P
 template< typename Iface, typename Params >
 static NTSTATUS IVRCompositor_SetSkyboxOverride( Iface *iface, Params *params, bool wow64 )
 {
-    u_VRVulkanTextureArrayData_t vkdata[params->unTextureCount];
-    u_Texture_t textures[params->unTextureCount];
+    u_VRVulkanTextureArrayData_t *vkdata = new u_VRVulkanTextureArrayData_t[params->unTextureCount];
+    u_Texture_t *textures = new u_Texture_t[params->unTextureCount];
     uint32_t i;
 
     for (i = 0; i < params->unTextureCount; i++) unwrap_texture( textures + i, params->pTextures + i, 0, &vkdata[i] );
     params->_ret = (uint32_t)iface->SetSkyboxOverride( textures, params->unTextureCount );
+
+    delete[] textures;
+    delete[] vkdata;
     return 0;
 }
 
