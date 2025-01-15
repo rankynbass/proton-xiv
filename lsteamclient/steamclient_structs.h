@@ -86,4 +86,13 @@ struct u_request
 #endif /* __cplusplus */
 };
 
+struct u_response
+{
+    UINT64 handle;
+#ifdef __cplusplus
+    struct u_response &operator=(const void* value) { this->handle = (UINT_PTR)value; return *this; }
+    template< typename T > operator T*() const { return (T*)(UINT_PTR)this->handle; }
+#endif /* __cplusplus */
+};
+
 #endif /* __STEAMCLIENT_STRUCTS_H */

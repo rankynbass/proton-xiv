@@ -228,6 +228,7 @@ struct networking_message
 struct w_request
 {
     struct u_request u_request;
+    struct u_response u_response;
 };
 
 #include <poppack.h>

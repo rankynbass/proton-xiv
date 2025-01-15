@@ -15,39 +15,6 @@ template <typename T> void free_callback_obj(T *obj)
     delete obj;
 }
 
-template <typename T> class callback_obj_tracker
-{
-    std::unordered_map<void *, T *> tracked_objects;
-
-  public:
-    void request_released( void *hrequest )
-    {
-        auto entry = tracked_objects.find( hrequest );
-        if (entry == tracked_objects.end())
-        {
-            WARN( "Object not found for request %p.\n", hrequest );
-            return;
-        }
-        TRACE( "request %p, deleting %p.\n", hrequest, entry->second );
-        free_callback_obj( entry->second );
-        tracked_objects.erase( entry );
-    }
-
-    void add_request( void *hrequest, T *obj )
-    {
-        auto entry = tracked_objects.find( hrequest );
-
-        TRACE( "request %p, obj %p.\n", hrequest, obj );
-        if (entry == tracked_objects.end())
-        {
-            tracked_objects[hrequest] = obj;
-            return;
-        }
-        ERR( "hrequest %p already registered, old %p, new %p.\n", hrequest, entry->second, obj );
-        entry->second = obj;
-    }
-};
-
 struct SteamMatchmakingServerListResponse_099u : u_ISteamMatchmakingServerListResponse_099u
 {
     struct w_iface *w_iface;
@@ -89,29 +56,12 @@ struct SteamMatchmakingServerListResponse_106 : u_ISteamMatchmakingServerListRes
 {
     struct w_iface *w_iface;
     struct w_request *w_request;
-    static class callback_obj_tracker<SteamMatchmakingServerListResponse_106> track;
 
     SteamMatchmakingServerListResponse_106( w_ISteamMatchmakingServerListResponse_106 *w_iface, void *w_request );
-
-    void add_request( void *hrequest)
-    {
-        if (hrequest) track.add_request( hrequest, this );
-        else
-        {
-            WARN( "NULL request.\n" );
-            free_callback_obj( this );
-        }
-    }
-    static void request_released( void *hrequest )
-    {
-        track.request_released( hrequest );
-    }
-
     virtual void ServerResponded( void *, int32_t );
     virtual void ServerFailedToRespond( void *, int32_t );
     virtual void RefreshComplete( void *, uint32_t );
 };
-class callback_obj_tracker<SteamMatchmakingServerListResponse_106> SteamMatchmakingServerListResponse_106::track;
 
 SteamMatchmakingServerListResponse_106::SteamMatchmakingServerListResponse_106( w_ISteamMatchmakingServerListResponse_106 *w_iface, void *w_request )
     : w_iface( (struct w_iface *)w_iface ), w_request( (struct w_request *)w_request )
@@ -301,7 +251,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestInternetServerList( Iface *iface
     struct w_request *w_request = u_response->w_request;
     w_request->u_request = iface->RequestInternetServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
     if (!w_request->u_request) delete u_response;
-    else u_response->add_request( w_request );
+    else w_request->u_response = u_response;
     return 0;
 }
 
@@ -312,7 +262,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestLANServerList( Iface *iface, Par
     struct w_request *w_request = u_response->w_request;
     w_request->u_request = iface->RequestLANServerList( params->iApp, u_response );
     if (!w_request->u_request) delete u_response;
-    else u_response->add_request( w_request );
+    else w_request->u_response = u_response;
     return 0;
 }
 
@@ -323,7 +273,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestFriendsServerList( Iface *iface,
     struct w_request *w_request = u_response->w_request;
     w_request->u_request = iface->RequestFriendsServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
     if (!w_request->u_request) delete u_response;
-    else u_response->add_request( w_request );
+    else w_request->u_response = u_response;
     return 0;
 }
 
@@ -334,7 +284,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestFavoritesServerList( Iface *ifac
     struct w_request *w_request = u_response->w_request;
     w_request->u_request = iface->RequestFavoritesServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
     if (!w_request->u_request) delete u_response;
-    else u_response->add_request( w_request );
+    else w_request->u_response = u_response;
     return 0;
 }
 
@@ -345,7 +295,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestHistoryServerList( Iface *iface,
     struct w_request *w_request = u_response->w_request;
     w_request->u_request = iface->RequestHistoryServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
     if (!w_request->u_request) delete u_response;
-    else u_response->add_request( w_request );
+    else w_request->u_response = u_response;
     return 0;
 }
 
@@ -356,7 +306,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestSpectatorServerList( Iface *ifac
     struct w_request *w_request = u_response->w_request;
     w_request->u_request = iface->RequestSpectatorServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
     if (!w_request->u_request) delete u_response;
-    else u_response->add_request( w_request );
+    else w_request->u_response = u_response;
     return 0;
 }
 
@@ -389,7 +339,7 @@ static NTSTATUS ISteamMatchmakingServers_ReleaseRequest( Iface *iface, Params *p
 {
     struct w_request *w_request = (struct w_request *)(void *)params->hServerListRequest;
     iface->ReleaseRequest( w_request ? (void *)w_request->u_request : nullptr );
-    SteamMatchmakingServerListResponse_106::request_released( w_request );
+    if (w_request) free_callback_obj( (SteamMatchmakingServerListResponse_106 *)w_request->u_response );
     return 0;
 }
 
