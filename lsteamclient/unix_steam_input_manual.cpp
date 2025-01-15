@@ -214,109 +214,37 @@ static const char *glyph_cache_lookup( glyph_cache &cache, const char *lin_path,
     return cache[key];
 }
 
-/* ISteamController_SteamController005 */
-
-NTSTATUS ISteamController_SteamController005_GetGlyphForActionOrigin( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamController_GetGlyphForActionOrigin( Iface *iface, Params *params )
 {
-    struct ISteamController_SteamController005_GetGlyphForActionOrigin_params *params = (struct ISteamController_SteamController005_GetGlyphForActionOrigin_params *)args;
-    struct u_ISteamController_SteamController005 *iface = (struct u_ISteamController_SteamController005 *)params->u_iface;
     if (!(params->_ret = iface->GetGlyphForActionOrigin( params->eOrigin ))) return 0;
     params->_ret = glyph_cache_lookup( controller_cache, params->_ret, params->eOrigin, 0, 0 );
     return 0;
 }
 
-/* ISteamController_SteamController006 */
-
-NTSTATUS ISteamController_SteamController006_GetGlyphForActionOrigin( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamController_GetGlyphForXboxOrigin( Iface *iface, Params *params )
 {
-    struct ISteamController_SteamController006_GetGlyphForActionOrigin_params *params = (struct ISteamController_SteamController006_GetGlyphForActionOrigin_params *)args;
-    struct u_ISteamController_SteamController006 *iface = (struct u_ISteamController_SteamController006 *)params->u_iface;
-    if (!(params->_ret = iface->GetGlyphForActionOrigin( params->eOrigin ))) return 0;
-    params->_ret = glyph_cache_lookup( controller_cache, params->_ret, params->eOrigin, 0, 0 );
-    return 0;
-}
-
-/* ISteamController_SteamController007 */
-
-NTSTATUS ISteamController_SteamController007_GetGlyphForActionOrigin( void *args )
-{
-    struct ISteamController_SteamController007_GetGlyphForActionOrigin_params *params = (struct ISteamController_SteamController007_GetGlyphForActionOrigin_params *)args;
-    struct u_ISteamController_SteamController007 *iface = (struct u_ISteamController_SteamController007 *)params->u_iface;
-    if (!(params->_ret = iface->GetGlyphForActionOrigin( params->eOrigin ))) return 0;
-    params->_ret = glyph_cache_lookup( controller_cache, params->_ret, params->eOrigin, 0, 0 );
-    return 0;
-}
-
-NTSTATUS ISteamController_SteamController007_GetGlyphForXboxOrigin( void *args )
-{
-    struct ISteamController_SteamController007_GetGlyphForXboxOrigin_params *params = (struct ISteamController_SteamController007_GetGlyphForXboxOrigin_params *)args;
-    struct u_ISteamController_SteamController007 *iface = (struct u_ISteamController_SteamController007 *)params->u_iface;
     if (!(params->_ret = iface->GetGlyphForXboxOrigin( params->eOrigin ))) return 0;
     params->_ret = glyph_cache_lookup( xbox_cache, params->_ret, params->eOrigin, 0, 0 );
     return 0;
 }
 
-/* ISteamController_SteamController008 */
-
-NTSTATUS ISteamController_SteamController008_GetGlyphForActionOrigin( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamInput_GetGlyphForActionOrigin( Iface *iface, Params *params )
 {
-    struct ISteamController_SteamController008_GetGlyphForActionOrigin_params *params = (struct ISteamController_SteamController008_GetGlyphForActionOrigin_params *)args;
-    struct u_ISteamController_SteamController008 *iface = (struct u_ISteamController_SteamController008 *)params->u_iface;
-    if (!(params->_ret = iface->GetGlyphForActionOrigin( params->eOrigin ))) return 0;
-    params->_ret = glyph_cache_lookup( controller_cache, params->_ret, params->eOrigin, 0, 0 );
-    return 0;
-}
-
-NTSTATUS ISteamController_SteamController008_GetGlyphForXboxOrigin( void *args )
-{
-    struct ISteamController_SteamController008_GetGlyphForXboxOrigin_params *params = (struct ISteamController_SteamController008_GetGlyphForXboxOrigin_params *)args;
-    struct u_ISteamController_SteamController008 *iface = (struct u_ISteamController_SteamController008 *)params->u_iface;
-    if (!(params->_ret = iface->GetGlyphForXboxOrigin( params->eOrigin ))) return 0;
-    params->_ret = glyph_cache_lookup( xbox_cache, params->_ret, params->eOrigin, 0, 0 );
-    return 0;
-}
-
-/* ISteamInput_SteamInput001 */
-
-NTSTATUS ISteamInput_SteamInput001_GetGlyphForActionOrigin( void *args )
-{
-    struct ISteamInput_SteamInput001_GetGlyphForActionOrigin_params *params = (struct ISteamInput_SteamInput001_GetGlyphForActionOrigin_params *)args;
-    struct u_ISteamInput_SteamInput001 *iface = (struct u_ISteamInput_SteamInput001 *)params->u_iface;
     if (!(params->_ret = iface->GetGlyphForActionOrigin( params->eOrigin ))) return 0;
     params->_ret = glyph_cache_lookup( input_cache, params->_ret, params->eOrigin, 0, 0 );
     return 0;
 }
 
-NTSTATUS ISteamInput_SteamInput001_GetGlyphForXboxOrigin( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamInput_GetGlyphForXboxOrigin( Iface *iface, Params *params )
 {
-    struct ISteamInput_SteamInput001_GetGlyphForXboxOrigin_params *params = (struct ISteamInput_SteamInput001_GetGlyphForXboxOrigin_params *)args;
-    struct u_ISteamInput_SteamInput001 *iface = (struct u_ISteamInput_SteamInput001 *)params->u_iface;
     if (!(params->_ret = iface->GetGlyphForXboxOrigin( params->eOrigin ))) return 0;
     params->_ret = glyph_cache_lookup( xbox_cache, params->_ret, params->eOrigin, 0, 0 );
     return 0;
 }
-
-/* ISteamInput_SteamInput002 */
-
-NTSTATUS ISteamInput_SteamInput002_GetGlyphForActionOrigin( void *args )
-{
-    struct ISteamInput_SteamInput002_GetGlyphForActionOrigin_params *params = (struct ISteamInput_SteamInput002_GetGlyphForActionOrigin_params *)args;
-    struct u_ISteamInput_SteamInput002 *iface = (struct u_ISteamInput_SteamInput002 *)params->u_iface;
-    if (!(params->_ret = iface->GetGlyphForActionOrigin( params->eOrigin ))) return 0;
-    params->_ret = glyph_cache_lookup( input_cache, params->_ret, params->eOrigin, 0, 0 );
-    return 0;
-}
-
-NTSTATUS ISteamInput_SteamInput002_GetGlyphForXboxOrigin( void *args )
-{
-    struct ISteamInput_SteamInput002_GetGlyphForXboxOrigin_params *params = (struct ISteamInput_SteamInput002_GetGlyphForXboxOrigin_params *)args;
-    struct u_ISteamInput_SteamInput002 *iface = (struct u_ISteamInput_SteamInput002 *)params->u_iface;
-    if (!(params->_ret = iface->GetGlyphForXboxOrigin( params->eOrigin ))) return 0;
-    params->_ret = glyph_cache_lookup( xbox_cache, params->_ret, params->eOrigin, 0, 0 );
-    return 0;
-}
-
-/* ISteamInput_SteamInput005 */
 
 static void (W_CDECL *w_EnableActionEventCallbacks_152)( SteamInputActionEvent_t * );
 static void U_CDECL u_SteamInputActionEventCallbackPointer_152( SteamInputActionEvent_t *dat )
@@ -324,94 +252,62 @@ static void U_CDECL u_SteamInputActionEventCallbackPointer_152( SteamInputAction
     if (w_EnableActionEventCallbacks_152) queue_cdecl_func_callback( (w_cdecl_func)w_EnableActionEventCallbacks_152, dat, sizeof(*dat) );
 }
 
-NTSTATUS ISteamInput_SteamInput005_EnableActionEventCallbacks( void *args )
+template< typename Iface, typename Params >
+NTSTATUS ISteamInput_EnableActionEventCallbacks( Iface *iface, Params *params )
 {
-    struct ISteamInput_SteamInput005_EnableActionEventCallbacks_params *params = (struct ISteamInput_SteamInput005_EnableActionEventCallbacks_params *)args;
-    struct u_ISteamInput_SteamInput005 *iface = (struct u_ISteamInput_SteamInput005 *)params->u_iface;
     w_EnableActionEventCallbacks_152 = params->pCallback;
     iface->EnableActionEventCallbacks( params->pCallback ? &u_SteamInputActionEventCallbackPointer_152 : NULL );
     return 0;
 }
 
-NTSTATUS ISteamInput_SteamInput005_GetGlyphPNGForActionOrigin( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamInput_GetGlyphPNGForActionOrigin( Iface *iface, Params *params )
 {
-    struct ISteamInput_SteamInput005_GetGlyphPNGForActionOrigin_params *params = (struct ISteamInput_SteamInput005_GetGlyphPNGForActionOrigin_params *)args;
-    struct u_ISteamInput_SteamInput005 *iface = (struct u_ISteamInput_SteamInput005 *)params->u_iface;
     if (!(params->_ret = iface->GetGlyphPNGForActionOrigin( params->eOrigin, params->eSize, params->unFlags ))) return 0;
     params->_ret = glyph_cache_lookup( input_cache_png, params->_ret, params->eOrigin, params->unFlags, params->eSize );
     return 0;
 }
 
-NTSTATUS ISteamInput_SteamInput005_GetGlyphSVGForActionOrigin( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamInput_GetGlyphSVGForActionOrigin( Iface *iface, Params *params )
 {
-    struct ISteamInput_SteamInput005_GetGlyphSVGForActionOrigin_params *params = (struct ISteamInput_SteamInput005_GetGlyphSVGForActionOrigin_params *)args;
-    struct u_ISteamInput_SteamInput005 *iface = (struct u_ISteamInput_SteamInput005 *)params->u_iface;
     if (!(params->_ret = iface->GetGlyphSVGForActionOrigin( params->eOrigin, params->unFlags ))) return 0;
     params->_ret = glyph_cache_lookup( input_cache_svg, params->_ret, params->eOrigin, params->unFlags, 0 );
     return 0;
 }
 
-NTSTATUS ISteamInput_SteamInput005_GetGlyphForActionOrigin_Legacy( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamInput_GetGlyphForActionOrigin_Legacy( Iface *iface, Params *params )
 {
-    struct ISteamInput_SteamInput005_GetGlyphForActionOrigin_Legacy_params *params = (struct ISteamInput_SteamInput005_GetGlyphForActionOrigin_Legacy_params *)args;
-    struct u_ISteamInput_SteamInput005 *iface = (struct u_ISteamInput_SteamInput005 *)params->u_iface;
     if (!(params->_ret = iface->GetGlyphForActionOrigin_Legacy( params->eOrigin ))) return 0;
     params->_ret = glyph_cache_lookup( input_cache, params->_ret, params->eOrigin, 0, 0 );
     return 0;
 }
 
-NTSTATUS ISteamInput_SteamInput005_GetGlyphForXboxOrigin( void *args )
-{
-    struct ISteamInput_SteamInput005_GetGlyphForXboxOrigin_params *params = (struct ISteamInput_SteamInput005_GetGlyphForXboxOrigin_params *)args;
-    struct u_ISteamInput_SteamInput005 *iface = (struct u_ISteamInput_SteamInput005 *)params->u_iface;
-    if (!(params->_ret = iface->GetGlyphForXboxOrigin( params->eOrigin ))) return 0;
-    params->_ret = glyph_cache_lookup( xbox_cache, params->_ret, params->eOrigin, 0, 0 );
-    return 0;
-}
+LSTEAMCLIENT_UNIX_IMPL( ISteamController, SteamController005, GetGlyphForActionOrigin );
 
-/* ISteamInput_SteamInput006 */
+LSTEAMCLIENT_UNIX_IMPL( ISteamController, SteamController006, GetGlyphForActionOrigin );
 
-NTSTATUS ISteamInput_SteamInput006_EnableActionEventCallbacks( void *args )
-{
-    struct ISteamInput_SteamInput006_EnableActionEventCallbacks_params *params = (struct ISteamInput_SteamInput006_EnableActionEventCallbacks_params *)args;
-    struct u_ISteamInput_SteamInput006 *iface = (struct u_ISteamInput_SteamInput006 *)params->u_iface;
-    w_EnableActionEventCallbacks_152 = params->pCallback;
-    iface->EnableActionEventCallbacks( params->pCallback ? &u_SteamInputActionEventCallbackPointer_152 : NULL );
-    return 0;
-}
+LSTEAMCLIENT_UNIX_IMPL( ISteamController, SteamController007, GetGlyphForActionOrigin );
+LSTEAMCLIENT_UNIX_IMPL( ISteamController, SteamController007, GetGlyphForXboxOrigin );
 
-NTSTATUS ISteamInput_SteamInput006_GetGlyphPNGForActionOrigin( void *args )
-{
-    struct ISteamInput_SteamInput006_GetGlyphPNGForActionOrigin_params *params = (struct ISteamInput_SteamInput006_GetGlyphPNGForActionOrigin_params *)args;
-    struct u_ISteamInput_SteamInput006 *iface = (struct u_ISteamInput_SteamInput006 *)params->u_iface;
-    if (!(params->_ret = iface->GetGlyphPNGForActionOrigin( params->eOrigin, params->eSize, params->unFlags ))) return 0;
-    params->_ret = glyph_cache_lookup( input_cache_png, params->_ret, params->eOrigin, params->unFlags, params->eSize );
-    return 0;
-}
+LSTEAMCLIENT_UNIX_IMPL( ISteamController, SteamController008, GetGlyphForActionOrigin );
+LSTEAMCLIENT_UNIX_IMPL( ISteamController, SteamController008, GetGlyphForXboxOrigin );
 
-NTSTATUS ISteamInput_SteamInput006_GetGlyphSVGForActionOrigin( void *args )
-{
-    struct ISteamInput_SteamInput006_GetGlyphSVGForActionOrigin_params *params = (struct ISteamInput_SteamInput006_GetGlyphSVGForActionOrigin_params *)args;
-    struct u_ISteamInput_SteamInput006 *iface = (struct u_ISteamInput_SteamInput006 *)params->u_iface;
-    if (!(params->_ret = iface->GetGlyphSVGForActionOrigin( params->eOrigin, params->unFlags ))) return 0;
-    params->_ret = glyph_cache_lookup( input_cache_svg, params->_ret, params->eOrigin, params->unFlags, 0 );
-    return 0;
-}
+LSTEAMCLIENT_UNIX_IMPL( ISteamInput, SteamInput001, GetGlyphForActionOrigin );
+LSTEAMCLIENT_UNIX_IMPL( ISteamInput, SteamInput001, GetGlyphForXboxOrigin );
 
-NTSTATUS ISteamInput_SteamInput006_GetGlyphForActionOrigin_Legacy( void *args )
-{
-    struct ISteamInput_SteamInput006_GetGlyphForActionOrigin_Legacy_params *params = (struct ISteamInput_SteamInput006_GetGlyphForActionOrigin_Legacy_params *)args;
-    struct u_ISteamInput_SteamInput006 *iface = (struct u_ISteamInput_SteamInput006 *)params->u_iface;
-    if (!(params->_ret = iface->GetGlyphForActionOrigin_Legacy( params->eOrigin ))) return 0;
-    params->_ret = glyph_cache_lookup( input_cache, params->_ret, params->eOrigin, 0, 0 );
-    return 0;
-}
+LSTEAMCLIENT_UNIX_IMPL( ISteamInput, SteamInput002, GetGlyphForActionOrigin );
+LSTEAMCLIENT_UNIX_IMPL( ISteamInput, SteamInput002, GetGlyphForXboxOrigin );
 
-NTSTATUS ISteamInput_SteamInput006_GetGlyphForXboxOrigin( void *args )
-{
-    struct ISteamInput_SteamInput006_GetGlyphForXboxOrigin_params *params = (struct ISteamInput_SteamInput006_GetGlyphForXboxOrigin_params *)args;
-    struct u_ISteamInput_SteamInput006 *iface = (struct u_ISteamInput_SteamInput006 *)params->u_iface;
-    if (!(params->_ret = iface->GetGlyphForXboxOrigin( params->eOrigin ))) return 0;
-    params->_ret = glyph_cache_lookup( xbox_cache, params->_ret, params->eOrigin, 0, 0 );
-    return 0;
-}
+LSTEAMCLIENT_UNIX_IMPL( ISteamInput, SteamInput005, EnableActionEventCallbacks );
+LSTEAMCLIENT_UNIX_IMPL( ISteamInput, SteamInput005, GetGlyphPNGForActionOrigin );
+LSTEAMCLIENT_UNIX_IMPL( ISteamInput, SteamInput005, GetGlyphSVGForActionOrigin );
+LSTEAMCLIENT_UNIX_IMPL( ISteamInput, SteamInput005, GetGlyphForActionOrigin_Legacy );
+LSTEAMCLIENT_UNIX_IMPL( ISteamInput, SteamInput005, GetGlyphForXboxOrigin );
+
+LSTEAMCLIENT_UNIX_IMPL( ISteamInput, SteamInput006, EnableActionEventCallbacks );
+LSTEAMCLIENT_UNIX_IMPL( ISteamInput, SteamInput006, GetGlyphPNGForActionOrigin );
+LSTEAMCLIENT_UNIX_IMPL( ISteamInput, SteamInput006, GetGlyphSVGForActionOrigin );
+LSTEAMCLIENT_UNIX_IMPL( ISteamInput, SteamInput006, GetGlyphForActionOrigin_Legacy );
+LSTEAMCLIENT_UNIX_IMPL( ISteamInput, SteamInput006, GetGlyphForXboxOrigin );
