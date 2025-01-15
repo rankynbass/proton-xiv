@@ -36,8 +36,6 @@ extern "C"
 #define U32_PTR( decl, name ) decl
 #define W64_PTR( decl, name ) uint64_t name
 #define W32_PTR( decl, name ) decl
-#define U_PTR U32_PTR
-#define W_PTR W32_PTR
 #endif
 
 #ifdef __x86_64__
@@ -45,8 +43,6 @@ extern "C"
 #define U32_PTR( decl, name ) uint32_t name
 #define W64_PTR( decl, name ) decl
 #define W32_PTR( decl, name ) uint32_t name
-#define U_PTR U64_PTR
-#define W_PTR W64_PTR
 #endif
 
 typedef struct { uint8_t _[8]; } CSteamID;
