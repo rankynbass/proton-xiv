@@ -12,6 +12,7 @@ $$(OBJ)/.$(1)-$(3)-configure: $$(OBJ)/.wine-$$(HOST_ARCH)-tools
 
 	sed -e '/^all:$$$$/,$$$$c all:' \
 	    -e '/^SUBDIRS/,/[^\\]$$$$/c SUBDIRS = $$($(2)_SRC)' \
+	    -e '/^TOP_INSTALL_LIB/c TOP_INSTALL_LIB = dlls/src-$(1)' \
 	    \
 	    -e '/^srcdir/a objdir = $$(WINE_$(3)_OBJ)' \
 	    -e '/^prefix/c prefix = $$($(2)_$(3)_DST)' \
