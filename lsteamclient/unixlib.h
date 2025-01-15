@@ -229,6 +229,7 @@ struct w_request
 {
     struct u_request u_request;
     struct u_response u_response;
+    gameserveritem_t_105 *details;
 };
 
 #include <poppack.h>

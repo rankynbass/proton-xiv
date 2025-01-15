@@ -278,19 +278,6 @@ DEFINE_THISCALL_WRAPPER(winISteamMatchmakingServers_SteamMatchMakingServers002_P
 DEFINE_THISCALL_WRAPPER(winISteamMatchmakingServers_SteamMatchMakingServers002_ServerRules, 16)
 DEFINE_THISCALL_WRAPPER(winISteamMatchmakingServers_SteamMatchMakingServers002_CancelServerQuery, 8)
 
-gameserveritem_t_105 * __thiscall winISteamMatchmakingServers_SteamMatchMakingServers002_GetServerDetails(struct w_iface *_this, void *hRequest, int32_t iServer)
-{
-    struct ISteamMatchmakingServers_SteamMatchMakingServers002_GetServerDetails_params params =
-    {
-        .u_iface = _this->u_iface,
-        .hRequest = hRequest,
-        .iServer = iServer,
-    };
-    TRACE("%p\n", _this);
-    STEAMCLIENT_CALL( ISteamMatchmakingServers_SteamMatchMakingServers002_GetServerDetails, &params );
-    return get_unix_buffer( params._ret );
-}
-
 void __thiscall winISteamMatchmakingServers_SteamMatchMakingServers002_CancelQuery(struct w_iface *_this, void *hRequest)
 {
     struct ISteamMatchmakingServers_SteamMatchMakingServers002_CancelQuery_params params =

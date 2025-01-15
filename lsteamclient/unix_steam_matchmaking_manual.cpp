@@ -347,7 +347,9 @@ template< typename Iface, typename Params >
 static NTSTATUS ISteamMatchmakingServers_GetServerDetails( Iface *iface, Params *params )
 {
     struct w_request *w_request = (struct w_request *)(void *)params->hRequest;
-    params->_ret = iface->GetServerDetails( w_request ? (void *)w_request->u_request : nullptr, params->iServer );
+    gameserveritem_t_105 *item = iface->GetServerDetails( w_request ? (void *)w_request->u_request : nullptr, params->iServer );
+    if (w_request && w_request->details) w_request->details[params->iServer] = *item;
+    params->_ret = item;
     return 0;
 }
 

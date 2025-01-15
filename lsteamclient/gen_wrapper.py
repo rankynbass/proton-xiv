@@ -239,7 +239,7 @@ MANUAL_METHODS = {
 
     "ISteamMatchmakingServers_CancelQuery": lambda ver, abi: abi == 'u' and ver >= 2,
     "ISteamMatchmakingServers_GetServerCount": lambda ver, abi: abi == 'u' and ver >= 2,
-    "ISteamMatchmakingServers_GetServerDetails": lambda ver, abi: abi == 'u' and ver >= 2,
+    "ISteamMatchmakingServers_GetServerDetails": lambda ver, abi: ver >= 2,
     "ISteamMatchmakingServers_IsRefreshing": lambda ver, abi: abi == 'u' and ver >= 2,
     "ISteamMatchmakingServers_PingServer": lambda ver, abi: abi == 'u',
     "ISteamMatchmakingServers_PlayerDetails": lambda ver, abi: abi == 'u',
