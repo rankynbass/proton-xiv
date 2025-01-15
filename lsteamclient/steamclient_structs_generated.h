@@ -3581,7 +3581,7 @@ struct w64_CallbackMsg_t
 {
     int32_t m_hSteamUser;
     int32_t m_iCallback;
-    W64_PTR(uint8_t *m_pubParam, m_pubParam);
+    W64_PTR(uint8_t *m_pubParam, m_pubParam, uint8_t *);
     int32_t m_cubParam;
     uint8_t __pad_20[4];
 };
@@ -3592,7 +3592,7 @@ struct w32_CallbackMsg_t
 {
     int32_t m_hSteamUser;
     int32_t m_iCallback;
-    W32_PTR(uint8_t *m_pubParam, m_pubParam);
+    W32_PTR(uint8_t *m_pubParam, m_pubParam, uint8_t *);
     int32_t m_cubParam;
 };
 #pragma pack( pop )
@@ -4175,7 +4175,7 @@ struct w64_HTML_ChangedTitle_t
 {
     uint32_t unBrowserHandle;
     uint8_t __pad_4[4];
-    W64_PTR(const char *pchTitle, pchTitle);
+    W64_PTR(const char *pchTitle, pchTitle, const char *);
 #ifdef __cplusplus
     operator u64_HTML_ChangedTitle_t() const;
 #endif /* __cplusplus */
@@ -4186,7 +4186,7 @@ struct w64_HTML_ChangedTitle_t
 struct u64_HTML_ChangedTitle_t
 {
     uint32_t unBrowserHandle;
-    U64_PTR(const char *pchTitle, pchTitle);
+    U64_PTR(const char *pchTitle, pchTitle, const char *);
 #ifdef __cplusplus
     operator w64_HTML_ChangedTitle_t() const;
 #endif /* __cplusplus */
@@ -4197,7 +4197,7 @@ struct u64_HTML_ChangedTitle_t
 struct w32_HTML_ChangedTitle_t
 {
     uint32_t unBrowserHandle;
-    W32_PTR(const char *pchTitle, pchTitle);
+    W32_PTR(const char *pchTitle, pchTitle, const char *);
 };
 #pragma pack( pop )
 
@@ -4215,7 +4215,7 @@ struct w64_HTML_ComboNeedsPaint_t
 {
     uint32_t unBrowserHandle;
     uint8_t __pad_4[4];
-    W64_PTR(const char *pBGRA, pBGRA);
+    W64_PTR(const char *pBGRA, pBGRA, const char *);
     uint32_t unWide;
     uint32_t unTall;
 #ifdef __cplusplus
@@ -4228,7 +4228,7 @@ struct w64_HTML_ComboNeedsPaint_t
 struct u64_HTML_ComboNeedsPaint_t
 {
     uint32_t unBrowserHandle;
-    U64_PTR(const char *pBGRA, pBGRA);
+    U64_PTR(const char *pBGRA, pBGRA, const char *);
     uint32_t unWide;
     uint32_t unTall;
 #ifdef __cplusplus
@@ -4241,7 +4241,7 @@ struct u64_HTML_ComboNeedsPaint_t
 struct w32_HTML_ComboNeedsPaint_t
 {
     uint32_t unBrowserHandle;
-    W32_PTR(const char *pBGRA, pBGRA);
+    W32_PTR(const char *pBGRA, pBGRA, const char *);
     uint32_t unWide;
     uint32_t unTall;
 };
@@ -4261,8 +4261,8 @@ struct w64_HTML_FileOpenDialog_t
 {
     uint32_t unBrowserHandle;
     uint8_t __pad_4[4];
-    W64_PTR(const char *pchTitle, pchTitle);
-    W64_PTR(const char *pchInitialFile, pchInitialFile);
+    W64_PTR(const char *pchTitle, pchTitle, const char *);
+    W64_PTR(const char *pchInitialFile, pchInitialFile, const char *);
 #ifdef __cplusplus
     operator u64_HTML_FileOpenDialog_t() const;
 #endif /* __cplusplus */
@@ -4273,8 +4273,8 @@ struct w64_HTML_FileOpenDialog_t
 struct u64_HTML_FileOpenDialog_t
 {
     uint32_t unBrowserHandle;
-    U64_PTR(const char *pchTitle, pchTitle);
-    U64_PTR(const char *pchInitialFile, pchInitialFile);
+    U64_PTR(const char *pchTitle, pchTitle, const char *);
+    U64_PTR(const char *pchInitialFile, pchInitialFile, const char *);
 #ifdef __cplusplus
     operator w64_HTML_FileOpenDialog_t() const;
 #endif /* __cplusplus */
@@ -4285,8 +4285,8 @@ struct u64_HTML_FileOpenDialog_t
 struct w32_HTML_FileOpenDialog_t
 {
     uint32_t unBrowserHandle;
-    W32_PTR(const char *pchTitle, pchTitle);
-    W32_PTR(const char *pchInitialFile, pchInitialFile);
+    W32_PTR(const char *pchTitle, pchTitle, const char *);
+    W32_PTR(const char *pchInitialFile, pchInitialFile, const char *);
 #ifdef __cplusplus
     operator u32_HTML_FileOpenDialog_t() const;
 #endif /* __cplusplus */
@@ -4297,8 +4297,8 @@ struct w32_HTML_FileOpenDialog_t
 struct u32_HTML_FileOpenDialog_t
 {
     uint32_t unBrowserHandle;
-    U32_PTR(const char *pchTitle, pchTitle);
-    U32_PTR(const char *pchInitialFile, pchInitialFile);
+    U32_PTR(const char *pchTitle, pchTitle, const char *);
+    U32_PTR(const char *pchInitialFile, pchInitialFile, const char *);
 #ifdef __cplusplus
     operator w32_HTML_FileOpenDialog_t() const;
 #endif /* __cplusplus */
@@ -4319,8 +4319,8 @@ struct w64_HTML_FinishedRequest_t
 {
     uint32_t unBrowserHandle;
     uint8_t __pad_4[4];
-    W64_PTR(const char *pchURL, pchURL);
-    W64_PTR(const char *pchPageTitle, pchPageTitle);
+    W64_PTR(const char *pchURL, pchURL, const char *);
+    W64_PTR(const char *pchPageTitle, pchPageTitle, const char *);
 #ifdef __cplusplus
     operator u64_HTML_FinishedRequest_t() const;
 #endif /* __cplusplus */
@@ -4331,8 +4331,8 @@ struct w64_HTML_FinishedRequest_t
 struct u64_HTML_FinishedRequest_t
 {
     uint32_t unBrowserHandle;
-    U64_PTR(const char *pchURL, pchURL);
-    U64_PTR(const char *pchPageTitle, pchPageTitle);
+    U64_PTR(const char *pchURL, pchURL, const char *);
+    U64_PTR(const char *pchPageTitle, pchPageTitle, const char *);
 #ifdef __cplusplus
     operator w64_HTML_FinishedRequest_t() const;
 #endif /* __cplusplus */
@@ -4343,8 +4343,8 @@ struct u64_HTML_FinishedRequest_t
 struct w32_HTML_FinishedRequest_t
 {
     uint32_t unBrowserHandle;
-    W32_PTR(const char *pchURL, pchURL);
-    W32_PTR(const char *pchPageTitle, pchPageTitle);
+    W32_PTR(const char *pchURL, pchURL, const char *);
+    W32_PTR(const char *pchPageTitle, pchPageTitle, const char *);
 #ifdef __cplusplus
     operator u32_HTML_FinishedRequest_t() const;
 #endif /* __cplusplus */
@@ -4355,8 +4355,8 @@ struct w32_HTML_FinishedRequest_t
 struct u32_HTML_FinishedRequest_t
 {
     uint32_t unBrowserHandle;
-    U32_PTR(const char *pchURL, pchURL);
-    U32_PTR(const char *pchPageTitle, pchPageTitle);
+    U32_PTR(const char *pchURL, pchURL, const char *);
+    U32_PTR(const char *pchPageTitle, pchPageTitle, const char *);
 #ifdef __cplusplus
     operator w32_HTML_FinishedRequest_t() const;
 #endif /* __cplusplus */
@@ -4377,7 +4377,7 @@ struct w64_HTML_JSAlert_t
 {
     uint32_t unBrowserHandle;
     uint8_t __pad_4[4];
-    W64_PTR(const char *pchMessage, pchMessage);
+    W64_PTR(const char *pchMessage, pchMessage, const char *);
 #ifdef __cplusplus
     operator u64_HTML_JSAlert_t() const;
 #endif /* __cplusplus */
@@ -4388,7 +4388,7 @@ struct w64_HTML_JSAlert_t
 struct u64_HTML_JSAlert_t
 {
     uint32_t unBrowserHandle;
-    U64_PTR(const char *pchMessage, pchMessage);
+    U64_PTR(const char *pchMessage, pchMessage, const char *);
 #ifdef __cplusplus
     operator w64_HTML_JSAlert_t() const;
 #endif /* __cplusplus */
@@ -4399,7 +4399,7 @@ struct u64_HTML_JSAlert_t
 struct w32_HTML_JSAlert_t
 {
     uint32_t unBrowserHandle;
-    W32_PTR(const char *pchMessage, pchMessage);
+    W32_PTR(const char *pchMessage, pchMessage, const char *);
 };
 #pragma pack( pop )
 
@@ -4417,7 +4417,7 @@ struct w64_HTML_JSConfirm_t
 {
     uint32_t unBrowserHandle;
     uint8_t __pad_4[4];
-    W64_PTR(const char *pchMessage, pchMessage);
+    W64_PTR(const char *pchMessage, pchMessage, const char *);
 #ifdef __cplusplus
     operator u64_HTML_JSConfirm_t() const;
 #endif /* __cplusplus */
@@ -4428,7 +4428,7 @@ struct w64_HTML_JSConfirm_t
 struct u64_HTML_JSConfirm_t
 {
     uint32_t unBrowserHandle;
-    U64_PTR(const char *pchMessage, pchMessage);
+    U64_PTR(const char *pchMessage, pchMessage, const char *);
 #ifdef __cplusplus
     operator w64_HTML_JSConfirm_t() const;
 #endif /* __cplusplus */
@@ -4439,7 +4439,7 @@ struct u64_HTML_JSConfirm_t
 struct w32_HTML_JSConfirm_t
 {
     uint32_t unBrowserHandle;
-    W32_PTR(const char *pchMessage, pchMessage);
+    W32_PTR(const char *pchMessage, pchMessage, const char *);
 };
 #pragma pack( pop )
 
@@ -4459,7 +4459,7 @@ struct w64_HTML_LinkAtPosition_t
     uint32_t x;
     uint32_t y;
     uint8_t __pad_12[4];
-    W64_PTR(const char *pchURL, pchURL);
+    W64_PTR(const char *pchURL, pchURL, const char *);
     int8_t bInput;
     int8_t bLiveLink;
     uint8_t __pad_26[6];
@@ -4475,7 +4475,7 @@ struct u64_HTML_LinkAtPosition_t
     uint32_t unBrowserHandle;
     uint32_t x;
     uint32_t y;
-    U64_PTR(const char *pchURL, pchURL);
+    U64_PTR(const char *pchURL, pchURL, const char *);
     int8_t bInput;
     int8_t bLiveLink;
     uint8_t __pad_22[2];
@@ -4491,7 +4491,7 @@ struct w32_HTML_LinkAtPosition_t
     uint32_t unBrowserHandle;
     uint32_t x;
     uint32_t y;
-    W32_PTR(const char *pchURL, pchURL);
+    W32_PTR(const char *pchURL, pchURL, const char *);
     int8_t bInput;
     int8_t bLiveLink;
     uint8_t __pad_18[2];
@@ -4507,7 +4507,7 @@ struct u32_HTML_LinkAtPosition_t
     uint32_t unBrowserHandle;
     uint32_t x;
     uint32_t y;
-    U32_PTR(const char *pchURL, pchURL);
+    U32_PTR(const char *pchURL, pchURL, const char *);
     int8_t bInput;
     int8_t bLiveLink;
     uint8_t __pad_18[2];
@@ -4531,7 +4531,7 @@ struct w64_HTML_NeedsPaint_t
 {
     uint32_t unBrowserHandle;
     uint8_t __pad_4[4];
-    W64_PTR(const char *pBGRA, pBGRA);
+    W64_PTR(const char *pBGRA, pBGRA, const char *);
     uint32_t unWide;
     uint32_t unTall;
     uint32_t unUpdateX;
@@ -4552,7 +4552,7 @@ struct w64_HTML_NeedsPaint_t
 struct u64_HTML_NeedsPaint_t
 {
     uint32_t unBrowserHandle;
-    U64_PTR(const char *pBGRA, pBGRA);
+    U64_PTR(const char *pBGRA, pBGRA, const char *);
     uint32_t unWide;
     uint32_t unTall;
     uint32_t unUpdateX;
@@ -4573,7 +4573,7 @@ struct u64_HTML_NeedsPaint_t
 struct w32_HTML_NeedsPaint_t
 {
     uint32_t unBrowserHandle;
-    W32_PTR(const char *pBGRA, pBGRA);
+    W32_PTR(const char *pBGRA, pBGRA, const char *);
     uint32_t unWide;
     uint32_t unTall;
     uint32_t unUpdateX;
@@ -4601,7 +4601,7 @@ struct w64_HTML_NewWindow_t_132x
 {
     uint32_t unBrowserHandle;
     uint8_t __pad_4[4];
-    W64_PTR(const char *pchURL, pchURL);
+    W64_PTR(const char *pchURL, pchURL, const char *);
     uint32_t unX;
     uint32_t unY;
     uint32_t unWide;
@@ -4618,7 +4618,7 @@ struct w64_HTML_NewWindow_t_132x
 struct u64_HTML_NewWindow_t_132x
 {
     uint32_t unBrowserHandle;
-    U64_PTR(const char *pchURL, pchURL);
+    U64_PTR(const char *pchURL, pchURL, const char *);
     uint32_t unX;
     uint32_t unY;
     uint32_t unWide;
@@ -4634,7 +4634,7 @@ struct u64_HTML_NewWindow_t_132x
 struct w32_HTML_NewWindow_t_132x
 {
     uint32_t unBrowserHandle;
-    W32_PTR(const char *pchURL, pchURL);
+    W32_PTR(const char *pchURL, pchURL, const char *);
     uint32_t unX;
     uint32_t unY;
     uint32_t unWide;
@@ -4650,7 +4650,7 @@ struct w32_HTML_NewWindow_t_132x
 struct u32_HTML_NewWindow_t_132x
 {
     uint32_t unBrowserHandle;
-    U32_PTR(const char *pchURL, pchURL);
+    U32_PTR(const char *pchURL, pchURL, const char *);
     uint32_t unX;
     uint32_t unY;
     uint32_t unWide;
@@ -4676,7 +4676,7 @@ struct w64_HTML_NewWindow_t_130x
 {
     uint32_t unBrowserHandle;
     uint8_t __pad_4[4];
-    W64_PTR(const char *pchURL, pchURL);
+    W64_PTR(const char *pchURL, pchURL, const char *);
     uint32_t unX;
     uint32_t unY;
     uint32_t unWide;
@@ -4691,7 +4691,7 @@ struct w64_HTML_NewWindow_t_130x
 struct u64_HTML_NewWindow_t_130x
 {
     uint32_t unBrowserHandle;
-    U64_PTR(const char *pchURL, pchURL);
+    U64_PTR(const char *pchURL, pchURL, const char *);
     uint32_t unX;
     uint32_t unY;
     uint32_t unWide;
@@ -4706,7 +4706,7 @@ struct u64_HTML_NewWindow_t_130x
 struct w32_HTML_NewWindow_t_130x
 {
     uint32_t unBrowserHandle;
-    W32_PTR(const char *pchURL, pchURL);
+    W32_PTR(const char *pchURL, pchURL, const char *);
     uint32_t unX;
     uint32_t unY;
     uint32_t unWide;
@@ -4721,7 +4721,7 @@ struct w32_HTML_NewWindow_t_130x
 struct u32_HTML_NewWindow_t_130x
 {
     uint32_t unBrowserHandle;
-    U32_PTR(const char *pchURL, pchURL);
+    U32_PTR(const char *pchURL, pchURL, const char *);
     uint32_t unX;
     uint32_t unY;
     uint32_t unWide;
@@ -4746,7 +4746,7 @@ struct w64_HTML_OpenLinkInNewTab_t
 {
     uint32_t unBrowserHandle;
     uint8_t __pad_4[4];
-    W64_PTR(const char *pchURL, pchURL);
+    W64_PTR(const char *pchURL, pchURL, const char *);
 #ifdef __cplusplus
     operator u64_HTML_OpenLinkInNewTab_t() const;
 #endif /* __cplusplus */
@@ -4757,7 +4757,7 @@ struct w64_HTML_OpenLinkInNewTab_t
 struct u64_HTML_OpenLinkInNewTab_t
 {
     uint32_t unBrowserHandle;
-    U64_PTR(const char *pchURL, pchURL);
+    U64_PTR(const char *pchURL, pchURL, const char *);
 #ifdef __cplusplus
     operator w64_HTML_OpenLinkInNewTab_t() const;
 #endif /* __cplusplus */
@@ -4768,7 +4768,7 @@ struct u64_HTML_OpenLinkInNewTab_t
 struct w32_HTML_OpenLinkInNewTab_t
 {
     uint32_t unBrowserHandle;
-    W32_PTR(const char *pchURL, pchURL);
+    W32_PTR(const char *pchURL, pchURL, const char *);
 #ifdef __cplusplus
     operator u32_HTML_OpenLinkInNewTab_t() const;
 #endif /* __cplusplus */
@@ -4779,7 +4779,7 @@ struct w32_HTML_OpenLinkInNewTab_t
 struct u32_HTML_OpenLinkInNewTab_t
 {
     uint32_t unBrowserHandle;
-    U32_PTR(const char *pchURL, pchURL);
+    U32_PTR(const char *pchURL, pchURL, const char *);
 #ifdef __cplusplus
     operator w32_HTML_OpenLinkInNewTab_t() const;
 #endif /* __cplusplus */
@@ -4800,7 +4800,7 @@ struct w64_HTML_ShowToolTip_t
 {
     uint32_t unBrowserHandle;
     uint8_t __pad_4[4];
-    W64_PTR(const char *pchMsg, pchMsg);
+    W64_PTR(const char *pchMsg, pchMsg, const char *);
 #ifdef __cplusplus
     operator u64_HTML_ShowToolTip_t() const;
 #endif /* __cplusplus */
@@ -4811,7 +4811,7 @@ struct w64_HTML_ShowToolTip_t
 struct u64_HTML_ShowToolTip_t
 {
     uint32_t unBrowserHandle;
-    U64_PTR(const char *pchMsg, pchMsg);
+    U64_PTR(const char *pchMsg, pchMsg, const char *);
 #ifdef __cplusplus
     operator w64_HTML_ShowToolTip_t() const;
 #endif /* __cplusplus */
@@ -4822,7 +4822,7 @@ struct u64_HTML_ShowToolTip_t
 struct w32_HTML_ShowToolTip_t
 {
     uint32_t unBrowserHandle;
-    W32_PTR(const char *pchMsg, pchMsg);
+    W32_PTR(const char *pchMsg, pchMsg, const char *);
 };
 #pragma pack( pop )
 
@@ -4840,9 +4840,9 @@ struct w64_HTML_StartRequest_t
 {
     uint32_t unBrowserHandle;
     uint8_t __pad_4[4];
-    W64_PTR(const char *pchURL, pchURL);
-    W64_PTR(const char *pchTarget, pchTarget);
-    W64_PTR(const char *pchPostData, pchPostData);
+    W64_PTR(const char *pchURL, pchURL, const char *);
+    W64_PTR(const char *pchTarget, pchTarget, const char *);
+    W64_PTR(const char *pchPostData, pchPostData, const char *);
     int8_t bIsRedirect;
     uint8_t __pad_33[7];
 #ifdef __cplusplus
@@ -4855,9 +4855,9 @@ struct w64_HTML_StartRequest_t
 struct u64_HTML_StartRequest_t
 {
     uint32_t unBrowserHandle;
-    U64_PTR(const char *pchURL, pchURL);
-    U64_PTR(const char *pchTarget, pchTarget);
-    U64_PTR(const char *pchPostData, pchPostData);
+    U64_PTR(const char *pchURL, pchURL, const char *);
+    U64_PTR(const char *pchTarget, pchTarget, const char *);
+    U64_PTR(const char *pchPostData, pchPostData, const char *);
     int8_t bIsRedirect;
     uint8_t __pad_29[3];
 #ifdef __cplusplus
@@ -4870,9 +4870,9 @@ struct u64_HTML_StartRequest_t
 struct w32_HTML_StartRequest_t
 {
     uint32_t unBrowserHandle;
-    W32_PTR(const char *pchURL, pchURL);
-    W32_PTR(const char *pchTarget, pchTarget);
-    W32_PTR(const char *pchPostData, pchPostData);
+    W32_PTR(const char *pchURL, pchURL, const char *);
+    W32_PTR(const char *pchTarget, pchTarget, const char *);
+    W32_PTR(const char *pchPostData, pchPostData, const char *);
     int8_t bIsRedirect;
     uint8_t __pad_17[3];
 #ifdef __cplusplus
@@ -4885,9 +4885,9 @@ struct w32_HTML_StartRequest_t
 struct u32_HTML_StartRequest_t
 {
     uint32_t unBrowserHandle;
-    U32_PTR(const char *pchURL, pchURL);
-    U32_PTR(const char *pchTarget, pchTarget);
-    U32_PTR(const char *pchPostData, pchPostData);
+    U32_PTR(const char *pchURL, pchURL, const char *);
+    U32_PTR(const char *pchTarget, pchTarget, const char *);
+    U32_PTR(const char *pchPostData, pchPostData, const char *);
     int8_t bIsRedirect;
     uint8_t __pad_17[3];
 #ifdef __cplusplus
@@ -4910,7 +4910,7 @@ struct w64_HTML_StatusText_t
 {
     uint32_t unBrowserHandle;
     uint8_t __pad_4[4];
-    W64_PTR(const char *pchMsg, pchMsg);
+    W64_PTR(const char *pchMsg, pchMsg, const char *);
 #ifdef __cplusplus
     operator u64_HTML_StatusText_t() const;
 #endif /* __cplusplus */
@@ -4921,7 +4921,7 @@ struct w64_HTML_StatusText_t
 struct u64_HTML_StatusText_t
 {
     uint32_t unBrowserHandle;
-    U64_PTR(const char *pchMsg, pchMsg);
+    U64_PTR(const char *pchMsg, pchMsg, const char *);
 #ifdef __cplusplus
     operator w64_HTML_StatusText_t() const;
 #endif /* __cplusplus */
@@ -4932,7 +4932,7 @@ struct u64_HTML_StatusText_t
 struct w32_HTML_StatusText_t
 {
     uint32_t unBrowserHandle;
-    W32_PTR(const char *pchMsg, pchMsg);
+    W32_PTR(const char *pchMsg, pchMsg, const char *);
 };
 #pragma pack( pop )
 
@@ -4950,11 +4950,11 @@ struct w64_HTML_URLChanged_t
 {
     uint32_t unBrowserHandle;
     uint8_t __pad_4[4];
-    W64_PTR(const char *pchURL, pchURL);
-    W64_PTR(const char *pchPostData, pchPostData);
+    W64_PTR(const char *pchURL, pchURL, const char *);
+    W64_PTR(const char *pchPostData, pchPostData, const char *);
     int8_t bIsRedirect;
     uint8_t __pad_25[7];
-    W64_PTR(const char *pchPageTitle, pchPageTitle);
+    W64_PTR(const char *pchPageTitle, pchPageTitle, const char *);
     int8_t bNewNavigation;
     uint8_t __pad_41[7];
 #ifdef __cplusplus
@@ -4967,11 +4967,11 @@ struct w64_HTML_URLChanged_t
 struct u64_HTML_URLChanged_t
 {
     uint32_t unBrowserHandle;
-    U64_PTR(const char *pchURL, pchURL);
-    U64_PTR(const char *pchPostData, pchPostData);
+    U64_PTR(const char *pchURL, pchURL, const char *);
+    U64_PTR(const char *pchPostData, pchPostData, const char *);
     int8_t bIsRedirect;
     uint8_t __pad_21[3];
-    U64_PTR(const char *pchPageTitle, pchPageTitle);
+    U64_PTR(const char *pchPageTitle, pchPageTitle, const char *);
     int8_t bNewNavigation;
     uint8_t __pad_33[3];
 #ifdef __cplusplus
@@ -4984,11 +4984,11 @@ struct u64_HTML_URLChanged_t
 struct w32_HTML_URLChanged_t
 {
     uint32_t unBrowserHandle;
-    W32_PTR(const char *pchURL, pchURL);
-    W32_PTR(const char *pchPostData, pchPostData);
+    W32_PTR(const char *pchURL, pchURL, const char *);
+    W32_PTR(const char *pchPostData, pchPostData, const char *);
     int8_t bIsRedirect;
     uint8_t __pad_13[3];
-    W32_PTR(const char *pchPageTitle, pchPageTitle);
+    W32_PTR(const char *pchPageTitle, pchPageTitle, const char *);
     int8_t bNewNavigation;
     uint8_t __pad_21[3];
 #ifdef __cplusplus
@@ -5001,11 +5001,11 @@ struct w32_HTML_URLChanged_t
 struct u32_HTML_URLChanged_t
 {
     uint32_t unBrowserHandle;
-    U32_PTR(const char *pchURL, pchURL);
-    U32_PTR(const char *pchPostData, pchPostData);
+    U32_PTR(const char *pchURL, pchURL, const char *);
+    U32_PTR(const char *pchPostData, pchPostData, const char *);
     int8_t bIsRedirect;
     uint8_t __pad_13[3];
-    U32_PTR(const char *pchPageTitle, pchPageTitle);
+    U32_PTR(const char *pchPageTitle, pchPageTitle, const char *);
     int8_t bNewNavigation;
     uint8_t __pad_21[3];
 #ifdef __cplusplus
@@ -5028,7 +5028,7 @@ struct w64_HTML_UpdateToolTip_t
 {
     uint32_t unBrowserHandle;
     uint8_t __pad_4[4];
-    W64_PTR(const char *pchMsg, pchMsg);
+    W64_PTR(const char *pchMsg, pchMsg, const char *);
 #ifdef __cplusplus
     operator u64_HTML_UpdateToolTip_t() const;
 #endif /* __cplusplus */
@@ -5039,7 +5039,7 @@ struct w64_HTML_UpdateToolTip_t
 struct u64_HTML_UpdateToolTip_t
 {
     uint32_t unBrowserHandle;
-    U64_PTR(const char *pchMsg, pchMsg);
+    U64_PTR(const char *pchMsg, pchMsg, const char *);
 #ifdef __cplusplus
     operator w64_HTML_UpdateToolTip_t() const;
 #endif /* __cplusplus */
@@ -5050,7 +5050,7 @@ struct u64_HTML_UpdateToolTip_t
 struct w32_HTML_UpdateToolTip_t
 {
     uint32_t unBrowserHandle;
-    W32_PTR(const char *pchMsg, pchMsg);
+    W32_PTR(const char *pchMsg, pchMsg, const char *);
 };
 #pragma pack( pop )
 
@@ -6801,7 +6801,7 @@ struct w64_RemoteStorageDownloadUGCResult_t_111x
     uint64_t m_hFile;
     uint32_t m_nAppID;
     int32_t m_nSizeInBytes;
-    W64_PTR(char *m_pchFileName, m_pchFileName);
+    W64_PTR(char *m_pchFileName, m_pchFileName, char *);
     uint64_t m_ulSteamIDOwner;
 };
 #pragma pack( pop )
@@ -6814,7 +6814,7 @@ struct w32_RemoteStorageDownloadUGCResult_t_111x
     uint64_t m_hFile;
     uint32_t m_nAppID;
     int32_t m_nSizeInBytes;
-    W32_PTR(char *m_pchFileName, m_pchFileName);
+    W32_PTR(char *m_pchFileName, m_pchFileName, char *);
     uint8_t __pad_28[4];
     uint64_t m_ulSteamIDOwner;
 #ifdef __cplusplus
@@ -6830,7 +6830,7 @@ struct u32_RemoteStorageDownloadUGCResult_t_111x
     uint64_t m_hFile;
     uint32_t m_nAppID;
     int32_t m_nSizeInBytes;
-    U32_PTR(char *m_pchFileName, m_pchFileName);
+    U32_PTR(char *m_pchFileName, m_pchFileName, char *);
     uint64_t m_ulSteamIDOwner;
 #ifdef __cplusplus
     operator w32_RemoteStorageDownloadUGCResult_t_111x() const;
@@ -8807,13 +8807,13 @@ typedef u64_RemoteStorageUnsubscribePublishedFileResult_t_116x u_RemoteStorageUn
 struct w64_RemoteStorageUpdatePublishedFileRequest_t
 {
     uint64_t m_unPublishedFileId;
-    W64_PTR(const char *m_pchFile, m_pchFile);
-    W64_PTR(const char *m_pchPreviewFile, m_pchPreviewFile);
-    W64_PTR(const char *m_pchTitle, m_pchTitle);
-    W64_PTR(const char *m_pchDescription, m_pchDescription);
+    W64_PTR(const char *m_pchFile, m_pchFile, const char *);
+    W64_PTR(const char *m_pchPreviewFile, m_pchPreviewFile, const char *);
+    W64_PTR(const char *m_pchTitle, m_pchTitle, const char *);
+    W64_PTR(const char *m_pchDescription, m_pchDescription, const char *);
     uint32_t m_eVisibility;
     uint8_t __pad_44[4];
-    W64_PTR(w64_SteamParamStringArray_t *m_pTags, m_pTags);
+    W64_PTR(w64_SteamParamStringArray_t *m_pTags, m_pTags, w64_SteamParamStringArray_t *);
     int8_t m_bUpdateFile;
     int8_t m_bUpdatePreviewFile;
     int8_t m_bUpdateTitle;
@@ -8828,12 +8828,12 @@ struct w64_RemoteStorageUpdatePublishedFileRequest_t
 struct w32_RemoteStorageUpdatePublishedFileRequest_t
 {
     uint64_t m_unPublishedFileId;
-    W32_PTR(const char *m_pchFile, m_pchFile);
-    W32_PTR(const char *m_pchPreviewFile, m_pchPreviewFile);
-    W32_PTR(const char *m_pchTitle, m_pchTitle);
-    W32_PTR(const char *m_pchDescription, m_pchDescription);
+    W32_PTR(const char *m_pchFile, m_pchFile, const char *);
+    W32_PTR(const char *m_pchPreviewFile, m_pchPreviewFile, const char *);
+    W32_PTR(const char *m_pchTitle, m_pchTitle, const char *);
+    W32_PTR(const char *m_pchDescription, m_pchDescription, const char *);
     uint32_t m_eVisibility;
-    W32_PTR(w32_SteamParamStringArray_t *m_pTags, m_pTags);
+    W32_PTR(w32_SteamParamStringArray_t *m_pTags, m_pTags, w32_SteamParamStringArray_t *);
     int8_t m_bUpdateFile;
     int8_t m_bUpdatePreviewFile;
     int8_t m_bUpdateTitle;
@@ -9931,15 +9931,15 @@ typedef u64_SteamNetConnectionStatusChangedCallback_t_151 u_SteamNetConnectionSt
 #pragma pack( push, 8 )
 struct w64_SteamNetworkingMessage_t_153a
 {
-    W64_PTR(void *m_pData, m_pData);
+    W64_PTR(void *m_pData, m_pData, void *);
     int32_t m_cbSize;
     uint32_t m_conn;
     SteamNetworkingIdentity_144 m_identityPeer;
     int64_t m_nConnUserData;
     int64_t m_usecTimeReceived;
     int64_t m_nMessageNumber;
-    W64_PTR(void (*W_CDECL m_pfnFreeData)(w64_SteamNetworkingMessage_t_153a *), m_pfnFreeData);
-    W64_PTR(void (*W_CDECL m_pfnRelease)(w64_SteamNetworkingMessage_t_153a *), m_pfnRelease);
+    W64_PTR(void (*W_CDECL m_pfnFreeData)(w64_SteamNetworkingMessage_t_153a *), m_pfnFreeData, void (*W_CDECL )(w64_SteamNetworkingMessage_t_153a *));
+    W64_PTR(void (*W_CDECL m_pfnRelease)(w64_SteamNetworkingMessage_t_153a *), m_pfnRelease, void (*W_CDECL )(w64_SteamNetworkingMessage_t_153a *));
     int32_t m_nChannel;
     int32_t m_nFlags;
     int64_t m_nUserData;
@@ -9955,15 +9955,15 @@ struct w64_SteamNetworkingMessage_t_153a
 #pragma pack( push, 8 )
 struct u64_SteamNetworkingMessage_t_153a
 {
-    U64_PTR(void *m_pData, m_pData);
+    U64_PTR(void *m_pData, m_pData, void *);
     int32_t m_cbSize;
     uint32_t m_conn;
     SteamNetworkingIdentity_144 m_identityPeer;
     int64_t m_nConnUserData;
     int64_t m_usecTimeReceived;
     int64_t m_nMessageNumber;
-    U64_PTR(void (*U_CDECL m_pfnFreeData)(u64_SteamNetworkingMessage_t_153a *), m_pfnFreeData);
-    U64_PTR(void (*U_CDECL m_pfnRelease)(u64_SteamNetworkingMessage_t_153a *), m_pfnRelease);
+    U64_PTR(void (*U_CDECL m_pfnFreeData)(u64_SteamNetworkingMessage_t_153a *), m_pfnFreeData, void (*U_CDECL )(u64_SteamNetworkingMessage_t_153a *));
+    U64_PTR(void (*U_CDECL m_pfnRelease)(u64_SteamNetworkingMessage_t_153a *), m_pfnRelease, void (*U_CDECL )(u64_SteamNetworkingMessage_t_153a *));
     int32_t m_nChannel;
     int32_t m_nFlags;
     int64_t m_nUserData;
@@ -9979,7 +9979,7 @@ struct u64_SteamNetworkingMessage_t_153a
 #pragma pack( push, 8 )
 struct w32_SteamNetworkingMessage_t_153a
 {
-    W32_PTR(void *m_pData, m_pData);
+    W32_PTR(void *m_pData, m_pData, void *);
     int32_t m_cbSize;
     uint32_t m_conn;
     SteamNetworkingIdentity_144 m_identityPeer;
@@ -9987,8 +9987,8 @@ struct w32_SteamNetworkingMessage_t_153a
     int64_t m_nConnUserData;
     int64_t m_usecTimeReceived;
     int64_t m_nMessageNumber;
-    W32_PTR(void (*W_CDECL m_pfnFreeData)(w32_SteamNetworkingMessage_t_153a *), m_pfnFreeData);
-    W32_PTR(void (*W_CDECL m_pfnRelease)(w32_SteamNetworkingMessage_t_153a *), m_pfnRelease);
+    W32_PTR(void (*W_CDECL m_pfnFreeData)(w32_SteamNetworkingMessage_t_153a *), m_pfnFreeData, void (*W_CDECL )(w32_SteamNetworkingMessage_t_153a *));
+    W32_PTR(void (*W_CDECL m_pfnRelease)(w32_SteamNetworkingMessage_t_153a *), m_pfnRelease, void (*W_CDECL )(w32_SteamNetworkingMessage_t_153a *));
     int32_t m_nChannel;
     int32_t m_nFlags;
     int64_t m_nUserData;
@@ -10004,15 +10004,15 @@ struct w32_SteamNetworkingMessage_t_153a
 #pragma pack( push, 4 )
 struct u32_SteamNetworkingMessage_t_153a
 {
-    U32_PTR(void *m_pData, m_pData);
+    U32_PTR(void *m_pData, m_pData, void *);
     int32_t m_cbSize;
     uint32_t m_conn;
     SteamNetworkingIdentity_144 m_identityPeer;
     int64_t m_nConnUserData;
     int64_t m_usecTimeReceived;
     int64_t m_nMessageNumber;
-    U32_PTR(void (*U_CDECL m_pfnFreeData)(u32_SteamNetworkingMessage_t_153a *), m_pfnFreeData);
-    U32_PTR(void (*U_CDECL m_pfnRelease)(u32_SteamNetworkingMessage_t_153a *), m_pfnRelease);
+    U32_PTR(void (*U_CDECL m_pfnFreeData)(u32_SteamNetworkingMessage_t_153a *), m_pfnFreeData, void (*U_CDECL )(u32_SteamNetworkingMessage_t_153a *));
+    U32_PTR(void (*U_CDECL m_pfnRelease)(u32_SteamNetworkingMessage_t_153a *), m_pfnRelease, void (*U_CDECL )(u32_SteamNetworkingMessage_t_153a *));
     int32_t m_nChannel;
     int32_t m_nFlags;
     int64_t m_nUserData;
@@ -10036,15 +10036,15 @@ typedef u64_SteamNetworkingMessage_t_153a u_SteamNetworkingMessage_t_153a;
 #pragma pack( push, 8 )
 struct w64_SteamNetworkingMessage_t_147
 {
-    W64_PTR(void *m_pData, m_pData);
+    W64_PTR(void *m_pData, m_pData, void *);
     int32_t m_cbSize;
     uint32_t m_conn;
     SteamNetworkingIdentity_144 m_identityPeer;
     int64_t m_nConnUserData;
     int64_t m_usecTimeReceived;
     int64_t m_nMessageNumber;
-    W64_PTR(void (*W_CDECL m_pfnFreeData)(w64_SteamNetworkingMessage_t_147 *), m_pfnFreeData);
-    W64_PTR(void (*W_CDECL m_pfnRelease)(w64_SteamNetworkingMessage_t_147 *), m_pfnRelease);
+    W64_PTR(void (*W_CDECL m_pfnFreeData)(w64_SteamNetworkingMessage_t_147 *), m_pfnFreeData, void (*W_CDECL )(w64_SteamNetworkingMessage_t_147 *));
+    W64_PTR(void (*W_CDECL m_pfnRelease)(w64_SteamNetworkingMessage_t_147 *), m_pfnRelease, void (*W_CDECL )(w64_SteamNetworkingMessage_t_147 *));
     int32_t m_nChannel;
     int32_t m_nFlags;
     int64_t m_nUserData;
@@ -10057,15 +10057,15 @@ struct w64_SteamNetworkingMessage_t_147
 #pragma pack( push, 8 )
 struct u64_SteamNetworkingMessage_t_147
 {
-    U64_PTR(void *m_pData, m_pData);
+    U64_PTR(void *m_pData, m_pData, void *);
     int32_t m_cbSize;
     uint32_t m_conn;
     SteamNetworkingIdentity_144 m_identityPeer;
     int64_t m_nConnUserData;
     int64_t m_usecTimeReceived;
     int64_t m_nMessageNumber;
-    U64_PTR(void (*U_CDECL m_pfnFreeData)(u64_SteamNetworkingMessage_t_147 *), m_pfnFreeData);
-    U64_PTR(void (*U_CDECL m_pfnRelease)(u64_SteamNetworkingMessage_t_147 *), m_pfnRelease);
+    U64_PTR(void (*U_CDECL m_pfnFreeData)(u64_SteamNetworkingMessage_t_147 *), m_pfnFreeData, void (*U_CDECL )(u64_SteamNetworkingMessage_t_147 *));
+    U64_PTR(void (*U_CDECL m_pfnRelease)(u64_SteamNetworkingMessage_t_147 *), m_pfnRelease, void (*U_CDECL )(u64_SteamNetworkingMessage_t_147 *));
     int32_t m_nChannel;
     int32_t m_nFlags;
     int64_t m_nUserData;
@@ -10078,7 +10078,7 @@ struct u64_SteamNetworkingMessage_t_147
 #pragma pack( push, 8 )
 struct w32_SteamNetworkingMessage_t_147
 {
-    W32_PTR(void *m_pData, m_pData);
+    W32_PTR(void *m_pData, m_pData, void *);
     int32_t m_cbSize;
     uint32_t m_conn;
     SteamNetworkingIdentity_144 m_identityPeer;
@@ -10086,8 +10086,8 @@ struct w32_SteamNetworkingMessage_t_147
     int64_t m_nConnUserData;
     int64_t m_usecTimeReceived;
     int64_t m_nMessageNumber;
-    W32_PTR(void (*W_CDECL m_pfnFreeData)(w32_SteamNetworkingMessage_t_147 *), m_pfnFreeData);
-    W32_PTR(void (*W_CDECL m_pfnRelease)(w32_SteamNetworkingMessage_t_147 *), m_pfnRelease);
+    W32_PTR(void (*W_CDECL m_pfnFreeData)(w32_SteamNetworkingMessage_t_147 *), m_pfnFreeData, void (*W_CDECL )(w32_SteamNetworkingMessage_t_147 *));
+    W32_PTR(void (*W_CDECL m_pfnRelease)(w32_SteamNetworkingMessage_t_147 *), m_pfnRelease, void (*W_CDECL )(w32_SteamNetworkingMessage_t_147 *));
     int32_t m_nChannel;
     int32_t m_nFlags;
     int64_t m_nUserData;
@@ -10100,15 +10100,15 @@ struct w32_SteamNetworkingMessage_t_147
 #pragma pack( push, 4 )
 struct u32_SteamNetworkingMessage_t_147
 {
-    U32_PTR(void *m_pData, m_pData);
+    U32_PTR(void *m_pData, m_pData, void *);
     int32_t m_cbSize;
     uint32_t m_conn;
     SteamNetworkingIdentity_144 m_identityPeer;
     int64_t m_nConnUserData;
     int64_t m_usecTimeReceived;
     int64_t m_nMessageNumber;
-    U32_PTR(void (*U_CDECL m_pfnFreeData)(u32_SteamNetworkingMessage_t_147 *), m_pfnFreeData);
-    U32_PTR(void (*U_CDECL m_pfnRelease)(u32_SteamNetworkingMessage_t_147 *), m_pfnRelease);
+    U32_PTR(void (*U_CDECL m_pfnFreeData)(u32_SteamNetworkingMessage_t_147 *), m_pfnFreeData, void (*U_CDECL )(u32_SteamNetworkingMessage_t_147 *));
+    U32_PTR(void (*U_CDECL m_pfnRelease)(u32_SteamNetworkingMessage_t_147 *), m_pfnRelease, void (*U_CDECL )(u32_SteamNetworkingMessage_t_147 *));
     int32_t m_nChannel;
     int32_t m_nFlags;
     int64_t m_nUserData;
@@ -10130,15 +10130,15 @@ typedef u64_SteamNetworkingMessage_t_147 u_SteamNetworkingMessage_t_147;
 #pragma pack( push, 8 )
 struct w64_SteamNetworkingMessage_t_151
 {
-    W64_PTR(void *m_pData, m_pData);
+    W64_PTR(void *m_pData, m_pData, void *);
     int32_t m_cbSize;
     uint32_t m_conn;
     SteamNetworkingIdentity_151 m_identityPeer;
     int64_t m_nConnUserData;
     int64_t m_usecTimeReceived;
     int64_t m_nMessageNumber;
-    W64_PTR(void (*W_CDECL m_pfnFreeData)(w64_SteamNetworkingMessage_t_151 *), m_pfnFreeData);
-    W64_PTR(void (*W_CDECL m_pfnRelease)(w64_SteamNetworkingMessage_t_151 *), m_pfnRelease);
+    W64_PTR(void (*W_CDECL m_pfnFreeData)(w64_SteamNetworkingMessage_t_151 *), m_pfnFreeData, void (*W_CDECL )(w64_SteamNetworkingMessage_t_151 *));
+    W64_PTR(void (*W_CDECL m_pfnRelease)(w64_SteamNetworkingMessage_t_151 *), m_pfnRelease, void (*W_CDECL )(w64_SteamNetworkingMessage_t_151 *));
     int32_t m_nChannel;
     int32_t m_nFlags;
     int64_t m_nUserData;
@@ -10151,15 +10151,15 @@ struct w64_SteamNetworkingMessage_t_151
 #pragma pack( push, 8 )
 struct u64_SteamNetworkingMessage_t_151
 {
-    U64_PTR(void *m_pData, m_pData);
+    U64_PTR(void *m_pData, m_pData, void *);
     int32_t m_cbSize;
     uint32_t m_conn;
     SteamNetworkingIdentity_151 m_identityPeer;
     int64_t m_nConnUserData;
     int64_t m_usecTimeReceived;
     int64_t m_nMessageNumber;
-    U64_PTR(void (*U_CDECL m_pfnFreeData)(u64_SteamNetworkingMessage_t_151 *), m_pfnFreeData);
-    U64_PTR(void (*U_CDECL m_pfnRelease)(u64_SteamNetworkingMessage_t_151 *), m_pfnRelease);
+    U64_PTR(void (*U_CDECL m_pfnFreeData)(u64_SteamNetworkingMessage_t_151 *), m_pfnFreeData, void (*U_CDECL )(u64_SteamNetworkingMessage_t_151 *));
+    U64_PTR(void (*U_CDECL m_pfnRelease)(u64_SteamNetworkingMessage_t_151 *), m_pfnRelease, void (*U_CDECL )(u64_SteamNetworkingMessage_t_151 *));
     int32_t m_nChannel;
     int32_t m_nFlags;
     int64_t m_nUserData;
@@ -10172,7 +10172,7 @@ struct u64_SteamNetworkingMessage_t_151
 #pragma pack( push, 8 )
 struct w32_SteamNetworkingMessage_t_151
 {
-    W32_PTR(void *m_pData, m_pData);
+    W32_PTR(void *m_pData, m_pData, void *);
     int32_t m_cbSize;
     uint32_t m_conn;
     SteamNetworkingIdentity_151 m_identityPeer;
@@ -10180,8 +10180,8 @@ struct w32_SteamNetworkingMessage_t_151
     int64_t m_nConnUserData;
     int64_t m_usecTimeReceived;
     int64_t m_nMessageNumber;
-    W32_PTR(void (*W_CDECL m_pfnFreeData)(w32_SteamNetworkingMessage_t_151 *), m_pfnFreeData);
-    W32_PTR(void (*W_CDECL m_pfnRelease)(w32_SteamNetworkingMessage_t_151 *), m_pfnRelease);
+    W32_PTR(void (*W_CDECL m_pfnFreeData)(w32_SteamNetworkingMessage_t_151 *), m_pfnFreeData, void (*W_CDECL )(w32_SteamNetworkingMessage_t_151 *));
+    W32_PTR(void (*W_CDECL m_pfnRelease)(w32_SteamNetworkingMessage_t_151 *), m_pfnRelease, void (*W_CDECL )(w32_SteamNetworkingMessage_t_151 *));
     int32_t m_nChannel;
     int32_t m_nFlags;
     int64_t m_nUserData;
@@ -10194,15 +10194,15 @@ struct w32_SteamNetworkingMessage_t_151
 #pragma pack( push, 4 )
 struct u32_SteamNetworkingMessage_t_151
 {
-    U32_PTR(void *m_pData, m_pData);
+    U32_PTR(void *m_pData, m_pData, void *);
     int32_t m_cbSize;
     uint32_t m_conn;
     SteamNetworkingIdentity_151 m_identityPeer;
     int64_t m_nConnUserData;
     int64_t m_usecTimeReceived;
     int64_t m_nMessageNumber;
-    U32_PTR(void (*U_CDECL m_pfnFreeData)(u32_SteamNetworkingMessage_t_151 *), m_pfnFreeData);
-    U32_PTR(void (*U_CDECL m_pfnRelease)(u32_SteamNetworkingMessage_t_151 *), m_pfnRelease);
+    U32_PTR(void (*U_CDECL m_pfnFreeData)(u32_SteamNetworkingMessage_t_151 *), m_pfnFreeData, void (*U_CDECL )(u32_SteamNetworkingMessage_t_151 *));
+    U32_PTR(void (*U_CDECL m_pfnRelease)(u32_SteamNetworkingMessage_t_151 *), m_pfnRelease, void (*U_CDECL )(u32_SteamNetworkingMessage_t_151 *));
     int32_t m_nChannel;
     int32_t m_nFlags;
     int64_t m_nUserData;
@@ -10224,15 +10224,15 @@ typedef u64_SteamNetworkingMessage_t_151 u_SteamNetworkingMessage_t_151;
 #pragma pack( push, 8 )
 struct w64_SteamNetworkingMessage_t_144
 {
-    W64_PTR(void *m_pData, m_pData);
+    W64_PTR(void *m_pData, m_pData, void *);
     uint32_t m_cbSize;
     uint32_t m_conn;
     SteamNetworkingIdentity_144 m_sender;
     int64_t m_nConnUserData;
     int64_t m_usecTimeReceived;
     int64_t m_nMessageNumber;
-    W64_PTR(void (*W_CDECL m_pfnFreeData)(w64_SteamNetworkingMessage_t_144 *), m_pfnFreeData);
-    W64_PTR(void (*W_CDECL m_pfnRelease)(w64_SteamNetworkingMessage_t_144 *), m_pfnRelease);
+    W64_PTR(void (*W_CDECL m_pfnFreeData)(w64_SteamNetworkingMessage_t_144 *), m_pfnFreeData, void (*W_CDECL )(w64_SteamNetworkingMessage_t_144 *));
+    W64_PTR(void (*W_CDECL m_pfnRelease)(w64_SteamNetworkingMessage_t_144 *), m_pfnRelease, void (*W_CDECL )(w64_SteamNetworkingMessage_t_144 *));
     int32_t m_nChannel;
     int32_t m___nPadDummy;
 #ifdef __cplusplus
@@ -10244,15 +10244,15 @@ struct w64_SteamNetworkingMessage_t_144
 #pragma pack( push, 8 )
 struct u64_SteamNetworkingMessage_t_144
 {
-    U64_PTR(void *m_pData, m_pData);
+    U64_PTR(void *m_pData, m_pData, void *);
     uint32_t m_cbSize;
     uint32_t m_conn;
     SteamNetworkingIdentity_144 m_sender;
     int64_t m_nConnUserData;
     int64_t m_usecTimeReceived;
     int64_t m_nMessageNumber;
-    U64_PTR(void (*U_CDECL m_pfnFreeData)(u64_SteamNetworkingMessage_t_144 *), m_pfnFreeData);
-    U64_PTR(void (*U_CDECL m_pfnRelease)(u64_SteamNetworkingMessage_t_144 *), m_pfnRelease);
+    U64_PTR(void (*U_CDECL m_pfnFreeData)(u64_SteamNetworkingMessage_t_144 *), m_pfnFreeData, void (*U_CDECL )(u64_SteamNetworkingMessage_t_144 *));
+    U64_PTR(void (*U_CDECL m_pfnRelease)(u64_SteamNetworkingMessage_t_144 *), m_pfnRelease, void (*U_CDECL )(u64_SteamNetworkingMessage_t_144 *));
     int32_t m_nChannel;
     int32_t m___nPadDummy;
 #ifdef __cplusplus
@@ -10264,7 +10264,7 @@ struct u64_SteamNetworkingMessage_t_144
 #pragma pack( push, 8 )
 struct w32_SteamNetworkingMessage_t_144
 {
-    W32_PTR(void *m_pData, m_pData);
+    W32_PTR(void *m_pData, m_pData, void *);
     uint32_t m_cbSize;
     uint32_t m_conn;
     SteamNetworkingIdentity_144 m_sender;
@@ -10272,8 +10272,8 @@ struct w32_SteamNetworkingMessage_t_144
     int64_t m_nConnUserData;
     int64_t m_usecTimeReceived;
     int64_t m_nMessageNumber;
-    W32_PTR(void (*W_CDECL m_pfnFreeData)(w32_SteamNetworkingMessage_t_144 *), m_pfnFreeData);
-    W32_PTR(void (*W_CDECL m_pfnRelease)(w32_SteamNetworkingMessage_t_144 *), m_pfnRelease);
+    W32_PTR(void (*W_CDECL m_pfnFreeData)(w32_SteamNetworkingMessage_t_144 *), m_pfnFreeData, void (*W_CDECL )(w32_SteamNetworkingMessage_t_144 *));
+    W32_PTR(void (*W_CDECL m_pfnRelease)(w32_SteamNetworkingMessage_t_144 *), m_pfnRelease, void (*W_CDECL )(w32_SteamNetworkingMessage_t_144 *));
     int32_t m_nChannel;
     int32_t m___nPadDummy;
 #ifdef __cplusplus
@@ -10285,15 +10285,15 @@ struct w32_SteamNetworkingMessage_t_144
 #pragma pack( push, 4 )
 struct u32_SteamNetworkingMessage_t_144
 {
-    U32_PTR(void *m_pData, m_pData);
+    U32_PTR(void *m_pData, m_pData, void *);
     uint32_t m_cbSize;
     uint32_t m_conn;
     SteamNetworkingIdentity_144 m_sender;
     int64_t m_nConnUserData;
     int64_t m_usecTimeReceived;
     int64_t m_nMessageNumber;
-    U32_PTR(void (*U_CDECL m_pfnFreeData)(u32_SteamNetworkingMessage_t_144 *), m_pfnFreeData);
-    U32_PTR(void (*U_CDECL m_pfnRelease)(u32_SteamNetworkingMessage_t_144 *), m_pfnRelease);
+    U32_PTR(void (*U_CDECL m_pfnFreeData)(u32_SteamNetworkingMessage_t_144 *), m_pfnFreeData, void (*U_CDECL )(u32_SteamNetworkingMessage_t_144 *));
+    U32_PTR(void (*U_CDECL m_pfnRelease)(u32_SteamNetworkingMessage_t_144 *), m_pfnRelease, void (*U_CDECL )(u32_SteamNetworkingMessage_t_144 *));
     int32_t m_nChannel;
     int32_t m___nPadDummy;
 #ifdef __cplusplus
@@ -10314,7 +10314,7 @@ typedef u64_SteamNetworkingMessage_t_144 u_SteamNetworkingMessage_t_144;
 #pragma pack( push, 8 )
 struct w64_SteamParamStringArray_t
 {
-    W64_PTR(const char **m_ppStrings, m_ppStrings);
+    W64_PTR(const char **m_ppStrings, m_ppStrings, const char **);
     int32_t m_nNumStrings;
     uint8_t __pad_12[4];
 };
@@ -10323,7 +10323,7 @@ struct w64_SteamParamStringArray_t
 #pragma pack( push, 4 )
 struct w32_SteamParamStringArray_t
 {
-    W32_PTR(const char **m_ppStrings, m_ppStrings);
+    W32_PTR(const char **m_ppStrings, m_ppStrings, const char **);
     int32_t m_nNumStrings;
 };
 #pragma pack( pop )

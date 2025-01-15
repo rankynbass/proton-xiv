@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <assert.h>
 
 #include <windef.h>
 #include <winbase.h>
@@ -29,18 +30,47 @@
 #define U_CDECL   __attribute__((sysv_abi))
 #define U_STDCALL __attribute__((sysv_abi))
 
+#if defined(__cplusplus)
+template< typename T >
+#endif /* __cplusplus */
+struct ptr32
+{
+    uint32_t value;
+
+#if defined(__cplusplus)
+    template< typename U > struct pointee { using type = U; };
+    template< typename U > struct pointee< U** > { using type = struct ptr32< U* >*; };
+    using Type = typename pointee< T >::type;
+
+    struct ptr32& operator=( const Type ptr )
+    {
+        assert( (UINT64)ptr == (UINT_PTR)ptr );
+        this->value = (UINT_PTR)ptr;
+        return *this;
+    }
+    operator Type() const
+    {
+        return (Type)(UINT_PTR)this->value;
+    }
+#endif /* __cplusplus */
+};
+
 #ifdef __i386__
-#define U64_PTR( decl, name ) uint64_t name
-#define U32_PTR( decl, name ) decl
-#define W64_PTR( decl, name ) uint64_t name
-#define W32_PTR( decl, name ) decl
+#define U64_PTR( decl, name, type ) uint64_t name
+#define U32_PTR( decl, name, type ) decl
+#define W64_PTR( decl, name, type ) uint64_t name
+#define W32_PTR( decl, name, type ) decl
 #endif
 
 #ifdef __x86_64__
-#define U64_PTR( decl, name ) decl
-#define U32_PTR( decl, name ) uint32_t name
-#define W64_PTR( decl, name ) decl
-#define W32_PTR( decl, name ) uint32_t name
+#define U64_PTR( decl, name, type ) decl
+#define U32_PTR( decl, name, type ) uint32_t name
+#define W64_PTR( decl, name, type ) decl
+#if defined(__cplusplus)
+#define W32_PTR( decl, name, type ) struct ptr32< type > name
+#else /* __cplusplus */
+#define W32_PTR( decl, name, type ) struct ptr32 name
+#endif /* __cplusplus */
 #endif
 
 typedef struct { uint8_t _[8]; } CSteamID;
