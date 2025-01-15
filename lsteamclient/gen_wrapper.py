@@ -1109,9 +1109,7 @@ def handle_method_c(klass, method, winclassname, out):
 
     if method.name.startswith('CreateFakeUDPPort'):
         out(u'    params._ret = create_winISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001( params._ret );\n')
-    elif method.name.startswith("GetISteamGenericInterface"):
-        out(u'    params._ret = create_win_interface( pchVersion, params._ret );\n')
-    elif method.result_type.spelling.startswith("ISteam"):
+    elif method.result_type.spelling.startswith("ISteam") or "GetISteam" in method.name:
         out(u'    params._ret = create_win_interface( pchVersion, params._ret );\n')
 
     if not returns_void:
