@@ -1846,7 +1846,7 @@ struct w64_RenderModel_TextureMap_t_1237
     uint16_t unWidth;
     uint16_t unHeight;
     uint8_t __pad_4[4];
-    W64_PTR(const uint8_t *rubTextureMapData, rubTextureMapData);
+    W64_PTR(const uint8_t *rubTextureMapData, rubTextureMapData, const uint8_t *);
     uint32_t format;
     uint16_t unMipLevels;
     uint8_t __pad_22[2];
@@ -1861,7 +1861,7 @@ struct u64_RenderModel_TextureMap_t_1237
 {
     uint16_t unWidth;
     uint16_t unHeight;
-    U64_PTR(const uint8_t *rubTextureMapData, rubTextureMapData);
+    U64_PTR(const uint8_t *rubTextureMapData, rubTextureMapData, const uint8_t *);
     uint32_t format;
     uint16_t unMipLevels;
     uint8_t __pad_18[2];
@@ -1876,7 +1876,7 @@ struct w32_RenderModel_TextureMap_t_1237
 {
     uint16_t unWidth;
     uint16_t unHeight;
-    W32_PTR(const uint8_t *rubTextureMapData, rubTextureMapData);
+    W32_PTR(const uint8_t *rubTextureMapData, rubTextureMapData, const uint8_t *);
     uint32_t format;
     uint16_t unMipLevels;
     uint8_t __pad_14[2];
@@ -1898,7 +1898,7 @@ struct w64_RenderModel_TextureMap_t_11111
     uint16_t unWidth;
     uint16_t unHeight;
     uint8_t __pad_4[4];
-    W64_PTR(const uint8_t *rubTextureMapData, rubTextureMapData);
+    W64_PTR(const uint8_t *rubTextureMapData, rubTextureMapData, const uint8_t *);
     uint32_t format;
     uint8_t __pad_20[4];
 #ifdef __cplusplus
@@ -1912,7 +1912,7 @@ struct u64_RenderModel_TextureMap_t_11111
 {
     uint16_t unWidth;
     uint16_t unHeight;
-    U64_PTR(const uint8_t *rubTextureMapData, rubTextureMapData);
+    U64_PTR(const uint8_t *rubTextureMapData, rubTextureMapData, const uint8_t *);
     uint32_t format;
 #ifdef __cplusplus
     operator w64_RenderModel_TextureMap_t_11111() const;
@@ -1925,7 +1925,7 @@ struct w32_RenderModel_TextureMap_t_11111
 {
     uint16_t unWidth;
     uint16_t unHeight;
-    W32_PTR(const uint8_t *rubTextureMapData, rubTextureMapData);
+    W32_PTR(const uint8_t *rubTextureMapData, rubTextureMapData, const uint8_t *);
     uint32_t format;
 };
 #pragma pack( pop )
@@ -1945,7 +1945,7 @@ struct w64_RenderModel_TextureMap_t_090
     uint16_t unWidth;
     uint16_t unHeight;
     uint8_t __pad_4[4];
-    W64_PTR(const uint8_t *rubTextureMapData, rubTextureMapData);
+    W64_PTR(const uint8_t *rubTextureMapData, rubTextureMapData, const uint8_t *);
 #ifdef __cplusplus
     operator u64_RenderModel_TextureMap_t_090() const;
 #endif /* __cplusplus */
@@ -1957,7 +1957,7 @@ struct u64_RenderModel_TextureMap_t_090
 {
     uint16_t unWidth;
     uint16_t unHeight;
-    U64_PTR(const uint8_t *rubTextureMapData, rubTextureMapData);
+    U64_PTR(const uint8_t *rubTextureMapData, rubTextureMapData, const uint8_t *);
 #ifdef __cplusplus
     operator w64_RenderModel_TextureMap_t_090() const;
 #endif /* __cplusplus */
@@ -1969,7 +1969,7 @@ struct w32_RenderModel_TextureMap_t_090
 {
     uint16_t unWidth;
     uint16_t unHeight;
-    W32_PTR(const uint8_t *rubTextureMapData, rubTextureMapData);
+    W32_PTR(const uint8_t *rubTextureMapData, rubTextureMapData, const uint8_t *);
 };
 #pragma pack( pop )
 
@@ -1985,7 +1985,7 @@ typedef u64_RenderModel_TextureMap_t_090 u_RenderModel_TextureMap_t_090;
 #pragma pack( push, 8 )
 struct w64_Texture_t
 {
-    W64_PTR(void *handle, handle);
+    W64_PTR(void *handle, handle, void *);
     uint32_t eType;
     uint32_t eColorSpace;
 };
@@ -1994,7 +1994,7 @@ struct w64_Texture_t
 #pragma pack( push, 4 )
 struct w32_Texture_t
 {
-    W32_PTR(void *handle, handle);
+    W32_PTR(void *handle, handle, void *);
     uint32_t eType;
     uint32_t eColorSpace;
 };
@@ -2012,7 +2012,7 @@ typedef u64_Texture_t u_Texture_t;
 #pragma pack( push, 8 )
 struct w64_VRTextureDepthInfo_t
 {
-    W64_PTR(void *handle, handle);
+    W64_PTR(void *handle, handle, void *);
     HmdMatrix44_t mProjection;
     HmdVector2_t vRange;
 };
@@ -2021,7 +2021,7 @@ struct w64_VRTextureDepthInfo_t
 #pragma pack( push, 4 )
 struct w32_VRTextureDepthInfo_t
 {
-    W32_PTR(void *handle, handle);
+    W32_PTR(void *handle, handle, void *);
     HmdMatrix44_t mProjection;
     HmdVector2_t vRange;
 };
@@ -2039,16 +2039,16 @@ typedef u64_VRTextureDepthInfo_t u_VRTextureDepthInfo_t;
 #pragma pack( push, 8 )
 struct w64_AppOverrideKeys_t
 {
-    W64_PTR(const char *pchKey, pchKey);
-    W64_PTR(const char *pchValue, pchValue);
+    W64_PTR(const char *pchKey, pchKey, const char *);
+    W64_PTR(const char *pchValue, pchValue, const char *);
 };
 #pragma pack( pop )
 
 #pragma pack( push, 4 )
 struct w32_AppOverrideKeys_t
 {
-    W32_PTR(const char *pchKey, pchKey);
-    W32_PTR(const char *pchValue, pchValue);
+    W32_PTR(const char *pchKey, pchKey, const char *);
+    W32_PTR(const char *pchValue, pchValue, const char *);
 };
 #pragma pack( pop )
 
@@ -2064,52 +2064,52 @@ typedef u64_AppOverrideKeys_t u_AppOverrideKeys_t;
 #pragma pack( push, 8 )
 struct w64_COpenVRContext_11030
 {
-    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W64_PTR(void /*IVRHeadsetView*/ *m_pVRHeadsetView, m_pVRHeadsetView);
-    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W64_PTR(void /*IVROverlayView*/ *m_pVROverlayView, m_pVROverlayView);
-    W64_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources);
-    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
-    W64_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots);
-    W64_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager);
-    W64_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput);
-    W64_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer);
-    W64_PTR(void /*IVRSpatialAnchors*/ *m_pVRSpatialAnchors, m_pVRSpatialAnchors);
-    W64_PTR(void /*IVRDebug*/ *m_pVRDebug, m_pVRDebug);
-    W64_PTR(void /*IVRNotifications*/ *m_pVRNotifications, m_pVRNotifications);
+    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W64_PTR(void /*IVRHeadsetView*/ *m_pVRHeadsetView, m_pVRHeadsetView, void /*IVRHeadsetView*/ *);
+    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W64_PTR(void /*IVROverlayView*/ *m_pVROverlayView, m_pVROverlayView, void /*IVROverlayView*/ *);
+    W64_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources, void /*IVRResources*/ *);
+    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
+    W64_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots, void /*IVRScreenshots*/ *);
+    W64_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager, void /*IVRDriverManager*/ *);
+    W64_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput, void /*IVRInput*/ *);
+    W64_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer, void /*IVRIOBuffer*/ *);
+    W64_PTR(void /*IVRSpatialAnchors*/ *m_pVRSpatialAnchors, m_pVRSpatialAnchors, void /*IVRSpatialAnchors*/ *);
+    W64_PTR(void /*IVRDebug*/ *m_pVRDebug, m_pVRDebug, void /*IVRDebug*/ *);
+    W64_PTR(void /*IVRNotifications*/ *m_pVRNotifications, m_pVRNotifications, void /*IVRNotifications*/ *);
 };
 #pragma pack( pop )
 
 #pragma pack( push, 4 )
 struct w32_COpenVRContext_11030
 {
-    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W32_PTR(void /*IVRHeadsetView*/ *m_pVRHeadsetView, m_pVRHeadsetView);
-    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W32_PTR(void /*IVROverlayView*/ *m_pVROverlayView, m_pVROverlayView);
-    W32_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources);
-    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
-    W32_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots);
-    W32_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager);
-    W32_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput);
-    W32_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer);
-    W32_PTR(void /*IVRSpatialAnchors*/ *m_pVRSpatialAnchors, m_pVRSpatialAnchors);
-    W32_PTR(void /*IVRDebug*/ *m_pVRDebug, m_pVRDebug);
-    W32_PTR(void /*IVRNotifications*/ *m_pVRNotifications, m_pVRNotifications);
+    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W32_PTR(void /*IVRHeadsetView*/ *m_pVRHeadsetView, m_pVRHeadsetView, void /*IVRHeadsetView*/ *);
+    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W32_PTR(void /*IVROverlayView*/ *m_pVROverlayView, m_pVROverlayView, void /*IVROverlayView*/ *);
+    W32_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources, void /*IVRResources*/ *);
+    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
+    W32_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots, void /*IVRScreenshots*/ *);
+    W32_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager, void /*IVRDriverManager*/ *);
+    W32_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput, void /*IVRInput*/ *);
+    W32_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer, void /*IVRIOBuffer*/ *);
+    W32_PTR(void /*IVRSpatialAnchors*/ *m_pVRSpatialAnchors, m_pVRSpatialAnchors, void /*IVRSpatialAnchors*/ *);
+    W32_PTR(void /*IVRDebug*/ *m_pVRDebug, m_pVRDebug, void /*IVRDebug*/ *);
+    W32_PTR(void /*IVRNotifications*/ *m_pVRNotifications, m_pVRNotifications, void /*IVRNotifications*/ *);
 };
 #pragma pack( pop )
 
@@ -2125,48 +2125,48 @@ typedef u64_COpenVRContext_11030 u_COpenVRContext_11030;
 #pragma pack( push, 8 )
 struct w64_COpenVRContext_1517
 {
-    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W64_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources);
-    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
-    W64_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots);
-    W64_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager);
-    W64_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput);
-    W64_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer);
-    W64_PTR(void /*IVRSpatialAnchors*/ *m_pVRSpatialAnchors, m_pVRSpatialAnchors);
-    W64_PTR(void /*IVRDebug*/ *m_pVRDebug, m_pVRDebug);
-    W64_PTR(void /*IVRNotifications*/ *m_pVRNotifications, m_pVRNotifications);
+    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W64_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources, void /*IVRResources*/ *);
+    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
+    W64_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots, void /*IVRScreenshots*/ *);
+    W64_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager, void /*IVRDriverManager*/ *);
+    W64_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput, void /*IVRInput*/ *);
+    W64_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer, void /*IVRIOBuffer*/ *);
+    W64_PTR(void /*IVRSpatialAnchors*/ *m_pVRSpatialAnchors, m_pVRSpatialAnchors, void /*IVRSpatialAnchors*/ *);
+    W64_PTR(void /*IVRDebug*/ *m_pVRDebug, m_pVRDebug, void /*IVRDebug*/ *);
+    W64_PTR(void /*IVRNotifications*/ *m_pVRNotifications, m_pVRNotifications, void /*IVRNotifications*/ *);
 };
 #pragma pack( pop )
 
 #pragma pack( push, 4 )
 struct w32_COpenVRContext_1517
 {
-    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W32_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources);
-    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
-    W32_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots);
-    W32_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager);
-    W32_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput);
-    W32_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer);
-    W32_PTR(void /*IVRSpatialAnchors*/ *m_pVRSpatialAnchors, m_pVRSpatialAnchors);
-    W32_PTR(void /*IVRDebug*/ *m_pVRDebug, m_pVRDebug);
-    W32_PTR(void /*IVRNotifications*/ *m_pVRNotifications, m_pVRNotifications);
+    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W32_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources, void /*IVRResources*/ *);
+    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
+    W32_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots, void /*IVRScreenshots*/ *);
+    W32_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager, void /*IVRDriverManager*/ *);
+    W32_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput, void /*IVRInput*/ *);
+    W32_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer, void /*IVRIOBuffer*/ *);
+    W32_PTR(void /*IVRSpatialAnchors*/ *m_pVRSpatialAnchors, m_pVRSpatialAnchors, void /*IVRSpatialAnchors*/ *);
+    W32_PTR(void /*IVRDebug*/ *m_pVRDebug, m_pVRDebug, void /*IVRDebug*/ *);
+    W32_PTR(void /*IVRNotifications*/ *m_pVRNotifications, m_pVRNotifications, void /*IVRNotifications*/ *);
 };
 #pragma pack( pop )
 
@@ -2182,46 +2182,46 @@ typedef u64_COpenVRContext_1517 u_COpenVRContext_1517;
 #pragma pack( push, 8 )
 struct w64_COpenVRContext_1210
 {
-    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W64_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources);
-    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
-    W64_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots);
-    W64_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager);
-    W64_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput);
-    W64_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer);
-    W64_PTR(void /*IVRSpatialAnchors*/ *m_pVRSpatialAnchors, m_pVRSpatialAnchors);
-    W64_PTR(void /*IVRNotifications*/ *m_pVRNotifications, m_pVRNotifications);
+    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W64_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources, void /*IVRResources*/ *);
+    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
+    W64_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots, void /*IVRScreenshots*/ *);
+    W64_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager, void /*IVRDriverManager*/ *);
+    W64_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput, void /*IVRInput*/ *);
+    W64_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer, void /*IVRIOBuffer*/ *);
+    W64_PTR(void /*IVRSpatialAnchors*/ *m_pVRSpatialAnchors, m_pVRSpatialAnchors, void /*IVRSpatialAnchors*/ *);
+    W64_PTR(void /*IVRNotifications*/ *m_pVRNotifications, m_pVRNotifications, void /*IVRNotifications*/ *);
 };
 #pragma pack( pop )
 
 #pragma pack( push, 4 )
 struct w32_COpenVRContext_1210
 {
-    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W32_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources);
-    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
-    W32_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots);
-    W32_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager);
-    W32_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput);
-    W32_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer);
-    W32_PTR(void /*IVRSpatialAnchors*/ *m_pVRSpatialAnchors, m_pVRSpatialAnchors);
-    W32_PTR(void /*IVRNotifications*/ *m_pVRNotifications, m_pVRNotifications);
+    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W32_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources, void /*IVRResources*/ *);
+    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
+    W32_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots, void /*IVRScreenshots*/ *);
+    W32_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager, void /*IVRDriverManager*/ *);
+    W32_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput, void /*IVRInput*/ *);
+    W32_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer, void /*IVRIOBuffer*/ *);
+    W32_PTR(void /*IVRSpatialAnchors*/ *m_pVRSpatialAnchors, m_pVRSpatialAnchors, void /*IVRSpatialAnchors*/ *);
+    W32_PTR(void /*IVRNotifications*/ *m_pVRNotifications, m_pVRNotifications, void /*IVRNotifications*/ *);
 };
 #pragma pack( pop )
 
@@ -2237,44 +2237,44 @@ typedef u64_COpenVRContext_1210 u_COpenVRContext_1210;
 #pragma pack( push, 8 )
 struct w64_COpenVRContext_1016
 {
-    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W64_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources);
-    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
-    W64_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots);
-    W64_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager);
-    W64_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput);
-    W64_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer);
-    W64_PTR(void /*IVRSpatialAnchors*/ *m_pVRSpatialAnchors, m_pVRSpatialAnchors);
+    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W64_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources, void /*IVRResources*/ *);
+    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
+    W64_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots, void /*IVRScreenshots*/ *);
+    W64_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager, void /*IVRDriverManager*/ *);
+    W64_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput, void /*IVRInput*/ *);
+    W64_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer, void /*IVRIOBuffer*/ *);
+    W64_PTR(void /*IVRSpatialAnchors*/ *m_pVRSpatialAnchors, m_pVRSpatialAnchors, void /*IVRSpatialAnchors*/ *);
 };
 #pragma pack( pop )
 
 #pragma pack( push, 4 )
 struct w32_COpenVRContext_1016
 {
-    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W32_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources);
-    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
-    W32_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots);
-    W32_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager);
-    W32_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput);
-    W32_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer);
-    W32_PTR(void /*IVRSpatialAnchors*/ *m_pVRSpatialAnchors, m_pVRSpatialAnchors);
+    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W32_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources, void /*IVRResources*/ *);
+    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
+    W32_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots, void /*IVRScreenshots*/ *);
+    W32_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager, void /*IVRDriverManager*/ *);
+    W32_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput, void /*IVRInput*/ *);
+    W32_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer, void /*IVRIOBuffer*/ *);
+    W32_PTR(void /*IVRSpatialAnchors*/ *m_pVRSpatialAnchors, m_pVRSpatialAnchors, void /*IVRSpatialAnchors*/ *);
 };
 #pragma pack( pop )
 
@@ -2290,42 +2290,42 @@ typedef u64_COpenVRContext_1016 u_COpenVRContext_1016;
 #pragma pack( push, 8 )
 struct w64_COpenVRContext_1015
 {
-    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W64_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources);
-    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
-    W64_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots);
-    W64_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager);
-    W64_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput);
-    W64_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer);
+    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W64_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources, void /*IVRResources*/ *);
+    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
+    W64_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots, void /*IVRScreenshots*/ *);
+    W64_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager, void /*IVRDriverManager*/ *);
+    W64_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput, void /*IVRInput*/ *);
+    W64_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer, void /*IVRIOBuffer*/ *);
 };
 #pragma pack( pop )
 
 #pragma pack( push, 4 )
 struct w32_COpenVRContext_1015
 {
-    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W32_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources);
-    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
-    W32_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots);
-    W32_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager);
-    W32_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput);
-    W32_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer);
+    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W32_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources, void /*IVRResources*/ *);
+    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
+    W32_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots, void /*IVRScreenshots*/ *);
+    W32_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager, void /*IVRDriverManager*/ *);
+    W32_PTR(void /*IVRInput*/ *m_pVRInput, m_pVRInput, void /*IVRInput*/ *);
+    W32_PTR(void /*IVRIOBuffer*/ *m_pVRIOBuffer, m_pVRIOBuffer, void /*IVRIOBuffer*/ *);
 };
 #pragma pack( pop )
 
@@ -2341,38 +2341,38 @@ typedef u64_COpenVRContext_1015 u_COpenVRContext_1015;
 #pragma pack( push, 8 )
 struct w64_COpenVRContext_108
 {
-    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W64_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources);
-    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
-    W64_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots);
-    W64_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager);
+    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W64_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources, void /*IVRResources*/ *);
+    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
+    W64_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots, void /*IVRScreenshots*/ *);
+    W64_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager, void /*IVRDriverManager*/ *);
 };
 #pragma pack( pop )
 
 #pragma pack( push, 4 )
 struct w32_COpenVRContext_108
 {
-    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W32_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources);
-    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
-    W32_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots);
-    W32_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager);
+    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W32_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources, void /*IVRResources*/ *);
+    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
+    W32_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots, void /*IVRScreenshots*/ *);
+    W32_PTR(void /*IVRDriverManager*/ *m_pVRDriverManager, m_pVRDriverManager, void /*IVRDriverManager*/ *);
 };
 #pragma pack( pop )
 
@@ -2388,36 +2388,36 @@ typedef u64_COpenVRContext_108 u_COpenVRContext_108;
 #pragma pack( push, 8 )
 struct w64_COpenVRContext_102
 {
-    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W64_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources);
-    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
-    W64_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots);
+    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W64_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources, void /*IVRResources*/ *);
+    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
+    W64_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots, void /*IVRScreenshots*/ *);
 };
 #pragma pack( pop )
 
 #pragma pack( push, 4 )
 struct w32_COpenVRContext_102
 {
-    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W32_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources);
-    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
-    W32_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots);
+    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W32_PTR(void /*IVRResources*/ *m_pVRResources, m_pVRResources, void /*IVRResources*/ *);
+    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
+    W32_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots, void /*IVRScreenshots*/ *);
 };
 #pragma pack( pop )
 
@@ -2433,34 +2433,34 @@ typedef u64_COpenVRContext_102 u_COpenVRContext_102;
 #pragma pack( push, 8 )
 struct w64_COpenVRContext_101
 {
-    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
-    W64_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots);
+    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
+    W64_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots, void /*IVRScreenshots*/ *);
 };
 #pragma pack( pop )
 
 #pragma pack( push, 4 )
 struct w32_COpenVRContext_101
 {
-    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
-    W32_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots);
+    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
+    W32_PTR(void /*IVRScreenshots*/ *m_pVRScreenshots, m_pVRScreenshots, void /*IVRScreenshots*/ *);
 };
 #pragma pack( pop )
 
@@ -2476,32 +2476,32 @@ typedef u64_COpenVRContext_101 u_COpenVRContext_101;
 #pragma pack( push, 8 )
 struct w64_COpenVRContext_100
 {
-    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
+    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W64_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
 };
 #pragma pack( pop )
 
 #pragma pack( push, 4 )
 struct w32_COpenVRContext_100
 {
-    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
-    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera);
+    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
+    W32_PTR(void /*IVRTrackedCamera*/ *m_pVRTrackedCamera, m_pVRTrackedCamera, void /*IVRTrackedCamera*/ *);
 };
 #pragma pack( pop )
 
@@ -2517,30 +2517,30 @@ typedef u64_COpenVRContext_100 u_COpenVRContext_100;
 #pragma pack( push, 8 )
 struct w64_COpenVRContext_0917
 {
-    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
+    W64_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W64_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W64_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W64_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W64_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W64_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W64_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W64_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W64_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
 };
 #pragma pack( pop )
 
 #pragma pack( push, 4 )
 struct w32_COpenVRContext_0917
 {
-    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem);
-    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone);
-    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup);
-    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor);
-    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay);
-    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels);
-    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay);
-    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings);
-    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications);
+    W32_PTR(void /*IVRSystem*/ *m_pVRSystem, m_pVRSystem, void /*IVRSystem*/ *);
+    W32_PTR(void /*IVRChaperone*/ *m_pVRChaperone, m_pVRChaperone, void /*IVRChaperone*/ *);
+    W32_PTR(void /*IVRChaperoneSetup*/ *m_pVRChaperoneSetup, m_pVRChaperoneSetup, void /*IVRChaperoneSetup*/ *);
+    W32_PTR(void /*IVRCompositor*/ *m_pVRCompositor, m_pVRCompositor, void /*IVRCompositor*/ *);
+    W32_PTR(void /*IVROverlay*/ *m_pVROverlay, m_pVROverlay, void /*IVROverlay*/ *);
+    W32_PTR(void /*IVRRenderModels*/ *m_pVRRenderModels, m_pVRRenderModels, void /*IVRRenderModels*/ *);
+    W32_PTR(void /*IVRExtendedDisplay*/ *m_pVRExtendedDisplay, m_pVRExtendedDisplay, void /*IVRExtendedDisplay*/ *);
+    W32_PTR(void /*IVRSettings*/ *m_pVRSettings, m_pVRSettings, void /*IVRSettings*/ *);
+    W32_PTR(void /*IVRApplications*/ *m_pVRApplications, m_pVRApplications, void /*IVRApplications*/ *);
 };
 #pragma pack( pop )
 
@@ -2665,7 +2665,7 @@ struct w64_CameraVideoStreamFrame_t_0914
     HmdMatrix34_t m_matDeviceToAbsoluteTracking;
     W64_ARRAY(float, 4, m_Pad);
     uint8_t __pad_140[4];
-    W64_PTR(void *m_pImageData, m_pImageData);
+    W64_PTR(void *m_pImageData, m_pImageData, void *);
 #ifdef __cplusplus
     operator u64_CameraVideoStreamFrame_t_0914() const;
 #endif /* __cplusplus */
@@ -2693,7 +2693,7 @@ struct u64_CameraVideoStreamFrame_t_0914
     uint8_t __pad_69[3];
     HmdMatrix34_t m_matDeviceToAbsoluteTracking;
     U64_ARRAY(float, 4, m_Pad);
-    U64_PTR(void *m_pImageData, m_pImageData);
+    U64_PTR(void *m_pImageData, m_pImageData, void *);
 #ifdef __cplusplus
     operator w64_CameraVideoStreamFrame_t_0914() const;
 #endif /* __cplusplus */
@@ -2722,7 +2722,7 @@ struct w32_CameraVideoStreamFrame_t_0914
     uint8_t __pad_73[3];
     HmdMatrix34_t m_matDeviceToAbsoluteTracking;
     W32_ARRAY(float, 4, m_Pad);
-    W32_PTR(void *m_pImageData, m_pImageData);
+    W32_PTR(void *m_pImageData, m_pImageData, void *);
 #ifdef __cplusplus
     operator u32_CameraVideoStreamFrame_t_0914() const;
 #endif /* __cplusplus */
@@ -2750,7 +2750,7 @@ struct u32_CameraVideoStreamFrame_t_0914
     uint8_t __pad_69[3];
     HmdMatrix34_t m_matDeviceToAbsoluteTracking;
     U32_ARRAY(float, 4, m_Pad);
-    U32_PTR(void *m_pImageData, m_pImageData);
+    U32_PTR(void *m_pImageData, m_pImageData, void *);
 #ifdef __cplusplus
     operator w32_CameraVideoStreamFrame_t_0914() const;
 #endif /* __cplusplus */
@@ -2784,7 +2784,7 @@ struct w64_CameraVideoStreamFrame_t_0912
     HmdMatrix34_t m_matDeviceToAbsoluteTracking;
     W64_ARRAY(float, 4, m_Pad);
     uint8_t __pad_116[4];
-    W64_PTR(void *m_pImageData, m_pImageData);
+    W64_PTR(void *m_pImageData, m_pImageData, void *);
 #ifdef __cplusplus
     operator u64_CameraVideoStreamFrame_t_0912() const;
 #endif /* __cplusplus */
@@ -2808,7 +2808,7 @@ struct u64_CameraVideoStreamFrame_t_0912
     uint8_t __pad_49[3];
     HmdMatrix34_t m_matDeviceToAbsoluteTracking;
     U64_ARRAY(float, 4, m_Pad);
-    U64_PTR(void *m_pImageData, m_pImageData);
+    U64_PTR(void *m_pImageData, m_pImageData, void *);
 #ifdef __cplusplus
     operator w64_CameraVideoStreamFrame_t_0912() const;
 #endif /* __cplusplus */
@@ -2832,7 +2832,7 @@ struct w32_CameraVideoStreamFrame_t_0912
     uint8_t __pad_49[3];
     HmdMatrix34_t m_matDeviceToAbsoluteTracking;
     W32_ARRAY(float, 4, m_Pad);
-    W32_PTR(void *m_pImageData, m_pImageData);
+    W32_PTR(void *m_pImageData, m_pImageData, void *);
 };
 #pragma pack( pop )
 
@@ -3790,8 +3790,8 @@ typedef u64_Compositor_FrameTiming_090 u_Compositor_FrameTiming_090;
 #pragma pack( push, 8 )
 struct w64_D3D12TextureData_t
 {
-    W64_PTR(void /*ID3D12Resource*/ *m_pResource, m_pResource);
-    W64_PTR(void /*ID3D12CommandQueue*/ *m_pCommandQueue, m_pCommandQueue);
+    W64_PTR(void /*ID3D12Resource*/ *m_pResource, m_pResource, void /*ID3D12Resource*/ *);
+    W64_PTR(void /*ID3D12CommandQueue*/ *m_pCommandQueue, m_pCommandQueue, void /*ID3D12CommandQueue*/ *);
     uint32_t m_nNodeMask;
     uint8_t __pad_20[4];
 };
@@ -3800,8 +3800,8 @@ struct w64_D3D12TextureData_t
 #pragma pack( push, 4 )
 struct w32_D3D12TextureData_t
 {
-    W32_PTR(void /*ID3D12Resource*/ *m_pResource, m_pResource);
-    W32_PTR(void /*ID3D12CommandQueue*/ *m_pCommandQueue, m_pCommandQueue);
+    W32_PTR(void /*ID3D12Resource*/ *m_pResource, m_pResource, void /*ID3D12Resource*/ *);
+    W32_PTR(void /*ID3D12CommandQueue*/ *m_pCommandQueue, m_pCommandQueue, void /*ID3D12CommandQueue*/ *);
     uint32_t m_nNodeMask;
 };
 #pragma pack( pop )
@@ -3818,7 +3818,7 @@ typedef u64_D3D12TextureData_t u_D3D12TextureData_t;
 #pragma pack( push, 8 )
 struct w64_HiddenAreaMesh_t
 {
-    W64_PTR(const HmdVector2_t *pVertexData, pVertexData);
+    W64_PTR(const HmdVector2_t *pVertexData, pVertexData, const HmdVector2_t *);
     uint32_t unTriangleCount;
     uint8_t __pad_12[4];
 };
@@ -3827,7 +3827,7 @@ struct w64_HiddenAreaMesh_t
 #pragma pack( push, 4 )
 struct w32_HiddenAreaMesh_t
 {
-    W32_PTR(const HmdVector2_t *pVertexData, pVertexData);
+    W32_PTR(const HmdVector2_t *pVertexData, pVertexData, const HmdVector2_t *);
     uint32_t unTriangleCount;
 };
 #pragma pack( pop )
@@ -4223,7 +4223,7 @@ typedef u64_InputSkeletonActionData_t u_InputSkeletonActionData_t;
 #pragma pack( push, 8 )
 struct w64_NotificationBitmap
 {
-    W64_PTR(void *bytes, bytes);
+    W64_PTR(void *bytes, bytes, void *);
     int32_t width;
     int32_t height;
     int32_t depth;
@@ -4234,7 +4234,7 @@ struct w64_NotificationBitmap
 #pragma pack( push, 4 )
 struct w32_NotificationBitmap
 {
-    W32_PTR(void *bytes, bytes);
+    W32_PTR(void *bytes, bytes, void *);
     int32_t width;
     int32_t height;
     int32_t depth;
@@ -4253,7 +4253,7 @@ typedef u64_NotificationBitmap u_NotificationBitmap;
 #pragma pack( push, 8 )
 struct w64_NotificationBitmap_t
 {
-    W64_PTR(void *m_pImageData, m_pImageData);
+    W64_PTR(void *m_pImageData, m_pImageData, void *);
     int32_t m_nWidth;
     int32_t m_nHeight;
     int32_t m_nBytesPerPixel;
@@ -4264,7 +4264,7 @@ struct w64_NotificationBitmap_t
 #pragma pack( push, 4 )
 struct w32_NotificationBitmap_t
 {
-    W32_PTR(void *m_pImageData, m_pImageData);
+    W32_PTR(void *m_pImageData, m_pImageData, void *);
     int32_t m_nWidth;
     int32_t m_nHeight;
     int32_t m_nBytesPerPixel;
@@ -4283,10 +4283,10 @@ typedef u64_NotificationBitmap_t u_NotificationBitmap_t;
 #pragma pack( push, 8 )
 struct w64_RenderModel_t_0912
 {
-    W64_PTR(const RenderModel_Vertex_t *rVertexData, rVertexData);
+    W64_PTR(const RenderModel_Vertex_t *rVertexData, rVertexData, const RenderModel_Vertex_t *);
     uint32_t unVertexCount;
     uint8_t __pad_12[4];
-    W64_PTR(const uint16_t *rIndexData, rIndexData);
+    W64_PTR(const uint16_t *rIndexData, rIndexData, const uint16_t *);
     uint32_t unTriangleCount;
     int32_t diffuseTextureId;
 #ifdef __cplusplus
@@ -4298,9 +4298,9 @@ struct w64_RenderModel_t_0912
 #pragma pack( push, 4 )
 struct u64_RenderModel_t_0912
 {
-    U64_PTR(const RenderModel_Vertex_t *rVertexData, rVertexData);
+    U64_PTR(const RenderModel_Vertex_t *rVertexData, rVertexData, const RenderModel_Vertex_t *);
     uint32_t unVertexCount;
-    U64_PTR(const uint16_t *rIndexData, rIndexData);
+    U64_PTR(const uint16_t *rIndexData, rIndexData, const uint16_t *);
     uint32_t unTriangleCount;
     int32_t diffuseTextureId;
 #ifdef __cplusplus
@@ -4312,9 +4312,9 @@ struct u64_RenderModel_t_0912
 #pragma pack( push, 4 )
 struct w32_RenderModel_t_0912
 {
-    W32_PTR(const RenderModel_Vertex_t *rVertexData, rVertexData);
+    W32_PTR(const RenderModel_Vertex_t *rVertexData, rVertexData, const RenderModel_Vertex_t *);
     uint32_t unVertexCount;
-    W32_PTR(const uint16_t *rIndexData, rIndexData);
+    W32_PTR(const uint16_t *rIndexData, rIndexData, const uint16_t *);
     uint32_t unTriangleCount;
     int32_t diffuseTextureId;
 };
@@ -4333,10 +4333,10 @@ typedef u64_RenderModel_t_0912 u_RenderModel_t_0912;
 struct w64_RenderModel_t_090
 {
     uint64_t ulInternalHandle;
-    W64_PTR(const RenderModel_Vertex_t *rVertexData, rVertexData);
+    W64_PTR(const RenderModel_Vertex_t *rVertexData, rVertexData, const RenderModel_Vertex_t *);
     uint32_t unVertexCount;
     uint8_t __pad_20[4];
-    W64_PTR(const uint16_t *rIndexData, rIndexData);
+    W64_PTR(const uint16_t *rIndexData, rIndexData, const uint16_t *);
     uint32_t unTriangleCount;
     uint8_t __pad_36[4];
     w64_RenderModel_TextureMap_t_090 diffuseTexture;
@@ -4350,9 +4350,9 @@ struct w64_RenderModel_t_090
 struct u64_RenderModel_t_090
 {
     uint64_t ulInternalHandle;
-    U64_PTR(const RenderModel_Vertex_t *rVertexData, rVertexData);
+    U64_PTR(const RenderModel_Vertex_t *rVertexData, rVertexData, const RenderModel_Vertex_t *);
     uint32_t unVertexCount;
-    U64_PTR(const uint16_t *rIndexData, rIndexData);
+    U64_PTR(const uint16_t *rIndexData, rIndexData, const uint16_t *);
     uint32_t unTriangleCount;
     u64_RenderModel_TextureMap_t_090 diffuseTexture;
 #ifdef __cplusplus
@@ -4365,9 +4365,9 @@ struct u64_RenderModel_t_090
 struct w32_RenderModel_t_090
 {
     uint64_t ulInternalHandle;
-    W32_PTR(const RenderModel_Vertex_t *rVertexData, rVertexData);
+    W32_PTR(const RenderModel_Vertex_t *rVertexData, rVertexData, const RenderModel_Vertex_t *);
     uint32_t unVertexCount;
-    W32_PTR(const uint16_t *rIndexData, rIndexData);
+    W32_PTR(const uint16_t *rIndexData, rIndexData, const uint16_t *);
     uint32_t unTriangleCount;
     w32_RenderModel_TextureMap_t_090 diffuseTexture;
 };
@@ -6149,7 +6149,7 @@ typedef u64_VREvent_t_090 u_VREvent_t_090;
 #pragma pack( push, 8 )
 struct w64_VRNativeDevice_t
 {
-    W64_PTR(void *handle, handle);
+    W64_PTR(void *handle, handle, void *);
     uint32_t eType;
     uint8_t __pad_12[4];
 };
@@ -6158,7 +6158,7 @@ struct w64_VRNativeDevice_t
 #pragma pack( push, 4 )
 struct w32_VRNativeDevice_t
 {
-    W32_PTR(void *handle, handle);
+    W32_PTR(void *handle, handle, void *);
     uint32_t eType;
 };
 #pragma pack( pop )
@@ -6218,7 +6218,7 @@ typedef u64_VROverlayView_t u_VROverlayView_t;
 #pragma pack( push, 8 )
 struct w64_VRTextureWithDepth_t
 {
-    W64_PTR(void *handle, handle);
+    W64_PTR(void *handle, handle, void *);
     uint32_t eType;
     uint32_t eColorSpace;
     w64_VRTextureDepthInfo_t depth;
@@ -6228,7 +6228,7 @@ struct w64_VRTextureWithDepth_t
 #pragma pack( push, 4 )
 struct w32_VRTextureWithDepth_t
 {
-    W32_PTR(void *handle, handle);
+    W32_PTR(void *handle, handle, void *);
     uint32_t eType;
     uint32_t eColorSpace;
     w32_VRTextureDepthInfo_t depth;
@@ -6247,7 +6247,7 @@ typedef u64_VRTextureWithDepth_t u_VRTextureWithDepth_t;
 #pragma pack( push, 8 )
 struct w64_VRTextureWithPoseAndDepth_t
 {
-    W64_PTR(void *handle, handle);
+    W64_PTR(void *handle, handle, void *);
     uint32_t eType;
     uint32_t eColorSpace;
     HmdMatrix34_t mDeviceToAbsoluteTracking;
@@ -6258,7 +6258,7 @@ struct w64_VRTextureWithPoseAndDepth_t
 #pragma pack( push, 4 )
 struct w32_VRTextureWithPoseAndDepth_t
 {
-    W32_PTR(void *handle, handle);
+    W32_PTR(void *handle, handle, void *);
     uint32_t eType;
     uint32_t eColorSpace;
     HmdMatrix34_t mDeviceToAbsoluteTracking;
@@ -6278,7 +6278,7 @@ typedef u64_VRTextureWithPoseAndDepth_t u_VRTextureWithPoseAndDepth_t;
 #pragma pack( push, 8 )
 struct w64_VRTextureWithPose_t
 {
-    W64_PTR(void *handle, handle);
+    W64_PTR(void *handle, handle, void *);
     uint32_t eType;
     uint32_t eColorSpace;
     HmdMatrix34_t mDeviceToAbsoluteTracking;
@@ -6288,7 +6288,7 @@ struct w64_VRTextureWithPose_t
 #pragma pack( push, 4 )
 struct w32_VRTextureWithPose_t
 {
-    W32_PTR(void *handle, handle);
+    W32_PTR(void *handle, handle, void *);
     uint32_t eType;
     uint32_t eColorSpace;
     HmdMatrix34_t mDeviceToAbsoluteTracking;
@@ -6307,10 +6307,10 @@ typedef u64_VRTextureWithPose_t u_VRTextureWithPose_t;
 #pragma pack( push, 8 )
 struct w64_VRVulkanDevice_t
 {
-    W64_PTR(VkInstance_T *m_pInstance, m_pInstance);
-    W64_PTR(VkDevice_T *m_pDevice, m_pDevice);
-    W64_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice);
-    W64_PTR(VkQueue_T *m_pQueue, m_pQueue);
+    W64_PTR(VkInstance_T *m_pInstance, m_pInstance, VkInstance_T *);
+    W64_PTR(VkDevice_T *m_pDevice, m_pDevice, VkDevice_T *);
+    W64_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice, VkPhysicalDevice_T *);
+    W64_PTR(VkQueue_T *m_pQueue, m_pQueue, VkQueue_T *);
     uint32_t m_uQueueFamilyIndex;
     uint8_t __pad_36[4];
 };
@@ -6319,10 +6319,10 @@ struct w64_VRVulkanDevice_t
 #pragma pack( push, 4 )
 struct w32_VRVulkanDevice_t
 {
-    W32_PTR(VkInstance_T *m_pInstance, m_pInstance);
-    W32_PTR(VkDevice_T *m_pDevice, m_pDevice);
-    W32_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice);
-    W32_PTR(VkQueue_T *m_pQueue, m_pQueue);
+    W32_PTR(VkInstance_T *m_pInstance, m_pInstance, VkInstance_T *);
+    W32_PTR(VkDevice_T *m_pDevice, m_pDevice, VkDevice_T *);
+    W32_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice, VkPhysicalDevice_T *);
+    W32_PTR(VkQueue_T *m_pQueue, m_pQueue, VkQueue_T *);
     uint32_t m_uQueueFamilyIndex;
 };
 #pragma pack( pop )
@@ -6340,10 +6340,10 @@ typedef u64_VRVulkanDevice_t u_VRVulkanDevice_t;
 struct w64_VRVulkanTextureArrayData_t
 {
     uint64_t m_nImage;
-    W64_PTR(VkDevice_T *m_pDevice, m_pDevice);
-    W64_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice);
-    W64_PTR(VkInstance_T *m_pInstance, m_pInstance);
-    W64_PTR(VkQueue_T *m_pQueue, m_pQueue);
+    W64_PTR(VkDevice_T *m_pDevice, m_pDevice, VkDevice_T *);
+    W64_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice, VkPhysicalDevice_T *);
+    W64_PTR(VkInstance_T *m_pInstance, m_pInstance, VkInstance_T *);
+    W64_PTR(VkQueue_T *m_pQueue, m_pQueue, VkQueue_T *);
     uint32_t m_nQueueFamilyIndex;
     uint32_t m_nWidth;
     uint32_t m_nHeight;
@@ -6359,10 +6359,10 @@ struct w64_VRVulkanTextureArrayData_t
 struct w32_VRVulkanTextureArrayData_t
 {
     uint64_t m_nImage;
-    W32_PTR(VkDevice_T *m_pDevice, m_pDevice);
-    W32_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice);
-    W32_PTR(VkInstance_T *m_pInstance, m_pInstance);
-    W32_PTR(VkQueue_T *m_pQueue, m_pQueue);
+    W32_PTR(VkDevice_T *m_pDevice, m_pDevice, VkDevice_T *);
+    W32_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice, VkPhysicalDevice_T *);
+    W32_PTR(VkInstance_T *m_pInstance, m_pInstance, VkInstance_T *);
+    W32_PTR(VkQueue_T *m_pQueue, m_pQueue, VkQueue_T *);
     uint32_t m_nQueueFamilyIndex;
     uint32_t m_nWidth;
     uint32_t m_nHeight;
@@ -6381,10 +6381,10 @@ struct w32_VRVulkanTextureArrayData_t
 struct u32_VRVulkanTextureArrayData_t
 {
     uint64_t m_nImage;
-    U32_PTR(VkDevice_T *m_pDevice, m_pDevice);
-    U32_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice);
-    U32_PTR(VkInstance_T *m_pInstance, m_pInstance);
-    U32_PTR(VkQueue_T *m_pQueue, m_pQueue);
+    U32_PTR(VkDevice_T *m_pDevice, m_pDevice, VkDevice_T *);
+    U32_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice, VkPhysicalDevice_T *);
+    U32_PTR(VkInstance_T *m_pInstance, m_pInstance, VkInstance_T *);
+    U32_PTR(VkQueue_T *m_pQueue, m_pQueue, VkQueue_T *);
     uint32_t m_nQueueFamilyIndex;
     uint32_t m_nWidth;
     uint32_t m_nHeight;
@@ -6411,10 +6411,10 @@ typedef u64_VRVulkanTextureArrayData_t u_VRVulkanTextureArrayData_t;
 struct w64_VRVulkanTextureData_t
 {
     uint64_t m_nImage;
-    W64_PTR(VkDevice_T *m_pDevice, m_pDevice);
-    W64_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice);
-    W64_PTR(VkInstance_T *m_pInstance, m_pInstance);
-    W64_PTR(VkQueue_T *m_pQueue, m_pQueue);
+    W64_PTR(VkDevice_T *m_pDevice, m_pDevice, VkDevice_T *);
+    W64_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice, VkPhysicalDevice_T *);
+    W64_PTR(VkInstance_T *m_pInstance, m_pInstance, VkInstance_T *);
+    W64_PTR(VkQueue_T *m_pQueue, m_pQueue, VkQueue_T *);
     uint32_t m_nQueueFamilyIndex;
     uint32_t m_nWidth;
     uint32_t m_nHeight;
@@ -6428,10 +6428,10 @@ struct w64_VRVulkanTextureData_t
 struct w32_VRVulkanTextureData_t
 {
     uint64_t m_nImage;
-    W32_PTR(VkDevice_T *m_pDevice, m_pDevice);
-    W32_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice);
-    W32_PTR(VkInstance_T *m_pInstance, m_pInstance);
-    W32_PTR(VkQueue_T *m_pQueue, m_pQueue);
+    W32_PTR(VkDevice_T *m_pDevice, m_pDevice, VkDevice_T *);
+    W32_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice, VkPhysicalDevice_T *);
+    W32_PTR(VkInstance_T *m_pInstance, m_pInstance, VkInstance_T *);
+    W32_PTR(VkQueue_T *m_pQueue, m_pQueue, VkQueue_T *);
     uint32_t m_nQueueFamilyIndex;
     uint32_t m_nWidth;
     uint32_t m_nHeight;
@@ -6454,10 +6454,10 @@ typedef u64_VRVulkanTextureData_t u_VRVulkanTextureData_t;
 struct w64_VulkanData_t
 {
     uint64_t m_nImage;
-    W64_PTR(VkDevice_T *m_pDevice, m_pDevice);
-    W64_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice);
-    W64_PTR(VkInstance_T *m_pInstance, m_pInstance);
-    W64_PTR(VkQueue_T *m_pQueue, m_pQueue);
+    W64_PTR(VkDevice_T *m_pDevice, m_pDevice, VkDevice_T *);
+    W64_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice, VkPhysicalDevice_T *);
+    W64_PTR(VkInstance_T *m_pInstance, m_pInstance, VkInstance_T *);
+    W64_PTR(VkQueue_T *m_pQueue, m_pQueue, VkQueue_T *);
     uint32_t m_nQueueFamilyIndex;
     uint32_t m_nWidth;
     uint32_t m_nHeight;
@@ -6471,10 +6471,10 @@ struct w64_VulkanData_t
 struct w32_VulkanData_t
 {
     uint64_t m_nImage;
-    W32_PTR(VkDevice_T *m_pDevice, m_pDevice);
-    W32_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice);
-    W32_PTR(VkInstance_T *m_pInstance, m_pInstance);
-    W32_PTR(VkQueue_T *m_pQueue, m_pQueue);
+    W32_PTR(VkDevice_T *m_pDevice, m_pDevice, VkDevice_T *);
+    W32_PTR(VkPhysicalDevice_T *m_pPhysicalDevice, m_pPhysicalDevice, VkPhysicalDevice_T *);
+    W32_PTR(VkInstance_T *m_pInstance, m_pInstance, VkInstance_T *);
+    W32_PTR(VkQueue_T *m_pQueue, m_pQueue, VkQueue_T *);
     uint32_t m_nQueueFamilyIndex;
     uint32_t m_nWidth;
     uint32_t m_nHeight;

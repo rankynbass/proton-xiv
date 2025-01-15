@@ -681,7 +681,8 @@ def declspec(decl, name, prefix, wrapped=False):
         decl = decl.get_pointee()
         spec = declspec(decl, f"*{call}{const}{name}", prefix, False)
         if wrapped:
-            return f'{prefix.upper()}PTR({spec}, {name})'
+            typ = declspec(decl, f"*{call}{const}", prefix, False)
+            return f'{prefix.upper()}PTR({spec}, {name}, {typ})'
         return spec
     if decl.kind == TypeKind.CONSTANTARRAY:
         decl, count = decl.element_type, decl.element_count
