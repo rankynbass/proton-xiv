@@ -51,7 +51,7 @@ void queue_vtable_callback( struct w_iface *w_iface, enum callback_type type, ui
     uint32_t size = 0;
 
     size += sizeof(struct callback_entry);
-    if (!(entry = (struct callback_entry *)malloc( size ))) return;
+    if (!(entry = (struct callback_entry *)calloc( 1, size ))) return;
 
     entry->callback.type = type;
     size -= offsetof( struct callback_entry, callback );
@@ -72,7 +72,7 @@ void queue_vtable_callback_0_server_responded( struct w_iface *w_iface, gameserv
     struct callback_entry *entry;
 
     size += sizeof(struct callback_entry);
-    if (!(entry = (struct callback_entry *)malloc( size ))) return;
+    if (!(entry = (struct callback_entry *)calloc( 1, size ))) return;
 
     entry->callback.type = CALL_IFACE_VTABLE_0_SERVER_RESPONDED;
     size -= offsetof( struct callback_entry, callback );
@@ -92,7 +92,7 @@ void queue_vtable_callback_0_add_player_to_list( struct w_iface *w_iface, const 
     struct callback_entry *entry;
 
     size += sizeof(struct callback_entry);
-    if (!(entry = (struct callback_entry *)malloc( size ))) return;
+    if (!(entry = (struct callback_entry *)calloc( 1, size ))) return;
 
     entry->callback.type = CALL_IFACE_VTABLE_0_ADD_PLAYER_TO_LIST;
     size -= offsetof( struct callback_entry, callback );
@@ -114,7 +114,7 @@ void queue_vtable_callback_0_rules_responded( struct w_iface *w_iface, const cha
     struct callback_entry *entry;
 
     size += sizeof(struct callback_entry);
-    if (!(entry = (struct callback_entry *)malloc( size ))) return;
+    if (!(entry = (struct callback_entry *)calloc( 1, size ))) return;
 
     entry->callback.type = CALL_IFACE_VTABLE_0_RULES_RESPONDED;
     size -= offsetof( struct callback_entry, callback );
@@ -136,7 +136,7 @@ static void u_steam_networking_socket_debug_output( uint32_t nType, const char *
     struct callback_entry *entry;
 
     size += sizeof(struct callback_entry);
-    if (!(entry = (struct callback_entry *)malloc( size ))) return;
+    if (!(entry = (struct callback_entry *)calloc( 1, size ))) return;
 
     entry->callback.type = SOCKETS_DEBUG_OUTPUT;
     size -= offsetof( struct callback_entry, callback );
@@ -157,7 +157,7 @@ void queue_cdecl_func_callback( w_cdecl_func func, void *data, uint32_t data_siz
     struct callback_entry *entry;
 
     size += sizeof(struct callback_entry);
-    if (!(entry = (struct callback_entry *)malloc( size ))) return;
+    if (!(entry = (struct callback_entry *)calloc( 1, size ))) return;
 
     entry->callback.type = CALL_CDECL_FUNC_DATA;
     size -= offsetof( struct callback_entry, callback );
@@ -184,7 +184,7 @@ static void u_steam_api_warning_message_hook( int severity, const char *msg )
     struct callback_entry *entry;
 
     size += sizeof(struct callback_entry);
-    if (!(entry = (struct callback_entry *)malloc( size ))) return;
+    if (!(entry = (struct callback_entry *)calloc( 1, size ))) return;
 
     entry->callback.type = WARNING_MESSAGE_HOOK;
     size -= offsetof( struct callback_entry, callback );

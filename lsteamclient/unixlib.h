@@ -66,40 +66,64 @@ struct callback
     {
         struct
         {
-            void (*W_CDECL pfnFunc)( uint32_t, const char * );
+            union
+            {
+                void (*W_CDECL pfnFunc)( uint32_t, const char * );
+                UINT64 __pad;
+            };
             uint32_t type;
             const char msg[1];
         } sockets_debug_output;
 
         struct
         {
-            void (*W_CDECL pFunction)( int32_t, const char * );
+            union
+            {
+                void (*W_CDECL pFunction)( int32_t, const char * );
+                UINT64 __pad;
+            };
             int32_t severity;
             const char msg[1];
         } warning_message_hook;
 
         struct
         {
-            void (*W_CDECL pFunc)( void * );
+            union
+            {
+                void (*W_CDECL pFunc)( void * );
+                UINT64 __pad;
+            };
             unsigned char data[1];
         } call_cdecl_func_data;
 
         struct
         {
-            struct w_iface *iface;
+            union
+            {
+                struct w_iface *iface;
+                UINT64 __pad;
+            };
             uint64_t arg0;
             uint64_t arg1;
         } call_iface_vtable;
 
         struct
         {
-            struct w_iface *iface;
+            union
+            {
+                struct w_iface *iface;
+                UINT64 __pad;
+            };
             gameserveritem_t_105 server[];
         } server_responded;
 
         struct
         {
-            struct w_iface *iface;
+            union
+            {
+                struct w_iface *iface;
+                UINT64 __pad;
+            };
             int32_t score;
             float time_played;
             const char name[1];
@@ -107,7 +131,11 @@ struct callback
 
         struct
         {
-            struct w_iface *iface;
+            union
+            {
+                struct w_iface *iface;
+                UINT64 __pad;
+            };
             const char rule_and_value[1];
         } rules_responded;
     };
@@ -241,7 +269,11 @@ struct w_request
 {
     struct u_request u_request;
     struct u_response u_response;
-    gameserveritem_t_105 *details;
+    union
+    {
+        gameserveritem_t_105 *details;
+        UINT64 __pad;
+    };
 };
 
 #include <poppack.h>
