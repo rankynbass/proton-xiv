@@ -40135,7 +40135,7 @@ struct ISteamMatchmakingServers_SteamMatchMakingServers001_RequestSpectatorServe
 struct ISteamMatchmakingServers_SteamMatchMakingServers001_GetServerDetails_params
 {
     struct u_iface u_iface;
-    gameserveritem_t_105 *_ret;
+    struct u_buffer _ret;
     uint32_t eType;
     int32_t iServer;
 };
@@ -40273,7 +40273,7 @@ struct ISteamMatchmakingServers_SteamMatchMakingServers002_ReleaseRequest_params
 struct ISteamMatchmakingServers_SteamMatchMakingServers002_GetServerDetails_params
 {
     struct u_iface u_iface;
-    gameserveritem_t_105 *_ret;
+    struct u_buffer _ret;
     void *hRequest;
     int32_t iServer;
 };

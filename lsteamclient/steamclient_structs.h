@@ -73,6 +73,7 @@ struct u_buffer
     UINT64 len;
 #ifdef __cplusplus
     struct u_buffer &operator=(const char* value) { this->ptr = (UINT_PTR)value; this->len = value ? strlen( value ) + 1 : 0; return *this; }
+    template< typename T > struct u_buffer &operator=(const T* value) { this->ptr = (UINT_PTR)value; this->len = value ? sizeof( *value ) : 0; return *this; }
     operator char*() const { return (char*)(UINT_PTR)this->ptr; }
 #endif /* __cplusplus */
 };

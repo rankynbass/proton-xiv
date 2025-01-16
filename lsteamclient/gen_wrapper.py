@@ -675,6 +675,8 @@ class Method:
         return self.result_type.spelling.startswith("ISteam") or "GetISteam" in self.name
 
     def returns_string(self):
+        if self._klass.name == 'ISteamMatchmakingServers' and self.name == 'GetServerDetails':
+            return True
         return self.result_type.spelling == "const char *"
 
     def write_params(self, out):
