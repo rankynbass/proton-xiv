@@ -222,6 +222,8 @@ unique_structs = []
 MANUAL_STRUCTS = [
     "COpenVRContext", # not actually used
 ]
+MANUAL_WOW64_STRUCTS = [
+]
 
 UNIX_FUNCS = [
     'vrclient_init',
@@ -408,15 +410,25 @@ class Struct:
             out(f'C_ASSERT( sizeof({prefix}{version}().{f.name}) >= {f.size} );\n')
         out(u'\n')
 
-    def write_converter(self, prefix):
+    def write_converter(self, abi):
         version = all_versions[sdkver][self.name]
-        out(f'{self._abi}_{version}::operator {prefix}{version}() const\n')
+        u_bits = abi[1:3] if abi[0] == 'u' else self._abi[1:3]
+
+        if u_bits == '64':
+            out(u'#ifdef __x86_64__\n')
+        elif u_bits == '32':
+            out(u'#ifdef __i386__\n')
+        else:
+            assert False
+
+        out(f'{self._abi}_{version}::operator {abi}_{version}() const\n')
         out(u'{\n')
-        out(f'    {prefix}{version} ret;\n')
+        out(f'    {abi}_{version} ret;\n')
         for field in self.fields:
             out(f'    ret.{field.name} = this->{field.name};\n')
         out(u'    return ret;\n')
         out(u'}\n')
+        out(u'#endif\n\n')
 
     def needs_conversion(self, other):
         if other.id in self._conv_cache:
@@ -1078,6 +1090,8 @@ def struct_needs_conversion(struct):
         return True
     if abis['w64'].needs_conversion(abis['u64']):
         return True
+    if abis['w32'].needs_conversion(abis['u64']):
+        return True
 
     assert abis['u32'].size <= abis['w32'].size
     if abis['u32'].size < abis['w32'].size:
@@ -1572,15 +1586,15 @@ with open('vrclient_structs_generated.h', 'w') as file:
                 continue
 
             if not abis["w64"].needs_conversion(abis["u64"]):
-                abis['w64'].write_definition(out, "w64_", [])
+                abis['w64'].write_definition(out, "w64_", ["w32_"])
             else:
                 abis['w64'].write_definition(out, "w64_", ["u64_"])
-                abis['u64'].write_definition(out, "u64_", ["w64_"])
+                abis['u64'].write_definition(out, "u64_", ["w64_", "w32_"])
 
             if not abis["w32"].needs_conversion(abis["u32"]):
-                abis['w32'].write_definition(out, "w32_", [])
+                abis['w32'].write_definition(out, "w32_", ["u64_"])
             else:
-                abis['w32'].write_definition(out, "w32_", ["u32_"])
+                abis['w32'].write_definition(out, "w32_", ["u32_", "u64_"])
                 abis['u32'].write_definition(out, "u32_", ["w32_"])
 
             out(u'#ifdef __i386__\n')
@@ -1721,15 +1735,13 @@ with open('unixlib_generated.cpp', 'w') as file:
                 continue
 
             if abis["w64"].needs_conversion(abis["u64"]):
-                out(u'#ifdef __x86_64__\n')
-                abis['w64'].write_converter('u64_')
-                out(u'\n')
-                abis['u64'].write_converter('w64_')
-                out(u'#endif\n\n')
+                abis['w64'].write_converter('u64')
+                abis['u64'].write_converter('w64')
 
             if abis["w32"].needs_conversion(abis["u32"]):
-                out(u'#ifdef __i386__\n')
-                abis['w32'].write_converter('u32_')
-                out(u'\n')
-                abis['u32'].write_converter('w32_')
-                out(u'#endif\n\n')
+                abis['w32'].write_converter('u32')
+                abis['u32'].write_converter('w32')
+
+            if name not in MANUAL_WOW64_STRUCTS:
+                abis['w32'].write_converter('u64')
+                abis['u64'].write_converter('w32')

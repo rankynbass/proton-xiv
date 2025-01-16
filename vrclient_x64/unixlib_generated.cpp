@@ -5591,10 +5591,38 @@ w64_RenderModel_TextureMap_t_1237::operator u64_RenderModel_TextureMap_t_1237() 
     ret.unMipLevels = this->unMipLevels;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_RenderModel_TextureMap_t_1237::operator w64_RenderModel_TextureMap_t_1237() const
 {
     w64_RenderModel_TextureMap_t_1237 ret;
+    ret.unWidth = this->unWidth;
+    ret.unHeight = this->unHeight;
+    ret.rubTextureMapData = this->rubTextureMapData;
+    ret.format = this->format;
+    ret.unMipLevels = this->unMipLevels;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_RenderModel_TextureMap_t_1237::operator u64_RenderModel_TextureMap_t_1237() const
+{
+    u64_RenderModel_TextureMap_t_1237 ret;
+    ret.unWidth = this->unWidth;
+    ret.unHeight = this->unHeight;
+    ret.rubTextureMapData = this->rubTextureMapData;
+    ret.format = this->format;
+    ret.unMipLevels = this->unMipLevels;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_RenderModel_TextureMap_t_1237::operator w32_RenderModel_TextureMap_t_1237() const
+{
+    w32_RenderModel_TextureMap_t_1237 ret;
     ret.unWidth = this->unWidth;
     ret.unHeight = this->unHeight;
     ret.rubTextureMapData = this->rubTextureMapData;
@@ -5614,10 +5642,36 @@ w64_RenderModel_TextureMap_t_11111::operator u64_RenderModel_TextureMap_t_11111(
     ret.format = this->format;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_RenderModel_TextureMap_t_11111::operator w64_RenderModel_TextureMap_t_11111() const
 {
     w64_RenderModel_TextureMap_t_11111 ret;
+    ret.unWidth = this->unWidth;
+    ret.unHeight = this->unHeight;
+    ret.rubTextureMapData = this->rubTextureMapData;
+    ret.format = this->format;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_RenderModel_TextureMap_t_11111::operator u64_RenderModel_TextureMap_t_11111() const
+{
+    u64_RenderModel_TextureMap_t_11111 ret;
+    ret.unWidth = this->unWidth;
+    ret.unHeight = this->unHeight;
+    ret.rubTextureMapData = this->rubTextureMapData;
+    ret.format = this->format;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_RenderModel_TextureMap_t_11111::operator w32_RenderModel_TextureMap_t_11111() const
+{
+    w32_RenderModel_TextureMap_t_11111 ret;
     ret.unWidth = this->unWidth;
     ret.unHeight = this->unHeight;
     ret.rubTextureMapData = this->rubTextureMapData;
@@ -5635,10 +5689,34 @@ w64_RenderModel_TextureMap_t_090::operator u64_RenderModel_TextureMap_t_090() co
     ret.rubTextureMapData = this->rubTextureMapData;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_RenderModel_TextureMap_t_090::operator w64_RenderModel_TextureMap_t_090() const
 {
     w64_RenderModel_TextureMap_t_090 ret;
+    ret.unWidth = this->unWidth;
+    ret.unHeight = this->unHeight;
+    ret.rubTextureMapData = this->rubTextureMapData;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_RenderModel_TextureMap_t_090::operator u64_RenderModel_TextureMap_t_090() const
+{
+    u64_RenderModel_TextureMap_t_090 ret;
+    ret.unWidth = this->unWidth;
+    ret.unHeight = this->unHeight;
+    ret.rubTextureMapData = this->rubTextureMapData;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_RenderModel_TextureMap_t_090::operator w32_RenderModel_TextureMap_t_090() const
+{
+    w32_RenderModel_TextureMap_t_090 ret;
     ret.unWidth = this->unWidth;
     ret.unHeight = this->unHeight;
     ret.rubTextureMapData = this->rubTextureMapData;
@@ -5678,6 +5756,28 @@ C_ASSERT( sizeof(u32_Texture_t().eType) >= 4 );
 C_ASSERT( offsetof(u32_Texture_t, eColorSpace) == 8 );
 C_ASSERT( sizeof(u32_Texture_t().eColorSpace) >= 4 );
 
+#ifdef __x86_64__
+w32_Texture_t::operator u64_Texture_t() const
+{
+    u64_Texture_t ret;
+    ret.handle = this->handle;
+    ret.eType = this->eType;
+    ret.eColorSpace = this->eColorSpace;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_Texture_t::operator w32_Texture_t() const
+{
+    w32_Texture_t ret;
+    ret.handle = this->handle;
+    ret.eType = this->eType;
+    ret.eColorSpace = this->eColorSpace;
+    return ret;
+}
+#endif
+
 C_ASSERT( sizeof(w64_VRTextureDepthInfo_t) >= 80 );
 C_ASSERT( offsetof(w64_VRTextureDepthInfo_t, handle) == 0 );
 C_ASSERT( sizeof(w64_VRTextureDepthInfo_t().handle) >= 8 );
@@ -5710,6 +5810,28 @@ C_ASSERT( sizeof(u32_VRTextureDepthInfo_t().mProjection) >= 64 );
 C_ASSERT( offsetof(u32_VRTextureDepthInfo_t, vRange) == 68 );
 C_ASSERT( sizeof(u32_VRTextureDepthInfo_t().vRange) >= 8 );
 
+#ifdef __x86_64__
+w32_VRTextureDepthInfo_t::operator u64_VRTextureDepthInfo_t() const
+{
+    u64_VRTextureDepthInfo_t ret;
+    ret.handle = this->handle;
+    ret.mProjection = this->mProjection;
+    ret.vRange = this->vRange;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VRTextureDepthInfo_t::operator w32_VRTextureDepthInfo_t() const
+{
+    w32_VRTextureDepthInfo_t ret;
+    ret.handle = this->handle;
+    ret.mProjection = this->mProjection;
+    ret.vRange = this->vRange;
+    return ret;
+}
+#endif
+
 C_ASSERT( sizeof(w64_AppOverrideKeys_t) >= 16 );
 C_ASSERT( offsetof(w64_AppOverrideKeys_t, pchKey) == 0 );
 C_ASSERT( sizeof(w64_AppOverrideKeys_t().pchKey) >= 8 );
@@ -5733,6 +5855,26 @@ C_ASSERT( offsetof(u32_AppOverrideKeys_t, pchKey) == 0 );
 C_ASSERT( sizeof(u32_AppOverrideKeys_t().pchKey) >= 4 );
 C_ASSERT( offsetof(u32_AppOverrideKeys_t, pchValue) == 4 );
 C_ASSERT( sizeof(u32_AppOverrideKeys_t().pchValue) >= 4 );
+
+#ifdef __x86_64__
+w32_AppOverrideKeys_t::operator u64_AppOverrideKeys_t() const
+{
+    u64_AppOverrideKeys_t ret;
+    ret.pchKey = this->pchKey;
+    ret.pchValue = this->pchValue;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_AppOverrideKeys_t::operator w32_AppOverrideKeys_t() const
+{
+    w32_AppOverrideKeys_t ret;
+    ret.pchKey = this->pchKey;
+    ret.pchValue = this->pchValue;
+    return ret;
+}
+#endif
 
 C_ASSERT( sizeof(w64_COpenVRContext_11030) >= 160 );
 C_ASSERT( offsetof(w64_COpenVRContext_11030, m_pVRSystem) == 0 );
@@ -7075,7 +7217,9 @@ w32_CameraVideoStreamFrameHeader_t_1017::operator u32_CameraVideoStreamFrameHead
     ret.ulFrameExposureTime = this->ulFrameExposureTime;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_CameraVideoStreamFrameHeader_t_1017::operator w32_CameraVideoStreamFrameHeader_t_1017() const
 {
     w32_CameraVideoStreamFrameHeader_t_1017 ret;
@@ -7086,6 +7230,64 @@ u32_CameraVideoStreamFrameHeader_t_1017::operator w32_CameraVideoStreamFrameHead
     ret.nFrameSequence = this->nFrameSequence;
     ret.trackedDevicePose = this->trackedDevicePose;
     ret.ulFrameExposureTime = this->ulFrameExposureTime;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_CameraVideoStreamFrameHeader_t_1017::operator u64_CameraVideoStreamFrameHeader_t_1017() const
+{
+    u64_CameraVideoStreamFrameHeader_t_1017 ret;
+    ret.eFrameType = this->eFrameType;
+    ret.nWidth = this->nWidth;
+    ret.nHeight = this->nHeight;
+    ret.nBytesPerPixel = this->nBytesPerPixel;
+    ret.nFrameSequence = this->nFrameSequence;
+    ret.trackedDevicePose = this->trackedDevicePose;
+    ret.ulFrameExposureTime = this->ulFrameExposureTime;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_CameraVideoStreamFrameHeader_t_1017::operator w32_CameraVideoStreamFrameHeader_t_1017() const
+{
+    w32_CameraVideoStreamFrameHeader_t_1017 ret;
+    ret.eFrameType = this->eFrameType;
+    ret.nWidth = this->nWidth;
+    ret.nHeight = this->nHeight;
+    ret.nBytesPerPixel = this->nBytesPerPixel;
+    ret.nFrameSequence = this->nFrameSequence;
+    ret.trackedDevicePose = this->trackedDevicePose;
+    ret.ulFrameExposureTime = this->ulFrameExposureTime;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_CameraVideoStreamFrameHeader_t_100::operator u64_CameraVideoStreamFrameHeader_t_100() const
+{
+    u64_CameraVideoStreamFrameHeader_t_100 ret;
+    ret.eFrameType = this->eFrameType;
+    ret.nWidth = this->nWidth;
+    ret.nHeight = this->nHeight;
+    ret.nBytesPerPixel = this->nBytesPerPixel;
+    ret.nFrameSequence = this->nFrameSequence;
+    ret.standingTrackedDevicePose = this->standingTrackedDevicePose;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_CameraVideoStreamFrameHeader_t_100::operator w32_CameraVideoStreamFrameHeader_t_100() const
+{
+    w32_CameraVideoStreamFrameHeader_t_100 ret;
+    ret.eFrameType = this->eFrameType;
+    ret.nWidth = this->nWidth;
+    ret.nHeight = this->nHeight;
+    ret.nBytesPerPixel = this->nBytesPerPixel;
+    ret.nFrameSequence = this->nFrameSequence;
+    ret.standingTrackedDevicePose = this->standingTrackedDevicePose;
     return ret;
 }
 #endif
@@ -7386,7 +7588,9 @@ w64_CameraVideoStreamFrame_t_0914::operator u64_CameraVideoStreamFrame_t_0914() 
     ret.m_pImageData = this->m_pImageData;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_CameraVideoStreamFrame_t_0914::operator w64_CameraVideoStreamFrame_t_0914() const
 {
     w64_CameraVideoStreamFrame_t_0914 ret;
@@ -7436,8 +7640,62 @@ w32_CameraVideoStreamFrame_t_0914::operator u32_CameraVideoStreamFrame_t_0914() 
     ret.m_pImageData = this->m_pImageData;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_CameraVideoStreamFrame_t_0914::operator w32_CameraVideoStreamFrame_t_0914() const
+{
+    w32_CameraVideoStreamFrame_t_0914 ret;
+    ret.m_nStreamFormat = this->m_nStreamFormat;
+    ret.m_nWidth = this->m_nWidth;
+    ret.m_nHeight = this->m_nHeight;
+    ret.m_nImageDataSize = this->m_nImageDataSize;
+    ret.m_nFrameSequence = this->m_nFrameSequence;
+    ret.m_nISPFrameTimeStamp = this->m_nISPFrameTimeStamp;
+    ret.m_nISPReferenceTimeStamp = this->m_nISPReferenceTimeStamp;
+    ret.m_nSyncCounter = this->m_nSyncCounter;
+    ret.m_nExposureTime = this->m_nExposureTime;
+    ret.m_nBufferIndex = this->m_nBufferIndex;
+    ret.m_nBufferCount = this->m_nBufferCount;
+    ret.m_flFrameElapsedTime = this->m_flFrameElapsedTime;
+    ret.m_flFrameCaptureTime = this->m_flFrameCaptureTime;
+    ret.m_nFrameCaptureTicks = this->m_nFrameCaptureTicks;
+    ret.m_bPoseIsValid = this->m_bPoseIsValid;
+    ret.m_matDeviceToAbsoluteTracking = this->m_matDeviceToAbsoluteTracking;
+    ret.m_Pad = this->m_Pad;
+    ret.m_pImageData = this->m_pImageData;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_CameraVideoStreamFrame_t_0914::operator u64_CameraVideoStreamFrame_t_0914() const
+{
+    u64_CameraVideoStreamFrame_t_0914 ret;
+    ret.m_nStreamFormat = this->m_nStreamFormat;
+    ret.m_nWidth = this->m_nWidth;
+    ret.m_nHeight = this->m_nHeight;
+    ret.m_nImageDataSize = this->m_nImageDataSize;
+    ret.m_nFrameSequence = this->m_nFrameSequence;
+    ret.m_nISPFrameTimeStamp = this->m_nISPFrameTimeStamp;
+    ret.m_nISPReferenceTimeStamp = this->m_nISPReferenceTimeStamp;
+    ret.m_nSyncCounter = this->m_nSyncCounter;
+    ret.m_nExposureTime = this->m_nExposureTime;
+    ret.m_nBufferIndex = this->m_nBufferIndex;
+    ret.m_nBufferCount = this->m_nBufferCount;
+    ret.m_flFrameElapsedTime = this->m_flFrameElapsedTime;
+    ret.m_flFrameCaptureTime = this->m_flFrameCaptureTime;
+    ret.m_nFrameCaptureTicks = this->m_nFrameCaptureTicks;
+    ret.m_bPoseIsValid = this->m_bPoseIsValid;
+    ret.m_matDeviceToAbsoluteTracking = this->m_matDeviceToAbsoluteTracking;
+    ret.m_Pad = this->m_Pad;
+    ret.m_pImageData = this->m_pImageData;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_CameraVideoStreamFrame_t_0914::operator w32_CameraVideoStreamFrame_t_0914() const
 {
     w32_CameraVideoStreamFrame_t_0914 ret;
     ret.m_nStreamFormat = this->m_nStreamFormat;
@@ -7482,10 +7740,56 @@ w64_CameraVideoStreamFrame_t_0912::operator u64_CameraVideoStreamFrame_t_0912() 
     ret.m_pImageData = this->m_pImageData;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_CameraVideoStreamFrame_t_0912::operator w64_CameraVideoStreamFrame_t_0912() const
 {
     w64_CameraVideoStreamFrame_t_0912 ret;
+    ret.m_nStreamFormat = this->m_nStreamFormat;
+    ret.m_nWidth = this->m_nWidth;
+    ret.m_nHeight = this->m_nHeight;
+    ret.m_nFrameSequence = this->m_nFrameSequence;
+    ret.m_nTimeStamp = this->m_nTimeStamp;
+    ret.m_nBufferIndex = this->m_nBufferIndex;
+    ret.m_nBufferCount = this->m_nBufferCount;
+    ret.m_nImageDataSize = this->m_nImageDataSize;
+    ret.m_flFrameElapsedTime = this->m_flFrameElapsedTime;
+    ret.m_flFrameCaptureTime = this->m_flFrameCaptureTime;
+    ret.m_bPoseIsValid = this->m_bPoseIsValid;
+    ret.m_matDeviceToAbsoluteTracking = this->m_matDeviceToAbsoluteTracking;
+    ret.m_Pad = this->m_Pad;
+    ret.m_pImageData = this->m_pImageData;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_CameraVideoStreamFrame_t_0912::operator u64_CameraVideoStreamFrame_t_0912() const
+{
+    u64_CameraVideoStreamFrame_t_0912 ret;
+    ret.m_nStreamFormat = this->m_nStreamFormat;
+    ret.m_nWidth = this->m_nWidth;
+    ret.m_nHeight = this->m_nHeight;
+    ret.m_nFrameSequence = this->m_nFrameSequence;
+    ret.m_nTimeStamp = this->m_nTimeStamp;
+    ret.m_nBufferIndex = this->m_nBufferIndex;
+    ret.m_nBufferCount = this->m_nBufferCount;
+    ret.m_nImageDataSize = this->m_nImageDataSize;
+    ret.m_flFrameElapsedTime = this->m_flFrameElapsedTime;
+    ret.m_flFrameCaptureTime = this->m_flFrameCaptureTime;
+    ret.m_bPoseIsValid = this->m_bPoseIsValid;
+    ret.m_matDeviceToAbsoluteTracking = this->m_matDeviceToAbsoluteTracking;
+    ret.m_Pad = this->m_Pad;
+    ret.m_pImageData = this->m_pImageData;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_CameraVideoStreamFrame_t_0912::operator w32_CameraVideoStreamFrame_t_0912() const
+{
+    w32_CameraVideoStreamFrame_t_0912 ret;
     ret.m_nStreamFormat = this->m_nStreamFormat;
     ret.m_nWidth = this->m_nWidth;
     ret.m_nHeight = this->m_nHeight;
@@ -9097,6 +9401,138 @@ C_ASSERT( offsetof(u32_Compositor_FrameTiming_090, pose) == 24 );
 C_ASSERT( sizeof(u32_Compositor_FrameTiming_090().pose) >= 80 );
 
 #ifdef __x86_64__
+w32_Compositor_FrameTiming_1017::operator u64_Compositor_FrameTiming_1017() const
+{
+    u64_Compositor_FrameTiming_1017 ret;
+    ret.m_nSize = this->m_nSize;
+    ret.m_nFrameIndex = this->m_nFrameIndex;
+    ret.m_nNumFramePresents = this->m_nNumFramePresents;
+    ret.m_nNumMisPresented = this->m_nNumMisPresented;
+    ret.m_nNumDroppedFrames = this->m_nNumDroppedFrames;
+    ret.m_nReprojectionFlags = this->m_nReprojectionFlags;
+    ret.m_flSystemTimeInSeconds = this->m_flSystemTimeInSeconds;
+    ret.m_flPreSubmitGpuMs = this->m_flPreSubmitGpuMs;
+    ret.m_flPostSubmitGpuMs = this->m_flPostSubmitGpuMs;
+    ret.m_flTotalRenderGpuMs = this->m_flTotalRenderGpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorIdleCpuMs = this->m_flCompositorIdleCpuMs;
+    ret.m_flClientFrameIntervalMs = this->m_flClientFrameIntervalMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flWaitForPresentCpuMs = this->m_flWaitForPresentCpuMs;
+    ret.m_flSubmitFrameMs = this->m_flSubmitFrameMs;
+    ret.m_flWaitGetPosesCalledMs = this->m_flWaitGetPosesCalledMs;
+    ret.m_flNewPosesReadyMs = this->m_flNewPosesReadyMs;
+    ret.m_flNewFrameReadyMs = this->m_flNewFrameReadyMs;
+    ret.m_flCompositorUpdateStartMs = this->m_flCompositorUpdateStartMs;
+    ret.m_flCompositorUpdateEndMs = this->m_flCompositorUpdateEndMs;
+    ret.m_flCompositorRenderStartMs = this->m_flCompositorRenderStartMs;
+    ret.m_HmdPose = this->m_HmdPose;
+    ret.m_nNumVSyncsReadyForUse = this->m_nNumVSyncsReadyForUse;
+    ret.m_nNumVSyncsToFirstView = this->m_nNumVSyncsToFirstView;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_Compositor_FrameTiming_1017::operator w32_Compositor_FrameTiming_1017() const
+{
+    w32_Compositor_FrameTiming_1017 ret;
+    ret.m_nSize = this->m_nSize;
+    ret.m_nFrameIndex = this->m_nFrameIndex;
+    ret.m_nNumFramePresents = this->m_nNumFramePresents;
+    ret.m_nNumMisPresented = this->m_nNumMisPresented;
+    ret.m_nNumDroppedFrames = this->m_nNumDroppedFrames;
+    ret.m_nReprojectionFlags = this->m_nReprojectionFlags;
+    ret.m_flSystemTimeInSeconds = this->m_flSystemTimeInSeconds;
+    ret.m_flPreSubmitGpuMs = this->m_flPreSubmitGpuMs;
+    ret.m_flPostSubmitGpuMs = this->m_flPostSubmitGpuMs;
+    ret.m_flTotalRenderGpuMs = this->m_flTotalRenderGpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorIdleCpuMs = this->m_flCompositorIdleCpuMs;
+    ret.m_flClientFrameIntervalMs = this->m_flClientFrameIntervalMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flWaitForPresentCpuMs = this->m_flWaitForPresentCpuMs;
+    ret.m_flSubmitFrameMs = this->m_flSubmitFrameMs;
+    ret.m_flWaitGetPosesCalledMs = this->m_flWaitGetPosesCalledMs;
+    ret.m_flNewPosesReadyMs = this->m_flNewPosesReadyMs;
+    ret.m_flNewFrameReadyMs = this->m_flNewFrameReadyMs;
+    ret.m_flCompositorUpdateStartMs = this->m_flCompositorUpdateStartMs;
+    ret.m_flCompositorUpdateEndMs = this->m_flCompositorUpdateEndMs;
+    ret.m_flCompositorRenderStartMs = this->m_flCompositorRenderStartMs;
+    ret.m_HmdPose = this->m_HmdPose;
+    ret.m_nNumVSyncsReadyForUse = this->m_nNumVSyncsReadyForUse;
+    ret.m_nNumVSyncsToFirstView = this->m_nNumVSyncsToFirstView;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_Compositor_FrameTiming_103a::operator u64_Compositor_FrameTiming_103a() const
+{
+    u64_Compositor_FrameTiming_103a ret;
+    ret.m_nSize = this->m_nSize;
+    ret.m_nFrameIndex = this->m_nFrameIndex;
+    ret.m_nNumFramePresents = this->m_nNumFramePresents;
+    ret.m_nNumMisPresented = this->m_nNumMisPresented;
+    ret.m_nNumDroppedFrames = this->m_nNumDroppedFrames;
+    ret.m_nReprojectionFlags = this->m_nReprojectionFlags;
+    ret.m_flSystemTimeInSeconds = this->m_flSystemTimeInSeconds;
+    ret.m_flPreSubmitGpuMs = this->m_flPreSubmitGpuMs;
+    ret.m_flPostSubmitGpuMs = this->m_flPostSubmitGpuMs;
+    ret.m_flTotalRenderGpuMs = this->m_flTotalRenderGpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorIdleCpuMs = this->m_flCompositorIdleCpuMs;
+    ret.m_flClientFrameIntervalMs = this->m_flClientFrameIntervalMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flWaitForPresentCpuMs = this->m_flWaitForPresentCpuMs;
+    ret.m_flSubmitFrameMs = this->m_flSubmitFrameMs;
+    ret.m_flWaitGetPosesCalledMs = this->m_flWaitGetPosesCalledMs;
+    ret.m_flNewPosesReadyMs = this->m_flNewPosesReadyMs;
+    ret.m_flNewFrameReadyMs = this->m_flNewFrameReadyMs;
+    ret.m_flCompositorUpdateStartMs = this->m_flCompositorUpdateStartMs;
+    ret.m_flCompositorUpdateEndMs = this->m_flCompositorUpdateEndMs;
+    ret.m_flCompositorRenderStartMs = this->m_flCompositorRenderStartMs;
+    ret.m_HmdPose = this->m_HmdPose;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_Compositor_FrameTiming_103a::operator w32_Compositor_FrameTiming_103a() const
+{
+    w32_Compositor_FrameTiming_103a ret;
+    ret.m_nSize = this->m_nSize;
+    ret.m_nFrameIndex = this->m_nFrameIndex;
+    ret.m_nNumFramePresents = this->m_nNumFramePresents;
+    ret.m_nNumMisPresented = this->m_nNumMisPresented;
+    ret.m_nNumDroppedFrames = this->m_nNumDroppedFrames;
+    ret.m_nReprojectionFlags = this->m_nReprojectionFlags;
+    ret.m_flSystemTimeInSeconds = this->m_flSystemTimeInSeconds;
+    ret.m_flPreSubmitGpuMs = this->m_flPreSubmitGpuMs;
+    ret.m_flPostSubmitGpuMs = this->m_flPostSubmitGpuMs;
+    ret.m_flTotalRenderGpuMs = this->m_flTotalRenderGpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorIdleCpuMs = this->m_flCompositorIdleCpuMs;
+    ret.m_flClientFrameIntervalMs = this->m_flClientFrameIntervalMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flWaitForPresentCpuMs = this->m_flWaitForPresentCpuMs;
+    ret.m_flSubmitFrameMs = this->m_flSubmitFrameMs;
+    ret.m_flWaitGetPosesCalledMs = this->m_flWaitGetPosesCalledMs;
+    ret.m_flNewPosesReadyMs = this->m_flNewPosesReadyMs;
+    ret.m_flNewFrameReadyMs = this->m_flNewFrameReadyMs;
+    ret.m_flCompositorUpdateStartMs = this->m_flCompositorUpdateStartMs;
+    ret.m_flCompositorUpdateEndMs = this->m_flCompositorUpdateEndMs;
+    ret.m_flCompositorRenderStartMs = this->m_flCompositorRenderStartMs;
+    ret.m_HmdPose = this->m_HmdPose;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
 w64_Compositor_FrameTiming_102::operator u64_Compositor_FrameTiming_102() const
 {
     u64_Compositor_FrameTiming_102 ret;
@@ -9125,7 +9561,9 @@ w64_Compositor_FrameTiming_102::operator u64_Compositor_FrameTiming_102() const
     ret.m_HmdPose = this->m_HmdPose;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_Compositor_FrameTiming_102::operator w64_Compositor_FrameTiming_102() const
 {
     w64_Compositor_FrameTiming_102 ret;
@@ -9185,7 +9623,9 @@ w32_Compositor_FrameTiming_102::operator u32_Compositor_FrameTiming_102() const
     ret.m_HmdPose = this->m_HmdPose;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_Compositor_FrameTiming_102::operator w32_Compositor_FrameTiming_102() const
 {
     w32_Compositor_FrameTiming_102 ret;
@@ -9217,6 +9657,190 @@ u32_Compositor_FrameTiming_102::operator w32_Compositor_FrameTiming_102() const
 #endif
 
 #ifdef __x86_64__
+w32_Compositor_FrameTiming_102::operator u64_Compositor_FrameTiming_102() const
+{
+    u64_Compositor_FrameTiming_102 ret;
+    ret.m_nSize = this->m_nSize;
+    ret.m_nFrameIndex = this->m_nFrameIndex;
+    ret.m_nNumFramePresents = this->m_nNumFramePresents;
+    ret.m_nNumDroppedFrames = this->m_nNumDroppedFrames;
+    ret.m_nReprojectionFlags = this->m_nReprojectionFlags;
+    ret.m_flSystemTimeInSeconds = this->m_flSystemTimeInSeconds;
+    ret.m_flPreSubmitGpuMs = this->m_flPreSubmitGpuMs;
+    ret.m_flPostSubmitGpuMs = this->m_flPostSubmitGpuMs;
+    ret.m_flTotalRenderGpuMs = this->m_flTotalRenderGpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorIdleCpuMs = this->m_flCompositorIdleCpuMs;
+    ret.m_flClientFrameIntervalMs = this->m_flClientFrameIntervalMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flWaitForPresentCpuMs = this->m_flWaitForPresentCpuMs;
+    ret.m_flSubmitFrameMs = this->m_flSubmitFrameMs;
+    ret.m_flWaitGetPosesCalledMs = this->m_flWaitGetPosesCalledMs;
+    ret.m_flNewPosesReadyMs = this->m_flNewPosesReadyMs;
+    ret.m_flNewFrameReadyMs = this->m_flNewFrameReadyMs;
+    ret.m_flCompositorUpdateStartMs = this->m_flCompositorUpdateStartMs;
+    ret.m_flCompositorUpdateEndMs = this->m_flCompositorUpdateEndMs;
+    ret.m_flCompositorRenderStartMs = this->m_flCompositorRenderStartMs;
+    ret.m_HmdPose = this->m_HmdPose;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_Compositor_FrameTiming_102::operator w32_Compositor_FrameTiming_102() const
+{
+    w32_Compositor_FrameTiming_102 ret;
+    ret.m_nSize = this->m_nSize;
+    ret.m_nFrameIndex = this->m_nFrameIndex;
+    ret.m_nNumFramePresents = this->m_nNumFramePresents;
+    ret.m_nNumDroppedFrames = this->m_nNumDroppedFrames;
+    ret.m_nReprojectionFlags = this->m_nReprojectionFlags;
+    ret.m_flSystemTimeInSeconds = this->m_flSystemTimeInSeconds;
+    ret.m_flPreSubmitGpuMs = this->m_flPreSubmitGpuMs;
+    ret.m_flPostSubmitGpuMs = this->m_flPostSubmitGpuMs;
+    ret.m_flTotalRenderGpuMs = this->m_flTotalRenderGpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorIdleCpuMs = this->m_flCompositorIdleCpuMs;
+    ret.m_flClientFrameIntervalMs = this->m_flClientFrameIntervalMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flWaitForPresentCpuMs = this->m_flWaitForPresentCpuMs;
+    ret.m_flSubmitFrameMs = this->m_flSubmitFrameMs;
+    ret.m_flWaitGetPosesCalledMs = this->m_flWaitGetPosesCalledMs;
+    ret.m_flNewPosesReadyMs = this->m_flNewPosesReadyMs;
+    ret.m_flNewFrameReadyMs = this->m_flNewFrameReadyMs;
+    ret.m_flCompositorUpdateStartMs = this->m_flCompositorUpdateStartMs;
+    ret.m_flCompositorUpdateEndMs = this->m_flCompositorUpdateEndMs;
+    ret.m_flCompositorRenderStartMs = this->m_flCompositorRenderStartMs;
+    ret.m_HmdPose = this->m_HmdPose;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_Compositor_FrameTiming_0920::operator u64_Compositor_FrameTiming_0920() const
+{
+    u64_Compositor_FrameTiming_0920 ret;
+    ret.m_nSize = this->m_nSize;
+    ret.m_nFrameIndex = this->m_nFrameIndex;
+    ret.m_nNumFramePresents = this->m_nNumFramePresents;
+    ret.m_nNumDroppedFrames = this->m_nNumDroppedFrames;
+    ret.m_flSystemTimeInSeconds = this->m_flSystemTimeInSeconds;
+    ret.m_flSceneRenderGpuMs = this->m_flSceneRenderGpuMs;
+    ret.m_flTotalRenderGpuMs = this->m_flTotalRenderGpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorIdleCpuMs = this->m_flCompositorIdleCpuMs;
+    ret.m_flClientFrameIntervalMs = this->m_flClientFrameIntervalMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flWaitForPresentCpuMs = this->m_flWaitForPresentCpuMs;
+    ret.m_flSubmitFrameMs = this->m_flSubmitFrameMs;
+    ret.m_flWaitGetPosesCalledMs = this->m_flWaitGetPosesCalledMs;
+    ret.m_flNewPosesReadyMs = this->m_flNewPosesReadyMs;
+    ret.m_flNewFrameReadyMs = this->m_flNewFrameReadyMs;
+    ret.m_flCompositorUpdateStartMs = this->m_flCompositorUpdateStartMs;
+    ret.m_flCompositorUpdateEndMs = this->m_flCompositorUpdateEndMs;
+    ret.m_flCompositorRenderStartMs = this->m_flCompositorRenderStartMs;
+    ret.m_HmdPose = this->m_HmdPose;
+    ret.m_nFidelityLevel = this->m_nFidelityLevel;
+    ret.m_nReprojectionFlags = this->m_nReprojectionFlags;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_Compositor_FrameTiming_0920::operator w32_Compositor_FrameTiming_0920() const
+{
+    w32_Compositor_FrameTiming_0920 ret;
+    ret.m_nSize = this->m_nSize;
+    ret.m_nFrameIndex = this->m_nFrameIndex;
+    ret.m_nNumFramePresents = this->m_nNumFramePresents;
+    ret.m_nNumDroppedFrames = this->m_nNumDroppedFrames;
+    ret.m_flSystemTimeInSeconds = this->m_flSystemTimeInSeconds;
+    ret.m_flSceneRenderGpuMs = this->m_flSceneRenderGpuMs;
+    ret.m_flTotalRenderGpuMs = this->m_flTotalRenderGpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorIdleCpuMs = this->m_flCompositorIdleCpuMs;
+    ret.m_flClientFrameIntervalMs = this->m_flClientFrameIntervalMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flWaitForPresentCpuMs = this->m_flWaitForPresentCpuMs;
+    ret.m_flSubmitFrameMs = this->m_flSubmitFrameMs;
+    ret.m_flWaitGetPosesCalledMs = this->m_flWaitGetPosesCalledMs;
+    ret.m_flNewPosesReadyMs = this->m_flNewPosesReadyMs;
+    ret.m_flNewFrameReadyMs = this->m_flNewFrameReadyMs;
+    ret.m_flCompositorUpdateStartMs = this->m_flCompositorUpdateStartMs;
+    ret.m_flCompositorUpdateEndMs = this->m_flCompositorUpdateEndMs;
+    ret.m_flCompositorRenderStartMs = this->m_flCompositorRenderStartMs;
+    ret.m_HmdPose = this->m_HmdPose;
+    ret.m_nFidelityLevel = this->m_nFidelityLevel;
+    ret.m_nReprojectionFlags = this->m_nReprojectionFlags;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_Compositor_FrameTiming_0915::operator u64_Compositor_FrameTiming_0915() const
+{
+    u64_Compositor_FrameTiming_0915 ret;
+    ret.m_nSize = this->m_nSize;
+    ret.m_nFrameIndex = this->m_nFrameIndex;
+    ret.m_nNumFramePresents = this->m_nNumFramePresents;
+    ret.m_nNumDroppedFrames = this->m_nNumDroppedFrames;
+    ret.m_flSystemTimeInSeconds = this->m_flSystemTimeInSeconds;
+    ret.m_flSceneRenderGpuMs = this->m_flSceneRenderGpuMs;
+    ret.m_flTotalRenderGpuMs = this->m_flTotalRenderGpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorIdleCpuMs = this->m_flCompositorIdleCpuMs;
+    ret.m_flClientFrameIntervalMs = this->m_flClientFrameIntervalMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flWaitForPresentCpuMs = this->m_flWaitForPresentCpuMs;
+    ret.m_flSubmitFrameMs = this->m_flSubmitFrameMs;
+    ret.m_flWaitGetPosesCalledMs = this->m_flWaitGetPosesCalledMs;
+    ret.m_flNewPosesReadyMs = this->m_flNewPosesReadyMs;
+    ret.m_flNewFrameReadyMs = this->m_flNewFrameReadyMs;
+    ret.m_flCompositorUpdateStartMs = this->m_flCompositorUpdateStartMs;
+    ret.m_flCompositorUpdateEndMs = this->m_flCompositorUpdateEndMs;
+    ret.m_flCompositorRenderStartMs = this->m_flCompositorRenderStartMs;
+    ret.m_HmdPose = this->m_HmdPose;
+    ret.m_nFidelityLevel = this->m_nFidelityLevel;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_Compositor_FrameTiming_0915::operator w32_Compositor_FrameTiming_0915() const
+{
+    w32_Compositor_FrameTiming_0915 ret;
+    ret.m_nSize = this->m_nSize;
+    ret.m_nFrameIndex = this->m_nFrameIndex;
+    ret.m_nNumFramePresents = this->m_nNumFramePresents;
+    ret.m_nNumDroppedFrames = this->m_nNumDroppedFrames;
+    ret.m_flSystemTimeInSeconds = this->m_flSystemTimeInSeconds;
+    ret.m_flSceneRenderGpuMs = this->m_flSceneRenderGpuMs;
+    ret.m_flTotalRenderGpuMs = this->m_flTotalRenderGpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorIdleCpuMs = this->m_flCompositorIdleCpuMs;
+    ret.m_flClientFrameIntervalMs = this->m_flClientFrameIntervalMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flWaitForPresentCpuMs = this->m_flWaitForPresentCpuMs;
+    ret.m_flSubmitFrameMs = this->m_flSubmitFrameMs;
+    ret.m_flWaitGetPosesCalledMs = this->m_flWaitGetPosesCalledMs;
+    ret.m_flNewPosesReadyMs = this->m_flNewPosesReadyMs;
+    ret.m_flNewFrameReadyMs = this->m_flNewFrameReadyMs;
+    ret.m_flCompositorUpdateStartMs = this->m_flCompositorUpdateStartMs;
+    ret.m_flCompositorUpdateEndMs = this->m_flCompositorUpdateEndMs;
+    ret.m_flCompositorRenderStartMs = this->m_flCompositorRenderStartMs;
+    ret.m_HmdPose = this->m_HmdPose;
+    ret.m_nFidelityLevel = this->m_nFidelityLevel;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
 w64_Compositor_FrameTiming_0914::operator u64_Compositor_FrameTiming_0914() const
 {
     u64_Compositor_FrameTiming_0914 ret;
@@ -9240,7 +9864,9 @@ w64_Compositor_FrameTiming_0914::operator u64_Compositor_FrameTiming_0914() cons
     ret.m_nPresents = this->m_nPresents;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_Compositor_FrameTiming_0914::operator w64_Compositor_FrameTiming_0914() const
 {
     w64_Compositor_FrameTiming_0914 ret;
@@ -9290,8 +9916,62 @@ w32_Compositor_FrameTiming_0914::operator u32_Compositor_FrameTiming_0914() cons
     ret.m_nPresents = this->m_nPresents;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_Compositor_FrameTiming_0914::operator w32_Compositor_FrameTiming_0914() const
+{
+    w32_Compositor_FrameTiming_0914 ret;
+    ret.size = this->size;
+    ret.frameStart = this->frameStart;
+    ret.frameVSync = this->frameVSync;
+    ret.droppedFrames = this->droppedFrames;
+    ret.frameIndex = this->frameIndex;
+    ret.pose = this->pose;
+    ret.prediction = this->prediction;
+    ret.m_flFrameIntervalMs = this->m_flFrameIntervalMs;
+    ret.m_flSceneRenderCpuMs = this->m_flSceneRenderCpuMs;
+    ret.m_flSceneRenderGpuMs = this->m_flSceneRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flRunningStartMs = this->m_flRunningStartMs;
+    ret.m_flHandoffStartMs = this->m_flHandoffStartMs;
+    ret.m_flHandoffEndMs = this->m_flHandoffEndMs;
+    ret.m_flCompositorUpdateCpuMs = this->m_flCompositorUpdateCpuMs;
+    ret.m_nPresents = this->m_nPresents;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_Compositor_FrameTiming_0914::operator u64_Compositor_FrameTiming_0914() const
+{
+    u64_Compositor_FrameTiming_0914 ret;
+    ret.size = this->size;
+    ret.frameStart = this->frameStart;
+    ret.frameVSync = this->frameVSync;
+    ret.droppedFrames = this->droppedFrames;
+    ret.frameIndex = this->frameIndex;
+    ret.pose = this->pose;
+    ret.prediction = this->prediction;
+    ret.m_flFrameIntervalMs = this->m_flFrameIntervalMs;
+    ret.m_flSceneRenderCpuMs = this->m_flSceneRenderCpuMs;
+    ret.m_flSceneRenderGpuMs = this->m_flSceneRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flRunningStartMs = this->m_flRunningStartMs;
+    ret.m_flHandoffStartMs = this->m_flHandoffStartMs;
+    ret.m_flHandoffEndMs = this->m_flHandoffEndMs;
+    ret.m_flCompositorUpdateCpuMs = this->m_flCompositorUpdateCpuMs;
+    ret.m_nPresents = this->m_nPresents;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_Compositor_FrameTiming_0914::operator w32_Compositor_FrameTiming_0914() const
 {
     w32_Compositor_FrameTiming_0914 ret;
     ret.size = this->size;
@@ -9339,7 +10019,9 @@ w64_Compositor_FrameTiming_0913::operator u64_Compositor_FrameTiming_0913() cons
     ret.m_flCompositorUpdateCpuMs = this->m_flCompositorUpdateCpuMs;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_Compositor_FrameTiming_0913::operator w64_Compositor_FrameTiming_0913() const
 {
     w64_Compositor_FrameTiming_0913 ret;
@@ -9387,8 +10069,60 @@ w32_Compositor_FrameTiming_0913::operator u32_Compositor_FrameTiming_0913() cons
     ret.m_flCompositorUpdateCpuMs = this->m_flCompositorUpdateCpuMs;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_Compositor_FrameTiming_0913::operator w32_Compositor_FrameTiming_0913() const
+{
+    w32_Compositor_FrameTiming_0913 ret;
+    ret.size = this->size;
+    ret.frameStart = this->frameStart;
+    ret.frameVSync = this->frameVSync;
+    ret.droppedFrames = this->droppedFrames;
+    ret.frameIndex = this->frameIndex;
+    ret.pose = this->pose;
+    ret.prediction = this->prediction;
+    ret.m_flFrameIntervalMs = this->m_flFrameIntervalMs;
+    ret.m_flSceneRenderCpuMs = this->m_flSceneRenderCpuMs;
+    ret.m_flSceneRenderGpuMs = this->m_flSceneRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flRunningStartMs = this->m_flRunningStartMs;
+    ret.m_flHandoffStartMs = this->m_flHandoffStartMs;
+    ret.m_flHandoffEndMs = this->m_flHandoffEndMs;
+    ret.m_flCompositorUpdateCpuMs = this->m_flCompositorUpdateCpuMs;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_Compositor_FrameTiming_0913::operator u64_Compositor_FrameTiming_0913() const
+{
+    u64_Compositor_FrameTiming_0913 ret;
+    ret.size = this->size;
+    ret.frameStart = this->frameStart;
+    ret.frameVSync = this->frameVSync;
+    ret.droppedFrames = this->droppedFrames;
+    ret.frameIndex = this->frameIndex;
+    ret.pose = this->pose;
+    ret.prediction = this->prediction;
+    ret.m_flFrameIntervalMs = this->m_flFrameIntervalMs;
+    ret.m_flSceneRenderCpuMs = this->m_flSceneRenderCpuMs;
+    ret.m_flSceneRenderGpuMs = this->m_flSceneRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flRunningStartMs = this->m_flRunningStartMs;
+    ret.m_flHandoffStartMs = this->m_flHandoffStartMs;
+    ret.m_flHandoffEndMs = this->m_flHandoffEndMs;
+    ret.m_flCompositorUpdateCpuMs = this->m_flCompositorUpdateCpuMs;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_Compositor_FrameTiming_0913::operator w32_Compositor_FrameTiming_0913() const
 {
     w32_Compositor_FrameTiming_0913 ret;
     ret.size = this->size;
@@ -9434,7 +10168,9 @@ w64_Compositor_FrameTiming_0912::operator u64_Compositor_FrameTiming_0912() cons
     ret.m_flHandoffEndMs = this->m_flHandoffEndMs;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_Compositor_FrameTiming_0912::operator w64_Compositor_FrameTiming_0912() const
 {
     w64_Compositor_FrameTiming_0912 ret;
@@ -9480,8 +10216,58 @@ w32_Compositor_FrameTiming_0912::operator u32_Compositor_FrameTiming_0912() cons
     ret.m_flHandoffEndMs = this->m_flHandoffEndMs;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_Compositor_FrameTiming_0912::operator w32_Compositor_FrameTiming_0912() const
+{
+    w32_Compositor_FrameTiming_0912 ret;
+    ret.size = this->size;
+    ret.frameStart = this->frameStart;
+    ret.frameVSync = this->frameVSync;
+    ret.droppedFrames = this->droppedFrames;
+    ret.frameIndex = this->frameIndex;
+    ret.pose = this->pose;
+    ret.prediction = this->prediction;
+    ret.m_flFrameIntervalMs = this->m_flFrameIntervalMs;
+    ret.m_flSceneRenderCpuMs = this->m_flSceneRenderCpuMs;
+    ret.m_flSceneRenderGpuMs = this->m_flSceneRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flRunningStartMs = this->m_flRunningStartMs;
+    ret.m_flHandoffStartMs = this->m_flHandoffStartMs;
+    ret.m_flHandoffEndMs = this->m_flHandoffEndMs;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_Compositor_FrameTiming_0912::operator u64_Compositor_FrameTiming_0912() const
+{
+    u64_Compositor_FrameTiming_0912 ret;
+    ret.size = this->size;
+    ret.frameStart = this->frameStart;
+    ret.frameVSync = this->frameVSync;
+    ret.droppedFrames = this->droppedFrames;
+    ret.frameIndex = this->frameIndex;
+    ret.pose = this->pose;
+    ret.prediction = this->prediction;
+    ret.m_flFrameIntervalMs = this->m_flFrameIntervalMs;
+    ret.m_flSceneRenderCpuMs = this->m_flSceneRenderCpuMs;
+    ret.m_flSceneRenderGpuMs = this->m_flSceneRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flRunningStartMs = this->m_flRunningStartMs;
+    ret.m_flHandoffStartMs = this->m_flHandoffStartMs;
+    ret.m_flHandoffEndMs = this->m_flHandoffEndMs;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_Compositor_FrameTiming_0912::operator w32_Compositor_FrameTiming_0912() const
 {
     w32_Compositor_FrameTiming_0912 ret;
     ret.size = this->size;
@@ -9524,7 +10310,9 @@ w64_Compositor_FrameTiming_093::operator u64_Compositor_FrameTiming_093() const
     ret.m_flRunningStartMs = this->m_flRunningStartMs;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_Compositor_FrameTiming_093::operator w64_Compositor_FrameTiming_093() const
 {
     w64_Compositor_FrameTiming_093 ret;
@@ -9566,8 +10354,54 @@ w32_Compositor_FrameTiming_093::operator u32_Compositor_FrameTiming_093() const
     ret.m_flRunningStartMs = this->m_flRunningStartMs;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_Compositor_FrameTiming_093::operator w32_Compositor_FrameTiming_093() const
+{
+    w32_Compositor_FrameTiming_093 ret;
+    ret.size = this->size;
+    ret.frameStart = this->frameStart;
+    ret.frameVSync = this->frameVSync;
+    ret.droppedFrames = this->droppedFrames;
+    ret.frameIndex = this->frameIndex;
+    ret.pose = this->pose;
+    ret.prediction = this->prediction;
+    ret.m_flFrameIntervalMs = this->m_flFrameIntervalMs;
+    ret.m_flSceneRenderCpuMs = this->m_flSceneRenderCpuMs;
+    ret.m_flSceneRenderGpuMs = this->m_flSceneRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flRunningStartMs = this->m_flRunningStartMs;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_Compositor_FrameTiming_093::operator u64_Compositor_FrameTiming_093() const
+{
+    u64_Compositor_FrameTiming_093 ret;
+    ret.size = this->size;
+    ret.frameStart = this->frameStart;
+    ret.frameVSync = this->frameVSync;
+    ret.droppedFrames = this->droppedFrames;
+    ret.frameIndex = this->frameIndex;
+    ret.pose = this->pose;
+    ret.prediction = this->prediction;
+    ret.m_flFrameIntervalMs = this->m_flFrameIntervalMs;
+    ret.m_flSceneRenderCpuMs = this->m_flSceneRenderCpuMs;
+    ret.m_flSceneRenderGpuMs = this->m_flSceneRenderGpuMs;
+    ret.m_flCompositorRenderCpuMs = this->m_flCompositorRenderCpuMs;
+    ret.m_flCompositorRenderGpuMs = this->m_flCompositorRenderGpuMs;
+    ret.m_flPresentCallCpuMs = this->m_flPresentCallCpuMs;
+    ret.m_flRunningStartMs = this->m_flRunningStartMs;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_Compositor_FrameTiming_093::operator w32_Compositor_FrameTiming_093() const
 {
     w32_Compositor_FrameTiming_093 ret;
     ret.size = this->size;
@@ -9600,7 +10434,9 @@ w64_Compositor_FrameTiming_090::operator u64_Compositor_FrameTiming_090() const
     ret.pose = this->pose;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_Compositor_FrameTiming_090::operator w64_Compositor_FrameTiming_090() const
 {
     w64_Compositor_FrameTiming_090 ret;
@@ -9626,8 +10462,38 @@ w32_Compositor_FrameTiming_090::operator u32_Compositor_FrameTiming_090() const
     ret.pose = this->pose;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_Compositor_FrameTiming_090::operator w32_Compositor_FrameTiming_090() const
+{
+    w32_Compositor_FrameTiming_090 ret;
+    ret.size = this->size;
+    ret.frameStart = this->frameStart;
+    ret.frameVSync = this->frameVSync;
+    ret.droppedFrames = this->droppedFrames;
+    ret.frameIndex = this->frameIndex;
+    ret.pose = this->pose;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_Compositor_FrameTiming_090::operator u64_Compositor_FrameTiming_090() const
+{
+    u64_Compositor_FrameTiming_090 ret;
+    ret.size = this->size;
+    ret.frameStart = this->frameStart;
+    ret.frameVSync = this->frameVSync;
+    ret.droppedFrames = this->droppedFrames;
+    ret.frameIndex = this->frameIndex;
+    ret.pose = this->pose;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_Compositor_FrameTiming_090::operator w32_Compositor_FrameTiming_090() const
 {
     w32_Compositor_FrameTiming_090 ret;
     ret.size = this->size;
@@ -9672,6 +10538,28 @@ C_ASSERT( sizeof(u32_D3D12TextureData_t().m_pCommandQueue) >= 4 );
 C_ASSERT( offsetof(u32_D3D12TextureData_t, m_nNodeMask) == 8 );
 C_ASSERT( sizeof(u32_D3D12TextureData_t().m_nNodeMask) >= 4 );
 
+#ifdef __x86_64__
+w32_D3D12TextureData_t::operator u64_D3D12TextureData_t() const
+{
+    u64_D3D12TextureData_t ret;
+    ret.m_pResource = this->m_pResource;
+    ret.m_pCommandQueue = this->m_pCommandQueue;
+    ret.m_nNodeMask = this->m_nNodeMask;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_D3D12TextureData_t::operator w32_D3D12TextureData_t() const
+{
+    w32_D3D12TextureData_t ret;
+    ret.m_pResource = this->m_pResource;
+    ret.m_pCommandQueue = this->m_pCommandQueue;
+    ret.m_nNodeMask = this->m_nNodeMask;
+    return ret;
+}
+#endif
+
 C_ASSERT( sizeof(w64_HiddenAreaMesh_t) >= 16 );
 C_ASSERT( offsetof(w64_HiddenAreaMesh_t, pVertexData) == 0 );
 C_ASSERT( sizeof(w64_HiddenAreaMesh_t().pVertexData) >= 8 );
@@ -9695,6 +10583,26 @@ C_ASSERT( offsetof(u32_HiddenAreaMesh_t, pVertexData) == 0 );
 C_ASSERT( sizeof(u32_HiddenAreaMesh_t().pVertexData) >= 4 );
 C_ASSERT( offsetof(u32_HiddenAreaMesh_t, unTriangleCount) == 4 );
 C_ASSERT( sizeof(u32_HiddenAreaMesh_t().unTriangleCount) >= 4 );
+
+#ifdef __x86_64__
+w32_HiddenAreaMesh_t::operator u64_HiddenAreaMesh_t() const
+{
+    u64_HiddenAreaMesh_t ret;
+    ret.pVertexData = this->pVertexData;
+    ret.unTriangleCount = this->unTriangleCount;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_HiddenAreaMesh_t::operator w32_HiddenAreaMesh_t() const
+{
+    w32_HiddenAreaMesh_t ret;
+    ret.pVertexData = this->pVertexData;
+    ret.unTriangleCount = this->unTriangleCount;
+    return ret;
+}
+#endif
 
 C_ASSERT( sizeof(w64_InputAnalogActionData_t) >= 48 );
 C_ASSERT( offsetof(w64_InputAnalogActionData_t, bActive) == 0 );
@@ -9791,8 +10699,44 @@ w32_InputAnalogActionData_t::operator u32_InputAnalogActionData_t() const
     ret.fUpdateTime = this->fUpdateTime;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_InputAnalogActionData_t::operator w32_InputAnalogActionData_t() const
+{
+    w32_InputAnalogActionData_t ret;
+    ret.bActive = this->bActive;
+    ret.activeOrigin = this->activeOrigin;
+    ret.x = this->x;
+    ret.y = this->y;
+    ret.z = this->z;
+    ret.deltaX = this->deltaX;
+    ret.deltaY = this->deltaY;
+    ret.deltaZ = this->deltaZ;
+    ret.fUpdateTime = this->fUpdateTime;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_InputAnalogActionData_t::operator u64_InputAnalogActionData_t() const
+{
+    u64_InputAnalogActionData_t ret;
+    ret.bActive = this->bActive;
+    ret.activeOrigin = this->activeOrigin;
+    ret.x = this->x;
+    ret.y = this->y;
+    ret.z = this->z;
+    ret.deltaX = this->deltaX;
+    ret.deltaY = this->deltaY;
+    ret.deltaZ = this->deltaZ;
+    ret.fUpdateTime = this->fUpdateTime;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_InputAnalogActionData_t::operator w32_InputAnalogActionData_t() const
 {
     w32_InputAnalogActionData_t ret;
     ret.bActive = this->bActive;
@@ -9867,8 +10811,36 @@ w32_InputDigitalActionData_t::operator u32_InputDigitalActionData_t() const
     ret.fUpdateTime = this->fUpdateTime;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_InputDigitalActionData_t::operator w32_InputDigitalActionData_t() const
+{
+    w32_InputDigitalActionData_t ret;
+    ret.bActive = this->bActive;
+    ret.activeOrigin = this->activeOrigin;
+    ret.bState = this->bState;
+    ret.bChanged = this->bChanged;
+    ret.fUpdateTime = this->fUpdateTime;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_InputDigitalActionData_t::operator u64_InputDigitalActionData_t() const
+{
+    u64_InputDigitalActionData_t ret;
+    ret.bActive = this->bActive;
+    ret.activeOrigin = this->activeOrigin;
+    ret.bState = this->bState;
+    ret.bChanged = this->bChanged;
+    ret.fUpdateTime = this->fUpdateTime;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_InputDigitalActionData_t::operator w32_InputDigitalActionData_t() const
 {
     w32_InputDigitalActionData_t ret;
     ret.bActive = this->bActive;
@@ -9921,8 +10893,32 @@ w32_InputOriginInfo_t::operator u32_InputOriginInfo_t() const
     ret.rchRenderModelComponentName = this->rchRenderModelComponentName;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_InputOriginInfo_t::operator w32_InputOriginInfo_t() const
+{
+    w32_InputOriginInfo_t ret;
+    ret.devicePath = this->devicePath;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.rchRenderModelComponentName = this->rchRenderModelComponentName;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_InputOriginInfo_t::operator u64_InputOriginInfo_t() const
+{
+    u64_InputOriginInfo_t ret;
+    ret.devicePath = this->devicePath;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.rchRenderModelComponentName = this->rchRenderModelComponentName;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_InputOriginInfo_t::operator w32_InputOriginInfo_t() const
 {
     w32_InputOriginInfo_t ret;
     ret.devicePath = this->devicePath;
@@ -9973,8 +10969,32 @@ w32_InputPoseActionData_t::operator u32_InputPoseActionData_t() const
     ret.pose = this->pose;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_InputPoseActionData_t::operator w32_InputPoseActionData_t() const
+{
+    w32_InputPoseActionData_t ret;
+    ret.bActive = this->bActive;
+    ret.activeOrigin = this->activeOrigin;
+    ret.pose = this->pose;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_InputPoseActionData_t::operator u64_InputPoseActionData_t() const
+{
+    u64_InputPoseActionData_t ret;
+    ret.bActive = this->bActive;
+    ret.activeOrigin = this->activeOrigin;
+    ret.pose = this->pose;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_InputPoseActionData_t::operator w32_InputPoseActionData_t() const
 {
     w32_InputPoseActionData_t ret;
     ret.bActive = this->bActive;
@@ -10048,8 +11068,30 @@ w32_InputSkeletalActionData_t_113b::operator u32_InputSkeletalActionData_t_113b(
     ret.activeOrigin = this->activeOrigin;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_InputSkeletalActionData_t_113b::operator w32_InputSkeletalActionData_t_113b() const
+{
+    w32_InputSkeletalActionData_t_113b ret;
+    ret.bActive = this->bActive;
+    ret.activeOrigin = this->activeOrigin;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_InputSkeletalActionData_t_113b::operator u64_InputSkeletalActionData_t_113b() const
+{
+    u64_InputSkeletalActionData_t_113b ret;
+    ret.bActive = this->bActive;
+    ret.activeOrigin = this->activeOrigin;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_InputSkeletalActionData_t_113b::operator w32_InputSkeletalActionData_t_113b() const
 {
     w32_InputSkeletalActionData_t_113b ret;
     ret.bActive = this->bActive;
@@ -10067,8 +11109,32 @@ w32_InputSkeletalActionData_t_1016::operator u32_InputSkeletalActionData_t_1016(
     ret.boneCount = this->boneCount;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_InputSkeletalActionData_t_1016::operator w32_InputSkeletalActionData_t_1016() const
+{
+    w32_InputSkeletalActionData_t_1016 ret;
+    ret.bActive = this->bActive;
+    ret.activeOrigin = this->activeOrigin;
+    ret.boneCount = this->boneCount;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_InputSkeletalActionData_t_1016::operator u64_InputSkeletalActionData_t_1016() const
+{
+    u64_InputSkeletalActionData_t_1016 ret;
+    ret.bActive = this->bActive;
+    ret.activeOrigin = this->activeOrigin;
+    ret.boneCount = this->boneCount;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_InputSkeletalActionData_t_1016::operator w32_InputSkeletalActionData_t_1016() const
 {
     w32_InputSkeletalActionData_t_1016 ret;
     ret.bActive = this->bActive;
@@ -10110,8 +11176,30 @@ w32_InputSkeletonActionData_t::operator u32_InputSkeletonActionData_t() const
     ret.activeOrigin = this->activeOrigin;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_InputSkeletonActionData_t::operator w32_InputSkeletonActionData_t() const
+{
+    w32_InputSkeletonActionData_t ret;
+    ret.bActive = this->bActive;
+    ret.activeOrigin = this->activeOrigin;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_InputSkeletonActionData_t::operator u64_InputSkeletonActionData_t() const
+{
+    u64_InputSkeletonActionData_t ret;
+    ret.bActive = this->bActive;
+    ret.activeOrigin = this->activeOrigin;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_InputSkeletonActionData_t::operator w32_InputSkeletonActionData_t() const
 {
     w32_InputSkeletonActionData_t ret;
     ret.bActive = this->bActive;
@@ -10160,6 +11248,30 @@ C_ASSERT( sizeof(u32_NotificationBitmap().height) >= 4 );
 C_ASSERT( offsetof(u32_NotificationBitmap, depth) == 12 );
 C_ASSERT( sizeof(u32_NotificationBitmap().depth) >= 4 );
 
+#ifdef __x86_64__
+w32_NotificationBitmap::operator u64_NotificationBitmap() const
+{
+    u64_NotificationBitmap ret;
+    ret.bytes = this->bytes;
+    ret.width = this->width;
+    ret.height = this->height;
+    ret.depth = this->depth;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_NotificationBitmap::operator w32_NotificationBitmap() const
+{
+    w32_NotificationBitmap ret;
+    ret.bytes = this->bytes;
+    ret.width = this->width;
+    ret.height = this->height;
+    ret.depth = this->depth;
+    return ret;
+}
+#endif
+
 C_ASSERT( sizeof(w64_NotificationBitmap_t) >= 24 );
 C_ASSERT( offsetof(w64_NotificationBitmap_t, m_pImageData) == 0 );
 C_ASSERT( sizeof(w64_NotificationBitmap_t().m_pImageData) >= 8 );
@@ -10199,6 +11311,30 @@ C_ASSERT( offsetof(u32_NotificationBitmap_t, m_nHeight) == 8 );
 C_ASSERT( sizeof(u32_NotificationBitmap_t().m_nHeight) >= 4 );
 C_ASSERT( offsetof(u32_NotificationBitmap_t, m_nBytesPerPixel) == 12 );
 C_ASSERT( sizeof(u32_NotificationBitmap_t().m_nBytesPerPixel) >= 4 );
+
+#ifdef __x86_64__
+w32_NotificationBitmap_t::operator u64_NotificationBitmap_t() const
+{
+    u64_NotificationBitmap_t ret;
+    ret.m_pImageData = this->m_pImageData;
+    ret.m_nWidth = this->m_nWidth;
+    ret.m_nHeight = this->m_nHeight;
+    ret.m_nBytesPerPixel = this->m_nBytesPerPixel;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_NotificationBitmap_t::operator w32_NotificationBitmap_t() const
+{
+    w32_NotificationBitmap_t ret;
+    ret.m_pImageData = this->m_pImageData;
+    ret.m_nWidth = this->m_nWidth;
+    ret.m_nHeight = this->m_nHeight;
+    ret.m_nBytesPerPixel = this->m_nBytesPerPixel;
+    return ret;
+}
+#endif
 
 C_ASSERT( sizeof(w64_RenderModel_t_0912) >= 32 );
 C_ASSERT( offsetof(w64_RenderModel_t_0912, rVertexData) == 0 );
@@ -10315,10 +11451,38 @@ w64_RenderModel_t_0912::operator u64_RenderModel_t_0912() const
     ret.diffuseTextureId = this->diffuseTextureId;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_RenderModel_t_0912::operator w64_RenderModel_t_0912() const
 {
     w64_RenderModel_t_0912 ret;
+    ret.rVertexData = this->rVertexData;
+    ret.unVertexCount = this->unVertexCount;
+    ret.rIndexData = this->rIndexData;
+    ret.unTriangleCount = this->unTriangleCount;
+    ret.diffuseTextureId = this->diffuseTextureId;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_RenderModel_t_0912::operator u64_RenderModel_t_0912() const
+{
+    u64_RenderModel_t_0912 ret;
+    ret.rVertexData = this->rVertexData;
+    ret.unVertexCount = this->unVertexCount;
+    ret.rIndexData = this->rIndexData;
+    ret.unTriangleCount = this->unTriangleCount;
+    ret.diffuseTextureId = this->diffuseTextureId;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_RenderModel_t_0912::operator w32_RenderModel_t_0912() const
+{
+    w32_RenderModel_t_0912 ret;
     ret.rVertexData = this->rVertexData;
     ret.unVertexCount = this->unVertexCount;
     ret.rIndexData = this->rIndexData;
@@ -10340,10 +11504,40 @@ w64_RenderModel_t_090::operator u64_RenderModel_t_090() const
     ret.diffuseTexture = this->diffuseTexture;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_RenderModel_t_090::operator w64_RenderModel_t_090() const
 {
     w64_RenderModel_t_090 ret;
+    ret.ulInternalHandle = this->ulInternalHandle;
+    ret.rVertexData = this->rVertexData;
+    ret.unVertexCount = this->unVertexCount;
+    ret.rIndexData = this->rIndexData;
+    ret.unTriangleCount = this->unTriangleCount;
+    ret.diffuseTexture = this->diffuseTexture;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_RenderModel_t_090::operator u64_RenderModel_t_090() const
+{
+    u64_RenderModel_t_090 ret;
+    ret.ulInternalHandle = this->ulInternalHandle;
+    ret.rVertexData = this->rVertexData;
+    ret.unVertexCount = this->unVertexCount;
+    ret.rIndexData = this->rIndexData;
+    ret.unTriangleCount = this->unTriangleCount;
+    ret.diffuseTexture = this->diffuseTexture;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_RenderModel_t_090::operator w32_RenderModel_t_090() const
+{
+    w32_RenderModel_t_090 ret;
     ret.ulInternalHandle = this->ulInternalHandle;
     ret.rVertexData = this->rVertexData;
     ret.unVertexCount = this->unVertexCount;
@@ -10404,7 +11598,9 @@ w64_VRControllerState001_t::operator u64_VRControllerState001_t() const
     ret.rAxis = this->rAxis;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VRControllerState001_t::operator w64_VRControllerState001_t() const
 {
     w64_VRControllerState001_t ret;
@@ -10426,8 +11622,34 @@ w32_VRControllerState001_t::operator u32_VRControllerState001_t() const
     ret.rAxis = this->rAxis;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VRControllerState001_t::operator w32_VRControllerState001_t() const
+{
+    w32_VRControllerState001_t ret;
+    ret.unPacketNum = this->unPacketNum;
+    ret.ulButtonPressed = this->ulButtonPressed;
+    ret.ulButtonTouched = this->ulButtonTouched;
+    ret.rAxis = this->rAxis;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VRControllerState001_t::operator u64_VRControllerState001_t() const
+{
+    u64_VRControllerState001_t ret;
+    ret.unPacketNum = this->unPacketNum;
+    ret.ulButtonPressed = this->ulButtonPressed;
+    ret.ulButtonTouched = this->ulButtonTouched;
+    ret.rAxis = this->rAxis;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VRControllerState001_t::operator w32_VRControllerState001_t() const
 {
     w32_VRControllerState001_t ret;
     ret.unPacketNum = this->unPacketNum;
@@ -11528,7 +12750,9 @@ w64_VREvent_t_223::operator u64_VREvent_t_223() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_223::operator w64_VREvent_t_223() const
 {
     w64_VREvent_t_223 ret;
@@ -11550,8 +12774,34 @@ w32_VREvent_t_223::operator u32_VREvent_t_223() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_223::operator w32_VREvent_t_223() const
+{
+    w32_VREvent_t_223 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_223::operator u64_VREvent_t_223() const
+{
+    u64_VREvent_t_223 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_223::operator w32_VREvent_t_223() const
 {
     w32_VREvent_t_223 ret;
     ret.eventType = this->eventType;
@@ -11572,7 +12822,9 @@ w64_VREvent_t_2010::operator u64_VREvent_t_2010() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_2010::operator w64_VREvent_t_2010() const
 {
     w64_VREvent_t_2010 ret;
@@ -11594,8 +12846,34 @@ w32_VREvent_t_2010::operator u32_VREvent_t_2010() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_2010::operator w32_VREvent_t_2010() const
+{
+    w32_VREvent_t_2010 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_2010::operator u64_VREvent_t_2010() const
+{
+    u64_VREvent_t_2010 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_2010::operator w32_VREvent_t_2010() const
 {
     w32_VREvent_t_2010 ret;
     ret.eventType = this->eventType;
@@ -11616,7 +12894,9 @@ w64_VREvent_t_1168::operator u64_VREvent_t_1168() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_1168::operator w64_VREvent_t_1168() const
 {
     w64_VREvent_t_1168 ret;
@@ -11638,8 +12918,34 @@ w32_VREvent_t_1168::operator u32_VREvent_t_1168() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_1168::operator w32_VREvent_t_1168() const
+{
+    w32_VREvent_t_1168 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_1168::operator u64_VREvent_t_1168() const
+{
+    u64_VREvent_t_1168 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_1168::operator w32_VREvent_t_1168() const
 {
     w32_VREvent_t_1168 ret;
     ret.eventType = this->eventType;
@@ -11660,7 +12966,9 @@ w64_VREvent_t_11030::operator u64_VREvent_t_11030() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_11030::operator w64_VREvent_t_11030() const
 {
     w64_VREvent_t_11030 ret;
@@ -11682,8 +12990,34 @@ w32_VREvent_t_11030::operator u32_VREvent_t_11030() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_11030::operator w32_VREvent_t_11030() const
+{
+    w32_VREvent_t_11030 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_11030::operator u64_VREvent_t_11030() const
+{
+    u64_VREvent_t_11030 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_11030::operator w32_VREvent_t_11030() const
 {
     w32_VREvent_t_11030 ret;
     ret.eventType = this->eventType;
@@ -11704,7 +13038,9 @@ w64_VREvent_t_1322::operator u64_VREvent_t_1322() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_1322::operator w64_VREvent_t_1322() const
 {
     w64_VREvent_t_1322 ret;
@@ -11726,8 +13062,34 @@ w32_VREvent_t_1322::operator u32_VREvent_t_1322() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_1322::operator w32_VREvent_t_1322() const
+{
+    w32_VREvent_t_1322 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_1322::operator u64_VREvent_t_1322() const
+{
+    u64_VREvent_t_1322 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_1322::operator w32_VREvent_t_1322() const
 {
     w32_VREvent_t_1322 ret;
     ret.eventType = this->eventType;
@@ -11748,7 +13110,9 @@ w64_VREvent_t_1210::operator u64_VREvent_t_1210() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_1210::operator w64_VREvent_t_1210() const
 {
     w64_VREvent_t_1210 ret;
@@ -11770,8 +13134,34 @@ w32_VREvent_t_1210::operator u32_VREvent_t_1210() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_1210::operator w32_VREvent_t_1210() const
+{
+    w32_VREvent_t_1210 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_1210::operator u64_VREvent_t_1210() const
+{
+    u64_VREvent_t_1210 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_1210::operator w32_VREvent_t_1210() const
 {
     w32_VREvent_t_1210 ret;
     ret.eventType = this->eventType;
@@ -11792,7 +13182,9 @@ w64_VREvent_t_113b::operator u64_VREvent_t_113b() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_113b::operator w64_VREvent_t_113b() const
 {
     w64_VREvent_t_113b ret;
@@ -11814,8 +13206,34 @@ w32_VREvent_t_113b::operator u32_VREvent_t_113b() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_113b::operator w32_VREvent_t_113b() const
+{
+    w32_VREvent_t_113b ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_113b::operator u64_VREvent_t_113b() const
+{
+    u64_VREvent_t_113b ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_113b::operator w32_VREvent_t_113b() const
 {
     w32_VREvent_t_113b ret;
     ret.eventType = this->eventType;
@@ -11836,7 +13254,9 @@ w64_VREvent_t_1016::operator u64_VREvent_t_1016() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_1016::operator w64_VREvent_t_1016() const
 {
     w64_VREvent_t_1016 ret;
@@ -11858,8 +13278,34 @@ w32_VREvent_t_1016::operator u32_VREvent_t_1016() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_1016::operator w32_VREvent_t_1016() const
+{
+    w32_VREvent_t_1016 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_1016::operator u64_VREvent_t_1016() const
+{
+    u64_VREvent_t_1016 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_1016::operator w32_VREvent_t_1016() const
 {
     w32_VREvent_t_1016 ret;
     ret.eventType = this->eventType;
@@ -11880,7 +13326,9 @@ w64_VREvent_t_1015::operator u64_VREvent_t_1015() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_1015::operator w64_VREvent_t_1015() const
 {
     w64_VREvent_t_1015 ret;
@@ -11902,8 +13350,34 @@ w32_VREvent_t_1015::operator u32_VREvent_t_1015() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_1015::operator w32_VREvent_t_1015() const
+{
+    w32_VREvent_t_1015 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_1015::operator u64_VREvent_t_1015() const
+{
+    u64_VREvent_t_1015 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_1015::operator w32_VREvent_t_1015() const
 {
     w32_VREvent_t_1015 ret;
     ret.eventType = this->eventType;
@@ -11924,7 +13398,9 @@ w64_VREvent_t_1014::operator u64_VREvent_t_1014() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_1014::operator w64_VREvent_t_1014() const
 {
     w64_VREvent_t_1014 ret;
@@ -11946,8 +13422,34 @@ w32_VREvent_t_1014::operator u32_VREvent_t_1014() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_1014::operator w32_VREvent_t_1014() const
+{
+    w32_VREvent_t_1014 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_1014::operator u64_VREvent_t_1014() const
+{
+    u64_VREvent_t_1014 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_1014::operator w32_VREvent_t_1014() const
 {
     w32_VREvent_t_1014 ret;
     ret.eventType = this->eventType;
@@ -11968,7 +13470,9 @@ w64_VREvent_t_1013::operator u64_VREvent_t_1013() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_1013::operator w64_VREvent_t_1013() const
 {
     w64_VREvent_t_1013 ret;
@@ -11990,8 +13494,34 @@ w32_VREvent_t_1013::operator u32_VREvent_t_1013() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_1013::operator w32_VREvent_t_1013() const
+{
+    w32_VREvent_t_1013 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_1013::operator u64_VREvent_t_1013() const
+{
+    u64_VREvent_t_1013 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_1013::operator w32_VREvent_t_1013() const
 {
     w32_VREvent_t_1013 ret;
     ret.eventType = this->eventType;
@@ -12012,7 +13542,9 @@ w64_VREvent_t_1012::operator u64_VREvent_t_1012() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_1012::operator w64_VREvent_t_1012() const
 {
     w64_VREvent_t_1012 ret;
@@ -12034,8 +13566,34 @@ w32_VREvent_t_1012::operator u32_VREvent_t_1012() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_1012::operator w32_VREvent_t_1012() const
+{
+    w32_VREvent_t_1012 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_1012::operator u64_VREvent_t_1012() const
+{
+    u64_VREvent_t_1012 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_1012::operator w32_VREvent_t_1012() const
 {
     w32_VREvent_t_1012 ret;
     ret.eventType = this->eventType;
@@ -12056,7 +13614,9 @@ w64_VREvent_t_1011::operator u64_VREvent_t_1011() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_1011::operator w64_VREvent_t_1011() const
 {
     w64_VREvent_t_1011 ret;
@@ -12078,8 +13638,34 @@ w32_VREvent_t_1011::operator u32_VREvent_t_1011() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_1011::operator w32_VREvent_t_1011() const
+{
+    w32_VREvent_t_1011 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_1011::operator u64_VREvent_t_1011() const
+{
+    u64_VREvent_t_1011 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_1011::operator w32_VREvent_t_1011() const
 {
     w32_VREvent_t_1011 ret;
     ret.eventType = this->eventType;
@@ -12100,7 +13686,9 @@ w64_VREvent_t_106::operator u64_VREvent_t_106() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_106::operator w64_VREvent_t_106() const
 {
     w64_VREvent_t_106 ret;
@@ -12122,8 +13710,34 @@ w32_VREvent_t_106::operator u32_VREvent_t_106() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_106::operator w32_VREvent_t_106() const
+{
+    w32_VREvent_t_106 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_106::operator u64_VREvent_t_106() const
+{
+    u64_VREvent_t_106 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_106::operator w32_VREvent_t_106() const
 {
     w32_VREvent_t_106 ret;
     ret.eventType = this->eventType;
@@ -12144,7 +13758,9 @@ w64_VREvent_t_105::operator u64_VREvent_t_105() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_105::operator w64_VREvent_t_105() const
 {
     w64_VREvent_t_105 ret;
@@ -12166,8 +13782,34 @@ w32_VREvent_t_105::operator u32_VREvent_t_105() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_105::operator w32_VREvent_t_105() const
+{
+    w32_VREvent_t_105 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_105::operator u64_VREvent_t_105() const
+{
+    u64_VREvent_t_105 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_105::operator w32_VREvent_t_105() const
 {
     w32_VREvent_t_105 ret;
     ret.eventType = this->eventType;
@@ -12188,7 +13830,9 @@ w64_VREvent_t_103::operator u64_VREvent_t_103() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_103::operator w64_VREvent_t_103() const
 {
     w64_VREvent_t_103 ret;
@@ -12210,8 +13854,34 @@ w32_VREvent_t_103::operator u32_VREvent_t_103() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_103::operator w32_VREvent_t_103() const
+{
+    w32_VREvent_t_103 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_103::operator u64_VREvent_t_103() const
+{
+    u64_VREvent_t_103 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_103::operator w32_VREvent_t_103() const
 {
     w32_VREvent_t_103 ret;
     ret.eventType = this->eventType;
@@ -12232,7 +13902,9 @@ w64_VREvent_t_102::operator u64_VREvent_t_102() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_102::operator w64_VREvent_t_102() const
 {
     w64_VREvent_t_102 ret;
@@ -12254,8 +13926,34 @@ w32_VREvent_t_102::operator u32_VREvent_t_102() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_102::operator w32_VREvent_t_102() const
+{
+    w32_VREvent_t_102 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_102::operator u64_VREvent_t_102() const
+{
+    u64_VREvent_t_102 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_102::operator w32_VREvent_t_102() const
 {
     w32_VREvent_t_102 ret;
     ret.eventType = this->eventType;
@@ -12276,7 +13974,9 @@ w64_VREvent_t_101::operator u64_VREvent_t_101() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_101::operator w64_VREvent_t_101() const
 {
     w64_VREvent_t_101 ret;
@@ -12298,8 +13998,34 @@ w32_VREvent_t_101::operator u32_VREvent_t_101() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_101::operator w32_VREvent_t_101() const
+{
+    w32_VREvent_t_101 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_101::operator u64_VREvent_t_101() const
+{
+    u64_VREvent_t_101 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_101::operator w32_VREvent_t_101() const
 {
     w32_VREvent_t_101 ret;
     ret.eventType = this->eventType;
@@ -12320,7 +14046,9 @@ w64_VREvent_t_0918::operator u64_VREvent_t_0918() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_0918::operator w64_VREvent_t_0918() const
 {
     w64_VREvent_t_0918 ret;
@@ -12342,8 +14070,34 @@ w32_VREvent_t_0918::operator u32_VREvent_t_0918() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_0918::operator w32_VREvent_t_0918() const
+{
+    w32_VREvent_t_0918 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_0918::operator u64_VREvent_t_0918() const
+{
+    u64_VREvent_t_0918 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_0918::operator w32_VREvent_t_0918() const
 {
     w32_VREvent_t_0918 ret;
     ret.eventType = this->eventType;
@@ -12364,7 +14118,9 @@ w64_VREvent_t_0915::operator u64_VREvent_t_0915() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_0915::operator w64_VREvent_t_0915() const
 {
     w64_VREvent_t_0915 ret;
@@ -12386,8 +14142,34 @@ w32_VREvent_t_0915::operator u32_VREvent_t_0915() const
     ret.data = this->data;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_0915::operator w32_VREvent_t_0915() const
+{
+    w32_VREvent_t_0915 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_0915::operator u64_VREvent_t_0915() const
+{
+    u64_VREvent_t_0915 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    ret.data = this->data;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_0915::operator w32_VREvent_t_0915() const
 {
     w32_VREvent_t_0915 ret;
     ret.eventType = this->eventType;
@@ -12408,7 +14190,9 @@ w64_VREvent_t_0914::operator u64_VREvent_t_0914() const
     ret.eventAgeSeconds = this->eventAgeSeconds;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_0914::operator w64_VREvent_t_0914() const
 {
     w64_VREvent_t_0914 ret;
@@ -12430,8 +14214,34 @@ w32_VREvent_t_0914::operator u32_VREvent_t_0914() const
     ret.eventAgeSeconds = this->eventAgeSeconds;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_0914::operator w32_VREvent_t_0914() const
+{
+    w32_VREvent_t_0914 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.data = this->data;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_0914::operator u64_VREvent_t_0914() const
+{
+    u64_VREvent_t_0914 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.data = this->data;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_0914::operator w32_VREvent_t_0914() const
 {
     w32_VREvent_t_0914 ret;
     ret.eventType = this->eventType;
@@ -12452,7 +14262,9 @@ w64_VREvent_t_0912::operator u64_VREvent_t_0912() const
     ret.eventAgeSeconds = this->eventAgeSeconds;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_0912::operator w64_VREvent_t_0912() const
 {
     w64_VREvent_t_0912 ret;
@@ -12474,8 +14286,34 @@ w32_VREvent_t_0912::operator u32_VREvent_t_0912() const
     ret.eventAgeSeconds = this->eventAgeSeconds;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_0912::operator w32_VREvent_t_0912() const
+{
+    w32_VREvent_t_0912 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.data = this->data;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_0912::operator u64_VREvent_t_0912() const
+{
+    u64_VREvent_t_0912 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.data = this->data;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_0912::operator w32_VREvent_t_0912() const
 {
     w32_VREvent_t_0912 ret;
     ret.eventType = this->eventType;
@@ -12496,7 +14334,9 @@ w64_VREvent_t_0910::operator u64_VREvent_t_0910() const
     ret.eventAgeSeconds = this->eventAgeSeconds;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_0910::operator w64_VREvent_t_0910() const
 {
     w64_VREvent_t_0910 ret;
@@ -12518,8 +14358,34 @@ w32_VREvent_t_0910::operator u32_VREvent_t_0910() const
     ret.eventAgeSeconds = this->eventAgeSeconds;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_0910::operator w32_VREvent_t_0910() const
+{
+    w32_VREvent_t_0910 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.data = this->data;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_0910::operator u64_VREvent_t_0910() const
+{
+    u64_VREvent_t_0910 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.data = this->data;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_0910::operator w32_VREvent_t_0910() const
 {
     w32_VREvent_t_0910 ret;
     ret.eventType = this->eventType;
@@ -12540,7 +14406,9 @@ w64_VREvent_t_097::operator u64_VREvent_t_097() const
     ret.eventAgeSeconds = this->eventAgeSeconds;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_097::operator w64_VREvent_t_097() const
 {
     w64_VREvent_t_097 ret;
@@ -12562,8 +14430,34 @@ w32_VREvent_t_097::operator u32_VREvent_t_097() const
     ret.eventAgeSeconds = this->eventAgeSeconds;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_097::operator w32_VREvent_t_097() const
+{
+    w32_VREvent_t_097 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.data = this->data;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_097::operator u64_VREvent_t_097() const
+{
+    u64_VREvent_t_097 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.data = this->data;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_097::operator w32_VREvent_t_097() const
 {
     w32_VREvent_t_097 ret;
     ret.eventType = this->eventType;
@@ -12584,7 +14478,9 @@ w64_VREvent_t_093::operator u64_VREvent_t_093() const
     ret.eventAgeSeconds = this->eventAgeSeconds;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_093::operator w64_VREvent_t_093() const
 {
     w64_VREvent_t_093 ret;
@@ -12606,8 +14502,34 @@ w32_VREvent_t_093::operator u32_VREvent_t_093() const
     ret.eventAgeSeconds = this->eventAgeSeconds;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_093::operator w32_VREvent_t_093() const
+{
+    w32_VREvent_t_093 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.data = this->data;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_093::operator u64_VREvent_t_093() const
+{
+    u64_VREvent_t_093 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.data = this->data;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_093::operator w32_VREvent_t_093() const
 {
     w32_VREvent_t_093 ret;
     ret.eventType = this->eventType;
@@ -12628,7 +14550,9 @@ w64_VREvent_t_092::operator u64_VREvent_t_092() const
     ret.eventAgeSeconds = this->eventAgeSeconds;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_092::operator w64_VREvent_t_092() const
 {
     w64_VREvent_t_092 ret;
@@ -12650,8 +14574,34 @@ w32_VREvent_t_092::operator u32_VREvent_t_092() const
     ret.eventAgeSeconds = this->eventAgeSeconds;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_092::operator w32_VREvent_t_092() const
+{
+    w32_VREvent_t_092 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.data = this->data;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_092::operator u64_VREvent_t_092() const
+{
+    u64_VREvent_t_092 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.data = this->data;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_092::operator w32_VREvent_t_092() const
 {
     w32_VREvent_t_092 ret;
     ret.eventType = this->eventType;
@@ -12672,7 +14622,9 @@ w64_VREvent_t_090::operator u64_VREvent_t_090() const
     ret.eventAgeSeconds = this->eventAgeSeconds;
     return ret;
 }
+#endif
 
+#ifdef __x86_64__
 u64_VREvent_t_090::operator w64_VREvent_t_090() const
 {
     w64_VREvent_t_090 ret;
@@ -12694,8 +14646,34 @@ w32_VREvent_t_090::operator u32_VREvent_t_090() const
     ret.eventAgeSeconds = this->eventAgeSeconds;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VREvent_t_090::operator w32_VREvent_t_090() const
+{
+    w32_VREvent_t_090 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.data = this->data;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VREvent_t_090::operator u64_VREvent_t_090() const
+{
+    u64_VREvent_t_090 ret;
+    ret.eventType = this->eventType;
+    ret.trackedDeviceIndex = this->trackedDeviceIndex;
+    ret.data = this->data;
+    ret.eventAgeSeconds = this->eventAgeSeconds;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VREvent_t_090::operator w32_VREvent_t_090() const
 {
     w32_VREvent_t_090 ret;
     ret.eventType = this->eventType;
@@ -12729,6 +14707,26 @@ C_ASSERT( offsetof(u32_VRNativeDevice_t, handle) == 0 );
 C_ASSERT( sizeof(u32_VRNativeDevice_t().handle) >= 4 );
 C_ASSERT( offsetof(u32_VRNativeDevice_t, eType) == 4 );
 C_ASSERT( sizeof(u32_VRNativeDevice_t().eType) >= 4 );
+
+#ifdef __x86_64__
+w32_VRNativeDevice_t::operator u64_VRNativeDevice_t() const
+{
+    u64_VRNativeDevice_t ret;
+    ret.handle = this->handle;
+    ret.eType = this->eType;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VRNativeDevice_t::operator w32_VRNativeDevice_t() const
+{
+    w32_VRNativeDevice_t ret;
+    ret.handle = this->handle;
+    ret.eType = this->eType;
+    return ret;
+}
+#endif
 
 C_ASSERT( sizeof(w64_VROverlayView_t) >= 40 );
 C_ASSERT( offsetof(w64_VROverlayView_t, overlayHandle) == 0 );
@@ -12771,8 +14769,32 @@ w32_VROverlayView_t::operator u32_VROverlayView_t() const
     ret.textureBounds = this->textureBounds;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VROverlayView_t::operator w32_VROverlayView_t() const
+{
+    w32_VROverlayView_t ret;
+    ret.overlayHandle = this->overlayHandle;
+    ret.texture = this->texture;
+    ret.textureBounds = this->textureBounds;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VROverlayView_t::operator u64_VROverlayView_t() const
+{
+    u64_VROverlayView_t ret;
+    ret.overlayHandle = this->overlayHandle;
+    ret.texture = this->texture;
+    ret.textureBounds = this->textureBounds;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VROverlayView_t::operator w32_VROverlayView_t() const
 {
     w32_VROverlayView_t ret;
     ret.overlayHandle = this->overlayHandle;
@@ -12822,6 +14844,30 @@ C_ASSERT( sizeof(u32_VRTextureWithDepth_t().eColorSpace) >= 4 );
 C_ASSERT( offsetof(u32_VRTextureWithDepth_t, depth) == 12 );
 C_ASSERT( sizeof(u32_VRTextureWithDepth_t().depth) >= 76 );
 
+#ifdef __x86_64__
+w32_VRTextureWithDepth_t::operator u64_VRTextureWithDepth_t() const
+{
+    u64_VRTextureWithDepth_t ret;
+    ret.handle = this->handle;
+    ret.eType = this->eType;
+    ret.eColorSpace = this->eColorSpace;
+    ret.depth = this->depth;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VRTextureWithDepth_t::operator w32_VRTextureWithDepth_t() const
+{
+    w32_VRTextureWithDepth_t ret;
+    ret.handle = this->handle;
+    ret.eType = this->eType;
+    ret.eColorSpace = this->eColorSpace;
+    ret.depth = this->depth;
+    return ret;
+}
+#endif
+
 C_ASSERT( sizeof(w64_VRTextureWithPoseAndDepth_t) >= 144 );
 C_ASSERT( offsetof(w64_VRTextureWithPoseAndDepth_t, handle) == 0 );
 C_ASSERT( sizeof(w64_VRTextureWithPoseAndDepth_t().handle) >= 8 );
@@ -12870,6 +14916,32 @@ C_ASSERT( sizeof(u32_VRTextureWithPoseAndDepth_t().mDeviceToAbsoluteTracking) >=
 C_ASSERT( offsetof(u32_VRTextureWithPoseAndDepth_t, depth) == 60 );
 C_ASSERT( sizeof(u32_VRTextureWithPoseAndDepth_t().depth) >= 76 );
 
+#ifdef __x86_64__
+w32_VRTextureWithPoseAndDepth_t::operator u64_VRTextureWithPoseAndDepth_t() const
+{
+    u64_VRTextureWithPoseAndDepth_t ret;
+    ret.handle = this->handle;
+    ret.eType = this->eType;
+    ret.eColorSpace = this->eColorSpace;
+    ret.mDeviceToAbsoluteTracking = this->mDeviceToAbsoluteTracking;
+    ret.depth = this->depth;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VRTextureWithPoseAndDepth_t::operator w32_VRTextureWithPoseAndDepth_t() const
+{
+    w32_VRTextureWithPoseAndDepth_t ret;
+    ret.handle = this->handle;
+    ret.eType = this->eType;
+    ret.eColorSpace = this->eColorSpace;
+    ret.mDeviceToAbsoluteTracking = this->mDeviceToAbsoluteTracking;
+    ret.depth = this->depth;
+    return ret;
+}
+#endif
+
 C_ASSERT( sizeof(w64_VRTextureWithPose_t) >= 64 );
 C_ASSERT( offsetof(w64_VRTextureWithPose_t, handle) == 0 );
 C_ASSERT( sizeof(w64_VRTextureWithPose_t().handle) >= 8 );
@@ -12909,6 +14981,30 @@ C_ASSERT( offsetof(u32_VRTextureWithPose_t, eColorSpace) == 8 );
 C_ASSERT( sizeof(u32_VRTextureWithPose_t().eColorSpace) >= 4 );
 C_ASSERT( offsetof(u32_VRTextureWithPose_t, mDeviceToAbsoluteTracking) == 12 );
 C_ASSERT( sizeof(u32_VRTextureWithPose_t().mDeviceToAbsoluteTracking) >= 48 );
+
+#ifdef __x86_64__
+w32_VRTextureWithPose_t::operator u64_VRTextureWithPose_t() const
+{
+    u64_VRTextureWithPose_t ret;
+    ret.handle = this->handle;
+    ret.eType = this->eType;
+    ret.eColorSpace = this->eColorSpace;
+    ret.mDeviceToAbsoluteTracking = this->mDeviceToAbsoluteTracking;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VRTextureWithPose_t::operator w32_VRTextureWithPose_t() const
+{
+    w32_VRTextureWithPose_t ret;
+    ret.handle = this->handle;
+    ret.eType = this->eType;
+    ret.eColorSpace = this->eColorSpace;
+    ret.mDeviceToAbsoluteTracking = this->mDeviceToAbsoluteTracking;
+    return ret;
+}
+#endif
 
 C_ASSERT( sizeof(w64_VRVulkanDevice_t) >= 40 );
 C_ASSERT( offsetof(w64_VRVulkanDevice_t, m_pInstance) == 0 );
@@ -12957,6 +15053,32 @@ C_ASSERT( offsetof(u32_VRVulkanDevice_t, m_pQueue) == 12 );
 C_ASSERT( sizeof(u32_VRVulkanDevice_t().m_pQueue) >= 4 );
 C_ASSERT( offsetof(u32_VRVulkanDevice_t, m_uQueueFamilyIndex) == 16 );
 C_ASSERT( sizeof(u32_VRVulkanDevice_t().m_uQueueFamilyIndex) >= 4 );
+
+#ifdef __x86_64__
+w32_VRVulkanDevice_t::operator u64_VRVulkanDevice_t() const
+{
+    u64_VRVulkanDevice_t ret;
+    ret.m_pInstance = this->m_pInstance;
+    ret.m_pDevice = this->m_pDevice;
+    ret.m_pPhysicalDevice = this->m_pPhysicalDevice;
+    ret.m_pQueue = this->m_pQueue;
+    ret.m_uQueueFamilyIndex = this->m_uQueueFamilyIndex;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VRVulkanDevice_t::operator w32_VRVulkanDevice_t() const
+{
+    w32_VRVulkanDevice_t ret;
+    ret.m_pInstance = this->m_pInstance;
+    ret.m_pDevice = this->m_pDevice;
+    ret.m_pPhysicalDevice = this->m_pPhysicalDevice;
+    ret.m_pQueue = this->m_pQueue;
+    ret.m_uQueueFamilyIndex = this->m_uQueueFamilyIndex;
+    return ret;
+}
+#endif
 
 C_ASSERT( sizeof(w64_VRVulkanTextureArrayData_t) >= 72 );
 C_ASSERT( offsetof(w64_VRVulkanTextureArrayData_t, m_nImage) == 0 );
@@ -13080,8 +15202,50 @@ w32_VRVulkanTextureArrayData_t::operator u32_VRVulkanTextureArrayData_t() const
     ret.m_unArraySize = this->m_unArraySize;
     return ret;
 }
+#endif
 
+#ifdef __i386__
 u32_VRVulkanTextureArrayData_t::operator w32_VRVulkanTextureArrayData_t() const
+{
+    w32_VRVulkanTextureArrayData_t ret;
+    ret.m_nImage = this->m_nImage;
+    ret.m_pDevice = this->m_pDevice;
+    ret.m_pPhysicalDevice = this->m_pPhysicalDevice;
+    ret.m_pInstance = this->m_pInstance;
+    ret.m_pQueue = this->m_pQueue;
+    ret.m_nQueueFamilyIndex = this->m_nQueueFamilyIndex;
+    ret.m_nWidth = this->m_nWidth;
+    ret.m_nHeight = this->m_nHeight;
+    ret.m_nFormat = this->m_nFormat;
+    ret.m_nSampleCount = this->m_nSampleCount;
+    ret.m_unArrayIndex = this->m_unArrayIndex;
+    ret.m_unArraySize = this->m_unArraySize;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+w32_VRVulkanTextureArrayData_t::operator u64_VRVulkanTextureArrayData_t() const
+{
+    u64_VRVulkanTextureArrayData_t ret;
+    ret.m_nImage = this->m_nImage;
+    ret.m_pDevice = this->m_pDevice;
+    ret.m_pPhysicalDevice = this->m_pPhysicalDevice;
+    ret.m_pInstance = this->m_pInstance;
+    ret.m_pQueue = this->m_pQueue;
+    ret.m_nQueueFamilyIndex = this->m_nQueueFamilyIndex;
+    ret.m_nWidth = this->m_nWidth;
+    ret.m_nHeight = this->m_nHeight;
+    ret.m_nFormat = this->m_nFormat;
+    ret.m_nSampleCount = this->m_nSampleCount;
+    ret.m_unArrayIndex = this->m_unArrayIndex;
+    ret.m_unArraySize = this->m_unArraySize;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VRVulkanTextureArrayData_t::operator w32_VRVulkanTextureArrayData_t() const
 {
     w32_VRVulkanTextureArrayData_t ret;
     ret.m_nImage = this->m_nImage;
@@ -13188,6 +15352,42 @@ C_ASSERT( sizeof(u32_VRVulkanTextureData_t().m_nFormat) >= 4 );
 C_ASSERT( offsetof(u32_VRVulkanTextureData_t, m_nSampleCount) == 40 );
 C_ASSERT( sizeof(u32_VRVulkanTextureData_t().m_nSampleCount) >= 4 );
 
+#ifdef __x86_64__
+w32_VRVulkanTextureData_t::operator u64_VRVulkanTextureData_t() const
+{
+    u64_VRVulkanTextureData_t ret;
+    ret.m_nImage = this->m_nImage;
+    ret.m_pDevice = this->m_pDevice;
+    ret.m_pPhysicalDevice = this->m_pPhysicalDevice;
+    ret.m_pInstance = this->m_pInstance;
+    ret.m_pQueue = this->m_pQueue;
+    ret.m_nQueueFamilyIndex = this->m_nQueueFamilyIndex;
+    ret.m_nWidth = this->m_nWidth;
+    ret.m_nHeight = this->m_nHeight;
+    ret.m_nFormat = this->m_nFormat;
+    ret.m_nSampleCount = this->m_nSampleCount;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VRVulkanTextureData_t::operator w32_VRVulkanTextureData_t() const
+{
+    w32_VRVulkanTextureData_t ret;
+    ret.m_nImage = this->m_nImage;
+    ret.m_pDevice = this->m_pDevice;
+    ret.m_pPhysicalDevice = this->m_pPhysicalDevice;
+    ret.m_pInstance = this->m_pInstance;
+    ret.m_pQueue = this->m_pQueue;
+    ret.m_nQueueFamilyIndex = this->m_nQueueFamilyIndex;
+    ret.m_nWidth = this->m_nWidth;
+    ret.m_nHeight = this->m_nHeight;
+    ret.m_nFormat = this->m_nFormat;
+    ret.m_nSampleCount = this->m_nSampleCount;
+    return ret;
+}
+#endif
+
 C_ASSERT( sizeof(w64_VulkanData_t) >= 64 );
 C_ASSERT( offsetof(w64_VulkanData_t, m_nImage) == 0 );
 C_ASSERT( sizeof(w64_VulkanData_t().m_nImage) >= 8 );
@@ -13275,4 +15475,40 @@ C_ASSERT( offsetof(u32_VulkanData_t, m_nFormat) == 36 );
 C_ASSERT( sizeof(u32_VulkanData_t().m_nFormat) >= 4 );
 C_ASSERT( offsetof(u32_VulkanData_t, m_nSampleCount) == 40 );
 C_ASSERT( sizeof(u32_VulkanData_t().m_nSampleCount) >= 4 );
+
+#ifdef __x86_64__
+w32_VulkanData_t::operator u64_VulkanData_t() const
+{
+    u64_VulkanData_t ret;
+    ret.m_nImage = this->m_nImage;
+    ret.m_pDevice = this->m_pDevice;
+    ret.m_pPhysicalDevice = this->m_pPhysicalDevice;
+    ret.m_pInstance = this->m_pInstance;
+    ret.m_pQueue = this->m_pQueue;
+    ret.m_nQueueFamilyIndex = this->m_nQueueFamilyIndex;
+    ret.m_nWidth = this->m_nWidth;
+    ret.m_nHeight = this->m_nHeight;
+    ret.m_nFormat = this->m_nFormat;
+    ret.m_nSampleCount = this->m_nSampleCount;
+    return ret;
+}
+#endif
+
+#ifdef __x86_64__
+u64_VulkanData_t::operator w32_VulkanData_t() const
+{
+    w32_VulkanData_t ret;
+    ret.m_nImage = this->m_nImage;
+    ret.m_pDevice = this->m_pDevice;
+    ret.m_pPhysicalDevice = this->m_pPhysicalDevice;
+    ret.m_pInstance = this->m_pInstance;
+    ret.m_pQueue = this->m_pQueue;
+    ret.m_nQueueFamilyIndex = this->m_nQueueFamilyIndex;
+    ret.m_nWidth = this->m_nWidth;
+    ret.m_nHeight = this->m_nHeight;
+    ret.m_nFormat = this->m_nFormat;
+    ret.m_nSampleCount = this->m_nSampleCount;
+    return ret;
+}
+#endif
 

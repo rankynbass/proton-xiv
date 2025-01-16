@@ -17,7 +17,9 @@ NTSTATUS IVRNotifications_IVRNotifications_001_CreateNotification( void *args )
 {
     struct IVRNotifications_IVRNotifications_001_CreateNotification_params *params = (struct IVRNotifications_IVRNotifications_001_CreateNotification_params *)args;
     struct u_IVRNotifications_IVRNotifications_001 *iface = (struct u_IVRNotifications_IVRNotifications_001 *)params->u_iface;
-    params->_ret = iface->CreateNotification( params->ulOverlayHandle, params->ulUserValue, params->strType, params->strText, params->strCategory, params->photo, params->notificationId );
+    u_NotificationBitmap u_photo;
+    if (params->photo) u_photo = *params->photo;
+    params->_ret = iface->CreateNotification( params->ulOverlayHandle, params->ulUserValue, params->strType, params->strText, params->strCategory, params->photo ? &u_photo : nullptr, params->notificationId );
     return 0;
 }
 

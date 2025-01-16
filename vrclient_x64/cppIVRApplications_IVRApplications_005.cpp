@@ -69,7 +69,9 @@ NTSTATUS IVRApplications_IVRApplications_005_LaunchTemplateApplication( void *ar
 {
     struct IVRApplications_IVRApplications_005_LaunchTemplateApplication_params *params = (struct IVRApplications_IVRApplications_005_LaunchTemplateApplication_params *)args;
     struct u_IVRApplications_IVRApplications_005 *iface = (struct u_IVRApplications_IVRApplications_005 *)params->u_iface;
-    params->_ret = iface->LaunchTemplateApplication( params->pchTemplateAppKey, params->pchNewAppKey, params->pKeys, params->unKeys );
+    u_AppOverrideKeys_t u_pKeys;
+    if (params->pKeys) u_pKeys = *params->pKeys;
+    params->_ret = iface->LaunchTemplateApplication( params->pchTemplateAppKey, params->pchNewAppKey, params->pKeys ? &u_pKeys : nullptr, params->unKeys );
     return 0;
 }
 

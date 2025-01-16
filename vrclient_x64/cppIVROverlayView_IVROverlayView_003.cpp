@@ -9,9 +9,12 @@ NTSTATUS IVROverlayView_IVROverlayView_003_AcquireOverlayView( void *args )
 {
     struct IVROverlayView_IVROverlayView_003_AcquireOverlayView_params *params = (struct IVROverlayView_IVROverlayView_003_AcquireOverlayView_params *)args;
     struct u_IVROverlayView_IVROverlayView_003 *iface = (struct u_IVROverlayView_IVROverlayView_003 *)params->u_iface;
+    u_VRNativeDevice_t u_pNativeDevice;
+    if (params->pNativeDevice) u_pNativeDevice = *params->pNativeDevice;
     u_VROverlayView_t u_pOverlayView;
     if (params->pOverlayView) u_pOverlayView = *params->pOverlayView;
-    params->_ret = iface->AcquireOverlayView( params->ulOverlayHandle, params->pNativeDevice, params->pOverlayView ? &u_pOverlayView : nullptr, params->unOverlayViewSize );
+    params->_ret = iface->AcquireOverlayView( params->ulOverlayHandle, params->pNativeDevice ? &u_pNativeDevice : nullptr, params->pOverlayView ? &u_pOverlayView : nullptr, params->unOverlayViewSize );
+    if (params->pNativeDevice) *params->pNativeDevice = u_pNativeDevice;
     if (params->pOverlayView) *params->pOverlayView = u_pOverlayView;
     return 0;
 }
