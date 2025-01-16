@@ -97,8 +97,8 @@ static void steam_networking_message_wtou( u_SteamNetworkingMessage_t_153a& dst,
     dst.m_idxLane = src.m_idxLane;
 }
 
-static void receive_messages_utow_144( uint32_t count, u_SteamNetworkingMessage_t_144 **u_msgs,
-                                       w_SteamNetworkingMessage_t_144 **w_msgs )
+template< typename Umsg, typename Wmsg >
+static void receive_messages_utow( uint32_t count, Umsg **u_msgs, Wmsg **w_msgs )
 {
     uint32_t i;
 
@@ -137,7 +137,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets002_ReceiveMessagesOnConn
     struct u_ISteamNetworkingSockets_SteamNetworkingSockets002 *iface = (struct u_ISteamNetworkingSockets_SteamNetworkingSockets002 *)params->u_iface;
     u_SteamNetworkingMessage_t_144 *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnConnection( params->hConn, u_msgs, params->nMaxMessages );
-    if (params->_ret > 0) receive_messages_utow_144( params->_ret, u_msgs, params->ppOutMessages );
+    if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
     return 0;
 }
 
@@ -147,7 +147,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets002_ReceiveMessagesOnList
     struct u_ISteamNetworkingSockets_SteamNetworkingSockets002 *iface = (struct u_ISteamNetworkingSockets_SteamNetworkingSockets002 *)params->u_iface;
     u_SteamNetworkingMessage_t_144 *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnListenSocket( params->hSocket, u_msgs, params->nMaxMessages );
-    if (params->_ret > 0) receive_messages_utow_144( params->_ret, u_msgs, params->ppOutMessages );
+    if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
     return 0;
 }
 
@@ -159,7 +159,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets004_ReceiveMessagesOnConn
     struct u_ISteamNetworkingSockets_SteamNetworkingSockets004 *iface = (struct u_ISteamNetworkingSockets_SteamNetworkingSockets004 *)params->u_iface;
     u_SteamNetworkingMessage_t_144 *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnConnection( params->hConn, u_msgs, params->nMaxMessages );
-    if (params->_ret > 0) receive_messages_utow_144( params->_ret, u_msgs, params->ppOutMessages );
+    if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
     return 0;
 }
 
@@ -169,22 +169,8 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets004_ReceiveMessagesOnList
     struct u_ISteamNetworkingSockets_SteamNetworkingSockets004 *iface = (struct u_ISteamNetworkingSockets_SteamNetworkingSockets004 *)params->u_iface;
     u_SteamNetworkingMessage_t_144 *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnListenSocket( params->hSocket, u_msgs, params->nMaxMessages );
-    if (params->_ret > 0) receive_messages_utow_144( params->_ret, u_msgs, params->ppOutMessages );
+    if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
     return 0;
-}
-
-static void receive_messages_utow_147( uint32_t count, u_SteamNetworkingMessage_t_147 **u_msgs,
-                                       w_SteamNetworkingMessage_t_147 **w_msgs )
-{
-    uint32_t i;
-
-    for (i = 0; i < count; i++)
-    {
-        struct networking_message *message = networking_message::from_w( w_msgs[i] );
-        auto *w_msg = &message->w_msg( **w_msgs );
-        message->u_msg( **w_msgs ) = u_msgs[i];
-        steam_networking_message_utow( *w_msg, *u_msgs[i] );
-    }
 }
 
 NTSTATUS steamclient_networking_messages_receive_147( void *args )
@@ -205,8 +191,8 @@ NTSTATUS steamclient_networking_messages_receive_147( void *args )
     return 0;
 }
 
-static void send_messages_wtou_147( uint32_t count, w_SteamNetworkingMessage_t_147 *const *w_msgs,
-                                    u_SteamNetworkingMessage_t_147 **u_msgs )
+template< typename Wmsg, typename Umsg >
+static void send_messages_wtou( uint32_t count, Wmsg *const *w_msgs, Umsg **u_msgs )
 {
     uint32_t i;
 
@@ -247,7 +233,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets006_ReceiveMessagesOnConn
     struct u_ISteamNetworkingSockets_SteamNetworkingSockets006 *iface = (struct u_ISteamNetworkingSockets_SteamNetworkingSockets006 *)params->u_iface;
     u_SteamNetworkingMessage_t_147 *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnConnection( params->hConn, u_msgs, params->nMaxMessages );
-    if (params->_ret > 0) receive_messages_utow_147( params->_ret, u_msgs, params->ppOutMessages );
+    if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
     return 0;
 }
 
@@ -257,7 +243,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets006_ReceiveMessagesOnList
     struct u_ISteamNetworkingSockets_SteamNetworkingSockets006 *iface = (struct u_ISteamNetworkingSockets_SteamNetworkingSockets006 *)params->u_iface;
     u_SteamNetworkingMessage_t_147 *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnListenSocket( params->hSocket, u_msgs, params->nMaxMessages );
-    if (params->_ret > 0) receive_messages_utow_147( params->_ret, u_msgs, params->ppOutMessages );
+    if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
     return 0;
 }
 
@@ -266,7 +252,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets006_SendMessages( void *a
     struct ISteamNetworkingSockets_SteamNetworkingSockets006_SendMessages_params *params = (struct ISteamNetworkingSockets_SteamNetworkingSockets006_SendMessages_params *)args;
     struct u_ISteamNetworkingSockets_SteamNetworkingSockets006 *iface = (struct u_ISteamNetworkingSockets_SteamNetworkingSockets006 *)params->u_iface;
     u_SteamNetworkingMessage_t_147 *u_msgs[params->nMessages];
-    send_messages_wtou_147( params->nMessages, params->pMessages, u_msgs );
+    send_messages_wtou( params->nMessages, params->pMessages, u_msgs );
     iface->SendMessages( params->nMessages, u_msgs, params->pOutMessageNumberOrResult );
     return 0;
 }
@@ -279,7 +265,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets008_ReceiveMessagesOnConn
     struct u_ISteamNetworkingSockets_SteamNetworkingSockets008 *iface = (struct u_ISteamNetworkingSockets_SteamNetworkingSockets008 *)params->u_iface;
     u_SteamNetworkingMessage_t_147 *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnConnection( params->hConn, u_msgs, params->nMaxMessages );
-    if (params->_ret > 0) receive_messages_utow_147( params->_ret, u_msgs, params->ppOutMessages );
+    if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
     return 0;
 }
 
@@ -289,7 +275,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets008_ReceiveMessagesOnPoll
     struct u_ISteamNetworkingSockets_SteamNetworkingSockets008 *iface = (struct u_ISteamNetworkingSockets_SteamNetworkingSockets008 *)params->u_iface;
     u_SteamNetworkingMessage_t_147 *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnPollGroup( params->hPollGroup, u_msgs, params->nMaxMessages );
-    if (params->_ret > 0) receive_messages_utow_147( params->_ret, u_msgs, params->ppOutMessages );
+    if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
     return 0;
 }
 
@@ -298,7 +284,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets008_SendMessages( void *a
     struct ISteamNetworkingSockets_SteamNetworkingSockets008_SendMessages_params *params = (struct ISteamNetworkingSockets_SteamNetworkingSockets008_SendMessages_params *)args;
     struct u_ISteamNetworkingSockets_SteamNetworkingSockets008 *iface = (struct u_ISteamNetworkingSockets_SteamNetworkingSockets008 *)params->u_iface;
     u_SteamNetworkingMessage_t_147 *u_msgs[params->nMessages];
-    send_messages_wtou_147( params->nMessages, params->pMessages, u_msgs );
+    send_messages_wtou( params->nMessages, params->pMessages, u_msgs );
     iface->SendMessages( params->nMessages, u_msgs, params->pOutMessageNumberOrResult );
     return 0;
 }
@@ -311,7 +297,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets009_ReceiveMessagesOnConn
     struct u_ISteamNetworkingSockets_SteamNetworkingSockets009 *iface = (struct u_ISteamNetworkingSockets_SteamNetworkingSockets009 *)params->u_iface;
     u_SteamNetworkingMessage_t_147 *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnConnection( params->hConn, u_msgs, params->nMaxMessages );
-    if (params->_ret > 0) receive_messages_utow_147( params->_ret, u_msgs, params->ppOutMessages );
+    if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
     return 0;
 }
 
@@ -321,7 +307,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets009_ReceiveMessagesOnPoll
     struct u_ISteamNetworkingSockets_SteamNetworkingSockets009 *iface = (struct u_ISteamNetworkingSockets_SteamNetworkingSockets009 *)params->u_iface;
     u_SteamNetworkingMessage_t_147 *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnPollGroup( params->hPollGroup, u_msgs, params->nMaxMessages );
-    if (params->_ret > 0) receive_messages_utow_147( params->_ret, u_msgs, params->ppOutMessages );
+    if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
     return 0;
 }
 
@@ -330,7 +316,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets009_SendMessages( void *a
     struct ISteamNetworkingSockets_SteamNetworkingSockets009_SendMessages_params *params = (struct ISteamNetworkingSockets_SteamNetworkingSockets009_SendMessages_params *)args;
     struct u_ISteamNetworkingSockets_SteamNetworkingSockets009 *iface = (struct u_ISteamNetworkingSockets_SteamNetworkingSockets009 *)params->u_iface;
     u_SteamNetworkingMessage_t_147 *u_msgs[params->nMessages];
-    send_messages_wtou_147( params->nMessages, params->pMessages, u_msgs );
+    send_messages_wtou( params->nMessages, params->pMessages, u_msgs );
     iface->SendMessages( params->nMessages, u_msgs, params->pOutMessageNumberOrResult );
     return 0;
 }
@@ -342,7 +328,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils003_AllocateMessage( void *ar
     struct ISteamNetworkingUtils_SteamNetworkingUtils003_AllocateMessage_params *params = (struct ISteamNetworkingUtils_SteamNetworkingUtils003_AllocateMessage_params *)args;
     struct u_ISteamNetworkingUtils_SteamNetworkingUtils003 *iface = (struct u_ISteamNetworkingUtils_SteamNetworkingUtils003 *)params->u_iface;
     u_SteamNetworkingMessage_t_147 *u_msg = iface->AllocateMessage( params->cbAllocateBuffer );
-    if (u_msg) receive_messages_utow_147( 1, &u_msg, &params->_ret );
+    if (u_msg) receive_messages_utow( 1, &u_msg, &params->_ret );
     return 0;
 }
 
@@ -417,20 +403,6 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils003_SetConfigValue( void *arg
     return 0;
 }
 
-static void receive_messages_utow_153a( uint32_t count, u_SteamNetworkingMessage_t_153a **u_msgs,
-                                        w_SteamNetworkingMessage_t_153a **w_msgs )
-{
-    uint32_t i;
-
-    for (i = 0; i < count; i++)
-    {
-        struct networking_message *message = networking_message::from_w( w_msgs[i] );
-        auto *w_msg = &message->w_msg( **w_msgs );
-        message->u_msg( **w_msgs ) = u_msgs[i];
-        steam_networking_message_utow( *w_msg, *u_msgs[i] );
-    }
-}
-
 NTSTATUS steamclient_networking_messages_receive_153a( void *args )
 {
     struct steamclient_networking_messages_receive_153a_params *params = (struct steamclient_networking_messages_receive_153a_params *)args;
@@ -447,23 +419,6 @@ NTSTATUS steamclient_networking_messages_receive_153a( void *args )
     }
 
     return 0;
-}
-
-static void send_messages_wtou_153a( uint32_t count, w_SteamNetworkingMessage_t_153a *const *w_msgs,
-                                     u_SteamNetworkingMessage_t_153a **u_msgs )
-{
-    uint32_t i;
-
-    for (i = 0; i < count; i++)
-    {
-        struct networking_message *message = networking_message::from_w( w_msgs[i] );
-        auto *w_msg = &message->w_msg( **w_msgs );
-        auto *u_msg = message->u_msg( **w_msgs );
-        steam_networking_message_wtou( *u_msg, *w_msg );
-        /* steamclient library takes ownership */
-        message->u_msg( **w_msgs ) = NULL;
-        u_msgs[i] = u_msg;
-    }
 }
 
 static void networking_message_release_153a( w_SteamNetworkingMessage_t_153a *w_msg )
@@ -491,7 +446,7 @@ NTSTATUS ISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001_ReceiveMessag
     struct u_ISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001 *iface = (struct u_ISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001 *)params->u_iface;
     u_SteamNetworkingMessage_t_153a *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessages( u_msgs, params->nMaxMessages );
-    if (params->_ret > 0) receive_messages_utow_153a( params->_ret, u_msgs, params->ppOutMessages );
+    if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
     return 0;
 }
 
@@ -503,7 +458,7 @@ NTSTATUS ISteamNetworkingMessages_SteamNetworkingMessages002_ReceiveMessagesOnCh
     struct u_ISteamNetworkingMessages_SteamNetworkingMessages002 *iface = (struct u_ISteamNetworkingMessages_SteamNetworkingMessages002 *)params->u_iface;
     u_SteamNetworkingMessage_t_153a *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnChannel( params->nLocalChannel, u_msgs, params->nMaxMessages );
-    if (params->_ret > 0) receive_messages_utow_153a( params->_ret, u_msgs, params->ppOutMessages );
+    if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
     return 0;
 }
 
@@ -515,7 +470,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_ReceiveMessagesOnConn
     struct u_ISteamNetworkingSockets_SteamNetworkingSockets012 *iface = (struct u_ISteamNetworkingSockets_SteamNetworkingSockets012 *)params->u_iface;
     u_SteamNetworkingMessage_t_153a *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnConnection( params->hConn, u_msgs, params->nMaxMessages );
-    if (params->_ret > 0) receive_messages_utow_153a( params->_ret, u_msgs, params->ppOutMessages );
+    if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
     return 0;
 }
 
@@ -525,7 +480,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_ReceiveMessagesOnPoll
     struct u_ISteamNetworkingSockets_SteamNetworkingSockets012 *iface = (struct u_ISteamNetworkingSockets_SteamNetworkingSockets012 *)params->u_iface;
     u_SteamNetworkingMessage_t_153a *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnPollGroup( params->hPollGroup, u_msgs, params->nMaxMessages );
-    if (params->_ret > 0) receive_messages_utow_153a( params->_ret, u_msgs, params->ppOutMessages );
+    if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
     return 0;
 }
 
@@ -534,7 +489,7 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets012_SendMessages( void *a
     struct ISteamNetworkingSockets_SteamNetworkingSockets012_SendMessages_params *params = (struct ISteamNetworkingSockets_SteamNetworkingSockets012_SendMessages_params *)args;
     struct u_ISteamNetworkingSockets_SteamNetworkingSockets012 *iface = (struct u_ISteamNetworkingSockets_SteamNetworkingSockets012 *)params->u_iface;
     u_SteamNetworkingMessage_t_153a *u_msgs[params->nMessages];
-    send_messages_wtou_153a( params->nMessages, params->pMessages, u_msgs );
+    send_messages_wtou( params->nMessages, params->pMessages, u_msgs );
     iface->SendMessages( params->nMessages, u_msgs, params->pOutMessageNumberOrResult );
     return 0;
 }
@@ -546,7 +501,7 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils004_AllocateMessage( void *ar
     struct ISteamNetworkingUtils_SteamNetworkingUtils004_AllocateMessage_params *params = (struct ISteamNetworkingUtils_SteamNetworkingUtils004_AllocateMessage_params *)args;
     struct u_ISteamNetworkingUtils_SteamNetworkingUtils004 *iface = (struct u_ISteamNetworkingUtils_SteamNetworkingUtils004 *)params->u_iface;
     u_SteamNetworkingMessage_t_153a *u_msg = iface->AllocateMessage( params->cbAllocateBuffer );
-    if (u_msg) receive_messages_utow_153a( 1, &u_msg, &params->_ret );
+    if (u_msg) receive_messages_utow( 1, &u_msg, &params->_ret );
     return 0;
 }
 
