@@ -81,7 +81,7 @@ struct compositor_data
 
 extern struct compositor_data compositor_data;
 
-struct w_steam_iface
+struct w_iface
 {
     vtable_ptr *vtable;
     void *u_iface;
@@ -91,20 +91,20 @@ struct w_steam_iface
     };
 };
 
-typedef struct w_steam_iface *(*iface_constructor)( void * );
+typedef struct w_iface *(*iface_constructor)( void * );
 extern iface_constructor find_iface_constructor( const char *iface_version );
-typedef void (*iface_destructor)( struct w_steam_iface * );
+typedef void (*iface_destructor)( struct w_iface * );
 extern iface_destructor find_iface_destructor( const char *iface_version );
 
 extern void init_rtti( char *base );
 
-struct w_steam_iface *create_win_interface(const char *name, void *linux_side);
+struct w_iface *create_win_interface(const char *name, void *linux_side);
 void free_compositor_data_d3d12_device(void);
 
 struct generic_interface
 {
-    struct w_steam_iface *object;
-    void (*dtor)(struct w_steam_iface *);
+    struct w_iface *object;
+    void (*dtor)(struct w_iface *);
 };
 
 #ifdef __dxvk_interop_h__

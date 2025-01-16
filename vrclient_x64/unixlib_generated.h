@@ -11,7 +11,7 @@ extern "C" {
 
 struct IVRApplications_IVRApplications_001_AddApplicationManifest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchApplicationManifestFullPath;
     int8_t bTemporary;
@@ -19,27 +19,27 @@ struct IVRApplications_IVRApplications_001_AddApplicationManifest_params
 
 struct IVRApplications_IVRApplications_001_RemoveApplicationManifest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchApplicationManifestFullPath;
 };
 
 struct IVRApplications_IVRApplications_001_IsApplicationInstalled_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_001_GetApplicationCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRApplications_IVRApplications_001_GetApplicationKeyByIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unApplicationIndex;
     char *pchAppKeyBuffer;
@@ -48,7 +48,7 @@ struct IVRApplications_IVRApplications_001_GetApplicationKeyByIndex_params
 
 struct IVRApplications_IVRApplications_001_GetApplicationKeyByProcessId_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unProcessId;
     char *pchAppKeyBuffer;
@@ -57,21 +57,21 @@ struct IVRApplications_IVRApplications_001_GetApplicationKeyByProcessId_params
 
 struct IVRApplications_IVRApplications_001_LaunchApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_001_LaunchDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_001_IdentifyApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unProcessId;
     const char *pchAppKey;
@@ -79,21 +79,21 @@ struct IVRApplications_IVRApplications_001_IdentifyApplication_params
 
 struct IVRApplications_IVRApplications_001_GetApplicationProcessId_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_001_GetApplicationsErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRApplications_IVRApplications_001_GetApplicationPropertyString_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -104,7 +104,7 @@ struct IVRApplications_IVRApplications_001_GetApplicationPropertyString_params
 
 struct IVRApplications_IVRApplications_001_GetApplicationPropertyBool_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -113,7 +113,7 @@ struct IVRApplications_IVRApplications_001_GetApplicationPropertyBool_params
 
 struct IVRApplications_IVRApplications_001_GetHomeApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchAppKeyBuffer;
     uint32_t unAppKeyBufferLen;
@@ -121,14 +121,14 @@ struct IVRApplications_IVRApplications_001_GetHomeApplication_params
 
 struct IVRApplications_IVRApplications_001_SetHomeApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_001_SetApplicationAutoLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     int8_t bAutoLaunch;
@@ -136,14 +136,14 @@ struct IVRApplications_IVRApplications_001_SetApplicationAutoLaunch_params
 
 struct IVRApplications_IVRApplications_001_GetApplicationAutoLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_001_GetStartingApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchAppKeyBuffer;
     uint32_t unAppKeyBufferLen;
@@ -151,27 +151,27 @@ struct IVRApplications_IVRApplications_001_GetStartingApplication_params
 
 struct IVRApplications_IVRApplications_001_GetTransitionState_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRApplications_IVRApplications_001_PerformApplicationPrelaunchCheck_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_001_GetApplicationsTransitionStateNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t state;
 };
 
 struct IVRApplications_IVRApplications_002_AddApplicationManifest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchApplicationManifestFullPath;
     int8_t bTemporary;
@@ -179,27 +179,27 @@ struct IVRApplications_IVRApplications_002_AddApplicationManifest_params
 
 struct IVRApplications_IVRApplications_002_RemoveApplicationManifest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchApplicationManifestFullPath;
 };
 
 struct IVRApplications_IVRApplications_002_IsApplicationInstalled_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_002_GetApplicationCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRApplications_IVRApplications_002_GetApplicationKeyByIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unApplicationIndex;
     char *pchAppKeyBuffer;
@@ -208,7 +208,7 @@ struct IVRApplications_IVRApplications_002_GetApplicationKeyByIndex_params
 
 struct IVRApplications_IVRApplications_002_GetApplicationKeyByProcessId_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unProcessId;
     char *pchAppKeyBuffer;
@@ -217,21 +217,21 @@ struct IVRApplications_IVRApplications_002_GetApplicationKeyByProcessId_params
 
 struct IVRApplications_IVRApplications_002_LaunchApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_002_LaunchDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_002_IdentifyApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unProcessId;
     const char *pchAppKey;
@@ -239,21 +239,21 @@ struct IVRApplications_IVRApplications_002_IdentifyApplication_params
 
 struct IVRApplications_IVRApplications_002_GetApplicationProcessId_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_002_GetApplicationsErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRApplications_IVRApplications_002_GetApplicationPropertyString_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -264,7 +264,7 @@ struct IVRApplications_IVRApplications_002_GetApplicationPropertyString_params
 
 struct IVRApplications_IVRApplications_002_GetApplicationPropertyBool_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -273,7 +273,7 @@ struct IVRApplications_IVRApplications_002_GetApplicationPropertyBool_params
 
 struct IVRApplications_IVRApplications_002_SetApplicationAutoLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     int8_t bAutoLaunch;
@@ -281,14 +281,14 @@ struct IVRApplications_IVRApplications_002_SetApplicationAutoLaunch_params
 
 struct IVRApplications_IVRApplications_002_GetApplicationAutoLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_002_GetStartingApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchAppKeyBuffer;
     uint32_t unAppKeyBufferLen;
@@ -296,33 +296,33 @@ struct IVRApplications_IVRApplications_002_GetStartingApplication_params
 
 struct IVRApplications_IVRApplications_002_GetTransitionState_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRApplications_IVRApplications_002_PerformApplicationPrelaunchCheck_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_002_GetApplicationsTransitionStateNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t state;
 };
 
 struct IVRApplications_IVRApplications_002_IsQuitUserPromptRequested_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRApplications_IVRApplications_003_AddApplicationManifest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchApplicationManifestFullPath;
     int8_t bTemporary;
@@ -330,27 +330,27 @@ struct IVRApplications_IVRApplications_003_AddApplicationManifest_params
 
 struct IVRApplications_IVRApplications_003_RemoveApplicationManifest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchApplicationManifestFullPath;
 };
 
 struct IVRApplications_IVRApplications_003_IsApplicationInstalled_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_003_GetApplicationCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRApplications_IVRApplications_003_GetApplicationKeyByIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unApplicationIndex;
     char *pchAppKeyBuffer;
@@ -359,7 +359,7 @@ struct IVRApplications_IVRApplications_003_GetApplicationKeyByIndex_params
 
 struct IVRApplications_IVRApplications_003_GetApplicationKeyByProcessId_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unProcessId;
     char *pchAppKeyBuffer;
@@ -368,21 +368,21 @@ struct IVRApplications_IVRApplications_003_GetApplicationKeyByProcessId_params
 
 struct IVRApplications_IVRApplications_003_LaunchApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_003_LaunchDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_003_IdentifyApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unProcessId;
     const char *pchAppKey;
@@ -390,21 +390,21 @@ struct IVRApplications_IVRApplications_003_IdentifyApplication_params
 
 struct IVRApplications_IVRApplications_003_GetApplicationProcessId_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_003_GetApplicationsErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRApplications_IVRApplications_003_GetApplicationPropertyString_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -415,7 +415,7 @@ struct IVRApplications_IVRApplications_003_GetApplicationPropertyString_params
 
 struct IVRApplications_IVRApplications_003_GetApplicationPropertyBool_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -424,7 +424,7 @@ struct IVRApplications_IVRApplications_003_GetApplicationPropertyBool_params
 
 struct IVRApplications_IVRApplications_003_GetApplicationPropertyUint64_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -433,7 +433,7 @@ struct IVRApplications_IVRApplications_003_GetApplicationPropertyUint64_params
 
 struct IVRApplications_IVRApplications_003_SetApplicationAutoLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     int8_t bAutoLaunch;
@@ -441,14 +441,14 @@ struct IVRApplications_IVRApplications_003_SetApplicationAutoLaunch_params
 
 struct IVRApplications_IVRApplications_003_GetApplicationAutoLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_003_GetStartingApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchAppKeyBuffer;
     uint32_t unAppKeyBufferLen;
@@ -456,33 +456,33 @@ struct IVRApplications_IVRApplications_003_GetStartingApplication_params
 
 struct IVRApplications_IVRApplications_003_GetTransitionState_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRApplications_IVRApplications_003_PerformApplicationPrelaunchCheck_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_003_GetApplicationsTransitionStateNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t state;
 };
 
 struct IVRApplications_IVRApplications_003_IsQuitUserPromptRequested_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRApplications_IVRApplications_004_AddApplicationManifest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchApplicationManifestFullPath;
     int8_t bTemporary;
@@ -490,27 +490,27 @@ struct IVRApplications_IVRApplications_004_AddApplicationManifest_params
 
 struct IVRApplications_IVRApplications_004_RemoveApplicationManifest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchApplicationManifestFullPath;
 };
 
 struct IVRApplications_IVRApplications_004_IsApplicationInstalled_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_004_GetApplicationCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRApplications_IVRApplications_004_GetApplicationKeyByIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unApplicationIndex;
     char *pchAppKeyBuffer;
@@ -519,7 +519,7 @@ struct IVRApplications_IVRApplications_004_GetApplicationKeyByIndex_params
 
 struct IVRApplications_IVRApplications_004_GetApplicationKeyByProcessId_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unProcessId;
     char *pchAppKeyBuffer;
@@ -528,28 +528,28 @@ struct IVRApplications_IVRApplications_004_GetApplicationKeyByProcessId_params
 
 struct IVRApplications_IVRApplications_004_LaunchApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_004_LaunchDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_004_CancelApplicationLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_004_IdentifyApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unProcessId;
     const char *pchAppKey;
@@ -557,21 +557,21 @@ struct IVRApplications_IVRApplications_004_IdentifyApplication_params
 
 struct IVRApplications_IVRApplications_004_GetApplicationProcessId_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_004_GetApplicationsErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRApplications_IVRApplications_004_GetApplicationPropertyString_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -582,7 +582,7 @@ struct IVRApplications_IVRApplications_004_GetApplicationPropertyString_params
 
 struct IVRApplications_IVRApplications_004_GetApplicationPropertyBool_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -591,7 +591,7 @@ struct IVRApplications_IVRApplications_004_GetApplicationPropertyBool_params
 
 struct IVRApplications_IVRApplications_004_GetApplicationPropertyUint64_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -600,7 +600,7 @@ struct IVRApplications_IVRApplications_004_GetApplicationPropertyUint64_params
 
 struct IVRApplications_IVRApplications_004_SetApplicationAutoLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     int8_t bAutoLaunch;
@@ -608,14 +608,14 @@ struct IVRApplications_IVRApplications_004_SetApplicationAutoLaunch_params
 
 struct IVRApplications_IVRApplications_004_GetApplicationAutoLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_004_GetStartingApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchAppKeyBuffer;
     uint32_t unAppKeyBufferLen;
@@ -623,33 +623,33 @@ struct IVRApplications_IVRApplications_004_GetStartingApplication_params
 
 struct IVRApplications_IVRApplications_004_GetTransitionState_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRApplications_IVRApplications_004_PerformApplicationPrelaunchCheck_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_004_GetApplicationsTransitionStateNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t state;
 };
 
 struct IVRApplications_IVRApplications_004_IsQuitUserPromptRequested_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRApplications_IVRApplications_004_LaunchInternalProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchBinaryPath;
     const char *pchArguments;
@@ -658,7 +658,7 @@ struct IVRApplications_IVRApplications_004_LaunchInternalProcess_params
 
 struct IVRApplications_IVRApplications_005_AddApplicationManifest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchApplicationManifestFullPath;
     int8_t bTemporary;
@@ -666,27 +666,27 @@ struct IVRApplications_IVRApplications_005_AddApplicationManifest_params
 
 struct IVRApplications_IVRApplications_005_RemoveApplicationManifest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchApplicationManifestFullPath;
 };
 
 struct IVRApplications_IVRApplications_005_IsApplicationInstalled_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_005_GetApplicationCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRApplications_IVRApplications_005_GetApplicationKeyByIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unApplicationIndex;
     char *pchAppKeyBuffer;
@@ -695,7 +695,7 @@ struct IVRApplications_IVRApplications_005_GetApplicationKeyByIndex_params
 
 struct IVRApplications_IVRApplications_005_GetApplicationKeyByProcessId_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unProcessId;
     char *pchAppKeyBuffer;
@@ -704,14 +704,14 @@ struct IVRApplications_IVRApplications_005_GetApplicationKeyByProcessId_params
 
 struct IVRApplications_IVRApplications_005_LaunchApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_005_LaunchTemplateApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchTemplateAppKey;
     const char *pchNewAppKey;
@@ -721,21 +721,21 @@ struct IVRApplications_IVRApplications_005_LaunchTemplateApplication_params
 
 struct IVRApplications_IVRApplications_005_LaunchDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_005_CancelApplicationLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_005_IdentifyApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unProcessId;
     const char *pchAppKey;
@@ -743,21 +743,21 @@ struct IVRApplications_IVRApplications_005_IdentifyApplication_params
 
 struct IVRApplications_IVRApplications_005_GetApplicationProcessId_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_005_GetApplicationsErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRApplications_IVRApplications_005_GetApplicationPropertyString_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -768,7 +768,7 @@ struct IVRApplications_IVRApplications_005_GetApplicationPropertyString_params
 
 struct IVRApplications_IVRApplications_005_GetApplicationPropertyBool_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -777,7 +777,7 @@ struct IVRApplications_IVRApplications_005_GetApplicationPropertyBool_params
 
 struct IVRApplications_IVRApplications_005_GetApplicationPropertyUint64_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -786,7 +786,7 @@ struct IVRApplications_IVRApplications_005_GetApplicationPropertyUint64_params
 
 struct IVRApplications_IVRApplications_005_SetApplicationAutoLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     int8_t bAutoLaunch;
@@ -794,14 +794,14 @@ struct IVRApplications_IVRApplications_005_SetApplicationAutoLaunch_params
 
 struct IVRApplications_IVRApplications_005_GetApplicationAutoLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_005_GetStartingApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchAppKeyBuffer;
     uint32_t unAppKeyBufferLen;
@@ -809,33 +809,33 @@ struct IVRApplications_IVRApplications_005_GetStartingApplication_params
 
 struct IVRApplications_IVRApplications_005_GetTransitionState_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRApplications_IVRApplications_005_PerformApplicationPrelaunchCheck_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_005_GetApplicationsTransitionStateNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t state;
 };
 
 struct IVRApplications_IVRApplications_005_IsQuitUserPromptRequested_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRApplications_IVRApplications_005_LaunchInternalProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchBinaryPath;
     const char *pchArguments;
@@ -844,7 +844,7 @@ struct IVRApplications_IVRApplications_005_LaunchInternalProcess_params
 
 struct IVRApplications_IVRApplications_006_AddApplicationManifest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchApplicationManifestFullPath;
     int8_t bTemporary;
@@ -852,27 +852,27 @@ struct IVRApplications_IVRApplications_006_AddApplicationManifest_params
 
 struct IVRApplications_IVRApplications_006_RemoveApplicationManifest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchApplicationManifestFullPath;
 };
 
 struct IVRApplications_IVRApplications_006_IsApplicationInstalled_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_006_GetApplicationCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRApplications_IVRApplications_006_GetApplicationKeyByIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unApplicationIndex;
     char *pchAppKeyBuffer;
@@ -881,7 +881,7 @@ struct IVRApplications_IVRApplications_006_GetApplicationKeyByIndex_params
 
 struct IVRApplications_IVRApplications_006_GetApplicationKeyByProcessId_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unProcessId;
     char *pchAppKeyBuffer;
@@ -890,14 +890,14 @@ struct IVRApplications_IVRApplications_006_GetApplicationKeyByProcessId_params
 
 struct IVRApplications_IVRApplications_006_LaunchApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_006_LaunchTemplateApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchTemplateAppKey;
     const char *pchNewAppKey;
@@ -907,7 +907,7 @@ struct IVRApplications_IVRApplications_006_LaunchTemplateApplication_params
 
 struct IVRApplications_IVRApplications_006_LaunchApplicationFromMimeType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchMimeType;
     const char *pchArgs;
@@ -915,21 +915,21 @@ struct IVRApplications_IVRApplications_006_LaunchApplicationFromMimeType_params
 
 struct IVRApplications_IVRApplications_006_LaunchDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_006_CancelApplicationLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_006_IdentifyApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unProcessId;
     const char *pchAppKey;
@@ -937,21 +937,21 @@ struct IVRApplications_IVRApplications_006_IdentifyApplication_params
 
 struct IVRApplications_IVRApplications_006_GetApplicationProcessId_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_006_GetApplicationsErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRApplications_IVRApplications_006_GetApplicationPropertyString_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -962,7 +962,7 @@ struct IVRApplications_IVRApplications_006_GetApplicationPropertyString_params
 
 struct IVRApplications_IVRApplications_006_GetApplicationPropertyBool_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -971,7 +971,7 @@ struct IVRApplications_IVRApplications_006_GetApplicationPropertyBool_params
 
 struct IVRApplications_IVRApplications_006_GetApplicationPropertyUint64_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -980,7 +980,7 @@ struct IVRApplications_IVRApplications_006_GetApplicationPropertyUint64_params
 
 struct IVRApplications_IVRApplications_006_SetApplicationAutoLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     int8_t bAutoLaunch;
@@ -988,14 +988,14 @@ struct IVRApplications_IVRApplications_006_SetApplicationAutoLaunch_params
 
 struct IVRApplications_IVRApplications_006_GetApplicationAutoLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_006_SetDefaultApplicationForMimeType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     const char *pchMimeType;
@@ -1003,7 +1003,7 @@ struct IVRApplications_IVRApplications_006_SetDefaultApplicationForMimeType_para
 
 struct IVRApplications_IVRApplications_006_GetDefaultApplicationForMimeType_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchMimeType;
     char *pchAppKeyBuffer;
@@ -1012,7 +1012,7 @@ struct IVRApplications_IVRApplications_006_GetDefaultApplicationForMimeType_para
 
 struct IVRApplications_IVRApplications_006_GetApplicationSupportedMimeTypes_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
     char *pchMimeTypesBuffer;
@@ -1021,7 +1021,7 @@ struct IVRApplications_IVRApplications_006_GetApplicationSupportedMimeTypes_para
 
 struct IVRApplications_IVRApplications_006_GetApplicationsThatSupportMimeType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchMimeType;
     char *pchAppKeysThatSupportBuffer;
@@ -1030,7 +1030,7 @@ struct IVRApplications_IVRApplications_006_GetApplicationsThatSupportMimeType_pa
 
 struct IVRApplications_IVRApplications_006_GetApplicationLaunchArguments_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unHandle;
     char *pchArgs;
@@ -1039,7 +1039,7 @@ struct IVRApplications_IVRApplications_006_GetApplicationLaunchArguments_params
 
 struct IVRApplications_IVRApplications_006_GetStartingApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchAppKeyBuffer;
     uint32_t unAppKeyBufferLen;
@@ -1047,33 +1047,33 @@ struct IVRApplications_IVRApplications_006_GetStartingApplication_params
 
 struct IVRApplications_IVRApplications_006_GetTransitionState_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRApplications_IVRApplications_006_PerformApplicationPrelaunchCheck_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_006_GetApplicationsTransitionStateNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t state;
 };
 
 struct IVRApplications_IVRApplications_006_IsQuitUserPromptRequested_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRApplications_IVRApplications_006_LaunchInternalProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchBinaryPath;
     const char *pchArguments;
@@ -1082,13 +1082,13 @@ struct IVRApplications_IVRApplications_006_LaunchInternalProcess_params
 
 struct IVRApplications_IVRApplications_006_GetCurrentSceneProcessId_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRApplications_IVRApplications_007_AddApplicationManifest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchApplicationManifestFullPath;
     int8_t bTemporary;
@@ -1096,27 +1096,27 @@ struct IVRApplications_IVRApplications_007_AddApplicationManifest_params
 
 struct IVRApplications_IVRApplications_007_RemoveApplicationManifest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchApplicationManifestFullPath;
 };
 
 struct IVRApplications_IVRApplications_007_IsApplicationInstalled_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_007_GetApplicationCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRApplications_IVRApplications_007_GetApplicationKeyByIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unApplicationIndex;
     char *pchAppKeyBuffer;
@@ -1125,7 +1125,7 @@ struct IVRApplications_IVRApplications_007_GetApplicationKeyByIndex_params
 
 struct IVRApplications_IVRApplications_007_GetApplicationKeyByProcessId_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unProcessId;
     char *pchAppKeyBuffer;
@@ -1134,14 +1134,14 @@ struct IVRApplications_IVRApplications_007_GetApplicationKeyByProcessId_params
 
 struct IVRApplications_IVRApplications_007_LaunchApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_007_LaunchTemplateApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchTemplateAppKey;
     const char *pchNewAppKey;
@@ -1151,7 +1151,7 @@ struct IVRApplications_IVRApplications_007_LaunchTemplateApplication_params
 
 struct IVRApplications_IVRApplications_007_LaunchApplicationFromMimeType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchMimeType;
     const char *pchArgs;
@@ -1159,21 +1159,21 @@ struct IVRApplications_IVRApplications_007_LaunchApplicationFromMimeType_params
 
 struct IVRApplications_IVRApplications_007_LaunchDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_007_CancelApplicationLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_007_IdentifyApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unProcessId;
     const char *pchAppKey;
@@ -1181,21 +1181,21 @@ struct IVRApplications_IVRApplications_007_IdentifyApplication_params
 
 struct IVRApplications_IVRApplications_007_GetApplicationProcessId_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_007_GetApplicationsErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRApplications_IVRApplications_007_GetApplicationPropertyString_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -1206,7 +1206,7 @@ struct IVRApplications_IVRApplications_007_GetApplicationPropertyString_params
 
 struct IVRApplications_IVRApplications_007_GetApplicationPropertyBool_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -1215,7 +1215,7 @@ struct IVRApplications_IVRApplications_007_GetApplicationPropertyBool_params
 
 struct IVRApplications_IVRApplications_007_GetApplicationPropertyUint64_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     const char *pchAppKey;
     uint32_t eProperty;
@@ -1224,7 +1224,7 @@ struct IVRApplications_IVRApplications_007_GetApplicationPropertyUint64_params
 
 struct IVRApplications_IVRApplications_007_SetApplicationAutoLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     int8_t bAutoLaunch;
@@ -1232,14 +1232,14 @@ struct IVRApplications_IVRApplications_007_SetApplicationAutoLaunch_params
 
 struct IVRApplications_IVRApplications_007_GetApplicationAutoLaunch_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_007_SetDefaultApplicationForMimeType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     const char *pchMimeType;
@@ -1247,7 +1247,7 @@ struct IVRApplications_IVRApplications_007_SetDefaultApplicationForMimeType_para
 
 struct IVRApplications_IVRApplications_007_GetDefaultApplicationForMimeType_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchMimeType;
     char *pchAppKeyBuffer;
@@ -1256,7 +1256,7 @@ struct IVRApplications_IVRApplications_007_GetDefaultApplicationForMimeType_para
 
 struct IVRApplications_IVRApplications_007_GetApplicationSupportedMimeTypes_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchAppKey;
     char *pchMimeTypesBuffer;
@@ -1265,7 +1265,7 @@ struct IVRApplications_IVRApplications_007_GetApplicationSupportedMimeTypes_para
 
 struct IVRApplications_IVRApplications_007_GetApplicationsThatSupportMimeType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchMimeType;
     char *pchAppKeysThatSupportBuffer;
@@ -1274,7 +1274,7 @@ struct IVRApplications_IVRApplications_007_GetApplicationsThatSupportMimeType_pa
 
 struct IVRApplications_IVRApplications_007_GetApplicationLaunchArguments_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unHandle;
     char *pchArgs;
@@ -1283,7 +1283,7 @@ struct IVRApplications_IVRApplications_007_GetApplicationLaunchArguments_params
 
 struct IVRApplications_IVRApplications_007_GetStartingApplication_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchAppKeyBuffer;
     uint32_t unAppKeyBufferLen;
@@ -1291,27 +1291,27 @@ struct IVRApplications_IVRApplications_007_GetStartingApplication_params
 
 struct IVRApplications_IVRApplications_007_GetSceneApplicationState_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRApplications_IVRApplications_007_PerformApplicationPrelaunchCheck_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
 };
 
 struct IVRApplications_IVRApplications_007_GetSceneApplicationStateNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t state;
 };
 
 struct IVRApplications_IVRApplications_007_LaunchInternalProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchBinaryPath;
     const char *pchArguments;
@@ -1320,25 +1320,25 @@ struct IVRApplications_IVRApplications_007_LaunchInternalProcess_params
 
 struct IVRApplications_IVRApplications_007_GetCurrentSceneProcessId_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_004_CommitWorkingCopy_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t configFile;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_004_RevertWorkingCopy_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingPlayAreaSize_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pSizeX;
     float *pSizeZ;
@@ -1346,14 +1346,14 @@ struct IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingPlayAreaSize_params
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingPlayAreaRect_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdQuad_t *rect;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingCollisionBoundsInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdQuad_t *pQuadsBuffer;
     uint32_t *punQuadsCount;
@@ -1361,7 +1361,7 @@ struct IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingCollisionBoundsInfo_par
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_004_GetLiveCollisionBoundsInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdQuad_t *pQuadsBuffer;
     uint32_t *punQuadsCount;
@@ -1369,67 +1369,67 @@ struct IVRChaperoneSetup_IVRChaperoneSetup_004_GetLiveCollisionBoundsInfo_params
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingSeatedZeroPoseToRawTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdMatrix34_t *pmatSeatedZeroPoseToRawTrackingPose;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_004_GetWorkingStandingZeroPoseToRawTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdMatrix34_t *pmatStandingZeroPoseToRawTrackingPose;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingPlayAreaSize_params
 {
-    void *linux_side;
+    void *u_iface;
     float sizeX;
     float sizeZ;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingCollisionBoundsInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdQuad_t *pQuadsBuffer;
     uint32_t unQuadsCount;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingSeatedZeroPoseToRawTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     const HmdMatrix34_t *pMatSeatedZeroPoseToRawTrackingPose;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingStandingZeroPoseToRawTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     const HmdMatrix34_t *pMatStandingZeroPoseToRawTrackingPose;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_004_ReloadFromDisk_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t configFile;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_004_GetLiveSeatedZeroPoseToRawTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdMatrix34_t *pmatSeatedZeroPoseToRawTrackingPose;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_004_SetWorkingWallTagInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     uint8_t *pTagsBuffer;
     uint32_t unTagCount;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_004_GetLiveWallTagInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint8_t *pTagsBuffer;
     uint32_t *punTagCount;
@@ -1437,19 +1437,19 @@ struct IVRChaperoneSetup_IVRChaperoneSetup_004_GetLiveWallTagInfo_params
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_CommitWorkingCopy_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t configFile;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_RevertWorkingCopy_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_GetWorkingPlayAreaSize_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pSizeX;
     float *pSizeZ;
@@ -1457,14 +1457,14 @@ struct IVRChaperoneSetup_IVRChaperoneSetup_005_GetWorkingPlayAreaSize_params
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_GetWorkingPlayAreaRect_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdQuad_t *rect;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_GetWorkingCollisionBoundsInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdQuad_t *pQuadsBuffer;
     uint32_t *punQuadsCount;
@@ -1472,7 +1472,7 @@ struct IVRChaperoneSetup_IVRChaperoneSetup_005_GetWorkingCollisionBoundsInfo_par
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_GetLiveCollisionBoundsInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdQuad_t *pQuadsBuffer;
     uint32_t *punQuadsCount;
@@ -1480,67 +1480,67 @@ struct IVRChaperoneSetup_IVRChaperoneSetup_005_GetLiveCollisionBoundsInfo_params
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_GetWorkingSeatedZeroPoseToRawTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdMatrix34_t *pmatSeatedZeroPoseToRawTrackingPose;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_GetWorkingStandingZeroPoseToRawTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdMatrix34_t *pmatStandingZeroPoseToRawTrackingPose;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_SetWorkingPlayAreaSize_params
 {
-    void *linux_side;
+    void *u_iface;
     float sizeX;
     float sizeZ;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_SetWorkingCollisionBoundsInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdQuad_t *pQuadsBuffer;
     uint32_t unQuadsCount;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_SetWorkingSeatedZeroPoseToRawTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     const HmdMatrix34_t *pMatSeatedZeroPoseToRawTrackingPose;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_SetWorkingStandingZeroPoseToRawTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     const HmdMatrix34_t *pMatStandingZeroPoseToRawTrackingPose;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_ReloadFromDisk_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t configFile;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_GetLiveSeatedZeroPoseToRawTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdMatrix34_t *pmatSeatedZeroPoseToRawTrackingPose;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_SetWorkingCollisionBoundsTagsInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     uint8_t *pTagsBuffer;
     uint32_t unTagCount;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_GetLiveCollisionBoundsTagsInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint8_t *pTagsBuffer;
     uint32_t *punTagCount;
@@ -1548,7 +1548,7 @@ struct IVRChaperoneSetup_IVRChaperoneSetup_005_GetLiveCollisionBoundsTagsInfo_pa
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_SetWorkingPhysicalBoundsInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdQuad_t *pQuadsBuffer;
     uint32_t unQuadsCount;
@@ -1556,7 +1556,7 @@ struct IVRChaperoneSetup_IVRChaperoneSetup_005_SetWorkingPhysicalBoundsInfo_para
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_GetLivePhysicalBoundsInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdQuad_t *pQuadsBuffer;
     uint32_t *punQuadsCount;
@@ -1564,7 +1564,7 @@ struct IVRChaperoneSetup_IVRChaperoneSetup_005_GetLivePhysicalBoundsInfo_params
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_ExportLiveToBuffer_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     char *pBuffer;
     uint32_t *pnBufferLength;
@@ -1572,7 +1572,7 @@ struct IVRChaperoneSetup_IVRChaperoneSetup_005_ExportLiveToBuffer_params
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_005_ImportFromBufferToWorking_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pBuffer;
     uint32_t nImportFlags;
@@ -1580,19 +1580,19 @@ struct IVRChaperoneSetup_IVRChaperoneSetup_005_ImportFromBufferToWorking_params
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_CommitWorkingCopy_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t configFile;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_RevertWorkingCopy_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_GetWorkingPlayAreaSize_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pSizeX;
     float *pSizeZ;
@@ -1600,14 +1600,14 @@ struct IVRChaperoneSetup_IVRChaperoneSetup_006_GetWorkingPlayAreaSize_params
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_GetWorkingPlayAreaRect_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdQuad_t *rect;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_GetWorkingCollisionBoundsInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdQuad_t *pQuadsBuffer;
     uint32_t *punQuadsCount;
@@ -1615,7 +1615,7 @@ struct IVRChaperoneSetup_IVRChaperoneSetup_006_GetWorkingCollisionBoundsInfo_par
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_GetLiveCollisionBoundsInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdQuad_t *pQuadsBuffer;
     uint32_t *punQuadsCount;
@@ -1623,67 +1623,67 @@ struct IVRChaperoneSetup_IVRChaperoneSetup_006_GetLiveCollisionBoundsInfo_params
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_GetWorkingSeatedZeroPoseToRawTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdMatrix34_t *pmatSeatedZeroPoseToRawTrackingPose;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_GetWorkingStandingZeroPoseToRawTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdMatrix34_t *pmatStandingZeroPoseToRawTrackingPose;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_SetWorkingPlayAreaSize_params
 {
-    void *linux_side;
+    void *u_iface;
     float sizeX;
     float sizeZ;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_SetWorkingCollisionBoundsInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdQuad_t *pQuadsBuffer;
     uint32_t unQuadsCount;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_SetWorkingPerimeter_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdVector2_t *pPointBuffer;
     uint32_t unPointCount;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_SetWorkingSeatedZeroPoseToRawTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     const HmdMatrix34_t *pMatSeatedZeroPoseToRawTrackingPose;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_SetWorkingStandingZeroPoseToRawTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     const HmdMatrix34_t *pMatStandingZeroPoseToRawTrackingPose;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_ReloadFromDisk_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t configFile;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_GetLiveSeatedZeroPoseToRawTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdMatrix34_t *pmatSeatedZeroPoseToRawTrackingPose;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_ExportLiveToBuffer_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     char *pBuffer;
     uint32_t *pnBufferLength;
@@ -1691,7 +1691,7 @@ struct IVRChaperoneSetup_IVRChaperoneSetup_006_ExportLiveToBuffer_params
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_ImportFromBufferToWorking_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pBuffer;
     uint32_t nImportFlags;
@@ -1699,35 +1699,35 @@ struct IVRChaperoneSetup_IVRChaperoneSetup_006_ImportFromBufferToWorking_params
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_ShowWorkingSetPreview_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_HideWorkingSetPreview_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRChaperoneSetup_IVRChaperoneSetup_006_RoomSetupStarting_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRChaperone_IVRChaperone_002_GetCalibrationState_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRChaperone_IVRChaperone_002_GetSoftBoundsInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     ChaperoneSoftBoundsInfo_t *pInfo;
 };
 
 struct IVRChaperone_IVRChaperone_002_GetHardBoundsInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdQuad_t *pQuadsBuffer;
     uint32_t *punQuadsCount;
@@ -1735,50 +1735,50 @@ struct IVRChaperone_IVRChaperone_002_GetHardBoundsInfo_params
 
 struct IVRChaperone_IVRChaperone_002_GetSeatedBoundsInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     ChaperoneSeatedBoundsInfo_t *pInfo;
 };
 
 struct IVRChaperone_IVRChaperone_002_ReloadInfo_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRChaperone_IVRChaperone_002_SetSceneColor_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdColor_t color;
 };
 
 struct IVRChaperone_IVRChaperone_002_GetBoundsColor_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdColor_t *pOutputColorArray;
     int32_t nNumOutputColors;
 };
 
 struct IVRChaperone_IVRChaperone_002_AreBoundsVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRChaperone_IVRChaperone_002_ForceBoundsVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bForce;
 };
 
 struct IVRChaperone_IVRChaperone_003_GetCalibrationState_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRChaperone_IVRChaperone_003_GetPlayAreaSize_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pSizeX;
     float *pSizeZ;
@@ -1786,25 +1786,25 @@ struct IVRChaperone_IVRChaperone_003_GetPlayAreaSize_params
 
 struct IVRChaperone_IVRChaperone_003_GetPlayAreaRect_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdQuad_t *rect;
 };
 
 struct IVRChaperone_IVRChaperone_003_ReloadInfo_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRChaperone_IVRChaperone_003_SetSceneColor_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdColor_t color;
 };
 
 struct IVRChaperone_IVRChaperone_003_GetBoundsColor_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdColor_t *pOutputColorArray;
     int32_t nNumOutputColors;
     float flCollisionBoundsFadeDistance;
@@ -1813,25 +1813,25 @@ struct IVRChaperone_IVRChaperone_003_GetBoundsColor_params
 
 struct IVRChaperone_IVRChaperone_003_AreBoundsVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRChaperone_IVRChaperone_003_ForceBoundsVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bForce;
 };
 
 struct IVRChaperone_IVRChaperone_004_GetCalibrationState_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRChaperone_IVRChaperone_004_GetPlayAreaSize_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pSizeX;
     float *pSizeZ;
@@ -1839,25 +1839,25 @@ struct IVRChaperone_IVRChaperone_004_GetPlayAreaSize_params
 
 struct IVRChaperone_IVRChaperone_004_GetPlayAreaRect_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     HmdQuad_t *rect;
 };
 
 struct IVRChaperone_IVRChaperone_004_ReloadInfo_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRChaperone_IVRChaperone_004_SetSceneColor_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdColor_t color;
 };
 
 struct IVRChaperone_IVRChaperone_004_GetBoundsColor_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdColor_t *pOutputColorArray;
     int32_t nNumOutputColors;
     float flCollisionBoundsFadeDistance;
@@ -1866,44 +1866,44 @@ struct IVRChaperone_IVRChaperone_004_GetBoundsColor_params
 
 struct IVRChaperone_IVRChaperone_004_AreBoundsVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRChaperone_IVRChaperone_004_ForceBoundsVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bForce;
 };
 
 struct IVRChaperone_IVRChaperone_004_ResetZeroPose_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingUniverseOrigin;
 };
 
 struct IVRClientCore_IVRClientCore_002_Init_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eApplicationType;
 };
 
 struct IVRClientCore_IVRClientCore_002_Cleanup_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRClientCore_IVRClientCore_002_IsInterfaceVersionValid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchInterfaceVersion;
 };
 
 struct IVRClientCore_IVRClientCore_002_GetGenericInterface_params
 {
-    void *linux_side;
+    void *u_iface;
     void *_ret;
     const char *pchNameAndVersion;
     uint32_t *peError;
@@ -1911,27 +1911,27 @@ struct IVRClientCore_IVRClientCore_002_GetGenericInterface_params
 
 struct IVRClientCore_IVRClientCore_002_BIsHmdPresent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRClientCore_IVRClientCore_002_GetEnglishStringForHmdError_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eError;
 };
 
 struct IVRClientCore_IVRClientCore_002_GetIDForVRInitError_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eError;
 };
 
 struct IVRClientCore_IVRClientCore_003_Init_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eApplicationType;
     const char *pStartupInfo;
@@ -1939,19 +1939,19 @@ struct IVRClientCore_IVRClientCore_003_Init_params
 
 struct IVRClientCore_IVRClientCore_003_Cleanup_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRClientCore_IVRClientCore_003_IsInterfaceVersionValid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchInterfaceVersion;
 };
 
 struct IVRClientCore_IVRClientCore_003_GetGenericInterface_params
 {
-    void *linux_side;
+    void *u_iface;
     void *_ret;
     const char *pchNameAndVersion;
     uint32_t *peError;
@@ -1959,27 +1959,27 @@ struct IVRClientCore_IVRClientCore_003_GetGenericInterface_params
 
 struct IVRClientCore_IVRClientCore_003_BIsHmdPresent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRClientCore_IVRClientCore_003_GetEnglishStringForHmdError_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eError;
 };
 
 struct IVRClientCore_IVRClientCore_003_GetIDForVRInitError_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eError;
 };
 
 struct IVRCompositor_IVRCompositor_005_GetLastError_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchBuffer;
     uint32_t unBufferSize;
@@ -1987,45 +1987,45 @@ struct IVRCompositor_IVRCompositor_005_GetLastError_params
 
 struct IVRCompositor_IVRCompositor_005_SetVSync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bVSync;
 };
 
 struct IVRCompositor_IVRCompositor_005_GetVSync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_005_SetGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     float fGamma;
 };
 
 struct IVRCompositor_IVRCompositor_005_GetGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_005_SetGraphicsDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eType;
     void *pDevice;
 };
 
 struct IVRCompositor_IVRCompositor_005_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     TrackedDevicePose_t *pPoseArray;
     uint32_t unPoseArrayCount;
 };
 
 struct IVRCompositor_IVRCompositor_005_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     void *pTexture;
     Compositor_TextureBounds *pBounds;
@@ -2033,25 +2033,25 @@ struct IVRCompositor_IVRCompositor_005_Submit_params
 
 struct IVRCompositor_IVRCompositor_005_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_005_GetOverlayDefaults_params
 {
-    void *linux_side;
+    void *u_iface;
     Compositor_OverlaySettings *pSettings;
 };
 
 struct IVRCompositor_IVRCompositor_005_SetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     void *pTexture;
     Compositor_OverlaySettings *pSettings;
 };
 
 struct IVRCompositor_IVRCompositor_005_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     void *buffer;
     uint32_t width;
     uint32_t height;
@@ -2061,19 +2061,19 @@ struct IVRCompositor_IVRCompositor_005_SetOverlayRaw_params
 
 struct IVRCompositor_IVRCompositor_005_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchFilePath;
     Compositor_OverlaySettings *pSettings;
 };
 
 struct IVRCompositor_IVRCompositor_005_ClearOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_005_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_090 *pTiming;
     uint32_t unFramesAgo;
@@ -2081,7 +2081,7 @@ struct IVRCompositor_IVRCompositor_005_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_005_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -2092,35 +2092,35 @@ struct IVRCompositor_IVRCompositor_005_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_005_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_005_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_005_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_005_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_005_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_005_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const Compositor_OverlaySettings *pSettings;
     float fAspectRatio;
@@ -2133,19 +2133,19 @@ struct IVRCompositor_IVRCompositor_005_ComputeOverlayIntersection_params
 
 struct IVRCompositor_IVRCompositor_005_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_005_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_006_GetLastError_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchBuffer;
     uint32_t unBufferSize;
@@ -2153,38 +2153,38 @@ struct IVRCompositor_IVRCompositor_006_GetLastError_params
 
 struct IVRCompositor_IVRCompositor_006_SetVSync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bVSync;
 };
 
 struct IVRCompositor_IVRCompositor_006_GetVSync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_006_SetGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     float fGamma;
 };
 
 struct IVRCompositor_IVRCompositor_006_GetGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_006_SetGraphicsDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eType;
     void *pDevice;
 };
 
 struct IVRCompositor_IVRCompositor_006_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -2194,7 +2194,7 @@ struct IVRCompositor_IVRCompositor_006_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_006_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     void *pTexture;
@@ -2203,12 +2203,12 @@ struct IVRCompositor_IVRCompositor_006_Submit_params
 
 struct IVRCompositor_IVRCompositor_006_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_006_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_090 *pTiming;
     uint32_t unFramesAgo;
@@ -2216,7 +2216,7 @@ struct IVRCompositor_IVRCompositor_006_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_006_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -2227,59 +2227,59 @@ struct IVRCompositor_IVRCompositor_006_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_006_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_006_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_006_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_006_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_006_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_006_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_006_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_006_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_006_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_007_GetLastError_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchBuffer;
     uint32_t unBufferSize;
@@ -2287,31 +2287,31 @@ struct IVRCompositor_IVRCompositor_007_GetLastError_params
 
 struct IVRCompositor_IVRCompositor_007_SetVSync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bVSync;
 };
 
 struct IVRCompositor_IVRCompositor_007_GetVSync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_007_SetGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     float fGamma;
 };
 
 struct IVRCompositor_IVRCompositor_007_GetGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_007_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -2321,7 +2321,7 @@ struct IVRCompositor_IVRCompositor_007_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_007_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     uint32_t eTextureType;
@@ -2331,12 +2331,12 @@ struct IVRCompositor_IVRCompositor_007_Submit_params
 
 struct IVRCompositor_IVRCompositor_007_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_007_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_093 *pTiming;
     uint32_t unFramesAgo;
@@ -2344,7 +2344,7 @@ struct IVRCompositor_IVRCompositor_007_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_007_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -2355,59 +2355,59 @@ struct IVRCompositor_IVRCompositor_007_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_007_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_007_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_007_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_007_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_007_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_007_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_007_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_007_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_007_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_008_GetLastError_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchBuffer;
     uint32_t unBufferSize;
@@ -2415,31 +2415,31 @@ struct IVRCompositor_IVRCompositor_008_GetLastError_params
 
 struct IVRCompositor_IVRCompositor_008_SetVSync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bVSync;
 };
 
 struct IVRCompositor_IVRCompositor_008_GetVSync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_008_SetGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     float fGamma;
 };
 
 struct IVRCompositor_IVRCompositor_008_GetGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_008_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -2449,7 +2449,7 @@ struct IVRCompositor_IVRCompositor_008_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_008_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     uint32_t eTextureType;
@@ -2460,12 +2460,12 @@ struct IVRCompositor_IVRCompositor_008_Submit_params
 
 struct IVRCompositor_IVRCompositor_008_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_008_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_093 *pTiming;
     uint32_t unFramesAgo;
@@ -2473,7 +2473,7 @@ struct IVRCompositor_IVRCompositor_008_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_008_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -2484,14 +2484,14 @@ struct IVRCompositor_IVRCompositor_008_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_008_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_008_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTextureType;
     void *pFront;
     void *pBack;
@@ -2503,96 +2503,96 @@ struct IVRCompositor_IVRCompositor_008_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_008_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_008_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_008_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_008_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_008_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_008_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_008_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_008_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_008_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_008_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_008_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_008_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_008_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_008_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_009_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_009_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_009_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -2602,7 +2602,7 @@ struct IVRCompositor_IVRCompositor_009_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_009_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -2612,7 +2612,7 @@ struct IVRCompositor_IVRCompositor_009_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_009_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -2622,17 +2622,17 @@ struct IVRCompositor_IVRCompositor_009_Submit_params
 
 struct IVRCompositor_IVRCompositor_009_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_009_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_009_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_0913 *pTiming;
     uint32_t unFramesAgo;
@@ -2640,13 +2640,13 @@ struct IVRCompositor_IVRCompositor_009_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_009_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_009_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -2657,14 +2657,14 @@ struct IVRCompositor_IVRCompositor_009_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_009_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_009_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -2672,84 +2672,84 @@ struct IVRCompositor_IVRCompositor_009_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_009_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_009_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_009_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_009_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_009_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_009_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_009_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_009_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_009_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_009_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_009_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_009_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_010_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_010_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_010_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -2759,7 +2759,7 @@ struct IVRCompositor_IVRCompositor_010_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_010_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -2769,7 +2769,7 @@ struct IVRCompositor_IVRCompositor_010_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_010_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -2779,17 +2779,17 @@ struct IVRCompositor_IVRCompositor_010_Submit_params
 
 struct IVRCompositor_IVRCompositor_010_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_010_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_010_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_0914 *pTiming;
     uint32_t unFramesAgo;
@@ -2797,13 +2797,13 @@ struct IVRCompositor_IVRCompositor_010_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_010_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_010_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -2814,14 +2814,14 @@ struct IVRCompositor_IVRCompositor_010_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_010_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_010_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -2829,84 +2829,84 @@ struct IVRCompositor_IVRCompositor_010_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_010_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_010_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_010_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_010_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_010_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_010_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_010_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_010_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_010_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_010_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_010_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_010_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_011_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_011_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_011_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -2916,7 +2916,7 @@ struct IVRCompositor_IVRCompositor_011_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_011_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -2926,7 +2926,7 @@ struct IVRCompositor_IVRCompositor_011_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_011_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -2936,17 +2936,17 @@ struct IVRCompositor_IVRCompositor_011_Submit_params
 
 struct IVRCompositor_IVRCompositor_011_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_011_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_011_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_0915 *pTiming;
     uint32_t unFramesAgo;
@@ -2954,13 +2954,13 @@ struct IVRCompositor_IVRCompositor_011_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_011_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_011_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -2971,14 +2971,14 @@ struct IVRCompositor_IVRCompositor_011_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_011_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_011_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -2986,84 +2986,84 @@ struct IVRCompositor_IVRCompositor_011_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_011_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_011_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_011_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_011_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_011_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_011_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_011_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_011_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_011_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_011_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_011_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_011_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_012_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_012_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_012_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -3073,7 +3073,7 @@ struct IVRCompositor_IVRCompositor_012_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_012_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -3083,7 +3083,7 @@ struct IVRCompositor_IVRCompositor_012_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_012_GetLastPoseForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     TrackedDevicePose_t *pOutputPose;
@@ -3092,7 +3092,7 @@ struct IVRCompositor_IVRCompositor_012_GetLastPoseForTrackedDeviceIndex_params
 
 struct IVRCompositor_IVRCompositor_012_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -3102,17 +3102,17 @@ struct IVRCompositor_IVRCompositor_012_Submit_params
 
 struct IVRCompositor_IVRCompositor_012_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_012_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_012_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_0915 *pTiming;
     uint32_t unFramesAgo;
@@ -3120,13 +3120,13 @@ struct IVRCompositor_IVRCompositor_012_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_012_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_012_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -3137,14 +3137,14 @@ struct IVRCompositor_IVRCompositor_012_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_012_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_012_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -3152,90 +3152,90 @@ struct IVRCompositor_IVRCompositor_012_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_012_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_012_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_012_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_012_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_012_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_012_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_012_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_012_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_012_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_012_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_012_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_012_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_012_ShouldAppRenderWithLowResources_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_013_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_013_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_013_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -3245,7 +3245,7 @@ struct IVRCompositor_IVRCompositor_013_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_013_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -3255,7 +3255,7 @@ struct IVRCompositor_IVRCompositor_013_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_013_GetLastPoseForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     TrackedDevicePose_t *pOutputPose;
@@ -3264,7 +3264,7 @@ struct IVRCompositor_IVRCompositor_013_GetLastPoseForTrackedDeviceIndex_params
 
 struct IVRCompositor_IVRCompositor_013_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -3274,17 +3274,17 @@ struct IVRCompositor_IVRCompositor_013_Submit_params
 
 struct IVRCompositor_IVRCompositor_013_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_013_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_013_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_0915 *pTiming;
     uint32_t unFramesAgo;
@@ -3292,13 +3292,13 @@ struct IVRCompositor_IVRCompositor_013_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_013_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_013_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -3309,14 +3309,14 @@ struct IVRCompositor_IVRCompositor_013_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_013_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_013_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -3324,96 +3324,96 @@ struct IVRCompositor_IVRCompositor_013_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_013_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_013_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_013_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_013_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_013_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_013_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_013_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_013_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_013_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_013_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_013_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_013_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_013_ShouldAppRenderWithLowResources_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_013_ForceInterleavedReprojectionOn_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bOverride;
 };
 
 struct IVRCompositor_IVRCompositor_014_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_014_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_014_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -3423,7 +3423,7 @@ struct IVRCompositor_IVRCompositor_014_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_014_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -3433,7 +3433,7 @@ struct IVRCompositor_IVRCompositor_014_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_014_GetLastPoseForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     TrackedDevicePose_t *pOutputPose;
@@ -3442,7 +3442,7 @@ struct IVRCompositor_IVRCompositor_014_GetLastPoseForTrackedDeviceIndex_params
 
 struct IVRCompositor_IVRCompositor_014_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -3452,17 +3452,17 @@ struct IVRCompositor_IVRCompositor_014_Submit_params
 
 struct IVRCompositor_IVRCompositor_014_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_014_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_014_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_0920 *pTiming;
     uint32_t unFramesAgo;
@@ -3470,13 +3470,13 @@ struct IVRCompositor_IVRCompositor_014_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_014_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_014_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -3487,14 +3487,14 @@ struct IVRCompositor_IVRCompositor_014_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_014_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_014_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -3502,107 +3502,107 @@ struct IVRCompositor_IVRCompositor_014_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_014_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_014_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_014_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_014_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_014_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_014_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_014_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_014_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_014_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_014_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_014_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_014_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_014_ShouldAppRenderWithLowResources_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_014_ForceInterleavedReprojectionOn_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bOverride;
 };
 
 struct IVRCompositor_IVRCompositor_014_ForceReconnectProcess_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_014_SuspendRendering_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bSuspend;
 };
 
 struct IVRCompositor_IVRCompositor_015_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_015_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_015_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -3612,7 +3612,7 @@ struct IVRCompositor_IVRCompositor_015_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_015_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -3622,7 +3622,7 @@ struct IVRCompositor_IVRCompositor_015_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_015_GetLastPoseForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     TrackedDevicePose_t *pOutputPose;
@@ -3631,7 +3631,7 @@ struct IVRCompositor_IVRCompositor_015_GetLastPoseForTrackedDeviceIndex_params
 
 struct IVRCompositor_IVRCompositor_015_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -3641,17 +3641,17 @@ struct IVRCompositor_IVRCompositor_015_Submit_params
 
 struct IVRCompositor_IVRCompositor_015_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_015_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_015_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_0920 *pTiming;
     uint32_t unFramesAgo;
@@ -3659,20 +3659,20 @@ struct IVRCompositor_IVRCompositor_015_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_015_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_015_GetCumulativeStats_params
 {
-    void *linux_side;
+    void *u_iface;
     Compositor_CumulativeStats_100 *pStats;
     uint32_t nStatsSizeInBytes;
 };
 
 struct IVRCompositor_IVRCompositor_015_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -3683,14 +3683,14 @@ struct IVRCompositor_IVRCompositor_015_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_015_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_015_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -3698,95 +3698,95 @@ struct IVRCompositor_IVRCompositor_015_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_015_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_015_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_015_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_015_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_015_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_015_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_015_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_015_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_015_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_015_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_015_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_015_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_015_ShouldAppRenderWithLowResources_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_015_ForceInterleavedReprojectionOn_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bOverride;
 };
 
 struct IVRCompositor_IVRCompositor_015_ForceReconnectProcess_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_015_SuspendRendering_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bSuspend;
 };
 
 struct IVRCompositor_IVRCompositor_015_RequestScreenshot_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t type;
     const char *pchDestinationFileName;
@@ -3795,13 +3795,13 @@ struct IVRCompositor_IVRCompositor_015_RequestScreenshot_params
 
 struct IVRCompositor_IVRCompositor_015_GetCurrentScreenshotType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_015_GetMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     void *pD3D11DeviceOrResource;
@@ -3810,7 +3810,7 @@ struct IVRCompositor_IVRCompositor_015_GetMirrorTextureD3D11_params
 
 struct IVRCompositor_IVRCompositor_015_GetMirrorTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     uint32_t *pglTextureId;
@@ -3819,7 +3819,7 @@ struct IVRCompositor_IVRCompositor_015_GetMirrorTextureGL_params
 
 struct IVRCompositor_IVRCompositor_015_ReleaseSharedGLTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t glTextureId;
     void *glSharedTextureHandle;
@@ -3827,31 +3827,31 @@ struct IVRCompositor_IVRCompositor_015_ReleaseSharedGLTexture_params
 
 struct IVRCompositor_IVRCompositor_015_LockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_015_UnlockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_016_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_016_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_016_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -3861,7 +3861,7 @@ struct IVRCompositor_IVRCompositor_016_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_016_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -3871,7 +3871,7 @@ struct IVRCompositor_IVRCompositor_016_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_016_GetLastPoseForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     TrackedDevicePose_t *pOutputPose;
@@ -3880,7 +3880,7 @@ struct IVRCompositor_IVRCompositor_016_GetLastPoseForTrackedDeviceIndex_params
 
 struct IVRCompositor_IVRCompositor_016_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -3890,17 +3890,17 @@ struct IVRCompositor_IVRCompositor_016_Submit_params
 
 struct IVRCompositor_IVRCompositor_016_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_016_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_016_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_102 *pTiming;
     uint32_t unFramesAgo;
@@ -3908,20 +3908,20 @@ struct IVRCompositor_IVRCompositor_016_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_016_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_016_GetCumulativeStats_params
 {
-    void *linux_side;
+    void *u_iface;
     Compositor_CumulativeStats_100 *pStats;
     uint32_t nStatsSizeInBytes;
 };
 
 struct IVRCompositor_IVRCompositor_016_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -3932,14 +3932,14 @@ struct IVRCompositor_IVRCompositor_016_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_016_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_016_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -3947,95 +3947,95 @@ struct IVRCompositor_IVRCompositor_016_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_016_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_016_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_016_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_016_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_016_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_016_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_016_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_016_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_016_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_016_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_016_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_016_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_016_ShouldAppRenderWithLowResources_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_016_ForceInterleavedReprojectionOn_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bOverride;
 };
 
 struct IVRCompositor_IVRCompositor_016_ForceReconnectProcess_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_016_SuspendRendering_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bSuspend;
 };
 
 struct IVRCompositor_IVRCompositor_016_GetMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     void *pD3D11DeviceOrResource;
@@ -4044,7 +4044,7 @@ struct IVRCompositor_IVRCompositor_016_GetMirrorTextureD3D11_params
 
 struct IVRCompositor_IVRCompositor_016_GetMirrorTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     uint32_t *pglTextureId;
@@ -4053,7 +4053,7 @@ struct IVRCompositor_IVRCompositor_016_GetMirrorTextureGL_params
 
 struct IVRCompositor_IVRCompositor_016_ReleaseSharedGLTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t glTextureId;
     void *glSharedTextureHandle;
@@ -4061,31 +4061,31 @@ struct IVRCompositor_IVRCompositor_016_ReleaseSharedGLTexture_params
 
 struct IVRCompositor_IVRCompositor_016_LockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_016_UnlockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_017_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_017_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_017_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -4095,7 +4095,7 @@ struct IVRCompositor_IVRCompositor_017_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_017_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -4105,7 +4105,7 @@ struct IVRCompositor_IVRCompositor_017_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_017_GetLastPoseForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     TrackedDevicePose_t *pOutputPose;
@@ -4114,7 +4114,7 @@ struct IVRCompositor_IVRCompositor_017_GetLastPoseForTrackedDeviceIndex_params
 
 struct IVRCompositor_IVRCompositor_017_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -4124,17 +4124,17 @@ struct IVRCompositor_IVRCompositor_017_Submit_params
 
 struct IVRCompositor_IVRCompositor_017_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_017_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_017_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_103a *pTiming;
     uint32_t unFramesAgo;
@@ -4142,7 +4142,7 @@ struct IVRCompositor_IVRCompositor_017_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_017_GetFrameTimings_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     w_Compositor_FrameTiming_103a *pTiming;
     uint32_t nFrames;
@@ -4150,20 +4150,20 @@ struct IVRCompositor_IVRCompositor_017_GetFrameTimings_params
 
 struct IVRCompositor_IVRCompositor_017_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_017_GetCumulativeStats_params
 {
-    void *linux_side;
+    void *u_iface;
     Compositor_CumulativeStats_100 *pStats;
     uint32_t nStatsSizeInBytes;
 };
 
 struct IVRCompositor_IVRCompositor_017_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -4174,14 +4174,14 @@ struct IVRCompositor_IVRCompositor_017_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_017_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_017_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -4189,95 +4189,95 @@ struct IVRCompositor_IVRCompositor_017_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_017_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_017_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_017_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_017_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_017_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_017_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_017_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_017_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_017_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_017_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_017_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_017_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_017_ShouldAppRenderWithLowResources_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_017_ForceInterleavedReprojectionOn_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bOverride;
 };
 
 struct IVRCompositor_IVRCompositor_017_ForceReconnectProcess_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_017_SuspendRendering_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bSuspend;
 };
 
 struct IVRCompositor_IVRCompositor_017_GetMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     void *pD3D11DeviceOrResource;
@@ -4286,7 +4286,7 @@ struct IVRCompositor_IVRCompositor_017_GetMirrorTextureD3D11_params
 
 struct IVRCompositor_IVRCompositor_017_GetMirrorTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     uint32_t *pglTextureId;
@@ -4295,7 +4295,7 @@ struct IVRCompositor_IVRCompositor_017_GetMirrorTextureGL_params
 
 struct IVRCompositor_IVRCompositor_017_ReleaseSharedGLTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t glTextureId;
     void *glSharedTextureHandle;
@@ -4303,31 +4303,31 @@ struct IVRCompositor_IVRCompositor_017_ReleaseSharedGLTexture_params
 
 struct IVRCompositor_IVRCompositor_017_LockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_017_UnlockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_018_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_018_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_018_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -4337,7 +4337,7 @@ struct IVRCompositor_IVRCompositor_018_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_018_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -4347,7 +4347,7 @@ struct IVRCompositor_IVRCompositor_018_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_018_GetLastPoseForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     TrackedDevicePose_t *pOutputPose;
@@ -4356,7 +4356,7 @@ struct IVRCompositor_IVRCompositor_018_GetLastPoseForTrackedDeviceIndex_params
 
 struct IVRCompositor_IVRCompositor_018_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -4366,17 +4366,17 @@ struct IVRCompositor_IVRCompositor_018_Submit_params
 
 struct IVRCompositor_IVRCompositor_018_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_018_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_018_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_103a *pTiming;
     uint32_t unFramesAgo;
@@ -4384,7 +4384,7 @@ struct IVRCompositor_IVRCompositor_018_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_018_GetFrameTimings_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     w_Compositor_FrameTiming_103a *pTiming;
     uint32_t nFrames;
@@ -4392,20 +4392,20 @@ struct IVRCompositor_IVRCompositor_018_GetFrameTimings_params
 
 struct IVRCompositor_IVRCompositor_018_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_018_GetCumulativeStats_params
 {
-    void *linux_side;
+    void *u_iface;
     Compositor_CumulativeStats_100 *pStats;
     uint32_t nStatsSizeInBytes;
 };
 
 struct IVRCompositor_IVRCompositor_018_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -4416,27 +4416,27 @@ struct IVRCompositor_IVRCompositor_018_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_018_GetCurrentFadeColor_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdColor_t *_ret;
     int8_t bBackground;
 };
 
 struct IVRCompositor_IVRCompositor_018_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_018_GetCurrentGridAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_018_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -4444,95 +4444,95 @@ struct IVRCompositor_IVRCompositor_018_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_018_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_018_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_018_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_018_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_018_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_018_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_018_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_018_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_018_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_018_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_018_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_018_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_018_ShouldAppRenderWithLowResources_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_018_ForceInterleavedReprojectionOn_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bOverride;
 };
 
 struct IVRCompositor_IVRCompositor_018_ForceReconnectProcess_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_018_SuspendRendering_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bSuspend;
 };
 
 struct IVRCompositor_IVRCompositor_018_GetMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     void *pD3D11DeviceOrResource;
@@ -4541,7 +4541,7 @@ struct IVRCompositor_IVRCompositor_018_GetMirrorTextureD3D11_params
 
 struct IVRCompositor_IVRCompositor_018_GetMirrorTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     uint32_t *pglTextureId;
@@ -4550,7 +4550,7 @@ struct IVRCompositor_IVRCompositor_018_GetMirrorTextureGL_params
 
 struct IVRCompositor_IVRCompositor_018_ReleaseSharedGLTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t glTextureId;
     void *glSharedTextureHandle;
@@ -4558,31 +4558,31 @@ struct IVRCompositor_IVRCompositor_018_ReleaseSharedGLTexture_params
 
 struct IVRCompositor_IVRCompositor_018_LockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_018_UnlockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_019_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_019_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_019_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -4592,7 +4592,7 @@ struct IVRCompositor_IVRCompositor_019_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_019_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -4602,7 +4602,7 @@ struct IVRCompositor_IVRCompositor_019_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_019_GetLastPoseForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     TrackedDevicePose_t *pOutputPose;
@@ -4611,7 +4611,7 @@ struct IVRCompositor_IVRCompositor_019_GetLastPoseForTrackedDeviceIndex_params
 
 struct IVRCompositor_IVRCompositor_019_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -4621,17 +4621,17 @@ struct IVRCompositor_IVRCompositor_019_Submit_params
 
 struct IVRCompositor_IVRCompositor_019_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_019_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_019_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_103a *pTiming;
     uint32_t unFramesAgo;
@@ -4639,7 +4639,7 @@ struct IVRCompositor_IVRCompositor_019_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_019_GetFrameTimings_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     w_Compositor_FrameTiming_103a *pTiming;
     uint32_t nFrames;
@@ -4647,20 +4647,20 @@ struct IVRCompositor_IVRCompositor_019_GetFrameTimings_params
 
 struct IVRCompositor_IVRCompositor_019_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_019_GetCumulativeStats_params
 {
-    void *linux_side;
+    void *u_iface;
     Compositor_CumulativeStats_100 *pStats;
     uint32_t nStatsSizeInBytes;
 };
 
 struct IVRCompositor_IVRCompositor_019_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -4671,27 +4671,27 @@ struct IVRCompositor_IVRCompositor_019_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_019_GetCurrentFadeColor_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdColor_t *_ret;
     int8_t bBackground;
 };
 
 struct IVRCompositor_IVRCompositor_019_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_019_GetCurrentGridAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_019_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -4699,95 +4699,95 @@ struct IVRCompositor_IVRCompositor_019_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_019_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_019_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_019_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_019_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_019_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_019_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_019_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_019_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_019_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_019_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_019_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_019_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_019_ShouldAppRenderWithLowResources_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_019_ForceInterleavedReprojectionOn_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bOverride;
 };
 
 struct IVRCompositor_IVRCompositor_019_ForceReconnectProcess_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_019_SuspendRendering_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bSuspend;
 };
 
 struct IVRCompositor_IVRCompositor_019_GetMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     void *pD3D11DeviceOrResource;
@@ -4796,7 +4796,7 @@ struct IVRCompositor_IVRCompositor_019_GetMirrorTextureD3D11_params
 
 struct IVRCompositor_IVRCompositor_019_GetMirrorTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     uint32_t *pglTextureId;
@@ -4805,7 +4805,7 @@ struct IVRCompositor_IVRCompositor_019_GetMirrorTextureGL_params
 
 struct IVRCompositor_IVRCompositor_019_ReleaseSharedGLTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t glTextureId;
     void *glSharedTextureHandle;
@@ -4813,19 +4813,19 @@ struct IVRCompositor_IVRCompositor_019_ReleaseSharedGLTexture_params
 
 struct IVRCompositor_IVRCompositor_019_LockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_019_UnlockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_019_GetVulkanInstanceExtensionsRequired_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchValue;
     uint32_t unBufferSize;
@@ -4833,7 +4833,7 @@ struct IVRCompositor_IVRCompositor_019_GetVulkanInstanceExtensionsRequired_param
 
 struct IVRCompositor_IVRCompositor_019_GetVulkanDeviceExtensionsRequired_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VkPhysicalDevice_T *pPhysicalDevice;
     char *pchValue;
@@ -4842,19 +4842,19 @@ struct IVRCompositor_IVRCompositor_019_GetVulkanDeviceExtensionsRequired_params
 
 struct IVRCompositor_IVRCompositor_020_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_020_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_020_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -4864,7 +4864,7 @@ struct IVRCompositor_IVRCompositor_020_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_020_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -4874,7 +4874,7 @@ struct IVRCompositor_IVRCompositor_020_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_020_GetLastPoseForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     TrackedDevicePose_t *pOutputPose;
@@ -4883,7 +4883,7 @@ struct IVRCompositor_IVRCompositor_020_GetLastPoseForTrackedDeviceIndex_params
 
 struct IVRCompositor_IVRCompositor_020_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -4893,17 +4893,17 @@ struct IVRCompositor_IVRCompositor_020_Submit_params
 
 struct IVRCompositor_IVRCompositor_020_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_020_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_020_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_103a *pTiming;
     uint32_t unFramesAgo;
@@ -4911,7 +4911,7 @@ struct IVRCompositor_IVRCompositor_020_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_020_GetFrameTimings_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     w_Compositor_FrameTiming_103a *pTiming;
     uint32_t nFrames;
@@ -4919,20 +4919,20 @@ struct IVRCompositor_IVRCompositor_020_GetFrameTimings_params
 
 struct IVRCompositor_IVRCompositor_020_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_020_GetCumulativeStats_params
 {
-    void *linux_side;
+    void *u_iface;
     Compositor_CumulativeStats_100 *pStats;
     uint32_t nStatsSizeInBytes;
 };
 
 struct IVRCompositor_IVRCompositor_020_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -4943,27 +4943,27 @@ struct IVRCompositor_IVRCompositor_020_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_020_GetCurrentFadeColor_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdColor_t *_ret;
     int8_t bBackground;
 };
 
 struct IVRCompositor_IVRCompositor_020_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_020_GetCurrentGridAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_020_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -4971,95 +4971,95 @@ struct IVRCompositor_IVRCompositor_020_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_020_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_020_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_020_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_020_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_020_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_020_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_020_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_020_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_020_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_020_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_020_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_020_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_020_ShouldAppRenderWithLowResources_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_020_ForceInterleavedReprojectionOn_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bOverride;
 };
 
 struct IVRCompositor_IVRCompositor_020_ForceReconnectProcess_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_020_SuspendRendering_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bSuspend;
 };
 
 struct IVRCompositor_IVRCompositor_020_GetMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     void *pD3D11DeviceOrResource;
@@ -5068,13 +5068,13 @@ struct IVRCompositor_IVRCompositor_020_GetMirrorTextureD3D11_params
 
 struct IVRCompositor_IVRCompositor_020_ReleaseMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     void *pD3D11ShaderResourceView;
 };
 
 struct IVRCompositor_IVRCompositor_020_GetMirrorTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     uint32_t *pglTextureId;
@@ -5083,7 +5083,7 @@ struct IVRCompositor_IVRCompositor_020_GetMirrorTextureGL_params
 
 struct IVRCompositor_IVRCompositor_020_ReleaseSharedGLTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t glTextureId;
     void *glSharedTextureHandle;
@@ -5091,19 +5091,19 @@ struct IVRCompositor_IVRCompositor_020_ReleaseSharedGLTexture_params
 
 struct IVRCompositor_IVRCompositor_020_LockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_020_UnlockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_020_GetVulkanInstanceExtensionsRequired_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchValue;
     uint32_t unBufferSize;
@@ -5111,7 +5111,7 @@ struct IVRCompositor_IVRCompositor_020_GetVulkanInstanceExtensionsRequired_param
 
 struct IVRCompositor_IVRCompositor_020_GetVulkanDeviceExtensionsRequired_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VkPhysicalDevice_T *pPhysicalDevice;
     char *pchValue;
@@ -5120,19 +5120,19 @@ struct IVRCompositor_IVRCompositor_020_GetVulkanDeviceExtensionsRequired_params
 
 struct IVRCompositor_IVRCompositor_021_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_021_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_021_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -5142,7 +5142,7 @@ struct IVRCompositor_IVRCompositor_021_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_021_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -5152,7 +5152,7 @@ struct IVRCompositor_IVRCompositor_021_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_021_GetLastPoseForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     TrackedDevicePose_t *pOutputPose;
@@ -5161,7 +5161,7 @@ struct IVRCompositor_IVRCompositor_021_GetLastPoseForTrackedDeviceIndex_params
 
 struct IVRCompositor_IVRCompositor_021_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -5171,17 +5171,17 @@ struct IVRCompositor_IVRCompositor_021_Submit_params
 
 struct IVRCompositor_IVRCompositor_021_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_021_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_021_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_103a *pTiming;
     uint32_t unFramesAgo;
@@ -5189,7 +5189,7 @@ struct IVRCompositor_IVRCompositor_021_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_021_GetFrameTimings_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     w_Compositor_FrameTiming_103a *pTiming;
     uint32_t nFrames;
@@ -5197,20 +5197,20 @@ struct IVRCompositor_IVRCompositor_021_GetFrameTimings_params
 
 struct IVRCompositor_IVRCompositor_021_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_021_GetCumulativeStats_params
 {
-    void *linux_side;
+    void *u_iface;
     Compositor_CumulativeStats_100 *pStats;
     uint32_t nStatsSizeInBytes;
 };
 
 struct IVRCompositor_IVRCompositor_021_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -5221,27 +5221,27 @@ struct IVRCompositor_IVRCompositor_021_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_021_GetCurrentFadeColor_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdColor_t *_ret;
     int8_t bBackground;
 };
 
 struct IVRCompositor_IVRCompositor_021_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_021_GetCurrentGridAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_021_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -5249,95 +5249,95 @@ struct IVRCompositor_IVRCompositor_021_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_021_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_021_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_021_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_021_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_021_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_021_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_021_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_021_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_021_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_021_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_021_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_021_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_021_ShouldAppRenderWithLowResources_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_021_ForceInterleavedReprojectionOn_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bOverride;
 };
 
 struct IVRCompositor_IVRCompositor_021_ForceReconnectProcess_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_021_SuspendRendering_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bSuspend;
 };
 
 struct IVRCompositor_IVRCompositor_021_GetMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     void *pD3D11DeviceOrResource;
@@ -5346,13 +5346,13 @@ struct IVRCompositor_IVRCompositor_021_GetMirrorTextureD3D11_params
 
 struct IVRCompositor_IVRCompositor_021_ReleaseMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     void *pD3D11ShaderResourceView;
 };
 
 struct IVRCompositor_IVRCompositor_021_GetMirrorTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     uint32_t *pglTextureId;
@@ -5361,7 +5361,7 @@ struct IVRCompositor_IVRCompositor_021_GetMirrorTextureGL_params
 
 struct IVRCompositor_IVRCompositor_021_ReleaseSharedGLTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t glTextureId;
     void *glSharedTextureHandle;
@@ -5369,19 +5369,19 @@ struct IVRCompositor_IVRCompositor_021_ReleaseSharedGLTexture_params
 
 struct IVRCompositor_IVRCompositor_021_LockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_021_UnlockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_021_GetVulkanInstanceExtensionsRequired_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchValue;
     uint32_t unBufferSize;
@@ -5389,7 +5389,7 @@ struct IVRCompositor_IVRCompositor_021_GetVulkanInstanceExtensionsRequired_param
 
 struct IVRCompositor_IVRCompositor_021_GetVulkanDeviceExtensionsRequired_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VkPhysicalDevice_T *pPhysicalDevice;
     char *pchValue;
@@ -5398,31 +5398,31 @@ struct IVRCompositor_IVRCompositor_021_GetVulkanDeviceExtensionsRequired_params
 
 struct IVRCompositor_IVRCompositor_021_SetExplicitTimingMode_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bExplicitTimingMode;
 };
 
 struct IVRCompositor_IVRCompositor_021_SubmitExplicitTimingData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_022_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_022_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_022_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -5432,7 +5432,7 @@ struct IVRCompositor_IVRCompositor_022_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_022_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -5442,7 +5442,7 @@ struct IVRCompositor_IVRCompositor_022_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_022_GetLastPoseForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     TrackedDevicePose_t *pOutputPose;
@@ -5451,7 +5451,7 @@ struct IVRCompositor_IVRCompositor_022_GetLastPoseForTrackedDeviceIndex_params
 
 struct IVRCompositor_IVRCompositor_022_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -5461,17 +5461,17 @@ struct IVRCompositor_IVRCompositor_022_Submit_params
 
 struct IVRCompositor_IVRCompositor_022_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_022_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_022_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_1017 *pTiming;
     uint32_t unFramesAgo;
@@ -5479,7 +5479,7 @@ struct IVRCompositor_IVRCompositor_022_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_022_GetFrameTimings_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     w_Compositor_FrameTiming_1017 *pTiming;
     uint32_t nFrames;
@@ -5487,20 +5487,20 @@ struct IVRCompositor_IVRCompositor_022_GetFrameTimings_params
 
 struct IVRCompositor_IVRCompositor_022_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_022_GetCumulativeStats_params
 {
-    void *linux_side;
+    void *u_iface;
     Compositor_CumulativeStats_100 *pStats;
     uint32_t nStatsSizeInBytes;
 };
 
 struct IVRCompositor_IVRCompositor_022_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -5511,27 +5511,27 @@ struct IVRCompositor_IVRCompositor_022_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_022_GetCurrentFadeColor_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdColor_t *_ret;
     int8_t bBackground;
 };
 
 struct IVRCompositor_IVRCompositor_022_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_022_GetCurrentGridAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_022_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -5539,95 +5539,95 @@ struct IVRCompositor_IVRCompositor_022_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_022_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_022_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_022_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_022_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_022_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_022_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_022_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_022_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_022_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_022_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_022_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_022_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_022_ShouldAppRenderWithLowResources_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_022_ForceInterleavedReprojectionOn_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bOverride;
 };
 
 struct IVRCompositor_IVRCompositor_022_ForceReconnectProcess_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_022_SuspendRendering_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bSuspend;
 };
 
 struct IVRCompositor_IVRCompositor_022_GetMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     void *pD3D11DeviceOrResource;
@@ -5636,13 +5636,13 @@ struct IVRCompositor_IVRCompositor_022_GetMirrorTextureD3D11_params
 
 struct IVRCompositor_IVRCompositor_022_ReleaseMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     void *pD3D11ShaderResourceView;
 };
 
 struct IVRCompositor_IVRCompositor_022_GetMirrorTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     uint32_t *pglTextureId;
@@ -5651,7 +5651,7 @@ struct IVRCompositor_IVRCompositor_022_GetMirrorTextureGL_params
 
 struct IVRCompositor_IVRCompositor_022_ReleaseSharedGLTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t glTextureId;
     void *glSharedTextureHandle;
@@ -5659,19 +5659,19 @@ struct IVRCompositor_IVRCompositor_022_ReleaseSharedGLTexture_params
 
 struct IVRCompositor_IVRCompositor_022_LockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_022_UnlockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_022_GetVulkanInstanceExtensionsRequired_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchValue;
     uint32_t unBufferSize;
@@ -5679,7 +5679,7 @@ struct IVRCompositor_IVRCompositor_022_GetVulkanInstanceExtensionsRequired_param
 
 struct IVRCompositor_IVRCompositor_022_GetVulkanDeviceExtensionsRequired_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VkPhysicalDevice_T *pPhysicalDevice;
     char *pchValue;
@@ -5688,49 +5688,49 @@ struct IVRCompositor_IVRCompositor_022_GetVulkanDeviceExtensionsRequired_params
 
 struct IVRCompositor_IVRCompositor_022_SetExplicitTimingMode_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTimingMode;
 };
 
 struct IVRCompositor_IVRCompositor_022_SubmitExplicitTimingData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_022_IsMotionSmoothingEnabled_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_022_IsMotionSmoothingSupported_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_022_IsCurrentSceneFocusAppLoading_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_024_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_024_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_024_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -5740,7 +5740,7 @@ struct IVRCompositor_IVRCompositor_024_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_024_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -5750,7 +5750,7 @@ struct IVRCompositor_IVRCompositor_024_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_024_GetLastPoseForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     TrackedDevicePose_t *pOutputPose;
@@ -5759,7 +5759,7 @@ struct IVRCompositor_IVRCompositor_024_GetLastPoseForTrackedDeviceIndex_params
 
 struct IVRCompositor_IVRCompositor_024_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -5769,17 +5769,17 @@ struct IVRCompositor_IVRCompositor_024_Submit_params
 
 struct IVRCompositor_IVRCompositor_024_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_024_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_024_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_1017 *pTiming;
     uint32_t unFramesAgo;
@@ -5787,7 +5787,7 @@ struct IVRCompositor_IVRCompositor_024_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_024_GetFrameTimings_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     w_Compositor_FrameTiming_1017 *pTiming;
     uint32_t nFrames;
@@ -5795,20 +5795,20 @@ struct IVRCompositor_IVRCompositor_024_GetFrameTimings_params
 
 struct IVRCompositor_IVRCompositor_024_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_024_GetCumulativeStats_params
 {
-    void *linux_side;
+    void *u_iface;
     Compositor_CumulativeStats_100 *pStats;
     uint32_t nStatsSizeInBytes;
 };
 
 struct IVRCompositor_IVRCompositor_024_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -5819,27 +5819,27 @@ struct IVRCompositor_IVRCompositor_024_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_024_GetCurrentFadeColor_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdColor_t *_ret;
     int8_t bBackground;
 };
 
 struct IVRCompositor_IVRCompositor_024_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_024_GetCurrentGridAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_024_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -5847,95 +5847,95 @@ struct IVRCompositor_IVRCompositor_024_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_024_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_024_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_024_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_024_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_024_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_024_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_024_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_024_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_024_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_024_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_024_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_024_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_024_ShouldAppRenderWithLowResources_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_024_ForceInterleavedReprojectionOn_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bOverride;
 };
 
 struct IVRCompositor_IVRCompositor_024_ForceReconnectProcess_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_024_SuspendRendering_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bSuspend;
 };
 
 struct IVRCompositor_IVRCompositor_024_GetMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     void *pD3D11DeviceOrResource;
@@ -5944,13 +5944,13 @@ struct IVRCompositor_IVRCompositor_024_GetMirrorTextureD3D11_params
 
 struct IVRCompositor_IVRCompositor_024_ReleaseMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     void *pD3D11ShaderResourceView;
 };
 
 struct IVRCompositor_IVRCompositor_024_GetMirrorTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     uint32_t *pglTextureId;
@@ -5959,7 +5959,7 @@ struct IVRCompositor_IVRCompositor_024_GetMirrorTextureGL_params
 
 struct IVRCompositor_IVRCompositor_024_ReleaseSharedGLTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t glTextureId;
     void *glSharedTextureHandle;
@@ -5967,19 +5967,19 @@ struct IVRCompositor_IVRCompositor_024_ReleaseSharedGLTexture_params
 
 struct IVRCompositor_IVRCompositor_024_LockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_024_UnlockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_024_GetVulkanInstanceExtensionsRequired_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchValue;
     uint32_t unBufferSize;
@@ -5987,7 +5987,7 @@ struct IVRCompositor_IVRCompositor_024_GetVulkanInstanceExtensionsRequired_param
 
 struct IVRCompositor_IVRCompositor_024_GetVulkanDeviceExtensionsRequired_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VkPhysicalDevice_T *pPhysicalDevice;
     char *pchValue;
@@ -5996,37 +5996,37 @@ struct IVRCompositor_IVRCompositor_024_GetVulkanDeviceExtensionsRequired_params
 
 struct IVRCompositor_IVRCompositor_024_SetExplicitTimingMode_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTimingMode;
 };
 
 struct IVRCompositor_IVRCompositor_024_SubmitExplicitTimingData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_024_IsMotionSmoothingEnabled_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_024_IsMotionSmoothingSupported_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_024_IsCurrentSceneFocusAppLoading_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_024_SetStageOverride_Async_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelPath;
     const HmdMatrix34_t *pTransform;
@@ -6036,24 +6036,24 @@ struct IVRCompositor_IVRCompositor_024_SetStageOverride_Async_params
 
 struct IVRCompositor_IVRCompositor_024_ClearStageOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_026_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_026_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_026_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -6063,7 +6063,7 @@ struct IVRCompositor_IVRCompositor_026_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_026_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -6073,7 +6073,7 @@ struct IVRCompositor_IVRCompositor_026_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_026_GetLastPoseForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     TrackedDevicePose_t *pOutputPose;
@@ -6082,7 +6082,7 @@ struct IVRCompositor_IVRCompositor_026_GetLastPoseForTrackedDeviceIndex_params
 
 struct IVRCompositor_IVRCompositor_026_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -6092,17 +6092,17 @@ struct IVRCompositor_IVRCompositor_026_Submit_params
 
 struct IVRCompositor_IVRCompositor_026_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_026_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_026_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_1017 *pTiming;
     uint32_t unFramesAgo;
@@ -6110,7 +6110,7 @@ struct IVRCompositor_IVRCompositor_026_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_026_GetFrameTimings_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     w_Compositor_FrameTiming_1017 *pTiming;
     uint32_t nFrames;
@@ -6118,20 +6118,20 @@ struct IVRCompositor_IVRCompositor_026_GetFrameTimings_params
 
 struct IVRCompositor_IVRCompositor_026_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_026_GetCumulativeStats_params
 {
-    void *linux_side;
+    void *u_iface;
     Compositor_CumulativeStats_100 *pStats;
     uint32_t nStatsSizeInBytes;
 };
 
 struct IVRCompositor_IVRCompositor_026_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -6142,27 +6142,27 @@ struct IVRCompositor_IVRCompositor_026_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_026_GetCurrentFadeColor_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdColor_t *_ret;
     int8_t bBackground;
 };
 
 struct IVRCompositor_IVRCompositor_026_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeIn;
 };
 
 struct IVRCompositor_IVRCompositor_026_GetCurrentGridAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_026_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -6170,95 +6170,95 @@ struct IVRCompositor_IVRCompositor_026_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_026_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_026_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_026_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_026_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_026_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_026_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_026_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_026_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_026_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_026_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_026_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_026_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_026_ShouldAppRenderWithLowResources_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_026_ForceInterleavedReprojectionOn_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bOverride;
 };
 
 struct IVRCompositor_IVRCompositor_026_ForceReconnectProcess_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_026_SuspendRendering_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bSuspend;
 };
 
 struct IVRCompositor_IVRCompositor_026_GetMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     void *pD3D11DeviceOrResource;
@@ -6267,13 +6267,13 @@ struct IVRCompositor_IVRCompositor_026_GetMirrorTextureD3D11_params
 
 struct IVRCompositor_IVRCompositor_026_ReleaseMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     void *pD3D11ShaderResourceView;
 };
 
 struct IVRCompositor_IVRCompositor_026_GetMirrorTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     uint32_t *pglTextureId;
@@ -6282,7 +6282,7 @@ struct IVRCompositor_IVRCompositor_026_GetMirrorTextureGL_params
 
 struct IVRCompositor_IVRCompositor_026_ReleaseSharedGLTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t glTextureId;
     void *glSharedTextureHandle;
@@ -6290,19 +6290,19 @@ struct IVRCompositor_IVRCompositor_026_ReleaseSharedGLTexture_params
 
 struct IVRCompositor_IVRCompositor_026_LockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_026_UnlockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_026_GetVulkanInstanceExtensionsRequired_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchValue;
     uint32_t unBufferSize;
@@ -6310,7 +6310,7 @@ struct IVRCompositor_IVRCompositor_026_GetVulkanInstanceExtensionsRequired_param
 
 struct IVRCompositor_IVRCompositor_026_GetVulkanDeviceExtensionsRequired_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VkPhysicalDevice_T *pPhysicalDevice;
     char *pchValue;
@@ -6319,37 +6319,37 @@ struct IVRCompositor_IVRCompositor_026_GetVulkanDeviceExtensionsRequired_params
 
 struct IVRCompositor_IVRCompositor_026_SetExplicitTimingMode_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTimingMode;
 };
 
 struct IVRCompositor_IVRCompositor_026_SubmitExplicitTimingData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_026_IsMotionSmoothingEnabled_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_026_IsMotionSmoothingSupported_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_026_IsCurrentSceneFocusAppLoading_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_026_SetStageOverride_Async_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelPath;
     const HmdMatrix34_t *pTransform;
@@ -6359,12 +6359,12 @@ struct IVRCompositor_IVRCompositor_026_SetStageOverride_Async_params
 
 struct IVRCompositor_IVRCompositor_026_ClearStageOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_026_GetCompositorBenchmarkResults_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     Compositor_BenchmarkResults *pBenchmarkResults;
     uint32_t nSizeOfBenchmarkResults;
@@ -6372,7 +6372,7 @@ struct IVRCompositor_IVRCompositor_026_GetCompositorBenchmarkResults_params
 
 struct IVRCompositor_IVRCompositor_026_GetLastPosePredictionIDs_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t *pRenderPosePredictionID;
     uint32_t *pGamePosePredictionID;
@@ -6380,7 +6380,7 @@ struct IVRCompositor_IVRCompositor_026_GetLastPosePredictionIDs_params
 
 struct IVRCompositor_IVRCompositor_026_GetPosesForFrame_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unPosePredictionID;
     TrackedDevicePose_t *pPoseArray;
@@ -6389,19 +6389,19 @@ struct IVRCompositor_IVRCompositor_026_GetPosesForFrame_params
 
 struct IVRCompositor_IVRCompositor_027_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_027_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_027_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -6411,7 +6411,7 @@ struct IVRCompositor_IVRCompositor_027_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_027_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -6421,7 +6421,7 @@ struct IVRCompositor_IVRCompositor_027_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_027_GetLastPoseForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     TrackedDevicePose_t *pOutputPose;
@@ -6430,7 +6430,7 @@ struct IVRCompositor_IVRCompositor_027_GetLastPoseForTrackedDeviceIndex_params
 
 struct IVRCompositor_IVRCompositor_027_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -6440,17 +6440,17 @@ struct IVRCompositor_IVRCompositor_027_Submit_params
 
 struct IVRCompositor_IVRCompositor_027_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_027_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_027_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_1017 *pTiming;
     uint32_t unFramesAgo;
@@ -6458,7 +6458,7 @@ struct IVRCompositor_IVRCompositor_027_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_027_GetFrameTimings_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     w_Compositor_FrameTiming_1017 *pTiming;
     uint32_t nFrames;
@@ -6466,20 +6466,20 @@ struct IVRCompositor_IVRCompositor_027_GetFrameTimings_params
 
 struct IVRCompositor_IVRCompositor_027_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_027_GetCumulativeStats_params
 {
-    void *linux_side;
+    void *u_iface;
     Compositor_CumulativeStats_1267 *pStats;
     uint32_t nStatsSizeInBytes;
 };
 
 struct IVRCompositor_IVRCompositor_027_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -6490,27 +6490,27 @@ struct IVRCompositor_IVRCompositor_027_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_027_GetCurrentFadeColor_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdColor_t *_ret;
     int8_t bBackground;
 };
 
 struct IVRCompositor_IVRCompositor_027_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeGridIn;
 };
 
 struct IVRCompositor_IVRCompositor_027_GetCurrentGridAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_027_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -6518,95 +6518,95 @@ struct IVRCompositor_IVRCompositor_027_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_027_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_027_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_027_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_027_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_027_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_027_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_027_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_027_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_027_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_027_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_027_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_027_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_027_ShouldAppRenderWithLowResources_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_027_ForceInterleavedReprojectionOn_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bOverride;
 };
 
 struct IVRCompositor_IVRCompositor_027_ForceReconnectProcess_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_027_SuspendRendering_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bSuspend;
 };
 
 struct IVRCompositor_IVRCompositor_027_GetMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     void *pD3D11DeviceOrResource;
@@ -6615,13 +6615,13 @@ struct IVRCompositor_IVRCompositor_027_GetMirrorTextureD3D11_params
 
 struct IVRCompositor_IVRCompositor_027_ReleaseMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     void *pD3D11ShaderResourceView;
 };
 
 struct IVRCompositor_IVRCompositor_027_GetMirrorTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     uint32_t *pglTextureId;
@@ -6630,7 +6630,7 @@ struct IVRCompositor_IVRCompositor_027_GetMirrorTextureGL_params
 
 struct IVRCompositor_IVRCompositor_027_ReleaseSharedGLTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t glTextureId;
     void *glSharedTextureHandle;
@@ -6638,19 +6638,19 @@ struct IVRCompositor_IVRCompositor_027_ReleaseSharedGLTexture_params
 
 struct IVRCompositor_IVRCompositor_027_LockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_027_UnlockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_027_GetVulkanInstanceExtensionsRequired_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchValue;
     uint32_t unBufferSize;
@@ -6658,7 +6658,7 @@ struct IVRCompositor_IVRCompositor_027_GetVulkanInstanceExtensionsRequired_param
 
 struct IVRCompositor_IVRCompositor_027_GetVulkanDeviceExtensionsRequired_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VkPhysicalDevice_T *pPhysicalDevice;
     char *pchValue;
@@ -6667,37 +6667,37 @@ struct IVRCompositor_IVRCompositor_027_GetVulkanDeviceExtensionsRequired_params
 
 struct IVRCompositor_IVRCompositor_027_SetExplicitTimingMode_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTimingMode;
 };
 
 struct IVRCompositor_IVRCompositor_027_SubmitExplicitTimingData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_027_IsMotionSmoothingEnabled_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_027_IsMotionSmoothingSupported_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_027_IsCurrentSceneFocusAppLoading_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_027_SetStageOverride_Async_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelPath;
     const HmdMatrix34_t *pTransform;
@@ -6707,12 +6707,12 @@ struct IVRCompositor_IVRCompositor_027_SetStageOverride_Async_params
 
 struct IVRCompositor_IVRCompositor_027_ClearStageOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_027_GetCompositorBenchmarkResults_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     Compositor_BenchmarkResults *pBenchmarkResults;
     uint32_t nSizeOfBenchmarkResults;
@@ -6720,7 +6720,7 @@ struct IVRCompositor_IVRCompositor_027_GetCompositorBenchmarkResults_params
 
 struct IVRCompositor_IVRCompositor_027_GetLastPosePredictionIDs_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t *pRenderPosePredictionID;
     uint32_t *pGamePosePredictionID;
@@ -6728,7 +6728,7 @@ struct IVRCompositor_IVRCompositor_027_GetLastPosePredictionIDs_params
 
 struct IVRCompositor_IVRCompositor_027_GetPosesForFrame_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unPosePredictionID;
     TrackedDevicePose_t *pPoseArray;
@@ -6737,19 +6737,19 @@ struct IVRCompositor_IVRCompositor_027_GetPosesForFrame_params
 
 struct IVRCompositor_IVRCompositor_028_SetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
 };
 
 struct IVRCompositor_IVRCompositor_028_GetTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_028_WaitGetPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -6759,7 +6759,7 @@ struct IVRCompositor_IVRCompositor_028_WaitGetPoses_params
 
 struct IVRCompositor_IVRCompositor_028_GetLastPoses_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     TrackedDevicePose_t *pRenderPoseArray;
     uint32_t unRenderPoseArrayCount;
@@ -6769,7 +6769,7 @@ struct IVRCompositor_IVRCompositor_028_GetLastPoses_params
 
 struct IVRCompositor_IVRCompositor_028_GetLastPoseForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     TrackedDevicePose_t *pOutputPose;
@@ -6778,7 +6778,7 @@ struct IVRCompositor_IVRCompositor_028_GetLastPoseForTrackedDeviceIndex_params
 
 struct IVRCompositor_IVRCompositor_028_Submit_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -6788,7 +6788,7 @@ struct IVRCompositor_IVRCompositor_028_Submit_params
 
 struct IVRCompositor_IVRCompositor_028_SubmitWithArrayIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     const w_Texture_t *pTexture;
@@ -6799,17 +6799,17 @@ struct IVRCompositor_IVRCompositor_028_SubmitWithArrayIndex_params
 
 struct IVRCompositor_IVRCompositor_028_ClearLastSubmittedFrame_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_028_PostPresentHandoff_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_028_GetFrameTiming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_Compositor_FrameTiming_1017 *pTiming;
     uint32_t unFramesAgo;
@@ -6817,7 +6817,7 @@ struct IVRCompositor_IVRCompositor_028_GetFrameTiming_params
 
 struct IVRCompositor_IVRCompositor_028_GetFrameTimings_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     w_Compositor_FrameTiming_1017 *pTiming;
     uint32_t nFrames;
@@ -6825,20 +6825,20 @@ struct IVRCompositor_IVRCompositor_028_GetFrameTimings_params
 
 struct IVRCompositor_IVRCompositor_028_GetFrameTimeRemaining_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_028_GetCumulativeStats_params
 {
-    void *linux_side;
+    void *u_iface;
     Compositor_CumulativeStats_1267 *pStats;
     uint32_t nStatsSizeInBytes;
 };
 
 struct IVRCompositor_IVRCompositor_028_FadeToColor_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     float fRed;
     float fGreen;
@@ -6849,27 +6849,27 @@ struct IVRCompositor_IVRCompositor_028_FadeToColor_params
 
 struct IVRCompositor_IVRCompositor_028_GetCurrentFadeColor_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdColor_t *_ret;
     int8_t bBackground;
 };
 
 struct IVRCompositor_IVRCompositor_028_FadeGrid_params
 {
-    void *linux_side;
+    void *u_iface;
     float fSeconds;
     int8_t bFadeGridIn;
 };
 
 struct IVRCompositor_IVRCompositor_028_GetCurrentGridAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRCompositor_IVRCompositor_028_SetSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const w_Texture_t *pTextures;
     uint32_t unTextureCount;
@@ -6877,95 +6877,95 @@ struct IVRCompositor_IVRCompositor_028_SetSkyboxOverride_params
 
 struct IVRCompositor_IVRCompositor_028_ClearSkyboxOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_028_CompositorBringToFront_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_028_CompositorGoToBack_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_028_CompositorQuit_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_028_IsFullscreen_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_028_GetCurrentSceneFocusProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_028_GetLastFrameRenderer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_028_CanRenderScene_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_028_ShowMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_028_HideMirrorWindow_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_028_IsMirrorWindowVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_028_CompositorDumpImages_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_028_ShouldAppRenderWithLowResources_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_028_ForceInterleavedReprojectionOn_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bOverride;
 };
 
 struct IVRCompositor_IVRCompositor_028_ForceReconnectProcess_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_028_SuspendRendering_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bSuspend;
 };
 
 struct IVRCompositor_IVRCompositor_028_GetMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     void *pD3D11DeviceOrResource;
@@ -6974,13 +6974,13 @@ struct IVRCompositor_IVRCompositor_028_GetMirrorTextureD3D11_params
 
 struct IVRCompositor_IVRCompositor_028_ReleaseMirrorTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     void *pD3D11ShaderResourceView;
 };
 
 struct IVRCompositor_IVRCompositor_028_GetMirrorTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eEye;
     uint32_t *pglTextureId;
@@ -6989,7 +6989,7 @@ struct IVRCompositor_IVRCompositor_028_GetMirrorTextureGL_params
 
 struct IVRCompositor_IVRCompositor_028_ReleaseSharedGLTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t glTextureId;
     void *glSharedTextureHandle;
@@ -6997,19 +6997,19 @@ struct IVRCompositor_IVRCompositor_028_ReleaseSharedGLTexture_params
 
 struct IVRCompositor_IVRCompositor_028_LockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_028_UnlockGLSharedTextureForAccess_params
 {
-    void *linux_side;
+    void *u_iface;
     void *glSharedTextureHandle;
 };
 
 struct IVRCompositor_IVRCompositor_028_GetVulkanInstanceExtensionsRequired_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchValue;
     uint32_t unBufferSize;
@@ -7017,7 +7017,7 @@ struct IVRCompositor_IVRCompositor_028_GetVulkanInstanceExtensionsRequired_param
 
 struct IVRCompositor_IVRCompositor_028_GetVulkanDeviceExtensionsRequired_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VkPhysicalDevice_T *pPhysicalDevice;
     char *pchValue;
@@ -7026,37 +7026,37 @@ struct IVRCompositor_IVRCompositor_028_GetVulkanDeviceExtensionsRequired_params
 
 struct IVRCompositor_IVRCompositor_028_SetExplicitTimingMode_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTimingMode;
 };
 
 struct IVRCompositor_IVRCompositor_028_SubmitExplicitTimingData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_028_IsMotionSmoothingEnabled_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_028_IsMotionSmoothingSupported_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_028_IsCurrentSceneFocusAppLoading_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRCompositor_IVRCompositor_028_SetStageOverride_Async_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelPath;
     const HmdMatrix34_t *pTransform;
@@ -7066,12 +7066,12 @@ struct IVRCompositor_IVRCompositor_028_SetStageOverride_Async_params
 
 struct IVRCompositor_IVRCompositor_028_ClearStageOverride_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRCompositor_IVRCompositor_028_GetCompositorBenchmarkResults_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     Compositor_BenchmarkResults *pBenchmarkResults;
     uint32_t nSizeOfBenchmarkResults;
@@ -7079,7 +7079,7 @@ struct IVRCompositor_IVRCompositor_028_GetCompositorBenchmarkResults_params
 
 struct IVRCompositor_IVRCompositor_028_GetLastPosePredictionIDs_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t *pRenderPosePredictionID;
     uint32_t *pGamePosePredictionID;
@@ -7087,7 +7087,7 @@ struct IVRCompositor_IVRCompositor_028_GetLastPosePredictionIDs_params
 
 struct IVRCompositor_IVRCompositor_028_GetPosesForFrame_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unPosePredictionID;
     TrackedDevicePose_t *pPoseArray;
@@ -7096,13 +7096,13 @@ struct IVRCompositor_IVRCompositor_028_GetPosesForFrame_params
 
 struct IVRControlPanel_IVRControlPanel_006_undoc1_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc2_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t a;
     char *b;
@@ -7111,21 +7111,21 @@ struct IVRControlPanel_IVRControlPanel_006_undoc2_params
 
 struct IVRControlPanel_IVRControlPanel_006_undoc3_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *a;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc4_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *a;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc5_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *a;
     uint32_t b;
@@ -7135,7 +7135,7 @@ struct IVRControlPanel_IVRControlPanel_006_undoc5_params
 
 struct IVRControlPanel_IVRControlPanel_006_undoc6_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *a;
     const char *b;
@@ -7145,7 +7145,7 @@ struct IVRControlPanel_IVRControlPanel_006_undoc6_params
 
 struct IVRControlPanel_IVRControlPanel_006_undoc7_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *a;
     const char *b;
@@ -7155,90 +7155,90 @@ struct IVRControlPanel_IVRControlPanel_006_undoc7_params
 
 struct IVRControlPanel_IVRControlPanel_006_undoc8_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t a;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc9_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc10_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc11_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t a;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc12_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc13_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t a;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc14_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t a;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc15_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc16_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t a;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc17_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc18_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc19_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t a;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc20_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc21_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc22_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t a;
     const char *b;
     uint32_t c;
@@ -7248,52 +7248,52 @@ struct IVRControlPanel_IVRControlPanel_006_undoc22_params
 
 struct IVRControlPanel_IVRControlPanel_006_undoc23_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *a;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc24_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc25_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     int8_t a;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc26_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc27_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *a;
 };
 
 struct IVRControlPanel_IVRControlPanel_006_undoc28_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t a;
 };
 
 struct IVRDriverManager_IVRDriverManager_001_GetDriverCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRDriverManager_IVRDriverManager_001_GetDriverName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDriver;
     char *pchValue;
@@ -7302,21 +7302,21 @@ struct IVRDriverManager_IVRDriverManager_001_GetDriverName_params
 
 struct IVRDriverManager_IVRDriverManager_001_GetDriverHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     const char *pchDriverName;
 };
 
 struct IVRDriverManager_IVRDriverManager_001_IsEnabled_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t nDriver;
 };
 
 struct IVRExtendedDisplay_IVRExtendedDisplay_001_GetWindowBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnX;
     int32_t *pnY;
     uint32_t *pnWidth;
@@ -7325,7 +7325,7 @@ struct IVRExtendedDisplay_IVRExtendedDisplay_001_GetWindowBounds_params
 
 struct IVRExtendedDisplay_IVRExtendedDisplay_001_GetEyeOutputViewport_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     uint32_t *pnX;
     uint32_t *pnY;
@@ -7335,72 +7335,72 @@ struct IVRExtendedDisplay_IVRExtendedDisplay_001_GetEyeOutputViewport_params
 
 struct IVRExtendedDisplay_IVRExtendedDisplay_001_GetDXGIOutputInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnAdapterIndex;
     int32_t *pnAdapterOutputIndex;
 };
 
 struct IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t nWidth;
     uint32_t nHeight;
 };
 
 struct IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t *pnWidth;
     uint32_t *pnHeight;
 };
 
 struct IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewMode_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eHeadsetViewMode;
 };
 
 struct IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewMode_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewCropped_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bCropped;
 };
 
 struct IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewCropped_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewAspectRatio_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
 };
 
 struct IVRHeadsetView_IVRHeadsetView_001_SetHeadsetViewBlendRange_params
 {
-    void *linux_side;
+    void *u_iface;
     float flStartPct;
     float flEndPct;
 };
 
 struct IVRHeadsetView_IVRHeadsetView_001_GetHeadsetViewBlendRange_params
 {
-    void *linux_side;
+    void *u_iface;
     float *pStartPct;
     float *pEndPct;
 };
 
 struct IVRIOBuffer_IVRIOBuffer_001_Open_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchPath;
     uint32_t mode;
@@ -7411,14 +7411,14 @@ struct IVRIOBuffer_IVRIOBuffer_001_Open_params
 
 struct IVRIOBuffer_IVRIOBuffer_001_Close_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulBuffer;
 };
 
 struct IVRIOBuffer_IVRIOBuffer_001_Read_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulBuffer;
     void *pDst;
@@ -7428,7 +7428,7 @@ struct IVRIOBuffer_IVRIOBuffer_001_Read_params
 
 struct IVRIOBuffer_IVRIOBuffer_001_Write_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulBuffer;
     void *pSrc;
@@ -7437,14 +7437,14 @@ struct IVRIOBuffer_IVRIOBuffer_001_Write_params
 
 struct IVRIOBuffer_IVRIOBuffer_001_PropertyContainer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint64_t ulBuffer;
 };
 
 struct IVRIOBuffer_IVRIOBuffer_002_Open_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchPath;
     uint32_t mode;
@@ -7455,14 +7455,14 @@ struct IVRIOBuffer_IVRIOBuffer_002_Open_params
 
 struct IVRIOBuffer_IVRIOBuffer_002_Close_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulBuffer;
 };
 
 struct IVRIOBuffer_IVRIOBuffer_002_Read_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulBuffer;
     void *pDst;
@@ -7472,7 +7472,7 @@ struct IVRIOBuffer_IVRIOBuffer_002_Read_params
 
 struct IVRIOBuffer_IVRIOBuffer_002_Write_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulBuffer;
     void *pSrc;
@@ -7481,28 +7481,28 @@ struct IVRIOBuffer_IVRIOBuffer_002_Write_params
 
 struct IVRIOBuffer_IVRIOBuffer_002_PropertyContainer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint64_t ulBuffer;
 };
 
 struct IVRIOBuffer_IVRIOBuffer_002_HasReaders_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulBuffer;
 };
 
 struct IVRInput_IVRInput_003_SetActionManifestPath_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionManifestPath;
 };
 
 struct IVRInput_IVRInput_003_GetActionSetHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionSetName;
     uint64_t *pHandle;
@@ -7510,7 +7510,7 @@ struct IVRInput_IVRInput_003_GetActionSetHandle_params
 
 struct IVRInput_IVRInput_003_GetActionHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionName;
     uint64_t *pHandle;
@@ -7518,7 +7518,7 @@ struct IVRInput_IVRInput_003_GetActionHandle_params
 
 struct IVRInput_IVRInput_003_GetInputSourceHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchInputSourcePath;
     uint64_t *pHandle;
@@ -7526,7 +7526,7 @@ struct IVRInput_IVRInput_003_GetInputSourceHandle_params
 
 struct IVRInput_IVRInput_003_UpdateActionState_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VRActiveActionSet_t_1015 *pSets;
     uint32_t unSizeOfVRSelectedActionSet_t;
@@ -7535,7 +7535,7 @@ struct IVRInput_IVRInput_003_UpdateActionState_params
 
 struct IVRInput_IVRInput_003_GetDigitalActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     w_InputDigitalActionData_t *pActionData;
@@ -7544,7 +7544,7 @@ struct IVRInput_IVRInput_003_GetDigitalActionData_params
 
 struct IVRInput_IVRInput_003_GetAnalogActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     w_InputAnalogActionData_t *pActionData;
@@ -7553,7 +7553,7 @@ struct IVRInput_IVRInput_003_GetAnalogActionData_params
 
 struct IVRInput_IVRInput_003_GetPoseActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eOrigin;
@@ -7564,7 +7564,7 @@ struct IVRInput_IVRInput_003_GetPoseActionData_params
 
 struct IVRInput_IVRInput_003_GetSkeletalActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eBoneParent;
@@ -7577,7 +7577,7 @@ struct IVRInput_IVRInput_003_GetSkeletalActionData_params
 
 struct IVRInput_IVRInput_003_GetSkeletalActionDataCompressed_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eBoneParent;
@@ -7589,7 +7589,7 @@ struct IVRInput_IVRInput_003_GetSkeletalActionDataCompressed_params
 
 struct IVRInput_IVRInput_003_UncompressSkeletalActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     void *pvCompressedBuffer;
     uint32_t unCompressedBufferSize;
@@ -7600,7 +7600,7 @@ struct IVRInput_IVRInput_003_UncompressSkeletalActionData_params
 
 struct IVRInput_IVRInput_003_TriggerHapticVibrationAction_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     float fStartSecondsFromNow;
@@ -7611,7 +7611,7 @@ struct IVRInput_IVRInput_003_TriggerHapticVibrationAction_params
 
 struct IVRInput_IVRInput_003_GetActionOrigins_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t actionSetHandle;
     uint64_t digitalActionHandle;
@@ -7621,7 +7621,7 @@ struct IVRInput_IVRInput_003_GetActionOrigins_params
 
 struct IVRInput_IVRInput_003_GetOriginLocalizedName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t origin;
     char *pchNameArray;
@@ -7630,7 +7630,7 @@ struct IVRInput_IVRInput_003_GetOriginLocalizedName_params
 
 struct IVRInput_IVRInput_003_GetOriginTrackedDeviceInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t origin;
     w_InputOriginInfo_t *pOriginInfo;
@@ -7639,7 +7639,7 @@ struct IVRInput_IVRInput_003_GetOriginTrackedDeviceInfo_params
 
 struct IVRInput_IVRInput_003_ShowActionOrigins_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t actionSetHandle;
     uint64_t ulActionHandle;
@@ -7647,7 +7647,7 @@ struct IVRInput_IVRInput_003_ShowActionOrigins_params
 
 struct IVRInput_IVRInput_003_ShowBindingsForActionSet_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VRActiveActionSet_t_1015 *pSets;
     uint32_t unSizeOfVRSelectedActionSet_t;
@@ -7657,14 +7657,14 @@ struct IVRInput_IVRInput_003_ShowBindingsForActionSet_params
 
 struct IVRInput_IVRInput_004_SetActionManifestPath_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionManifestPath;
 };
 
 struct IVRInput_IVRInput_004_GetActionSetHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionSetName;
     uint64_t *pHandle;
@@ -7672,7 +7672,7 @@ struct IVRInput_IVRInput_004_GetActionSetHandle_params
 
 struct IVRInput_IVRInput_004_GetActionHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionName;
     uint64_t *pHandle;
@@ -7680,7 +7680,7 @@ struct IVRInput_IVRInput_004_GetActionHandle_params
 
 struct IVRInput_IVRInput_004_GetInputSourceHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchInputSourcePath;
     uint64_t *pHandle;
@@ -7688,7 +7688,7 @@ struct IVRInput_IVRInput_004_GetInputSourceHandle_params
 
 struct IVRInput_IVRInput_004_UpdateActionState_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VRActiveActionSet_t_1016 *pSets;
     uint32_t unSizeOfVRSelectedActionSet_t;
@@ -7697,7 +7697,7 @@ struct IVRInput_IVRInput_004_UpdateActionState_params
 
 struct IVRInput_IVRInput_004_GetDigitalActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     w_InputDigitalActionData_t *pActionData;
@@ -7707,7 +7707,7 @@ struct IVRInput_IVRInput_004_GetDigitalActionData_params
 
 struct IVRInput_IVRInput_004_GetAnalogActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     w_InputAnalogActionData_t *pActionData;
@@ -7717,7 +7717,7 @@ struct IVRInput_IVRInput_004_GetAnalogActionData_params
 
 struct IVRInput_IVRInput_004_GetPoseActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eOrigin;
@@ -7729,7 +7729,7 @@ struct IVRInput_IVRInput_004_GetPoseActionData_params
 
 struct IVRInput_IVRInput_004_GetSkeletalActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     w_InputSkeletalActionData_t_1016 *pActionData;
@@ -7739,7 +7739,7 @@ struct IVRInput_IVRInput_004_GetSkeletalActionData_params
 
 struct IVRInput_IVRInput_004_GetSkeletalBoneData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eTransformSpace;
@@ -7751,7 +7751,7 @@ struct IVRInput_IVRInput_004_GetSkeletalBoneData_params
 
 struct IVRInput_IVRInput_004_GetSkeletalBoneDataCompressed_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eTransformSpace;
@@ -7764,7 +7764,7 @@ struct IVRInput_IVRInput_004_GetSkeletalBoneDataCompressed_params
 
 struct IVRInput_IVRInput_004_DecompressSkeletalBoneData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     void *pvCompressedBuffer;
     uint32_t unCompressedBufferSize;
@@ -7775,7 +7775,7 @@ struct IVRInput_IVRInput_004_DecompressSkeletalBoneData_params
 
 struct IVRInput_IVRInput_004_TriggerHapticVibrationAction_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     float fStartSecondsFromNow;
@@ -7787,7 +7787,7 @@ struct IVRInput_IVRInput_004_TriggerHapticVibrationAction_params
 
 struct IVRInput_IVRInput_004_GetActionOrigins_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t actionSetHandle;
     uint64_t digitalActionHandle;
@@ -7797,7 +7797,7 @@ struct IVRInput_IVRInput_004_GetActionOrigins_params
 
 struct IVRInput_IVRInput_004_GetOriginLocalizedName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t origin;
     char *pchNameArray;
@@ -7806,7 +7806,7 @@ struct IVRInput_IVRInput_004_GetOriginLocalizedName_params
 
 struct IVRInput_IVRInput_004_GetOriginTrackedDeviceInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t origin;
     w_InputOriginInfo_t *pOriginInfo;
@@ -7815,7 +7815,7 @@ struct IVRInput_IVRInput_004_GetOriginTrackedDeviceInfo_params
 
 struct IVRInput_IVRInput_004_ShowActionOrigins_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t actionSetHandle;
     uint64_t ulActionHandle;
@@ -7823,7 +7823,7 @@ struct IVRInput_IVRInput_004_ShowActionOrigins_params
 
 struct IVRInput_IVRInput_004_ShowBindingsForActionSet_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VRActiveActionSet_t_1016 *pSets;
     uint32_t unSizeOfVRSelectedActionSet_t;
@@ -7833,14 +7833,14 @@ struct IVRInput_IVRInput_004_ShowBindingsForActionSet_params
 
 struct IVRInput_IVRInput_005_SetActionManifestPath_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionManifestPath;
 };
 
 struct IVRInput_IVRInput_005_GetActionSetHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionSetName;
     uint64_t *pHandle;
@@ -7848,7 +7848,7 @@ struct IVRInput_IVRInput_005_GetActionSetHandle_params
 
 struct IVRInput_IVRInput_005_GetActionHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionName;
     uint64_t *pHandle;
@@ -7856,7 +7856,7 @@ struct IVRInput_IVRInput_005_GetActionHandle_params
 
 struct IVRInput_IVRInput_005_GetInputSourceHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchInputSourcePath;
     uint64_t *pHandle;
@@ -7864,7 +7864,7 @@ struct IVRInput_IVRInput_005_GetInputSourceHandle_params
 
 struct IVRInput_IVRInput_005_UpdateActionState_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VRActiveActionSet_t_1016 *pSets;
     uint32_t unSizeOfVRSelectedActionSet_t;
@@ -7873,7 +7873,7 @@ struct IVRInput_IVRInput_005_UpdateActionState_params
 
 struct IVRInput_IVRInput_005_GetDigitalActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     w_InputDigitalActionData_t *pActionData;
@@ -7883,7 +7883,7 @@ struct IVRInput_IVRInput_005_GetDigitalActionData_params
 
 struct IVRInput_IVRInput_005_GetAnalogActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     w_InputAnalogActionData_t *pActionData;
@@ -7893,7 +7893,7 @@ struct IVRInput_IVRInput_005_GetAnalogActionData_params
 
 struct IVRInput_IVRInput_005_GetPoseActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eOrigin;
@@ -7905,7 +7905,7 @@ struct IVRInput_IVRInput_005_GetPoseActionData_params
 
 struct IVRInput_IVRInput_005_GetSkeletalActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     w_InputSkeletalActionData_t_113b *pActionData;
@@ -7914,7 +7914,7 @@ struct IVRInput_IVRInput_005_GetSkeletalActionData_params
 
 struct IVRInput_IVRInput_005_GetBoneCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t *pBoneCount;
@@ -7922,7 +7922,7 @@ struct IVRInput_IVRInput_005_GetBoneCount_params
 
 struct IVRInput_IVRInput_005_GetBoneHierarchy_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     int32_t *pParentIndices;
@@ -7931,7 +7931,7 @@ struct IVRInput_IVRInput_005_GetBoneHierarchy_params
 
 struct IVRInput_IVRInput_005_GetBoneName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     int32_t nBoneIndex;
@@ -7941,7 +7941,7 @@ struct IVRInput_IVRInput_005_GetBoneName_params
 
 struct IVRInput_IVRInput_005_GetSkeletalReferenceTransforms_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eTransformSpace;
@@ -7952,7 +7952,7 @@ struct IVRInput_IVRInput_005_GetSkeletalReferenceTransforms_params
 
 struct IVRInput_IVRInput_005_GetSkeletalTrackingLevel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t *pSkeletalTrackingLevel;
@@ -7960,7 +7960,7 @@ struct IVRInput_IVRInput_005_GetSkeletalTrackingLevel_params
 
 struct IVRInput_IVRInput_005_GetSkeletalBoneData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eTransformSpace;
@@ -7971,7 +7971,7 @@ struct IVRInput_IVRInput_005_GetSkeletalBoneData_params
 
 struct IVRInput_IVRInput_005_GetSkeletalSummaryData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     VRSkeletalSummaryData_t *pSkeletalSummaryData;
@@ -7979,7 +7979,7 @@ struct IVRInput_IVRInput_005_GetSkeletalSummaryData_params
 
 struct IVRInput_IVRInput_005_GetSkeletalBoneDataCompressed_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eMotionRange;
@@ -7990,7 +7990,7 @@ struct IVRInput_IVRInput_005_GetSkeletalBoneDataCompressed_params
 
 struct IVRInput_IVRInput_005_DecompressSkeletalBoneData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const void *pvCompressedBuffer;
     uint32_t unCompressedBufferSize;
@@ -8001,7 +8001,7 @@ struct IVRInput_IVRInput_005_DecompressSkeletalBoneData_params
 
 struct IVRInput_IVRInput_005_TriggerHapticVibrationAction_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     float fStartSecondsFromNow;
@@ -8013,7 +8013,7 @@ struct IVRInput_IVRInput_005_TriggerHapticVibrationAction_params
 
 struct IVRInput_IVRInput_005_GetActionOrigins_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t actionSetHandle;
     uint64_t digitalActionHandle;
@@ -8023,7 +8023,7 @@ struct IVRInput_IVRInput_005_GetActionOrigins_params
 
 struct IVRInput_IVRInput_005_GetOriginLocalizedName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t origin;
     char *pchNameArray;
@@ -8033,7 +8033,7 @@ struct IVRInput_IVRInput_005_GetOriginLocalizedName_params
 
 struct IVRInput_IVRInput_005_GetOriginTrackedDeviceInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t origin;
     w_InputOriginInfo_t *pOriginInfo;
@@ -8042,7 +8042,7 @@ struct IVRInput_IVRInput_005_GetOriginTrackedDeviceInfo_params
 
 struct IVRInput_IVRInput_005_ShowActionOrigins_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t actionSetHandle;
     uint64_t ulActionHandle;
@@ -8050,7 +8050,7 @@ struct IVRInput_IVRInput_005_ShowActionOrigins_params
 
 struct IVRInput_IVRInput_005_ShowBindingsForActionSet_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VRActiveActionSet_t_1016 *pSets;
     uint32_t unSizeOfVRSelectedActionSet_t;
@@ -8060,20 +8060,20 @@ struct IVRInput_IVRInput_005_ShowBindingsForActionSet_params
 
 struct IVRInput_IVRInput_005_IsUsingLegacyInput_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRInput_IVRInput_006_SetActionManifestPath_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionManifestPath;
 };
 
 struct IVRInput_IVRInput_006_GetActionSetHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionSetName;
     uint64_t *pHandle;
@@ -8081,7 +8081,7 @@ struct IVRInput_IVRInput_006_GetActionSetHandle_params
 
 struct IVRInput_IVRInput_006_GetActionHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionName;
     uint64_t *pHandle;
@@ -8089,7 +8089,7 @@ struct IVRInput_IVRInput_006_GetActionHandle_params
 
 struct IVRInput_IVRInput_006_GetInputSourceHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchInputSourcePath;
     uint64_t *pHandle;
@@ -8097,7 +8097,7 @@ struct IVRInput_IVRInput_006_GetInputSourceHandle_params
 
 struct IVRInput_IVRInput_006_UpdateActionState_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VRActiveActionSet_t_1016 *pSets;
     uint32_t unSizeOfVRSelectedActionSet_t;
@@ -8106,7 +8106,7 @@ struct IVRInput_IVRInput_006_UpdateActionState_params
 
 struct IVRInput_IVRInput_006_GetDigitalActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     w_InputDigitalActionData_t *pActionData;
@@ -8116,7 +8116,7 @@ struct IVRInput_IVRInput_006_GetDigitalActionData_params
 
 struct IVRInput_IVRInput_006_GetAnalogActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     w_InputAnalogActionData_t *pActionData;
@@ -8126,7 +8126,7 @@ struct IVRInput_IVRInput_006_GetAnalogActionData_params
 
 struct IVRInput_IVRInput_006_GetPoseActionDataRelativeToNow_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eOrigin;
@@ -8138,7 +8138,7 @@ struct IVRInput_IVRInput_006_GetPoseActionDataRelativeToNow_params
 
 struct IVRInput_IVRInput_006_GetPoseActionDataForNextFrame_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eOrigin;
@@ -8149,7 +8149,7 @@ struct IVRInput_IVRInput_006_GetPoseActionDataForNextFrame_params
 
 struct IVRInput_IVRInput_006_GetSkeletalActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     w_InputSkeletalActionData_t_113b *pActionData;
@@ -8158,7 +8158,7 @@ struct IVRInput_IVRInput_006_GetSkeletalActionData_params
 
 struct IVRInput_IVRInput_006_GetBoneCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t *pBoneCount;
@@ -8166,7 +8166,7 @@ struct IVRInput_IVRInput_006_GetBoneCount_params
 
 struct IVRInput_IVRInput_006_GetBoneHierarchy_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     int32_t *pParentIndices;
@@ -8175,7 +8175,7 @@ struct IVRInput_IVRInput_006_GetBoneHierarchy_params
 
 struct IVRInput_IVRInput_006_GetBoneName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     int32_t nBoneIndex;
@@ -8185,7 +8185,7 @@ struct IVRInput_IVRInput_006_GetBoneName_params
 
 struct IVRInput_IVRInput_006_GetSkeletalReferenceTransforms_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eTransformSpace;
@@ -8196,7 +8196,7 @@ struct IVRInput_IVRInput_006_GetSkeletalReferenceTransforms_params
 
 struct IVRInput_IVRInput_006_GetSkeletalTrackingLevel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t *pSkeletalTrackingLevel;
@@ -8204,7 +8204,7 @@ struct IVRInput_IVRInput_006_GetSkeletalTrackingLevel_params
 
 struct IVRInput_IVRInput_006_GetSkeletalBoneData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eTransformSpace;
@@ -8215,7 +8215,7 @@ struct IVRInput_IVRInput_006_GetSkeletalBoneData_params
 
 struct IVRInput_IVRInput_006_GetSkeletalSummaryData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eSummaryType;
@@ -8224,7 +8224,7 @@ struct IVRInput_IVRInput_006_GetSkeletalSummaryData_params
 
 struct IVRInput_IVRInput_006_GetSkeletalBoneDataCompressed_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eMotionRange;
@@ -8235,7 +8235,7 @@ struct IVRInput_IVRInput_006_GetSkeletalBoneDataCompressed_params
 
 struct IVRInput_IVRInput_006_DecompressSkeletalBoneData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const void *pvCompressedBuffer;
     uint32_t unCompressedBufferSize;
@@ -8246,7 +8246,7 @@ struct IVRInput_IVRInput_006_DecompressSkeletalBoneData_params
 
 struct IVRInput_IVRInput_006_TriggerHapticVibrationAction_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     float fStartSecondsFromNow;
@@ -8258,7 +8258,7 @@ struct IVRInput_IVRInput_006_TriggerHapticVibrationAction_params
 
 struct IVRInput_IVRInput_006_GetActionOrigins_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t actionSetHandle;
     uint64_t digitalActionHandle;
@@ -8268,7 +8268,7 @@ struct IVRInput_IVRInput_006_GetActionOrigins_params
 
 struct IVRInput_IVRInput_006_GetOriginLocalizedName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t origin;
     char *pchNameArray;
@@ -8278,7 +8278,7 @@ struct IVRInput_IVRInput_006_GetOriginLocalizedName_params
 
 struct IVRInput_IVRInput_006_GetOriginTrackedDeviceInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t origin;
     w_InputOriginInfo_t *pOriginInfo;
@@ -8287,7 +8287,7 @@ struct IVRInput_IVRInput_006_GetOriginTrackedDeviceInfo_params
 
 struct IVRInput_IVRInput_006_ShowActionOrigins_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t actionSetHandle;
     uint64_t ulActionHandle;
@@ -8295,7 +8295,7 @@ struct IVRInput_IVRInput_006_ShowActionOrigins_params
 
 struct IVRInput_IVRInput_006_ShowBindingsForActionSet_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VRActiveActionSet_t_1016 *pSets;
     uint32_t unSizeOfVRSelectedActionSet_t;
@@ -8305,20 +8305,20 @@ struct IVRInput_IVRInput_006_ShowBindingsForActionSet_params
 
 struct IVRInput_IVRInput_006_IsUsingLegacyInput_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRInput_IVRInput_007_SetActionManifestPath_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionManifestPath;
 };
 
 struct IVRInput_IVRInput_007_GetActionSetHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionSetName;
     uint64_t *pHandle;
@@ -8326,7 +8326,7 @@ struct IVRInput_IVRInput_007_GetActionSetHandle_params
 
 struct IVRInput_IVRInput_007_GetActionHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionName;
     uint64_t *pHandle;
@@ -8334,7 +8334,7 @@ struct IVRInput_IVRInput_007_GetActionHandle_params
 
 struct IVRInput_IVRInput_007_GetInputSourceHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchInputSourcePath;
     uint64_t *pHandle;
@@ -8342,7 +8342,7 @@ struct IVRInput_IVRInput_007_GetInputSourceHandle_params
 
 struct IVRInput_IVRInput_007_UpdateActionState_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VRActiveActionSet_t_1016 *pSets;
     uint32_t unSizeOfVRSelectedActionSet_t;
@@ -8351,7 +8351,7 @@ struct IVRInput_IVRInput_007_UpdateActionState_params
 
 struct IVRInput_IVRInput_007_GetDigitalActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     w_InputDigitalActionData_t *pActionData;
@@ -8361,7 +8361,7 @@ struct IVRInput_IVRInput_007_GetDigitalActionData_params
 
 struct IVRInput_IVRInput_007_GetAnalogActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     w_InputAnalogActionData_t *pActionData;
@@ -8371,7 +8371,7 @@ struct IVRInput_IVRInput_007_GetAnalogActionData_params
 
 struct IVRInput_IVRInput_007_GetPoseActionDataRelativeToNow_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eOrigin;
@@ -8383,7 +8383,7 @@ struct IVRInput_IVRInput_007_GetPoseActionDataRelativeToNow_params
 
 struct IVRInput_IVRInput_007_GetPoseActionDataForNextFrame_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eOrigin;
@@ -8394,7 +8394,7 @@ struct IVRInput_IVRInput_007_GetPoseActionDataForNextFrame_params
 
 struct IVRInput_IVRInput_007_GetSkeletalActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     w_InputSkeletalActionData_t_113b *pActionData;
@@ -8403,7 +8403,7 @@ struct IVRInput_IVRInput_007_GetSkeletalActionData_params
 
 struct IVRInput_IVRInput_007_GetBoneCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t *pBoneCount;
@@ -8411,7 +8411,7 @@ struct IVRInput_IVRInput_007_GetBoneCount_params
 
 struct IVRInput_IVRInput_007_GetBoneHierarchy_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     int32_t *pParentIndices;
@@ -8420,7 +8420,7 @@ struct IVRInput_IVRInput_007_GetBoneHierarchy_params
 
 struct IVRInput_IVRInput_007_GetBoneName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     int32_t nBoneIndex;
@@ -8430,7 +8430,7 @@ struct IVRInput_IVRInput_007_GetBoneName_params
 
 struct IVRInput_IVRInput_007_GetSkeletalReferenceTransforms_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eTransformSpace;
@@ -8441,7 +8441,7 @@ struct IVRInput_IVRInput_007_GetSkeletalReferenceTransforms_params
 
 struct IVRInput_IVRInput_007_GetSkeletalTrackingLevel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t *pSkeletalTrackingLevel;
@@ -8449,7 +8449,7 @@ struct IVRInput_IVRInput_007_GetSkeletalTrackingLevel_params
 
 struct IVRInput_IVRInput_007_GetSkeletalBoneData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eTransformSpace;
@@ -8460,7 +8460,7 @@ struct IVRInput_IVRInput_007_GetSkeletalBoneData_params
 
 struct IVRInput_IVRInput_007_GetSkeletalSummaryData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eSummaryType;
@@ -8469,7 +8469,7 @@ struct IVRInput_IVRInput_007_GetSkeletalSummaryData_params
 
 struct IVRInput_IVRInput_007_GetSkeletalBoneDataCompressed_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eMotionRange;
@@ -8480,7 +8480,7 @@ struct IVRInput_IVRInput_007_GetSkeletalBoneDataCompressed_params
 
 struct IVRInput_IVRInput_007_DecompressSkeletalBoneData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const void *pvCompressedBuffer;
     uint32_t unCompressedBufferSize;
@@ -8491,7 +8491,7 @@ struct IVRInput_IVRInput_007_DecompressSkeletalBoneData_params
 
 struct IVRInput_IVRInput_007_TriggerHapticVibrationAction_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     float fStartSecondsFromNow;
@@ -8503,7 +8503,7 @@ struct IVRInput_IVRInput_007_TriggerHapticVibrationAction_params
 
 struct IVRInput_IVRInput_007_GetActionOrigins_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t actionSetHandle;
     uint64_t digitalActionHandle;
@@ -8513,7 +8513,7 @@ struct IVRInput_IVRInput_007_GetActionOrigins_params
 
 struct IVRInput_IVRInput_007_GetOriginLocalizedName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t origin;
     char *pchNameArray;
@@ -8523,7 +8523,7 @@ struct IVRInput_IVRInput_007_GetOriginLocalizedName_params
 
 struct IVRInput_IVRInput_007_GetOriginTrackedDeviceInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t origin;
     w_InputOriginInfo_t *pOriginInfo;
@@ -8532,7 +8532,7 @@ struct IVRInput_IVRInput_007_GetOriginTrackedDeviceInfo_params
 
 struct IVRInput_IVRInput_007_GetActionBindingInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     InputBindingInfo_t_1517 *pOriginInfo;
@@ -8543,7 +8543,7 @@ struct IVRInput_IVRInput_007_GetActionBindingInfo_params
 
 struct IVRInput_IVRInput_007_ShowActionOrigins_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t actionSetHandle;
     uint64_t ulActionHandle;
@@ -8551,7 +8551,7 @@ struct IVRInput_IVRInput_007_ShowActionOrigins_params
 
 struct IVRInput_IVRInput_007_ShowBindingsForActionSet_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VRActiveActionSet_t_1016 *pSets;
     uint32_t unSizeOfVRSelectedActionSet_t;
@@ -8561,13 +8561,13 @@ struct IVRInput_IVRInput_007_ShowBindingsForActionSet_params
 
 struct IVRInput_IVRInput_007_IsUsingLegacyInput_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRInput_IVRInput_007_OpenBindingUI_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     uint64_t ulActionSetHandle;
@@ -8577,14 +8577,14 @@ struct IVRInput_IVRInput_007_OpenBindingUI_params
 
 struct IVRInput_IVRInput_010_SetActionManifestPath_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionManifestPath;
 };
 
 struct IVRInput_IVRInput_010_GetActionSetHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionSetName;
     uint64_t *pHandle;
@@ -8592,7 +8592,7 @@ struct IVRInput_IVRInput_010_GetActionSetHandle_params
 
 struct IVRInput_IVRInput_010_GetActionHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchActionName;
     uint64_t *pHandle;
@@ -8600,7 +8600,7 @@ struct IVRInput_IVRInput_010_GetActionHandle_params
 
 struct IVRInput_IVRInput_010_GetInputSourceHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchInputSourcePath;
     uint64_t *pHandle;
@@ -8608,7 +8608,7 @@ struct IVRInput_IVRInput_010_GetInputSourceHandle_params
 
 struct IVRInput_IVRInput_010_UpdateActionState_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VRActiveActionSet_t_1016 *pSets;
     uint32_t unSizeOfVRSelectedActionSet_t;
@@ -8617,7 +8617,7 @@ struct IVRInput_IVRInput_010_UpdateActionState_params
 
 struct IVRInput_IVRInput_010_GetDigitalActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     w_InputDigitalActionData_t *pActionData;
@@ -8627,7 +8627,7 @@ struct IVRInput_IVRInput_010_GetDigitalActionData_params
 
 struct IVRInput_IVRInput_010_GetAnalogActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     w_InputAnalogActionData_t *pActionData;
@@ -8637,7 +8637,7 @@ struct IVRInput_IVRInput_010_GetAnalogActionData_params
 
 struct IVRInput_IVRInput_010_GetPoseActionDataRelativeToNow_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eOrigin;
@@ -8649,7 +8649,7 @@ struct IVRInput_IVRInput_010_GetPoseActionDataRelativeToNow_params
 
 struct IVRInput_IVRInput_010_GetPoseActionDataForNextFrame_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eOrigin;
@@ -8660,7 +8660,7 @@ struct IVRInput_IVRInput_010_GetPoseActionDataForNextFrame_params
 
 struct IVRInput_IVRInput_010_GetSkeletalActionData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     w_InputSkeletalActionData_t_113b *pActionData;
@@ -8669,21 +8669,21 @@ struct IVRInput_IVRInput_010_GetSkeletalActionData_params
 
 struct IVRInput_IVRInput_010_GetDominantHand_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t *peDominantHand;
 };
 
 struct IVRInput_IVRInput_010_SetDominantHand_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDominantHand;
 };
 
 struct IVRInput_IVRInput_010_GetBoneCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t *pBoneCount;
@@ -8691,7 +8691,7 @@ struct IVRInput_IVRInput_010_GetBoneCount_params
 
 struct IVRInput_IVRInput_010_GetBoneHierarchy_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     int32_t *pParentIndices;
@@ -8700,7 +8700,7 @@ struct IVRInput_IVRInput_010_GetBoneHierarchy_params
 
 struct IVRInput_IVRInput_010_GetBoneName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     int32_t nBoneIndex;
@@ -8710,7 +8710,7 @@ struct IVRInput_IVRInput_010_GetBoneName_params
 
 struct IVRInput_IVRInput_010_GetSkeletalReferenceTransforms_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eTransformSpace;
@@ -8721,7 +8721,7 @@ struct IVRInput_IVRInput_010_GetSkeletalReferenceTransforms_params
 
 struct IVRInput_IVRInput_010_GetSkeletalTrackingLevel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t *pSkeletalTrackingLevel;
@@ -8729,7 +8729,7 @@ struct IVRInput_IVRInput_010_GetSkeletalTrackingLevel_params
 
 struct IVRInput_IVRInput_010_GetSkeletalBoneData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eTransformSpace;
@@ -8740,7 +8740,7 @@ struct IVRInput_IVRInput_010_GetSkeletalBoneData_params
 
 struct IVRInput_IVRInput_010_GetSkeletalSummaryData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eSummaryType;
@@ -8749,7 +8749,7 @@ struct IVRInput_IVRInput_010_GetSkeletalSummaryData_params
 
 struct IVRInput_IVRInput_010_GetSkeletalBoneDataCompressed_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     uint32_t eMotionRange;
@@ -8760,7 +8760,7 @@ struct IVRInput_IVRInput_010_GetSkeletalBoneDataCompressed_params
 
 struct IVRInput_IVRInput_010_DecompressSkeletalBoneData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const void *pvCompressedBuffer;
     uint32_t unCompressedBufferSize;
@@ -8771,7 +8771,7 @@ struct IVRInput_IVRInput_010_DecompressSkeletalBoneData_params
 
 struct IVRInput_IVRInput_010_TriggerHapticVibrationAction_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     float fStartSecondsFromNow;
@@ -8783,7 +8783,7 @@ struct IVRInput_IVRInput_010_TriggerHapticVibrationAction_params
 
 struct IVRInput_IVRInput_010_GetActionOrigins_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t actionSetHandle;
     uint64_t digitalActionHandle;
@@ -8793,7 +8793,7 @@ struct IVRInput_IVRInput_010_GetActionOrigins_params
 
 struct IVRInput_IVRInput_010_GetOriginLocalizedName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t origin;
     char *pchNameArray;
@@ -8803,7 +8803,7 @@ struct IVRInput_IVRInput_010_GetOriginLocalizedName_params
 
 struct IVRInput_IVRInput_010_GetOriginTrackedDeviceInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t origin;
     w_InputOriginInfo_t *pOriginInfo;
@@ -8812,7 +8812,7 @@ struct IVRInput_IVRInput_010_GetOriginTrackedDeviceInfo_params
 
 struct IVRInput_IVRInput_010_GetActionBindingInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t action;
     InputBindingInfo_t_11030 *pOriginInfo;
@@ -8823,7 +8823,7 @@ struct IVRInput_IVRInput_010_GetActionBindingInfo_params
 
 struct IVRInput_IVRInput_010_ShowActionOrigins_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t actionSetHandle;
     uint64_t ulActionHandle;
@@ -8831,7 +8831,7 @@ struct IVRInput_IVRInput_010_ShowActionOrigins_params
 
 struct IVRInput_IVRInput_010_ShowBindingsForActionSet_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     VRActiveActionSet_t_1016 *pSets;
     uint32_t unSizeOfVRSelectedActionSet_t;
@@ -8841,7 +8841,7 @@ struct IVRInput_IVRInput_010_ShowBindingsForActionSet_params
 
 struct IVRInput_IVRInput_010_GetComponentStateForBinding_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -8853,13 +8853,13 @@ struct IVRInput_IVRInput_010_GetComponentStateForBinding_params
 
 struct IVRInput_IVRInput_010_IsUsingLegacyInput_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRInput_IVRInput_010_OpenBindingUI_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchAppKey;
     uint64_t ulActionSetHandle;
@@ -8869,7 +8869,7 @@ struct IVRInput_IVRInput_010_OpenBindingUI_params
 
 struct IVRInput_IVRInput_010_GetBindingVariant_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulDevicePath;
     char *pchVariantArray;
@@ -8878,7 +8878,7 @@ struct IVRInput_IVRInput_010_GetBindingVariant_params
 
 struct IVRMailbox_IVRMailbox_001_undoc1_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *a;
     uint64_t *b;
@@ -8886,14 +8886,14 @@ struct IVRMailbox_IVRMailbox_001_undoc1_params
 
 struct IVRMailbox_IVRMailbox_001_undoc2_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t a;
 };
 
 struct IVRMailbox_IVRMailbox_001_undoc3_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t a;
     const char *b;
@@ -8902,7 +8902,7 @@ struct IVRMailbox_IVRMailbox_001_undoc3_params
 
 struct IVRMailbox_IVRMailbox_001_undoc4_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t a;
     char *b;
@@ -8912,7 +8912,7 @@ struct IVRMailbox_IVRMailbox_001_undoc4_params
 
 struct IVRNotifications_IVRNotifications_001_GetErrorString_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t error;
     char *pchBuffer;
@@ -8921,7 +8921,7 @@ struct IVRNotifications_IVRNotifications_001_GetErrorString_params
 
 struct IVRNotifications_IVRNotifications_001_CreateNotification_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t ulUserValue;
@@ -8934,14 +8934,14 @@ struct IVRNotifications_IVRNotifications_001_CreateNotification_params
 
 struct IVRNotifications_IVRNotifications_001_DismissNotification_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t notificationId;
 };
 
 struct IVRNotifications_IVRNotifications_002_CreateNotification_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t ulUserValue;
@@ -8954,14 +8954,14 @@ struct IVRNotifications_IVRNotifications_002_CreateNotification_params
 
 struct IVRNotifications_IVRNotifications_002_RemoveNotification_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t notificationId;
 };
 
 struct IVROverlayView_IVROverlayView_003_AcquireOverlayView_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     w_VRNativeDevice_t *pNativeDevice;
@@ -8971,28 +8971,28 @@ struct IVROverlayView_IVROverlayView_003_AcquireOverlayView_params
 
 struct IVROverlayView_IVROverlayView_003_ReleaseOverlayView_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     w_VROverlayView_t *pOverlayView;
 };
 
 struct IVROverlayView_IVROverlayView_003_PostOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     const w_VREvent_t_223 *pvrEvent;
 };
 
 struct IVROverlayView_IVROverlayView_003_IsViewingPermitted_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_001_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -9000,7 +9000,7 @@ struct IVROverlay_IVROverlay_001_FindOverlay_params
 
 struct IVROverlay_IVROverlay_001_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -9009,34 +9009,34 @@ struct IVROverlay_IVROverlay_001_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_001_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_001_SetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_001_GetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_001_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_001_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -9045,7 +9045,7 @@ struct IVROverlay_IVROverlay_001_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_001_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -9054,7 +9054,7 @@ struct IVROverlay_IVROverlay_001_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_001_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -9062,7 +9062,7 @@ struct IVROverlay_IVROverlay_001_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_001_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -9070,7 +9070,7 @@ struct IVROverlay_IVROverlay_001_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_001_SetOverlayGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fGamma;
@@ -9078,7 +9078,7 @@ struct IVROverlay_IVROverlay_001_SetOverlayGamma_params
 
 struct IVROverlay_IVROverlay_001_GetOverlayGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfGamma;
@@ -9086,7 +9086,7 @@ struct IVROverlay_IVROverlay_001_GetOverlayGamma_params
 
 struct IVROverlay_IVROverlay_001_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -9094,7 +9094,7 @@ struct IVROverlay_IVROverlay_001_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_001_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -9102,7 +9102,7 @@ struct IVROverlay_IVROverlay_001_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_001_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -9110,7 +9110,7 @@ struct IVROverlay_IVROverlay_001_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_001_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -9118,7 +9118,7 @@ struct IVROverlay_IVROverlay_001_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_001_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -9126,7 +9126,7 @@ struct IVROverlay_IVROverlay_001_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_001_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -9135,7 +9135,7 @@ struct IVROverlay_IVROverlay_001_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_001_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -9144,7 +9144,7 @@ struct IVROverlay_IVROverlay_001_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_001_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -9153,7 +9153,7 @@ struct IVROverlay_IVROverlay_001_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_001_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -9162,7 +9162,7 @@ struct IVROverlay_IVROverlay_001_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_001_GetOverlayVisibility_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peOverlayVisibility;
@@ -9170,7 +9170,7 @@ struct IVROverlay_IVROverlay_001_GetOverlayVisibility_params
 
 struct IVROverlay_IVROverlay_001_SetOverlayVisibility_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayVisibility;
@@ -9178,28 +9178,28 @@ struct IVROverlay_IVROverlay_001_SetOverlayVisibility_params
 
 struct IVROverlay_IVROverlay_001_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_001_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_001_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_001_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_092 *pEvent;
@@ -9207,7 +9207,7 @@ struct IVROverlay_IVROverlay_001_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_001_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -9215,7 +9215,7 @@ struct IVROverlay_IVROverlay_001_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_001_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -9223,7 +9223,7 @@ struct IVROverlay_IVROverlay_001_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_001_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -9231,7 +9231,7 @@ struct IVROverlay_IVROverlay_001_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_001_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -9239,7 +9239,7 @@ struct IVROverlay_IVROverlay_001_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_001_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -9248,7 +9248,7 @@ struct IVROverlay_IVROverlay_001_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_001_HandleControllerOverlayInteractionAsMouse_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unControllerDeviceIndex;
@@ -9256,7 +9256,7 @@ struct IVROverlay_IVROverlay_001_HandleControllerOverlayInteractionAsMouse_param
 
 struct IVROverlay_IVROverlay_001_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pTexture;
@@ -9264,7 +9264,7 @@ struct IVROverlay_IVROverlay_001_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_001_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -9275,7 +9275,7 @@ struct IVROverlay_IVROverlay_001_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_001_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -9283,20 +9283,20 @@ struct IVROverlay_IVROverlay_001_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_001_IsSystemOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_001_IsActiveSystemOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_001_SetSystemOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -9304,7 +9304,7 @@ struct IVROverlay_IVROverlay_001_SetSystemOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_001_GetSystemOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -9312,7 +9312,7 @@ struct IVROverlay_IVROverlay_001_GetSystemOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_002_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -9320,7 +9320,7 @@ struct IVROverlay_IVROverlay_002_FindOverlay_params
 
 struct IVROverlay_IVROverlay_002_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -9329,34 +9329,34 @@ struct IVROverlay_IVROverlay_002_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_002_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_002_SetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_002_GetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_002_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_002_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -9365,7 +9365,7 @@ struct IVROverlay_IVROverlay_002_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_002_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -9374,7 +9374,7 @@ struct IVROverlay_IVROverlay_002_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_002_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -9384,7 +9384,7 @@ struct IVROverlay_IVROverlay_002_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_002_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -9394,7 +9394,7 @@ struct IVROverlay_IVROverlay_002_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_002_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -9402,7 +9402,7 @@ struct IVROverlay_IVROverlay_002_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_002_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -9410,7 +9410,7 @@ struct IVROverlay_IVROverlay_002_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_002_SetOverlayGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fGamma;
@@ -9418,7 +9418,7 @@ struct IVROverlay_IVROverlay_002_SetOverlayGamma_params
 
 struct IVROverlay_IVROverlay_002_GetOverlayGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfGamma;
@@ -9426,7 +9426,7 @@ struct IVROverlay_IVROverlay_002_GetOverlayGamma_params
 
 struct IVROverlay_IVROverlay_002_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -9434,7 +9434,7 @@ struct IVROverlay_IVROverlay_002_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_002_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -9442,7 +9442,7 @@ struct IVROverlay_IVROverlay_002_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_002_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -9450,7 +9450,7 @@ struct IVROverlay_IVROverlay_002_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_002_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -9458,7 +9458,7 @@ struct IVROverlay_IVROverlay_002_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_002_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -9466,7 +9466,7 @@ struct IVROverlay_IVROverlay_002_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_002_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -9475,7 +9475,7 @@ struct IVROverlay_IVROverlay_002_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_002_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -9484,7 +9484,7 @@ struct IVROverlay_IVROverlay_002_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_002_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -9493,7 +9493,7 @@ struct IVROverlay_IVROverlay_002_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_002_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -9502,28 +9502,28 @@ struct IVROverlay_IVROverlay_002_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_002_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_002_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_002_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_002_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_093 *pEvent;
@@ -9531,7 +9531,7 @@ struct IVROverlay_IVROverlay_002_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_002_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -9539,7 +9539,7 @@ struct IVROverlay_IVROverlay_002_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_002_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -9547,7 +9547,7 @@ struct IVROverlay_IVROverlay_002_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_002_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -9555,7 +9555,7 @@ struct IVROverlay_IVROverlay_002_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_002_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -9563,7 +9563,7 @@ struct IVROverlay_IVROverlay_002_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_002_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -9572,7 +9572,7 @@ struct IVROverlay_IVROverlay_002_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_002_HandleControllerOverlayInteractionAsMouse_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unControllerDeviceIndex;
@@ -9580,7 +9580,7 @@ struct IVROverlay_IVROverlay_002_HandleControllerOverlayInteractionAsMouse_param
 
 struct IVROverlay_IVROverlay_002_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureType;
@@ -9589,14 +9589,14 @@ struct IVROverlay_IVROverlay_002_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_002_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_002_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -9607,7 +9607,7 @@ struct IVROverlay_IVROverlay_002_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_002_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -9615,7 +9615,7 @@ struct IVROverlay_IVROverlay_002_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_002_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -9625,20 +9625,20 @@ struct IVROverlay_IVROverlay_002_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_002_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_002_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_002_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -9646,7 +9646,7 @@ struct IVROverlay_IVROverlay_002_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_002_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -9654,7 +9654,7 @@ struct IVROverlay_IVROverlay_002_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_003_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -9662,7 +9662,7 @@ struct IVROverlay_IVROverlay_003_FindOverlay_params
 
 struct IVROverlay_IVROverlay_003_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -9671,27 +9671,27 @@ struct IVROverlay_IVROverlay_003_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_003_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_003_SetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_003_GetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_003_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -9701,7 +9701,7 @@ struct IVROverlay_IVROverlay_003_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_003_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -9711,7 +9711,7 @@ struct IVROverlay_IVROverlay_003_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_003_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -9722,14 +9722,14 @@ struct IVROverlay_IVROverlay_003_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_003_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_003_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -9738,7 +9738,7 @@ struct IVROverlay_IVROverlay_003_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_003_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -9747,7 +9747,7 @@ struct IVROverlay_IVROverlay_003_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_003_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -9757,7 +9757,7 @@ struct IVROverlay_IVROverlay_003_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_003_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -9767,7 +9767,7 @@ struct IVROverlay_IVROverlay_003_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_003_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -9775,7 +9775,7 @@ struct IVROverlay_IVROverlay_003_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_003_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -9783,7 +9783,7 @@ struct IVROverlay_IVROverlay_003_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_003_SetOverlayGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fGamma;
@@ -9791,7 +9791,7 @@ struct IVROverlay_IVROverlay_003_SetOverlayGamma_params
 
 struct IVROverlay_IVROverlay_003_GetOverlayGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfGamma;
@@ -9799,7 +9799,7 @@ struct IVROverlay_IVROverlay_003_GetOverlayGamma_params
 
 struct IVROverlay_IVROverlay_003_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -9807,7 +9807,7 @@ struct IVROverlay_IVROverlay_003_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_003_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -9815,7 +9815,7 @@ struct IVROverlay_IVROverlay_003_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_003_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -9823,7 +9823,7 @@ struct IVROverlay_IVROverlay_003_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_003_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -9831,7 +9831,7 @@ struct IVROverlay_IVROverlay_003_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_003_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -9839,7 +9839,7 @@ struct IVROverlay_IVROverlay_003_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_003_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -9848,7 +9848,7 @@ struct IVROverlay_IVROverlay_003_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_003_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -9857,7 +9857,7 @@ struct IVROverlay_IVROverlay_003_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_003_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -9866,7 +9866,7 @@ struct IVROverlay_IVROverlay_003_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_003_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -9875,28 +9875,28 @@ struct IVROverlay_IVROverlay_003_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_003_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_003_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_003_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_003_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_097 *pEvent;
@@ -9904,7 +9904,7 @@ struct IVROverlay_IVROverlay_003_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_003_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -9912,7 +9912,7 @@ struct IVROverlay_IVROverlay_003_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_003_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -9920,7 +9920,7 @@ struct IVROverlay_IVROverlay_003_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_003_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -9928,7 +9928,7 @@ struct IVROverlay_IVROverlay_003_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_003_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -9936,7 +9936,7 @@ struct IVROverlay_IVROverlay_003_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_003_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -9945,7 +9945,7 @@ struct IVROverlay_IVROverlay_003_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_003_HandleControllerOverlayInteractionAsMouse_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unControllerDeviceIndex;
@@ -9953,7 +9953,7 @@ struct IVROverlay_IVROverlay_003_HandleControllerOverlayInteractionAsMouse_param
 
 struct IVROverlay_IVROverlay_003_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureType;
@@ -9962,14 +9962,14 @@ struct IVROverlay_IVROverlay_003_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_003_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_003_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -9980,7 +9980,7 @@ struct IVROverlay_IVROverlay_003_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_003_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -9988,7 +9988,7 @@ struct IVROverlay_IVROverlay_003_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_003_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -9998,20 +9998,20 @@ struct IVROverlay_IVROverlay_003_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_003_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_003_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_003_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -10019,7 +10019,7 @@ struct IVROverlay_IVROverlay_003_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_003_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -10027,13 +10027,13 @@ struct IVROverlay_IVROverlay_003_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_003_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_004_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -10041,7 +10041,7 @@ struct IVROverlay_IVROverlay_004_FindOverlay_params
 
 struct IVROverlay_IVROverlay_004_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -10050,27 +10050,27 @@ struct IVROverlay_IVROverlay_004_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_004_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_004_SetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_004_GetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_004_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -10080,7 +10080,7 @@ struct IVROverlay_IVROverlay_004_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_004_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -10090,7 +10090,7 @@ struct IVROverlay_IVROverlay_004_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_004_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -10101,14 +10101,14 @@ struct IVROverlay_IVROverlay_004_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_004_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_004_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -10117,7 +10117,7 @@ struct IVROverlay_IVROverlay_004_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_004_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -10126,7 +10126,7 @@ struct IVROverlay_IVROverlay_004_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_004_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -10136,7 +10136,7 @@ struct IVROverlay_IVROverlay_004_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_004_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -10146,7 +10146,7 @@ struct IVROverlay_IVROverlay_004_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_004_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -10154,7 +10154,7 @@ struct IVROverlay_IVROverlay_004_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_004_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -10162,7 +10162,7 @@ struct IVROverlay_IVROverlay_004_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_004_SetOverlayGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fGamma;
@@ -10170,7 +10170,7 @@ struct IVROverlay_IVROverlay_004_SetOverlayGamma_params
 
 struct IVROverlay_IVROverlay_004_GetOverlayGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfGamma;
@@ -10178,7 +10178,7 @@ struct IVROverlay_IVROverlay_004_GetOverlayGamma_params
 
 struct IVROverlay_IVROverlay_004_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -10186,7 +10186,7 @@ struct IVROverlay_IVROverlay_004_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_004_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -10194,7 +10194,7 @@ struct IVROverlay_IVROverlay_004_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_004_SetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fMinDistanceInMeters;
@@ -10203,7 +10203,7 @@ struct IVROverlay_IVROverlay_004_SetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_004_GetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfMinDistanceInMeters;
@@ -10212,7 +10212,7 @@ struct IVROverlay_IVROverlay_004_GetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_004_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -10220,7 +10220,7 @@ struct IVROverlay_IVROverlay_004_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_004_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -10228,7 +10228,7 @@ struct IVROverlay_IVROverlay_004_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_004_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -10236,7 +10236,7 @@ struct IVROverlay_IVROverlay_004_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_004_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -10245,7 +10245,7 @@ struct IVROverlay_IVROverlay_004_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_004_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -10254,7 +10254,7 @@ struct IVROverlay_IVROverlay_004_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_004_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -10263,7 +10263,7 @@ struct IVROverlay_IVROverlay_004_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_004_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -10272,28 +10272,28 @@ struct IVROverlay_IVROverlay_004_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_004_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_004_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_004_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_004_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_097 *pEvent;
@@ -10301,7 +10301,7 @@ struct IVROverlay_IVROverlay_004_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_004_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -10309,7 +10309,7 @@ struct IVROverlay_IVROverlay_004_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_004_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -10317,7 +10317,7 @@ struct IVROverlay_IVROverlay_004_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_004_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -10325,7 +10325,7 @@ struct IVROverlay_IVROverlay_004_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_004_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -10333,7 +10333,7 @@ struct IVROverlay_IVROverlay_004_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_004_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -10342,7 +10342,7 @@ struct IVROverlay_IVROverlay_004_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_004_HandleControllerOverlayInteractionAsMouse_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unControllerDeviceIndex;
@@ -10350,7 +10350,7 @@ struct IVROverlay_IVROverlay_004_HandleControllerOverlayInteractionAsMouse_param
 
 struct IVROverlay_IVROverlay_004_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureType;
@@ -10359,14 +10359,14 @@ struct IVROverlay_IVROverlay_004_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_004_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_004_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -10377,7 +10377,7 @@ struct IVROverlay_IVROverlay_004_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_004_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -10385,7 +10385,7 @@ struct IVROverlay_IVROverlay_004_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_004_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -10395,20 +10395,20 @@ struct IVROverlay_IVROverlay_004_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_004_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_004_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_004_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -10416,7 +10416,7 @@ struct IVROverlay_IVROverlay_004_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_004_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -10424,13 +10424,13 @@ struct IVROverlay_IVROverlay_004_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_004_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_005_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -10438,7 +10438,7 @@ struct IVROverlay_IVROverlay_005_FindOverlay_params
 
 struct IVROverlay_IVROverlay_005_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -10447,27 +10447,27 @@ struct IVROverlay_IVROverlay_005_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_005_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_005_SetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_005_GetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_005_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -10477,7 +10477,7 @@ struct IVROverlay_IVROverlay_005_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_005_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -10487,7 +10487,7 @@ struct IVROverlay_IVROverlay_005_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_005_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -10498,14 +10498,14 @@ struct IVROverlay_IVROverlay_005_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_005_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_005_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -10514,7 +10514,7 @@ struct IVROverlay_IVROverlay_005_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_005_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -10523,7 +10523,7 @@ struct IVROverlay_IVROverlay_005_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_005_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -10533,7 +10533,7 @@ struct IVROverlay_IVROverlay_005_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_005_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -10543,7 +10543,7 @@ struct IVROverlay_IVROverlay_005_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_005_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -10551,7 +10551,7 @@ struct IVROverlay_IVROverlay_005_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_005_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -10559,7 +10559,7 @@ struct IVROverlay_IVROverlay_005_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_005_SetOverlayGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fGamma;
@@ -10567,7 +10567,7 @@ struct IVROverlay_IVROverlay_005_SetOverlayGamma_params
 
 struct IVROverlay_IVROverlay_005_GetOverlayGamma_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfGamma;
@@ -10575,7 +10575,7 @@ struct IVROverlay_IVROverlay_005_GetOverlayGamma_params
 
 struct IVROverlay_IVROverlay_005_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -10583,7 +10583,7 @@ struct IVROverlay_IVROverlay_005_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_005_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -10591,7 +10591,7 @@ struct IVROverlay_IVROverlay_005_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_005_SetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fMinDistanceInMeters;
@@ -10600,7 +10600,7 @@ struct IVROverlay_IVROverlay_005_SetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_005_GetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfMinDistanceInMeters;
@@ -10609,7 +10609,7 @@ struct IVROverlay_IVROverlay_005_GetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_005_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -10617,7 +10617,7 @@ struct IVROverlay_IVROverlay_005_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_005_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -10625,7 +10625,7 @@ struct IVROverlay_IVROverlay_005_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_005_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -10633,7 +10633,7 @@ struct IVROverlay_IVROverlay_005_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_005_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -10642,7 +10642,7 @@ struct IVROverlay_IVROverlay_005_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_005_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -10651,7 +10651,7 @@ struct IVROverlay_IVROverlay_005_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_005_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -10660,7 +10660,7 @@ struct IVROverlay_IVROverlay_005_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_005_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -10669,28 +10669,28 @@ struct IVROverlay_IVROverlay_005_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_005_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_005_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_005_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_005_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_0910 *pEvent;
@@ -10698,7 +10698,7 @@ struct IVROverlay_IVROverlay_005_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_005_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -10706,7 +10706,7 @@ struct IVROverlay_IVROverlay_005_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_005_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -10714,7 +10714,7 @@ struct IVROverlay_IVROverlay_005_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_005_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -10722,7 +10722,7 @@ struct IVROverlay_IVROverlay_005_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_005_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -10730,7 +10730,7 @@ struct IVROverlay_IVROverlay_005_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_005_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -10739,7 +10739,7 @@ struct IVROverlay_IVROverlay_005_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_005_HandleControllerOverlayInteractionAsMouse_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unControllerDeviceIndex;
@@ -10747,14 +10747,14 @@ struct IVROverlay_IVROverlay_005_HandleControllerOverlayInteractionAsMouse_param
 
 struct IVROverlay_IVROverlay_005_IsFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_005_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureType;
@@ -10763,14 +10763,14 @@ struct IVROverlay_IVROverlay_005_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_005_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_005_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -10781,7 +10781,7 @@ struct IVROverlay_IVROverlay_005_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_005_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -10789,7 +10789,7 @@ struct IVROverlay_IVROverlay_005_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_005_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -10799,20 +10799,20 @@ struct IVROverlay_IVROverlay_005_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_005_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_005_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_005_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -10820,7 +10820,7 @@ struct IVROverlay_IVROverlay_005_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_005_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -10828,13 +10828,13 @@ struct IVROverlay_IVROverlay_005_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_005_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_005_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -10846,7 +10846,7 @@ struct IVROverlay_IVROverlay_005_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_005_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -10854,12 +10854,12 @@ struct IVROverlay_IVROverlay_005_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_005_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_007_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -10867,7 +10867,7 @@ struct IVROverlay_IVROverlay_007_FindOverlay_params
 
 struct IVROverlay_IVROverlay_007_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -10876,27 +10876,27 @@ struct IVROverlay_IVROverlay_007_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_007_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_007_SetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_007_GetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_007_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -10906,7 +10906,7 @@ struct IVROverlay_IVROverlay_007_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_007_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -10916,7 +10916,7 @@ struct IVROverlay_IVROverlay_007_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_007_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -10927,14 +10927,14 @@ struct IVROverlay_IVROverlay_007_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_007_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_007_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -10943,7 +10943,7 @@ struct IVROverlay_IVROverlay_007_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_007_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -10952,7 +10952,7 @@ struct IVROverlay_IVROverlay_007_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_007_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -10962,7 +10962,7 @@ struct IVROverlay_IVROverlay_007_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_007_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -10972,7 +10972,7 @@ struct IVROverlay_IVROverlay_007_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_007_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -10980,7 +10980,7 @@ struct IVROverlay_IVROverlay_007_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_007_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -10988,7 +10988,7 @@ struct IVROverlay_IVROverlay_007_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_007_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -10996,7 +10996,7 @@ struct IVROverlay_IVROverlay_007_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_007_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -11004,7 +11004,7 @@ struct IVROverlay_IVROverlay_007_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_007_SetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fMinDistanceInMeters;
@@ -11013,7 +11013,7 @@ struct IVROverlay_IVROverlay_007_SetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_007_GetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfMinDistanceInMeters;
@@ -11022,7 +11022,7 @@ struct IVROverlay_IVROverlay_007_GetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_007_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -11030,7 +11030,7 @@ struct IVROverlay_IVROverlay_007_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_007_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -11038,7 +11038,7 @@ struct IVROverlay_IVROverlay_007_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_007_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -11046,7 +11046,7 @@ struct IVROverlay_IVROverlay_007_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_007_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -11054,7 +11054,7 @@ struct IVROverlay_IVROverlay_007_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_007_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -11062,7 +11062,7 @@ struct IVROverlay_IVROverlay_007_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_007_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -11071,7 +11071,7 @@ struct IVROverlay_IVROverlay_007_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_007_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -11080,7 +11080,7 @@ struct IVROverlay_IVROverlay_007_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_007_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -11089,7 +11089,7 @@ struct IVROverlay_IVROverlay_007_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_007_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -11098,28 +11098,28 @@ struct IVROverlay_IVROverlay_007_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_007_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_007_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_007_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_007_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_0912 *pEvent;
@@ -11127,7 +11127,7 @@ struct IVROverlay_IVROverlay_007_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_007_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -11135,7 +11135,7 @@ struct IVROverlay_IVROverlay_007_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_007_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -11143,7 +11143,7 @@ struct IVROverlay_IVROverlay_007_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_007_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -11151,7 +11151,7 @@ struct IVROverlay_IVROverlay_007_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_007_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -11159,7 +11159,7 @@ struct IVROverlay_IVROverlay_007_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_007_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -11168,7 +11168,7 @@ struct IVROverlay_IVROverlay_007_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_007_HandleControllerOverlayInteractionAsMouse_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unControllerDeviceIndex;
@@ -11176,27 +11176,27 @@ struct IVROverlay_IVROverlay_007_HandleControllerOverlayInteractionAsMouse_param
 
 struct IVROverlay_IVROverlay_007_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_007_GetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_007_SetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulNewFocusOverlay;
 };
 
 struct IVROverlay_IVROverlay_007_SetOverlayNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -11205,7 +11205,7 @@ struct IVROverlay_IVROverlay_007_SetOverlayNeighbor_params
 
 struct IVROverlay_IVROverlay_007_MoveGamepadFocusToNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -11213,7 +11213,7 @@ struct IVROverlay_IVROverlay_007_MoveGamepadFocusToNeighbor_params
 
 struct IVROverlay_IVROverlay_007_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -11221,14 +11221,14 @@ struct IVROverlay_IVROverlay_007_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_007_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_007_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -11239,7 +11239,7 @@ struct IVROverlay_IVROverlay_007_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_007_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -11247,7 +11247,7 @@ struct IVROverlay_IVROverlay_007_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_007_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -11257,20 +11257,20 @@ struct IVROverlay_IVROverlay_007_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_007_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_007_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_007_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -11278,7 +11278,7 @@ struct IVROverlay_IVROverlay_007_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_007_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -11286,13 +11286,13 @@ struct IVROverlay_IVROverlay_007_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_007_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_007_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -11305,7 +11305,7 @@ struct IVROverlay_IVROverlay_007_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_007_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -11319,7 +11319,7 @@ struct IVROverlay_IVROverlay_007_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_007_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -11327,12 +11327,12 @@ struct IVROverlay_IVROverlay_007_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_007_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_008_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -11340,7 +11340,7 @@ struct IVROverlay_IVROverlay_008_FindOverlay_params
 
 struct IVROverlay_IVROverlay_008_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -11349,27 +11349,27 @@ struct IVROverlay_IVROverlay_008_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_008_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_008_SetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_008_GetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_008_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -11379,7 +11379,7 @@ struct IVROverlay_IVROverlay_008_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_008_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -11389,7 +11389,7 @@ struct IVROverlay_IVROverlay_008_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_008_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -11400,14 +11400,14 @@ struct IVROverlay_IVROverlay_008_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_008_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_008_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -11416,7 +11416,7 @@ struct IVROverlay_IVROverlay_008_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_008_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -11425,7 +11425,7 @@ struct IVROverlay_IVROverlay_008_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_008_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -11435,7 +11435,7 @@ struct IVROverlay_IVROverlay_008_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_008_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -11445,7 +11445,7 @@ struct IVROverlay_IVROverlay_008_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_008_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -11453,7 +11453,7 @@ struct IVROverlay_IVROverlay_008_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_008_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -11461,7 +11461,7 @@ struct IVROverlay_IVROverlay_008_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_008_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -11469,7 +11469,7 @@ struct IVROverlay_IVROverlay_008_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_008_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -11477,7 +11477,7 @@ struct IVROverlay_IVROverlay_008_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_008_SetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fMinDistanceInMeters;
@@ -11486,7 +11486,7 @@ struct IVROverlay_IVROverlay_008_SetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_008_GetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfMinDistanceInMeters;
@@ -11495,7 +11495,7 @@ struct IVROverlay_IVROverlay_008_GetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_008_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -11503,7 +11503,7 @@ struct IVROverlay_IVROverlay_008_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_008_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -11511,7 +11511,7 @@ struct IVROverlay_IVROverlay_008_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_008_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -11519,7 +11519,7 @@ struct IVROverlay_IVROverlay_008_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_008_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -11527,7 +11527,7 @@ struct IVROverlay_IVROverlay_008_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_008_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -11535,7 +11535,7 @@ struct IVROverlay_IVROverlay_008_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_008_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -11544,7 +11544,7 @@ struct IVROverlay_IVROverlay_008_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_008_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -11553,7 +11553,7 @@ struct IVROverlay_IVROverlay_008_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_008_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -11562,7 +11562,7 @@ struct IVROverlay_IVROverlay_008_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_008_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -11571,28 +11571,28 @@ struct IVROverlay_IVROverlay_008_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_008_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_008_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_008_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_008_GetTransformForOverlayCoordinates_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -11602,7 +11602,7 @@ struct IVROverlay_IVROverlay_008_GetTransformForOverlayCoordinates_params
 
 struct IVROverlay_IVROverlay_008_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_0914 *pEvent;
@@ -11610,7 +11610,7 @@ struct IVROverlay_IVROverlay_008_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_008_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -11618,7 +11618,7 @@ struct IVROverlay_IVROverlay_008_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_008_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -11626,7 +11626,7 @@ struct IVROverlay_IVROverlay_008_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_008_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -11634,7 +11634,7 @@ struct IVROverlay_IVROverlay_008_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_008_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -11642,7 +11642,7 @@ struct IVROverlay_IVROverlay_008_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_008_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -11651,7 +11651,7 @@ struct IVROverlay_IVROverlay_008_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_008_HandleControllerOverlayInteractionAsMouse_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unControllerDeviceIndex;
@@ -11659,27 +11659,27 @@ struct IVROverlay_IVROverlay_008_HandleControllerOverlayInteractionAsMouse_param
 
 struct IVROverlay_IVROverlay_008_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_008_GetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_008_SetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulNewFocusOverlay;
 };
 
 struct IVROverlay_IVROverlay_008_SetOverlayNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -11688,7 +11688,7 @@ struct IVROverlay_IVROverlay_008_SetOverlayNeighbor_params
 
 struct IVROverlay_IVROverlay_008_MoveGamepadFocusToNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -11696,7 +11696,7 @@ struct IVROverlay_IVROverlay_008_MoveGamepadFocusToNeighbor_params
 
 struct IVROverlay_IVROverlay_008_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -11704,14 +11704,14 @@ struct IVROverlay_IVROverlay_008_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_008_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_008_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -11722,7 +11722,7 @@ struct IVROverlay_IVROverlay_008_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_008_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -11730,7 +11730,7 @@ struct IVROverlay_IVROverlay_008_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_008_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -11740,20 +11740,20 @@ struct IVROverlay_IVROverlay_008_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_008_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_008_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_008_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -11761,7 +11761,7 @@ struct IVROverlay_IVROverlay_008_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_008_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -11769,13 +11769,13 @@ struct IVROverlay_IVROverlay_008_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_008_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_008_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -11788,7 +11788,7 @@ struct IVROverlay_IVROverlay_008_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_008_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -11802,7 +11802,7 @@ struct IVROverlay_IVROverlay_008_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_008_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -11810,26 +11810,26 @@ struct IVROverlay_IVROverlay_008_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_008_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_008_SetKeyboardTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingOrigin;
     const HmdMatrix34_t *pmatTrackingOriginToKeyboardTransform;
 };
 
 struct IVROverlay_IVROverlay_008_SetKeyboardPositionForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     HmdRect2_t avoidRect;
 };
 
 struct IVROverlay_IVROverlay_010_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -11837,7 +11837,7 @@ struct IVROverlay_IVROverlay_010_FindOverlay_params
 
 struct IVROverlay_IVROverlay_010_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -11846,27 +11846,27 @@ struct IVROverlay_IVROverlay_010_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_010_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_010_SetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_010_GetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_010_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -11876,7 +11876,7 @@ struct IVROverlay_IVROverlay_010_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_010_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -11886,7 +11886,7 @@ struct IVROverlay_IVROverlay_010_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_010_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -11897,14 +11897,14 @@ struct IVROverlay_IVROverlay_010_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_010_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_010_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -11913,7 +11913,7 @@ struct IVROverlay_IVROverlay_010_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_010_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -11922,7 +11922,7 @@ struct IVROverlay_IVROverlay_010_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_010_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -11932,7 +11932,7 @@ struct IVROverlay_IVROverlay_010_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_010_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -11942,7 +11942,7 @@ struct IVROverlay_IVROverlay_010_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_010_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -11950,7 +11950,7 @@ struct IVROverlay_IVROverlay_010_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_010_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -11958,7 +11958,7 @@ struct IVROverlay_IVROverlay_010_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_010_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -11966,7 +11966,7 @@ struct IVROverlay_IVROverlay_010_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_010_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -11974,7 +11974,7 @@ struct IVROverlay_IVROverlay_010_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_010_SetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fMinDistanceInMeters;
@@ -11983,7 +11983,7 @@ struct IVROverlay_IVROverlay_010_SetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_010_GetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfMinDistanceInMeters;
@@ -11992,7 +11992,7 @@ struct IVROverlay_IVROverlay_010_GetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_010_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -12000,7 +12000,7 @@ struct IVROverlay_IVROverlay_010_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_010_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -12008,7 +12008,7 @@ struct IVROverlay_IVROverlay_010_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_010_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -12016,7 +12016,7 @@ struct IVROverlay_IVROverlay_010_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_010_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -12024,7 +12024,7 @@ struct IVROverlay_IVROverlay_010_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_010_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -12032,7 +12032,7 @@ struct IVROverlay_IVROverlay_010_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_010_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -12041,7 +12041,7 @@ struct IVROverlay_IVROverlay_010_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_010_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -12050,7 +12050,7 @@ struct IVROverlay_IVROverlay_010_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_010_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -12059,7 +12059,7 @@ struct IVROverlay_IVROverlay_010_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_010_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -12068,7 +12068,7 @@ struct IVROverlay_IVROverlay_010_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_010_SetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unDeviceIndex;
@@ -12077,7 +12077,7 @@ struct IVROverlay_IVROverlay_010_SetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_010_GetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punDeviceIndex;
@@ -12087,28 +12087,28 @@ struct IVROverlay_IVROverlay_010_GetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_010_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_010_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_010_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_010_GetTransformForOverlayCoordinates_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -12118,7 +12118,7 @@ struct IVROverlay_IVROverlay_010_GetTransformForOverlayCoordinates_params
 
 struct IVROverlay_IVROverlay_010_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_0918 *pEvent;
@@ -12127,7 +12127,7 @@ struct IVROverlay_IVROverlay_010_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_010_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -12135,7 +12135,7 @@ struct IVROverlay_IVROverlay_010_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_010_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -12143,7 +12143,7 @@ struct IVROverlay_IVROverlay_010_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_010_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -12151,7 +12151,7 @@ struct IVROverlay_IVROverlay_010_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_010_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -12159,7 +12159,7 @@ struct IVROverlay_IVROverlay_010_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_010_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -12168,7 +12168,7 @@ struct IVROverlay_IVROverlay_010_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_010_HandleControllerOverlayInteractionAsMouse_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unControllerDeviceIndex;
@@ -12176,27 +12176,27 @@ struct IVROverlay_IVROverlay_010_HandleControllerOverlayInteractionAsMouse_param
 
 struct IVROverlay_IVROverlay_010_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_010_GetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_010_SetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulNewFocusOverlay;
 };
 
 struct IVROverlay_IVROverlay_010_SetOverlayNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -12205,7 +12205,7 @@ struct IVROverlay_IVROverlay_010_SetOverlayNeighbor_params
 
 struct IVROverlay_IVROverlay_010_MoveGamepadFocusToNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -12213,7 +12213,7 @@ struct IVROverlay_IVROverlay_010_MoveGamepadFocusToNeighbor_params
 
 struct IVROverlay_IVROverlay_010_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -12221,14 +12221,14 @@ struct IVROverlay_IVROverlay_010_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_010_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_010_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -12239,7 +12239,7 @@ struct IVROverlay_IVROverlay_010_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_010_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -12247,7 +12247,7 @@ struct IVROverlay_IVROverlay_010_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_010_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -12257,20 +12257,20 @@ struct IVROverlay_IVROverlay_010_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_010_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_010_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_010_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -12278,7 +12278,7 @@ struct IVROverlay_IVROverlay_010_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_010_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -12286,19 +12286,19 @@ struct IVROverlay_IVROverlay_010_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_010_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_010_GetPrimaryDashboardDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVROverlay_IVROverlay_010_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -12311,7 +12311,7 @@ struct IVROverlay_IVROverlay_010_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_010_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -12325,7 +12325,7 @@ struct IVROverlay_IVROverlay_010_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_010_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -12333,26 +12333,26 @@ struct IVROverlay_IVROverlay_010_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_010_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_010_SetKeyboardTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingOrigin;
     const HmdMatrix34_t *pmatTrackingOriginToKeyboardTransform;
 };
 
 struct IVROverlay_IVROverlay_010_SetKeyboardPositionForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     HmdRect2_t avoidRect;
 };
 
 struct IVROverlay_IVROverlay_011_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -12360,7 +12360,7 @@ struct IVROverlay_IVROverlay_011_FindOverlay_params
 
 struct IVROverlay_IVROverlay_011_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -12369,27 +12369,27 @@ struct IVROverlay_IVROverlay_011_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_011_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_011_SetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_011_GetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_011_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -12399,7 +12399,7 @@ struct IVROverlay_IVROverlay_011_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_011_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -12409,7 +12409,7 @@ struct IVROverlay_IVROverlay_011_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_011_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -12420,14 +12420,14 @@ struct IVROverlay_IVROverlay_011_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_011_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_011_SetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unPID;
@@ -12435,14 +12435,14 @@ struct IVROverlay_IVROverlay_011_SetOverlayRenderingPid_params
 
 struct IVROverlay_IVROverlay_011_GetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_011_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -12451,7 +12451,7 @@ struct IVROverlay_IVROverlay_011_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_011_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -12460,7 +12460,7 @@ struct IVROverlay_IVROverlay_011_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_011_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -12470,7 +12470,7 @@ struct IVROverlay_IVROverlay_011_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_011_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -12480,7 +12480,7 @@ struct IVROverlay_IVROverlay_011_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_011_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -12488,7 +12488,7 @@ struct IVROverlay_IVROverlay_011_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_011_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -12496,7 +12496,7 @@ struct IVROverlay_IVROverlay_011_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_011_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -12504,7 +12504,7 @@ struct IVROverlay_IVROverlay_011_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_011_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -12512,7 +12512,7 @@ struct IVROverlay_IVROverlay_011_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_011_SetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fMinDistanceInMeters;
@@ -12521,7 +12521,7 @@ struct IVROverlay_IVROverlay_011_SetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_011_GetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfMinDistanceInMeters;
@@ -12530,7 +12530,7 @@ struct IVROverlay_IVROverlay_011_GetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_011_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -12538,7 +12538,7 @@ struct IVROverlay_IVROverlay_011_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_011_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -12546,7 +12546,7 @@ struct IVROverlay_IVROverlay_011_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_011_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -12554,7 +12554,7 @@ struct IVROverlay_IVROverlay_011_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_011_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -12562,7 +12562,7 @@ struct IVROverlay_IVROverlay_011_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_011_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -12570,7 +12570,7 @@ struct IVROverlay_IVROverlay_011_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_011_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -12579,7 +12579,7 @@ struct IVROverlay_IVROverlay_011_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_011_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -12588,7 +12588,7 @@ struct IVROverlay_IVROverlay_011_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_011_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -12597,7 +12597,7 @@ struct IVROverlay_IVROverlay_011_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_011_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -12606,7 +12606,7 @@ struct IVROverlay_IVROverlay_011_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_011_SetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unDeviceIndex;
@@ -12615,7 +12615,7 @@ struct IVROverlay_IVROverlay_011_SetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_011_GetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punDeviceIndex;
@@ -12625,28 +12625,28 @@ struct IVROverlay_IVROverlay_011_GetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_011_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_011_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_011_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_011_GetTransformForOverlayCoordinates_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -12656,7 +12656,7 @@ struct IVROverlay_IVROverlay_011_GetTransformForOverlayCoordinates_params
 
 struct IVROverlay_IVROverlay_011_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_0918 *pEvent;
@@ -12665,7 +12665,7 @@ struct IVROverlay_IVROverlay_011_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_011_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -12673,7 +12673,7 @@ struct IVROverlay_IVROverlay_011_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_011_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -12681,7 +12681,7 @@ struct IVROverlay_IVROverlay_011_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_011_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -12689,7 +12689,7 @@ struct IVROverlay_IVROverlay_011_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_011_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -12697,7 +12697,7 @@ struct IVROverlay_IVROverlay_011_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_011_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -12706,7 +12706,7 @@ struct IVROverlay_IVROverlay_011_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_011_HandleControllerOverlayInteractionAsMouse_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unControllerDeviceIndex;
@@ -12714,27 +12714,27 @@ struct IVROverlay_IVROverlay_011_HandleControllerOverlayInteractionAsMouse_param
 
 struct IVROverlay_IVROverlay_011_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_011_GetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_011_SetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulNewFocusOverlay;
 };
 
 struct IVROverlay_IVROverlay_011_SetOverlayNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -12743,7 +12743,7 @@ struct IVROverlay_IVROverlay_011_SetOverlayNeighbor_params
 
 struct IVROverlay_IVROverlay_011_MoveGamepadFocusToNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -12751,7 +12751,7 @@ struct IVROverlay_IVROverlay_011_MoveGamepadFocusToNeighbor_params
 
 struct IVROverlay_IVROverlay_011_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -12759,14 +12759,14 @@ struct IVROverlay_IVROverlay_011_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_011_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_011_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -12777,7 +12777,7 @@ struct IVROverlay_IVROverlay_011_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_011_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -12785,7 +12785,7 @@ struct IVROverlay_IVROverlay_011_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_011_GetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void **pNativeTextureHandle;
@@ -12799,7 +12799,7 @@ struct IVROverlay_IVROverlay_011_GetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_011_ReleaseNativeOverlayHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pNativeTextureHandle;
@@ -12807,7 +12807,7 @@ struct IVROverlay_IVROverlay_011_ReleaseNativeOverlayHandle_params
 
 struct IVROverlay_IVROverlay_011_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -12817,20 +12817,20 @@ struct IVROverlay_IVROverlay_011_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_011_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_011_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_011_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -12838,7 +12838,7 @@ struct IVROverlay_IVROverlay_011_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_011_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -12846,19 +12846,19 @@ struct IVROverlay_IVROverlay_011_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_011_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_011_GetPrimaryDashboardDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVROverlay_IVROverlay_011_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -12871,7 +12871,7 @@ struct IVROverlay_IVROverlay_011_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_011_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -12885,7 +12885,7 @@ struct IVROverlay_IVROverlay_011_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_011_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -12893,26 +12893,26 @@ struct IVROverlay_IVROverlay_011_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_011_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_011_SetKeyboardTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingOrigin;
     const HmdMatrix34_t *pmatTrackingOriginToKeyboardTransform;
 };
 
 struct IVROverlay_IVROverlay_011_SetKeyboardPositionForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     HmdRect2_t avoidRect;
 };
 
 struct IVROverlay_IVROverlay_012_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -12920,7 +12920,7 @@ struct IVROverlay_IVROverlay_012_FindOverlay_params
 
 struct IVROverlay_IVROverlay_012_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -12929,27 +12929,27 @@ struct IVROverlay_IVROverlay_012_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_012_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_012_SetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_012_GetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_012_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -12959,7 +12959,7 @@ struct IVROverlay_IVROverlay_012_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -12969,7 +12969,7 @@ struct IVROverlay_IVROverlay_012_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -12980,14 +12980,14 @@ struct IVROverlay_IVROverlay_012_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_012_SetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unPID;
@@ -12995,14 +12995,14 @@ struct IVROverlay_IVROverlay_012_SetOverlayRenderingPid_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_012_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -13011,7 +13011,7 @@ struct IVROverlay_IVROverlay_012_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -13020,7 +13020,7 @@ struct IVROverlay_IVROverlay_012_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_012_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -13030,7 +13030,7 @@ struct IVROverlay_IVROverlay_012_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -13040,7 +13040,7 @@ struct IVROverlay_IVROverlay_012_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_012_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -13048,7 +13048,7 @@ struct IVROverlay_IVROverlay_012_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -13056,7 +13056,7 @@ struct IVROverlay_IVROverlay_012_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_012_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -13064,7 +13064,7 @@ struct IVROverlay_IVROverlay_012_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -13072,7 +13072,7 @@ struct IVROverlay_IVROverlay_012_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_012_SetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fMinDistanceInMeters;
@@ -13081,7 +13081,7 @@ struct IVROverlay_IVROverlay_012_SetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfMinDistanceInMeters;
@@ -13090,7 +13090,7 @@ struct IVROverlay_IVROverlay_012_GetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_012_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -13098,7 +13098,7 @@ struct IVROverlay_IVROverlay_012_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -13106,7 +13106,7 @@ struct IVROverlay_IVROverlay_012_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_012_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -13114,7 +13114,7 @@ struct IVROverlay_IVROverlay_012_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -13122,7 +13122,7 @@ struct IVROverlay_IVROverlay_012_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -13130,7 +13130,7 @@ struct IVROverlay_IVROverlay_012_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_012_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -13139,7 +13139,7 @@ struct IVROverlay_IVROverlay_012_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -13148,7 +13148,7 @@ struct IVROverlay_IVROverlay_012_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_012_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -13157,7 +13157,7 @@ struct IVROverlay_IVROverlay_012_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -13166,7 +13166,7 @@ struct IVROverlay_IVROverlay_012_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_012_SetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unDeviceIndex;
@@ -13175,7 +13175,7 @@ struct IVROverlay_IVROverlay_012_SetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_012_GetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punDeviceIndex;
@@ -13185,28 +13185,28 @@ struct IVROverlay_IVROverlay_012_GetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_012_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_012_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_012_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_012_GetTransformForOverlayCoordinates_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -13216,7 +13216,7 @@ struct IVROverlay_IVROverlay_012_GetTransformForOverlayCoordinates_params
 
 struct IVROverlay_IVROverlay_012_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_101 *pEvent;
@@ -13225,7 +13225,7 @@ struct IVROverlay_IVROverlay_012_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -13233,7 +13233,7 @@ struct IVROverlay_IVROverlay_012_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_012_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -13241,7 +13241,7 @@ struct IVROverlay_IVROverlay_012_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -13249,7 +13249,7 @@ struct IVROverlay_IVROverlay_012_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_012_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -13257,7 +13257,7 @@ struct IVROverlay_IVROverlay_012_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_012_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -13266,7 +13266,7 @@ struct IVROverlay_IVROverlay_012_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_012_HandleControllerOverlayInteractionAsMouse_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unControllerDeviceIndex;
@@ -13274,27 +13274,27 @@ struct IVROverlay_IVROverlay_012_HandleControllerOverlayInteractionAsMouse_param
 
 struct IVROverlay_IVROverlay_012_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_012_GetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_012_SetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulNewFocusOverlay;
 };
 
 struct IVROverlay_IVROverlay_012_SetOverlayNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -13303,7 +13303,7 @@ struct IVROverlay_IVROverlay_012_SetOverlayNeighbor_params
 
 struct IVROverlay_IVROverlay_012_MoveGamepadFocusToNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -13311,7 +13311,7 @@ struct IVROverlay_IVROverlay_012_MoveGamepadFocusToNeighbor_params
 
 struct IVROverlay_IVROverlay_012_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -13319,14 +13319,14 @@ struct IVROverlay_IVROverlay_012_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_012_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_012_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -13337,7 +13337,7 @@ struct IVROverlay_IVROverlay_012_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_012_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -13345,7 +13345,7 @@ struct IVROverlay_IVROverlay_012_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void **pNativeTextureHandle;
@@ -13359,7 +13359,7 @@ struct IVROverlay_IVROverlay_012_GetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_012_ReleaseNativeOverlayHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pNativeTextureHandle;
@@ -13367,7 +13367,7 @@ struct IVROverlay_IVROverlay_012_ReleaseNativeOverlayHandle_params
 
 struct IVROverlay_IVROverlay_012_GetOverlayTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pWidth;
@@ -13376,7 +13376,7 @@ struct IVROverlay_IVROverlay_012_GetOverlayTextureSize_params
 
 struct IVROverlay_IVROverlay_012_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -13386,20 +13386,20 @@ struct IVROverlay_IVROverlay_012_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_012_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_012_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_012_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -13407,7 +13407,7 @@ struct IVROverlay_IVROverlay_012_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_012_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -13415,19 +13415,19 @@ struct IVROverlay_IVROverlay_012_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_012_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_012_GetPrimaryDashboardDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVROverlay_IVROverlay_012_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -13440,7 +13440,7 @@ struct IVROverlay_IVROverlay_012_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_012_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -13454,7 +13454,7 @@ struct IVROverlay_IVROverlay_012_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_012_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -13462,26 +13462,26 @@ struct IVROverlay_IVROverlay_012_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_012_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_012_SetKeyboardTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingOrigin;
     const HmdMatrix34_t *pmatTrackingOriginToKeyboardTransform;
 };
 
 struct IVROverlay_IVROverlay_012_SetKeyboardPositionForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     HmdRect2_t avoidRect;
 };
 
 struct IVROverlay_IVROverlay_013_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -13489,7 +13489,7 @@ struct IVROverlay_IVROverlay_013_FindOverlay_params
 
 struct IVROverlay_IVROverlay_013_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -13498,27 +13498,27 @@ struct IVROverlay_IVROverlay_013_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_013_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_013_SetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_013_GetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_013_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -13528,7 +13528,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -13538,7 +13538,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -13549,14 +13549,14 @@ struct IVROverlay_IVROverlay_013_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_013_SetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unPID;
@@ -13564,14 +13564,14 @@ struct IVROverlay_IVROverlay_013_SetOverlayRenderingPid_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_013_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -13580,7 +13580,7 @@ struct IVROverlay_IVROverlay_013_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -13589,7 +13589,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_013_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -13599,7 +13599,7 @@ struct IVROverlay_IVROverlay_013_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -13609,7 +13609,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_013_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -13617,7 +13617,7 @@ struct IVROverlay_IVROverlay_013_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -13625,7 +13625,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_013_SetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fTexelAspect;
@@ -13633,7 +13633,7 @@ struct IVROverlay_IVROverlay_013_SetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfTexelAspect;
@@ -13641,7 +13641,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_013_SetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unSortOrder;
@@ -13649,7 +13649,7 @@ struct IVROverlay_IVROverlay_013_SetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_013_GetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punSortOrder;
@@ -13657,7 +13657,7 @@ struct IVROverlay_IVROverlay_013_GetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_013_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -13665,7 +13665,7 @@ struct IVROverlay_IVROverlay_013_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -13673,7 +13673,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_013_SetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fMinDistanceInMeters;
@@ -13682,7 +13682,7 @@ struct IVROverlay_IVROverlay_013_SetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfMinDistanceInMeters;
@@ -13691,7 +13691,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_013_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -13699,7 +13699,7 @@ struct IVROverlay_IVROverlay_013_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -13707,7 +13707,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_013_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -13715,7 +13715,7 @@ struct IVROverlay_IVROverlay_013_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -13723,7 +13723,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -13731,7 +13731,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_013_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -13740,7 +13740,7 @@ struct IVROverlay_IVROverlay_013_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -13749,7 +13749,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_013_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -13758,7 +13758,7 @@ struct IVROverlay_IVROverlay_013_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -13767,7 +13767,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_013_SetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unDeviceIndex;
@@ -13776,7 +13776,7 @@ struct IVROverlay_IVROverlay_013_SetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_013_GetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punDeviceIndex;
@@ -13786,28 +13786,28 @@ struct IVROverlay_IVROverlay_013_GetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_013_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_013_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_013_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_013_GetTransformForOverlayCoordinates_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -13817,7 +13817,7 @@ struct IVROverlay_IVROverlay_013_GetTransformForOverlayCoordinates_params
 
 struct IVROverlay_IVROverlay_013_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_103 *pEvent;
@@ -13826,7 +13826,7 @@ struct IVROverlay_IVROverlay_013_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -13834,7 +13834,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_013_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -13842,7 +13842,7 @@ struct IVROverlay_IVROverlay_013_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -13850,7 +13850,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_013_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -13858,7 +13858,7 @@ struct IVROverlay_IVROverlay_013_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_013_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -13867,7 +13867,7 @@ struct IVROverlay_IVROverlay_013_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_013_HandleControllerOverlayInteractionAsMouse_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unControllerDeviceIndex;
@@ -13875,27 +13875,27 @@ struct IVROverlay_IVROverlay_013_HandleControllerOverlayInteractionAsMouse_param
 
 struct IVROverlay_IVROverlay_013_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_013_GetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_013_SetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulNewFocusOverlay;
 };
 
 struct IVROverlay_IVROverlay_013_SetOverlayNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -13904,7 +13904,7 @@ struct IVROverlay_IVROverlay_013_SetOverlayNeighbor_params
 
 struct IVROverlay_IVROverlay_013_MoveGamepadFocusToNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -13912,7 +13912,7 @@ struct IVROverlay_IVROverlay_013_MoveGamepadFocusToNeighbor_params
 
 struct IVROverlay_IVROverlay_013_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -13920,14 +13920,14 @@ struct IVROverlay_IVROverlay_013_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_013_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_013_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -13938,7 +13938,7 @@ struct IVROverlay_IVROverlay_013_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_013_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -13946,7 +13946,7 @@ struct IVROverlay_IVROverlay_013_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void **pNativeTextureHandle;
@@ -13960,7 +13960,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_013_ReleaseNativeOverlayHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pNativeTextureHandle;
@@ -13968,7 +13968,7 @@ struct IVROverlay_IVROverlay_013_ReleaseNativeOverlayHandle_params
 
 struct IVROverlay_IVROverlay_013_GetOverlayTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pWidth;
@@ -13977,7 +13977,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayTextureSize_params
 
 struct IVROverlay_IVROverlay_013_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -13987,20 +13987,20 @@ struct IVROverlay_IVROverlay_013_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_013_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_013_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_013_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -14008,7 +14008,7 @@ struct IVROverlay_IVROverlay_013_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_013_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -14016,19 +14016,19 @@ struct IVROverlay_IVROverlay_013_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_013_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_013_GetPrimaryDashboardDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVROverlay_IVROverlay_013_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -14041,7 +14041,7 @@ struct IVROverlay_IVROverlay_013_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_013_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -14055,7 +14055,7 @@ struct IVROverlay_IVROverlay_013_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_013_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -14063,26 +14063,26 @@ struct IVROverlay_IVROverlay_013_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_013_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_013_SetKeyboardTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingOrigin;
     const HmdMatrix34_t *pmatTrackingOriginToKeyboardTransform;
 };
 
 struct IVROverlay_IVROverlay_013_SetKeyboardPositionForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     HmdRect2_t avoidRect;
 };
 
 struct IVROverlay_IVROverlay_013_SetOverlayIntersectionMask_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VROverlayIntersectionMaskPrimitive_t *pMaskPrimitives;
@@ -14092,7 +14092,7 @@ struct IVROverlay_IVROverlay_013_SetOverlayIntersectionMask_params
 
 struct IVROverlay_IVROverlay_014_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -14100,7 +14100,7 @@ struct IVROverlay_IVROverlay_014_FindOverlay_params
 
 struct IVROverlay_IVROverlay_014_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -14109,27 +14109,27 @@ struct IVROverlay_IVROverlay_014_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_014_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_014_SetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_014_GetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_014_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -14139,7 +14139,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -14149,7 +14149,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -14160,14 +14160,14 @@ struct IVROverlay_IVROverlay_014_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_014_SetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unPID;
@@ -14175,14 +14175,14 @@ struct IVROverlay_IVROverlay_014_SetOverlayRenderingPid_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_014_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -14191,7 +14191,7 @@ struct IVROverlay_IVROverlay_014_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -14200,7 +14200,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_014_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -14210,7 +14210,7 @@ struct IVROverlay_IVROverlay_014_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -14220,7 +14220,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_014_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -14228,7 +14228,7 @@ struct IVROverlay_IVROverlay_014_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -14236,7 +14236,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_014_SetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fTexelAspect;
@@ -14244,7 +14244,7 @@ struct IVROverlay_IVROverlay_014_SetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfTexelAspect;
@@ -14252,7 +14252,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_014_SetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unSortOrder;
@@ -14260,7 +14260,7 @@ struct IVROverlay_IVROverlay_014_SetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_014_GetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punSortOrder;
@@ -14268,7 +14268,7 @@ struct IVROverlay_IVROverlay_014_GetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_014_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -14276,7 +14276,7 @@ struct IVROverlay_IVROverlay_014_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -14284,7 +14284,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_014_SetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fMinDistanceInMeters;
@@ -14293,7 +14293,7 @@ struct IVROverlay_IVROverlay_014_SetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfMinDistanceInMeters;
@@ -14302,7 +14302,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_014_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -14310,7 +14310,7 @@ struct IVROverlay_IVROverlay_014_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -14318,7 +14318,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_014_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -14326,7 +14326,7 @@ struct IVROverlay_IVROverlay_014_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -14334,7 +14334,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -14342,7 +14342,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_014_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -14351,7 +14351,7 @@ struct IVROverlay_IVROverlay_014_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -14360,7 +14360,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_014_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -14369,7 +14369,7 @@ struct IVROverlay_IVROverlay_014_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -14378,7 +14378,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_014_SetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unDeviceIndex;
@@ -14387,7 +14387,7 @@ struct IVROverlay_IVROverlay_014_SetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_014_GetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punDeviceIndex;
@@ -14397,28 +14397,28 @@ struct IVROverlay_IVROverlay_014_GetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_014_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_014_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_014_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_014_GetTransformForOverlayCoordinates_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -14428,7 +14428,7 @@ struct IVROverlay_IVROverlay_014_GetTransformForOverlayCoordinates_params
 
 struct IVROverlay_IVROverlay_014_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_106 *pEvent;
@@ -14437,7 +14437,7 @@ struct IVROverlay_IVROverlay_014_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -14445,7 +14445,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_014_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -14453,7 +14453,7 @@ struct IVROverlay_IVROverlay_014_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -14461,7 +14461,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_014_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -14469,7 +14469,7 @@ struct IVROverlay_IVROverlay_014_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_014_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -14478,7 +14478,7 @@ struct IVROverlay_IVROverlay_014_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_014_HandleControllerOverlayInteractionAsMouse_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unControllerDeviceIndex;
@@ -14486,27 +14486,27 @@ struct IVROverlay_IVROverlay_014_HandleControllerOverlayInteractionAsMouse_param
 
 struct IVROverlay_IVROverlay_014_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_014_GetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_014_SetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulNewFocusOverlay;
 };
 
 struct IVROverlay_IVROverlay_014_SetOverlayNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -14515,7 +14515,7 @@ struct IVROverlay_IVROverlay_014_SetOverlayNeighbor_params
 
 struct IVROverlay_IVROverlay_014_MoveGamepadFocusToNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -14523,7 +14523,7 @@ struct IVROverlay_IVROverlay_014_MoveGamepadFocusToNeighbor_params
 
 struct IVROverlay_IVROverlay_014_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -14531,14 +14531,14 @@ struct IVROverlay_IVROverlay_014_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_014_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_014_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -14549,7 +14549,7 @@ struct IVROverlay_IVROverlay_014_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_014_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -14557,7 +14557,7 @@ struct IVROverlay_IVROverlay_014_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void **pNativeTextureHandle;
@@ -14572,7 +14572,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_014_ReleaseNativeOverlayHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pNativeTextureHandle;
@@ -14580,7 +14580,7 @@ struct IVROverlay_IVROverlay_014_ReleaseNativeOverlayHandle_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pWidth;
@@ -14589,7 +14589,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayTextureSize_params
 
 struct IVROverlay_IVROverlay_014_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -14599,20 +14599,20 @@ struct IVROverlay_IVROverlay_014_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_014_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_014_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_014_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -14620,7 +14620,7 @@ struct IVROverlay_IVROverlay_014_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_014_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -14628,19 +14628,19 @@ struct IVROverlay_IVROverlay_014_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_014_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_014_GetPrimaryDashboardDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVROverlay_IVROverlay_014_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -14653,7 +14653,7 @@ struct IVROverlay_IVROverlay_014_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_014_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -14667,7 +14667,7 @@ struct IVROverlay_IVROverlay_014_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_014_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -14675,26 +14675,26 @@ struct IVROverlay_IVROverlay_014_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_014_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_014_SetKeyboardTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingOrigin;
     const HmdMatrix34_t *pmatTrackingOriginToKeyboardTransform;
 };
 
 struct IVROverlay_IVROverlay_014_SetKeyboardPositionForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     HmdRect2_t avoidRect;
 };
 
 struct IVROverlay_IVROverlay_014_SetOverlayIntersectionMask_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VROverlayIntersectionMaskPrimitive_t *pMaskPrimitives;
@@ -14704,7 +14704,7 @@ struct IVROverlay_IVROverlay_014_SetOverlayIntersectionMask_params
 
 struct IVROverlay_IVROverlay_014_GetOverlayFlags_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pFlags;
@@ -14712,7 +14712,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayFlags_params
 
 struct IVROverlay_IVROverlay_014_ShowMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchText;
     const char *pchCaption;
@@ -14724,7 +14724,7 @@ struct IVROverlay_IVROverlay_014_ShowMessageOverlay_params
 
 struct IVROverlay_IVROverlay_016_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -14732,7 +14732,7 @@ struct IVROverlay_IVROverlay_016_FindOverlay_params
 
 struct IVROverlay_IVROverlay_016_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayName;
@@ -14741,27 +14741,27 @@ struct IVROverlay_IVROverlay_016_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_016_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_016_SetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_016_GetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_016_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -14771,7 +14771,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -14781,7 +14781,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_016_SetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchName;
@@ -14789,7 +14789,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayName_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -14800,14 +14800,14 @@ struct IVROverlay_IVROverlay_016_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_016_SetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unPID;
@@ -14815,14 +14815,14 @@ struct IVROverlay_IVROverlay_016_SetOverlayRenderingPid_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_016_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -14831,7 +14831,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -14840,7 +14840,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_016_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -14850,7 +14850,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -14860,7 +14860,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_016_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -14868,7 +14868,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -14876,7 +14876,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_016_SetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fTexelAspect;
@@ -14884,7 +14884,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfTexelAspect;
@@ -14892,7 +14892,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_016_SetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unSortOrder;
@@ -14900,7 +14900,7 @@ struct IVROverlay_IVROverlay_016_SetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_016_GetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punSortOrder;
@@ -14908,7 +14908,7 @@ struct IVROverlay_IVROverlay_016_GetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_016_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -14916,7 +14916,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -14924,7 +14924,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_016_SetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fMinDistanceInMeters;
@@ -14933,7 +14933,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfMinDistanceInMeters;
@@ -14942,7 +14942,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_016_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -14950,7 +14950,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -14958,7 +14958,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_016_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -14966,7 +14966,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -14974,7 +14974,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -14985,7 +14985,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayRenderModel_params
 
 struct IVROverlay_IVROverlay_016_SetOverlayRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchRenderModel;
@@ -14994,7 +14994,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayRenderModel_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -15002,7 +15002,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_016_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -15011,7 +15011,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -15020,7 +15020,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_016_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -15029,7 +15029,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -15038,7 +15038,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_016_SetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unDeviceIndex;
@@ -15047,7 +15047,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_016_GetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punDeviceIndex;
@@ -15057,7 +15057,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_016_GetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t *ulOverlayHandleParent;
@@ -15066,7 +15066,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_016_SetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t ulOverlayHandleParent;
@@ -15075,28 +15075,28 @@ struct IVROverlay_IVROverlay_016_SetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_016_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_016_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_016_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_016_GetTransformForOverlayCoordinates_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -15106,7 +15106,7 @@ struct IVROverlay_IVROverlay_016_GetTransformForOverlayCoordinates_params
 
 struct IVROverlay_IVROverlay_016_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_106 *pEvent;
@@ -15115,7 +15115,7 @@ struct IVROverlay_IVROverlay_016_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -15123,7 +15123,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_016_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -15131,7 +15131,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -15139,7 +15139,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_016_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -15147,7 +15147,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_016_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -15156,7 +15156,7 @@ struct IVROverlay_IVROverlay_016_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_016_HandleControllerOverlayInteractionAsMouse_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unControllerDeviceIndex;
@@ -15164,27 +15164,27 @@ struct IVROverlay_IVROverlay_016_HandleControllerOverlayInteractionAsMouse_param
 
 struct IVROverlay_IVROverlay_016_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_016_GetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_016_SetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulNewFocusOverlay;
 };
 
 struct IVROverlay_IVROverlay_016_SetOverlayNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -15193,7 +15193,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayNeighbor_params
 
 struct IVROverlay_IVROverlay_016_MoveGamepadFocusToNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -15201,7 +15201,7 @@ struct IVROverlay_IVROverlay_016_MoveGamepadFocusToNeighbor_params
 
 struct IVROverlay_IVROverlay_016_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -15209,14 +15209,14 @@ struct IVROverlay_IVROverlay_016_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_016_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_016_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -15227,7 +15227,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_016_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -15235,7 +15235,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void **pNativeTextureHandle;
@@ -15250,7 +15250,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_016_ReleaseNativeOverlayHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pNativeTextureHandle;
@@ -15258,7 +15258,7 @@ struct IVROverlay_IVROverlay_016_ReleaseNativeOverlayHandle_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pWidth;
@@ -15267,7 +15267,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayTextureSize_params
 
 struct IVROverlay_IVROverlay_016_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -15277,20 +15277,20 @@ struct IVROverlay_IVROverlay_016_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_016_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_016_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_016_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -15298,7 +15298,7 @@ struct IVROverlay_IVROverlay_016_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_016_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -15306,19 +15306,19 @@ struct IVROverlay_IVROverlay_016_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_016_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_016_GetPrimaryDashboardDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVROverlay_IVROverlay_016_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -15331,7 +15331,7 @@ struct IVROverlay_IVROverlay_016_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_016_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -15345,7 +15345,7 @@ struct IVROverlay_IVROverlay_016_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_016_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -15353,26 +15353,26 @@ struct IVROverlay_IVROverlay_016_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_016_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_016_SetKeyboardTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingOrigin;
     const HmdMatrix34_t *pmatTrackingOriginToKeyboardTransform;
 };
 
 struct IVROverlay_IVROverlay_016_SetKeyboardPositionForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     HmdRect2_t avoidRect;
 };
 
 struct IVROverlay_IVROverlay_016_SetOverlayIntersectionMask_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VROverlayIntersectionMaskPrimitive_t *pMaskPrimitives;
@@ -15382,7 +15382,7 @@ struct IVROverlay_IVROverlay_016_SetOverlayIntersectionMask_params
 
 struct IVROverlay_IVROverlay_016_GetOverlayFlags_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pFlags;
@@ -15390,7 +15390,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayFlags_params
 
 struct IVROverlay_IVROverlay_016_ShowMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchText;
     const char *pchCaption;
@@ -15402,12 +15402,12 @@ struct IVROverlay_IVROverlay_016_ShowMessageOverlay_params
 
 struct IVROverlay_IVROverlay_016_CloseMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_017_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -15415,7 +15415,7 @@ struct IVROverlay_IVROverlay_017_FindOverlay_params
 
 struct IVROverlay_IVROverlay_017_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayName;
@@ -15424,27 +15424,27 @@ struct IVROverlay_IVROverlay_017_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_017_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_017_SetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_017_GetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_017_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -15454,7 +15454,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -15464,7 +15464,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchName;
@@ -15472,7 +15472,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayName_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -15483,14 +15483,14 @@ struct IVROverlay_IVROverlay_017_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_017_SetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unPID;
@@ -15498,14 +15498,14 @@ struct IVROverlay_IVROverlay_017_SetOverlayRenderingPid_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_017_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -15514,7 +15514,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -15523,7 +15523,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -15533,7 +15533,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -15543,7 +15543,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -15551,7 +15551,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -15559,7 +15559,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fTexelAspect;
@@ -15567,7 +15567,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfTexelAspect;
@@ -15575,7 +15575,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_017_SetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unSortOrder;
@@ -15583,7 +15583,7 @@ struct IVROverlay_IVROverlay_017_SetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_017_GetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punSortOrder;
@@ -15591,7 +15591,7 @@ struct IVROverlay_IVROverlay_017_GetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -15599,7 +15599,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -15607,7 +15607,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fMinDistanceInMeters;
@@ -15616,7 +15616,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfMinDistanceInMeters;
@@ -15625,7 +15625,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -15633,7 +15633,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -15641,7 +15641,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -15649,7 +15649,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -15657,7 +15657,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -15668,7 +15668,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayRenderModel_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchRenderModel;
@@ -15677,7 +15677,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayRenderModel_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -15685,7 +15685,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -15694,7 +15694,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -15703,7 +15703,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -15712,7 +15712,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -15721,7 +15721,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unDeviceIndex;
@@ -15730,7 +15730,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_017_GetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punDeviceIndex;
@@ -15740,7 +15740,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_017_GetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t *ulOverlayHandleParent;
@@ -15749,7 +15749,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t ulOverlayHandleParent;
@@ -15758,28 +15758,28 @@ struct IVROverlay_IVROverlay_017_SetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_017_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_017_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_017_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_017_GetTransformForOverlayCoordinates_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -15789,7 +15789,7 @@ struct IVROverlay_IVROverlay_017_GetTransformForOverlayCoordinates_params
 
 struct IVROverlay_IVROverlay_017_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_1011 *pEvent;
@@ -15798,7 +15798,7 @@ struct IVROverlay_IVROverlay_017_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -15806,7 +15806,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -15814,7 +15814,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -15822,7 +15822,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -15830,7 +15830,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_017_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -15839,7 +15839,7 @@ struct IVROverlay_IVROverlay_017_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_017_HandleControllerOverlayInteractionAsMouse_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unControllerDeviceIndex;
@@ -15847,27 +15847,27 @@ struct IVROverlay_IVROverlay_017_HandleControllerOverlayInteractionAsMouse_param
 
 struct IVROverlay_IVROverlay_017_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_017_GetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_017_SetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulNewFocusOverlay;
 };
 
 struct IVROverlay_IVROverlay_017_SetOverlayNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -15876,7 +15876,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayNeighbor_params
 
 struct IVROverlay_IVROverlay_017_MoveGamepadFocusToNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -15884,7 +15884,7 @@ struct IVROverlay_IVROverlay_017_MoveGamepadFocusToNeighbor_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayDualAnalogTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlay;
     uint32_t eWhich;
@@ -15894,7 +15894,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayDualAnalogTransform_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayDualAnalogTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlay;
     uint32_t eWhich;
@@ -15904,7 +15904,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayDualAnalogTransform_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -15912,14 +15912,14 @@ struct IVROverlay_IVROverlay_017_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_017_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_017_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -15930,7 +15930,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_017_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -15938,7 +15938,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void **pNativeTextureHandle;
@@ -15953,7 +15953,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_017_ReleaseNativeOverlayHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pNativeTextureHandle;
@@ -15961,7 +15961,7 @@ struct IVROverlay_IVROverlay_017_ReleaseNativeOverlayHandle_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pWidth;
@@ -15970,7 +15970,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayTextureSize_params
 
 struct IVROverlay_IVROverlay_017_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -15980,20 +15980,20 @@ struct IVROverlay_IVROverlay_017_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_017_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_017_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_017_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -16001,7 +16001,7 @@ struct IVROverlay_IVROverlay_017_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_017_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -16009,19 +16009,19 @@ struct IVROverlay_IVROverlay_017_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_017_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_017_GetPrimaryDashboardDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVROverlay_IVROverlay_017_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -16034,7 +16034,7 @@ struct IVROverlay_IVROverlay_017_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_017_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -16048,7 +16048,7 @@ struct IVROverlay_IVROverlay_017_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_017_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -16056,26 +16056,26 @@ struct IVROverlay_IVROverlay_017_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_017_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_017_SetKeyboardTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingOrigin;
     const HmdMatrix34_t *pmatTrackingOriginToKeyboardTransform;
 };
 
 struct IVROverlay_IVROverlay_017_SetKeyboardPositionForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     HmdRect2_t avoidRect;
 };
 
 struct IVROverlay_IVROverlay_017_SetOverlayIntersectionMask_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VROverlayIntersectionMaskPrimitive_t *pMaskPrimitives;
@@ -16085,7 +16085,7 @@ struct IVROverlay_IVROverlay_017_SetOverlayIntersectionMask_params
 
 struct IVROverlay_IVROverlay_017_GetOverlayFlags_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pFlags;
@@ -16093,7 +16093,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayFlags_params
 
 struct IVROverlay_IVROverlay_017_ShowMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchText;
     const char *pchCaption;
@@ -16105,12 +16105,12 @@ struct IVROverlay_IVROverlay_017_ShowMessageOverlay_params
 
 struct IVROverlay_IVROverlay_017_CloseMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_018_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -16118,7 +16118,7 @@ struct IVROverlay_IVROverlay_018_FindOverlay_params
 
 struct IVROverlay_IVROverlay_018_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayName;
@@ -16127,27 +16127,27 @@ struct IVROverlay_IVROverlay_018_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_018_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_018_SetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_018_GetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_018_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -16157,7 +16157,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -16167,7 +16167,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchName;
@@ -16175,7 +16175,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayName_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -16186,14 +16186,14 @@ struct IVROverlay_IVROverlay_018_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_018_SetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unPID;
@@ -16201,14 +16201,14 @@ struct IVROverlay_IVROverlay_018_SetOverlayRenderingPid_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_018_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -16217,7 +16217,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -16226,7 +16226,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -16236,7 +16236,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -16246,7 +16246,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -16254,7 +16254,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -16262,7 +16262,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fTexelAspect;
@@ -16270,7 +16270,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfTexelAspect;
@@ -16278,7 +16278,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_018_SetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unSortOrder;
@@ -16286,7 +16286,7 @@ struct IVROverlay_IVROverlay_018_SetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_018_GetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punSortOrder;
@@ -16294,7 +16294,7 @@ struct IVROverlay_IVROverlay_018_GetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -16302,7 +16302,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -16310,7 +16310,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fMinDistanceInMeters;
@@ -16319,7 +16319,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfMinDistanceInMeters;
@@ -16328,7 +16328,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -16336,7 +16336,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -16344,7 +16344,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -16352,7 +16352,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -16360,7 +16360,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -16371,7 +16371,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayRenderModel_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchRenderModel;
@@ -16380,7 +16380,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayRenderModel_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -16388,7 +16388,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -16397,7 +16397,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -16406,7 +16406,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -16415,7 +16415,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -16424,7 +16424,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unDeviceIndex;
@@ -16433,7 +16433,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_018_GetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punDeviceIndex;
@@ -16443,7 +16443,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_018_GetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t *ulOverlayHandleParent;
@@ -16452,7 +16452,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t ulOverlayHandleParent;
@@ -16461,28 +16461,28 @@ struct IVROverlay_IVROverlay_018_SetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_018_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_018_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_018_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_018_GetTransformForOverlayCoordinates_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -16492,7 +16492,7 @@ struct IVROverlay_IVROverlay_018_GetTransformForOverlayCoordinates_params
 
 struct IVROverlay_IVROverlay_018_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_1016 *pEvent;
@@ -16501,7 +16501,7 @@ struct IVROverlay_IVROverlay_018_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -16509,7 +16509,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -16517,7 +16517,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -16525,7 +16525,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -16533,7 +16533,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_018_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -16542,27 +16542,27 @@ struct IVROverlay_IVROverlay_018_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_018_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_018_GetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_018_SetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulNewFocusOverlay;
 };
 
 struct IVROverlay_IVROverlay_018_SetOverlayNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -16571,7 +16571,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayNeighbor_params
 
 struct IVROverlay_IVROverlay_018_MoveGamepadFocusToNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -16579,7 +16579,7 @@ struct IVROverlay_IVROverlay_018_MoveGamepadFocusToNeighbor_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayDualAnalogTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlay;
     uint32_t eWhich;
@@ -16589,7 +16589,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayDualAnalogTransform_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayDualAnalogTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlay;
     uint32_t eWhich;
@@ -16599,7 +16599,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayDualAnalogTransform_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -16607,14 +16607,14 @@ struct IVROverlay_IVROverlay_018_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_018_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_018_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -16625,7 +16625,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_018_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -16633,7 +16633,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void **pNativeTextureHandle;
@@ -16648,7 +16648,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_018_ReleaseNativeOverlayHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pNativeTextureHandle;
@@ -16656,7 +16656,7 @@ struct IVROverlay_IVROverlay_018_ReleaseNativeOverlayHandle_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pWidth;
@@ -16665,7 +16665,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayTextureSize_params
 
 struct IVROverlay_IVROverlay_018_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -16675,20 +16675,20 @@ struct IVROverlay_IVROverlay_018_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_018_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_018_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_018_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -16696,7 +16696,7 @@ struct IVROverlay_IVROverlay_018_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_018_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -16704,19 +16704,19 @@ struct IVROverlay_IVROverlay_018_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_018_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_018_GetPrimaryDashboardDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVROverlay_IVROverlay_018_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -16729,7 +16729,7 @@ struct IVROverlay_IVROverlay_018_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_018_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -16743,7 +16743,7 @@ struct IVROverlay_IVROverlay_018_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_018_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -16751,26 +16751,26 @@ struct IVROverlay_IVROverlay_018_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_018_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_018_SetKeyboardTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingOrigin;
     const HmdMatrix34_t *pmatTrackingOriginToKeyboardTransform;
 };
 
 struct IVROverlay_IVROverlay_018_SetKeyboardPositionForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     HmdRect2_t avoidRect;
 };
 
 struct IVROverlay_IVROverlay_018_SetOverlayIntersectionMask_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VROverlayIntersectionMaskPrimitive_t *pMaskPrimitives;
@@ -16780,7 +16780,7 @@ struct IVROverlay_IVROverlay_018_SetOverlayIntersectionMask_params
 
 struct IVROverlay_IVROverlay_018_GetOverlayFlags_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pFlags;
@@ -16788,7 +16788,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayFlags_params
 
 struct IVROverlay_IVROverlay_018_ShowMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchText;
     const char *pchCaption;
@@ -16800,12 +16800,12 @@ struct IVROverlay_IVROverlay_018_ShowMessageOverlay_params
 
 struct IVROverlay_IVROverlay_018_CloseMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_019_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -16813,7 +16813,7 @@ struct IVROverlay_IVROverlay_019_FindOverlay_params
 
 struct IVROverlay_IVROverlay_019_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayName;
@@ -16822,27 +16822,27 @@ struct IVROverlay_IVROverlay_019_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_019_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_019_SetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_019_GetHighQualityOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_019_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -16852,7 +16852,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -16862,7 +16862,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchName;
@@ -16870,7 +16870,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayName_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -16881,14 +16881,14 @@ struct IVROverlay_IVROverlay_019_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_019_SetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unPID;
@@ -16896,14 +16896,14 @@ struct IVROverlay_IVROverlay_019_SetOverlayRenderingPid_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_019_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -16912,7 +16912,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -16921,7 +16921,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -16931,7 +16931,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -16941,7 +16941,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -16949,7 +16949,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -16957,7 +16957,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fTexelAspect;
@@ -16965,7 +16965,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfTexelAspect;
@@ -16973,7 +16973,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_019_SetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unSortOrder;
@@ -16981,7 +16981,7 @@ struct IVROverlay_IVROverlay_019_SetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_019_GetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punSortOrder;
@@ -16989,7 +16989,7 @@ struct IVROverlay_IVROverlay_019_GetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -16997,7 +16997,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -17005,7 +17005,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fMinDistanceInMeters;
@@ -17014,7 +17014,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfMinDistanceInMeters;
@@ -17023,7 +17023,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -17031,7 +17031,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -17039,7 +17039,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -17047,7 +17047,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -17055,7 +17055,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -17066,7 +17066,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayRenderModel_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchRenderModel;
@@ -17075,7 +17075,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayRenderModel_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -17083,7 +17083,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -17092,7 +17092,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -17101,7 +17101,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -17110,7 +17110,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -17119,7 +17119,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unDeviceIndex;
@@ -17128,7 +17128,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_019_GetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punDeviceIndex;
@@ -17138,7 +17138,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_019_GetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t *ulOverlayHandleParent;
@@ -17147,7 +17147,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t ulOverlayHandleParent;
@@ -17156,28 +17156,28 @@ struct IVROverlay_IVROverlay_019_SetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_019_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_019_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_019_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_019_GetTransformForOverlayCoordinates_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -17187,7 +17187,7 @@ struct IVROverlay_IVROverlay_019_GetTransformForOverlayCoordinates_params
 
 struct IVROverlay_IVROverlay_019_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_1322 *pEvent;
@@ -17196,7 +17196,7 @@ struct IVROverlay_IVROverlay_019_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -17204,7 +17204,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -17212,7 +17212,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -17220,7 +17220,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -17228,7 +17228,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_019_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -17237,27 +17237,27 @@ struct IVROverlay_IVROverlay_019_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_019_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_019_GetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_019_SetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulNewFocusOverlay;
 };
 
 struct IVROverlay_IVROverlay_019_SetOverlayNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -17266,7 +17266,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayNeighbor_params
 
 struct IVROverlay_IVROverlay_019_MoveGamepadFocusToNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -17274,7 +17274,7 @@ struct IVROverlay_IVROverlay_019_MoveGamepadFocusToNeighbor_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayDualAnalogTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlay;
     uint32_t eWhich;
@@ -17284,7 +17284,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayDualAnalogTransform_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayDualAnalogTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlay;
     uint32_t eWhich;
@@ -17294,7 +17294,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayDualAnalogTransform_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -17302,14 +17302,14 @@ struct IVROverlay_IVROverlay_019_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_019_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_019_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -17320,7 +17320,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_019_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -17328,7 +17328,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void **pNativeTextureHandle;
@@ -17343,7 +17343,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_019_ReleaseNativeOverlayHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pNativeTextureHandle;
@@ -17351,7 +17351,7 @@ struct IVROverlay_IVROverlay_019_ReleaseNativeOverlayHandle_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pWidth;
@@ -17360,7 +17360,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayTextureSize_params
 
 struct IVROverlay_IVROverlay_019_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -17370,20 +17370,20 @@ struct IVROverlay_IVROverlay_019_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_019_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_019_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_019_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -17391,7 +17391,7 @@ struct IVROverlay_IVROverlay_019_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_019_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -17399,19 +17399,19 @@ struct IVROverlay_IVROverlay_019_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_019_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_019_GetPrimaryDashboardDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVROverlay_IVROverlay_019_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -17424,7 +17424,7 @@ struct IVROverlay_IVROverlay_019_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_019_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -17438,7 +17438,7 @@ struct IVROverlay_IVROverlay_019_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_019_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -17446,26 +17446,26 @@ struct IVROverlay_IVROverlay_019_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_019_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_019_SetKeyboardTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingOrigin;
     const HmdMatrix34_t *pmatTrackingOriginToKeyboardTransform;
 };
 
 struct IVROverlay_IVROverlay_019_SetKeyboardPositionForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     HmdRect2_t avoidRect;
 };
 
 struct IVROverlay_IVROverlay_019_SetOverlayIntersectionMask_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VROverlayIntersectionMaskPrimitive_t *pMaskPrimitives;
@@ -17475,7 +17475,7 @@ struct IVROverlay_IVROverlay_019_SetOverlayIntersectionMask_params
 
 struct IVROverlay_IVROverlay_019_GetOverlayFlags_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pFlags;
@@ -17483,7 +17483,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayFlags_params
 
 struct IVROverlay_IVROverlay_019_ShowMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchText;
     const char *pchCaption;
@@ -17495,12 +17495,12 @@ struct IVROverlay_IVROverlay_019_ShowMessageOverlay_params
 
 struct IVROverlay_IVROverlay_019_CloseMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_020_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -17508,7 +17508,7 @@ struct IVROverlay_IVROverlay_020_FindOverlay_params
 
 struct IVROverlay_IVROverlay_020_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayName;
@@ -17517,14 +17517,14 @@ struct IVROverlay_IVROverlay_020_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_020_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_020_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -17534,7 +17534,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -17544,7 +17544,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchName;
@@ -17552,7 +17552,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayName_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -17563,14 +17563,14 @@ struct IVROverlay_IVROverlay_020_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_020_SetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unPID;
@@ -17578,14 +17578,14 @@ struct IVROverlay_IVROverlay_020_SetOverlayRenderingPid_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_020_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -17594,7 +17594,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -17603,7 +17603,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -17613,7 +17613,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -17623,7 +17623,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -17631,7 +17631,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -17639,7 +17639,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fTexelAspect;
@@ -17647,7 +17647,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfTexelAspect;
@@ -17655,7 +17655,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_020_SetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unSortOrder;
@@ -17663,7 +17663,7 @@ struct IVROverlay_IVROverlay_020_SetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_020_GetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punSortOrder;
@@ -17671,7 +17671,7 @@ struct IVROverlay_IVROverlay_020_GetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -17679,7 +17679,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -17687,7 +17687,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fMinDistanceInMeters;
@@ -17696,7 +17696,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayAutoCurveDistanceRangeInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfMinDistanceInMeters;
@@ -17705,7 +17705,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayAutoCurveDistanceRangeInMeters_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -17713,7 +17713,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -17721,7 +17721,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -17729,7 +17729,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -17737,7 +17737,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -17748,7 +17748,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayRenderModel_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchRenderModel;
@@ -17757,7 +17757,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayRenderModel_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -17765,7 +17765,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -17774,7 +17774,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -17783,7 +17783,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -17792,7 +17792,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -17801,7 +17801,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unDeviceIndex;
@@ -17810,7 +17810,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_020_GetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punDeviceIndex;
@@ -17820,7 +17820,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_020_GetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t *ulOverlayHandleParent;
@@ -17829,7 +17829,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t ulOverlayHandleParent;
@@ -17838,28 +17838,28 @@ struct IVROverlay_IVROverlay_020_SetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_020_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_020_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_020_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_020_GetTransformForOverlayCoordinates_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -17869,7 +17869,7 @@ struct IVROverlay_IVROverlay_020_GetTransformForOverlayCoordinates_params
 
 struct IVROverlay_IVROverlay_020_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_1322 *pEvent;
@@ -17878,7 +17878,7 @@ struct IVROverlay_IVROverlay_020_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -17886,7 +17886,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -17894,7 +17894,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -17902,7 +17902,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -17910,7 +17910,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_020_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -17919,27 +17919,27 @@ struct IVROverlay_IVROverlay_020_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_020_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_020_GetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
 };
 
 struct IVROverlay_IVROverlay_020_SetGamepadFocusOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulNewFocusOverlay;
 };
 
 struct IVROverlay_IVROverlay_020_SetOverlayNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -17948,7 +17948,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayNeighbor_params
 
 struct IVROverlay_IVROverlay_020_MoveGamepadFocusToNeighbor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eDirection;
     uint64_t ulFrom;
@@ -17956,7 +17956,7 @@ struct IVROverlay_IVROverlay_020_MoveGamepadFocusToNeighbor_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayDualAnalogTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlay;
     uint32_t eWhich;
@@ -17966,7 +17966,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayDualAnalogTransform_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayDualAnalogTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlay;
     uint32_t eWhich;
@@ -17976,7 +17976,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayDualAnalogTransform_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -17984,14 +17984,14 @@ struct IVROverlay_IVROverlay_020_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_020_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_020_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -18002,7 +18002,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_020_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -18010,7 +18010,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void **pNativeTextureHandle;
@@ -18025,7 +18025,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_020_ReleaseNativeOverlayHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pNativeTextureHandle;
@@ -18033,7 +18033,7 @@ struct IVROverlay_IVROverlay_020_ReleaseNativeOverlayHandle_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pWidth;
@@ -18042,7 +18042,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayTextureSize_params
 
 struct IVROverlay_IVROverlay_020_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -18052,20 +18052,20 @@ struct IVROverlay_IVROverlay_020_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_020_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_020_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_020_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -18073,7 +18073,7 @@ struct IVROverlay_IVROverlay_020_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_020_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -18081,19 +18081,19 @@ struct IVROverlay_IVROverlay_020_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_020_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_020_GetPrimaryDashboardDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVROverlay_IVROverlay_020_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -18106,7 +18106,7 @@ struct IVROverlay_IVROverlay_020_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_020_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -18120,7 +18120,7 @@ struct IVROverlay_IVROverlay_020_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_020_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -18128,26 +18128,26 @@ struct IVROverlay_IVROverlay_020_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_020_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_020_SetKeyboardTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingOrigin;
     const HmdMatrix34_t *pmatTrackingOriginToKeyboardTransform;
 };
 
 struct IVROverlay_IVROverlay_020_SetKeyboardPositionForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     HmdRect2_t avoidRect;
 };
 
 struct IVROverlay_IVROverlay_020_SetOverlayIntersectionMask_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VROverlayIntersectionMaskPrimitive_t *pMaskPrimitives;
@@ -18157,7 +18157,7 @@ struct IVROverlay_IVROverlay_020_SetOverlayIntersectionMask_params
 
 struct IVROverlay_IVROverlay_020_GetOverlayFlags_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pFlags;
@@ -18165,7 +18165,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayFlags_params
 
 struct IVROverlay_IVROverlay_020_ShowMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchText;
     const char *pchCaption;
@@ -18177,12 +18177,12 @@ struct IVROverlay_IVROverlay_020_ShowMessageOverlay_params
 
 struct IVROverlay_IVROverlay_020_CloseMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_021_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -18190,7 +18190,7 @@ struct IVROverlay_IVROverlay_021_FindOverlay_params
 
 struct IVROverlay_IVROverlay_021_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayName;
@@ -18199,14 +18199,14 @@ struct IVROverlay_IVROverlay_021_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_021_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_021_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -18216,7 +18216,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -18226,7 +18226,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_021_SetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchName;
@@ -18234,7 +18234,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayName_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -18245,14 +18245,14 @@ struct IVROverlay_IVROverlay_021_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_021_SetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unPID;
@@ -18260,14 +18260,14 @@ struct IVROverlay_IVROverlay_021_SetOverlayRenderingPid_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_021_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -18276,7 +18276,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -18285,7 +18285,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_021_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -18295,7 +18295,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -18305,7 +18305,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_021_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -18313,7 +18313,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -18321,7 +18321,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_021_SetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fTexelAspect;
@@ -18329,7 +18329,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfTexelAspect;
@@ -18337,7 +18337,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_021_SetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unSortOrder;
@@ -18345,7 +18345,7 @@ struct IVROverlay_IVROverlay_021_SetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_021_GetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punSortOrder;
@@ -18353,7 +18353,7 @@ struct IVROverlay_IVROverlay_021_GetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_021_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -18361,7 +18361,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -18369,7 +18369,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_021_SetOverlayCurvature_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fCurvature;
@@ -18377,7 +18377,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayCurvature_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayCurvature_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfCurvature;
@@ -18385,7 +18385,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayCurvature_params
 
 struct IVROverlay_IVROverlay_021_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -18393,7 +18393,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -18401,7 +18401,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_021_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -18409,7 +18409,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -18417,7 +18417,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -18428,7 +18428,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayRenderModel_params
 
 struct IVROverlay_IVROverlay_021_SetOverlayRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchRenderModel;
@@ -18437,7 +18437,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayRenderModel_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -18445,7 +18445,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_021_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -18454,7 +18454,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -18463,7 +18463,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_021_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -18472,7 +18472,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -18481,7 +18481,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_021_SetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unDeviceIndex;
@@ -18490,7 +18490,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_021_GetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punDeviceIndex;
@@ -18500,7 +18500,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_021_GetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t *ulOverlayHandleParent;
@@ -18509,7 +18509,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_021_SetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t ulOverlayHandleParent;
@@ -18518,28 +18518,28 @@ struct IVROverlay_IVROverlay_021_SetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_021_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_021_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_021_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_021_GetTransformForOverlayCoordinates_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -18549,7 +18549,7 @@ struct IVROverlay_IVROverlay_021_GetTransformForOverlayCoordinates_params
 
 struct IVROverlay_IVROverlay_021_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_1322 *pEvent;
@@ -18558,7 +18558,7 @@ struct IVROverlay_IVROverlay_021_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -18566,7 +18566,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_021_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -18574,7 +18574,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -18582,7 +18582,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_021_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -18590,7 +18590,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_021_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -18599,14 +18599,14 @@ struct IVROverlay_IVROverlay_021_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_021_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_021_SetOverlayDualAnalogTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlay;
     uint32_t eWhich;
@@ -18616,7 +18616,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayDualAnalogTransform_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayDualAnalogTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlay;
     uint32_t eWhich;
@@ -18626,7 +18626,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayDualAnalogTransform_params
 
 struct IVROverlay_IVROverlay_021_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -18634,14 +18634,14 @@ struct IVROverlay_IVROverlay_021_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_021_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_021_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -18652,7 +18652,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_021_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -18660,7 +18660,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void **pNativeTextureHandle;
@@ -18675,7 +18675,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_021_ReleaseNativeOverlayHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pNativeTextureHandle;
@@ -18683,7 +18683,7 @@ struct IVROverlay_IVROverlay_021_ReleaseNativeOverlayHandle_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pWidth;
@@ -18692,7 +18692,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayTextureSize_params
 
 struct IVROverlay_IVROverlay_021_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -18702,20 +18702,20 @@ struct IVROverlay_IVROverlay_021_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_021_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_021_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_021_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -18723,7 +18723,7 @@ struct IVROverlay_IVROverlay_021_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_021_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -18731,19 +18731,19 @@ struct IVROverlay_IVROverlay_021_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_021_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_021_GetPrimaryDashboardDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVROverlay_IVROverlay_021_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -18756,7 +18756,7 @@ struct IVROverlay_IVROverlay_021_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_021_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -18770,7 +18770,7 @@ struct IVROverlay_IVROverlay_021_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_021_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -18778,26 +18778,26 @@ struct IVROverlay_IVROverlay_021_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_021_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_021_SetKeyboardTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingOrigin;
     const HmdMatrix34_t *pmatTrackingOriginToKeyboardTransform;
 };
 
 struct IVROverlay_IVROverlay_021_SetKeyboardPositionForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     HmdRect2_t avoidRect;
 };
 
 struct IVROverlay_IVROverlay_021_SetOverlayIntersectionMask_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VROverlayIntersectionMaskPrimitive_t *pMaskPrimitives;
@@ -18807,7 +18807,7 @@ struct IVROverlay_IVROverlay_021_SetOverlayIntersectionMask_params
 
 struct IVROverlay_IVROverlay_021_GetOverlayFlags_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pFlags;
@@ -18815,7 +18815,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayFlags_params
 
 struct IVROverlay_IVROverlay_021_ShowMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchText;
     const char *pchCaption;
@@ -18827,12 +18827,12 @@ struct IVROverlay_IVROverlay_021_ShowMessageOverlay_params
 
 struct IVROverlay_IVROverlay_021_CloseMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_022_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -18840,7 +18840,7 @@ struct IVROverlay_IVROverlay_022_FindOverlay_params
 
 struct IVROverlay_IVROverlay_022_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayName;
@@ -18849,14 +18849,14 @@ struct IVROverlay_IVROverlay_022_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_022_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_022_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -18866,7 +18866,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -18876,7 +18876,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchName;
@@ -18884,7 +18884,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayName_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -18895,14 +18895,14 @@ struct IVROverlay_IVROverlay_022_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_022_SetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unPID;
@@ -18910,14 +18910,14 @@ struct IVROverlay_IVROverlay_022_SetOverlayRenderingPid_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_022_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -18926,7 +18926,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -18935,7 +18935,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayFlags_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pFlags;
@@ -18943,7 +18943,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayFlags_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -18953,7 +18953,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -18963,7 +18963,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -18971,7 +18971,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -18979,7 +18979,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fTexelAspect;
@@ -18987,7 +18987,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfTexelAspect;
@@ -18995,7 +18995,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_022_SetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unSortOrder;
@@ -19003,7 +19003,7 @@ struct IVROverlay_IVROverlay_022_SetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_022_GetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punSortOrder;
@@ -19011,7 +19011,7 @@ struct IVROverlay_IVROverlay_022_GetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -19019,7 +19019,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -19027,7 +19027,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayCurvature_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fCurvature;
@@ -19035,7 +19035,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayCurvature_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayCurvature_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfCurvature;
@@ -19043,7 +19043,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayCurvature_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -19051,7 +19051,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -19059,7 +19059,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -19067,7 +19067,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -19075,7 +19075,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -19086,7 +19086,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayRenderModel_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchRenderModel;
@@ -19095,7 +19095,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayRenderModel_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -19103,7 +19103,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -19112,7 +19112,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -19121,7 +19121,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -19130,7 +19130,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -19139,7 +19139,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unDeviceIndex;
@@ -19148,7 +19148,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_022_GetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punDeviceIndex;
@@ -19158,7 +19158,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_022_GetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t *ulOverlayHandleParent;
@@ -19167,7 +19167,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t ulOverlayHandleParent;
@@ -19176,7 +19176,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayTransformCursor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulCursorOverlayHandle;
     const HmdVector2_t *pvHotspot;
@@ -19184,7 +19184,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayTransformCursor_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayTransformCursor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvHotspot;
@@ -19192,28 +19192,28 @@ struct IVROverlay_IVROverlay_022_GetOverlayTransformCursor_params
 
 struct IVROverlay_IVROverlay_022_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_022_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_022_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_022_GetTransformForOverlayCoordinates_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -19223,7 +19223,7 @@ struct IVROverlay_IVROverlay_022_GetTransformForOverlayCoordinates_params
 
 struct IVROverlay_IVROverlay_022_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_1322 *pEvent;
@@ -19232,7 +19232,7 @@ struct IVROverlay_IVROverlay_022_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -19240,7 +19240,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -19248,7 +19248,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -19256,7 +19256,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -19264,7 +19264,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_022_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -19273,14 +19273,14 @@ struct IVROverlay_IVROverlay_022_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_022_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_022_SetOverlayDualAnalogTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlay;
     uint32_t eWhich;
@@ -19290,7 +19290,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayDualAnalogTransform_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayDualAnalogTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlay;
     uint32_t eWhich;
@@ -19300,7 +19300,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayDualAnalogTransform_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayIntersectionMask_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VROverlayIntersectionMaskPrimitive_t *pMaskPrimitives;
@@ -19310,7 +19310,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayIntersectionMask_params
 
 struct IVROverlay_IVROverlay_022_TriggerLaserMouseHapticVibration_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fDurationSeconds;
@@ -19320,7 +19320,7 @@ struct IVROverlay_IVROverlay_022_TriggerLaserMouseHapticVibration_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayCursor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t ulCursorHandle;
@@ -19328,7 +19328,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayCursor_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayCursorPositionOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvCursor;
@@ -19336,14 +19336,14 @@ struct IVROverlay_IVROverlay_022_SetOverlayCursorPositionOverride_params
 
 struct IVROverlay_IVROverlay_022_ClearOverlayCursorPositionOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_022_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -19351,14 +19351,14 @@ struct IVROverlay_IVROverlay_022_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_022_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_022_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -19369,7 +19369,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_022_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -19377,7 +19377,7 @@ struct IVROverlay_IVROverlay_022_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void **pNativeTextureHandle;
@@ -19392,7 +19392,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_022_ReleaseNativeOverlayHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pNativeTextureHandle;
@@ -19400,7 +19400,7 @@ struct IVROverlay_IVROverlay_022_ReleaseNativeOverlayHandle_params
 
 struct IVROverlay_IVROverlay_022_GetOverlayTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pWidth;
@@ -19409,7 +19409,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayTextureSize_params
 
 struct IVROverlay_IVROverlay_022_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -19419,20 +19419,20 @@ struct IVROverlay_IVROverlay_022_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_022_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_022_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_022_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -19440,7 +19440,7 @@ struct IVROverlay_IVROverlay_022_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_022_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -19448,19 +19448,19 @@ struct IVROverlay_IVROverlay_022_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_022_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_022_GetPrimaryDashboardDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVROverlay_IVROverlay_022_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -19473,7 +19473,7 @@ struct IVROverlay_IVROverlay_022_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_022_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -19487,7 +19487,7 @@ struct IVROverlay_IVROverlay_022_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_022_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -19495,26 +19495,26 @@ struct IVROverlay_IVROverlay_022_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_022_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_022_SetKeyboardTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingOrigin;
     const HmdMatrix34_t *pmatTrackingOriginToKeyboardTransform;
 };
 
 struct IVROverlay_IVROverlay_022_SetKeyboardPositionForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     HmdRect2_t avoidRect;
 };
 
 struct IVROverlay_IVROverlay_022_ShowMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchText;
     const char *pchCaption;
@@ -19526,12 +19526,12 @@ struct IVROverlay_IVROverlay_022_ShowMessageOverlay_params
 
 struct IVROverlay_IVROverlay_022_CloseMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_024_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -19539,7 +19539,7 @@ struct IVROverlay_IVROverlay_024_FindOverlay_params
 
 struct IVROverlay_IVROverlay_024_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayName;
@@ -19548,14 +19548,14 @@ struct IVROverlay_IVROverlay_024_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_024_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_024_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -19565,7 +19565,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -19575,7 +19575,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchName;
@@ -19583,7 +19583,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayName_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -19594,14 +19594,14 @@ struct IVROverlay_IVROverlay_024_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_024_SetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unPID;
@@ -19609,14 +19609,14 @@ struct IVROverlay_IVROverlay_024_SetOverlayRenderingPid_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_024_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -19625,7 +19625,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -19634,7 +19634,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayFlags_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pFlags;
@@ -19642,7 +19642,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayFlags_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -19652,7 +19652,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -19662,7 +19662,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -19670,7 +19670,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -19678,7 +19678,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fTexelAspect;
@@ -19686,7 +19686,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfTexelAspect;
@@ -19694,7 +19694,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_024_SetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unSortOrder;
@@ -19702,7 +19702,7 @@ struct IVROverlay_IVROverlay_024_SetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_024_GetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punSortOrder;
@@ -19710,7 +19710,7 @@ struct IVROverlay_IVROverlay_024_GetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -19718,7 +19718,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -19726,7 +19726,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayCurvature_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fCurvature;
@@ -19734,7 +19734,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayCurvature_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayCurvature_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfCurvature;
@@ -19742,7 +19742,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayCurvature_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -19750,7 +19750,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -19758,7 +19758,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -19766,7 +19766,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -19774,7 +19774,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -19782,7 +19782,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -19791,7 +19791,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -19800,7 +19800,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -19809,7 +19809,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -19818,7 +19818,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unDeviceIndex;
@@ -19827,7 +19827,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_024_GetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punDeviceIndex;
@@ -19837,7 +19837,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_024_GetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t *ulOverlayHandleParent;
@@ -19846,7 +19846,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t ulOverlayHandleParent;
@@ -19855,7 +19855,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayTransformCursor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulCursorOverlayHandle;
     const HmdVector2_t *pvHotspot;
@@ -19863,7 +19863,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayTransformCursor_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayTransformCursor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvHotspot;
@@ -19871,28 +19871,28 @@ struct IVROverlay_IVROverlay_024_GetOverlayTransformCursor_params
 
 struct IVROverlay_IVROverlay_024_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_024_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_024_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_024_GetTransformForOverlayCoordinates_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -19902,7 +19902,7 @@ struct IVROverlay_IVROverlay_024_GetTransformForOverlayCoordinates_params
 
 struct IVROverlay_IVROverlay_024_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_11030 *pEvent;
@@ -19911,7 +19911,7 @@ struct IVROverlay_IVROverlay_024_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -19919,7 +19919,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -19927,7 +19927,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -19935,7 +19935,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -19943,7 +19943,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_024_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -19952,14 +19952,14 @@ struct IVROverlay_IVROverlay_024_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_024_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_024_SetOverlayIntersectionMask_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VROverlayIntersectionMaskPrimitive_t *pMaskPrimitives;
@@ -19969,7 +19969,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayIntersectionMask_params
 
 struct IVROverlay_IVROverlay_024_TriggerLaserMouseHapticVibration_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fDurationSeconds;
@@ -19979,7 +19979,7 @@ struct IVROverlay_IVROverlay_024_TriggerLaserMouseHapticVibration_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayCursor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t ulCursorHandle;
@@ -19987,7 +19987,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayCursor_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayCursorPositionOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvCursor;
@@ -19995,14 +19995,14 @@ struct IVROverlay_IVROverlay_024_SetOverlayCursorPositionOverride_params
 
 struct IVROverlay_IVROverlay_024_ClearOverlayCursorPositionOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_024_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -20010,14 +20010,14 @@ struct IVROverlay_IVROverlay_024_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_024_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_024_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -20028,7 +20028,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_024_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -20036,7 +20036,7 @@ struct IVROverlay_IVROverlay_024_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void **pNativeTextureHandle;
@@ -20051,7 +20051,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_024_ReleaseNativeOverlayHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pNativeTextureHandle;
@@ -20059,7 +20059,7 @@ struct IVROverlay_IVROverlay_024_ReleaseNativeOverlayHandle_params
 
 struct IVROverlay_IVROverlay_024_GetOverlayTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pWidth;
@@ -20068,7 +20068,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayTextureSize_params
 
 struct IVROverlay_IVROverlay_024_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -20078,20 +20078,20 @@ struct IVROverlay_IVROverlay_024_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_024_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_024_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_024_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -20099,7 +20099,7 @@ struct IVROverlay_IVROverlay_024_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_024_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -20107,19 +20107,19 @@ struct IVROverlay_IVROverlay_024_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_024_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_024_GetPrimaryDashboardDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVROverlay_IVROverlay_024_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -20132,7 +20132,7 @@ struct IVROverlay_IVROverlay_024_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_024_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -20146,7 +20146,7 @@ struct IVROverlay_IVROverlay_024_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_024_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -20154,26 +20154,26 @@ struct IVROverlay_IVROverlay_024_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_024_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_024_SetKeyboardTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingOrigin;
     const HmdMatrix34_t *pmatTrackingOriginToKeyboardTransform;
 };
 
 struct IVROverlay_IVROverlay_024_SetKeyboardPositionForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     HmdRect2_t avoidRect;
 };
 
 struct IVROverlay_IVROverlay_024_ShowMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchText;
     const char *pchCaption;
@@ -20185,12 +20185,12 @@ struct IVROverlay_IVROverlay_024_ShowMessageOverlay_params
 
 struct IVROverlay_IVROverlay_024_CloseMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_025_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -20198,7 +20198,7 @@ struct IVROverlay_IVROverlay_025_FindOverlay_params
 
 struct IVROverlay_IVROverlay_025_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayName;
@@ -20207,14 +20207,14 @@ struct IVROverlay_IVROverlay_025_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_025_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_025_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -20224,7 +20224,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -20234,7 +20234,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchName;
@@ -20242,7 +20242,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayName_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -20253,14 +20253,14 @@ struct IVROverlay_IVROverlay_025_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_025_SetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unPID;
@@ -20268,14 +20268,14 @@ struct IVROverlay_IVROverlay_025_SetOverlayRenderingPid_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_025_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -20284,7 +20284,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -20293,7 +20293,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayFlags_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pFlags;
@@ -20301,7 +20301,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayFlags_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -20311,7 +20311,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -20321,7 +20321,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -20329,7 +20329,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -20337,7 +20337,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fTexelAspect;
@@ -20345,7 +20345,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfTexelAspect;
@@ -20353,7 +20353,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_025_SetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unSortOrder;
@@ -20361,7 +20361,7 @@ struct IVROverlay_IVROverlay_025_SetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_025_GetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punSortOrder;
@@ -20369,7 +20369,7 @@ struct IVROverlay_IVROverlay_025_GetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -20377,7 +20377,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -20385,7 +20385,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayCurvature_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fCurvature;
@@ -20393,7 +20393,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayCurvature_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayCurvature_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfCurvature;
@@ -20401,7 +20401,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayCurvature_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -20409,7 +20409,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -20417,7 +20417,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -20425,7 +20425,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -20433,7 +20433,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -20441,7 +20441,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -20450,7 +20450,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -20459,7 +20459,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -20468,7 +20468,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -20477,7 +20477,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unDeviceIndex;
@@ -20486,7 +20486,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_025_GetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punDeviceIndex;
@@ -20496,7 +20496,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_025_GetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t *ulOverlayHandleParent;
@@ -20505,7 +20505,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t ulOverlayHandleParent;
@@ -20514,7 +20514,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayTransformCursor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulCursorOverlayHandle;
     const HmdVector2_t *pvHotspot;
@@ -20522,7 +20522,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayTransformCursor_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayTransformCursor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvHotspot;
@@ -20530,7 +20530,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayTransformCursor_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayTransformProjection_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -20541,28 +20541,28 @@ struct IVROverlay_IVROverlay_025_SetOverlayTransformProjection_params
 
 struct IVROverlay_IVROverlay_025_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_025_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_025_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_025_GetTransformForOverlayCoordinates_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -20572,7 +20572,7 @@ struct IVROverlay_IVROverlay_025_GetTransformForOverlayCoordinates_params
 
 struct IVROverlay_IVROverlay_025_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_1168 *pEvent;
@@ -20581,7 +20581,7 @@ struct IVROverlay_IVROverlay_025_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -20589,7 +20589,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -20597,7 +20597,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -20605,7 +20605,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -20613,7 +20613,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_025_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -20622,14 +20622,14 @@ struct IVROverlay_IVROverlay_025_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_025_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_025_SetOverlayIntersectionMask_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VROverlayIntersectionMaskPrimitive_t *pMaskPrimitives;
@@ -20639,7 +20639,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayIntersectionMask_params
 
 struct IVROverlay_IVROverlay_025_TriggerLaserMouseHapticVibration_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fDurationSeconds;
@@ -20649,7 +20649,7 @@ struct IVROverlay_IVROverlay_025_TriggerLaserMouseHapticVibration_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayCursor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t ulCursorHandle;
@@ -20657,7 +20657,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayCursor_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayCursorPositionOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvCursor;
@@ -20665,14 +20665,14 @@ struct IVROverlay_IVROverlay_025_SetOverlayCursorPositionOverride_params
 
 struct IVROverlay_IVROverlay_025_ClearOverlayCursorPositionOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_025_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -20680,14 +20680,14 @@ struct IVROverlay_IVROverlay_025_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_025_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_025_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -20698,7 +20698,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_025_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -20706,7 +20706,7 @@ struct IVROverlay_IVROverlay_025_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void **pNativeTextureHandle;
@@ -20721,7 +20721,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_025_ReleaseNativeOverlayHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pNativeTextureHandle;
@@ -20729,7 +20729,7 @@ struct IVROverlay_IVROverlay_025_ReleaseNativeOverlayHandle_params
 
 struct IVROverlay_IVROverlay_025_GetOverlayTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pWidth;
@@ -20738,7 +20738,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayTextureSize_params
 
 struct IVROverlay_IVROverlay_025_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -20748,20 +20748,20 @@ struct IVROverlay_IVROverlay_025_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_025_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_025_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_025_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -20769,7 +20769,7 @@ struct IVROverlay_IVROverlay_025_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_025_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -20777,19 +20777,19 @@ struct IVROverlay_IVROverlay_025_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_025_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_025_GetPrimaryDashboardDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVROverlay_IVROverlay_025_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -20802,7 +20802,7 @@ struct IVROverlay_IVROverlay_025_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_025_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -20816,7 +20816,7 @@ struct IVROverlay_IVROverlay_025_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_025_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -20824,26 +20824,26 @@ struct IVROverlay_IVROverlay_025_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_025_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_025_SetKeyboardTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingOrigin;
     const HmdMatrix34_t *pmatTrackingOriginToKeyboardTransform;
 };
 
 struct IVROverlay_IVROverlay_025_SetKeyboardPositionForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     HmdRect2_t avoidRect;
 };
 
 struct IVROverlay_IVROverlay_025_ShowMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchText;
     const char *pchCaption;
@@ -20855,12 +20855,12 @@ struct IVROverlay_IVROverlay_025_ShowMessageOverlay_params
 
 struct IVROverlay_IVROverlay_025_CloseMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_026_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -20868,7 +20868,7 @@ struct IVROverlay_IVROverlay_026_FindOverlay_params
 
 struct IVROverlay_IVROverlay_026_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayName;
@@ -20877,14 +20877,14 @@ struct IVROverlay_IVROverlay_026_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_026_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_026_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -20894,7 +20894,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -20904,7 +20904,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchName;
@@ -20912,7 +20912,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayName_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -20923,14 +20923,14 @@ struct IVROverlay_IVROverlay_026_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_026_SetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unPID;
@@ -20938,14 +20938,14 @@ struct IVROverlay_IVROverlay_026_SetOverlayRenderingPid_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_026_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -20954,7 +20954,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -20963,7 +20963,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayFlags_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pFlags;
@@ -20971,7 +20971,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayFlags_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -20981,7 +20981,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -20991,7 +20991,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -20999,7 +20999,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -21007,7 +21007,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fTexelAspect;
@@ -21015,7 +21015,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfTexelAspect;
@@ -21023,7 +21023,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_026_SetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unSortOrder;
@@ -21031,7 +21031,7 @@ struct IVROverlay_IVROverlay_026_SetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_026_GetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punSortOrder;
@@ -21039,7 +21039,7 @@ struct IVROverlay_IVROverlay_026_GetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -21047,7 +21047,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -21055,7 +21055,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayCurvature_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fCurvature;
@@ -21063,7 +21063,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayCurvature_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayCurvature_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfCurvature;
@@ -21071,7 +21071,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayCurvature_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayPreCurvePitch_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRadians;
@@ -21079,7 +21079,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayPreCurvePitch_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayPreCurvePitch_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRadians;
@@ -21087,7 +21087,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayPreCurvePitch_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -21095,7 +21095,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -21103,7 +21103,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -21111,7 +21111,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -21119,7 +21119,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -21127,7 +21127,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -21136,7 +21136,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -21145,7 +21145,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -21154,7 +21154,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -21163,7 +21163,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unDeviceIndex;
@@ -21172,7 +21172,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_026_GetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punDeviceIndex;
@@ -21182,7 +21182,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_026_GetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t *ulOverlayHandleParent;
@@ -21191,7 +21191,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayTransformOverlayRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t ulOverlayHandleParent;
@@ -21200,7 +21200,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayTransformOverlayRelative_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayTransformCursor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulCursorOverlayHandle;
     const HmdVector2_t *pvHotspot;
@@ -21208,7 +21208,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayTransformCursor_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayTransformCursor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvHotspot;
@@ -21216,7 +21216,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayTransformCursor_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayTransformProjection_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -21227,28 +21227,28 @@ struct IVROverlay_IVROverlay_026_SetOverlayTransformProjection_params
 
 struct IVROverlay_IVROverlay_026_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_026_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_026_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_026_GetTransformForOverlayCoordinates_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -21258,14 +21258,14 @@ struct IVROverlay_IVROverlay_026_GetTransformForOverlayCoordinates_params
 
 struct IVROverlay_IVROverlay_026_WaitFrameSync_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nTimeoutMs;
 };
 
 struct IVROverlay_IVROverlay_026_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_1168 *pEvent;
@@ -21274,7 +21274,7 @@ struct IVROverlay_IVROverlay_026_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -21282,7 +21282,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -21290,7 +21290,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -21298,7 +21298,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -21306,7 +21306,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_026_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -21315,14 +21315,14 @@ struct IVROverlay_IVROverlay_026_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_026_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_026_SetOverlayIntersectionMask_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VROverlayIntersectionMaskPrimitive_t *pMaskPrimitives;
@@ -21332,7 +21332,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayIntersectionMask_params
 
 struct IVROverlay_IVROverlay_026_TriggerLaserMouseHapticVibration_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fDurationSeconds;
@@ -21342,7 +21342,7 @@ struct IVROverlay_IVROverlay_026_TriggerLaserMouseHapticVibration_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayCursor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t ulCursorHandle;
@@ -21350,7 +21350,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayCursor_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayCursorPositionOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvCursor;
@@ -21358,14 +21358,14 @@ struct IVROverlay_IVROverlay_026_SetOverlayCursorPositionOverride_params
 
 struct IVROverlay_IVROverlay_026_ClearOverlayCursorPositionOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_026_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -21373,14 +21373,14 @@ struct IVROverlay_IVROverlay_026_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_026_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_026_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -21391,7 +21391,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_026_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -21399,7 +21399,7 @@ struct IVROverlay_IVROverlay_026_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void **pNativeTextureHandle;
@@ -21414,7 +21414,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_026_ReleaseNativeOverlayHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pNativeTextureHandle;
@@ -21422,7 +21422,7 @@ struct IVROverlay_IVROverlay_026_ReleaseNativeOverlayHandle_params
 
 struct IVROverlay_IVROverlay_026_GetOverlayTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pWidth;
@@ -21431,7 +21431,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayTextureSize_params
 
 struct IVROverlay_IVROverlay_026_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -21441,20 +21441,20 @@ struct IVROverlay_IVROverlay_026_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_026_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_026_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_026_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -21462,7 +21462,7 @@ struct IVROverlay_IVROverlay_026_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_026_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -21470,19 +21470,19 @@ struct IVROverlay_IVROverlay_026_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_026_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_026_GetPrimaryDashboardDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVROverlay_IVROverlay_026_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -21495,7 +21495,7 @@ struct IVROverlay_IVROverlay_026_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_026_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -21509,7 +21509,7 @@ struct IVROverlay_IVROverlay_026_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_026_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -21517,26 +21517,26 @@ struct IVROverlay_IVROverlay_026_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_026_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_026_SetKeyboardTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingOrigin;
     const HmdMatrix34_t *pmatTrackingOriginToKeyboardTransform;
 };
 
 struct IVROverlay_IVROverlay_026_SetKeyboardPositionForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     HmdRect2_t avoidRect;
 };
 
 struct IVROverlay_IVROverlay_026_ShowMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchText;
     const char *pchCaption;
@@ -21548,12 +21548,12 @@ struct IVROverlay_IVROverlay_026_ShowMessageOverlay_params
 
 struct IVROverlay_IVROverlay_026_CloseMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_027_FindOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     uint64_t *pOverlayHandle;
@@ -21561,7 +21561,7 @@ struct IVROverlay_IVROverlay_027_FindOverlay_params
 
 struct IVROverlay_IVROverlay_027_CreateOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayName;
@@ -21570,14 +21570,14 @@ struct IVROverlay_IVROverlay_027_CreateOverlay_params
 
 struct IVROverlay_IVROverlay_027_DestroyOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_027_GetOverlayKey_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -21587,7 +21587,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayKey_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     char *pchValue;
@@ -21597,7 +21597,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayName_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchName;
@@ -21605,7 +21605,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayName_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayImageData_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -21616,14 +21616,14 @@ struct IVROverlay_IVROverlay_027_GetOverlayImageData_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVROverlay_IVROverlay_027_SetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unPID;
@@ -21631,14 +21631,14 @@ struct IVROverlay_IVROverlay_027_SetOverlayRenderingPid_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayRenderingPid_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_027_SetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -21647,7 +21647,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayFlag_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eOverlayFlag;
@@ -21656,7 +21656,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayFlag_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayFlags_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pFlags;
@@ -21664,7 +21664,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayFlags_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRed;
@@ -21674,7 +21674,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayColor_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayColor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRed;
@@ -21684,7 +21684,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayColor_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fAlpha;
@@ -21692,7 +21692,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayAlpha_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfAlpha;
@@ -21700,7 +21700,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayAlpha_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fTexelAspect;
@@ -21708,7 +21708,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayTexelAspect_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfTexelAspect;
@@ -21716,7 +21716,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayTexelAspect_params
 
 struct IVROverlay_IVROverlay_027_SetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unSortOrder;
@@ -21724,7 +21724,7 @@ struct IVROverlay_IVROverlay_027_SetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_027_GetOverlaySortOrder_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punSortOrder;
@@ -21732,7 +21732,7 @@ struct IVROverlay_IVROverlay_027_GetOverlaySortOrder_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fWidthInMeters;
@@ -21740,7 +21740,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayWidthInMeters_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfWidthInMeters;
@@ -21748,7 +21748,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayWidthInMeters_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayCurvature_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fCurvature;
@@ -21756,7 +21756,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayCurvature_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayCurvature_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfCurvature;
@@ -21764,7 +21764,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayCurvature_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayPreCurvePitch_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fRadians;
@@ -21772,7 +21772,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayPreCurvePitch_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayPreCurvePitch_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float *pfRadians;
@@ -21780,7 +21780,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayPreCurvePitch_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTextureColorSpace;
@@ -21788,7 +21788,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayTextureColorSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTextureColorSpace;
@@ -21796,7 +21796,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayTextureColorSpace_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const VRTextureBounds_t *pOverlayTextureBounds;
@@ -21804,7 +21804,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayTextureBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VRTextureBounds_t *pOverlayTextureBounds;
@@ -21812,7 +21812,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayTextureBounds_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayTransformType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTransformType;
@@ -21820,7 +21820,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayTransformType_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -21829,7 +21829,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peTrackingOrigin;
@@ -21838,7 +21838,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayTransformAbsolute_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unTrackedDevice;
@@ -21847,7 +21847,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayTransformTrackedDeviceRelative_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punTrackedDevice;
@@ -21856,7 +21856,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayTransformTrackedDeviceRelative_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unDeviceIndex;
@@ -21865,7 +21865,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_027_GetOverlayTransformTrackedDeviceComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punDeviceIndex;
@@ -21875,7 +21875,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayTransformTrackedDeviceComponent_param
 
 struct IVROverlay_IVROverlay_027_SetOverlayTransformCursor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulCursorOverlayHandle;
     const HmdVector2_t *pvHotspot;
@@ -21883,7 +21883,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayTransformCursor_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayTransformCursor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvHotspot;
@@ -21891,7 +21891,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayTransformCursor_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayTransformProjection_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -21902,28 +21902,28 @@ struct IVROverlay_IVROverlay_027_SetOverlayTransformProjection_params
 
 struct IVROverlay_IVROverlay_027_ShowOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_027_HideOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_027_IsOverlayVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_027_GetTransformForOverlayCoordinates_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eTrackingOrigin;
@@ -21933,14 +21933,14 @@ struct IVROverlay_IVROverlay_027_GetTransformForOverlayCoordinates_params
 
 struct IVROverlay_IVROverlay_027_WaitFrameSync_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nTimeoutMs;
 };
 
 struct IVROverlay_IVROverlay_027_PollNextOverlayEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     w_VREvent_t_223 *pEvent;
@@ -21949,7 +21949,7 @@ struct IVROverlay_IVROverlay_027_PollNextOverlayEvent_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *peInputMethod;
@@ -21957,7 +21957,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayInputMethod_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMethod;
@@ -21965,7 +21965,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayInputMethod_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     HmdVector2_t *pvecMouseScale;
@@ -21973,7 +21973,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayMouseScale_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvecMouseScale;
@@ -21981,7 +21981,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayMouseScale_params
 
 struct IVROverlay_IVROverlay_027_ComputeOverlayIntersection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
     const VROverlayIntersectionParams_t *pParams;
@@ -21990,14 +21990,14 @@ struct IVROverlay_IVROverlay_027_ComputeOverlayIntersection_params
 
 struct IVROverlay_IVROverlay_027_IsHoverTargetOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_027_SetOverlayIntersectionMask_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     VROverlayIntersectionMaskPrimitive_t *pMaskPrimitives;
@@ -22007,7 +22007,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayIntersectionMask_params
 
 struct IVROverlay_IVROverlay_027_TriggerLaserMouseHapticVibration_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     float fDurationSeconds;
@@ -22017,7 +22017,7 @@ struct IVROverlay_IVROverlay_027_TriggerLaserMouseHapticVibration_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayCursor_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint64_t ulCursorHandle;
@@ -22025,7 +22025,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayCursor_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayCursorPositionOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const HmdVector2_t *pvCursor;
@@ -22033,14 +22033,14 @@ struct IVROverlay_IVROverlay_027_SetOverlayCursorPositionOverride_params
 
 struct IVROverlay_IVROverlay_027_ClearOverlayCursorPositionOverride_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_027_SetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const w_Texture_t *pTexture;
@@ -22048,14 +22048,14 @@ struct IVROverlay_IVROverlay_027_SetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_027_ClearOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_027_SetOverlayRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pvBuffer;
@@ -22066,7 +22066,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayRaw_params
 
 struct IVROverlay_IVROverlay_027_SetOverlayFromFile_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     const char *pchFilePath;
@@ -22074,7 +22074,7 @@ struct IVROverlay_IVROverlay_027_SetOverlayFromFile_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void **pNativeTextureHandle;
@@ -22089,7 +22089,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayTexture_params
 
 struct IVROverlay_IVROverlay_027_ReleaseNativeOverlayHandle_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     void *pNativeTextureHandle;
@@ -22097,7 +22097,7 @@ struct IVROverlay_IVROverlay_027_ReleaseNativeOverlayHandle_params
 
 struct IVROverlay_IVROverlay_027_GetOverlayTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *pWidth;
@@ -22106,7 +22106,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayTextureSize_params
 
 struct IVROverlay_IVROverlay_027_CreateDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchOverlayKey;
     const char *pchOverlayFriendlyName;
@@ -22116,20 +22116,20 @@ struct IVROverlay_IVROverlay_027_CreateDashboardOverlay_params
 
 struct IVROverlay_IVROverlay_027_IsDashboardVisible_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVROverlay_IVROverlay_027_IsActiveDashboardOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint64_t ulOverlayHandle;
 };
 
 struct IVROverlay_IVROverlay_027_SetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t unProcessId;
@@ -22137,7 +22137,7 @@ struct IVROverlay_IVROverlay_027_SetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_027_GetDashboardOverlaySceneProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t *punProcessId;
@@ -22145,19 +22145,19 @@ struct IVROverlay_IVROverlay_027_GetDashboardOverlaySceneProcess_params
 
 struct IVROverlay_IVROverlay_027_ShowDashboard_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchOverlayToShow;
 };
 
 struct IVROverlay_IVROverlay_027_GetPrimaryDashboardDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVROverlay_IVROverlay_027_ShowKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eInputMode;
     uint32_t eLineInputMode;
@@ -22170,7 +22170,7 @@ struct IVROverlay_IVROverlay_027_ShowKeyboard_params
 
 struct IVROverlay_IVROverlay_027_ShowKeyboardForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t ulOverlayHandle;
     uint32_t eInputMode;
@@ -22184,7 +22184,7 @@ struct IVROverlay_IVROverlay_027_ShowKeyboardForOverlay_params
 
 struct IVROverlay_IVROverlay_027_GetKeyboardText_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchText;
     uint32_t cchText;
@@ -22192,26 +22192,26 @@ struct IVROverlay_IVROverlay_027_GetKeyboardText_params
 
 struct IVROverlay_IVROverlay_027_HideKeyboard_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVROverlay_IVROverlay_027_SetKeyboardTransformAbsolute_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eTrackingOrigin;
     const HmdMatrix34_t *pmatTrackingOriginToKeyboardTransform;
 };
 
 struct IVROverlay_IVROverlay_027_SetKeyboardPositionForOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t ulOverlayHandle;
     HmdRect2_t avoidRect;
 };
 
 struct IVROverlay_IVROverlay_027_ShowMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchText;
     const char *pchCaption;
@@ -22223,12 +22223,12 @@ struct IVROverlay_IVROverlay_027_ShowMessageOverlay_params
 
 struct IVROverlay_IVROverlay_027_CloseMessageOverlay_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRRenderModels_IVRRenderModels_001_LoadRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchRenderModelName;
     w_RenderModel_t_090 *pRenderModel;
@@ -22236,13 +22236,13 @@ struct IVRRenderModels_IVRRenderModels_001_LoadRenderModel_params
 
 struct IVRRenderModels_IVRRenderModels_001_FreeRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     w_RenderModel_t_090 *pRenderModel;
 };
 
 struct IVRRenderModels_IVRRenderModels_001_GetRenderModelName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unRenderModelIndex;
     char *pchRenderModelName;
@@ -22251,13 +22251,13 @@ struct IVRRenderModels_IVRRenderModels_001_GetRenderModelName_params
 
 struct IVRRenderModels_IVRRenderModels_001_GetRenderModelCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRRenderModels_IVRRenderModels_002_LoadRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchRenderModelName;
     w_RenderModel_t_0912 **ppRenderModel;
@@ -22265,13 +22265,13 @@ struct IVRRenderModels_IVRRenderModels_002_LoadRenderModel_params
 
 struct IVRRenderModels_IVRRenderModels_002_FreeRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     w_RenderModel_t_0912 *pRenderModel;
 };
 
 struct IVRRenderModels_IVRRenderModels_002_LoadTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     int32_t textureId;
     w_RenderModel_TextureMap_t_090 **ppTexture;
@@ -22279,13 +22279,13 @@ struct IVRRenderModels_IVRRenderModels_002_LoadTexture_params
 
 struct IVRRenderModels_IVRRenderModels_002_FreeTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     w_RenderModel_TextureMap_t_090 *pTexture;
 };
 
 struct IVRRenderModels_IVRRenderModels_002_GetRenderModelName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unRenderModelIndex;
     char *pchRenderModelName;
@@ -22294,20 +22294,20 @@ struct IVRRenderModels_IVRRenderModels_002_GetRenderModelName_params
 
 struct IVRRenderModels_IVRRenderModels_002_GetRenderModelCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRRenderModels_IVRRenderModels_002_GetComponentCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
 };
 
 struct IVRRenderModels_IVRRenderModels_002_GetComponentName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
     uint32_t unComponentIndex;
@@ -22317,7 +22317,7 @@ struct IVRRenderModels_IVRRenderModels_002_GetComponentName_params
 
 struct IVRRenderModels_IVRRenderModels_002_GetComponentButtonMask_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -22325,7 +22325,7 @@ struct IVRRenderModels_IVRRenderModels_002_GetComponentButtonMask_params
 
 struct IVRRenderModels_IVRRenderModels_002_GetComponentRenderModelName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -22335,7 +22335,7 @@ struct IVRRenderModels_IVRRenderModels_002_GetComponentRenderModelName_params
 
 struct IVRRenderModels_IVRRenderModels_002_GetComponentState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -22345,7 +22345,7 @@ struct IVRRenderModels_IVRRenderModels_002_GetComponentState_params
 
 struct IVRRenderModels_IVRRenderModels_002_RenderModelHasComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -22353,7 +22353,7 @@ struct IVRRenderModels_IVRRenderModels_002_RenderModelHasComponent_params
 
 struct IVRRenderModels_IVRRenderModels_004_LoadRenderModel_Async_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
     w_RenderModel_t_0912 **ppRenderModel;
@@ -22361,13 +22361,13 @@ struct IVRRenderModels_IVRRenderModels_004_LoadRenderModel_Async_params
 
 struct IVRRenderModels_IVRRenderModels_004_FreeRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     w_RenderModel_t_0912 *pRenderModel;
 };
 
 struct IVRRenderModels_IVRRenderModels_004_LoadTexture_Async_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     int32_t textureId;
     w_RenderModel_TextureMap_t_090 **ppTexture;
@@ -22375,13 +22375,13 @@ struct IVRRenderModels_IVRRenderModels_004_LoadTexture_Async_params
 
 struct IVRRenderModels_IVRRenderModels_004_FreeTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     w_RenderModel_TextureMap_t_090 *pTexture;
 };
 
 struct IVRRenderModels_IVRRenderModels_004_LoadTextureD3D11_Async_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     int32_t textureId;
     void *pD3D11Device;
@@ -22390,13 +22390,13 @@ struct IVRRenderModels_IVRRenderModels_004_LoadTextureD3D11_Async_params
 
 struct IVRRenderModels_IVRRenderModels_004_FreeTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     void *pD3D11Texture2D;
 };
 
 struct IVRRenderModels_IVRRenderModels_004_GetRenderModelName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unRenderModelIndex;
     char *pchRenderModelName;
@@ -22405,20 +22405,20 @@ struct IVRRenderModels_IVRRenderModels_004_GetRenderModelName_params
 
 struct IVRRenderModels_IVRRenderModels_004_GetRenderModelCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRRenderModels_IVRRenderModels_004_GetComponentCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
 };
 
 struct IVRRenderModels_IVRRenderModels_004_GetComponentName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
     uint32_t unComponentIndex;
@@ -22428,7 +22428,7 @@ struct IVRRenderModels_IVRRenderModels_004_GetComponentName_params
 
 struct IVRRenderModels_IVRRenderModels_004_GetComponentButtonMask_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -22436,7 +22436,7 @@ struct IVRRenderModels_IVRRenderModels_004_GetComponentButtonMask_params
 
 struct IVRRenderModels_IVRRenderModels_004_GetComponentRenderModelName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -22446,7 +22446,7 @@ struct IVRRenderModels_IVRRenderModels_004_GetComponentRenderModelName_params
 
 struct IVRRenderModels_IVRRenderModels_004_GetComponentState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -22457,7 +22457,7 @@ struct IVRRenderModels_IVRRenderModels_004_GetComponentState_params
 
 struct IVRRenderModels_IVRRenderModels_004_RenderModelHasComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -22465,7 +22465,7 @@ struct IVRRenderModels_IVRRenderModels_004_RenderModelHasComponent_params
 
 struct IVRRenderModels_IVRRenderModels_005_LoadRenderModel_Async_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
     w_RenderModel_t_0912 **ppRenderModel;
@@ -22473,13 +22473,13 @@ struct IVRRenderModels_IVRRenderModels_005_LoadRenderModel_Async_params
 
 struct IVRRenderModels_IVRRenderModels_005_FreeRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     w_RenderModel_t_0912 *pRenderModel;
 };
 
 struct IVRRenderModels_IVRRenderModels_005_LoadTexture_Async_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     int32_t textureId;
     w_RenderModel_TextureMap_t_090 **ppTexture;
@@ -22487,13 +22487,13 @@ struct IVRRenderModels_IVRRenderModels_005_LoadTexture_Async_params
 
 struct IVRRenderModels_IVRRenderModels_005_FreeTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     w_RenderModel_TextureMap_t_090 *pTexture;
 };
 
 struct IVRRenderModels_IVRRenderModels_005_LoadTextureD3D11_Async_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     int32_t textureId;
     void *pD3D11Device;
@@ -22502,7 +22502,7 @@ struct IVRRenderModels_IVRRenderModels_005_LoadTextureD3D11_Async_params
 
 struct IVRRenderModels_IVRRenderModels_005_LoadIntoTextureD3D11_Async_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     int32_t textureId;
     void *pDstTexture;
@@ -22510,13 +22510,13 @@ struct IVRRenderModels_IVRRenderModels_005_LoadIntoTextureD3D11_Async_params
 
 struct IVRRenderModels_IVRRenderModels_005_FreeTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     void *pD3D11Texture2D;
 };
 
 struct IVRRenderModels_IVRRenderModels_005_GetRenderModelName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unRenderModelIndex;
     char *pchRenderModelName;
@@ -22525,20 +22525,20 @@ struct IVRRenderModels_IVRRenderModels_005_GetRenderModelName_params
 
 struct IVRRenderModels_IVRRenderModels_005_GetRenderModelCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRRenderModels_IVRRenderModels_005_GetComponentCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
 };
 
 struct IVRRenderModels_IVRRenderModels_005_GetComponentName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
     uint32_t unComponentIndex;
@@ -22548,7 +22548,7 @@ struct IVRRenderModels_IVRRenderModels_005_GetComponentName_params
 
 struct IVRRenderModels_IVRRenderModels_005_GetComponentButtonMask_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -22556,7 +22556,7 @@ struct IVRRenderModels_IVRRenderModels_005_GetComponentButtonMask_params
 
 struct IVRRenderModels_IVRRenderModels_005_GetComponentRenderModelName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -22566,7 +22566,7 @@ struct IVRRenderModels_IVRRenderModels_005_GetComponentRenderModelName_params
 
 struct IVRRenderModels_IVRRenderModels_005_GetComponentState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -22577,7 +22577,7 @@ struct IVRRenderModels_IVRRenderModels_005_GetComponentState_params
 
 struct IVRRenderModels_IVRRenderModels_005_RenderModelHasComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -22585,7 +22585,7 @@ struct IVRRenderModels_IVRRenderModels_005_RenderModelHasComponent_params
 
 struct IVRRenderModels_IVRRenderModels_005_GetRenderModelThumbnailURL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
     char *pchThumbnailURL;
@@ -22595,7 +22595,7 @@ struct IVRRenderModels_IVRRenderModels_005_GetRenderModelThumbnailURL_params
 
 struct IVRRenderModels_IVRRenderModels_005_GetRenderModelOriginalPath_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
     char *pchOriginalPath;
@@ -22605,14 +22605,14 @@ struct IVRRenderModels_IVRRenderModels_005_GetRenderModelOriginalPath_params
 
 struct IVRRenderModels_IVRRenderModels_005_GetRenderModelErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRRenderModels_IVRRenderModels_006_LoadRenderModel_Async_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
     w_RenderModel_t_0912 **ppRenderModel;
@@ -22620,13 +22620,13 @@ struct IVRRenderModels_IVRRenderModels_006_LoadRenderModel_Async_params
 
 struct IVRRenderModels_IVRRenderModels_006_FreeRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     w_RenderModel_t_0912 *pRenderModel;
 };
 
 struct IVRRenderModels_IVRRenderModels_006_LoadTexture_Async_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     int32_t textureId;
     w_RenderModel_TextureMap_t_1237 **ppTexture;
@@ -22634,13 +22634,13 @@ struct IVRRenderModels_IVRRenderModels_006_LoadTexture_Async_params
 
 struct IVRRenderModels_IVRRenderModels_006_FreeTexture_params
 {
-    void *linux_side;
+    void *u_iface;
     w_RenderModel_TextureMap_t_1237 *pTexture;
 };
 
 struct IVRRenderModels_IVRRenderModels_006_LoadTextureD3D11_Async_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     int32_t textureId;
     void *pD3D11Device;
@@ -22649,7 +22649,7 @@ struct IVRRenderModels_IVRRenderModels_006_LoadTextureD3D11_Async_params
 
 struct IVRRenderModels_IVRRenderModels_006_LoadIntoTextureD3D11_Async_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     int32_t textureId;
     void *pDstTexture;
@@ -22657,13 +22657,13 @@ struct IVRRenderModels_IVRRenderModels_006_LoadIntoTextureD3D11_Async_params
 
 struct IVRRenderModels_IVRRenderModels_006_FreeTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     void *pD3D11Texture2D;
 };
 
 struct IVRRenderModels_IVRRenderModels_006_GetRenderModelName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unRenderModelIndex;
     char *pchRenderModelName;
@@ -22672,20 +22672,20 @@ struct IVRRenderModels_IVRRenderModels_006_GetRenderModelName_params
 
 struct IVRRenderModels_IVRRenderModels_006_GetRenderModelCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 
 struct IVRRenderModels_IVRRenderModels_006_GetComponentCount_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
 };
 
 struct IVRRenderModels_IVRRenderModels_006_GetComponentName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
     uint32_t unComponentIndex;
@@ -22695,7 +22695,7 @@ struct IVRRenderModels_IVRRenderModels_006_GetComponentName_params
 
 struct IVRRenderModels_IVRRenderModels_006_GetComponentButtonMask_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -22703,7 +22703,7 @@ struct IVRRenderModels_IVRRenderModels_006_GetComponentButtonMask_params
 
 struct IVRRenderModels_IVRRenderModels_006_GetComponentRenderModelName_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -22713,7 +22713,7 @@ struct IVRRenderModels_IVRRenderModels_006_GetComponentRenderModelName_params
 
 struct IVRRenderModels_IVRRenderModels_006_GetComponentStateForDevicePath_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -22724,7 +22724,7 @@ struct IVRRenderModels_IVRRenderModels_006_GetComponentStateForDevicePath_params
 
 struct IVRRenderModels_IVRRenderModels_006_GetComponentState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -22735,7 +22735,7 @@ struct IVRRenderModels_IVRRenderModels_006_GetComponentState_params
 
 struct IVRRenderModels_IVRRenderModels_006_RenderModelHasComponent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchRenderModelName;
     const char *pchComponentName;
@@ -22743,7 +22743,7 @@ struct IVRRenderModels_IVRRenderModels_006_RenderModelHasComponent_params
 
 struct IVRRenderModels_IVRRenderModels_006_GetRenderModelThumbnailURL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
     char *pchThumbnailURL;
@@ -22753,7 +22753,7 @@ struct IVRRenderModels_IVRRenderModels_006_GetRenderModelThumbnailURL_params
 
 struct IVRRenderModels_IVRRenderModels_006_GetRenderModelOriginalPath_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchRenderModelName;
     char *pchOriginalPath;
@@ -22763,14 +22763,14 @@ struct IVRRenderModels_IVRRenderModels_006_GetRenderModelOriginalPath_params
 
 struct IVRRenderModels_IVRRenderModels_006_GetRenderModelErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRResources_IVRResources_001_LoadSharedResource_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchResourceName;
     char *pchBuffer;
@@ -22779,7 +22779,7 @@ struct IVRResources_IVRResources_001_LoadSharedResource_params
 
 struct IVRResources_IVRResources_001_GetResourceFullPath_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     const char *pchResourceName;
     const char *pchResourceTypeDirectory;
@@ -22789,7 +22789,7 @@ struct IVRResources_IVRResources_001_GetResourceFullPath_params
 
 struct IVRScreenshots_IVRScreenshots_001_RequestScreenshot_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t *pOutScreenshotHandle;
     uint32_t type;
@@ -22799,7 +22799,7 @@ struct IVRScreenshots_IVRScreenshots_001_RequestScreenshot_params
 
 struct IVRScreenshots_IVRScreenshots_001_HookScreenshot_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t *pSupportedTypes;
     int32_t numTypes;
@@ -22807,7 +22807,7 @@ struct IVRScreenshots_IVRScreenshots_001_HookScreenshot_params
 
 struct IVRScreenshots_IVRScreenshots_001_GetScreenshotPropertyType_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t screenshotHandle;
     uint32_t *pError;
@@ -22815,7 +22815,7 @@ struct IVRScreenshots_IVRScreenshots_001_GetScreenshotPropertyType_params
 
 struct IVRScreenshots_IVRScreenshots_001_GetScreenshotPropertyFilename_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t screenshotHandle;
     uint32_t filenameType;
@@ -22826,7 +22826,7 @@ struct IVRScreenshots_IVRScreenshots_001_GetScreenshotPropertyFilename_params
 
 struct IVRScreenshots_IVRScreenshots_001_UpdateScreenshotProgress_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t screenshotHandle;
     float flProgress;
@@ -22834,7 +22834,7 @@ struct IVRScreenshots_IVRScreenshots_001_UpdateScreenshotProgress_params
 
 struct IVRScreenshots_IVRScreenshots_001_TakeStereoScreenshot_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t *pOutScreenshotHandle;
     const char *pchPreviewFilename;
@@ -22843,7 +22843,7 @@ struct IVRScreenshots_IVRScreenshots_001_TakeStereoScreenshot_params
 
 struct IVRScreenshots_IVRScreenshots_001_SubmitScreenshot_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t screenshotHandle;
     uint32_t type;
@@ -22853,14 +22853,14 @@ struct IVRScreenshots_IVRScreenshots_001_SubmitScreenshot_params
 
 struct IVRSettings_IVRSettings_001_GetSettingsErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eError;
 };
 
 struct IVRSettings_IVRSettings_001_Sync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     int8_t bForce;
     uint32_t *peError;
@@ -22868,7 +22868,7 @@ struct IVRSettings_IVRSettings_001_Sync_params
 
 struct IVRSettings_IVRSettings_001_GetBool_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchSection;
     const char *pchSettingsKey;
@@ -22878,7 +22878,7 @@ struct IVRSettings_IVRSettings_001_GetBool_params
 
 struct IVRSettings_IVRSettings_001_SetBool_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     int8_t bValue;
@@ -22887,7 +22887,7 @@ struct IVRSettings_IVRSettings_001_SetBool_params
 
 struct IVRSettings_IVRSettings_001_GetInt32_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     const char *pchSection;
     const char *pchSettingsKey;
@@ -22897,7 +22897,7 @@ struct IVRSettings_IVRSettings_001_GetInt32_params
 
 struct IVRSettings_IVRSettings_001_SetInt32_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     int32_t nValue;
@@ -22906,7 +22906,7 @@ struct IVRSettings_IVRSettings_001_SetInt32_params
 
 struct IVRSettings_IVRSettings_001_GetFloat_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     const char *pchSection;
     const char *pchSettingsKey;
@@ -22916,7 +22916,7 @@ struct IVRSettings_IVRSettings_001_GetFloat_params
 
 struct IVRSettings_IVRSettings_001_SetFloat_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     float flValue;
@@ -22925,7 +22925,7 @@ struct IVRSettings_IVRSettings_001_SetFloat_params
 
 struct IVRSettings_IVRSettings_001_GetString_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     char *pchValue;
@@ -22936,7 +22936,7 @@ struct IVRSettings_IVRSettings_001_GetString_params
 
 struct IVRSettings_IVRSettings_001_SetString_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     const char *pchValue;
@@ -22945,14 +22945,14 @@ struct IVRSettings_IVRSettings_001_SetString_params
 
 struct IVRSettings_IVRSettings_001_RemoveSection_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     uint32_t *peError;
 };
 
 struct IVRSettings_IVRSettings_001_RemoveKeyInSection_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     uint32_t *peError;
@@ -22960,14 +22960,14 @@ struct IVRSettings_IVRSettings_001_RemoveKeyInSection_params
 
 struct IVRSettings_IVRSettings_002_GetSettingsErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eError;
 };
 
 struct IVRSettings_IVRSettings_002_Sync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     int8_t bForce;
     uint32_t *peError;
@@ -22975,7 +22975,7 @@ struct IVRSettings_IVRSettings_002_Sync_params
 
 struct IVRSettings_IVRSettings_002_SetBool_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     int8_t bValue;
@@ -22984,7 +22984,7 @@ struct IVRSettings_IVRSettings_002_SetBool_params
 
 struct IVRSettings_IVRSettings_002_SetInt32_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     int32_t nValue;
@@ -22993,7 +22993,7 @@ struct IVRSettings_IVRSettings_002_SetInt32_params
 
 struct IVRSettings_IVRSettings_002_SetFloat_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     float flValue;
@@ -23002,7 +23002,7 @@ struct IVRSettings_IVRSettings_002_SetFloat_params
 
 struct IVRSettings_IVRSettings_002_SetString_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     const char *pchValue;
@@ -23011,7 +23011,7 @@ struct IVRSettings_IVRSettings_002_SetString_params
 
 struct IVRSettings_IVRSettings_002_GetBool_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchSection;
     const char *pchSettingsKey;
@@ -23020,7 +23020,7 @@ struct IVRSettings_IVRSettings_002_GetBool_params
 
 struct IVRSettings_IVRSettings_002_GetInt32_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     const char *pchSection;
     const char *pchSettingsKey;
@@ -23029,7 +23029,7 @@ struct IVRSettings_IVRSettings_002_GetInt32_params
 
 struct IVRSettings_IVRSettings_002_GetFloat_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     const char *pchSection;
     const char *pchSettingsKey;
@@ -23038,7 +23038,7 @@ struct IVRSettings_IVRSettings_002_GetFloat_params
 
 struct IVRSettings_IVRSettings_002_GetString_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     char *pchValue;
@@ -23048,14 +23048,14 @@ struct IVRSettings_IVRSettings_002_GetString_params
 
 struct IVRSettings_IVRSettings_002_RemoveSection_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     uint32_t *peError;
 };
 
 struct IVRSettings_IVRSettings_002_RemoveKeyInSection_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     uint32_t *peError;
@@ -23063,14 +23063,14 @@ struct IVRSettings_IVRSettings_002_RemoveKeyInSection_params
 
 struct IVRSettings_IVRSettings_003_GetSettingsErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eError;
 };
 
 struct IVRSettings_IVRSettings_003_SetBool_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     int8_t bValue;
@@ -23079,7 +23079,7 @@ struct IVRSettings_IVRSettings_003_SetBool_params
 
 struct IVRSettings_IVRSettings_003_SetInt32_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     int32_t nValue;
@@ -23088,7 +23088,7 @@ struct IVRSettings_IVRSettings_003_SetInt32_params
 
 struct IVRSettings_IVRSettings_003_SetFloat_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     float flValue;
@@ -23097,7 +23097,7 @@ struct IVRSettings_IVRSettings_003_SetFloat_params
 
 struct IVRSettings_IVRSettings_003_SetString_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     const char *pchValue;
@@ -23106,7 +23106,7 @@ struct IVRSettings_IVRSettings_003_SetString_params
 
 struct IVRSettings_IVRSettings_003_GetBool_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchSection;
     const char *pchSettingsKey;
@@ -23115,7 +23115,7 @@ struct IVRSettings_IVRSettings_003_GetBool_params
 
 struct IVRSettings_IVRSettings_003_GetInt32_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     const char *pchSection;
     const char *pchSettingsKey;
@@ -23124,7 +23124,7 @@ struct IVRSettings_IVRSettings_003_GetInt32_params
 
 struct IVRSettings_IVRSettings_003_GetFloat_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     const char *pchSection;
     const char *pchSettingsKey;
@@ -23133,7 +23133,7 @@ struct IVRSettings_IVRSettings_003_GetFloat_params
 
 struct IVRSettings_IVRSettings_003_GetString_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     char *pchValue;
@@ -23143,14 +23143,14 @@ struct IVRSettings_IVRSettings_003_GetString_params
 
 struct IVRSettings_IVRSettings_003_RemoveSection_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     uint32_t *peError;
 };
 
 struct IVRSettings_IVRSettings_003_RemoveKeyInSection_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *pchSection;
     const char *pchSettingsKey;
     uint32_t *peError;
@@ -23158,7 +23158,7 @@ struct IVRSettings_IVRSettings_003_RemoveKeyInSection_params
 
 struct IVRSystem_IVRSystem_003_GetWindowBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnX;
     int32_t *pnY;
     uint32_t *pnWidth;
@@ -23167,14 +23167,14 @@ struct IVRSystem_IVRSystem_003_GetWindowBounds_params
 
 struct IVRSystem_IVRSystem_003_GetRecommendedRenderTargetSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t *pnWidth;
     uint32_t *pnHeight;
 };
 
 struct IVRSystem_IVRSystem_003_GetEyeOutputViewport_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     uint32_t *pnX;
     uint32_t *pnY;
@@ -23184,7 +23184,7 @@ struct IVRSystem_IVRSystem_003_GetEyeOutputViewport_params
 
 struct IVRSystem_IVRSystem_003_GetProjectionMatrix_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix44_t *_ret;
     uint32_t eEye;
     float fNearZ;
@@ -23194,7 +23194,7 @@ struct IVRSystem_IVRSystem_003_GetProjectionMatrix_params
 
 struct IVRSystem_IVRSystem_003_GetProjectionRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     float *pfLeft;
     float *pfRight;
@@ -23204,7 +23204,7 @@ struct IVRSystem_IVRSystem_003_GetProjectionRaw_params
 
 struct IVRSystem_IVRSystem_003_ComputeDistortion_params
 {
-    void *linux_side;
+    void *u_iface;
     DistortionCoordinates_t *_ret;
     uint32_t eEye;
     float fU;
@@ -23213,14 +23213,14 @@ struct IVRSystem_IVRSystem_003_ComputeDistortion_params
 
 struct IVRSystem_IVRSystem_003_GetEyeToHeadTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_003_GetTimeSinceLastVsync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pfSecondsSinceLastVsync;
     uint64_t *pulFrameCounter;
@@ -23228,27 +23228,27 @@ struct IVRSystem_IVRSystem_003_GetTimeSinceLastVsync_params
 
 struct IVRSystem_IVRSystem_003_GetD3D9AdapterIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
 };
 
 struct IVRSystem_IVRSystem_003_GetDXGIOutputInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnAdapterIndex;
     int32_t *pnAdapterOutputIndex;
 };
 
 struct IVRSystem_IVRSystem_003_AttachToWindow_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     void *hWnd;
 };
 
 struct IVRSystem_IVRSystem_003_GetDeviceToAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
     float fPredictedSecondsToPhotonsFromNow;
     TrackedDevicePose_t *pTrackedDevicePoseArray;
@@ -23257,18 +23257,18 @@ struct IVRSystem_IVRSystem_003_GetDeviceToAbsoluteTrackingPose_params
 
 struct IVRSystem_IVRSystem_003_ResetSeatedZeroPose_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_003_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_003_LoadRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const char *pchRenderModelName;
     w_RenderModel_t_090 *pRenderModel;
@@ -23276,27 +23276,27 @@ struct IVRSystem_IVRSystem_003_LoadRenderModel_params
 
 struct IVRSystem_IVRSystem_003_FreeRenderModel_params
 {
-    void *linux_side;
+    void *u_iface;
     w_RenderModel_t_090 *pRenderModel;
 };
 
 struct IVRSystem_IVRSystem_003_GetTrackedDeviceClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_003_IsTrackedDeviceConnected_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_003_GetBoolTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23305,7 +23305,7 @@ struct IVRSystem_IVRSystem_003_GetBoolTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_003_GetFloatTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23314,7 +23314,7 @@ struct IVRSystem_IVRSystem_003_GetFloatTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_003_GetInt32TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23323,7 +23323,7 @@ struct IVRSystem_IVRSystem_003_GetInt32TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_003_GetUint64TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23332,7 +23332,7 @@ struct IVRSystem_IVRSystem_003_GetUint64TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_003_GetMatrix34TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23341,7 +23341,7 @@ struct IVRSystem_IVRSystem_003_GetMatrix34TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_003_GetStringTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23352,21 +23352,21 @@ struct IVRSystem_IVRSystem_003_GetStringTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_003_GetPropErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRSystem_IVRSystem_003_PollNextEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_VREvent_t_090 *pEvent;
 };
 
 struct IVRSystem_IVRSystem_003_PollNextEventWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     w_VREvent_t_090 *pEvent;
@@ -23375,21 +23375,21 @@ struct IVRSystem_IVRSystem_003_PollNextEventWithPose_params
 
 struct IVRSystem_IVRSystem_003_GetEventTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eType;
 };
 
 struct IVRSystem_IVRSystem_003_GetHiddenAreaMesh_params
 {
-    void *linux_side;
+    void *u_iface;
     w_HiddenAreaMesh_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_003_GetControllerState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unControllerDeviceIndex;
     w_VRControllerState001_t *pControllerState;
@@ -23397,7 +23397,7 @@ struct IVRSystem_IVRSystem_003_GetControllerState_params
 
 struct IVRSystem_IVRSystem_003_GetControllerStateWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     uint32_t unControllerDeviceIndex;
@@ -23407,7 +23407,7 @@ struct IVRSystem_IVRSystem_003_GetControllerStateWithPose_params
 
 struct IVRSystem_IVRSystem_003_TriggerHapticPulse_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t unControllerDeviceIndex;
     uint32_t unAxisId;
     uint16_t usDurationMicroSec;
@@ -23415,21 +23415,21 @@ struct IVRSystem_IVRSystem_003_TriggerHapticPulse_params
 
 struct IVRSystem_IVRSystem_003_GetButtonIdNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_003_GetControllerAxisTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eAxisType;
 };
 
 struct IVRSystem_IVRSystem_003_HandleControllerOverlayInteractionAsMouse_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     const Compositor_OverlaySettings *overlaySettings;
     HmdVector2_t vecWindowClientPositionOnScreen;
@@ -23440,24 +23440,24 @@ struct IVRSystem_IVRSystem_003_HandleControllerOverlayInteractionAsMouse_params
 
 struct IVRSystem_IVRSystem_003_CaptureInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_003_ReleaseInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_003_IsInputFocusCapturedByAnotherProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_004_GetWindowBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnX;
     int32_t *pnY;
     uint32_t *pnWidth;
@@ -23466,14 +23466,14 @@ struct IVRSystem_IVRSystem_004_GetWindowBounds_params
 
 struct IVRSystem_IVRSystem_004_GetRecommendedRenderTargetSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t *pnWidth;
     uint32_t *pnHeight;
 };
 
 struct IVRSystem_IVRSystem_004_GetEyeOutputViewport_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     uint32_t *pnX;
     uint32_t *pnY;
@@ -23483,7 +23483,7 @@ struct IVRSystem_IVRSystem_004_GetEyeOutputViewport_params
 
 struct IVRSystem_IVRSystem_004_GetProjectionMatrix_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix44_t *_ret;
     uint32_t eEye;
     float fNearZ;
@@ -23493,7 +23493,7 @@ struct IVRSystem_IVRSystem_004_GetProjectionMatrix_params
 
 struct IVRSystem_IVRSystem_004_GetProjectionRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     float *pfLeft;
     float *pfRight;
@@ -23503,7 +23503,7 @@ struct IVRSystem_IVRSystem_004_GetProjectionRaw_params
 
 struct IVRSystem_IVRSystem_004_ComputeDistortion_params
 {
-    void *linux_side;
+    void *u_iface;
     DistortionCoordinates_t *_ret;
     uint32_t eEye;
     float fU;
@@ -23512,14 +23512,14 @@ struct IVRSystem_IVRSystem_004_ComputeDistortion_params
 
 struct IVRSystem_IVRSystem_004_GetEyeToHeadTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_004_GetTimeSinceLastVsync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pfSecondsSinceLastVsync;
     uint64_t *pulFrameCounter;
@@ -23527,27 +23527,27 @@ struct IVRSystem_IVRSystem_004_GetTimeSinceLastVsync_params
 
 struct IVRSystem_IVRSystem_004_GetD3D9AdapterIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
 };
 
 struct IVRSystem_IVRSystem_004_GetDXGIOutputInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnAdapterIndex;
     int32_t *pnAdapterOutputIndex;
 };
 
 struct IVRSystem_IVRSystem_004_AttachToWindow_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     void *hWnd;
 };
 
 struct IVRSystem_IVRSystem_004_GetDeviceToAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
     float fPredictedSecondsToPhotonsFromNow;
     TrackedDevicePose_t *pTrackedDevicePoseArray;
@@ -23556,32 +23556,32 @@ struct IVRSystem_IVRSystem_004_GetDeviceToAbsoluteTrackingPose_params
 
 struct IVRSystem_IVRSystem_004_ResetSeatedZeroPose_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_004_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_004_GetTrackedDeviceClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_004_IsTrackedDeviceConnected_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_004_GetBoolTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23590,7 +23590,7 @@ struct IVRSystem_IVRSystem_004_GetBoolTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_004_GetFloatTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23599,7 +23599,7 @@ struct IVRSystem_IVRSystem_004_GetFloatTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_004_GetInt32TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23608,7 +23608,7 @@ struct IVRSystem_IVRSystem_004_GetInt32TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_004_GetUint64TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23617,7 +23617,7 @@ struct IVRSystem_IVRSystem_004_GetUint64TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_004_GetMatrix34TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23626,7 +23626,7 @@ struct IVRSystem_IVRSystem_004_GetMatrix34TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_004_GetStringTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23637,21 +23637,21 @@ struct IVRSystem_IVRSystem_004_GetStringTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_004_GetPropErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRSystem_IVRSystem_004_PollNextEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_VREvent_t_092 *pEvent;
 };
 
 struct IVRSystem_IVRSystem_004_PollNextEventWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     w_VREvent_t_092 *pEvent;
@@ -23660,21 +23660,21 @@ struct IVRSystem_IVRSystem_004_PollNextEventWithPose_params
 
 struct IVRSystem_IVRSystem_004_GetEventTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eType;
 };
 
 struct IVRSystem_IVRSystem_004_GetHiddenAreaMesh_params
 {
-    void *linux_side;
+    void *u_iface;
     w_HiddenAreaMesh_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_004_GetControllerState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unControllerDeviceIndex;
     w_VRControllerState001_t *pControllerState;
@@ -23682,7 +23682,7 @@ struct IVRSystem_IVRSystem_004_GetControllerState_params
 
 struct IVRSystem_IVRSystem_004_GetControllerStateWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     uint32_t unControllerDeviceIndex;
@@ -23692,7 +23692,7 @@ struct IVRSystem_IVRSystem_004_GetControllerStateWithPose_params
 
 struct IVRSystem_IVRSystem_004_TriggerHapticPulse_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t unControllerDeviceIndex;
     uint32_t unAxisId;
     uint16_t usDurationMicroSec;
@@ -23700,38 +23700,38 @@ struct IVRSystem_IVRSystem_004_TriggerHapticPulse_params
 
 struct IVRSystem_IVRSystem_004_GetButtonIdNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_004_GetControllerAxisTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eAxisType;
 };
 
 struct IVRSystem_IVRSystem_004_CaptureInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_004_ReleaseInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_004_IsInputFocusCapturedByAnotherProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_004_DriverDebugRequest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     const char *pchRequest;
@@ -23741,7 +23741,7 @@ struct IVRSystem_IVRSystem_004_DriverDebugRequest_params
 
 struct IVRSystem_IVRSystem_005_GetWindowBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnX;
     int32_t *pnY;
     uint32_t *pnWidth;
@@ -23750,14 +23750,14 @@ struct IVRSystem_IVRSystem_005_GetWindowBounds_params
 
 struct IVRSystem_IVRSystem_005_GetRecommendedRenderTargetSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t *pnWidth;
     uint32_t *pnHeight;
 };
 
 struct IVRSystem_IVRSystem_005_GetEyeOutputViewport_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     uint32_t *pnX;
     uint32_t *pnY;
@@ -23767,7 +23767,7 @@ struct IVRSystem_IVRSystem_005_GetEyeOutputViewport_params
 
 struct IVRSystem_IVRSystem_005_GetProjectionMatrix_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix44_t *_ret;
     uint32_t eEye;
     float fNearZ;
@@ -23777,7 +23777,7 @@ struct IVRSystem_IVRSystem_005_GetProjectionMatrix_params
 
 struct IVRSystem_IVRSystem_005_GetProjectionRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     float *pfLeft;
     float *pfRight;
@@ -23787,7 +23787,7 @@ struct IVRSystem_IVRSystem_005_GetProjectionRaw_params
 
 struct IVRSystem_IVRSystem_005_ComputeDistortion_params
 {
-    void *linux_side;
+    void *u_iface;
     DistortionCoordinates_t *_ret;
     uint32_t eEye;
     float fU;
@@ -23796,14 +23796,14 @@ struct IVRSystem_IVRSystem_005_ComputeDistortion_params
 
 struct IVRSystem_IVRSystem_005_GetEyeToHeadTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_005_GetTimeSinceLastVsync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pfSecondsSinceLastVsync;
     uint64_t *pulFrameCounter;
@@ -23811,27 +23811,27 @@ struct IVRSystem_IVRSystem_005_GetTimeSinceLastVsync_params
 
 struct IVRSystem_IVRSystem_005_GetD3D9AdapterIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
 };
 
 struct IVRSystem_IVRSystem_005_GetDXGIOutputInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnAdapterIndex;
     int32_t *pnAdapterOutputIndex;
 };
 
 struct IVRSystem_IVRSystem_005_AttachToWindow_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     void *hWnd;
 };
 
 struct IVRSystem_IVRSystem_005_GetDeviceToAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
     float fPredictedSecondsToPhotonsFromNow;
     TrackedDevicePose_t *pTrackedDevicePoseArray;
@@ -23840,18 +23840,18 @@ struct IVRSystem_IVRSystem_005_GetDeviceToAbsoluteTrackingPose_params
 
 struct IVRSystem_IVRSystem_005_ResetSeatedZeroPose_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_005_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_005_GetSortedTrackedDeviceIndicesOfClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eTrackedDeviceClass;
     uint32_t *punTrackedDeviceIndexArray;
@@ -23861,21 +23861,21 @@ struct IVRSystem_IVRSystem_005_GetSortedTrackedDeviceIndicesOfClass_params
 
 struct IVRSystem_IVRSystem_005_GetTrackedDeviceClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_005_IsTrackedDeviceConnected_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_005_GetBoolTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23884,7 +23884,7 @@ struct IVRSystem_IVRSystem_005_GetBoolTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_005_GetFloatTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23893,7 +23893,7 @@ struct IVRSystem_IVRSystem_005_GetFloatTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_005_GetInt32TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23902,7 +23902,7 @@ struct IVRSystem_IVRSystem_005_GetInt32TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_005_GetUint64TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23911,7 +23911,7 @@ struct IVRSystem_IVRSystem_005_GetUint64TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_005_GetMatrix34TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23920,7 +23920,7 @@ struct IVRSystem_IVRSystem_005_GetMatrix34TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_005_GetStringTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -23931,21 +23931,21 @@ struct IVRSystem_IVRSystem_005_GetStringTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_005_GetPropErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRSystem_IVRSystem_005_PollNextEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_VREvent_t_097 *pEvent;
 };
 
 struct IVRSystem_IVRSystem_005_PollNextEventWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     w_VREvent_t_097 *pEvent;
@@ -23954,21 +23954,21 @@ struct IVRSystem_IVRSystem_005_PollNextEventWithPose_params
 
 struct IVRSystem_IVRSystem_005_GetEventTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eType;
 };
 
 struct IVRSystem_IVRSystem_005_GetHiddenAreaMesh_params
 {
-    void *linux_side;
+    void *u_iface;
     w_HiddenAreaMesh_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_005_GetControllerState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unControllerDeviceIndex;
     w_VRControllerState001_t *pControllerState;
@@ -23976,7 +23976,7 @@ struct IVRSystem_IVRSystem_005_GetControllerState_params
 
 struct IVRSystem_IVRSystem_005_GetControllerStateWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     uint32_t unControllerDeviceIndex;
@@ -23986,7 +23986,7 @@ struct IVRSystem_IVRSystem_005_GetControllerStateWithPose_params
 
 struct IVRSystem_IVRSystem_005_TriggerHapticPulse_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t unControllerDeviceIndex;
     uint32_t unAxisId;
     uint16_t usDurationMicroSec;
@@ -23994,38 +23994,38 @@ struct IVRSystem_IVRSystem_005_TriggerHapticPulse_params
 
 struct IVRSystem_IVRSystem_005_GetButtonIdNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_005_GetControllerAxisTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eAxisType;
 };
 
 struct IVRSystem_IVRSystem_005_CaptureInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_005_ReleaseInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_005_IsInputFocusCapturedByAnotherProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_005_DriverDebugRequest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     const char *pchRequest;
@@ -24035,7 +24035,7 @@ struct IVRSystem_IVRSystem_005_DriverDebugRequest_params
 
 struct IVRSystem_IVRSystem_006_GetWindowBounds_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnX;
     int32_t *pnY;
     uint32_t *pnWidth;
@@ -24044,14 +24044,14 @@ struct IVRSystem_IVRSystem_006_GetWindowBounds_params
 
 struct IVRSystem_IVRSystem_006_GetRecommendedRenderTargetSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t *pnWidth;
     uint32_t *pnHeight;
 };
 
 struct IVRSystem_IVRSystem_006_GetEyeOutputViewport_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     uint32_t *pnX;
     uint32_t *pnY;
@@ -24061,7 +24061,7 @@ struct IVRSystem_IVRSystem_006_GetEyeOutputViewport_params
 
 struct IVRSystem_IVRSystem_006_GetProjectionMatrix_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix44_t *_ret;
     uint32_t eEye;
     float fNearZ;
@@ -24071,7 +24071,7 @@ struct IVRSystem_IVRSystem_006_GetProjectionMatrix_params
 
 struct IVRSystem_IVRSystem_006_GetProjectionRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     float *pfLeft;
     float *pfRight;
@@ -24081,7 +24081,7 @@ struct IVRSystem_IVRSystem_006_GetProjectionRaw_params
 
 struct IVRSystem_IVRSystem_006_ComputeDistortion_params
 {
-    void *linux_side;
+    void *u_iface;
     DistortionCoordinates_t *_ret;
     uint32_t eEye;
     float fU;
@@ -24090,14 +24090,14 @@ struct IVRSystem_IVRSystem_006_ComputeDistortion_params
 
 struct IVRSystem_IVRSystem_006_GetEyeToHeadTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_006_GetTimeSinceLastVsync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pfSecondsSinceLastVsync;
     uint64_t *pulFrameCounter;
@@ -24105,27 +24105,27 @@ struct IVRSystem_IVRSystem_006_GetTimeSinceLastVsync_params
 
 struct IVRSystem_IVRSystem_006_GetD3D9AdapterIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
 };
 
 struct IVRSystem_IVRSystem_006_GetDXGIOutputInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnAdapterIndex;
     int32_t *pnAdapterOutputIndex;
 };
 
 struct IVRSystem_IVRSystem_006_AttachToWindow_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     void *hWnd;
 };
 
 struct IVRSystem_IVRSystem_006_GetDeviceToAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
     float fPredictedSecondsToPhotonsFromNow;
     TrackedDevicePose_t *pTrackedDevicePoseArray;
@@ -24134,24 +24134,24 @@ struct IVRSystem_IVRSystem_006_GetDeviceToAbsoluteTrackingPose_params
 
 struct IVRSystem_IVRSystem_006_ResetSeatedZeroPose_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_006_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_006_GetRawZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_006_GetSortedTrackedDeviceIndicesOfClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eTrackedDeviceClass;
     uint32_t *punTrackedDeviceIndexArray;
@@ -24161,28 +24161,28 @@ struct IVRSystem_IVRSystem_006_GetSortedTrackedDeviceIndicesOfClass_params
 
 struct IVRSystem_IVRSystem_006_GetTrackedDeviceActivityLevel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceId;
 };
 
 struct IVRSystem_IVRSystem_006_GetTrackedDeviceClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_006_IsTrackedDeviceConnected_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_006_GetBoolTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24191,7 +24191,7 @@ struct IVRSystem_IVRSystem_006_GetBoolTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_006_GetFloatTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24200,7 +24200,7 @@ struct IVRSystem_IVRSystem_006_GetFloatTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_006_GetInt32TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24209,7 +24209,7 @@ struct IVRSystem_IVRSystem_006_GetInt32TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_006_GetUint64TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24218,7 +24218,7 @@ struct IVRSystem_IVRSystem_006_GetUint64TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_006_GetMatrix34TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24227,7 +24227,7 @@ struct IVRSystem_IVRSystem_006_GetMatrix34TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_006_GetStringTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24238,21 +24238,21 @@ struct IVRSystem_IVRSystem_006_GetStringTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_006_GetPropErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRSystem_IVRSystem_006_PollNextEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_VREvent_t_0910 *pEvent;
 };
 
 struct IVRSystem_IVRSystem_006_PollNextEventWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     w_VREvent_t_0910 *pEvent;
@@ -24261,21 +24261,21 @@ struct IVRSystem_IVRSystem_006_PollNextEventWithPose_params
 
 struct IVRSystem_IVRSystem_006_GetEventTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eType;
 };
 
 struct IVRSystem_IVRSystem_006_GetHiddenAreaMesh_params
 {
-    void *linux_side;
+    void *u_iface;
     w_HiddenAreaMesh_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_006_GetControllerState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unControllerDeviceIndex;
     w_VRControllerState001_t *pControllerState;
@@ -24283,7 +24283,7 @@ struct IVRSystem_IVRSystem_006_GetControllerState_params
 
 struct IVRSystem_IVRSystem_006_GetControllerStateWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     uint32_t unControllerDeviceIndex;
@@ -24293,7 +24293,7 @@ struct IVRSystem_IVRSystem_006_GetControllerStateWithPose_params
 
 struct IVRSystem_IVRSystem_006_TriggerHapticPulse_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t unControllerDeviceIndex;
     uint32_t unAxisId;
     uint16_t usDurationMicroSec;
@@ -24301,38 +24301,38 @@ struct IVRSystem_IVRSystem_006_TriggerHapticPulse_params
 
 struct IVRSystem_IVRSystem_006_GetButtonIdNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_006_GetControllerAxisTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eAxisType;
 };
 
 struct IVRSystem_IVRSystem_006_CaptureInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_006_ReleaseInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_006_IsInputFocusCapturedByAnotherProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_006_DriverDebugRequest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     const char *pchRequest;
@@ -24342,34 +24342,34 @@ struct IVRSystem_IVRSystem_006_DriverDebugRequest_params
 
 struct IVRSystem_IVRSystem_006_PerformFirmwareUpdate_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_006_IsDisplayOnDesktop_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_006_SetDisplayVisibility_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     int8_t bIsVisibleOnDesktop;
 };
 
 struct IVRSystem_IVRSystem_009_GetRecommendedRenderTargetSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t *pnWidth;
     uint32_t *pnHeight;
 };
 
 struct IVRSystem_IVRSystem_009_GetProjectionMatrix_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix44_t *_ret;
     uint32_t eEye;
     float fNearZ;
@@ -24379,7 +24379,7 @@ struct IVRSystem_IVRSystem_009_GetProjectionMatrix_params
 
 struct IVRSystem_IVRSystem_009_GetProjectionRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     float *pfLeft;
     float *pfRight;
@@ -24389,7 +24389,7 @@ struct IVRSystem_IVRSystem_009_GetProjectionRaw_params
 
 struct IVRSystem_IVRSystem_009_ComputeDistortion_params
 {
-    void *linux_side;
+    void *u_iface;
     DistortionCoordinates_t *_ret;
     uint32_t eEye;
     float fU;
@@ -24398,14 +24398,14 @@ struct IVRSystem_IVRSystem_009_ComputeDistortion_params
 
 struct IVRSystem_IVRSystem_009_GetEyeToHeadTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_009_GetTimeSinceLastVsync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pfSecondsSinceLastVsync;
     uint64_t *pulFrameCounter;
@@ -24413,32 +24413,32 @@ struct IVRSystem_IVRSystem_009_GetTimeSinceLastVsync_params
 
 struct IVRSystem_IVRSystem_009_GetD3D9AdapterIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
 };
 
 struct IVRSystem_IVRSystem_009_GetDXGIOutputInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnAdapterIndex;
 };
 
 struct IVRSystem_IVRSystem_009_IsDisplayOnDesktop_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_009_SetDisplayVisibility_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     int8_t bIsVisibleOnDesktop;
 };
 
 struct IVRSystem_IVRSystem_009_GetDeviceToAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
     float fPredictedSecondsToPhotonsFromNow;
     TrackedDevicePose_t *pTrackedDevicePoseArray;
@@ -24447,24 +24447,24 @@ struct IVRSystem_IVRSystem_009_GetDeviceToAbsoluteTrackingPose_params
 
 struct IVRSystem_IVRSystem_009_ResetSeatedZeroPose_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_009_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_009_GetRawZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_009_GetSortedTrackedDeviceIndicesOfClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eTrackedDeviceClass;
     uint32_t *punTrackedDeviceIndexArray;
@@ -24474,14 +24474,14 @@ struct IVRSystem_IVRSystem_009_GetSortedTrackedDeviceIndicesOfClass_params
 
 struct IVRSystem_IVRSystem_009_GetTrackedDeviceActivityLevel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceId;
 };
 
 struct IVRSystem_IVRSystem_009_ApplyTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     TrackedDevicePose_t *pOutputPose;
     const TrackedDevicePose_t *pTrackedDevicePose;
     const HmdMatrix34_t *pTransform;
@@ -24489,21 +24489,21 @@ struct IVRSystem_IVRSystem_009_ApplyTransform_params
 
 struct IVRSystem_IVRSystem_009_GetTrackedDeviceClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_009_IsTrackedDeviceConnected_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_009_GetBoolTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24512,7 +24512,7 @@ struct IVRSystem_IVRSystem_009_GetBoolTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_009_GetFloatTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24521,7 +24521,7 @@ struct IVRSystem_IVRSystem_009_GetFloatTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_009_GetInt32TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24530,7 +24530,7 @@ struct IVRSystem_IVRSystem_009_GetInt32TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_009_GetUint64TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24539,7 +24539,7 @@ struct IVRSystem_IVRSystem_009_GetUint64TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_009_GetMatrix34TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24548,7 +24548,7 @@ struct IVRSystem_IVRSystem_009_GetMatrix34TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_009_GetStringTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24559,21 +24559,21 @@ struct IVRSystem_IVRSystem_009_GetStringTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_009_GetPropErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRSystem_IVRSystem_009_PollNextEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_VREvent_t_0912 *pEvent;
 };
 
 struct IVRSystem_IVRSystem_009_PollNextEventWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     w_VREvent_t_0912 *pEvent;
@@ -24582,21 +24582,21 @@ struct IVRSystem_IVRSystem_009_PollNextEventWithPose_params
 
 struct IVRSystem_IVRSystem_009_GetEventTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eType;
 };
 
 struct IVRSystem_IVRSystem_009_GetHiddenAreaMesh_params
 {
-    void *linux_side;
+    void *u_iface;
     w_HiddenAreaMesh_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_009_GetControllerState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unControllerDeviceIndex;
     w_VRControllerState001_t *pControllerState;
@@ -24604,7 +24604,7 @@ struct IVRSystem_IVRSystem_009_GetControllerState_params
 
 struct IVRSystem_IVRSystem_009_GetControllerStateWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     uint32_t unControllerDeviceIndex;
@@ -24614,7 +24614,7 @@ struct IVRSystem_IVRSystem_009_GetControllerStateWithPose_params
 
 struct IVRSystem_IVRSystem_009_TriggerHapticPulse_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t unControllerDeviceIndex;
     uint32_t unAxisId;
     uint16_t usDurationMicroSec;
@@ -24622,38 +24622,38 @@ struct IVRSystem_IVRSystem_009_TriggerHapticPulse_params
 
 struct IVRSystem_IVRSystem_009_GetButtonIdNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_009_GetControllerAxisTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eAxisType;
 };
 
 struct IVRSystem_IVRSystem_009_CaptureInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_009_ReleaseInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_009_IsInputFocusCapturedByAnotherProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_009_DriverDebugRequest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     const char *pchRequest;
@@ -24663,31 +24663,31 @@ struct IVRSystem_IVRSystem_009_DriverDebugRequest_params
 
 struct IVRSystem_IVRSystem_009_PerformFirmwareUpdate_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_009_AcknowledgeQuit_Exiting_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_009_AcknowledgeQuit_UserPrompt_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_010_GetRecommendedRenderTargetSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t *pnWidth;
     uint32_t *pnHeight;
 };
 
 struct IVRSystem_IVRSystem_010_GetProjectionMatrix_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix44_t *_ret;
     uint32_t eEye;
     float fNearZ;
@@ -24697,7 +24697,7 @@ struct IVRSystem_IVRSystem_010_GetProjectionMatrix_params
 
 struct IVRSystem_IVRSystem_010_GetProjectionRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     float *pfLeft;
     float *pfRight;
@@ -24707,7 +24707,7 @@ struct IVRSystem_IVRSystem_010_GetProjectionRaw_params
 
 struct IVRSystem_IVRSystem_010_ComputeDistortion_params
 {
-    void *linux_side;
+    void *u_iface;
     DistortionCoordinates_t *_ret;
     uint32_t eEye;
     float fU;
@@ -24716,14 +24716,14 @@ struct IVRSystem_IVRSystem_010_ComputeDistortion_params
 
 struct IVRSystem_IVRSystem_010_GetEyeToHeadTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_010_GetTimeSinceLastVsync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pfSecondsSinceLastVsync;
     uint64_t *pulFrameCounter;
@@ -24731,32 +24731,32 @@ struct IVRSystem_IVRSystem_010_GetTimeSinceLastVsync_params
 
 struct IVRSystem_IVRSystem_010_GetD3D9AdapterIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
 };
 
 struct IVRSystem_IVRSystem_010_GetDXGIOutputInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnAdapterIndex;
 };
 
 struct IVRSystem_IVRSystem_010_IsDisplayOnDesktop_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_010_SetDisplayVisibility_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     int8_t bIsVisibleOnDesktop;
 };
 
 struct IVRSystem_IVRSystem_010_GetDeviceToAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
     float fPredictedSecondsToPhotonsFromNow;
     TrackedDevicePose_t *pTrackedDevicePoseArray;
@@ -24765,24 +24765,24 @@ struct IVRSystem_IVRSystem_010_GetDeviceToAbsoluteTrackingPose_params
 
 struct IVRSystem_IVRSystem_010_ResetSeatedZeroPose_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_010_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_010_GetRawZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_010_GetSortedTrackedDeviceIndicesOfClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eTrackedDeviceClass;
     uint32_t *punTrackedDeviceIndexArray;
@@ -24792,14 +24792,14 @@ struct IVRSystem_IVRSystem_010_GetSortedTrackedDeviceIndicesOfClass_params
 
 struct IVRSystem_IVRSystem_010_GetTrackedDeviceActivityLevel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceId;
 };
 
 struct IVRSystem_IVRSystem_010_ApplyTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     TrackedDevicePose_t *pOutputPose;
     const TrackedDevicePose_t *pTrackedDevicePose;
     const HmdMatrix34_t *pTransform;
@@ -24807,35 +24807,35 @@ struct IVRSystem_IVRSystem_010_ApplyTransform_params
 
 struct IVRSystem_IVRSystem_010_GetTrackedDeviceIndexForControllerRole_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceType;
 };
 
 struct IVRSystem_IVRSystem_010_GetControllerRoleForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_010_GetTrackedDeviceClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_010_IsTrackedDeviceConnected_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_010_GetBoolTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24844,7 +24844,7 @@ struct IVRSystem_IVRSystem_010_GetBoolTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_010_GetFloatTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24853,7 +24853,7 @@ struct IVRSystem_IVRSystem_010_GetFloatTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_010_GetInt32TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24862,7 +24862,7 @@ struct IVRSystem_IVRSystem_010_GetInt32TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_010_GetUint64TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24871,7 +24871,7 @@ struct IVRSystem_IVRSystem_010_GetUint64TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_010_GetMatrix34TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24880,7 +24880,7 @@ struct IVRSystem_IVRSystem_010_GetMatrix34TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_010_GetStringTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -24891,21 +24891,21 @@ struct IVRSystem_IVRSystem_010_GetStringTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_010_GetPropErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRSystem_IVRSystem_010_PollNextEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_VREvent_t_0914 *pEvent;
 };
 
 struct IVRSystem_IVRSystem_010_PollNextEventWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     w_VREvent_t_0914 *pEvent;
@@ -24914,21 +24914,21 @@ struct IVRSystem_IVRSystem_010_PollNextEventWithPose_params
 
 struct IVRSystem_IVRSystem_010_GetEventTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eType;
 };
 
 struct IVRSystem_IVRSystem_010_GetHiddenAreaMesh_params
 {
-    void *linux_side;
+    void *u_iface;
     w_HiddenAreaMesh_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_010_GetControllerState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unControllerDeviceIndex;
     w_VRControllerState001_t *pControllerState;
@@ -24936,7 +24936,7 @@ struct IVRSystem_IVRSystem_010_GetControllerState_params
 
 struct IVRSystem_IVRSystem_010_GetControllerStateWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     uint32_t unControllerDeviceIndex;
@@ -24946,7 +24946,7 @@ struct IVRSystem_IVRSystem_010_GetControllerStateWithPose_params
 
 struct IVRSystem_IVRSystem_010_TriggerHapticPulse_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t unControllerDeviceIndex;
     uint32_t unAxisId;
     uint16_t usDurationMicroSec;
@@ -24954,38 +24954,38 @@ struct IVRSystem_IVRSystem_010_TriggerHapticPulse_params
 
 struct IVRSystem_IVRSystem_010_GetButtonIdNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_010_GetControllerAxisTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eAxisType;
 };
 
 struct IVRSystem_IVRSystem_010_CaptureInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_010_ReleaseInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_010_IsInputFocusCapturedByAnotherProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_010_DriverDebugRequest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     const char *pchRequest;
@@ -24995,43 +24995,43 @@ struct IVRSystem_IVRSystem_010_DriverDebugRequest_params
 
 struct IVRSystem_IVRSystem_010_PerformFirmwareUpdate_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_010_AcknowledgeQuit_Exiting_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_010_AcknowledgeQuit_UserPrompt_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_010_PerformanceTestEnableCapture_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bEnable;
 };
 
 struct IVRSystem_IVRSystem_010_PerformanceTestReportFidelityLevelChange_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t nFidelityLevel;
 };
 
 struct IVRSystem_IVRSystem_011_GetRecommendedRenderTargetSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t *pnWidth;
     uint32_t *pnHeight;
 };
 
 struct IVRSystem_IVRSystem_011_GetProjectionMatrix_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix44_t *_ret;
     uint32_t eEye;
     float fNearZ;
@@ -25041,7 +25041,7 @@ struct IVRSystem_IVRSystem_011_GetProjectionMatrix_params
 
 struct IVRSystem_IVRSystem_011_GetProjectionRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     float *pfLeft;
     float *pfRight;
@@ -25051,7 +25051,7 @@ struct IVRSystem_IVRSystem_011_GetProjectionRaw_params
 
 struct IVRSystem_IVRSystem_011_ComputeDistortion_params
 {
-    void *linux_side;
+    void *u_iface;
     DistortionCoordinates_t *_ret;
     uint32_t eEye;
     float fU;
@@ -25060,14 +25060,14 @@ struct IVRSystem_IVRSystem_011_ComputeDistortion_params
 
 struct IVRSystem_IVRSystem_011_GetEyeToHeadTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_011_GetTimeSinceLastVsync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pfSecondsSinceLastVsync;
     uint64_t *pulFrameCounter;
@@ -25075,32 +25075,32 @@ struct IVRSystem_IVRSystem_011_GetTimeSinceLastVsync_params
 
 struct IVRSystem_IVRSystem_011_GetD3D9AdapterIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
 };
 
 struct IVRSystem_IVRSystem_011_GetDXGIOutputInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnAdapterIndex;
 };
 
 struct IVRSystem_IVRSystem_011_IsDisplayOnDesktop_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_011_SetDisplayVisibility_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     int8_t bIsVisibleOnDesktop;
 };
 
 struct IVRSystem_IVRSystem_011_GetDeviceToAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
     float fPredictedSecondsToPhotonsFromNow;
     TrackedDevicePose_t *pTrackedDevicePoseArray;
@@ -25109,24 +25109,24 @@ struct IVRSystem_IVRSystem_011_GetDeviceToAbsoluteTrackingPose_params
 
 struct IVRSystem_IVRSystem_011_ResetSeatedZeroPose_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_011_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_011_GetRawZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_011_GetSortedTrackedDeviceIndicesOfClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eTrackedDeviceClass;
     uint32_t *punTrackedDeviceIndexArray;
@@ -25136,14 +25136,14 @@ struct IVRSystem_IVRSystem_011_GetSortedTrackedDeviceIndicesOfClass_params
 
 struct IVRSystem_IVRSystem_011_GetTrackedDeviceActivityLevel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceId;
 };
 
 struct IVRSystem_IVRSystem_011_ApplyTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     TrackedDevicePose_t *pOutputPose;
     const TrackedDevicePose_t *pTrackedDevicePose;
     const HmdMatrix34_t *pTransform;
@@ -25151,35 +25151,35 @@ struct IVRSystem_IVRSystem_011_ApplyTransform_params
 
 struct IVRSystem_IVRSystem_011_GetTrackedDeviceIndexForControllerRole_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceType;
 };
 
 struct IVRSystem_IVRSystem_011_GetControllerRoleForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_011_GetTrackedDeviceClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_011_IsTrackedDeviceConnected_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_011_GetBoolTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25188,7 +25188,7 @@ struct IVRSystem_IVRSystem_011_GetBoolTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_011_GetFloatTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25197,7 +25197,7 @@ struct IVRSystem_IVRSystem_011_GetFloatTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_011_GetInt32TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25206,7 +25206,7 @@ struct IVRSystem_IVRSystem_011_GetInt32TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_011_GetUint64TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25215,7 +25215,7 @@ struct IVRSystem_IVRSystem_011_GetUint64TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_011_GetMatrix34TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25224,7 +25224,7 @@ struct IVRSystem_IVRSystem_011_GetMatrix34TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_011_GetStringTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25235,14 +25235,14 @@ struct IVRSystem_IVRSystem_011_GetStringTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_011_GetPropErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRSystem_IVRSystem_011_PollNextEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_VREvent_t_0918 *pEvent;
     uint32_t uncbVREvent;
@@ -25250,7 +25250,7 @@ struct IVRSystem_IVRSystem_011_PollNextEvent_params
 
 struct IVRSystem_IVRSystem_011_PollNextEventWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     w_VREvent_t_0918 *pEvent;
@@ -25260,21 +25260,21 @@ struct IVRSystem_IVRSystem_011_PollNextEventWithPose_params
 
 struct IVRSystem_IVRSystem_011_GetEventTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eType;
 };
 
 struct IVRSystem_IVRSystem_011_GetHiddenAreaMesh_params
 {
-    void *linux_side;
+    void *u_iface;
     w_HiddenAreaMesh_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_011_GetControllerState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unControllerDeviceIndex;
     w_VRControllerState001_t *pControllerState;
@@ -25282,7 +25282,7 @@ struct IVRSystem_IVRSystem_011_GetControllerState_params
 
 struct IVRSystem_IVRSystem_011_GetControllerStateWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     uint32_t unControllerDeviceIndex;
@@ -25292,7 +25292,7 @@ struct IVRSystem_IVRSystem_011_GetControllerStateWithPose_params
 
 struct IVRSystem_IVRSystem_011_TriggerHapticPulse_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t unControllerDeviceIndex;
     uint32_t unAxisId;
     uint16_t usDurationMicroSec;
@@ -25300,38 +25300,38 @@ struct IVRSystem_IVRSystem_011_TriggerHapticPulse_params
 
 struct IVRSystem_IVRSystem_011_GetButtonIdNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_011_GetControllerAxisTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eAxisType;
 };
 
 struct IVRSystem_IVRSystem_011_CaptureInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_011_ReleaseInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_011_IsInputFocusCapturedByAnotherProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_011_DriverDebugRequest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     const char *pchRequest;
@@ -25341,43 +25341,43 @@ struct IVRSystem_IVRSystem_011_DriverDebugRequest_params
 
 struct IVRSystem_IVRSystem_011_PerformFirmwareUpdate_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_011_AcknowledgeQuit_Exiting_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_011_AcknowledgeQuit_UserPrompt_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_011_PerformanceTestEnableCapture_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t bEnable;
 };
 
 struct IVRSystem_IVRSystem_011_PerformanceTestReportFidelityLevelChange_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t nFidelityLevel;
 };
 
 struct IVRSystem_IVRSystem_012_GetRecommendedRenderTargetSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t *pnWidth;
     uint32_t *pnHeight;
 };
 
 struct IVRSystem_IVRSystem_012_GetProjectionMatrix_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix44_t *_ret;
     uint32_t eEye;
     float fNearZ;
@@ -25387,7 +25387,7 @@ struct IVRSystem_IVRSystem_012_GetProjectionMatrix_params
 
 struct IVRSystem_IVRSystem_012_GetProjectionRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     float *pfLeft;
     float *pfRight;
@@ -25397,7 +25397,7 @@ struct IVRSystem_IVRSystem_012_GetProjectionRaw_params
 
 struct IVRSystem_IVRSystem_012_ComputeDistortion_params
 {
-    void *linux_side;
+    void *u_iface;
     DistortionCoordinates_t *_ret;
     uint32_t eEye;
     float fU;
@@ -25406,14 +25406,14 @@ struct IVRSystem_IVRSystem_012_ComputeDistortion_params
 
 struct IVRSystem_IVRSystem_012_GetEyeToHeadTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_012_GetTimeSinceLastVsync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pfSecondsSinceLastVsync;
     uint64_t *pulFrameCounter;
@@ -25421,32 +25421,32 @@ struct IVRSystem_IVRSystem_012_GetTimeSinceLastVsync_params
 
 struct IVRSystem_IVRSystem_012_GetD3D9AdapterIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
 };
 
 struct IVRSystem_IVRSystem_012_GetDXGIOutputInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnAdapterIndex;
 };
 
 struct IVRSystem_IVRSystem_012_IsDisplayOnDesktop_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_012_SetDisplayVisibility_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     int8_t bIsVisibleOnDesktop;
 };
 
 struct IVRSystem_IVRSystem_012_GetDeviceToAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
     float fPredictedSecondsToPhotonsFromNow;
     TrackedDevicePose_t *pTrackedDevicePoseArray;
@@ -25455,24 +25455,24 @@ struct IVRSystem_IVRSystem_012_GetDeviceToAbsoluteTrackingPose_params
 
 struct IVRSystem_IVRSystem_012_ResetSeatedZeroPose_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_012_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_012_GetRawZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_012_GetSortedTrackedDeviceIndicesOfClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eTrackedDeviceClass;
     uint32_t *punTrackedDeviceIndexArray;
@@ -25482,14 +25482,14 @@ struct IVRSystem_IVRSystem_012_GetSortedTrackedDeviceIndicesOfClass_params
 
 struct IVRSystem_IVRSystem_012_GetTrackedDeviceActivityLevel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceId;
 };
 
 struct IVRSystem_IVRSystem_012_ApplyTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     TrackedDevicePose_t *pOutputPose;
     const TrackedDevicePose_t *pTrackedDevicePose;
     const HmdMatrix34_t *pTransform;
@@ -25497,35 +25497,35 @@ struct IVRSystem_IVRSystem_012_ApplyTransform_params
 
 struct IVRSystem_IVRSystem_012_GetTrackedDeviceIndexForControllerRole_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceType;
 };
 
 struct IVRSystem_IVRSystem_012_GetControllerRoleForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_012_GetTrackedDeviceClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_012_IsTrackedDeviceConnected_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_012_GetBoolTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25534,7 +25534,7 @@ struct IVRSystem_IVRSystem_012_GetBoolTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_012_GetFloatTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25543,7 +25543,7 @@ struct IVRSystem_IVRSystem_012_GetFloatTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_012_GetInt32TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25552,7 +25552,7 @@ struct IVRSystem_IVRSystem_012_GetInt32TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_012_GetUint64TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25561,7 +25561,7 @@ struct IVRSystem_IVRSystem_012_GetUint64TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_012_GetMatrix34TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25570,7 +25570,7 @@ struct IVRSystem_IVRSystem_012_GetMatrix34TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_012_GetStringTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25581,14 +25581,14 @@ struct IVRSystem_IVRSystem_012_GetStringTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_012_GetPropErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRSystem_IVRSystem_012_PollNextEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_VREvent_t_103 *pEvent;
     uint32_t uncbVREvent;
@@ -25596,7 +25596,7 @@ struct IVRSystem_IVRSystem_012_PollNextEvent_params
 
 struct IVRSystem_IVRSystem_012_PollNextEventWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     w_VREvent_t_103 *pEvent;
@@ -25606,21 +25606,21 @@ struct IVRSystem_IVRSystem_012_PollNextEventWithPose_params
 
 struct IVRSystem_IVRSystem_012_GetEventTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eType;
 };
 
 struct IVRSystem_IVRSystem_012_GetHiddenAreaMesh_params
 {
-    void *linux_side;
+    void *u_iface;
     w_HiddenAreaMesh_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_012_GetControllerState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unControllerDeviceIndex;
     w_VRControllerState001_t *pControllerState;
@@ -25628,7 +25628,7 @@ struct IVRSystem_IVRSystem_012_GetControllerState_params
 
 struct IVRSystem_IVRSystem_012_GetControllerStateWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     uint32_t unControllerDeviceIndex;
@@ -25638,7 +25638,7 @@ struct IVRSystem_IVRSystem_012_GetControllerStateWithPose_params
 
 struct IVRSystem_IVRSystem_012_TriggerHapticPulse_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t unControllerDeviceIndex;
     uint32_t unAxisId;
     uint16_t usDurationMicroSec;
@@ -25646,38 +25646,38 @@ struct IVRSystem_IVRSystem_012_TriggerHapticPulse_params
 
 struct IVRSystem_IVRSystem_012_GetButtonIdNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_012_GetControllerAxisTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eAxisType;
 };
 
 struct IVRSystem_IVRSystem_012_CaptureInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_012_ReleaseInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_012_IsInputFocusCapturedByAnotherProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_012_DriverDebugRequest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     const char *pchRequest;
@@ -25687,31 +25687,31 @@ struct IVRSystem_IVRSystem_012_DriverDebugRequest_params
 
 struct IVRSystem_IVRSystem_012_PerformFirmwareUpdate_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_012_AcknowledgeQuit_Exiting_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_012_AcknowledgeQuit_UserPrompt_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_014_GetRecommendedRenderTargetSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t *pnWidth;
     uint32_t *pnHeight;
 };
 
 struct IVRSystem_IVRSystem_014_GetProjectionMatrix_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix44_t *_ret;
     uint32_t eEye;
     float fNearZ;
@@ -25721,7 +25721,7 @@ struct IVRSystem_IVRSystem_014_GetProjectionMatrix_params
 
 struct IVRSystem_IVRSystem_014_GetProjectionRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     float *pfLeft;
     float *pfRight;
@@ -25731,7 +25731,7 @@ struct IVRSystem_IVRSystem_014_GetProjectionRaw_params
 
 struct IVRSystem_IVRSystem_014_ComputeDistortion_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eEye;
     float fU;
@@ -25741,14 +25741,14 @@ struct IVRSystem_IVRSystem_014_ComputeDistortion_params
 
 struct IVRSystem_IVRSystem_014_GetEyeToHeadTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_014_GetTimeSinceLastVsync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pfSecondsSinceLastVsync;
     uint64_t *pulFrameCounter;
@@ -25756,32 +25756,32 @@ struct IVRSystem_IVRSystem_014_GetTimeSinceLastVsync_params
 
 struct IVRSystem_IVRSystem_014_GetD3D9AdapterIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
 };
 
 struct IVRSystem_IVRSystem_014_GetDXGIOutputInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnAdapterIndex;
 };
 
 struct IVRSystem_IVRSystem_014_IsDisplayOnDesktop_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_014_SetDisplayVisibility_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     int8_t bIsVisibleOnDesktop;
 };
 
 struct IVRSystem_IVRSystem_014_GetDeviceToAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
     float fPredictedSecondsToPhotonsFromNow;
     TrackedDevicePose_t *pTrackedDevicePoseArray;
@@ -25790,24 +25790,24 @@ struct IVRSystem_IVRSystem_014_GetDeviceToAbsoluteTrackingPose_params
 
 struct IVRSystem_IVRSystem_014_ResetSeatedZeroPose_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_014_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_014_GetRawZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_014_GetSortedTrackedDeviceIndicesOfClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eTrackedDeviceClass;
     uint32_t *punTrackedDeviceIndexArray;
@@ -25817,14 +25817,14 @@ struct IVRSystem_IVRSystem_014_GetSortedTrackedDeviceIndicesOfClass_params
 
 struct IVRSystem_IVRSystem_014_GetTrackedDeviceActivityLevel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceId;
 };
 
 struct IVRSystem_IVRSystem_014_ApplyTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     TrackedDevicePose_t *pOutputPose;
     const TrackedDevicePose_t *pTrackedDevicePose;
     const HmdMatrix34_t *pTransform;
@@ -25832,35 +25832,35 @@ struct IVRSystem_IVRSystem_014_ApplyTransform_params
 
 struct IVRSystem_IVRSystem_014_GetTrackedDeviceIndexForControllerRole_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceType;
 };
 
 struct IVRSystem_IVRSystem_014_GetControllerRoleForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_014_GetTrackedDeviceClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_014_IsTrackedDeviceConnected_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_014_GetBoolTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25869,7 +25869,7 @@ struct IVRSystem_IVRSystem_014_GetBoolTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_014_GetFloatTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25878,7 +25878,7 @@ struct IVRSystem_IVRSystem_014_GetFloatTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_014_GetInt32TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25887,7 +25887,7 @@ struct IVRSystem_IVRSystem_014_GetInt32TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_014_GetUint64TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25896,7 +25896,7 @@ struct IVRSystem_IVRSystem_014_GetUint64TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_014_GetMatrix34TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25905,7 +25905,7 @@ struct IVRSystem_IVRSystem_014_GetMatrix34TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_014_GetStringTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -25916,14 +25916,14 @@ struct IVRSystem_IVRSystem_014_GetStringTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_014_GetPropErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRSystem_IVRSystem_014_PollNextEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_VREvent_t_103 *pEvent;
     uint32_t uncbVREvent;
@@ -25931,7 +25931,7 @@ struct IVRSystem_IVRSystem_014_PollNextEvent_params
 
 struct IVRSystem_IVRSystem_014_PollNextEventWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     w_VREvent_t_103 *pEvent;
@@ -25941,14 +25941,14 @@ struct IVRSystem_IVRSystem_014_PollNextEventWithPose_params
 
 struct IVRSystem_IVRSystem_014_GetEventTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eType;
 };
 
 struct IVRSystem_IVRSystem_014_GetHiddenAreaMesh_params
 {
-    void *linux_side;
+    void *u_iface;
     w_HiddenAreaMesh_t *_ret;
     uint32_t eEye;
     uint32_t type;
@@ -25956,7 +25956,7 @@ struct IVRSystem_IVRSystem_014_GetHiddenAreaMesh_params
 
 struct IVRSystem_IVRSystem_014_GetControllerState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unControllerDeviceIndex;
     w_VRControllerState001_t *pControllerState;
@@ -25965,7 +25965,7 @@ struct IVRSystem_IVRSystem_014_GetControllerState_params
 
 struct IVRSystem_IVRSystem_014_GetControllerStateWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     uint32_t unControllerDeviceIndex;
@@ -25976,7 +25976,7 @@ struct IVRSystem_IVRSystem_014_GetControllerStateWithPose_params
 
 struct IVRSystem_IVRSystem_014_TriggerHapticPulse_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t unControllerDeviceIndex;
     uint32_t unAxisId;
     uint16_t usDurationMicroSec;
@@ -25984,38 +25984,38 @@ struct IVRSystem_IVRSystem_014_TriggerHapticPulse_params
 
 struct IVRSystem_IVRSystem_014_GetButtonIdNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_014_GetControllerAxisTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eAxisType;
 };
 
 struct IVRSystem_IVRSystem_014_CaptureInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_014_ReleaseInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_014_IsInputFocusCapturedByAnotherProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_014_DriverDebugRequest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     const char *pchRequest;
@@ -26025,31 +26025,31 @@ struct IVRSystem_IVRSystem_014_DriverDebugRequest_params
 
 struct IVRSystem_IVRSystem_014_PerformFirmwareUpdate_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_014_AcknowledgeQuit_Exiting_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_014_AcknowledgeQuit_UserPrompt_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_015_GetRecommendedRenderTargetSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t *pnWidth;
     uint32_t *pnHeight;
 };
 
 struct IVRSystem_IVRSystem_015_GetProjectionMatrix_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix44_t *_ret;
     uint32_t eEye;
     float fNearZ;
@@ -26058,7 +26058,7 @@ struct IVRSystem_IVRSystem_015_GetProjectionMatrix_params
 
 struct IVRSystem_IVRSystem_015_GetProjectionRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     float *pfLeft;
     float *pfRight;
@@ -26068,7 +26068,7 @@ struct IVRSystem_IVRSystem_015_GetProjectionRaw_params
 
 struct IVRSystem_IVRSystem_015_ComputeDistortion_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eEye;
     float fU;
@@ -26078,14 +26078,14 @@ struct IVRSystem_IVRSystem_015_ComputeDistortion_params
 
 struct IVRSystem_IVRSystem_015_GetEyeToHeadTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_015_GetTimeSinceLastVsync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pfSecondsSinceLastVsync;
     uint64_t *pulFrameCounter;
@@ -26093,32 +26093,32 @@ struct IVRSystem_IVRSystem_015_GetTimeSinceLastVsync_params
 
 struct IVRSystem_IVRSystem_015_GetD3D9AdapterIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
 };
 
 struct IVRSystem_IVRSystem_015_GetDXGIOutputInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnAdapterIndex;
 };
 
 struct IVRSystem_IVRSystem_015_IsDisplayOnDesktop_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_015_SetDisplayVisibility_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     int8_t bIsVisibleOnDesktop;
 };
 
 struct IVRSystem_IVRSystem_015_GetDeviceToAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
     float fPredictedSecondsToPhotonsFromNow;
     TrackedDevicePose_t *pTrackedDevicePoseArray;
@@ -26127,24 +26127,24 @@ struct IVRSystem_IVRSystem_015_GetDeviceToAbsoluteTrackingPose_params
 
 struct IVRSystem_IVRSystem_015_ResetSeatedZeroPose_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_015_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_015_GetRawZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_015_GetSortedTrackedDeviceIndicesOfClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eTrackedDeviceClass;
     uint32_t *punTrackedDeviceIndexArray;
@@ -26154,14 +26154,14 @@ struct IVRSystem_IVRSystem_015_GetSortedTrackedDeviceIndicesOfClass_params
 
 struct IVRSystem_IVRSystem_015_GetTrackedDeviceActivityLevel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceId;
 };
 
 struct IVRSystem_IVRSystem_015_ApplyTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     TrackedDevicePose_t *pOutputPose;
     const TrackedDevicePose_t *pTrackedDevicePose;
     const HmdMatrix34_t *pTransform;
@@ -26169,35 +26169,35 @@ struct IVRSystem_IVRSystem_015_ApplyTransform_params
 
 struct IVRSystem_IVRSystem_015_GetTrackedDeviceIndexForControllerRole_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceType;
 };
 
 struct IVRSystem_IVRSystem_015_GetControllerRoleForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_015_GetTrackedDeviceClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_015_IsTrackedDeviceConnected_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_015_GetBoolTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26206,7 +26206,7 @@ struct IVRSystem_IVRSystem_015_GetBoolTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_015_GetFloatTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26215,7 +26215,7 @@ struct IVRSystem_IVRSystem_015_GetFloatTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_015_GetInt32TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26224,7 +26224,7 @@ struct IVRSystem_IVRSystem_015_GetInt32TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_015_GetUint64TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26233,7 +26233,7 @@ struct IVRSystem_IVRSystem_015_GetUint64TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_015_GetMatrix34TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26242,7 +26242,7 @@ struct IVRSystem_IVRSystem_015_GetMatrix34TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_015_GetStringTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26253,14 +26253,14 @@ struct IVRSystem_IVRSystem_015_GetStringTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_015_GetPropErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRSystem_IVRSystem_015_PollNextEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_VREvent_t_106 *pEvent;
     uint32_t uncbVREvent;
@@ -26268,7 +26268,7 @@ struct IVRSystem_IVRSystem_015_PollNextEvent_params
 
 struct IVRSystem_IVRSystem_015_PollNextEventWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     w_VREvent_t_106 *pEvent;
@@ -26278,14 +26278,14 @@ struct IVRSystem_IVRSystem_015_PollNextEventWithPose_params
 
 struct IVRSystem_IVRSystem_015_GetEventTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eType;
 };
 
 struct IVRSystem_IVRSystem_015_GetHiddenAreaMesh_params
 {
-    void *linux_side;
+    void *u_iface;
     w_HiddenAreaMesh_t *_ret;
     uint32_t eEye;
     uint32_t type;
@@ -26293,7 +26293,7 @@ struct IVRSystem_IVRSystem_015_GetHiddenAreaMesh_params
 
 struct IVRSystem_IVRSystem_015_GetControllerState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unControllerDeviceIndex;
     w_VRControllerState001_t *pControllerState;
@@ -26302,7 +26302,7 @@ struct IVRSystem_IVRSystem_015_GetControllerState_params
 
 struct IVRSystem_IVRSystem_015_GetControllerStateWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     uint32_t unControllerDeviceIndex;
@@ -26313,7 +26313,7 @@ struct IVRSystem_IVRSystem_015_GetControllerStateWithPose_params
 
 struct IVRSystem_IVRSystem_015_TriggerHapticPulse_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t unControllerDeviceIndex;
     uint32_t unAxisId;
     uint16_t usDurationMicroSec;
@@ -26321,38 +26321,38 @@ struct IVRSystem_IVRSystem_015_TriggerHapticPulse_params
 
 struct IVRSystem_IVRSystem_015_GetButtonIdNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_015_GetControllerAxisTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eAxisType;
 };
 
 struct IVRSystem_IVRSystem_015_CaptureInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_015_ReleaseInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_015_IsInputFocusCapturedByAnotherProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_015_DriverDebugRequest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     const char *pchRequest;
@@ -26362,31 +26362,31 @@ struct IVRSystem_IVRSystem_015_DriverDebugRequest_params
 
 struct IVRSystem_IVRSystem_015_PerformFirmwareUpdate_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_015_AcknowledgeQuit_Exiting_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_015_AcknowledgeQuit_UserPrompt_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_016_GetRecommendedRenderTargetSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t *pnWidth;
     uint32_t *pnHeight;
 };
 
 struct IVRSystem_IVRSystem_016_GetProjectionMatrix_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix44_t *_ret;
     uint32_t eEye;
     float fNearZ;
@@ -26395,7 +26395,7 @@ struct IVRSystem_IVRSystem_016_GetProjectionMatrix_params
 
 struct IVRSystem_IVRSystem_016_GetProjectionRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     float *pfLeft;
     float *pfRight;
@@ -26405,7 +26405,7 @@ struct IVRSystem_IVRSystem_016_GetProjectionRaw_params
 
 struct IVRSystem_IVRSystem_016_ComputeDistortion_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eEye;
     float fU;
@@ -26415,14 +26415,14 @@ struct IVRSystem_IVRSystem_016_ComputeDistortion_params
 
 struct IVRSystem_IVRSystem_016_GetEyeToHeadTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_016_GetTimeSinceLastVsync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pfSecondsSinceLastVsync;
     uint64_t *pulFrameCounter;
@@ -26430,39 +26430,39 @@ struct IVRSystem_IVRSystem_016_GetTimeSinceLastVsync_params
 
 struct IVRSystem_IVRSystem_016_GetD3D9AdapterIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
 };
 
 struct IVRSystem_IVRSystem_016_GetDXGIOutputInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnAdapterIndex;
 };
 
 struct IVRSystem_IVRSystem_016_GetOutputDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t *pnDevice;
     uint32_t textureType;
 };
 
 struct IVRSystem_IVRSystem_016_IsDisplayOnDesktop_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_016_SetDisplayVisibility_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     int8_t bIsVisibleOnDesktop;
 };
 
 struct IVRSystem_IVRSystem_016_GetDeviceToAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
     float fPredictedSecondsToPhotonsFromNow;
     TrackedDevicePose_t *pTrackedDevicePoseArray;
@@ -26471,24 +26471,24 @@ struct IVRSystem_IVRSystem_016_GetDeviceToAbsoluteTrackingPose_params
 
 struct IVRSystem_IVRSystem_016_ResetSeatedZeroPose_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_016_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_016_GetRawZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_016_GetSortedTrackedDeviceIndicesOfClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eTrackedDeviceClass;
     uint32_t *punTrackedDeviceIndexArray;
@@ -26498,14 +26498,14 @@ struct IVRSystem_IVRSystem_016_GetSortedTrackedDeviceIndicesOfClass_params
 
 struct IVRSystem_IVRSystem_016_GetTrackedDeviceActivityLevel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceId;
 };
 
 struct IVRSystem_IVRSystem_016_ApplyTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     TrackedDevicePose_t *pOutputPose;
     const TrackedDevicePose_t *pTrackedDevicePose;
     const HmdMatrix34_t *pTransform;
@@ -26513,35 +26513,35 @@ struct IVRSystem_IVRSystem_016_ApplyTransform_params
 
 struct IVRSystem_IVRSystem_016_GetTrackedDeviceIndexForControllerRole_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceType;
 };
 
 struct IVRSystem_IVRSystem_016_GetControllerRoleForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_016_GetTrackedDeviceClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_016_IsTrackedDeviceConnected_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_016_GetBoolTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26550,7 +26550,7 @@ struct IVRSystem_IVRSystem_016_GetBoolTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_016_GetFloatTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26559,7 +26559,7 @@ struct IVRSystem_IVRSystem_016_GetFloatTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_016_GetInt32TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26568,7 +26568,7 @@ struct IVRSystem_IVRSystem_016_GetInt32TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_016_GetUint64TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26577,7 +26577,7 @@ struct IVRSystem_IVRSystem_016_GetUint64TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_016_GetMatrix34TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26586,7 +26586,7 @@ struct IVRSystem_IVRSystem_016_GetMatrix34TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_016_GetStringTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26597,14 +26597,14 @@ struct IVRSystem_IVRSystem_016_GetStringTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_016_GetPropErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRSystem_IVRSystem_016_PollNextEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_VREvent_t_106 *pEvent;
     uint32_t uncbVREvent;
@@ -26612,7 +26612,7 @@ struct IVRSystem_IVRSystem_016_PollNextEvent_params
 
 struct IVRSystem_IVRSystem_016_PollNextEventWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     w_VREvent_t_106 *pEvent;
@@ -26622,14 +26622,14 @@ struct IVRSystem_IVRSystem_016_PollNextEventWithPose_params
 
 struct IVRSystem_IVRSystem_016_GetEventTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eType;
 };
 
 struct IVRSystem_IVRSystem_016_GetHiddenAreaMesh_params
 {
-    void *linux_side;
+    void *u_iface;
     w_HiddenAreaMesh_t *_ret;
     uint32_t eEye;
     uint32_t type;
@@ -26637,7 +26637,7 @@ struct IVRSystem_IVRSystem_016_GetHiddenAreaMesh_params
 
 struct IVRSystem_IVRSystem_016_GetControllerState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unControllerDeviceIndex;
     w_VRControllerState001_t *pControllerState;
@@ -26646,7 +26646,7 @@ struct IVRSystem_IVRSystem_016_GetControllerState_params
 
 struct IVRSystem_IVRSystem_016_GetControllerStateWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     uint32_t unControllerDeviceIndex;
@@ -26657,7 +26657,7 @@ struct IVRSystem_IVRSystem_016_GetControllerStateWithPose_params
 
 struct IVRSystem_IVRSystem_016_TriggerHapticPulse_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t unControllerDeviceIndex;
     uint32_t unAxisId;
     uint16_t usDurationMicroSec;
@@ -26665,38 +26665,38 @@ struct IVRSystem_IVRSystem_016_TriggerHapticPulse_params
 
 struct IVRSystem_IVRSystem_016_GetButtonIdNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_016_GetControllerAxisTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eAxisType;
 };
 
 struct IVRSystem_IVRSystem_016_CaptureInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_016_ReleaseInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_016_IsInputFocusCapturedByAnotherProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_016_DriverDebugRequest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     const char *pchRequest;
@@ -26706,31 +26706,31 @@ struct IVRSystem_IVRSystem_016_DriverDebugRequest_params
 
 struct IVRSystem_IVRSystem_016_PerformFirmwareUpdate_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_016_AcknowledgeQuit_Exiting_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_016_AcknowledgeQuit_UserPrompt_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_017_GetRecommendedRenderTargetSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t *pnWidth;
     uint32_t *pnHeight;
 };
 
 struct IVRSystem_IVRSystem_017_GetProjectionMatrix_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix44_t *_ret;
     uint32_t eEye;
     float fNearZ;
@@ -26739,7 +26739,7 @@ struct IVRSystem_IVRSystem_017_GetProjectionMatrix_params
 
 struct IVRSystem_IVRSystem_017_GetProjectionRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     float *pfLeft;
     float *pfRight;
@@ -26749,7 +26749,7 @@ struct IVRSystem_IVRSystem_017_GetProjectionRaw_params
 
 struct IVRSystem_IVRSystem_017_ComputeDistortion_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eEye;
     float fU;
@@ -26759,14 +26759,14 @@ struct IVRSystem_IVRSystem_017_ComputeDistortion_params
 
 struct IVRSystem_IVRSystem_017_GetEyeToHeadTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_017_GetTimeSinceLastVsync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pfSecondsSinceLastVsync;
     uint64_t *pulFrameCounter;
@@ -26774,19 +26774,19 @@ struct IVRSystem_IVRSystem_017_GetTimeSinceLastVsync_params
 
 struct IVRSystem_IVRSystem_017_GetD3D9AdapterIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
 };
 
 struct IVRSystem_IVRSystem_017_GetDXGIOutputInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnAdapterIndex;
 };
 
 struct IVRSystem_IVRSystem_017_GetOutputDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t *pnDevice;
     uint32_t textureType;
     VkInstance_T *pInstance;
@@ -26794,20 +26794,20 @@ struct IVRSystem_IVRSystem_017_GetOutputDevice_params
 
 struct IVRSystem_IVRSystem_017_IsDisplayOnDesktop_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_017_SetDisplayVisibility_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     int8_t bIsVisibleOnDesktop;
 };
 
 struct IVRSystem_IVRSystem_017_GetDeviceToAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
     float fPredictedSecondsToPhotonsFromNow;
     TrackedDevicePose_t *pTrackedDevicePoseArray;
@@ -26816,24 +26816,24 @@ struct IVRSystem_IVRSystem_017_GetDeviceToAbsoluteTrackingPose_params
 
 struct IVRSystem_IVRSystem_017_ResetSeatedZeroPose_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_017_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_017_GetRawZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_017_GetSortedTrackedDeviceIndicesOfClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eTrackedDeviceClass;
     uint32_t *punTrackedDeviceIndexArray;
@@ -26843,14 +26843,14 @@ struct IVRSystem_IVRSystem_017_GetSortedTrackedDeviceIndicesOfClass_params
 
 struct IVRSystem_IVRSystem_017_GetTrackedDeviceActivityLevel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceId;
 };
 
 struct IVRSystem_IVRSystem_017_ApplyTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     TrackedDevicePose_t *pOutputPose;
     const TrackedDevicePose_t *pTrackedDevicePose;
     const HmdMatrix34_t *pTransform;
@@ -26858,35 +26858,35 @@ struct IVRSystem_IVRSystem_017_ApplyTransform_params
 
 struct IVRSystem_IVRSystem_017_GetTrackedDeviceIndexForControllerRole_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceType;
 };
 
 struct IVRSystem_IVRSystem_017_GetControllerRoleForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_017_GetTrackedDeviceClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_017_IsTrackedDeviceConnected_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_017_GetBoolTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26895,7 +26895,7 @@ struct IVRSystem_IVRSystem_017_GetBoolTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_017_GetFloatTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26904,7 +26904,7 @@ struct IVRSystem_IVRSystem_017_GetFloatTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_017_GetInt32TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26913,7 +26913,7 @@ struct IVRSystem_IVRSystem_017_GetInt32TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_017_GetUint64TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26922,7 +26922,7 @@ struct IVRSystem_IVRSystem_017_GetUint64TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_017_GetMatrix34TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26931,7 +26931,7 @@ struct IVRSystem_IVRSystem_017_GetMatrix34TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_017_GetStringTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -26942,14 +26942,14 @@ struct IVRSystem_IVRSystem_017_GetStringTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_017_GetPropErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRSystem_IVRSystem_017_PollNextEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_VREvent_t_1011 *pEvent;
     uint32_t uncbVREvent;
@@ -26957,7 +26957,7 @@ struct IVRSystem_IVRSystem_017_PollNextEvent_params
 
 struct IVRSystem_IVRSystem_017_PollNextEventWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     w_VREvent_t_1011 *pEvent;
@@ -26967,14 +26967,14 @@ struct IVRSystem_IVRSystem_017_PollNextEventWithPose_params
 
 struct IVRSystem_IVRSystem_017_GetEventTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eType;
 };
 
 struct IVRSystem_IVRSystem_017_GetHiddenAreaMesh_params
 {
-    void *linux_side;
+    void *u_iface;
     w_HiddenAreaMesh_t *_ret;
     uint32_t eEye;
     uint32_t type;
@@ -26982,7 +26982,7 @@ struct IVRSystem_IVRSystem_017_GetHiddenAreaMesh_params
 
 struct IVRSystem_IVRSystem_017_GetControllerState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unControllerDeviceIndex;
     w_VRControllerState001_t *pControllerState;
@@ -26991,7 +26991,7 @@ struct IVRSystem_IVRSystem_017_GetControllerState_params
 
 struct IVRSystem_IVRSystem_017_GetControllerStateWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     uint32_t unControllerDeviceIndex;
@@ -27002,7 +27002,7 @@ struct IVRSystem_IVRSystem_017_GetControllerStateWithPose_params
 
 struct IVRSystem_IVRSystem_017_TriggerHapticPulse_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t unControllerDeviceIndex;
     uint32_t unAxisId;
     uint16_t usDurationMicroSec;
@@ -27010,38 +27010,38 @@ struct IVRSystem_IVRSystem_017_TriggerHapticPulse_params
 
 struct IVRSystem_IVRSystem_017_GetButtonIdNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_017_GetControllerAxisTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eAxisType;
 };
 
 struct IVRSystem_IVRSystem_017_CaptureInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_017_ReleaseInputFocus_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_017_IsInputFocusCapturedByAnotherProcess_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_017_DriverDebugRequest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     const char *pchRequest;
@@ -27051,31 +27051,31 @@ struct IVRSystem_IVRSystem_017_DriverDebugRequest_params
 
 struct IVRSystem_IVRSystem_017_PerformFirmwareUpdate_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_017_AcknowledgeQuit_Exiting_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_017_AcknowledgeQuit_UserPrompt_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_019_GetRecommendedRenderTargetSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t *pnWidth;
     uint32_t *pnHeight;
 };
 
 struct IVRSystem_IVRSystem_019_GetProjectionMatrix_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix44_t *_ret;
     uint32_t eEye;
     float fNearZ;
@@ -27084,7 +27084,7 @@ struct IVRSystem_IVRSystem_019_GetProjectionMatrix_params
 
 struct IVRSystem_IVRSystem_019_GetProjectionRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     float *pfLeft;
     float *pfRight;
@@ -27094,7 +27094,7 @@ struct IVRSystem_IVRSystem_019_GetProjectionRaw_params
 
 struct IVRSystem_IVRSystem_019_ComputeDistortion_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eEye;
     float fU;
@@ -27104,14 +27104,14 @@ struct IVRSystem_IVRSystem_019_ComputeDistortion_params
 
 struct IVRSystem_IVRSystem_019_GetEyeToHeadTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_019_GetTimeSinceLastVsync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pfSecondsSinceLastVsync;
     uint64_t *pulFrameCounter;
@@ -27119,19 +27119,19 @@ struct IVRSystem_IVRSystem_019_GetTimeSinceLastVsync_params
 
 struct IVRSystem_IVRSystem_019_GetD3D9AdapterIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
 };
 
 struct IVRSystem_IVRSystem_019_GetDXGIOutputInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnAdapterIndex;
 };
 
 struct IVRSystem_IVRSystem_019_GetOutputDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t *pnDevice;
     uint32_t textureType;
     VkInstance_T *pInstance;
@@ -27139,20 +27139,20 @@ struct IVRSystem_IVRSystem_019_GetOutputDevice_params
 
 struct IVRSystem_IVRSystem_019_IsDisplayOnDesktop_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_019_SetDisplayVisibility_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     int8_t bIsVisibleOnDesktop;
 };
 
 struct IVRSystem_IVRSystem_019_GetDeviceToAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
     float fPredictedSecondsToPhotonsFromNow;
     TrackedDevicePose_t *pTrackedDevicePoseArray;
@@ -27161,24 +27161,24 @@ struct IVRSystem_IVRSystem_019_GetDeviceToAbsoluteTrackingPose_params
 
 struct IVRSystem_IVRSystem_019_ResetSeatedZeroPose_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_019_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_019_GetRawZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_019_GetSortedTrackedDeviceIndicesOfClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eTrackedDeviceClass;
     uint32_t *punTrackedDeviceIndexArray;
@@ -27188,14 +27188,14 @@ struct IVRSystem_IVRSystem_019_GetSortedTrackedDeviceIndicesOfClass_params
 
 struct IVRSystem_IVRSystem_019_GetTrackedDeviceActivityLevel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceId;
 };
 
 struct IVRSystem_IVRSystem_019_ApplyTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     TrackedDevicePose_t *pOutputPose;
     const TrackedDevicePose_t *pTrackedDevicePose;
     const HmdMatrix34_t *pTransform;
@@ -27203,35 +27203,35 @@ struct IVRSystem_IVRSystem_019_ApplyTransform_params
 
 struct IVRSystem_IVRSystem_019_GetTrackedDeviceIndexForControllerRole_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceType;
 };
 
 struct IVRSystem_IVRSystem_019_GetControllerRoleForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_019_GetTrackedDeviceClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_019_IsTrackedDeviceConnected_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_019_GetBoolTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27240,7 +27240,7 @@ struct IVRSystem_IVRSystem_019_GetBoolTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_019_GetFloatTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27249,7 +27249,7 @@ struct IVRSystem_IVRSystem_019_GetFloatTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_019_GetInt32TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27258,7 +27258,7 @@ struct IVRSystem_IVRSystem_019_GetInt32TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_019_GetUint64TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27267,7 +27267,7 @@ struct IVRSystem_IVRSystem_019_GetUint64TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_019_GetMatrix34TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27276,7 +27276,7 @@ struct IVRSystem_IVRSystem_019_GetMatrix34TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_019_GetArrayTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27288,7 +27288,7 @@ struct IVRSystem_IVRSystem_019_GetArrayTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_019_GetStringTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27299,14 +27299,14 @@ struct IVRSystem_IVRSystem_019_GetStringTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_019_GetPropErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRSystem_IVRSystem_019_PollNextEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_VREvent_t_1322 *pEvent;
     uint32_t uncbVREvent;
@@ -27314,7 +27314,7 @@ struct IVRSystem_IVRSystem_019_PollNextEvent_params
 
 struct IVRSystem_IVRSystem_019_PollNextEventWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     w_VREvent_t_1322 *pEvent;
@@ -27324,14 +27324,14 @@ struct IVRSystem_IVRSystem_019_PollNextEventWithPose_params
 
 struct IVRSystem_IVRSystem_019_GetEventTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eType;
 };
 
 struct IVRSystem_IVRSystem_019_GetHiddenAreaMesh_params
 {
-    void *linux_side;
+    void *u_iface;
     w_HiddenAreaMesh_t *_ret;
     uint32_t eEye;
     uint32_t type;
@@ -27339,7 +27339,7 @@ struct IVRSystem_IVRSystem_019_GetHiddenAreaMesh_params
 
 struct IVRSystem_IVRSystem_019_GetControllerState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unControllerDeviceIndex;
     w_VRControllerState001_t *pControllerState;
@@ -27348,7 +27348,7 @@ struct IVRSystem_IVRSystem_019_GetControllerState_params
 
 struct IVRSystem_IVRSystem_019_GetControllerStateWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     uint32_t unControllerDeviceIndex;
@@ -27359,7 +27359,7 @@ struct IVRSystem_IVRSystem_019_GetControllerStateWithPose_params
 
 struct IVRSystem_IVRSystem_019_TriggerHapticPulse_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t unControllerDeviceIndex;
     uint32_t unAxisId;
     uint16_t usDurationMicroSec;
@@ -27367,45 +27367,45 @@ struct IVRSystem_IVRSystem_019_TriggerHapticPulse_params
 
 struct IVRSystem_IVRSystem_019_GetButtonIdNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_019_GetControllerAxisTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eAxisType;
 };
 
 struct IVRSystem_IVRSystem_019_IsInputAvailable_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_019_IsSteamVRDrawingControllers_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_019_ShouldApplicationPause_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_019_ShouldApplicationReduceRenderingWork_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_019_DriverDebugRequest_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     const char *pchRequest;
@@ -27415,31 +27415,31 @@ struct IVRSystem_IVRSystem_019_DriverDebugRequest_params
 
 struct IVRSystem_IVRSystem_019_PerformFirmwareUpdate_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_019_AcknowledgeQuit_Exiting_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_019_AcknowledgeQuit_UserPrompt_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_020_GetRecommendedRenderTargetSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t *pnWidth;
     uint32_t *pnHeight;
 };
 
 struct IVRSystem_IVRSystem_020_GetProjectionMatrix_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix44_t *_ret;
     uint32_t eEye;
     float fNearZ;
@@ -27448,7 +27448,7 @@ struct IVRSystem_IVRSystem_020_GetProjectionMatrix_params
 
 struct IVRSystem_IVRSystem_020_GetProjectionRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     float *pfLeft;
     float *pfRight;
@@ -27458,7 +27458,7 @@ struct IVRSystem_IVRSystem_020_GetProjectionRaw_params
 
 struct IVRSystem_IVRSystem_020_ComputeDistortion_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eEye;
     float fU;
@@ -27468,14 +27468,14 @@ struct IVRSystem_IVRSystem_020_ComputeDistortion_params
 
 struct IVRSystem_IVRSystem_020_GetEyeToHeadTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_020_GetTimeSinceLastVsync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pfSecondsSinceLastVsync;
     uint64_t *pulFrameCounter;
@@ -27483,19 +27483,19 @@ struct IVRSystem_IVRSystem_020_GetTimeSinceLastVsync_params
 
 struct IVRSystem_IVRSystem_020_GetD3D9AdapterIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
 };
 
 struct IVRSystem_IVRSystem_020_GetDXGIOutputInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnAdapterIndex;
 };
 
 struct IVRSystem_IVRSystem_020_GetOutputDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t *pnDevice;
     uint32_t textureType;
     VkInstance_T *pInstance;
@@ -27503,20 +27503,20 @@ struct IVRSystem_IVRSystem_020_GetOutputDevice_params
 
 struct IVRSystem_IVRSystem_020_IsDisplayOnDesktop_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_020_SetDisplayVisibility_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     int8_t bIsVisibleOnDesktop;
 };
 
 struct IVRSystem_IVRSystem_020_GetDeviceToAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
     float fPredictedSecondsToPhotonsFromNow;
     TrackedDevicePose_t *pTrackedDevicePoseArray;
@@ -27525,24 +27525,24 @@ struct IVRSystem_IVRSystem_020_GetDeviceToAbsoluteTrackingPose_params
 
 struct IVRSystem_IVRSystem_020_ResetSeatedZeroPose_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_020_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_020_GetRawZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_020_GetSortedTrackedDeviceIndicesOfClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eTrackedDeviceClass;
     uint32_t *punTrackedDeviceIndexArray;
@@ -27552,14 +27552,14 @@ struct IVRSystem_IVRSystem_020_GetSortedTrackedDeviceIndicesOfClass_params
 
 struct IVRSystem_IVRSystem_020_GetTrackedDeviceActivityLevel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceId;
 };
 
 struct IVRSystem_IVRSystem_020_ApplyTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     TrackedDevicePose_t *pOutputPose;
     const TrackedDevicePose_t *pTrackedDevicePose;
     const HmdMatrix34_t *pTransform;
@@ -27567,35 +27567,35 @@ struct IVRSystem_IVRSystem_020_ApplyTransform_params
 
 struct IVRSystem_IVRSystem_020_GetTrackedDeviceIndexForControllerRole_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceType;
 };
 
 struct IVRSystem_IVRSystem_020_GetControllerRoleForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_020_GetTrackedDeviceClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_020_IsTrackedDeviceConnected_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_020_GetBoolTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27604,7 +27604,7 @@ struct IVRSystem_IVRSystem_020_GetBoolTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_020_GetFloatTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27613,7 +27613,7 @@ struct IVRSystem_IVRSystem_020_GetFloatTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_020_GetInt32TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27622,7 +27622,7 @@ struct IVRSystem_IVRSystem_020_GetInt32TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_020_GetUint64TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27631,7 +27631,7 @@ struct IVRSystem_IVRSystem_020_GetUint64TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_020_GetMatrix34TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27640,7 +27640,7 @@ struct IVRSystem_IVRSystem_020_GetMatrix34TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_020_GetArrayTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27652,7 +27652,7 @@ struct IVRSystem_IVRSystem_020_GetArrayTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_020_GetStringTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27663,14 +27663,14 @@ struct IVRSystem_IVRSystem_020_GetStringTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_020_GetPropErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRSystem_IVRSystem_020_PollNextEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_VREvent_t_1322 *pEvent;
     uint32_t uncbVREvent;
@@ -27678,7 +27678,7 @@ struct IVRSystem_IVRSystem_020_PollNextEvent_params
 
 struct IVRSystem_IVRSystem_020_PollNextEventWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     w_VREvent_t_1322 *pEvent;
@@ -27688,14 +27688,14 @@ struct IVRSystem_IVRSystem_020_PollNextEventWithPose_params
 
 struct IVRSystem_IVRSystem_020_GetEventTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eType;
 };
 
 struct IVRSystem_IVRSystem_020_GetHiddenAreaMesh_params
 {
-    void *linux_side;
+    void *u_iface;
     w_HiddenAreaMesh_t *_ret;
     uint32_t eEye;
     uint32_t type;
@@ -27703,7 +27703,7 @@ struct IVRSystem_IVRSystem_020_GetHiddenAreaMesh_params
 
 struct IVRSystem_IVRSystem_020_GetControllerState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unControllerDeviceIndex;
     w_VRControllerState001_t *pControllerState;
@@ -27712,7 +27712,7 @@ struct IVRSystem_IVRSystem_020_GetControllerState_params
 
 struct IVRSystem_IVRSystem_020_GetControllerStateWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     uint32_t unControllerDeviceIndex;
@@ -27723,7 +27723,7 @@ struct IVRSystem_IVRSystem_020_GetControllerStateWithPose_params
 
 struct IVRSystem_IVRSystem_020_TriggerHapticPulse_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t unControllerDeviceIndex;
     uint32_t unAxisId;
     uint16_t usDurationMicroSec;
@@ -27731,62 +27731,62 @@ struct IVRSystem_IVRSystem_020_TriggerHapticPulse_params
 
 struct IVRSystem_IVRSystem_020_GetButtonIdNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_020_GetControllerAxisTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eAxisType;
 };
 
 struct IVRSystem_IVRSystem_020_IsInputAvailable_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_020_IsSteamVRDrawingControllers_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_020_ShouldApplicationPause_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_020_ShouldApplicationReduceRenderingWork_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_020_PerformFirmwareUpdate_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_020_AcknowledgeQuit_Exiting_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_020_AcknowledgeQuit_UserPrompt_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_020_GetAppContainerFilePaths_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchBuffer;
     uint32_t unBufferSize;
@@ -27794,20 +27794,20 @@ struct IVRSystem_IVRSystem_020_GetAppContainerFilePaths_params
 
 struct IVRSystem_IVRSystem_020_GetRuntimeVersion_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
 };
 
 struct IVRSystem_IVRSystem_021_GetRecommendedRenderTargetSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t *pnWidth;
     uint32_t *pnHeight;
 };
 
 struct IVRSystem_IVRSystem_021_GetProjectionMatrix_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix44_t *_ret;
     uint32_t eEye;
     float fNearZ;
@@ -27816,7 +27816,7 @@ struct IVRSystem_IVRSystem_021_GetProjectionMatrix_params
 
 struct IVRSystem_IVRSystem_021_GetProjectionRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     float *pfLeft;
     float *pfRight;
@@ -27826,7 +27826,7 @@ struct IVRSystem_IVRSystem_021_GetProjectionRaw_params
 
 struct IVRSystem_IVRSystem_021_ComputeDistortion_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eEye;
     float fU;
@@ -27836,14 +27836,14 @@ struct IVRSystem_IVRSystem_021_ComputeDistortion_params
 
 struct IVRSystem_IVRSystem_021_GetEyeToHeadTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_021_GetTimeSinceLastVsync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pfSecondsSinceLastVsync;
     uint64_t *pulFrameCounter;
@@ -27851,19 +27851,19 @@ struct IVRSystem_IVRSystem_021_GetTimeSinceLastVsync_params
 
 struct IVRSystem_IVRSystem_021_GetD3D9AdapterIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
 };
 
 struct IVRSystem_IVRSystem_021_GetDXGIOutputInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnAdapterIndex;
 };
 
 struct IVRSystem_IVRSystem_021_GetOutputDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t *pnDevice;
     uint32_t textureType;
     VkInstance_T *pInstance;
@@ -27871,20 +27871,20 @@ struct IVRSystem_IVRSystem_021_GetOutputDevice_params
 
 struct IVRSystem_IVRSystem_021_IsDisplayOnDesktop_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_021_SetDisplayVisibility_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     int8_t bIsVisibleOnDesktop;
 };
 
 struct IVRSystem_IVRSystem_021_GetDeviceToAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
     float fPredictedSecondsToPhotonsFromNow;
     TrackedDevicePose_t *pTrackedDevicePoseArray;
@@ -27893,24 +27893,24 @@ struct IVRSystem_IVRSystem_021_GetDeviceToAbsoluteTrackingPose_params
 
 struct IVRSystem_IVRSystem_021_ResetSeatedZeroPose_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_021_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_021_GetRawZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_021_GetSortedTrackedDeviceIndicesOfClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eTrackedDeviceClass;
     uint32_t *punTrackedDeviceIndexArray;
@@ -27920,14 +27920,14 @@ struct IVRSystem_IVRSystem_021_GetSortedTrackedDeviceIndicesOfClass_params
 
 struct IVRSystem_IVRSystem_021_GetTrackedDeviceActivityLevel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceId;
 };
 
 struct IVRSystem_IVRSystem_021_ApplyTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     TrackedDevicePose_t *pOutputPose;
     const TrackedDevicePose_t *pTrackedDevicePose;
     const HmdMatrix34_t *pTransform;
@@ -27935,35 +27935,35 @@ struct IVRSystem_IVRSystem_021_ApplyTransform_params
 
 struct IVRSystem_IVRSystem_021_GetTrackedDeviceIndexForControllerRole_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceType;
 };
 
 struct IVRSystem_IVRSystem_021_GetControllerRoleForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_021_GetTrackedDeviceClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_021_IsTrackedDeviceConnected_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_021_GetBoolTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27972,7 +27972,7 @@ struct IVRSystem_IVRSystem_021_GetBoolTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_021_GetFloatTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27981,7 +27981,7 @@ struct IVRSystem_IVRSystem_021_GetFloatTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_021_GetInt32TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27990,7 +27990,7 @@ struct IVRSystem_IVRSystem_021_GetInt32TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_021_GetUint64TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -27999,7 +27999,7 @@ struct IVRSystem_IVRSystem_021_GetUint64TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_021_GetMatrix34TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -28008,7 +28008,7 @@ struct IVRSystem_IVRSystem_021_GetMatrix34TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_021_GetArrayTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -28020,7 +28020,7 @@ struct IVRSystem_IVRSystem_021_GetArrayTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_021_GetStringTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -28031,14 +28031,14 @@ struct IVRSystem_IVRSystem_021_GetStringTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_021_GetPropErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRSystem_IVRSystem_021_PollNextEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_VREvent_t_11030 *pEvent;
     uint32_t uncbVREvent;
@@ -28046,7 +28046,7 @@ struct IVRSystem_IVRSystem_021_PollNextEvent_params
 
 struct IVRSystem_IVRSystem_021_PollNextEventWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     w_VREvent_t_11030 *pEvent;
@@ -28056,14 +28056,14 @@ struct IVRSystem_IVRSystem_021_PollNextEventWithPose_params
 
 struct IVRSystem_IVRSystem_021_GetEventTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eType;
 };
 
 struct IVRSystem_IVRSystem_021_GetHiddenAreaMesh_params
 {
-    void *linux_side;
+    void *u_iface;
     w_HiddenAreaMesh_t *_ret;
     uint32_t eEye;
     uint32_t type;
@@ -28071,7 +28071,7 @@ struct IVRSystem_IVRSystem_021_GetHiddenAreaMesh_params
 
 struct IVRSystem_IVRSystem_021_GetControllerState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unControllerDeviceIndex;
     w_VRControllerState001_t *pControllerState;
@@ -28080,7 +28080,7 @@ struct IVRSystem_IVRSystem_021_GetControllerState_params
 
 struct IVRSystem_IVRSystem_021_GetControllerStateWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     uint32_t unControllerDeviceIndex;
@@ -28091,7 +28091,7 @@ struct IVRSystem_IVRSystem_021_GetControllerStateWithPose_params
 
 struct IVRSystem_IVRSystem_021_TriggerHapticPulse_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t unControllerDeviceIndex;
     uint32_t unAxisId;
     uint16_t usDurationMicroSec;
@@ -28099,57 +28099,57 @@ struct IVRSystem_IVRSystem_021_TriggerHapticPulse_params
 
 struct IVRSystem_IVRSystem_021_GetButtonIdNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_021_GetControllerAxisTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eAxisType;
 };
 
 struct IVRSystem_IVRSystem_021_IsInputAvailable_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_021_IsSteamVRDrawingControllers_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_021_ShouldApplicationPause_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_021_ShouldApplicationReduceRenderingWork_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_021_PerformFirmwareUpdate_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_021_AcknowledgeQuit_Exiting_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_021_GetAppContainerFilePaths_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchBuffer;
     uint32_t unBufferSize;
@@ -28157,20 +28157,20 @@ struct IVRSystem_IVRSystem_021_GetAppContainerFilePaths_params
 
 struct IVRSystem_IVRSystem_021_GetRuntimeVersion_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
 };
 
 struct IVRSystem_IVRSystem_022_GetRecommendedRenderTargetSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t *pnWidth;
     uint32_t *pnHeight;
 };
 
 struct IVRSystem_IVRSystem_022_GetProjectionMatrix_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix44_t *_ret;
     uint32_t eEye;
     float fNearZ;
@@ -28179,7 +28179,7 @@ struct IVRSystem_IVRSystem_022_GetProjectionMatrix_params
 
 struct IVRSystem_IVRSystem_022_GetProjectionRaw_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eEye;
     float *pfLeft;
     float *pfRight;
@@ -28189,7 +28189,7 @@ struct IVRSystem_IVRSystem_022_GetProjectionRaw_params
 
 struct IVRSystem_IVRSystem_022_ComputeDistortion_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eEye;
     float fU;
@@ -28199,14 +28199,14 @@ struct IVRSystem_IVRSystem_022_ComputeDistortion_params
 
 struct IVRSystem_IVRSystem_022_GetEyeToHeadTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t eEye;
 };
 
 struct IVRSystem_IVRSystem_022_GetTimeSinceLastVsync_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     float *pfSecondsSinceLastVsync;
     uint64_t *pulFrameCounter;
@@ -28214,19 +28214,19 @@ struct IVRSystem_IVRSystem_022_GetTimeSinceLastVsync_params
 
 struct IVRSystem_IVRSystem_022_GetD3D9AdapterIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
 };
 
 struct IVRSystem_IVRSystem_022_GetDXGIOutputInfo_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t *pnAdapterIndex;
 };
 
 struct IVRSystem_IVRSystem_022_GetOutputDevice_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t *pnDevice;
     uint32_t textureType;
     VkInstance_T *pInstance;
@@ -28234,20 +28234,20 @@ struct IVRSystem_IVRSystem_022_GetOutputDevice_params
 
 struct IVRSystem_IVRSystem_022_IsDisplayOnDesktop_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_022_SetDisplayVisibility_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     int8_t bIsVisibleOnDesktop;
 };
 
 struct IVRSystem_IVRSystem_022_GetDeviceToAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eOrigin;
     float fPredictedSecondsToPhotonsFromNow;
     TrackedDevicePose_t *pTrackedDevicePoseArray;
@@ -28256,19 +28256,19 @@ struct IVRSystem_IVRSystem_022_GetDeviceToAbsoluteTrackingPose_params
 
 struct IVRSystem_IVRSystem_022_GetSeatedZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_022_GetRawZeroPoseToStandingAbsoluteTrackingPose_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
 };
 
 struct IVRSystem_IVRSystem_022_GetSortedTrackedDeviceIndicesOfClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t eTrackedDeviceClass;
     uint32_t *punTrackedDeviceIndexArray;
@@ -28278,14 +28278,14 @@ struct IVRSystem_IVRSystem_022_GetSortedTrackedDeviceIndicesOfClass_params
 
 struct IVRSystem_IVRSystem_022_GetTrackedDeviceActivityLevel_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceId;
 };
 
 struct IVRSystem_IVRSystem_022_ApplyTransform_params
 {
-    void *linux_side;
+    void *u_iface;
     TrackedDevicePose_t *pOutputPose;
     const TrackedDevicePose_t *pTrackedDevicePose;
     const HmdMatrix34_t *pTransform;
@@ -28293,35 +28293,35 @@ struct IVRSystem_IVRSystem_022_ApplyTransform_params
 
 struct IVRSystem_IVRSystem_022_GetTrackedDeviceIndexForControllerRole_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceType;
 };
 
 struct IVRSystem_IVRSystem_022_GetControllerRoleForTrackedDeviceIndex_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_022_GetTrackedDeviceClass_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_022_IsTrackedDeviceConnected_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_022_GetBoolTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -28330,7 +28330,7 @@ struct IVRSystem_IVRSystem_022_GetBoolTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_022_GetFloatTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -28339,7 +28339,7 @@ struct IVRSystem_IVRSystem_022_GetFloatTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_022_GetInt32TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     int32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -28348,7 +28348,7 @@ struct IVRSystem_IVRSystem_022_GetInt32TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_022_GetUint64TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint64_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -28357,7 +28357,7 @@ struct IVRSystem_IVRSystem_022_GetUint64TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_022_GetMatrix34TrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     HmdMatrix34_t *_ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -28366,7 +28366,7 @@ struct IVRSystem_IVRSystem_022_GetMatrix34TrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_022_GetArrayTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -28378,7 +28378,7 @@ struct IVRSystem_IVRSystem_022_GetArrayTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_022_GetStringTrackedDeviceProperty_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
     uint32_t prop;
@@ -28389,14 +28389,14 @@ struct IVRSystem_IVRSystem_022_GetStringTrackedDeviceProperty_params
 
 struct IVRSystem_IVRSystem_022_GetPropErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t error;
 };
 
 struct IVRSystem_IVRSystem_022_PollNextEvent_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     w_VREvent_t_223 *pEvent;
     uint32_t uncbVREvent;
@@ -28404,7 +28404,7 @@ struct IVRSystem_IVRSystem_022_PollNextEvent_params
 
 struct IVRSystem_IVRSystem_022_PollNextEventWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     w_VREvent_t_223 *pEvent;
@@ -28414,14 +28414,14 @@ struct IVRSystem_IVRSystem_022_PollNextEventWithPose_params
 
 struct IVRSystem_IVRSystem_022_GetEventTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eType;
 };
 
 struct IVRSystem_IVRSystem_022_GetHiddenAreaMesh_params
 {
-    void *linux_side;
+    void *u_iface;
     w_HiddenAreaMesh_t *_ret;
     uint32_t eEye;
     uint32_t type;
@@ -28429,7 +28429,7 @@ struct IVRSystem_IVRSystem_022_GetHiddenAreaMesh_params
 
 struct IVRSystem_IVRSystem_022_GetControllerState_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t unControllerDeviceIndex;
     w_VRControllerState001_t *pControllerState;
@@ -28438,7 +28438,7 @@ struct IVRSystem_IVRSystem_022_GetControllerState_params
 
 struct IVRSystem_IVRSystem_022_GetControllerStateWithPose_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t eOrigin;
     uint32_t unControllerDeviceIndex;
@@ -28449,7 +28449,7 @@ struct IVRSystem_IVRSystem_022_GetControllerStateWithPose_params
 
 struct IVRSystem_IVRSystem_022_TriggerHapticPulse_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t unControllerDeviceIndex;
     uint32_t unAxisId;
     uint16_t usDurationMicroSec;
@@ -28457,57 +28457,57 @@ struct IVRSystem_IVRSystem_022_TriggerHapticPulse_params
 
 struct IVRSystem_IVRSystem_022_GetButtonIdNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_022_GetControllerAxisTypeNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eAxisType;
 };
 
 struct IVRSystem_IVRSystem_022_IsInputAvailable_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_022_IsSteamVRDrawingControllers_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_022_ShouldApplicationPause_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_022_ShouldApplicationReduceRenderingWork_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
 };
 
 struct IVRSystem_IVRSystem_022_PerformFirmwareUpdate_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t unDeviceIndex;
 };
 
 struct IVRSystem_IVRSystem_022_AcknowledgeQuit_Exiting_params
 {
-    void *linux_side;
+    void *u_iface;
 };
 
 struct IVRSystem_IVRSystem_022_GetAppContainerFilePaths_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     char *pchBuffer;
     uint32_t unBufferSize;
@@ -28515,20 +28515,20 @@ struct IVRSystem_IVRSystem_022_GetAppContainerFilePaths_params
 
 struct IVRSystem_IVRSystem_022_GetRuntimeVersion_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_HasCamera_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t nDeviceIndex;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_GetCameraFirmwareDescription_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t nDeviceIndex;
     char *pBuffer;
@@ -28537,7 +28537,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_001_GetCameraFirmwareDescription_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_GetCameraFrameDimensions_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t nDeviceIndex;
     uint32_t nVideoStreamFormat;
@@ -28547,7 +28547,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_001_GetCameraFrameDimensions_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_SetCameraVideoStreamFormat_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t nDeviceIndex;
     uint32_t nVideoStreamFormat;
@@ -28555,14 +28555,14 @@ struct IVRTrackedCamera_IVRTrackedCamera_001_SetCameraVideoStreamFormat_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_GetCameraVideoStreamFormat_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_EnableCameraForStreaming_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t nDeviceIndex;
     int8_t bEnable;
@@ -28570,42 +28570,42 @@ struct IVRTrackedCamera_IVRTrackedCamera_001_EnableCameraForStreaming_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_StartVideoStream_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t nDeviceIndex;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_StopVideoStream_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t nDeviceIndex;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_IsVideoStreamActive_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t nDeviceIndex;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_GetVideoStreamElapsedTime_params
 {
-    void *linux_side;
+    void *u_iface;
     float _ret;
     uint32_t nDeviceIndex;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_GetVideoStreamFrame_params
 {
-    void *linux_side;
+    void *u_iface;
     const w_CameraVideoStreamFrame_t_0914 *_ret;
     uint32_t nDeviceIndex;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_ReleaseVideoStreamFrame_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t nDeviceIndex;
     const w_CameraVideoStreamFrame_t_0914 *pFrameImage;
@@ -28613,7 +28613,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_001_ReleaseVideoStreamFrame_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_SetAutoExposure_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t nDeviceIndex;
     int8_t bEnable;
@@ -28621,28 +28621,28 @@ struct IVRTrackedCamera_IVRTrackedCamera_001_SetAutoExposure_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_PauseVideoStream_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t nDeviceIndex;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_ResumeVideoStream_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t nDeviceIndex;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_IsVideoStreamPaused_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t nDeviceIndex;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_GetCameraDistortion_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t nDeviceIndex;
     float flInputU;
@@ -28653,7 +28653,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_001_GetCameraDistortion_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_GetCameraProjection_params
 {
-    void *linux_side;
+    void *u_iface;
     int8_t _ret;
     uint32_t nDeviceIndex;
     float flWidthPixels;
@@ -28665,14 +28665,14 @@ struct IVRTrackedCamera_IVRTrackedCamera_001_GetCameraProjection_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_002_GetCameraErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eCameraError;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_002_HasCamera_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     int8_t *pHasCamera;
@@ -28680,7 +28680,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_002_HasCamera_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_002_GetCameraFrameSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t eFrameType;
@@ -28691,7 +28691,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_002_GetCameraFrameSize_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_002_GetCameraIntrinisics_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t eFrameType;
@@ -28701,7 +28701,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_002_GetCameraIntrinisics_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_002_GetCameraProjection_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t eFrameType;
@@ -28712,7 +28712,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_002_GetCameraProjection_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_002_AcquireVideoStreamingService_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     void **pHandle;
@@ -28720,14 +28720,14 @@ struct IVRTrackedCamera_IVRTrackedCamera_002_AcquireVideoStreamingService_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_002_ReleaseVideoStreamingService_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     void *hTrackedCamera;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_002_GetVideoStreamFrameBuffer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     void *hTrackedCamera;
     uint32_t eFrameType;
@@ -28739,14 +28739,14 @@ struct IVRTrackedCamera_IVRTrackedCamera_002_GetVideoStreamFrameBuffer_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_003_GetCameraErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eCameraError;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_003_HasCamera_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     int8_t *pHasCamera;
@@ -28754,7 +28754,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_003_HasCamera_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_003_GetCameraFrameSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t eFrameType;
@@ -28765,7 +28765,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_003_GetCameraFrameSize_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_003_GetCameraIntrinsics_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t eFrameType;
@@ -28775,7 +28775,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_003_GetCameraIntrinsics_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_003_GetCameraProjection_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t eFrameType;
@@ -28786,7 +28786,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_003_GetCameraProjection_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_003_AcquireVideoStreamingService_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint64_t *pHandle;
@@ -28794,14 +28794,14 @@ struct IVRTrackedCamera_IVRTrackedCamera_003_AcquireVideoStreamingService_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_003_ReleaseVideoStreamingService_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_003_GetVideoStreamFrameBuffer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
     uint32_t eFrameType;
@@ -28813,7 +28813,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_003_GetVideoStreamFrameBuffer_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_003_GetVideoStreamTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t eFrameType;
@@ -28824,7 +28824,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_003_GetVideoStreamTextureSize_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_003_GetVideoStreamTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
     uint32_t eFrameType;
@@ -28836,7 +28836,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_003_GetVideoStreamTextureD3D11_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_003_GetVideoStreamTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
     uint32_t eFrameType;
@@ -28847,7 +28847,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_003_GetVideoStreamTextureGL_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_003_ReleaseVideoStreamTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
     uint32_t glTextureId;
@@ -28855,14 +28855,14 @@ struct IVRTrackedCamera_IVRTrackedCamera_003_ReleaseVideoStreamTextureGL_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_004_GetCameraErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eCameraError;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_004_HasCamera_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     int8_t *pHasCamera;
@@ -28870,7 +28870,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_004_HasCamera_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_004_GetCameraFrameSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t eFrameType;
@@ -28881,7 +28881,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_004_GetCameraFrameSize_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_004_GetCameraIntrinsics_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t eFrameType;
@@ -28891,7 +28891,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_004_GetCameraIntrinsics_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_004_GetCameraProjection_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t eFrameType;
@@ -28902,7 +28902,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_004_GetCameraProjection_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_004_AcquireVideoStreamingService_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint64_t *pHandle;
@@ -28910,14 +28910,14 @@ struct IVRTrackedCamera_IVRTrackedCamera_004_AcquireVideoStreamingService_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_004_ReleaseVideoStreamingService_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_004_GetVideoStreamFrameBuffer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
     uint32_t eFrameType;
@@ -28929,7 +28929,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_004_GetVideoStreamFrameBuffer_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_004_GetVideoStreamTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t eFrameType;
@@ -28940,7 +28940,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_004_GetVideoStreamTextureSize_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_004_GetVideoStreamTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
     uint32_t eFrameType;
@@ -28952,7 +28952,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_004_GetVideoStreamTextureD3D11_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_004_GetVideoStreamTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
     uint32_t eFrameType;
@@ -28963,7 +28963,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_004_GetVideoStreamTextureGL_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_004_ReleaseVideoStreamTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
     uint32_t glTextureId;
@@ -28971,14 +28971,14 @@ struct IVRTrackedCamera_IVRTrackedCamera_004_ReleaseVideoStreamTextureGL_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_005_GetCameraErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eCameraError;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_005_HasCamera_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     int8_t *pHasCamera;
@@ -28986,7 +28986,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_005_HasCamera_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_005_GetCameraFrameSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t eFrameType;
@@ -28997,7 +28997,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_005_GetCameraFrameSize_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_005_GetCameraIntrinsics_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t nCameraIndex;
@@ -29008,7 +29008,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_005_GetCameraIntrinsics_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_005_GetCameraProjection_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t nCameraIndex;
@@ -29020,7 +29020,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_005_GetCameraProjection_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_005_AcquireVideoStreamingService_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint64_t *pHandle;
@@ -29028,14 +29028,14 @@ struct IVRTrackedCamera_IVRTrackedCamera_005_AcquireVideoStreamingService_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_005_ReleaseVideoStreamingService_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamFrameBuffer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
     uint32_t eFrameType;
@@ -29047,7 +29047,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamFrameBuffer_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t eFrameType;
@@ -29058,7 +29058,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureSize_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
     uint32_t eFrameType;
@@ -29070,7 +29070,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureD3D11_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
     uint32_t eFrameType;
@@ -29081,7 +29081,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_005_GetVideoStreamTextureGL_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_005_ReleaseVideoStreamTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
     uint32_t glTextureId;
@@ -29089,14 +29089,14 @@ struct IVRTrackedCamera_IVRTrackedCamera_005_ReleaseVideoStreamTextureGL_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_006_GetCameraErrorNameFromEnum_params
 {
-    void *linux_side;
+    void *u_iface;
     const char *_ret;
     uint32_t eCameraError;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_006_HasCamera_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     int8_t *pHasCamera;
@@ -29104,7 +29104,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_006_HasCamera_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_006_GetCameraFrameSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t eFrameType;
@@ -29115,7 +29115,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_006_GetCameraFrameSize_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_006_GetCameraIntrinsics_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t nCameraIndex;
@@ -29126,7 +29126,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_006_GetCameraIntrinsics_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_006_GetCameraProjection_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t nCameraIndex;
@@ -29138,7 +29138,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_006_GetCameraProjection_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_006_AcquireVideoStreamingService_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint64_t *pHandle;
@@ -29146,14 +29146,14 @@ struct IVRTrackedCamera_IVRTrackedCamera_006_AcquireVideoStreamingService_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_006_ReleaseVideoStreamingService_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_006_GetVideoStreamFrameBuffer_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
     uint32_t eFrameType;
@@ -29165,7 +29165,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_006_GetVideoStreamFrameBuffer_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_006_GetVideoStreamTextureSize_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint32_t nDeviceIndex;
     uint32_t eFrameType;
@@ -29176,7 +29176,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_006_GetVideoStreamTextureSize_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_006_GetVideoStreamTextureD3D11_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
     uint32_t eFrameType;
@@ -29188,7 +29188,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_006_GetVideoStreamTextureD3D11_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_006_GetVideoStreamTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
     uint32_t eFrameType;
@@ -29199,7 +29199,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_006_GetVideoStreamTextureGL_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_006_ReleaseVideoStreamTextureGL_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
     uint64_t hTrackedCamera;
     uint32_t glTextureId;
@@ -29207,13 +29207,13 @@ struct IVRTrackedCamera_IVRTrackedCamera_006_ReleaseVideoStreamTextureGL_params
 
 struct IVRTrackedCamera_IVRTrackedCamera_006_SetCameraTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t eUniverse;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_006_GetCameraTrackingSpace_params
 {
-    void *linux_side;
+    void *u_iface;
     uint32_t _ret;
 };
 

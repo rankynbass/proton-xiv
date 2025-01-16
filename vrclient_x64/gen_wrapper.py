@@ -476,8 +476,8 @@ class Method:
             params = [ret] + params
             names = ['_ret'] + names
 
-        params = ['void *linux_side'] + params
-        names = ['linux_side'] + names
+        params = ['void *u_iface'] + params
+        names = ['u_iface'] + names
 
         out(f'struct {self.full_name}_params\n')
         out(u'{\n')
@@ -715,12 +715,12 @@ def handle_method_cpp(method, classname, out):
     need_convert = {n: p for n, p in zip(names, method.get_arguments())
                     if param_needs_conversion(p)}
 
-    names = ['linux_side'] + names
+    names = ['u_iface'] + names
 
     out(f'NTSTATUS {method.full_name}( void *args )\n')
     out(u'{\n')
     out(f'    struct {method.full_name}_params *params = (struct {method.full_name}_params *)args;\n')
-    out(f'    struct u_{klass.full_name} *iface = (struct u_{klass.full_name} *)params->linux_side;\n')
+    out(f'    struct u_{klass.full_name} *iface = (struct u_{klass.full_name} *)params->u_iface;\n')
 
     params = list(zip(names[1:], method.get_arguments()))
     for i, (name, param) in enumerate(params[:-1]):
@@ -849,7 +849,7 @@ def handle_method_c(klass, method, winclassname, out):
         params = [f'{declspec(method.result_type, "*_ret", "w_")}'] + params
         names = ['_ret'] + names
 
-    params = ['struct w_steam_iface *_this'] + params
+    params = ['struct w_iface *_this'] + params
     names = ['_this'] + names
 
     if is_manual_method(klass, method, 'w'):
@@ -880,7 +880,7 @@ def handle_method_c(klass, method, winclassname, out):
 
     out(f'    struct {method.full_name}_params params =\n')
     out(u'    {\n')
-    out(u'        .linux_side = _this->u_iface,\n')
+    out(u'        .u_iface = _this->u_iface,\n')
     if returns_record:
         out(u'        ._ret = _ret,\n')
     for name, param in params[:-1]:
@@ -965,24 +965,24 @@ def handle_class(klass):
         out(u'    );\n')
         out(u'__ASM_BLOCK_END\n')
         out(u'\n')
-        out(f'struct w_steam_iface *create_{winclassname}(void *u_iface)\n')
+        out(f'struct w_iface *create_{winclassname}(void *u_iface)\n')
         out(u'{\n')
-        out(u'    struct w_steam_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));\n')
+        out(u'    struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));\n')
         out(u'    TRACE("-> %p\\n", r);\n')
         out(f'    r->vtable = &{winclassname}_vtable;\n')
         out(u'    r->u_iface = u_iface;\n')
         out(u'    return r;\n')
         out(u'}\n\n')
-        out(f'void destroy_{winclassname}(struct w_steam_iface *object)\n')
+        out(f'void destroy_{winclassname}(struct w_iface *object)\n')
         out(u'{\n')
         out(u'    TRACE("%p\\n", object);\n')
         out(u'    HeapFree(GetProcessHeap(), 0, object);\n')
         out(u'}\n\n')
 
         # flat (FnTable) API
-        out(f'struct w_steam_iface *create_{winclassname}_FnTable(void *u_iface)\n')
+        out(f'struct w_iface *create_{winclassname}_FnTable(void *u_iface)\n')
         out(u'{\n')
-        out(u'    struct w_steam_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));\n')
+        out(u'    struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));\n')
         out(f'    struct thunk *thunks = alloc_thunks({len(klass.methods)});\n')
         out(f'    struct thunk **vtable = HeapAlloc(GetProcessHeap(), 0, {len(klass.methods)} * sizeof(*vtable));\n')
         out(u'    int i;\n\n')
@@ -999,7 +999,7 @@ def handle_class(klass):
         out(u'    r->vtable = (void *)vtable;\n')
         out(u'    return r;\n')
         out(u'}\n\n')
-        out(f'void destroy_{winclassname}_FnTable(struct w_steam_iface *object)\n')
+        out(f'void destroy_{winclassname}_FnTable(struct w_iface *object)\n')
         out(u'{\n')
         out(u'    TRACE("%p\\n", object);\n')
         out(u'    VirtualFree(object->vtable[0], 0, MEM_RELEASE);\n')
@@ -1405,10 +1405,10 @@ with open("vrclient_generated.h", "w") as file:
     out(u'/* This file is auto-generated, do not edit. */\n\n')
 
     for _, klass in sorted(all_classes.items()):
-        out(f"extern struct w_steam_iface *create_win{klass.full_name}(void *);\n")
-        out(f"extern struct w_steam_iface *create_win{klass.full_name}_FnTable(void *);\n")
-        out(f"extern void destroy_win{klass.full_name}(struct w_steam_iface *);\n")
-        out(f"extern void destroy_win{klass.full_name}_FnTable(struct w_steam_iface *);\n")
+        out(f"extern struct w_iface *create_win{klass.full_name}(void *);\n")
+        out(f"extern struct w_iface *create_win{klass.full_name}_FnTable(void *);\n")
+        out(f"extern void destroy_win{klass.full_name}(struct w_iface *);\n")
+        out(f"extern void destroy_win{klass.full_name}_FnTable(struct w_iface *);\n")
 
 
 with open("vrclient_generated.c", "w") as file:

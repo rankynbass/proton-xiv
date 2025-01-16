@@ -51,7 +51,7 @@ BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, void *reserved)
             {
                 struct IVRClientCore_IVRClientCore_003_Cleanup_params params =
                 {
-                    .linux_side = compositor_data.client_core_linux_side,
+                    .u_iface = compositor_data.client_core_linux_side,
                 };
                 VRCLIENT_CALL( IVRClientCore_IVRClientCore_003_Cleanup, &params );
                 compositor_data.client_core_linux_side = NULL;
@@ -94,7 +94,7 @@ static BOOL array_reserve(void **elements, SIZE_T *capacity, SIZE_T count, SIZE_
     return TRUE;
 }
 
-struct w_steam_iface *create_win_interface(const char *name, void *linux_side)
+struct w_iface *create_win_interface(const char *name, void *linux_side)
 {
     iface_constructor constructor;
 
@@ -389,7 +389,7 @@ done:
 
 static void *ivrclientcore_get_generic_interface( void *object, const char *name_and_version, struct client_core_data *user_data )
 {
-    struct w_steam_iface *win_object;
+    struct w_iface *win_object;
     struct generic_interface *iface;
     iface_destructor destructor;
 
@@ -536,11 +536,11 @@ w_Texture_t vrclient_translate_texture_d3d12( const w_Texture_t *texture, w_VRVu
     return vktexture;
 }
 
-uint32_t __thiscall winIVRClientCore_IVRClientCore_002_Init( struct w_steam_iface *_this, uint32_t eApplicationType )
+uint32_t __thiscall winIVRClientCore_IVRClientCore_002_Init( struct w_iface *_this, uint32_t eApplicationType )
 {
     struct IVRClientCore_IVRClientCore_002_Init_params params =
     {
-        .linux_side = _this->u_iface,
+        .u_iface = _this->u_iface,
         .eApplicationType = eApplicationType,
     };
 
@@ -553,11 +553,11 @@ uint32_t __thiscall winIVRClientCore_IVRClientCore_002_Init( struct w_steam_ifac
     return params._ret;
 }
 
-void __thiscall winIVRClientCore_IVRClientCore_002_Cleanup( struct w_steam_iface *_this )
+void __thiscall winIVRClientCore_IVRClientCore_002_Cleanup( struct w_iface *_this )
 {
     struct IVRClientCore_IVRClientCore_002_Cleanup_params params =
     {
-        .linux_side = _this->u_iface,
+        .u_iface = _this->u_iface,
     };
     TRACE( "%p\n", _this );
     ivrclientcore_cleanup( &_this->user_data );
@@ -565,12 +565,12 @@ void __thiscall winIVRClientCore_IVRClientCore_002_Cleanup( struct w_steam_iface
     destroy_compositor_data();
 }
 
-void *__thiscall winIVRClientCore_IVRClientCore_002_GetGenericInterface( struct w_steam_iface *_this,
+void *__thiscall winIVRClientCore_IVRClientCore_002_GetGenericInterface( struct w_iface *_this,
                                                                          const char *pchNameAndVersion, uint32_t *peError )
 {
     struct IVRClientCore_IVRClientCore_002_GetGenericInterface_params params =
     {
-        .linux_side = _this->u_iface,
+        .u_iface = _this->u_iface,
         .pchNameAndVersion = pchNameAndVersion,
         .peError = peError,
     };
@@ -593,9 +593,9 @@ void *__thiscall winIVRClientCore_IVRClientCore_002_GetGenericInterface( struct 
     return params._ret;
 }
 
-int8_t __thiscall winIVRClientCore_IVRClientCore_002_BIsHmdPresent( struct w_steam_iface *_this )
+int8_t __thiscall winIVRClientCore_IVRClientCore_002_BIsHmdPresent( struct w_iface *_this )
 {
-    struct IVRClientCore_IVRClientCore_002_BIsHmdPresent_params params = {.linux_side = _this->u_iface};
+    struct IVRClientCore_IVRClientCore_002_BIsHmdPresent_params params = {.u_iface = _this->u_iface};
 
     TRACE( "linux_side %p, compositor_data.client_core_linux_side %p.\n", _this->u_iface,
            compositor_data.client_core_linux_side );
@@ -611,12 +611,12 @@ int8_t __thiscall winIVRClientCore_IVRClientCore_002_BIsHmdPresent( struct w_ste
     return TRUE;
 }
 
-uint32_t __thiscall winIVRClientCore_IVRClientCore_003_Init( struct w_steam_iface *_this,
+uint32_t __thiscall winIVRClientCore_IVRClientCore_003_Init( struct w_iface *_this,
                                                              uint32_t eApplicationType, const char *pStartupInfo )
 {
     struct IVRClientCore_IVRClientCore_003_Init_params params =
     {
-        .linux_side = _this->u_iface,
+        .u_iface = _this->u_iface,
         .eApplicationType = eApplicationType,
         .pStartupInfo = pStartupInfo,
     };
@@ -628,16 +628,16 @@ uint32_t __thiscall winIVRClientCore_IVRClientCore_003_Init( struct w_steam_ifac
     VRCLIENT_CALL( IVRClientCore_IVRClientCore_003_Init, &params );
 
     if (params._ret) WARN( "error %#x\n", params._ret );
-    else compositor_data.client_core_linux_side = params.linux_side;
+    else compositor_data.client_core_linux_side = params.u_iface;
 
     return params._ret;
 }
 
-void __thiscall winIVRClientCore_IVRClientCore_003_Cleanup( struct w_steam_iface *_this )
+void __thiscall winIVRClientCore_IVRClientCore_003_Cleanup( struct w_iface *_this )
 {
     struct IVRClientCore_IVRClientCore_003_Cleanup_params params =
     {
-        .linux_side = _this->u_iface,
+        .u_iface = _this->u_iface,
     };
     TRACE( "%p\n", _this );
     ivrclientcore_cleanup( &_this->user_data );
@@ -645,12 +645,12 @@ void __thiscall winIVRClientCore_IVRClientCore_003_Cleanup( struct w_steam_iface
     destroy_compositor_data();
 }
 
-void *__thiscall winIVRClientCore_IVRClientCore_003_GetGenericInterface( struct w_steam_iface *_this,
+void *__thiscall winIVRClientCore_IVRClientCore_003_GetGenericInterface( struct w_iface *_this,
                                                                          const char *pchNameAndVersion, uint32_t *peError )
 {
     struct IVRClientCore_IVRClientCore_003_GetGenericInterface_params params =
     {
-        .linux_side = _this->u_iface,
+        .u_iface = _this->u_iface,
         .pchNameAndVersion = pchNameAndVersion,
         .peError = peError,
     };
@@ -673,9 +673,9 @@ void *__thiscall winIVRClientCore_IVRClientCore_003_GetGenericInterface( struct 
     return params._ret;
 }
 
-int8_t __thiscall winIVRClientCore_IVRClientCore_003_BIsHmdPresent( struct w_steam_iface *_this )
+int8_t __thiscall winIVRClientCore_IVRClientCore_003_BIsHmdPresent( struct w_iface *_this )
 {
-    struct IVRClientCore_IVRClientCore_003_BIsHmdPresent_params params = {.linux_side = _this->u_iface};
+    struct IVRClientCore_IVRClientCore_003_BIsHmdPresent_params params = {.u_iface = _this->u_iface};
 
     TRACE( "linux_side %p, compositor_data.client_core_linux_side %p.\n", _this->u_iface,
            compositor_data.client_core_linux_side );
@@ -691,12 +691,12 @@ int8_t __thiscall winIVRClientCore_IVRClientCore_003_BIsHmdPresent( struct w_ste
     return TRUE;
 }
 
-const w_CameraVideoStreamFrame_t_0914 * __thiscall winIVRTrackedCamera_IVRTrackedCamera_001_GetVideoStreamFrame(struct w_steam_iface *_this, uint32_t nDeviceIndex)
+const w_CameraVideoStreamFrame_t_0914 * __thiscall winIVRTrackedCamera_IVRTrackedCamera_001_GetVideoStreamFrame(struct w_iface *_this, uint32_t nDeviceIndex)
 {
     static w_CameraVideoStreamFrame_t_0914 w_frame;
     struct IVRTrackedCamera_IVRTrackedCamera_001_GetVideoStreamFrame_params params =
     {
-        .linux_side = _this->u_iface,
+        .u_iface = _this->u_iface,
         .nDeviceIndex = nDeviceIndex,
         ._ret = &w_frame,
     };
