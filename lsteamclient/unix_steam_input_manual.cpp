@@ -215,7 +215,7 @@ static const char *glyph_cache_lookup( glyph_cache &cache, const char *str, uint
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamController_GetGlyphForActionOrigin( Iface *iface, Params *params )
+static NTSTATUS ISteamController_GetGlyphForActionOrigin( Iface *iface, Params *params, bool wow64 )
 {
     if (!(params->_ret = iface->GetGlyphForActionOrigin( params->eOrigin ))) return 0;
     params->_ret = glyph_cache_lookup( controller_cache, params->_ret, params->eOrigin, 0, 0 );
@@ -223,7 +223,7 @@ static NTSTATUS ISteamController_GetGlyphForActionOrigin( Iface *iface, Params *
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamController_GetGlyphForXboxOrigin( Iface *iface, Params *params )
+static NTSTATUS ISteamController_GetGlyphForXboxOrigin( Iface *iface, Params *params, bool wow64 )
 {
     if (!(params->_ret = iface->GetGlyphForXboxOrigin( params->eOrigin ))) return 0;
     params->_ret = glyph_cache_lookup( xbox_cache, params->_ret, params->eOrigin, 0, 0 );
@@ -231,7 +231,7 @@ static NTSTATUS ISteamController_GetGlyphForXboxOrigin( Iface *iface, Params *pa
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamInput_GetGlyphForActionOrigin( Iface *iface, Params *params )
+static NTSTATUS ISteamInput_GetGlyphForActionOrigin( Iface *iface, Params *params, bool wow64 )
 {
     if (!(params->_ret = iface->GetGlyphForActionOrigin( params->eOrigin ))) return 0;
     params->_ret = glyph_cache_lookup( input_cache, params->_ret, params->eOrigin, 0, 0 );
@@ -239,7 +239,7 @@ static NTSTATUS ISteamInput_GetGlyphForActionOrigin( Iface *iface, Params *param
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamInput_GetGlyphForXboxOrigin( Iface *iface, Params *params )
+static NTSTATUS ISteamInput_GetGlyphForXboxOrigin( Iface *iface, Params *params, bool wow64 )
 {
     if (!(params->_ret = iface->GetGlyphForXboxOrigin( params->eOrigin ))) return 0;
     params->_ret = glyph_cache_lookup( xbox_cache, params->_ret, params->eOrigin, 0, 0 );
@@ -253,7 +253,7 @@ static void U_CDECL u_SteamInputActionEventCallbackPointer_152( SteamInputAction
 }
 
 template< typename Iface, typename Params >
-NTSTATUS ISteamInput_EnableActionEventCallbacks( Iface *iface, Params *params )
+NTSTATUS ISteamInput_EnableActionEventCallbacks( Iface *iface, Params *params, bool wow64 )
 {
     w_EnableActionEventCallbacks_152 = params->pCallback;
     iface->EnableActionEventCallbacks( params->pCallback ? &u_SteamInputActionEventCallbackPointer_152 : NULL );
@@ -261,7 +261,7 @@ NTSTATUS ISteamInput_EnableActionEventCallbacks( Iface *iface, Params *params )
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamInput_GetGlyphPNGForActionOrigin( Iface *iface, Params *params )
+static NTSTATUS ISteamInput_GetGlyphPNGForActionOrigin( Iface *iface, Params *params, bool wow64 )
 {
     if (!(params->_ret = iface->GetGlyphPNGForActionOrigin( params->eOrigin, params->eSize, params->unFlags ))) return 0;
     params->_ret = glyph_cache_lookup( input_cache_png, params->_ret, params->eOrigin, params->unFlags, params->eSize );
@@ -269,7 +269,7 @@ static NTSTATUS ISteamInput_GetGlyphPNGForActionOrigin( Iface *iface, Params *pa
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamInput_GetGlyphSVGForActionOrigin( Iface *iface, Params *params )
+static NTSTATUS ISteamInput_GetGlyphSVGForActionOrigin( Iface *iface, Params *params, bool wow64 )
 {
     if (!(params->_ret = iface->GetGlyphSVGForActionOrigin( params->eOrigin, params->unFlags ))) return 0;
     params->_ret = glyph_cache_lookup( input_cache_svg, params->_ret, params->eOrigin, params->unFlags, 0 );
@@ -277,7 +277,7 @@ static NTSTATUS ISteamInput_GetGlyphSVGForActionOrigin( Iface *iface, Params *pa
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamInput_GetGlyphForActionOrigin_Legacy( Iface *iface, Params *params )
+static NTSTATUS ISteamInput_GetGlyphForActionOrigin_Legacy( Iface *iface, Params *params, bool wow64 )
 {
     if (!(params->_ret = iface->GetGlyphForActionOrigin_Legacy( params->eOrigin ))) return 0;
     params->_ret = glyph_cache_lookup( input_cache, params->_ret, params->eOrigin, 0, 0 );

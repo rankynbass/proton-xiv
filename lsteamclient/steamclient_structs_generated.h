@@ -11004,6 +11004,11 @@ struct w64_SteamParamStringArray_t
 #ifdef __cplusplus
     operator w32_SteamParamStringArray_t() const;
 #endif /* __cplusplus */
+#if defined(__cplusplus) && defined(__x86_64__)
+    w64_SteamParamStringArray_t() = default;
+    w64_SteamParamStringArray_t( w32_SteamParamStringArray_t const& );
+    ~w64_SteamParamStringArray_t();
+#endif /* __cplusplus */
 };
 #pragma pack( pop )
 

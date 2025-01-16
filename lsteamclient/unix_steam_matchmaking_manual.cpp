@@ -197,7 +197,7 @@ struct u_ISteamMatchmakingRulesResponse *create_LinuxISteamMatchmakingRulesRespo
 }
 
 template< typename Params >
-static NTSTATUS ISteamMatchmakingServers_RequestInternetServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_RequestInternetServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params, bool wow64 )
 {
     u_ISteamMatchmakingServerListResponse_099u *u_response = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
 
@@ -210,7 +210,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestInternetServerList( u_ISteamMatc
 }
 
 template< typename Params >
-static NTSTATUS ISteamMatchmakingServers_RequestLANServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_RequestLANServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params, bool wow64 )
 {
     u_ISteamMatchmakingServerListResponse_099u *u_response = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
     iface->RequestLANServerList( params->iApp, u_response );
@@ -218,7 +218,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestLANServerList( u_ISteamMatchmaki
 }
 
 template< typename Params >
-static NTSTATUS ISteamMatchmakingServers_RequestFriendsServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_RequestFriendsServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params, bool wow64 )
 {
     u_ISteamMatchmakingServerListResponse_099u *u_response = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
 
@@ -231,7 +231,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestFriendsServerList( u_ISteamMatch
 }
 
 template< typename Params >
-static NTSTATUS ISteamMatchmakingServers_RequestFavoritesServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_RequestFavoritesServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params, bool wow64 )
 {
     u_ISteamMatchmakingServerListResponse_099u *u_response = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
 
@@ -244,7 +244,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestFavoritesServerList( u_ISteamMat
 }
 
 template< typename Params >
-static NTSTATUS ISteamMatchmakingServers_RequestHistoryServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_RequestHistoryServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params, bool wow64 )
 {
     u_ISteamMatchmakingServerListResponse_099u *u_response = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
 
@@ -257,7 +257,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestHistoryServerList( u_ISteamMatch
 }
 
 template< typename Params >
-static NTSTATUS ISteamMatchmakingServers_RequestSpectatorServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_RequestSpectatorServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params, bool wow64 )
 {
     u_ISteamMatchmakingServerListResponse_099u *u_response = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
 
@@ -270,7 +270,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestSpectatorServerList( u_ISteamMat
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamMatchmakingServers_RequestInternetServerList( Iface *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_RequestInternetServerList( Iface *iface, Params *params, bool wow64 )
 {
     SteamMatchmakingServerListResponse_106 *u_response = new SteamMatchmakingServerListResponse_106( params->pRequestServersResponse, params->_ret );
     struct w_request *w_request = u_response->w_request;
@@ -286,7 +286,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestInternetServerList( Iface *iface
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamMatchmakingServers_RequestLANServerList( Iface *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_RequestLANServerList( Iface *iface, Params *params, bool wow64 )
 {
     SteamMatchmakingServerListResponse_106 *u_response = new SteamMatchmakingServerListResponse_106( params->pRequestServersResponse, params->_ret );
     struct w_request *w_request = u_response->w_request;
@@ -297,7 +297,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestLANServerList( Iface *iface, Par
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamMatchmakingServers_RequestFriendsServerList( Iface *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_RequestFriendsServerList( Iface *iface, Params *params, bool wow64 )
 {
     SteamMatchmakingServerListResponse_106 *u_response = new SteamMatchmakingServerListResponse_106( params->pRequestServersResponse, params->_ret );
     struct w_request *w_request = u_response->w_request;
@@ -313,7 +313,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestFriendsServerList( Iface *iface,
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamMatchmakingServers_RequestFavoritesServerList( Iface *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_RequestFavoritesServerList( Iface *iface, Params *params, bool wow64 )
 {
     SteamMatchmakingServerListResponse_106 *u_response = new SteamMatchmakingServerListResponse_106( params->pRequestServersResponse, params->_ret );
     struct w_request *w_request = u_response->w_request;
@@ -329,7 +329,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestFavoritesServerList( Iface *ifac
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamMatchmakingServers_RequestHistoryServerList( Iface *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_RequestHistoryServerList( Iface *iface, Params *params, bool wow64 )
 {
     SteamMatchmakingServerListResponse_106 *u_response = new SteamMatchmakingServerListResponse_106( params->pRequestServersResponse, params->_ret );
     struct w_request *w_request = u_response->w_request;
@@ -345,7 +345,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestHistoryServerList( Iface *iface,
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamMatchmakingServers_RequestSpectatorServerList( Iface *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_RequestSpectatorServerList( Iface *iface, Params *params, bool wow64 )
 {
     SteamMatchmakingServerListResponse_106 *u_response = new SteamMatchmakingServerListResponse_106( params->pRequestServersResponse, params->_ret );
     struct w_request *w_request = u_response->w_request;
@@ -361,7 +361,7 @@ static NTSTATUS ISteamMatchmakingServers_RequestSpectatorServerList( Iface *ifac
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamMatchmakingServers_PingServer( Iface *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_PingServer( Iface *iface, Params *params, bool wow64 )
 {
     u_ISteamMatchmakingPingResponse *u_response = create_LinuxISteamMatchmakingPingResponse( params->pRequestServersResponse );
     params->_ret = iface->PingServer( params->unIP, params->usPort, u_response );
@@ -369,7 +369,7 @@ static NTSTATUS ISteamMatchmakingServers_PingServer( Iface *iface, Params *param
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamMatchmakingServers_PlayerDetails( Iface *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_PlayerDetails( Iface *iface, Params *params, bool wow64 )
 {
     u_ISteamMatchmakingPlayersResponse *u_response = create_LinuxISteamMatchmakingPlayersResponse( params->pRequestServersResponse );
     params->_ret = iface->PlayerDetails( params->unIP, params->usPort, u_response );
@@ -377,7 +377,7 @@ static NTSTATUS ISteamMatchmakingServers_PlayerDetails( Iface *iface, Params *pa
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamMatchmakingServers_ServerRules( Iface *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_ServerRules( Iface *iface, Params *params, bool wow64 )
 {
     u_ISteamMatchmakingRulesResponse *u_response = create_LinuxISteamMatchmakingRulesResponse( params->pRequestServersResponse );
     params->_ret = iface->ServerRules( params->unIP, params->usPort, u_response );
@@ -385,7 +385,7 @@ static NTSTATUS ISteamMatchmakingServers_ServerRules( Iface *iface, Params *para
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamMatchmakingServers_ReleaseRequest( Iface *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_ReleaseRequest( Iface *iface, Params *params, bool wow64 )
 {
     struct w_request *w_request = (struct w_request *)(void *)params->hServerListRequest;
     iface->ReleaseRequest( w_request ? (void *)w_request->u_request : nullptr );
@@ -394,7 +394,7 @@ static NTSTATUS ISteamMatchmakingServers_ReleaseRequest( Iface *iface, Params *p
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamMatchmakingServers_GetServerDetails( Iface *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_GetServerDetails( Iface *iface, Params *params, bool wow64 )
 {
     struct w_request *w_request = (struct w_request *)(void *)params->hRequest;
     gameserveritem_t_105 *item = iface->GetServerDetails( w_request ? (void *)w_request->u_request : nullptr, params->iServer );
@@ -404,7 +404,7 @@ static NTSTATUS ISteamMatchmakingServers_GetServerDetails( Iface *iface, Params 
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamMatchmakingServers_CancelQuery( Iface *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_CancelQuery( Iface *iface, Params *params, bool wow64 )
 {
     struct w_request *w_request = (struct w_request *)(void *)params->hRequest;
     iface->CancelQuery( w_request ? (void *)w_request->u_request : nullptr );
@@ -412,7 +412,7 @@ static NTSTATUS ISteamMatchmakingServers_CancelQuery( Iface *iface, Params *para
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamMatchmakingServers_RefreshQuery( Iface *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_RefreshQuery( Iface *iface, Params *params, bool wow64 )
 {
     struct w_request *w_request = (struct w_request *)(void *)params->hRequest;
     iface->RefreshQuery( w_request ? (void *)w_request->u_request : nullptr );
@@ -420,7 +420,7 @@ static NTSTATUS ISteamMatchmakingServers_RefreshQuery( Iface *iface, Params *par
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamMatchmakingServers_IsRefreshing( Iface *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_IsRefreshing( Iface *iface, Params *params, bool wow64 )
 {
     struct w_request *w_request = (struct w_request *)(void *)params->hRequest;
     params->_ret = iface->IsRefreshing( w_request ? (void *)w_request->u_request : nullptr );
@@ -428,7 +428,7 @@ static NTSTATUS ISteamMatchmakingServers_IsRefreshing( Iface *iface, Params *par
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamMatchmakingServers_GetServerCount( Iface *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_GetServerCount( Iface *iface, Params *params, bool wow64 )
 {
     struct w_request *w_request = (struct w_request *)(void *)params->hRequest;
     params->_ret = iface->GetServerCount( w_request ? (void *)w_request->u_request : nullptr );
@@ -436,7 +436,7 @@ static NTSTATUS ISteamMatchmakingServers_GetServerCount( Iface *iface, Params *p
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamMatchmakingServers_RefreshServer( Iface *iface, Params *params )
+static NTSTATUS ISteamMatchmakingServers_RefreshServer( Iface *iface, Params *params, bool wow64 )
 {
     struct w_request *w_request = (struct w_request *)(void *)params->hRequest;
     iface->RefreshServer( w_request ? (void *)w_request->u_request : nullptr, params->iServer );

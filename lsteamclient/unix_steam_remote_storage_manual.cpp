@@ -27,7 +27,7 @@ w32_RemoteStorageUpdatePublishedFileRequest_t::operator u64_RemoteStorageUpdateP
 #endif
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamRemoteStorage_UpdatePublishedFile( Iface *iface, Params *params )
+static NTSTATUS ISteamRemoteStorage_UpdatePublishedFile( Iface *iface, Params *params, bool wow64 )
 {
     u_RemoteStorageUpdatePublishedFileRequest_t u_updatePublishedFileRequest = params->updatePublishedFileRequest;
     u_updatePublishedFileRequest.m_pTags = new u_SteamParamStringArray_t( *params->updatePublishedFileRequest.m_pTags );

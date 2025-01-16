@@ -210,6 +210,10 @@ MANUAL_STRUCTS = [
     "RemoteStorageUpdatePublishedFileRequest_t",
 ]
 
+ARRAY_WOW64_STRUCTS = [
+    "SteamParamStringArray_t",
+]
+
 MANUAL_WOW64_STRUCTS = [
     "CallbackMsg_t",
     "HTML_ChangedTitle_t",
@@ -590,6 +594,14 @@ class Struct:
             out(u'#ifdef __cplusplus\n')
             out(f'    operator {conv}{version}() const;\n')
             out(u'#endif /* __cplusplus */\n')
+
+        if self.name in ARRAY_WOW64_STRUCTS and '64' in prefix:
+            out(u'#if defined(__cplusplus) && defined(__x86_64__)\n')
+            out(f'    {prefix}{version}() = default;\n')
+            out(f'    {prefix}{version}( w32_{version} const& );\n')
+            out(f'    ~{prefix}{version}();\n')
+            out(u'#endif /* __cplusplus */\n')
+
         out(u'};\n')
         out(u'#pragma pack( pop )\n\n')
 
@@ -684,7 +696,7 @@ class Method:
     def needs_conversion(self, other):
         if len(list(self.get_arguments())) != len(list(other.get_arguments())):
             return True
-        return False # FIXME
+        return False
 
     def returns_unix_iface(self):
         return self.result_type.spelling.startswith("ISteam") or "GetISteam" in self.name
@@ -694,20 +706,26 @@ class Method:
             return True
         return self.result_type.spelling == "const char *"
 
-    def write_params(self, out):
+    def write_params(self, out, wow64):
         returns_record = self.result_type.get_canonical().kind == TypeKind.RECORD
+        prefix = "wow64_" if wow64 else ""
 
         if self.returns_unix_iface():
             ret = 'struct u_iface _ret'
         elif self.returns_string():
             ret = 'struct u_buffer _ret'
+        elif returns_record and wow64:
+            ret = f'{declspec(self.result_type, "*_ret", "w32_" if wow64 else "w_", wow64)}'
+            typ = f'{declspec(self.result_type, "*", "w32_" if wow64 else "w_", wow64)}'
+            ret = f'W32_PTR({ret}, _ret, {typ})'
         else:
+            assert not returns_record or not wow64
             ret = "*_ret" if returns_record else "_ret"
-            ret = f'{declspec(self.result_type, ret, "w_")}'
+            ret = f'{declspec(self.result_type, ret, "w32_" if wow64 else "w_", wow64)}'
 
         names = [p.spelling if p.spelling != "" else f'_{chr(0x61 + i)}'
                  for i, p in enumerate(self.get_arguments())]
-        params = [declspec(p, names[i], "w_") for i, p in enumerate(self.get_arguments())]
+        params = [declspec(p, names[i], "w32_" if wow64 else "w_", wow64) for i, p in enumerate(self.get_arguments())]
 
         if self.result_type.kind != TypeKind.VOID:
             params = [ret] + params
@@ -719,7 +737,7 @@ class Method:
         params = ['struct u_iface u_iface'] + params
         names = ['u_iface'] + names
 
-        out(f'struct {self.full_name}_params\n')
+        out(f'struct {prefix}{self.full_name}_params\n')
         out(u'{\n')
         for param in params:
             out(f'    {param};\n')
@@ -738,7 +756,7 @@ class Destructor(Method):
         if self._override > 1: return f'destructor_{self._override}'
         return 'destructor'
 
-    def write_params(self, out):
+    def write_params(self, out, wow64):
         pass
 
 
@@ -869,7 +887,7 @@ def find_struct_abis(name):
     return structs[sdkver]
 
 
-def struct_needs_conversion(struct):
+def struct_needs_conversion(struct, wow64):
     name = canonical_typename(struct)
     if name in EXEMPT_STRUCTS:
         return False
@@ -888,7 +906,7 @@ def struct_needs_conversion(struct):
         return True
     if abis['w32'].needs_conversion(abis['u64']):
         return True
-    return False
+    return wow64
 
 
 def underlying_type(decl):
@@ -900,10 +918,22 @@ def underlying_type(decl):
     return decl
 
 
-def param_needs_conversion(decl):
+def is_pointer_pointer(decl):
+    if type(decl) is Cursor:
+        decl = decl.type
+    decl = decl.get_canonical()
+    if decl.kind != TypeKind.POINTER:
+        return False
+    decl = decl.get_pointee().get_canonical()
+    return decl.kind == TypeKind.POINTER
+
+
+def param_needs_conversion(decl, wow64):
+    if is_pointer_pointer(decl) and wow64:
+        return True
     decl = underlying_type(decl)
     return decl.kind == TypeKind.RECORD and \
-           struct_needs_conversion(decl)
+           struct_needs_conversion(decl, wow64)
 
 
 def callconv(cursor, prefix):
@@ -986,25 +1016,28 @@ def declspec(decl, name, prefix, wrapped=False):
     return f'{decl.spelling}{name}'
 
 
-def handle_method_cpp(method, classname, out):
+def handle_method_cpp(method, classname, out, wow64):
     returns_void = method.result_type.kind == TypeKind.VOID
     returns_record = method.result_type.get_canonical().kind == TypeKind.RECORD
+    prefix = "wow64_" if wow64 else ""
 
     names = [p.spelling if p.spelling != "" else f'_{chr(0x61 + i)}'
              for i, p in enumerate(method.get_arguments())]
+    path_conv_wtou = PATH_CONV_METHODS_WTOU.get(f'{klass.name}_{method.spelling}', {})
     outstr_param = OUTSTR_PARAMS.get(method.name, None)
 
     need_convert = {n: p for n, p in zip(names, method.get_arguments())
-                    if param_needs_conversion(p) and n != outstr_param}
+                    if param_needs_conversion(p, wow64) and n != outstr_param
+                    and n not in path_conv_wtou}
     manual_convert = {n: p for n, p in zip(names, method.get_arguments())
                       if underlying_type(p).spelling in MANUAL_TYPES
                       or p.spelling in MANUAL_PARAMS}
 
     names = ['u_iface'] + names
 
-    out(f'NTSTATUS {method.full_name}( void *args )\n')
+    out(f'NTSTATUS {prefix}{method.full_name}( void *args )\n')
     out(u'{\n')
-    out(f'    struct {method.full_name}_params *params = (struct {method.full_name}_params *)args;\n')
+    out(f'    struct {prefix}{method.full_name}_params *params = (struct {prefix}{method.full_name}_params *)args;\n')
     out(f'    struct u_{klass.full_name} *iface = (struct u_{klass.full_name} *)params->u_iface;\n')
     if method.name in OUTSTR_PARAMS and OUTSTR_PARAMS[method.name] in names:
         out(u'    char *u_str;\n')
@@ -1027,14 +1060,13 @@ def handle_method_cpp(method, classname, out):
         if underlying_typename(param) not in SIZED_STRUCTS | EXEMPT_STRUCTS:
             print('Warning:', underlying_typename(param), name, 'following', prev_name)
 
-    path_conv_wtou = PATH_CONV_METHODS_WTOU.get(f'{klass.name}_{method.spelling}', {})
-
     for name, conv in filter(lambda x: x[0] in names, path_conv_wtou.items()):
         if conv['array']:
-            out(f'    const char **u_{name} = steamclient_dos_to_unix_path_array( params->{name} );\n')
+            out(f'    const char **u_{name} = {prefix}steamclient_dos_to_unix_path_array( params->{name} );\n')
         else:
             out(f'    char *u_{name} = steamclient_dos_to_unix_path( params->{name}, {int(conv["url"])} );\n')
 
+    wow64_convert = {}
     need_output = {}
 
     for name, param in sorted(need_convert.items()):
@@ -1043,6 +1075,11 @@ def handle_method_cpp(method, classname, out):
             continue
 
         pointee = param.type.get_pointee()
+        if pointee.spelling.replace('const ', '') in ARRAY_WOW64_STRUCTS and wow64:
+            out(f'    {declspec(param, f"u_{name}", "u_")} = params->{name} ? new {declspec(pointee, "", "u_")}( *params->{name} ) : nullptr;\n')
+            wow64_convert[name] = param
+            continue
+
         if pointee.kind == TypeKind.POINTER:
             need_output[name] = param
             out(f'    {declspec(pointee, f"lin_{name}", "u_")};\n')
@@ -1068,6 +1105,7 @@ def handle_method_cpp(method, classname, out):
 
     def param_call(name, param):
         pfx = '&' if param.type.kind == TypeKind.POINTER else ''
+        if name in wow64_convert: return f"u_{name}"
         if name in need_convert: return f"{pfx}u_{name}"
         if name in manual_convert: return f"u_{name}"
         if name in path_conv_wtou: return f"u_{name}"
@@ -1089,6 +1127,9 @@ def handle_method_cpp(method, classname, out):
     for name, param in sorted(need_output.items()):
         out(f'    *params->{name} = u_{name};\n')
 
+    for name, param in sorted(wow64_convert.items()):
+        out(f'    if (u_{name}) delete u_{name};\n')
+
     path_conv_utow = PATH_CONV_METHODS_UTOW.get(f'{klass.name}_{method.spelling}', {})
 
     for name, conv in filter(lambda x: x[0] in names, path_conv_utow.items()):
@@ -1107,7 +1148,7 @@ def handle_method_cpp(method, classname, out):
         out(f'    if (params->{OUTSTR_PARAMS[method.name]}) params->_str = u_str;\n');
 
     out(u'    return 0;\n')
-    out(u'}\n\n')
+    out(u'}\n')
 
 
 def handle_thiscall_wrapper(klass, method, out):
@@ -1194,7 +1235,10 @@ def handle_class(klass):
                 continue
             if is_manual_method(klass, method, "u"):
                 continue
-            handle_method_cpp(method, klass.name, out)
+            handle_method_cpp(method, klass.name, out, False)
+            out(u'\n#ifdef __x86_64__\n')
+            handle_method_cpp(method, klass.name, out, True)
+            out(u'#endif\n\n')
 
 
     winclassname = f"win{klass.full_name}"
@@ -1606,6 +1650,7 @@ with open("unix_private_generated.h", "w") as file:
         if type(method) is Destructor:
             continue
         out(f'NTSTATUS {method.full_name}( void * );\n')
+        out(f'NTSTATUS wow64_{method.full_name}( void * );\n')
     out(u'\n')
 
     out(u'#ifdef __cplusplus\n')
@@ -1628,8 +1673,13 @@ with open(u"unixlib_generated.h", "w") as file:
 
     out(u'#include <pshpack1.h>\n\n')
     for klass, method in all_methods:
+        if type(method) is Destructor:
+            continue
+
         sdkver = klass._sdkver
-        method.write_params(out)
+        method.write_params(out, False)
+        method.write_params(out, True)
+
     out(u'#include <poppack.h>\n\n')
 
     out(u'enum unix_funcs\n')
@@ -1670,6 +1720,19 @@ with open('unixlib_generated.cpp', 'w') as file:
         out(f'    {method.full_name},\n')
     out(u'};\n')
     out(u'\n')
+
+    out(u'#ifdef __x86_64__\n')
+    out(u'extern "C" const unixlib_entry_t __wine_unix_call_wow64_funcs[] =\n')
+    out(u'{\n')
+    for func in UNIX_FUNCS:
+        out(f'    wow64_{func},\n')
+    for klass, method in all_methods:
+        sdkver = klass._sdkver
+        if type(method) is Destructor:
+            continue
+        out(f'    wow64_{method.full_name},\n')
+    out(u'};\n')
+    out(u'#endif\n')
 
     callbacks = []
 

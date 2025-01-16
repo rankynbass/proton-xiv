@@ -7,12 +7,12 @@
 WINE_DEFAULT_DEBUG_CHANNEL(steamclient);
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamUtils_GetAPICallResult( Iface *iface, Params *params )
+static NTSTATUS ISteamUtils_GetAPICallResult( Iface *iface, Params *params, bool wow64 )
 {
     int u_callback_len = params->cubCallback;
     void *u_callback;
 
-    if (!(u_callback = alloc_callback_wtou( params->iCallbackExpected, params->pCallback, &u_callback_len, false )))
+    if (!(u_callback = alloc_callback_wtou( params->iCallbackExpected, params->pCallback, &u_callback_len, wow64 )))
     {
         params->_ret = FALSE;
         return 0;
@@ -23,7 +23,7 @@ static NTSTATUS ISteamUtils_GetAPICallResult( Iface *iface, Params *params )
     if (params->_ret && u_callback != params->pCallback)
     {
         convert_callback_utow( params->iCallbackExpected, u_callback, u_callback_len,
-                               params->pCallback, params->cubCallback, false );
+                               params->pCallback, params->cubCallback, wow64 );
         free( u_callback );
     }
 

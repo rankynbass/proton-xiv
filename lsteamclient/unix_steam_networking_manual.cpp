@@ -6,7 +6,8 @@
 
 WINE_DEFAULT_DEBUG_CHANNEL(steamclient);
 
-static void steam_networking_message_utow( w_SteamNetworkingMessage_t_144 &dst, const u_SteamNetworkingMessage_t_144 &src )
+template< typename Wmsg >
+static void steam_networking_message_utow( Wmsg &dst, const u_SteamNetworkingMessage_t_144 &src )
 {
     dst.m_cbSize = src.m_cbSize;
     dst.m_conn = src.m_conn;
@@ -17,7 +18,8 @@ static void steam_networking_message_utow( w_SteamNetworkingMessage_t_144 &dst, 
     dst.m_nChannel = src.m_nChannel;
 }
 
-static void steam_networking_message_utow( w_SteamNetworkingMessage_t_147 &dst, const u_SteamNetworkingMessage_t_147 &src )
+template< typename Wmsg >
+static void steam_networking_message_utow( Wmsg &dst, const u_SteamNetworkingMessage_t_147 &src )
 {
     dst.m_cbSize = src.m_cbSize;
     dst.m_conn = src.m_conn;
@@ -30,7 +32,8 @@ static void steam_networking_message_utow( w_SteamNetworkingMessage_t_147 &dst, 
     dst.m_nUserData = src.m_nUserData;
 }
 
-static void steam_networking_message_utow( w_SteamNetworkingMessage_t_153a &dst, const u_SteamNetworkingMessage_t_153a &src )
+template< typename Wmsg >
+static void steam_networking_message_utow( Wmsg &dst, const u_SteamNetworkingMessage_t_153a &src )
 {
     dst.m_cbSize = src.m_cbSize;
     dst.m_conn = src.m_conn;
@@ -50,7 +53,8 @@ static void U_CDECL u_SteamNetworkingMessage_t_147_FreeData( u_SteamNetworkingMe
     msg->m_pData = NULL;
 }
 
-static void steam_networking_message_wtou( u_SteamNetworkingMessage_t_147& dst, const w_SteamNetworkingMessage_t_147& src )
+template< typename Wmsg >
+static void steam_networking_message_wtou( u_SteamNetworkingMessage_t_147& dst, const Wmsg& src )
 {
     if (!dst.m_pData)
     {
@@ -76,7 +80,8 @@ static void U_CDECL u_SteamNetworkingMessage_t_153a_FreeData( u_SteamNetworkingM
     msg->m_pData = NULL;
 }
 
-static void steam_networking_message_wtou( u_SteamNetworkingMessage_t_153a& dst, const w_SteamNetworkingMessage_t_153a& src )
+template< typename Wmsg >
+static void steam_networking_message_wtou( u_SteamNetworkingMessage_t_153a& dst, const Wmsg& src )
 {
     if (!dst.m_pData)
     {
@@ -111,6 +116,21 @@ static void receive_messages_utow( uint32_t count, Umsg **u_msgs, Wmsg **w_msgs 
     }
 }
 
+template< typename Umsg, typename Wmsg >
+static void receive_messages_utow( uint32_t count, Umsg **u_msgs, ptr32< Wmsg** > w_msgs )
+{
+    Wmsg **msgs = new Wmsg *[count];
+    while (count--) msgs[count] = w_msgs[count];
+    receive_messages_utow( count, u_msgs, msgs );
+    delete[] msgs;
+}
+
+template< typename Umsg, typename Wmsg >
+static void receive_messages_utow( uint32_t count, Umsg **u_msgs, ptr32< Wmsg* > *w_msg )
+{
+    receive_messages_utow( count, u_msgs, w_msg );
+}
+
 template< typename Wmsg, typename Umsg >
 static void send_messages_wtou( uint32_t count, Wmsg *const *w_msgs, Umsg **u_msgs )
 {
@@ -126,6 +146,24 @@ static void send_messages_wtou( uint32_t count, Wmsg *const *w_msgs, Umsg **u_ms
         message->u_msg( **w_msgs ) = NULL;
         u_msgs[i] = u_msg;
     }
+}
+
+template< typename Wmsg, typename Umsg >
+static void send_messages_wtou( uint32_t count, ptr32< Wmsg *const* > w_msgs, Umsg **u_msgs )
+{
+    Wmsg **msgs = new Wmsg *[count];
+    while (count--) msgs[count] = w_msgs[count];
+    send_messages_wtou( count, msgs, u_msgs );
+    delete[] msgs;
+}
+
+template< typename Wmsg, typename Umsg >
+static void send_messages_wtou( uint32_t count, ptr32< Wmsg** > w_msgs, Umsg **u_msgs )
+{
+    Wmsg **msgs = new Wmsg *[count];
+    while (count--) msgs[count] = w_msgs[count];
+    send_messages_wtou( count, msgs, u_msgs );
+    delete[] msgs;
 }
 
 template< typename Params >
@@ -161,7 +199,7 @@ static NTSTATUS steamclient_networking_message_release( Params *params, bool wow
 /* ISteamNetworkingSockets_SteamNetworkingSockets002 */
 
 template< typename Iface, typename Params, typename Umsg >
-static NTSTATUS ISteamNetworkingSockets_ReceiveMessagesOnConnection( Iface *iface, Params *params, Umsg const& )
+static NTSTATUS ISteamNetworkingSockets_ReceiveMessagesOnConnection( Iface *iface, Params *params, bool wow64, Umsg const& )
 {
     Umsg *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnConnection( params->hConn, u_msgs, params->nMaxMessages );
@@ -170,7 +208,7 @@ static NTSTATUS ISteamNetworkingSockets_ReceiveMessagesOnConnection( Iface *ifac
 }
 
 template< typename Iface, typename Params, typename Umsg >
-static NTSTATUS ISteamNetworkingSockets_ReceiveMessagesOnListenSocket( Iface *iface, Params *params, Umsg const& )
+static NTSTATUS ISteamNetworkingSockets_ReceiveMessagesOnListenSocket( Iface *iface, Params *params, bool wow64, Umsg const& )
 {
     Umsg *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnListenSocket( params->hSocket, u_msgs, params->nMaxMessages );
@@ -179,7 +217,7 @@ static NTSTATUS ISteamNetworkingSockets_ReceiveMessagesOnListenSocket( Iface *if
 }
 
 template< typename Iface, typename Params, typename Umsg >
-static NTSTATUS ISteamNetworkingSockets_SendMessages( Iface *iface, Params *params, Umsg const& )
+static NTSTATUS ISteamNetworkingSockets_SendMessages( Iface *iface, Params *params, bool wow64, Umsg const& )
 {
     Umsg *u_msgs[params->nMessages];
     send_messages_wtou( params->nMessages, params->pMessages, u_msgs );
@@ -188,7 +226,7 @@ static NTSTATUS ISteamNetworkingSockets_SendMessages( Iface *iface, Params *para
 }
 
 template< typename Iface, typename Params, typename Umsg >
-static NTSTATUS ISteamNetworkingSockets_ReceiveMessagesOnPollGroup( Iface *iface, Params *params, Umsg const& )
+static NTSTATUS ISteamNetworkingSockets_ReceiveMessagesOnPollGroup( Iface *iface, Params *params, bool wow64, Umsg const& )
 {
     Umsg *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnPollGroup( params->hPollGroup, u_msgs, params->nMaxMessages );
@@ -209,7 +247,7 @@ struct u_ISteamNetworkingCustomSignalingRecvContext *create_LinuxISteamNetworkin
 }
 
 template< typename Iface, typename Params, typename Umsg >
-static NTSTATUS ISteamNetworkingSockets_ConnectP2PCustomSignaling( Iface *iface, Params *params, Umsg const& )
+static NTSTATUS ISteamNetworkingSockets_ConnectP2PCustomSignaling( Iface *iface, Params *params, bool wow64, Umsg const& )
 {
     u_ISteamNetworkingConnectionCustomSignaling *u_pSignaling = create_LinuxISteamNetworkingConnectionCustomSignaling( params->pSignaling );
     params->_ret = iface->ConnectP2PCustomSignaling( u_pSignaling, params->pPeerIdentity, params->nOptions, params->pOptions );
@@ -217,7 +255,7 @@ static NTSTATUS ISteamNetworkingSockets_ConnectP2PCustomSignaling( Iface *iface,
 }
 
 template< typename Iface, typename Params, typename Umsg >
-static NTSTATUS ISteamNetworkingSockets_ReceivedP2PCustomSignal( Iface *iface, Params *params, Umsg const& )
+static NTSTATUS ISteamNetworkingSockets_ReceivedP2PCustomSignal( Iface *iface, Params *params, bool wow64, Umsg const& )
 {
     u_ISteamNetworkingCustomSignalingRecvContext *u_pContext = create_LinuxISteamNetworkingCustomSignalingRecvContext( params->pContext );
     params->_ret = iface->ReceivedP2PCustomSignal( params->pMsg, params->cbMsg, u_pContext );
@@ -225,7 +263,7 @@ static NTSTATUS ISteamNetworkingSockets_ReceivedP2PCustomSignal( Iface *iface, P
 }
 
 template< typename Iface, typename Params, typename Umsg >
-static NTSTATUS ISteamNetworkingUtils_AllocateMessage( Iface *iface, Params *params, Umsg const& )
+static NTSTATUS ISteamNetworkingUtils_AllocateMessage( Iface *iface, Params *params, bool wow64, Umsg const& )
 {
     Umsg *u_msg = iface->AllocateMessage( params->cbAllocateBuffer );
     if (u_msg) receive_messages_utow( 1, &u_msg, &params->_ret );
@@ -264,7 +302,7 @@ static void U_CDECL u_SteamNetworkingMessagesSessionFailed( SteamNetworkingMessa
 }
 
 template< typename Params, typename Umsg >
-static NTSTATUS ISteamNetworkingUtils_SetConfigValue( u_ISteamNetworkingUtils_SteamNetworkingUtils003 *iface, Params *params, Umsg const& )
+static NTSTATUS ISteamNetworkingUtils_SetConfigValue( u_ISteamNetworkingUtils_SteamNetworkingUtils003 *iface, Params *params, bool wow64, Umsg const& )
 {
     void *u_fn; /* api requires passing pointer-to-pointer */
 
@@ -278,11 +316,11 @@ static NTSTATUS ISteamNetworkingUtils_SetConfigValue( u_ISteamNetworkingUtils_St
     }                                                                                              \
     else                                                                                           \
     {                                                                                              \
-        if (*(void **)params->pArg == NULL) u_fn = NULL;                                           \
+        if (*(void **)(const void *)params->pArg == NULL) u_fn = NULL;                             \
         else u_fn = (void *)&u_##y;                                                                \
         params->_ret = iface->SetConfigValue( params->eValue, params->eScopeType,                  \
                                               params->scopeObj, params->eDataType, &u_fn );        \
-        if (params->_ret) w_##y = *(decltype(w_##y) *)params->pArg;                                \
+        if (params->_ret) w_##y = *(decltype(w_##y) *)(const void *)params->pArg;                  \
     }                                                                                              \
     break;
 
@@ -316,7 +354,7 @@ static void U_CDECL u_SteamNetworkingMessagesSessionFailed_153a( SteamNetworking
 }
 
 template< typename Params, typename Umsg >
-static NTSTATUS ISteamNetworkingUtils_SetConfigValue( u_ISteamNetworkingUtils_SteamNetworkingUtils004 *iface, Params *params, Umsg const& )
+static NTSTATUS ISteamNetworkingUtils_SetConfigValue( u_ISteamNetworkingUtils_SteamNetworkingUtils004 *iface, Params *params, bool wow64, Umsg const& )
 {
     bool ret;
     void *u_fn; /* api requires passing pointer-to-pointer */
@@ -332,11 +370,11 @@ static NTSTATUS ISteamNetworkingUtils_SetConfigValue( u_ISteamNetworkingUtils_St
     }                                                                                              \
     else                                                                                           \
     {                                                                                              \
-        if (*(void **)params->pArg == NULL) u_fn = NULL;                                           \
+        if (*(void **)(const void *)params->pArg == NULL) u_fn = NULL;                             \
         else u_fn = (void *)&u_##y;                                                                \
         params->_ret = iface->SetConfigValue( params->eValue, params->eScopeType,                  \
                                               params->scopeObj, params->eDataType, &u_fn );        \
-        if (params->_ret) w_##y = *(decltype(w_##y) *)params->pArg;                                \
+        if (params->_ret) w_##y = *(decltype(w_##y) *)(const void *)params->pArg;                  \
     }                                                                                              \
     break;
 
@@ -357,7 +395,7 @@ static NTSTATUS ISteamNetworkingUtils_SetConfigValue( u_ISteamNetworkingUtils_St
 }
 
 template< typename Iface, typename Params, typename Umsg >
-static NTSTATUS ISteamNetworkingFakeUDPPort_ReceiveMessages( Iface *iface, Params *params, Umsg const& )
+static NTSTATUS ISteamNetworkingFakeUDPPort_ReceiveMessages( Iface *iface, Params *params, bool wow64, Umsg const& )
 {
     Umsg *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessages( u_msgs, params->nMaxMessages );
@@ -366,7 +404,7 @@ static NTSTATUS ISteamNetworkingFakeUDPPort_ReceiveMessages( Iface *iface, Param
 }
 
 template< typename Iface, typename Params, typename Umsg >
-static NTSTATUS ISteamNetworkingMessages_ReceiveMessagesOnChannel( Iface *iface, Params *params, Umsg const& )
+static NTSTATUS ISteamNetworkingMessages_ReceiveMessagesOnChannel( Iface *iface, Params *params, bool wow64, Umsg const& )
 {
     Umsg *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnChannel( params->nLocalChannel, u_msgs, params->nMaxMessages );
@@ -409,8 +447,16 @@ LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingUtils, SteamNetworkingUtils004, SetConfi
 LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingFakeUDPPort, SteamNetworkingFakeUDPPort001, ReceiveMessages, u_SteamNetworkingMessage_t_153a() );
 LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingMessages, SteamNetworkingMessages002, ReceiveMessagesOnChannel, u_SteamNetworkingMessage_t_153a() );
 
+#ifdef __x86_64__
+#define STEAMCLIENT_UNIX_WOW64_FUNC( name, version, ... ) \
+    NTSTATUS wow64_ ## name ## _ ## version( void *args ) { return name( (struct wow64_ ## name ## _ ## version ## _params *)args, true, ## __VA_ARGS__ ); }
+#else
+#define STEAMCLIENT_UNIX_WOW64_FUNC( name, version, ... )
+#endif
+
 #define STEAMCLIENT_UNIX_FUNC( name, version, ... ) \
-    NTSTATUS name ## _ ## version( void *args ) { return name( (struct name ## _ ## version ## _params *)args, false, ## __VA_ARGS__ ); }
+    NTSTATUS name ## _ ## version( void *args ) { return name( (struct name ## _ ## version ## _params *)args, false, ## __VA_ARGS__ ); } \
+    STEAMCLIENT_UNIX_WOW64_FUNC( name, version, ## __VA_ARGS__ )
 
 STEAMCLIENT_UNIX_FUNC( steamclient_networking_messages_receive, 144 );
 STEAMCLIENT_UNIX_FUNC( steamclient_networking_messages_receive, 147 );

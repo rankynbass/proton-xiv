@@ -260,7 +260,7 @@ u_void_SteamAPI_PostAPIResultInProcess_t manual_convert_DEPRECATED_Remove_SteamA
 }
 
 template< typename Iface, typename Params >
-static NTSTATUS ISteamClient_Set_SteamAPI_CCheckCallbackRegisteredInProcess( Iface *iface, Params *params )
+static NTSTATUS ISteamClient_Set_SteamAPI_CCheckCallbackRegisteredInProcess( Iface *iface, Params *params, bool wow64 )
 {
     uint32_t (*U_CDECL lin_func)(int32_t) = manual_convert_Set_SteamAPI_CCheckCallbackRegisteredInProcess_func_156( params->func );
     iface->Set_SteamAPI_CCheckCallbackRegisteredInProcess( lin_func );
@@ -271,7 +271,7 @@ LSTEAMCLIENT_UNIX_IMPL( ISteamClient, SteamClient020, Set_SteamAPI_CCheckCallbac
 LSTEAMCLIENT_UNIX_IMPL( ISteamClient, SteamClient021, Set_SteamAPI_CCheckCallbackRegisteredInProcess );
 
 template< typename Params >
-static NTSTATUS steamclient_next_callback( Params *params )
+static NTSTATUS steamclient_next_callback( Params *params, bool wow64 )
 {
     uint32_t capacity = params->size;
     struct list *ptr;
@@ -304,7 +304,7 @@ static bool (*p_Steam_IsKnownInterface)( const char * );
 static void (*p_Steam_NotifyMissingInterface)( int32_t, const char * );
 
 template< typename Params >
-static NTSTATUS steamclient_Steam_BGetCallback( Params *params )
+static NTSTATUS steamclient_Steam_BGetCallback( Params *params, bool wow64 )
 {
     u_CallbackMsg_t *u_msg = new u_CallbackMsg_t();
     auto *w_msg = &*params->w_msg;
@@ -325,7 +325,7 @@ static NTSTATUS steamclient_Steam_BGetCallback( Params *params )
 }
 
 template< typename Params >
-static NTSTATUS steamclient_callback_message_receive( Params *params )
+static NTSTATUS steamclient_callback_message_receive( Params *params, bool wow64 )
 {
     u_CallbackMsg_t *u_msg = (u_CallbackMsg_t *)(UINT_PTR)params->cookie;
     auto *w_msg = &*params->w_msg;
@@ -358,14 +358,14 @@ static NTSTATUS steamclient_callback_message_receive( Params *params )
 }
 
 template< typename Params >
-static NTSTATUS steamclient_Steam_FreeLastCallback( Params *params )
+static NTSTATUS steamclient_Steam_FreeLastCallback( Params *params, bool wow64 )
 {
     params->_ret = p_Steam_FreeLastCallback( params->pipe );
     return 0;
 }
 
 template< typename Params >
-static NTSTATUS steamclient_Steam_GetAPICallResult( Params *params )
+static NTSTATUS steamclient_Steam_GetAPICallResult( Params *params, bool wow64 )
 {
     int u_callback_len = params->w_callback_len;
     void *u_callback;
@@ -605,7 +605,7 @@ static void setup_proton_voice_files( u_ISteamClient_SteamClient017 *client, int
 }
 
 template< typename Params >
-static NTSTATUS steamclient_init_registry( Params *params )
+static NTSTATUS steamclient_init_registry( Params *params, bool wow64 )
 {
     u_ISteamClient_SteamClient017 *client;
     int pipe, user, error;
@@ -628,7 +628,7 @@ static NTSTATUS steamclient_init_registry( Params *params )
 }
 
 template< typename Params >
-static NTSTATUS steamclient_init( Params *params )
+static NTSTATUS steamclient_init( Params *params, bool wow64 )
 {
     char path[PATH_MAX], resolved_path[PATH_MAX];
     static void *steamclient;
@@ -703,7 +703,7 @@ static pthread_mutex_t buffer_cache_lock = PTHREAD_MUTEX_INITIALIZER;
 static std::unordered_map< struct u_buffer, void * > buffer_cache;
 
 template< typename Params >
-static NTSTATUS steamclient_get_unix_buffer( Params *params )
+static NTSTATUS steamclient_get_unix_buffer( Params *params, bool wow64 )
 {
     struct cache_entry *entry;
     struct rb_entry *ptr;
@@ -722,28 +722,28 @@ static NTSTATUS steamclient_get_unix_buffer( Params *params )
 }
 
 template< typename Params >
-static NTSTATUS steamclient_CreateInterface( Params *params )
+static NTSTATUS steamclient_CreateInterface( Params *params, bool wow64 )
 {
     params->_ret = p_CreateInterface( params->name, params->return_code );
     return 0;
 }
 
 template< typename Params >
-static NTSTATUS steamclient_Steam_ReleaseThreadLocalMemory( Params *params )
+static NTSTATUS steamclient_Steam_ReleaseThreadLocalMemory( Params *params, bool wow64 )
 {
     p_Steam_ReleaseThreadLocalMemory( params->thread_exit );
     return 0;
 }
 
 template< typename Params >
-static NTSTATUS steamclient_Steam_IsKnownInterface( Params *params )
+static NTSTATUS steamclient_Steam_IsKnownInterface( Params *params, bool wow64 )
 {
     params->_ret = p_Steam_IsKnownInterface( params->version );
     return 0;
 }
 
 template< typename Params >
-static NTSTATUS steamclient_Steam_NotifyMissingInterface( Params *params )
+static NTSTATUS steamclient_Steam_NotifyMissingInterface( Params *params, bool wow64 )
 {
     p_Steam_NotifyMissingInterface( params->pipe, params->version );
     return 0;
@@ -971,6 +971,21 @@ const char **steamclient_dos_to_unix_path_array( const char **src )
     return (const char **)out;
 }
 
+const char **wow64_steamclient_dos_to_unix_path_array( ptr32< const char ** > src_array )
+{
+    ptr32< const char * > *ptr = src_array, *end = src_array;
+    const char **array, **ret;
+
+    while (*end) end++;
+    array = new const char *[end - ptr + 1];
+    for (end = ptr; *end; end++) array[end - ptr] = *end;
+
+    ret = steamclient_dos_to_unix_path_array( array );
+
+    delete array;
+    return ret;
+}
+
 void steamclient_free_path_array( const char **path_array )
 {
     const char **path;
@@ -1143,8 +1158,16 @@ void convert_callback_utow( int id, void *u_callback, int u_callback_len, void *
     else                     memcpy( w_callback, u_callback, u_callback_len );
 }
 
+#ifdef __x86_64__
+#define STEAMCLIENT_UNIX_WOW64_FUNC( name ) \
+    NTSTATUS wow64_ ## name( void *args ) { return name( (struct wow64_ ## name ## _params *)args, true ); }
+#else
+#define STEAMCLIENT_UNIX_WOW64_FUNC( name )
+#endif
+
 #define STEAMCLIENT_UNIX_FUNC( name ) \
-    NTSTATUS name( void *args ) { return name( (struct name ## _params *)args ); }
+    NTSTATUS name( void *args ) { return name( (struct name ## _params *)args, false ); } \
+    STEAMCLIENT_UNIX_WOW64_FUNC( name )
 
 STEAMCLIENT_UNIX_FUNC( steamclient_init )
 STEAMCLIENT_UNIX_FUNC( steamclient_init_registry )
@@ -1433,5 +1456,18 @@ u64_RemoteStorageDownloadUGCResult_t_111x::operator w32_RemoteStorageDownloadUGC
     buf.append_str( ret.m_pchFileName, this->m_pchFileName );
     ret.m_ulSteamIDOwner = this->m_ulSteamIDOwner;
     return ret;
+}
+
+w64_SteamParamStringArray_t::w64_SteamParamStringArray_t( w32_SteamParamStringArray_t const& w32 )
+    : m_nNumStrings(w32.m_nNumStrings)
+{
+    uint32_t count = m_nNumStrings;
+    m_ppStrings = new const char *[count];
+    while (count--) m_ppStrings[count] = w32.m_ppStrings[count];
+}
+
+w64_SteamParamStringArray_t::~w64_SteamParamStringArray_t()
+{
+    delete[] m_ppStrings;
 }
 #endif

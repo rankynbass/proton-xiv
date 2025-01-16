@@ -32,10 +32,25 @@ struct steamclient_init_params
     int8_t ignore_child_processes_unset;
 };
 
+struct wow64_steamclient_init_params
+{
+    W32_PTR(char *g_tmppath, g_tmppath, char *);
+    W32_PTR(const char *steam_app_id, steam_app_id, const char *);
+    int8_t steam_app_id_unset;
+    W32_PTR(const char *ignore_child_processes, ignore_child_processes, const char *);
+    int8_t ignore_child_processes_unset;
+};
+
 struct steamclient_get_unix_buffer_params
 {
     struct u_buffer buf;
     void *ptr; /* client-side ptr */
+};
+
+struct wow64_steamclient_get_unix_buffer_params
+{
+    struct u_buffer buf;
+    W32_PTR(void *ptr, ptr, void *); /* client-side ptr */
 };
 
 enum callback_type
@@ -148,11 +163,25 @@ struct steamclient_next_callback_params
     uint32_t size;
 };
 
+struct wow64_steamclient_next_callback_params
+{
+    int8_t _ret;
+    W32_PTR(struct callback *callback, callback, struct callback *);
+    uint32_t size;
+};
+
 struct steamclient_CreateInterface_params
 {
     struct u_iface _ret;
     const char *name;
     int *return_code;
+};
+
+struct wow64_steamclient_CreateInterface_params
+{
+    struct u_iface _ret;
+    W32_PTR(const char *name, name, const char *);
+    W32_PTR(int *return_code, return_code, int *);
 };
 
 struct steamclient_Steam_GetAPICallResult_params
@@ -166,6 +195,17 @@ struct steamclient_Steam_GetAPICallResult_params
     int8_t *failed;
 };
 
+struct wow64_steamclient_Steam_GetAPICallResult_params
+{
+    int8_t _ret;
+    int32_t pipe;
+    uint64_t call;
+    W32_PTR(void *w_callback, w_callback, void *);
+    int w_callback_len;
+    int id;
+    W32_PTR(int8_t *failed, failed, int8_t *);
+};
+
 struct steamclient_Steam_BGetCallback_params
 {
     int8_t _ret;
@@ -175,13 +215,34 @@ struct steamclient_Steam_BGetCallback_params
     int32_t *ignored;
 };
 
+struct wow64_steamclient_Steam_BGetCallback_params
+{
+    int8_t _ret;
+    uint32_t pipe;
+    uint64_t cookie;
+    W32_PTR(w32_CallbackMsg_t *w_msg, w_msg, w32_CallbackMsg_t *);
+    W32_PTR(int32_t *ignored, ignored, int32_t *);
+};
+
 struct steamclient_callback_message_receive_params
 {
     uint64_t cookie;
     w_CallbackMsg_t *w_msg;
 };
 
+struct wow64_steamclient_callback_message_receive_params
+{
+    uint64_t cookie;
+    W32_PTR(w32_CallbackMsg_t *w_msg, w_msg, w32_CallbackMsg_t *);
+};
+
 struct steamclient_Steam_FreeLastCallback_params
+{
+    int8_t _ret;
+    uint32_t pipe;
+};
+
+struct wow64_steamclient_Steam_FreeLastCallback_params
 {
     int8_t _ret;
     uint32_t pipe;
@@ -192,10 +253,21 @@ struct steamclient_Steam_ReleaseThreadLocalMemory_params
     int thread_exit;
 };
 
+struct wow64_steamclient_Steam_ReleaseThreadLocalMemory_params
+{
+    int thread_exit;
+};
+
 struct steamclient_Steam_IsKnownInterface_params
 {
     int8_t _ret;
     const char *version;
+};
+
+struct wow64_steamclient_Steam_IsKnownInterface_params
+{
+    int8_t _ret;
+    W32_PTR(const char *version, version, const char *);
 };
 
 struct steamclient_Steam_NotifyMissingInterface_params
@@ -204,10 +276,22 @@ struct steamclient_Steam_NotifyMissingInterface_params
     const char *version;
 };
 
+struct wow64_steamclient_Steam_NotifyMissingInterface_params
+{
+    int32_t pipe;
+    W32_PTR(const char *version, version, const char *);
+};
+
 struct steamclient_networking_messages_receive_144_params
 {
     uint32_t count;
     w_SteamNetworkingMessage_t_144 **w_msgs;
+};
+
+struct wow64_steamclient_networking_messages_receive_144_params
+{
+    uint32_t count;
+    W32_PTR(w32_SteamNetworkingMessage_t_144 **w_msgs, w_msgs, w32_SteamNetworkingMessage_t_144 **);
 };
 
 struct steamclient_networking_messages_receive_147_params
@@ -216,10 +300,22 @@ struct steamclient_networking_messages_receive_147_params
     w_SteamNetworkingMessage_t_147 **w_msgs;
 };
 
+struct wow64_steamclient_networking_messages_receive_147_params
+{
+    uint32_t count;
+    W32_PTR(w32_SteamNetworkingMessage_t_147 **w_msgs, w_msgs, w32_SteamNetworkingMessage_t_147 **);
+};
+
 struct steamclient_networking_messages_receive_153a_params
 {
     uint32_t count;
     w_SteamNetworkingMessage_t_153a **w_msgs;
+};
+
+struct wow64_steamclient_networking_messages_receive_153a_params
+{
+    uint32_t count;
+    W32_PTR(w32_SteamNetworkingMessage_t_153a **w_msgs, w_msgs, w32_SteamNetworkingMessage_t_153a **);
 };
 
 struct steamclient_networking_message_release_147_params
@@ -227,9 +323,19 @@ struct steamclient_networking_message_release_147_params
     w_SteamNetworkingMessage_t_147 *w_msg;
 };
 
+struct wow64_steamclient_networking_message_release_147_params
+{
+    W32_PTR(w32_SteamNetworkingMessage_t_147 *w_msg, w_msg, w32_SteamNetworkingMessage_t_147 *);
+};
+
 struct steamclient_networking_message_release_153a_params
 {
     w_SteamNetworkingMessage_t_153a *w_msg;
+};
+
+struct wow64_steamclient_networking_message_release_153a_params
+{
+    W32_PTR(w32_SteamNetworkingMessage_t_153a *w_msg, w_msg, w32_SteamNetworkingMessage_t_153a *);
 };
 
 struct networking_message_pool;
@@ -250,6 +356,11 @@ struct networking_message
         w_SteamNetworkingMessage_t_144 w_msg_144;
         w_SteamNetworkingMessage_t_147 w_msg_147;
         w_SteamNetworkingMessage_t_153a w_msg_153a;
+#ifdef __x86_64__
+        w32_SteamNetworkingMessage_t_144 w32_msg_144;
+        w32_SteamNetworkingMessage_t_147 w32_msg_147;
+        w32_SteamNetworkingMessage_t_153a w32_msg_153a;
+#endif
     };
 
 #ifdef __cplusplus
@@ -262,6 +373,17 @@ struct networking_message
     w_SteamNetworkingMessage_t_144& w_msg( w_SteamNetworkingMessage_t_144 const& ) { return this->w_msg_144; }
     w_SteamNetworkingMessage_t_147& w_msg( w_SteamNetworkingMessage_t_147 const& ) { return this->w_msg_147; }
     w_SteamNetworkingMessage_t_153a& w_msg( w_SteamNetworkingMessage_t_153a const& ) { return this->w_msg_153a; }
+#ifdef __x86_64__
+    static struct networking_message *from_w( const w32_SteamNetworkingMessage_t_144* w_msg ) { return CONTAINING_RECORD( w_msg, struct networking_message, w32_msg_144 ); }
+    static struct networking_message *from_w( const w32_SteamNetworkingMessage_t_147* w_msg ) { return CONTAINING_RECORD( w_msg, struct networking_message, w32_msg_147 ); }
+    static struct networking_message *from_w( const w32_SteamNetworkingMessage_t_153a* w_msg ) { return CONTAINING_RECORD( w_msg, struct networking_message, w32_msg_153a ); }
+    u_SteamNetworkingMessage_t_144*& u_msg( w32_SteamNetworkingMessage_t_144 const& ) { return this->u_msg_144; }
+    u_SteamNetworkingMessage_t_147*& u_msg( w32_SteamNetworkingMessage_t_147 const& ) { return this->u_msg_147; }
+    u_SteamNetworkingMessage_t_153a*& u_msg( w32_SteamNetworkingMessage_t_153a const& ) { return this->u_msg_153a; }
+    w32_SteamNetworkingMessage_t_144& w_msg( w32_SteamNetworkingMessage_t_144 const& ) { return this->w32_msg_144; }
+    w32_SteamNetworkingMessage_t_147& w_msg( w32_SteamNetworkingMessage_t_147 const& ) { return this->w32_msg_147; }
+    w32_SteamNetworkingMessage_t_153a& w_msg( w32_SteamNetworkingMessage_t_153a const& ) { return this->w32_msg_153a; }
+#endif
 #endif /* __cplusplus */
 };
 

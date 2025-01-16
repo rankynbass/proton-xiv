@@ -13,6 +13,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_LogOn( void *args )
     return 0;
 }
 
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_LogOn( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_LogOn_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_LogOn_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    iface->LogOn(  );
+    return 0;
+}
+#endif
+
 NTSTATUS ISteamGameServer_SteamGameServer010_LogOff( void *args )
 {
     struct ISteamGameServer_SteamGameServer010_LogOff_params *params = (struct ISteamGameServer_SteamGameServer010_LogOff_params *)args;
@@ -20,6 +30,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_LogOff( void *args )
     iface->LogOff(  );
     return 0;
 }
+
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_LogOff( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_LogOff_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_LogOff_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    iface->LogOff(  );
+    return 0;
+}
+#endif
 
 NTSTATUS ISteamGameServer_SteamGameServer010_BLoggedOn( void *args )
 {
@@ -29,6 +49,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_BLoggedOn( void *args )
     return 0;
 }
 
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_BLoggedOn( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_BLoggedOn_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_BLoggedOn_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    params->_ret = iface->BLoggedOn(  );
+    return 0;
+}
+#endif
+
 NTSTATUS ISteamGameServer_SteamGameServer010_BSecure( void *args )
 {
     struct ISteamGameServer_SteamGameServer010_BSecure_params *params = (struct ISteamGameServer_SteamGameServer010_BSecure_params *)args;
@@ -36,6 +66,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_BSecure( void *args )
     params->_ret = iface->BSecure(  );
     return 0;
 }
+
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_BSecure( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_BSecure_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_BSecure_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    params->_ret = iface->BSecure(  );
+    return 0;
+}
+#endif
 
 NTSTATUS ISteamGameServer_SteamGameServer010_GetSteamID( void *args )
 {
@@ -45,6 +85,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_GetSteamID( void *args )
     return 0;
 }
 
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_GetSteamID( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_GetSteamID_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_GetSteamID_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    *params->_ret = iface->GetSteamID(  );
+    return 0;
+}
+#endif
+
 NTSTATUS ISteamGameServer_SteamGameServer010_SendUserConnectAndAuthenticate( void *args )
 {
     struct ISteamGameServer_SteamGameServer010_SendUserConnectAndAuthenticate_params *params = (struct ISteamGameServer_SteamGameServer010_SendUserConnectAndAuthenticate_params *)args;
@@ -52,6 +102,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_SendUserConnectAndAuthenticate( voi
     params->_ret = iface->SendUserConnectAndAuthenticate( params->unIPClient, params->pvAuthBlob, params->cubAuthBlobSize, params->pSteamIDUser );
     return 0;
 }
+
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_SendUserConnectAndAuthenticate( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_SendUserConnectAndAuthenticate_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_SendUserConnectAndAuthenticate_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    params->_ret = iface->SendUserConnectAndAuthenticate( params->unIPClient, params->pvAuthBlob, params->cubAuthBlobSize, params->pSteamIDUser );
+    return 0;
+}
+#endif
 
 NTSTATUS ISteamGameServer_SteamGameServer010_CreateUnauthenticatedUserConnection( void *args )
 {
@@ -61,6 +121,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_CreateUnauthenticatedUserConnection
     return 0;
 }
 
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_CreateUnauthenticatedUserConnection( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_CreateUnauthenticatedUserConnection_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_CreateUnauthenticatedUserConnection_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    *params->_ret = iface->CreateUnauthenticatedUserConnection(  );
+    return 0;
+}
+#endif
+
 NTSTATUS ISteamGameServer_SteamGameServer010_SendUserDisconnect( void *args )
 {
     struct ISteamGameServer_SteamGameServer010_SendUserDisconnect_params *params = (struct ISteamGameServer_SteamGameServer010_SendUserDisconnect_params *)args;
@@ -68,6 +138,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_SendUserDisconnect( void *args )
     iface->SendUserDisconnect( params->steamIDUser );
     return 0;
 }
+
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_SendUserDisconnect( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_SendUserDisconnect_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_SendUserDisconnect_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    iface->SendUserDisconnect( params->steamIDUser );
+    return 0;
+}
+#endif
 
 NTSTATUS ISteamGameServer_SteamGameServer010_BUpdateUserData( void *args )
 {
@@ -77,6 +157,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_BUpdateUserData( void *args )
     return 0;
 }
 
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_BUpdateUserData( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_BUpdateUserData_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_BUpdateUserData_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    params->_ret = iface->BUpdateUserData( params->steamIDUser, params->pchPlayerName, params->uScore );
+    return 0;
+}
+#endif
+
 NTSTATUS ISteamGameServer_SteamGameServer010_BSetServerType( void *args )
 {
     struct ISteamGameServer_SteamGameServer010_BSetServerType_params *params = (struct ISteamGameServer_SteamGameServer010_BSetServerType_params *)args;
@@ -84,6 +174,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_BSetServerType( void *args )
     params->_ret = iface->BSetServerType( params->unServerFlags, params->unGameIP, params->unGamePort, params->unSpectatorPort, params->usQueryPort, params->pchGameDir, params->pchVersion, params->bLANMode );
     return 0;
 }
+
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_BSetServerType( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_BSetServerType_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_BSetServerType_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    params->_ret = iface->BSetServerType( params->unServerFlags, params->unGameIP, params->unGamePort, params->unSpectatorPort, params->usQueryPort, params->pchGameDir, params->pchVersion, params->bLANMode );
+    return 0;
+}
+#endif
 
 NTSTATUS ISteamGameServer_SteamGameServer010_UpdateServerStatus( void *args )
 {
@@ -93,6 +193,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_UpdateServerStatus( void *args )
     return 0;
 }
 
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_UpdateServerStatus( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_UpdateServerStatus_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_UpdateServerStatus_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    iface->UpdateServerStatus( params->cPlayers, params->cPlayersMax, params->cBotPlayers, params->pchServerName, params->pSpectatorServerName, params->pchMapName );
+    return 0;
+}
+#endif
+
 NTSTATUS ISteamGameServer_SteamGameServer010_UpdateSpectatorPort( void *args )
 {
     struct ISteamGameServer_SteamGameServer010_UpdateSpectatorPort_params *params = (struct ISteamGameServer_SteamGameServer010_UpdateSpectatorPort_params *)args;
@@ -100,6 +210,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_UpdateSpectatorPort( void *args )
     iface->UpdateSpectatorPort( params->unSpectatorPort );
     return 0;
 }
+
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_UpdateSpectatorPort( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_UpdateSpectatorPort_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_UpdateSpectatorPort_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    iface->UpdateSpectatorPort( params->unSpectatorPort );
+    return 0;
+}
+#endif
 
 NTSTATUS ISteamGameServer_SteamGameServer010_SetGameTags( void *args )
 {
@@ -109,6 +229,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_SetGameTags( void *args )
     return 0;
 }
 
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_SetGameTags( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_SetGameTags_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_SetGameTags_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    iface->SetGameTags( params->pchGameTags );
+    return 0;
+}
+#endif
+
 NTSTATUS ISteamGameServer_SteamGameServer010_GetGameplayStats( void *args )
 {
     struct ISteamGameServer_SteamGameServer010_GetGameplayStats_params *params = (struct ISteamGameServer_SteamGameServer010_GetGameplayStats_params *)args;
@@ -116,6 +246,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_GetGameplayStats( void *args )
     iface->GetGameplayStats(  );
     return 0;
 }
+
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_GetGameplayStats( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_GetGameplayStats_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_GetGameplayStats_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    iface->GetGameplayStats(  );
+    return 0;
+}
+#endif
 
 NTSTATUS ISteamGameServer_SteamGameServer010_GetServerReputation( void *args )
 {
@@ -125,6 +265,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_GetServerReputation( void *args )
     return 0;
 }
 
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_GetServerReputation( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_GetServerReputation_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_GetServerReputation_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    params->_ret = iface->GetServerReputation(  );
+    return 0;
+}
+#endif
+
 NTSTATUS ISteamGameServer_SteamGameServer010_RequestUserGroupStatus( void *args )
 {
     struct ISteamGameServer_SteamGameServer010_RequestUserGroupStatus_params *params = (struct ISteamGameServer_SteamGameServer010_RequestUserGroupStatus_params *)args;
@@ -132,6 +282,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_RequestUserGroupStatus( void *args 
     params->_ret = iface->RequestUserGroupStatus( params->steamIDUser, params->steamIDGroup );
     return 0;
 }
+
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_RequestUserGroupStatus( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_RequestUserGroupStatus_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_RequestUserGroupStatus_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    params->_ret = iface->RequestUserGroupStatus( params->steamIDUser, params->steamIDGroup );
+    return 0;
+}
+#endif
 
 NTSTATUS ISteamGameServer_SteamGameServer010_GetPublicIP( void *args )
 {
@@ -141,6 +301,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_GetPublicIP( void *args )
     return 0;
 }
 
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_GetPublicIP( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_GetPublicIP_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_GetPublicIP_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    params->_ret = iface->GetPublicIP(  );
+    return 0;
+}
+#endif
+
 NTSTATUS ISteamGameServer_SteamGameServer010_SetGameData( void *args )
 {
     struct ISteamGameServer_SteamGameServer010_SetGameData_params *params = (struct ISteamGameServer_SteamGameServer010_SetGameData_params *)args;
@@ -148,6 +318,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_SetGameData( void *args )
     iface->SetGameData( params->pchGameData );
     return 0;
 }
+
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_SetGameData( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_SetGameData_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_SetGameData_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    iface->SetGameData( params->pchGameData );
+    return 0;
+}
+#endif
 
 NTSTATUS ISteamGameServer_SteamGameServer010_UserHasLicenseForApp( void *args )
 {
@@ -157,6 +337,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_UserHasLicenseForApp( void *args )
     return 0;
 }
 
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_UserHasLicenseForApp( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_UserHasLicenseForApp_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_UserHasLicenseForApp_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    params->_ret = iface->UserHasLicenseForApp( params->steamID, params->appID );
+    return 0;
+}
+#endif
+
 NTSTATUS ISteamGameServer_SteamGameServer010_GetAuthSessionTicket( void *args )
 {
     struct ISteamGameServer_SteamGameServer010_GetAuthSessionTicket_params *params = (struct ISteamGameServer_SteamGameServer010_GetAuthSessionTicket_params *)args;
@@ -164,6 +354,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_GetAuthSessionTicket( void *args )
     params->_ret = iface->GetAuthSessionTicket( params->pTicket, params->cbMaxTicket, params->pcbTicket );
     return 0;
 }
+
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_GetAuthSessionTicket( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_GetAuthSessionTicket_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_GetAuthSessionTicket_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    params->_ret = iface->GetAuthSessionTicket( params->pTicket, params->cbMaxTicket, params->pcbTicket );
+    return 0;
+}
+#endif
 
 NTSTATUS ISteamGameServer_SteamGameServer010_BeginAuthSession( void *args )
 {
@@ -173,6 +373,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_BeginAuthSession( void *args )
     return 0;
 }
 
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_BeginAuthSession( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_BeginAuthSession_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_BeginAuthSession_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    params->_ret = iface->BeginAuthSession( params->pAuthTicket, params->cbAuthTicket, params->steamID );
+    return 0;
+}
+#endif
+
 NTSTATUS ISteamGameServer_SteamGameServer010_EndAuthSession( void *args )
 {
     struct ISteamGameServer_SteamGameServer010_EndAuthSession_params *params = (struct ISteamGameServer_SteamGameServer010_EndAuthSession_params *)args;
@@ -181,6 +391,16 @@ NTSTATUS ISteamGameServer_SteamGameServer010_EndAuthSession( void *args )
     return 0;
 }
 
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_EndAuthSession( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_EndAuthSession_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_EndAuthSession_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    iface->EndAuthSession( params->steamID );
+    return 0;
+}
+#endif
+
 NTSTATUS ISteamGameServer_SteamGameServer010_CancelAuthTicket( void *args )
 {
     struct ISteamGameServer_SteamGameServer010_CancelAuthTicket_params *params = (struct ISteamGameServer_SteamGameServer010_CancelAuthTicket_params *)args;
@@ -188,4 +408,14 @@ NTSTATUS ISteamGameServer_SteamGameServer010_CancelAuthTicket( void *args )
     iface->CancelAuthTicket( params->hAuthTicket );
     return 0;
 }
+
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamGameServer_SteamGameServer010_CancelAuthTicket( void *args )
+{
+    struct wow64_ISteamGameServer_SteamGameServer010_CancelAuthTicket_params *params = (struct wow64_ISteamGameServer_SteamGameServer010_CancelAuthTicket_params *)args;
+    struct u_ISteamGameServer_SteamGameServer010 *iface = (struct u_ISteamGameServer_SteamGameServer010 *)params->u_iface;
+    iface->CancelAuthTicket( params->hAuthTicket );
+    return 0;
+}
+#endif
 

@@ -13,3 +13,13 @@ NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_CancelServerQuery( 
     return 0;
 }
 
+#ifdef __x86_64__
+NTSTATUS wow64_ISteamMatchmakingServers_SteamMatchMakingServers002_CancelServerQuery( void *args )
+{
+    struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers002_CancelServerQuery_params *params = (struct wow64_ISteamMatchmakingServers_SteamMatchMakingServers002_CancelServerQuery_params *)args;
+    struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->u_iface;
+    iface->CancelServerQuery( params->hServerQuery );
+    return 0;
+}
+#endif
+

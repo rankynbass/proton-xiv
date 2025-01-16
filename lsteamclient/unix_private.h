@@ -74,38 +74,69 @@ void *alloc_callback_wtou( int id, void *callback, int *callback_len, bool wow64
 void convert_callback_utow( int id, void *u_callback, int u_callback_len, void *w_callback, int w_callback_len, bool wow64 );
 
 extern NTSTATUS steamclient_init( void * );
+extern NTSTATUS wow64_steamclient_init( void * );
 extern NTSTATUS steamclient_init_registry( void * );
+extern NTSTATUS wow64_steamclient_init_registry( void * );
 extern NTSTATUS steamclient_next_callback( void * );
+extern NTSTATUS wow64_steamclient_next_callback( void * );
 extern NTSTATUS steamclient_get_unix_buffer( void * );
+extern NTSTATUS wow64_steamclient_get_unix_buffer( void * );
 extern NTSTATUS steamclient_CreateInterface( void * );
+extern NTSTATUS wow64_steamclient_CreateInterface( void * );
 extern NTSTATUS steamclient_Steam_GetAPICallResult( void * );
+extern NTSTATUS wow64_steamclient_Steam_GetAPICallResult( void * );
 extern NTSTATUS steamclient_Steam_BGetCallback( void * );
+extern NTSTATUS wow64_steamclient_Steam_BGetCallback( void * );
 extern NTSTATUS steamclient_callback_message_receive( void * );
+extern NTSTATUS wow64_steamclient_callback_message_receive( void * );
 extern NTSTATUS steamclient_Steam_FreeLastCallback( void * );
+extern NTSTATUS wow64_steamclient_Steam_FreeLastCallback( void * );
 extern NTSTATUS steamclient_Steam_ReleaseThreadLocalMemory( void * );
+extern NTSTATUS wow64_steamclient_Steam_ReleaseThreadLocalMemory( void * );
 extern NTSTATUS steamclient_Steam_IsKnownInterface( void * );
+extern NTSTATUS wow64_steamclient_Steam_IsKnownInterface( void * );
 extern NTSTATUS steamclient_Steam_NotifyMissingInterface( void * );
+extern NTSTATUS wow64_steamclient_Steam_NotifyMissingInterface( void * );
 extern NTSTATUS steamclient_networking_messages_receive_144( void * );
+extern NTSTATUS wow64_steamclient_networking_messages_receive_144( void * );
 extern NTSTATUS steamclient_networking_messages_receive_147( void * );
+extern NTSTATUS wow64_steamclient_networking_messages_receive_147( void * );
 extern NTSTATUS steamclient_networking_messages_receive_153a( void * );
+extern NTSTATUS wow64_steamclient_networking_messages_receive_153a( void * );
 extern NTSTATUS steamclient_networking_message_release_147( void * );
+extern NTSTATUS wow64_steamclient_networking_message_release_147( void * );
 extern NTSTATUS steamclient_networking_message_release_153a( void * );
+extern NTSTATUS wow64_steamclient_networking_message_release_153a( void * );
 
 extern char *steamclient_dos_to_unix_path( const char *src, int is_url );
 extern void steamclient_free_path( char *path_array );
 extern const char **steamclient_dos_to_unix_path_array( const char **src_array );
+extern const char **wow64_steamclient_dos_to_unix_path_array( ptr32< const char ** > src_array );
 extern void steamclient_free_path_array( const char **path_array );
 
 extern unsigned int steamclient_unix_path_to_dos_path( bool api_result, const char *src, char *dst,
                                                        uint32_t dst_bytes, int is_url );
+
+#ifdef __x86_64__
+#define LSTEAMCLIENT_UNIX_WOW64_IMPL( iface, version, method, ... ) \
+    NTSTATUS wow64_ ## iface ## _ ## version ## _ ## method( void *args ) \
+    { \
+        auto params = (struct wow64_ ## iface ## _ ## version ## _ ## method ## _params *)args; \
+        auto u_iface = (struct u_ ## iface ## _ ## version *)params->u_iface; \
+        return iface ## _ ## method( u_iface, params, true, ## __VA_ARGS__ ); \
+    }
+#else
+#define LSTEAMCLIENT_UNIX_WOW64_IMPL( iface, version, method, ... )
+#endif
 
 #define LSTEAMCLIENT_UNIX_IMPL( iface, version, method, ... ) \
     NTSTATUS iface ## _ ## version ## _ ## method( void *args ) \
     { \
         auto params = (struct iface ## _ ## version ## _ ## method ## _params *)args; \
         auto u_iface = (struct u_ ## iface ## _ ## version *)params->u_iface; \
-        return iface ## _ ## method( u_iface, params, ## __VA_ARGS__ ); \
-    }
+        return iface ## _ ## method( u_iface, params, false, ## __VA_ARGS__ ); \
+    } \
+    LSTEAMCLIENT_UNIX_WOW64_IMPL( iface, version, method, ## __VA_ARGS__ )
 
 #ifdef __cplusplus
 } /* extern "C" */
