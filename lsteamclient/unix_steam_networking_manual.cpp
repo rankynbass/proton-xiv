@@ -111,6 +111,23 @@ static void receive_messages_utow( uint32_t count, Umsg **u_msgs, Wmsg **w_msgs 
     }
 }
 
+template< typename Wmsg, typename Umsg >
+static void send_messages_wtou( uint32_t count, Wmsg *const *w_msgs, Umsg **u_msgs )
+{
+    uint32_t i;
+
+    for (i = 0; i < count; i++)
+    {
+        struct networking_message *message = networking_message::from_w( w_msgs[i] );
+        auto *w_msg = &message->w_msg( **w_msgs );
+        auto *u_msg = message->u_msg( **w_msgs );
+        steam_networking_message_wtou( *u_msg, *w_msg );
+        /* steamclient library takes ownership */
+        message->u_msg( **w_msgs ) = NULL;
+        u_msgs[i] = u_msg;
+    }
+}
+
 NTSTATUS steamclient_networking_messages_receive_144( void *args )
 {
     struct steamclient_networking_messages_receive_144_params *params = (struct steamclient_networking_messages_receive_144_params *)args;
@@ -126,6 +143,66 @@ NTSTATUS steamclient_networking_messages_receive_144( void *args )
         message->u_msg( **params->w_msgs ) = NULL;
     }
 
+    return 0;
+}
+
+NTSTATUS steamclient_networking_messages_receive_147( void *args )
+{
+    struct steamclient_networking_messages_receive_147_params *params = (struct steamclient_networking_messages_receive_147_params *)args;
+    uint32_t i;
+
+    for (i = 0; i < params->count; i++)
+    {
+        struct networking_message *message = networking_message::from_w( params->w_msgs[i] );
+        auto *w_msg = &message->w_msg( **params->w_msgs );
+        auto *u_msg = message->u_msg( **params->w_msgs );
+        memcpy( w_msg->m_pData, u_msg->m_pData, u_msg->m_cbSize );
+        u_msg->m_pfnRelease( u_msg );
+        message->u_msg( **params->w_msgs ) = NULL;
+    }
+
+    return 0;
+}
+
+NTSTATUS steamclient_networking_message_release_147( void *args )
+{
+    struct steamclient_networking_message_release_147_params *params = (struct steamclient_networking_message_release_147_params *)args;
+    struct networking_message *message = networking_message::from_w( params->w_msg );
+    auto *u_msg = message->u_msg( *params->w_msg );
+
+    if (!message->u_msg( *params->w_msg )) return 0;
+    u_msg->m_pfnRelease( u_msg );
+    message->u_msg( *params->w_msg ) = NULL;
+    return 0;
+}
+
+NTSTATUS steamclient_networking_messages_receive_153a( void *args )
+{
+    struct steamclient_networking_messages_receive_153a_params *params = (struct steamclient_networking_messages_receive_153a_params *)args;
+    uint32_t i;
+
+    for (i = 0; i < params->count; i++)
+    {
+        struct networking_message *message = networking_message::from_w( params->w_msgs[i] );
+        auto *w_msg = &message->w_msg( **params->w_msgs );
+        auto *u_msg = message->u_msg( **params->w_msgs );
+        memcpy( w_msg->m_pData, u_msg->m_pData, u_msg->m_cbSize );
+        u_msg->m_pfnRelease( u_msg );
+        message->u_msg( **params->w_msgs ) = NULL;
+    }
+
+    return 0;
+}
+
+NTSTATUS steamclient_networking_message_release_153a( void *args )
+{
+    struct steamclient_networking_message_release_153a_params *params = (struct steamclient_networking_message_release_153a_params *)args;
+    struct networking_message *message = networking_message::from_w( params->w_msg );
+    auto *u_msg = message->u_msg( *params->w_msg );
+
+    if (!message->u_msg( *params->w_msg )) return 0;
+    u_msg->m_pfnRelease( u_msg );
+    message->u_msg( *params->w_msg ) = NULL;
     return 0;
 }
 
@@ -170,58 +247,6 @@ NTSTATUS ISteamNetworkingSockets_SteamNetworkingSockets004_ReceiveMessagesOnList
     u_SteamNetworkingMessage_t_144 *u_msgs[params->nMaxMessages];
     params->_ret = iface->ReceiveMessagesOnListenSocket( params->hSocket, u_msgs, params->nMaxMessages );
     if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
-    return 0;
-}
-
-NTSTATUS steamclient_networking_messages_receive_147( void *args )
-{
-    struct steamclient_networking_messages_receive_147_params *params = (struct steamclient_networking_messages_receive_147_params *)args;
-    uint32_t i;
-
-    for (i = 0; i < params->count; i++)
-    {
-        struct networking_message *message = networking_message::from_w( params->w_msgs[i] );
-        auto *w_msg = &message->w_msg( **params->w_msgs );
-        auto *u_msg = message->u_msg( **params->w_msgs );
-        memcpy( w_msg->m_pData, u_msg->m_pData, u_msg->m_cbSize );
-        u_msg->m_pfnRelease( u_msg );
-        message->u_msg( **params->w_msgs ) = NULL;
-    }
-
-    return 0;
-}
-
-template< typename Wmsg, typename Umsg >
-static void send_messages_wtou( uint32_t count, Wmsg *const *w_msgs, Umsg **u_msgs )
-{
-    uint32_t i;
-
-    for (i = 0; i < count; i++)
-    {
-        struct networking_message *message = networking_message::from_w( w_msgs[i] );
-        auto *w_msg = &message->w_msg( **w_msgs );
-        auto *u_msg = message->u_msg( **w_msgs );
-        steam_networking_message_wtou( *u_msg, *w_msg );
-        /* steamclient library takes ownership */
-        message->u_msg( **w_msgs ) = NULL;
-        u_msgs[i] = u_msg;
-    }
-}
-
-static void networking_message_release_147( w_SteamNetworkingMessage_t_147 *w_msg )
-{
-    struct networking_message *message = networking_message::from_w( w_msg );
-    auto *u_msg = message->u_msg( *w_msg );
-
-    if (!message->u_msg( *w_msg )) return;
-    u_msg->m_pfnRelease( u_msg );
-    message->u_msg( *w_msg ) = NULL;
-}
-
-NTSTATUS steamclient_networking_message_release_147( void *args )
-{
-    struct steamclient_networking_message_release_147_params *params = (struct steamclient_networking_message_release_147_params *)args;
-    networking_message_release_147( params->w_msg );
     return 0;
 }
 
@@ -400,41 +425,6 @@ NTSTATUS ISteamNetworkingUtils_SteamNetworkingUtils003_SetConfigValue( void *arg
                                               params->eDataType, params->pArg );
     }
 
-    return 0;
-}
-
-NTSTATUS steamclient_networking_messages_receive_153a( void *args )
-{
-    struct steamclient_networking_messages_receive_153a_params *params = (struct steamclient_networking_messages_receive_153a_params *)args;
-    uint32_t i;
-
-    for (i = 0; i < params->count; i++)
-    {
-        struct networking_message *message = networking_message::from_w( params->w_msgs[i] );
-        auto *w_msg = &message->w_msg( **params->w_msgs );
-        auto *u_msg = message->u_msg( **params->w_msgs );
-        memcpy( w_msg->m_pData, u_msg->m_pData, u_msg->m_cbSize );
-        u_msg->m_pfnRelease( u_msg );
-        message->u_msg( **params->w_msgs ) = NULL;
-    }
-
-    return 0;
-}
-
-static void networking_message_release_153a( w_SteamNetworkingMessage_t_153a *w_msg )
-{
-    struct networking_message *message = networking_message::from_w( w_msg );
-    auto *u_msg = message->u_msg( *w_msg );
-
-    if (!message->u_msg( *w_msg )) return;
-    u_msg->m_pfnRelease( u_msg );
-    message->u_msg( *w_msg ) = NULL;
-}
-
-NTSTATUS steamclient_networking_message_release_153a( void *args )
-{
-    struct steamclient_networking_message_release_153a_params *params = (struct steamclient_networking_message_release_153a_params *)args;
-    networking_message_release_153a( params->w_msg );
     return 0;
 }
 
