@@ -97,7 +97,7 @@ __ASM_BLOCK_BEGIN(winISteamController_STEAMCONTROLLER_INTERFACE_VERSION_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamController_STEAMCONTROLLER_INTERFACE_VERSION( struct u_iface *u_iface )
+struct w_iface *create_winISteamController_STEAMCONTROLLER_INTERFACE_VERSION( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMCONTROLLER_INTERFACE_VERSION");
     TRACE("-> %p\n", r);
@@ -368,7 +368,7 @@ __ASM_BLOCK_BEGIN(winISteamController_SteamController003_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamController_SteamController003( struct u_iface *u_iface )
+struct w_iface *create_winISteamController_SteamController003( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamController003");
     TRACE("-> %p\n", r);
@@ -718,7 +718,7 @@ __ASM_BLOCK_BEGIN(winISteamController_SteamController004_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamController_SteamController004( struct u_iface *u_iface )
+struct w_iface *create_winISteamController_SteamController004( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamController004");
     TRACE("-> %p\n", r);
@@ -1116,7 +1116,7 @@ __ASM_BLOCK_BEGIN(winISteamController_SteamController005_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamController_SteamController005( struct u_iface *u_iface )
+struct w_iface *create_winISteamController_SteamController005( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamController005");
     TRACE("-> %p\n", r);
@@ -1584,7 +1584,7 @@ __ASM_BLOCK_BEGIN(winISteamController_SteamController006_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamController_SteamController006( struct u_iface *u_iface )
+struct w_iface *create_winISteamController_SteamController006( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamController006");
     TRACE("-> %p\n", r);
@@ -2078,7 +2078,7 @@ __ASM_BLOCK_BEGIN(winISteamController_SteamController007_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamController_SteamController007( struct u_iface *u_iface )
+struct w_iface *create_winISteamController_SteamController007( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamController007");
     TRACE("-> %p\n", r);
@@ -2572,7 +2572,7 @@ __ASM_BLOCK_BEGIN(winISteamController_SteamController008_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamController_SteamController008( struct u_iface *u_iface )
+struct w_iface *create_winISteamController_SteamController008( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamController008");
     TRACE("-> %p\n", r);

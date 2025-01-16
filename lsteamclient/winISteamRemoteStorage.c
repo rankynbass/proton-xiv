@@ -135,7 +135,7 @@ __ASM_BLOCK_BEGIN(winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION001
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION001( struct u_iface *u_iface )
+struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION001( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMREMOTESTORAGE_INTERFACE_VERSION001");
     TRACE("-> %p\n", r);
@@ -261,7 +261,7 @@ __ASM_BLOCK_BEGIN(winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION002
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION002( struct u_iface *u_iface )
+struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION002( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMREMOTESTORAGE_INTERFACE_VERSION002");
     TRACE("-> %p\n", r);
@@ -576,7 +576,7 @@ __ASM_BLOCK_BEGIN(winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION003
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION003( struct u_iface *u_iface )
+struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION003( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMREMOTESTORAGE_INTERFACE_VERSION003");
     TRACE("-> %p\n", r);
@@ -922,7 +922,7 @@ __ASM_BLOCK_BEGIN(winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION004
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION004( struct u_iface *u_iface )
+struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION004( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMREMOTESTORAGE_INTERFACE_VERSION004");
     TRACE("-> %p\n", r);
@@ -1413,7 +1413,7 @@ __ASM_BLOCK_BEGIN(winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION005
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION005( struct u_iface *u_iface )
+struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION005( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMREMOTESTORAGE_INTERFACE_VERSION005");
     TRACE("-> %p\n", r);
@@ -2155,7 +2155,7 @@ __ASM_BLOCK_BEGIN(winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION006
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION006( struct u_iface *u_iface )
+struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION006( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMREMOTESTORAGE_INTERFACE_VERSION006");
     TRACE("-> %p\n", r);
@@ -2900,7 +2900,7 @@ __ASM_BLOCK_BEGIN(winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION007
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION007( struct u_iface *u_iface )
+struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION007( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMREMOTESTORAGE_INTERFACE_VERSION007");
     TRACE("-> %p\n", r);
@@ -3704,7 +3704,7 @@ __ASM_BLOCK_BEGIN(winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION008
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION008( struct u_iface *u_iface )
+struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION008( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMREMOTESTORAGE_INTERFACE_VERSION008");
     TRACE("-> %p\n", r);
@@ -4509,7 +4509,7 @@ __ASM_BLOCK_BEGIN(winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION009
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION009( struct u_iface *u_iface )
+struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION009( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMREMOTESTORAGE_INTERFACE_VERSION009");
     TRACE("-> %p\n", r);
@@ -5332,7 +5332,7 @@ __ASM_BLOCK_BEGIN(winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION010
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION010( struct u_iface *u_iface )
+struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION010( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMREMOTESTORAGE_INTERFACE_VERSION010");
     TRACE("-> %p\n", r);
@@ -6156,7 +6156,7 @@ __ASM_BLOCK_BEGIN(winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION011
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION011( struct u_iface *u_iface )
+struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION011( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMREMOTESTORAGE_INTERFACE_VERSION011");
     TRACE("-> %p\n", r);
@@ -6981,7 +6981,7 @@ __ASM_BLOCK_BEGIN(winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION012
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION012( struct u_iface *u_iface )
+struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION012( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMREMOTESTORAGE_INTERFACE_VERSION012");
     TRACE("-> %p\n", r);
@@ -7856,7 +7856,7 @@ __ASM_BLOCK_BEGIN(winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION013
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION013( struct u_iface *u_iface )
+struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION013( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMREMOTESTORAGE_INTERFACE_VERSION013");
     TRACE("-> %p\n", r);
@@ -8731,7 +8731,7 @@ __ASM_BLOCK_BEGIN(winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION014
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION014( struct u_iface *u_iface )
+struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION014( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMREMOTESTORAGE_INTERFACE_VERSION014");
     TRACE("-> %p\n", r);
@@ -9661,7 +9661,7 @@ __ASM_BLOCK_BEGIN(winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION016
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION016( struct u_iface *u_iface )
+struct w_iface *create_winISteamRemoteStorage_STEAMREMOTESTORAGE_INTERFACE_VERSION016( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMREMOTESTORAGE_INTERFACE_VERSION016");
     TRACE("-> %p\n", r);

@@ -117,7 +117,7 @@ struct steamclient_next_callback_params
 
 struct steamclient_CreateInterface_params
 {
-    void *_ret;
+    struct u_iface _ret;
     const char *name;
     int *return_code;
 };

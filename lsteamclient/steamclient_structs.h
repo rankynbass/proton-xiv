@@ -10,8 +10,6 @@
 
 #ifdef __cplusplus
 #include <array>
-extern "C"
-{
 #endif /* __cplusplus */
 
 #ifdef __cplusplus
@@ -60,8 +58,13 @@ typedef struct SteamDatagramGameCoordinatorServerLogin SteamDatagramGameCoordina
 #define PATH_MAX 4096
 extern char *g_tmppath;
 
+struct u_iface
+{
+    UINT64 handle;
 #ifdef __cplusplus
-} /* extern "C" */
+    struct u_iface &operator=( const void* value ) { this->handle = (UINT_PTR)value; return *this; }
+    template< typename T > operator T*() const { return (T*)(UINT_PTR)this->handle; }
 #endif /* __cplusplus */
+};
 
 #endif /* __STEAMCLIENT_STRUCTS_H */

@@ -269,13 +269,13 @@ struct steamclient_interface
 {
     struct list entry;
     const char *name;
-    void *u_iface;
+    struct u_iface u_iface;
     struct w_iface *w_iface;
 };
 
 static struct list steamclient_interfaces = LIST_INIT(steamclient_interfaces);
 
-struct w_iface *create_win_interface( const char *name, struct u_iface *u_iface )
+struct w_iface *create_win_interface( const char *name, struct u_iface u_iface )
 {
     struct steamclient_interface *e;
     struct w_iface *ret = NULL;
@@ -283,14 +283,14 @@ struct w_iface *create_win_interface( const char *name, struct u_iface *u_iface 
 
     TRACE("trying to create %s\n", name);
 
-    if (!u_iface)
+    if (!u_iface.handle)
         return NULL;
 
     EnterCriticalSection(&steamclient_cs);
 
     LIST_FOR_EACH_ENTRY(e, &steamclient_interfaces, struct steamclient_interface, entry)
     {
-        if (e->u_iface == u_iface && !strcmp(e->name, name))
+        if (e->u_iface.handle == u_iface.handle && !strcmp(e->name, name))
         {
             ret = e->w_iface;
             TRACE("-> %p\n", ret);

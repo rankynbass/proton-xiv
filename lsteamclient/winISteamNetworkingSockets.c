@@ -410,7 +410,7 @@ __ASM_BLOCK_BEGIN(winISteamNetworkingSockets_SteamNetworkingSockets002_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamNetworkingSockets_SteamNetworkingSockets002( struct u_iface *u_iface )
+struct w_iface *create_winISteamNetworkingSockets_SteamNetworkingSockets002( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamNetworkingSockets002");
     TRACE("-> %p\n", r);
@@ -869,7 +869,7 @@ __ASM_BLOCK_BEGIN(winISteamNetworkingSockets_SteamNetworkingSockets004_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamNetworkingSockets_SteamNetworkingSockets004( struct u_iface *u_iface )
+struct w_iface *create_winISteamNetworkingSockets_SteamNetworkingSockets004( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamNetworkingSockets004");
     TRACE("-> %p\n", r);
@@ -1376,7 +1376,7 @@ __ASM_BLOCK_BEGIN(winISteamNetworkingSockets_SteamNetworkingSockets006_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamNetworkingSockets_SteamNetworkingSockets006( struct u_iface *u_iface )
+struct w_iface *create_winISteamNetworkingSockets_SteamNetworkingSockets006( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamNetworkingSockets006");
     TRACE("-> %p\n", r);
@@ -1957,7 +1957,7 @@ __ASM_BLOCK_BEGIN(winISteamNetworkingSockets_SteamNetworkingSockets008_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamNetworkingSockets_SteamNetworkingSockets008( struct u_iface *u_iface )
+struct w_iface *create_winISteamNetworkingSockets_SteamNetworkingSockets008( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamNetworkingSockets008");
     TRACE("-> %p\n", r);
@@ -2551,7 +2551,7 @@ __ASM_BLOCK_BEGIN(winISteamNetworkingSockets_SteamNetworkingSockets009_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamNetworkingSockets_SteamNetworkingSockets009( struct u_iface *u_iface )
+struct w_iface *create_winISteamNetworkingSockets_SteamNetworkingSockets009( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamNetworkingSockets009");
     TRACE("-> %p\n", r);
@@ -3187,8 +3187,7 @@ void /*ISteamNetworkingFakeUDPPort*/ * __thiscall winISteamNetworkingSockets_Ste
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamNetworkingSockets_SteamNetworkingSockets012_CreateFakeUDPPort, &params );
-    params._ret = create_winISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001( params._ret );
-    return params._ret;
+    return create_winISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001( params._ret );
 }
 
 void __thiscall winISteamNetworkingSockets_SteamNetworkingSockets012_destructor(struct w_iface *_this)
@@ -3251,7 +3250,7 @@ __ASM_BLOCK_BEGIN(winISteamNetworkingSockets_SteamNetworkingSockets012_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamNetworkingSockets_SteamNetworkingSockets012( struct u_iface *u_iface )
+struct w_iface *create_winISteamNetworkingSockets_SteamNetworkingSockets012( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamNetworkingSockets012");
     TRACE("-> %p\n", r);

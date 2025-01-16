@@ -413,7 +413,7 @@ __ASM_BLOCK_BEGIN(winISteamFriends_SteamFriends001_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamFriends_SteamFriends001( struct u_iface *u_iface )
+struct w_iface *create_winISteamFriends_SteamFriends001( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamFriends001");
     TRACE("-> %p\n", r);
@@ -874,7 +874,7 @@ __ASM_BLOCK_BEGIN(winISteamFriends_SteamFriends002_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamFriends_SteamFriends002( struct u_iface *u_iface )
+struct w_iface *create_winISteamFriends_SteamFriends002( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamFriends002");
     TRACE("-> %p\n", r);
@@ -1182,7 +1182,7 @@ __ASM_BLOCK_BEGIN(winISteamFriends_SteamFriends003_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamFriends_SteamFriends003( struct u_iface *u_iface )
+struct w_iface *create_winISteamFriends_SteamFriends003( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamFriends003");
     TRACE("-> %p\n", r);
@@ -1491,7 +1491,7 @@ __ASM_BLOCK_BEGIN(winISteamFriends_SteamFriends004_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamFriends_SteamFriends004( struct u_iface *u_iface )
+struct w_iface *create_winISteamFriends_SteamFriends004( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamFriends004");
     TRACE("-> %p\n", r);
@@ -1852,7 +1852,7 @@ __ASM_BLOCK_BEGIN(winISteamFriends_SteamFriends005_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamFriends_SteamFriends005( struct u_iface *u_iface )
+struct w_iface *create_winISteamFriends_SteamFriends005( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamFriends005");
     TRACE("-> %p\n", r);
@@ -2240,7 +2240,7 @@ __ASM_BLOCK_BEGIN(winISteamFriends_SteamFriends006_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamFriends_SteamFriends006( struct u_iface *u_iface )
+struct w_iface *create_winISteamFriends_SteamFriends006( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamFriends006");
     TRACE("-> %p\n", r);
@@ -2655,7 +2655,7 @@ __ASM_BLOCK_BEGIN(winISteamFriends_SteamFriends007_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamFriends_SteamFriends007( struct u_iface *u_iface )
+struct w_iface *create_winISteamFriends_SteamFriends007( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamFriends007");
     TRACE("-> %p\n", r);
@@ -3157,7 +3157,7 @@ __ASM_BLOCK_BEGIN(winISteamFriends_SteamFriends008_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamFriends_SteamFriends008( struct u_iface *u_iface )
+struct w_iface *create_winISteamFriends_SteamFriends008( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamFriends008");
     TRACE("-> %p\n", r);
@@ -3805,7 +3805,7 @@ __ASM_BLOCK_BEGIN(winISteamFriends_SteamFriends009_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamFriends_SteamFriends009( struct u_iface *u_iface )
+struct w_iface *create_winISteamFriends_SteamFriends009( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamFriends009");
     TRACE("-> %p\n", r);
@@ -4683,7 +4683,7 @@ __ASM_BLOCK_BEGIN(winISteamFriends_SteamFriends010_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamFriends_SteamFriends010( struct u_iface *u_iface )
+struct w_iface *create_winISteamFriends_SteamFriends010( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamFriends010");
     TRACE("-> %p\n", r);
@@ -5616,7 +5616,7 @@ __ASM_BLOCK_BEGIN(winISteamFriends_SteamFriends011_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamFriends_SteamFriends011( struct u_iface *u_iface )
+struct w_iface *create_winISteamFriends_SteamFriends011( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamFriends011");
     TRACE("-> %p\n", r);
@@ -6550,7 +6550,7 @@ __ASM_BLOCK_BEGIN(winISteamFriends_SteamFriends012_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamFriends_SteamFriends012( struct u_iface *u_iface )
+struct w_iface *create_winISteamFriends_SteamFriends012( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamFriends012");
     TRACE("-> %p\n", r);
@@ -7485,7 +7485,7 @@ __ASM_BLOCK_BEGIN(winISteamFriends_SteamFriends013_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamFriends_SteamFriends013( struct u_iface *u_iface )
+struct w_iface *create_winISteamFriends_SteamFriends013( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamFriends013");
     TRACE("-> %p\n", r);
@@ -8434,7 +8434,7 @@ __ASM_BLOCK_BEGIN(winISteamFriends_SteamFriends014_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamFriends_SteamFriends014( struct u_iface *u_iface )
+struct w_iface *create_winISteamFriends_SteamFriends014( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamFriends014");
     TRACE("-> %p\n", r);
@@ -9495,7 +9495,7 @@ __ASM_BLOCK_BEGIN(winISteamFriends_SteamFriends015_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamFriends_SteamFriends015( struct u_iface *u_iface )
+struct w_iface *create_winISteamFriends_SteamFriends015( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamFriends015");
     TRACE("-> %p\n", r);
@@ -10673,7 +10673,7 @@ __ASM_BLOCK_BEGIN(winISteamFriends_SteamFriends017_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamFriends_SteamFriends017( struct u_iface *u_iface )
+struct w_iface *create_winISteamFriends_SteamFriends017( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamFriends017");
     TRACE("-> %p\n", r);
@@ -11823,7 +11823,7 @@ __ASM_BLOCK_BEGIN(winISteamFriends_SteamFriends018_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamFriends_SteamFriends018( struct u_iface *u_iface )
+struct w_iface *create_winISteamFriends_SteamFriends018( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamFriends018");
     TRACE("-> %p\n", r);

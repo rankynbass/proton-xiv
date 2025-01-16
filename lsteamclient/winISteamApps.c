@@ -31,7 +31,7 @@ __ASM_BLOCK_BEGIN(winISteamApps_STEAMAPPS_INTERFACE_VERSION001_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamApps_STEAMAPPS_INTERFACE_VERSION001( struct u_iface *u_iface )
+struct w_iface *create_winISteamApps_STEAMAPPS_INTERFACE_VERSION001( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMAPPS_INTERFACE_VERSION001");
     TRACE("-> %p\n", r);
@@ -142,7 +142,7 @@ __ASM_BLOCK_BEGIN(winISteamApps_STEAMAPPS_INTERFACE_VERSION002_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamApps_STEAMAPPS_INTERFACE_VERSION002( struct u_iface *u_iface )
+struct w_iface *create_winISteamApps_STEAMAPPS_INTERFACE_VERSION002( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMAPPS_INTERFACE_VERSION002");
     TRACE("-> %p\n", r);
@@ -267,7 +267,7 @@ __ASM_BLOCK_BEGIN(winISteamApps_STEAMAPPS_INTERFACE_VERSION003_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamApps_STEAMAPPS_INTERFACE_VERSION003( struct u_iface *u_iface )
+struct w_iface *create_winISteamApps_STEAMAPPS_INTERFACE_VERSION003( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMAPPS_INTERFACE_VERSION003");
     TRACE("-> %p\n", r);
@@ -476,7 +476,7 @@ __ASM_BLOCK_BEGIN(winISteamApps_STEAMAPPS_INTERFACE_VERSION004_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamApps_STEAMAPPS_INTERFACE_VERSION004( struct u_iface *u_iface )
+struct w_iface *create_winISteamApps_STEAMAPPS_INTERFACE_VERSION004( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMAPPS_INTERFACE_VERSION004");
     TRACE("-> %p\n", r);
@@ -772,7 +772,7 @@ __ASM_BLOCK_BEGIN(winISteamApps_STEAMAPPS_INTERFACE_VERSION005_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamApps_STEAMAPPS_INTERFACE_VERSION005( struct u_iface *u_iface )
+struct w_iface *create_winISteamApps_STEAMAPPS_INTERFACE_VERSION005( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMAPPS_INTERFACE_VERSION005");
     TRACE("-> %p\n", r);
@@ -1098,7 +1098,7 @@ __ASM_BLOCK_BEGIN(winISteamApps_STEAMAPPS_INTERFACE_VERSION006_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamApps_STEAMAPPS_INTERFACE_VERSION006( struct u_iface *u_iface )
+struct w_iface *create_winISteamApps_STEAMAPPS_INTERFACE_VERSION006( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMAPPS_INTERFACE_VERSION006");
     TRACE("-> %p\n", r);
@@ -1453,7 +1453,7 @@ __ASM_BLOCK_BEGIN(winISteamApps_STEAMAPPS_INTERFACE_VERSION007_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamApps_STEAMAPPS_INTERFACE_VERSION007( struct u_iface *u_iface )
+struct w_iface *create_winISteamApps_STEAMAPPS_INTERFACE_VERSION007( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMAPPS_INTERFACE_VERSION007");
     TRACE("-> %p\n", r);
@@ -1942,7 +1942,7 @@ __ASM_BLOCK_BEGIN(winISteamApps_STEAMAPPS_INTERFACE_VERSION008_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamApps_STEAMAPPS_INTERFACE_VERSION008( struct u_iface *u_iface )
+struct w_iface *create_winISteamApps_STEAMAPPS_INTERFACE_VERSION008( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMAPPS_INTERFACE_VERSION008");
     TRACE("-> %p\n", r);

@@ -334,7 +334,7 @@ __ASM_BLOCK_BEGIN(winISteamNetworkingUtils_SteamNetworkingUtils001_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamNetworkingUtils_SteamNetworkingUtils001( struct u_iface *u_iface )
+struct w_iface *create_winISteamNetworkingUtils_SteamNetworkingUtils001( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamNetworkingUtils001");
     TRACE("-> %p\n", r);
@@ -675,7 +675,7 @@ __ASM_BLOCK_BEGIN(winISteamNetworkingUtils_SteamNetworkingUtils002_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamNetworkingUtils_SteamNetworkingUtils002( struct u_iface *u_iface )
+struct w_iface *create_winISteamNetworkingUtils_SteamNetworkingUtils002( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamNetworkingUtils002");
     TRACE("-> %p\n", r);
@@ -1018,7 +1018,7 @@ __ASM_BLOCK_BEGIN(winISteamNetworkingUtils_SteamNetworkingUtils003_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamNetworkingUtils_SteamNetworkingUtils003( struct u_iface *u_iface )
+struct w_iface *create_winISteamNetworkingUtils_SteamNetworkingUtils003( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamNetworkingUtils003");
     TRACE("-> %p\n", r);
@@ -1404,7 +1404,7 @@ __ASM_BLOCK_BEGIN(winISteamNetworkingUtils_SteamNetworkingUtils004_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamNetworkingUtils_SteamNetworkingUtils004( struct u_iface *u_iface )
+struct w_iface *create_winISteamNetworkingUtils_SteamNetworkingUtils004( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamNetworkingUtils004");
     TRACE("-> %p\n", r);

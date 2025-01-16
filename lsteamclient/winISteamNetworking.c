@@ -208,7 +208,7 @@ __ASM_BLOCK_BEGIN(winISteamNetworking_SteamNetworking001_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamNetworking_SteamNetworking001( struct u_iface *u_iface )
+struct w_iface *create_winISteamNetworking_SteamNetworking001( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamNetworking001");
     TRACE("-> %p\n", r);
@@ -452,7 +452,7 @@ __ASM_BLOCK_BEGIN(winISteamNetworking_SteamNetworking002_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamNetworking_SteamNetworking002( struct u_iface *u_iface )
+struct w_iface *create_winISteamNetworking_SteamNetworking002( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamNetworking002");
     TRACE("-> %p\n", r);
@@ -787,7 +787,7 @@ __ASM_BLOCK_BEGIN(winISteamNetworking_SteamNetworking003_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamNetworking_SteamNetworking003( struct u_iface *u_iface )
+struct w_iface *create_winISteamNetworking_SteamNetworking003( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamNetworking003");
     TRACE("-> %p\n", r);
@@ -1125,7 +1125,7 @@ __ASM_BLOCK_BEGIN(winISteamNetworking_SteamNetworking004_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamNetworking_SteamNetworking004( struct u_iface *u_iface )
+struct w_iface *create_winISteamNetworking_SteamNetworking004( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamNetworking004");
     TRACE("-> %p\n", r);
@@ -1492,7 +1492,7 @@ __ASM_BLOCK_BEGIN(winISteamNetworking_SteamNetworking005_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamNetworking_SteamNetworking005( struct u_iface *u_iface )
+struct w_iface *create_winISteamNetworking_SteamNetworking005( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamNetworking005");
     TRACE("-> %p\n", r);
@@ -1859,7 +1859,7 @@ __ASM_BLOCK_BEGIN(winISteamNetworking_SteamNetworking006_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamNetworking_SteamNetworking006( struct u_iface *u_iface )
+struct w_iface *create_winISteamNetworking_SteamNetworking006( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamNetworking006");
     TRACE("-> %p\n", r);

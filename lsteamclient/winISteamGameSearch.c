@@ -222,7 +222,7 @@ __ASM_BLOCK_BEGIN(winISteamGameSearch_SteamMatchGameSearch001_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamGameSearch_SteamMatchGameSearch001( struct u_iface *u_iface )
+struct w_iface *create_winISteamGameSearch_SteamMatchGameSearch001( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamMatchGameSearch001");
     TRACE("-> %p\n", r);

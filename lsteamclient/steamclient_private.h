@@ -34,16 +34,16 @@ struct u_iface;
 struct w_iface
 {
     vtable_ptr *vtable;
-    void *u_iface;
+    struct u_iface u_iface;
 };
 
-typedef struct w_iface *(*iface_constructor)( struct u_iface * );
+typedef struct w_iface *(*iface_constructor)( struct u_iface );
 extern iface_constructor find_iface_constructor( const char *iface_version );
-extern struct w_iface *create_winISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001( struct u_iface * );
+extern struct w_iface *create_winISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001( struct u_iface );
 
 extern void execute_pending_callbacks(void);
 
-struct w_iface *create_win_interface( const char *name, struct u_iface *u_iface );
+struct w_iface *create_win_interface( const char *name, struct u_iface );
 void *alloc_mem_for_iface(size_t size, const char *iface_version);
 void *alloc_vtable(void *vtable, unsigned int method_count, const char *iface_version);
 

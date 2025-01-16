@@ -76,7 +76,7 @@ __ASM_BLOCK_BEGIN(winISteamTimeline_STEAMTIMELINE_INTERFACE_V001_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamTimeline_STEAMTIMELINE_INTERFACE_V001( struct u_iface *u_iface )
+struct w_iface *create_winISteamTimeline_STEAMTIMELINE_INTERFACE_V001( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMTIMELINE_INTERFACE_V001");
     TRACE("-> %p\n", r);
@@ -381,7 +381,7 @@ __ASM_BLOCK_BEGIN(winISteamTimeline_STEAMTIMELINE_INTERFACE_V004_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamTimeline_STEAMTIMELINE_INTERFACE_V004( struct u_iface *u_iface )
+struct w_iface *create_winISteamTimeline_STEAMTIMELINE_INTERFACE_V004( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMTIMELINE_INTERFACE_V004");
     TRACE("-> %p\n", r);

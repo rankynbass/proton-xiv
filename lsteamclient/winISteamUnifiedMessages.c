@@ -95,7 +95,7 @@ __ASM_BLOCK_BEGIN(winISteamUnifiedMessages_STEAMUNIFIEDMESSAGES_INTERFACE_VERSIO
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamUnifiedMessages_STEAMUNIFIEDMESSAGES_INTERFACE_VERSION001( struct u_iface *u_iface )
+struct w_iface *create_winISteamUnifiedMessages_STEAMUNIFIEDMESSAGES_INTERFACE_VERSION001( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMUNIFIEDMESSAGES_INTERFACE_VERSION001");
     TRACE("-> %p\n", r);

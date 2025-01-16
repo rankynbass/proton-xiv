@@ -474,7 +474,7 @@ __ASM_BLOCK_BEGIN(winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_001_vt
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_001( struct u_iface *u_iface )
+struct w_iface *create_winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_001( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMHTMLSURFACE_INTERFACE_VERSION_001");
     TRACE("-> %p\n", r);
@@ -993,7 +993,7 @@ __ASM_BLOCK_BEGIN(winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_002_vt
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_002( struct u_iface *u_iface )
+struct w_iface *create_winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_002( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMHTMLSURFACE_INTERFACE_VERSION_002");
     TRACE("-> %p\n", r);
@@ -1526,7 +1526,7 @@ __ASM_BLOCK_BEGIN(winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_003_vt
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_003( struct u_iface *u_iface )
+struct w_iface *create_winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_003( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMHTMLSURFACE_INTERFACE_VERSION_003");
     TRACE("-> %p\n", r);
@@ -2073,7 +2073,7 @@ __ASM_BLOCK_BEGIN(winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_004_vt
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_004( struct u_iface *u_iface )
+struct w_iface *create_winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_004( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMHTMLSURFACE_INTERFACE_VERSION_004");
     TRACE("-> %p\n", r);
@@ -2634,7 +2634,7 @@ __ASM_BLOCK_BEGIN(winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_005_vt
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_005( struct u_iface *u_iface )
+struct w_iface *create_winISteamHTMLSurface_STEAMHTMLSURFACE_INTERFACE_VERSION_005( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "STEAMHTMLSURFACE_INTERFACE_VERSION_005");
     TRACE("-> %p\n", r);

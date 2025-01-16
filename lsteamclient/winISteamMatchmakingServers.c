@@ -251,7 +251,7 @@ __ASM_BLOCK_BEGIN(winISteamMatchmakingServers_SteamMatchMakingServers001_vtables
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamMatchmakingServers_SteamMatchMakingServers001( struct u_iface *u_iface )
+struct w_iface *create_winISteamMatchmakingServers_SteamMatchMakingServers001( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamMatchMakingServers001");
     TRACE("-> %p\n", r);
@@ -516,7 +516,7 @@ __ASM_BLOCK_BEGIN(winISteamMatchmakingServers_SteamMatchMakingServers002_vtables
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamMatchmakingServers_SteamMatchMakingServers002( struct u_iface *u_iface )
+struct w_iface *create_winISteamMatchmakingServers_SteamMatchMakingServers002( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamMatchMakingServers002");
     TRACE("-> %p\n", r);

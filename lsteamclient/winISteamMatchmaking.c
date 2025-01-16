@@ -370,7 +370,7 @@ __ASM_BLOCK_BEGIN(winISteamMatchmaking_SteamMatchMaking001_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamMatchmaking_SteamMatchMaking001( struct u_iface *u_iface )
+struct w_iface *create_winISteamMatchmaking_SteamMatchMaking001( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamMatchMaking001");
     TRACE("-> %p\n", r);
@@ -703,7 +703,7 @@ __ASM_BLOCK_BEGIN(winISteamMatchmaking_SteamMatchMaking002_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamMatchmaking_SteamMatchMaking002( struct u_iface *u_iface )
+struct w_iface *create_winISteamMatchmaking_SteamMatchMaking002( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamMatchMaking002");
     TRACE("-> %p\n", r);
@@ -1153,7 +1153,7 @@ __ASM_BLOCK_BEGIN(winISteamMatchmaking_SteamMatchMaking003_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamMatchmaking_SteamMatchMaking003( struct u_iface *u_iface )
+struct w_iface *create_winISteamMatchmaking_SteamMatchMaking003( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamMatchMaking003");
     TRACE("-> %p\n", r);
@@ -1589,7 +1589,7 @@ __ASM_BLOCK_BEGIN(winISteamMatchmaking_SteamMatchMaking004_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamMatchmaking_SteamMatchMaking004( struct u_iface *u_iface )
+struct w_iface *create_winISteamMatchmaking_SteamMatchMaking004( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamMatchMaking004");
     TRACE("-> %p\n", r);
@@ -2084,7 +2084,7 @@ __ASM_BLOCK_BEGIN(winISteamMatchmaking_SteamMatchMaking005_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamMatchmaking_SteamMatchMaking005( struct u_iface *u_iface )
+struct w_iface *create_winISteamMatchmaking_SteamMatchMaking005( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamMatchMaking005");
     TRACE("-> %p\n", r);
@@ -2543,7 +2543,7 @@ __ASM_BLOCK_BEGIN(winISteamMatchmaking_SteamMatchMaking006_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamMatchmaking_SteamMatchMaking006( struct u_iface *u_iface )
+struct w_iface *create_winISteamMatchmaking_SteamMatchMaking006( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamMatchMaking006");
     TRACE("-> %p\n", r);
@@ -3096,7 +3096,7 @@ __ASM_BLOCK_BEGIN(winISteamMatchmaking_SteamMatchMaking007_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamMatchmaking_SteamMatchMaking007( struct u_iface *u_iface )
+struct w_iface *create_winISteamMatchmaking_SteamMatchMaking007( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamMatchMaking007");
     TRACE("-> %p\n", r);
@@ -3675,7 +3675,7 @@ __ASM_BLOCK_BEGIN(winISteamMatchmaking_SteamMatchMaking008_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamMatchmaking_SteamMatchMaking008( struct u_iface *u_iface )
+struct w_iface *create_winISteamMatchmaking_SteamMatchMaking008( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamMatchMaking008");
     TRACE("-> %p\n", r);
@@ -4282,7 +4282,7 @@ __ASM_BLOCK_BEGIN(winISteamMatchmaking_SteamMatchMaking009_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winISteamMatchmaking_SteamMatchMaking009( struct u_iface *u_iface )
+struct w_iface *create_winISteamMatchmaking_SteamMatchMaking009( struct u_iface u_iface )
 {
     struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "SteamMatchMaking009");
     TRACE("-> %p\n", r);

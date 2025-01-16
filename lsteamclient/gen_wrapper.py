@@ -659,11 +659,17 @@ class Method:
             return True
         return False # FIXME
 
+    def returns_unix_iface(self):
+        return self.result_type.spelling.startswith("ISteam") or "GetISteam" in self.name
+
     def write_params(self, out):
         returns_record = self.result_type.get_canonical().kind == TypeKind.RECORD
 
-        ret = "*_ret" if returns_record else "_ret"
-        ret = f'{declspec(self.result_type, ret, "w_")}'
+        if self.returns_unix_iface():
+            ret = 'struct u_iface _ret'
+        else:
+            ret = "*_ret" if returns_record else "_ret"
+            ret = f'{declspec(self.result_type, ret, "w_")}'
 
         names = [p.spelling if p.spelling != "" else f'_{chr(0x61 + i)}'
                  for i, p in enumerate(self.get_arguments())]
@@ -673,7 +679,7 @@ class Method:
             params = [ret] + params
             names = ['_ret'] + names
 
-        params = ['struct u_iface *u_iface'] + params
+        params = ['struct u_iface u_iface'] + params
         names = ['u_iface'] + names
 
         out(f'struct {self.full_name}_params\n')
@@ -1108,11 +1114,10 @@ def handle_method_c(klass, method, winclassname, out):
     out(f'    STEAMCLIENT_CALL( {method.full_name}, &params );\n')
 
     if method.name.startswith('CreateFakeUDPPort'):
-        out(u'    params._ret = create_winISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001( params._ret );\n')
-    elif method.result_type.spelling.startswith("ISteam") or "GetISteam" in method.name:
-        out(u'    params._ret = create_win_interface( pchVersion, params._ret );\n')
-
-    if not returns_void:
+        out(u'    return create_winISteamNetworkingFakeUDPPort_SteamNetworkingFakeUDPPort001( params._ret );\n')
+    elif method.returns_unix_iface():
+        out(u'    return create_win_interface( pchVersion, params._ret );\n')
+    elif not returns_void:
         out(u'    return params._ret;\n')
     out(u'}\n\n')
 
@@ -1165,7 +1170,7 @@ def handle_class(klass):
         out(u'    );\n')
         out(u'__ASM_BLOCK_END\n')
         out(u'\n')
-        out(f'struct w_iface *create_{winclassname}( struct u_iface *u_iface )\n')
+        out(f'struct w_iface *create_{winclassname}( struct u_iface u_iface )\n')
         out(u'{\n')
         out(f'    struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "{klass.version}");\n')
         out(u'    TRACE("-> %p\\n", r);\n')
@@ -1390,7 +1395,7 @@ with open("steamclient_generated.h", "w") as file:
     out(u'/* This file is auto-generated, do not edit. */\n\n')
 
     for _, klass in sorted(all_classes.items()):
-        out(f"extern struct w_iface *create_win{klass.full_name}( struct u_iface * );\n")
+        out(f"extern struct w_iface *create_win{klass.full_name}( struct u_iface );\n")
 
 
 with open("steamclient_generated.c", "w") as file:
