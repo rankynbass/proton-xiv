@@ -14,11 +14,6 @@ MFLAGS += V=1 VERBOSE=1
 endif
 
 SHELL := /bin/bash
-ARCHS := i386-unix x86_64-unix i386-windows x86_64-windows
-
-HOST_ARCH := $(shell uname -m)
-unix_ARCHS = $(subst -unix,,$(filter %-unix,$(ARCHS)))
-windows_ARCHS = $(subst -windows,,$(filter %-windows,$(ARCHS)))
 
 ##
 ## General/global config
@@ -79,6 +74,12 @@ $(DST_DIR):
 	mkdir -p $@
 
 ifeq ($(CONTAINER),1) # inside the container
+ARCHS := i386-unix x86_64-unix i386-windows x86_64-windows
+
+HOST_ARCH := $(shell uname -m)
+unix_ARCHS = $(subst -unix,,$(filter %-unix,$(ARCHS)))
+windows_ARCHS = $(subst -windows,,$(filter %-windows,$(ARCHS)))
+
 i386_SOURCE_DATE_EPOCH := $(BASE_SOURCE_DATE_EPOCH)
 x86_64_SOURCE_DATE_EPOCH := $(shell expr $(BASE_SOURCE_DATE_EPOCH) - 10)
 
@@ -418,8 +419,8 @@ WINE_AUTOCONF_ARGS = \
   --disable-tests
 
 WINE_x86_64_AUTOCONF_ARGS = \
-	--enable-archs="x86_64 $(filter-out x86_64 $(unix_ARCHS),$(windows_ARCHS))" \
-	--enable-win64 \
+  --enable-archs=$(call list-join,$(comma),x86_64 $(filter-out x86_64 $(unix_ARCHS),$(windows_ARCHS))) \
+  --enable-win64 \
 
 WINE_i386_AUTOCONF_ARGS += \
   VKD3D_PE_CFLAGS="-I$(VULKAN_HEADERS_i386_DST)/include -I$(VKD3D_i386_DST)/include/vkd3d" \
