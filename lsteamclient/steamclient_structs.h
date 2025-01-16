@@ -77,4 +77,13 @@ struct u_buffer
 #endif /* __cplusplus */
 };
 
+struct u_request
+{
+    UINT64 handle;
+#ifdef __cplusplus
+    struct u_request &operator=(const void* value) { this->handle = (UINT_PTR)value; return *this; }
+    operator void*() const { return (void*)(UINT_PTR)this->handle; }
+#endif /* __cplusplus */
+};
+
 #endif /* __STEAMCLIENT_STRUCTS_H */

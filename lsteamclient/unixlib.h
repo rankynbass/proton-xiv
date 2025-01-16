@@ -225,6 +225,11 @@ struct networking_message
     };
 };
 
+struct w_request
+{
+    struct u_request u_request;
+};
+
 #include <poppack.h>
 
 NTSTATUS steamclient_call( unsigned int code, void *args, const char *name );

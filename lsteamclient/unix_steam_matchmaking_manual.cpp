@@ -88,7 +88,10 @@ u_ISteamMatchmakingServerListResponse_099u *create_LinuxISteamMatchmakingServerL
 struct SteamMatchmakingServerListResponse_106 : u_ISteamMatchmakingServerListResponse_106
 {
     struct w_iface *w_iface;
+    struct w_request *w_request;
     static class callback_obj_tracker<SteamMatchmakingServerListResponse_106> track;
+
+    SteamMatchmakingServerListResponse_106( w_ISteamMatchmakingServerListResponse_106 *w_iface, void *w_request );
 
     void add_request( void *hrequest)
     {
@@ -110,33 +113,26 @@ struct SteamMatchmakingServerListResponse_106 : u_ISteamMatchmakingServerListRes
 };
 class callback_obj_tracker<SteamMatchmakingServerListResponse_106> SteamMatchmakingServerListResponse_106::track;
 
+SteamMatchmakingServerListResponse_106::SteamMatchmakingServerListResponse_106( w_ISteamMatchmakingServerListResponse_106 *w_iface, void *w_request )
+    : w_iface( (struct w_iface *)w_iface ), w_request( (struct w_request *)w_request )
+{
+    TRACE( "%p, %p -> %p\n", w_iface, w_request, this );
+}
+
 void SteamMatchmakingServerListResponse_106::ServerResponded( void *hRequest, int32_t iServer )
 {
-    queue_vtable_callback( this->w_iface, CALL_IFACE_VTABLE_0_2, (intptr_t)hRequest, (intptr_t)iServer );
+    queue_vtable_callback( this->w_iface, CALL_IFACE_VTABLE_0_2, (intptr_t)this->w_request, (intptr_t)iServer );
 }
 
 void SteamMatchmakingServerListResponse_106::ServerFailedToRespond( void *hRequest, int32_t iServer )
 {
-    queue_vtable_callback( this->w_iface, CALL_IFACE_VTABLE_1_2, (intptr_t)hRequest, (intptr_t)iServer );
+    queue_vtable_callback( this->w_iface, CALL_IFACE_VTABLE_1_2, (intptr_t)this->w_request, (intptr_t)iServer );
 }
 
 void SteamMatchmakingServerListResponse_106::RefreshComplete( void *hRequest, uint32_t response )
 {
-    queue_vtable_callback( this->w_iface, CALL_IFACE_VTABLE_2_2, (intptr_t)hRequest, (intptr_t)response );
+    queue_vtable_callback( this->w_iface, CALL_IFACE_VTABLE_2_2, (intptr_t)this->w_request, (intptr_t)response );
     TRACE( "RefreshComplete this %p, w_iface %p.\n", this, this->w_iface );
-}
-
-SteamMatchmakingServerListResponse_106 *create_LinuxISteamMatchmakingServerListResponse_106( void *win )
-{
-    SteamMatchmakingServerListResponse_106 *ret;
-
-    if (!win) return NULL;
-
-    if (!(ret = new SteamMatchmakingServerListResponse_106())) return NULL;
-    ret->w_iface = (struct w_iface *)win;
-
-    TRACE("-> %p.\n", ret);
-    return ret;
 }
 
 struct SteamMatchmakingPingResponse : u_ISteamMatchmakingPingResponse
@@ -301,60 +297,66 @@ static NTSTATUS ISteamMatchmakingServers_RequestSpectatorServerList( u_ISteamMat
 template< typename Iface, typename Params >
 static NTSTATUS ISteamMatchmakingServers_RequestInternetServerList( Iface *iface, Params *params )
 {
-    SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
-    params->_ret = iface->RequestInternetServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
-    if (!params->_ret) delete u_response;
-    else u_response->add_request( params->_ret );
+    SteamMatchmakingServerListResponse_106 *u_response = new SteamMatchmakingServerListResponse_106( params->pRequestServersResponse, params->_ret );
+    struct w_request *w_request = u_response->w_request;
+    w_request->u_request = iface->RequestInternetServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
+    if (!w_request->u_request) delete u_response;
+    else u_response->add_request( w_request );
     return 0;
 }
 
 template< typename Iface, typename Params >
 static NTSTATUS ISteamMatchmakingServers_RequestLANServerList( Iface *iface, Params *params )
 {
-    SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
-    params->_ret = iface->RequestLANServerList( params->iApp, u_response );
-    if (!params->_ret) delete u_response;
-    else u_response->add_request( params->_ret );
+    SteamMatchmakingServerListResponse_106 *u_response = new SteamMatchmakingServerListResponse_106( params->pRequestServersResponse, params->_ret );
+    struct w_request *w_request = u_response->w_request;
+    w_request->u_request = iface->RequestLANServerList( params->iApp, u_response );
+    if (!w_request->u_request) delete u_response;
+    else u_response->add_request( w_request );
     return 0;
 }
 
 template< typename Iface, typename Params >
 static NTSTATUS ISteamMatchmakingServers_RequestFriendsServerList( Iface *iface, Params *params )
 {
-    SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
-    params->_ret = iface->RequestFriendsServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
-    if (!params->_ret) delete u_response;
-    else u_response->add_request( params->_ret );
+    SteamMatchmakingServerListResponse_106 *u_response = new SteamMatchmakingServerListResponse_106( params->pRequestServersResponse, params->_ret );
+    struct w_request *w_request = u_response->w_request;
+    w_request->u_request = iface->RequestFriendsServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
+    if (!w_request->u_request) delete u_response;
+    else u_response->add_request( w_request );
     return 0;
 }
 
 template< typename Iface, typename Params >
 static NTSTATUS ISteamMatchmakingServers_RequestFavoritesServerList( Iface *iface, Params *params )
 {
-    SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
-    params->_ret = iface->RequestFavoritesServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
-    if (!params->_ret) delete u_response;
-    else u_response->add_request( params->_ret );
+    SteamMatchmakingServerListResponse_106 *u_response = new SteamMatchmakingServerListResponse_106( params->pRequestServersResponse, params->_ret );
+    struct w_request *w_request = u_response->w_request;
+    w_request->u_request = iface->RequestFavoritesServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
+    if (!w_request->u_request) delete u_response;
+    else u_response->add_request( w_request );
     return 0;
 }
 
 template< typename Iface, typename Params >
 static NTSTATUS ISteamMatchmakingServers_RequestHistoryServerList( Iface *iface, Params *params )
 {
-    SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
-    params->_ret = iface->RequestHistoryServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
-    if (!params->_ret) delete u_response;
-    else u_response->add_request( params->_ret );
+    SteamMatchmakingServerListResponse_106 *u_response = new SteamMatchmakingServerListResponse_106( params->pRequestServersResponse, params->_ret );
+    struct w_request *w_request = u_response->w_request;
+    w_request->u_request = iface->RequestHistoryServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
+    if (!w_request->u_request) delete u_response;
+    else u_response->add_request( w_request );
     return 0;
 }
 
 template< typename Iface, typename Params >
 static NTSTATUS ISteamMatchmakingServers_RequestSpectatorServerList( Iface *iface, Params *params )
 {
-    SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
-    params->_ret = iface->RequestSpectatorServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
-    if (!params->_ret) delete u_response;
-    else u_response->add_request( params->_ret );
+    SteamMatchmakingServerListResponse_106 *u_response = new SteamMatchmakingServerListResponse_106( params->pRequestServersResponse, params->_ret );
+    struct w_request *w_request = u_response->w_request;
+    w_request->u_request = iface->RequestSpectatorServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
+    if (!w_request->u_request) delete u_response;
+    else u_response->add_request( w_request );
     return 0;
 }
 
@@ -385,50 +387,57 @@ static NTSTATUS ISteamMatchmakingServers_ServerRules( Iface *iface, Params *para
 template< typename Iface, typename Params >
 static NTSTATUS ISteamMatchmakingServers_ReleaseRequest( Iface *iface, Params *params )
 {
-    iface->ReleaseRequest( params->hServerListRequest );
-    SteamMatchmakingServerListResponse_106::request_released( params->hServerListRequest );
+    struct w_request *w_request = (struct w_request *)(void *)params->hServerListRequest;
+    iface->ReleaseRequest( w_request ? (void *)w_request->u_request : nullptr );
+    SteamMatchmakingServerListResponse_106::request_released( w_request );
     return 0;
 }
 
 template< typename Iface, typename Params >
 static NTSTATUS ISteamMatchmakingServers_GetServerDetails( Iface *iface, Params *params )
 {
-    params->_ret = iface->GetServerDetails( params->hRequest, params->iServer );
+    struct w_request *w_request = (struct w_request *)(void *)params->hRequest;
+    params->_ret = iface->GetServerDetails( w_request ? (void *)w_request->u_request : nullptr, params->iServer );
     return 0;
 }
 
 template< typename Iface, typename Params >
 static NTSTATUS ISteamMatchmakingServers_CancelQuery( Iface *iface, Params *params )
 {
-    iface->CancelQuery( params->hRequest );
+    struct w_request *w_request = (struct w_request *)(void *)params->hRequest;
+    iface->CancelQuery( w_request ? (void *)w_request->u_request : nullptr );
     return 0;
 }
 
 template< typename Iface, typename Params >
 static NTSTATUS ISteamMatchmakingServers_RefreshQuery( Iface *iface, Params *params )
 {
-    iface->RefreshQuery( params->hRequest );
+    struct w_request *w_request = (struct w_request *)(void *)params->hRequest;
+    iface->RefreshQuery( w_request ? (void *)w_request->u_request : nullptr );
     return 0;
 }
 
 template< typename Iface, typename Params >
 static NTSTATUS ISteamMatchmakingServers_IsRefreshing( Iface *iface, Params *params )
 {
-    params->_ret = iface->IsRefreshing( params->hRequest );
+    struct w_request *w_request = (struct w_request *)(void *)params->hRequest;
+    params->_ret = iface->IsRefreshing( w_request ? (void *)w_request->u_request : nullptr );
     return 0;
 }
 
 template< typename Iface, typename Params >
 static NTSTATUS ISteamMatchmakingServers_GetServerCount( Iface *iface, Params *params )
 {
-    params->_ret = iface->GetServerCount( params->hRequest );
+    struct w_request *w_request = (struct w_request *)(void *)params->hRequest;
+    params->_ret = iface->GetServerCount( w_request ? (void *)w_request->u_request : nullptr );
     return 0;
 }
 
 template< typename Iface, typename Params >
 static NTSTATUS ISteamMatchmakingServers_RefreshServer( Iface *iface, Params *params )
 {
-    iface->RefreshServer( params->hRequest, params->iServer );
+    struct w_request *w_request = (struct w_request *)(void *)params->hRequest;
+    iface->RefreshServer( w_request ? (void *)w_request->u_request : nullptr, params->iServer );
     return 0;
 }
 
