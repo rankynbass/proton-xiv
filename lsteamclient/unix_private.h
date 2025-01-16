@@ -20,11 +20,11 @@ extern "C"
 {
 #endif /* __cplusplus */
 
-struct w_steam_iface;
-extern void queue_vtable_callback( struct w_steam_iface *w_iface, enum callback_type type, uint64_t arg0, uint64_t arg1, uint64_t arg2 );
-extern void queue_vtable_callback_0_server_responded( struct w_steam_iface *w_iface, gameserveritem_t_105 *server );
-extern void queue_vtable_callback_0_add_player_to_list( struct w_steam_iface *w_iface, const char *pchName, int nScore, float flTimePlayed );
-extern void queue_vtable_callback_0_rules_responded( struct w_steam_iface *w_iface, const char *pchRule, const char *pchValue );
+struct w_iface;
+extern void queue_vtable_callback( struct w_iface *w_iface, enum callback_type type, uint64_t arg0, uint64_t arg1, uint64_t arg2 );
+extern void queue_vtable_callback_0_server_responded( struct w_iface *w_iface, gameserveritem_t_105 *server );
+extern void queue_vtable_callback_0_add_player_to_list( struct w_iface *w_iface, const char *pchName, int nScore, float flTimePlayed );
+extern void queue_vtable_callback_0_rules_responded( struct w_iface *w_iface, const char *pchRule, const char *pchValue );
 
 typedef void (*W_CDECL w_cdecl_func)( void * );
 extern void queue_cdecl_func_callback( w_cdecl_func func, void *data, uint32_t data_size );
@@ -100,7 +100,7 @@ extern unsigned int steamclient_unix_path_to_dos_path( bool api_result, const ch
     NTSTATUS iface ## _ ## version ## _ ## method( void *args ) \
     { \
         auto params = (struct iface ## _ ## version ## _ ## method ## _params *)args; \
-        auto u_iface = (struct u_ ## iface ## _ ## version *)params->linux_side; \
+        auto u_iface = (struct u_ ## iface ## _ ## version *)params->u_iface; \
         return iface ## _ ## method( u_iface, params, ## __VA_ARGS__ ); \
     }
 

@@ -80,7 +80,7 @@ struct callback
 
         struct
         {
-            struct w_steam_iface *iface;
+            struct w_iface *iface;
             uint64_t arg0;
             uint64_t arg1;
             uint64_t arg2;
@@ -88,13 +88,13 @@ struct callback
 
         struct
         {
-            struct w_steam_iface *iface;
+            struct w_iface *iface;
             gameserveritem_t_105 server[];
         } server_responded;
 
         struct
         {
-            struct w_steam_iface *iface;
+            struct w_iface *iface;
             int32_t score;
             float time_played;
             const char name[1];
@@ -102,7 +102,7 @@ struct callback
 
         struct
         {
-            struct w_steam_iface *iface;
+            struct w_iface *iface;
             const char rule_and_value[1];
         } rules_responded;
     };

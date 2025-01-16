@@ -673,8 +673,8 @@ class Method:
             params = [ret] + params
             names = ['_ret'] + names
 
-        params = ['struct u_steam_iface *linux_side'] + params
-        names = ['linux_side'] + names
+        params = ['struct u_iface *u_iface'] + params
+        names = ['u_iface'] + names
 
         out(f'struct {self.full_name}_params\n')
         out(u'{\n')
@@ -951,12 +951,12 @@ def handle_method_cpp(method, classname, out):
                       if underlying_type(p).spelling in MANUAL_TYPES
                       or p.spelling in MANUAL_PARAMS}
 
-    names = ['linux_side'] + names
+    names = ['u_iface'] + names
 
     out(f'NTSTATUS {method.full_name}( void *args )\n')
     out(u'{\n')
     out(f'    struct {method.full_name}_params *params = (struct {method.full_name}_params *)args;\n')
-    out(f'    struct u_{klass.full_name} *iface = (struct u_{klass.full_name} *)params->linux_side;\n')
+    out(f'    struct u_{klass.full_name} *iface = (struct u_{klass.full_name} *)params->u_iface;\n')
 
     params = list(zip(names[1:], method.get_arguments()))
     for i, (name, param) in enumerate(params[:-1]):
@@ -1083,7 +1083,7 @@ def handle_method_c(klass, method, winclassname, out):
         params = [f'{declspec(method.result_type, "*_ret", "w_")}'] + params
         names = ['_ret'] + names
 
-    params = ['struct w_steam_iface *_this'] + params
+    params = ['struct w_iface *_this'] + params
     names = ['_this'] + names
 
     out(f'{ret}__thiscall {winclassname}_{method.name}({", ".join(params)})\n')
@@ -1091,7 +1091,7 @@ def handle_method_c(klass, method, winclassname, out):
 
     out(f'    struct {method.full_name}_params params =\n')
     out(u'    {\n')
-    out(u'        .linux_side = _this->u_iface,\n')
+    out(u'        .u_iface = _this->u_iface,\n')
     for name in names[1:]: out(f'        .{name} = {name},\n')
     out(u'    };\n')
 
@@ -1150,7 +1150,7 @@ def handle_class(klass):
             if is_manual_method(klass, method, "w"):
                 continue
             if type(method) is Destructor:
-                out(f'void __thiscall {winclassname}_{method.name}(struct w_steam_iface *_this)\n{{/* never called */}}\n\n')
+                out(f'void __thiscall {winclassname}_{method.name}(struct w_iface *_this)\n{{/* never called */}}\n\n')
             else:
                 handle_method_c(klass, method, winclassname, out)
 
@@ -1165,9 +1165,9 @@ def handle_class(klass):
         out(u'    );\n')
         out(u'__ASM_BLOCK_END\n')
         out(u'\n')
-        out(f'struct w_steam_iface *create_{winclassname}(void *u_iface)\n')
+        out(f'struct w_iface *create_{winclassname}( struct u_iface *u_iface )\n')
         out(u'{\n')
-        out(f'    struct w_steam_iface *r = alloc_mem_for_iface(sizeof(struct w_steam_iface), "{klass.version}");\n')
+        out(f'    struct w_iface *r = alloc_mem_for_iface(sizeof(struct w_iface), "{klass.version}");\n')
         out(u'    TRACE("-> %p\\n", r);\n')
         out(f'    r->vtable = alloc_vtable(&{winclassname}_vtable, {len(klass.methods)}, "{klass.version}");\n')
         out(u'    r->u_iface = u_iface;\n')
@@ -1390,7 +1390,7 @@ with open("steamclient_generated.h", "w") as file:
     out(u'/* This file is auto-generated, do not edit. */\n\n')
 
     for _, klass in sorted(all_classes.items()):
-        out(f"extern struct w_steam_iface *create_win{klass.full_name}(void *);\n")
+        out(f"extern struct w_iface *create_win{klass.full_name}( struct u_iface * );\n")
 
 
 with open("steamclient_generated.c", "w") as file:

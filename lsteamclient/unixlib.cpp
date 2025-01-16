@@ -42,7 +42,7 @@ static int callback_len_utow( int cb_id, int u_len )
     return find_first_callback_def_by_id( cb_id )->w_callback_len;
 }
 
-void queue_vtable_callback( struct w_steam_iface *w_iface, enum callback_type type, uint64_t arg0, uint64_t arg1, uint64_t arg2 )
+void queue_vtable_callback( struct w_iface *w_iface, enum callback_type type, uint64_t arg0, uint64_t arg1, uint64_t arg2 )
 {
     struct callback_entry *entry;
     uint32_t size = 0;
@@ -64,7 +64,7 @@ void queue_vtable_callback( struct w_steam_iface *w_iface, enum callback_type ty
     pthread_mutex_unlock( &callbacks_lock );
 }
 
-void queue_vtable_callback_0_server_responded( struct w_steam_iface *w_iface, gameserveritem_t_105 *server )
+void queue_vtable_callback_0_server_responded( struct w_iface *w_iface, gameserveritem_t_105 *server )
 {
     uint32_t size = sizeof(*server);
     struct callback_entry *entry;
@@ -84,7 +84,7 @@ void queue_vtable_callback_0_server_responded( struct w_steam_iface *w_iface, ga
     pthread_mutex_unlock( &callbacks_lock );
 }
 
-void queue_vtable_callback_0_add_player_to_list( struct w_steam_iface *w_iface, const char *pchName, int nScore, float flTimePlayed )
+void queue_vtable_callback_0_add_player_to_list( struct w_iface *w_iface, const char *pchName, int nScore, float flTimePlayed )
 {
     uint32_t name_size = strlen( pchName ) + 1, size = name_size;
     struct callback_entry *entry;
@@ -106,7 +106,7 @@ void queue_vtable_callback_0_add_player_to_list( struct w_steam_iface *w_iface, 
     pthread_mutex_unlock( &callbacks_lock );
 }
 
-void queue_vtable_callback_0_rules_responded( struct w_steam_iface *w_iface, const char *pchRule, const char *pchValue )
+void queue_vtable_callback_0_rules_responded( struct w_iface *w_iface, const char *pchRule, const char *pchValue )
 {
     uint32_t rule_size = strlen( pchRule ) + 1, value_size = strlen( pchValue ) + 1, size = rule_size + value_size;
     struct callback_entry *entry;
@@ -260,7 +260,7 @@ u_void_SteamAPI_PostAPIResultInProcess_t manual_convert_DEPRECATED_Remove_SteamA
 NTSTATUS ISteamClient_SteamClient020_Set_SteamAPI_CCheckCallbackRegisteredInProcess( void *args )
 {
     struct ISteamClient_SteamClient020_Set_SteamAPI_CCheckCallbackRegisteredInProcess_params *params = (struct ISteamClient_SteamClient020_Set_SteamAPI_CCheckCallbackRegisteredInProcess_params *)args;
-    struct u_ISteamClient_SteamClient020 *iface = (struct u_ISteamClient_SteamClient020 *)params->linux_side;
+    struct u_ISteamClient_SteamClient020 *iface = (struct u_ISteamClient_SteamClient020 *)params->u_iface;
     uint32_t (*U_CDECL lin_func)(int32_t) = manual_convert_Set_SteamAPI_CCheckCallbackRegisteredInProcess_func_156( params->func );
     iface->Set_SteamAPI_CCheckCallbackRegisteredInProcess( lin_func );
     return 0;
@@ -269,7 +269,7 @@ NTSTATUS ISteamClient_SteamClient020_Set_SteamAPI_CCheckCallbackRegisteredInProc
 NTSTATUS ISteamClient_SteamClient021_Set_SteamAPI_CCheckCallbackRegisteredInProcess( void *args )
 {
     struct ISteamClient_SteamClient021_Set_SteamAPI_CCheckCallbackRegisteredInProcess_params *params = (struct ISteamClient_SteamClient021_Set_SteamAPI_CCheckCallbackRegisteredInProcess_params *)args;
-    struct u_ISteamClient_SteamClient021 *iface = (struct u_ISteamClient_SteamClient021 *)params->linux_side;
+    struct u_ISteamClient_SteamClient021 *iface = (struct u_ISteamClient_SteamClient021 *)params->u_iface;
     uint32_t (*U_CDECL lin_func)(int32_t) = manual_convert_Set_SteamAPI_CCheckCallbackRegisteredInProcess_func_156( params->func );
     iface->Set_SteamAPI_CCheckCallbackRegisteredInProcess( lin_func );
     return 0;

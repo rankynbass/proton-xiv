@@ -270,15 +270,15 @@ struct steamclient_interface
     struct list entry;
     const char *name;
     void *u_iface;
-    struct w_steam_iface *w_iface;
+    struct w_iface *w_iface;
 };
 
 static struct list steamclient_interfaces = LIST_INIT(steamclient_interfaces);
 
-struct w_steam_iface *create_win_interface(const char *name, void *u_iface)
+struct w_iface *create_win_interface( const char *name, struct u_iface *u_iface )
 {
     struct steamclient_interface *e;
-    struct w_steam_iface *ret = NULL;
+    struct w_iface *ret = NULL;
     iface_constructor constructor;
 
     TRACE("trying to create %s\n", name);
