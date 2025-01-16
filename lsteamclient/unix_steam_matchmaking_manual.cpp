@@ -303,7 +303,8 @@ static NTSTATUS ISteamMatchmakingServers_RequestInternetServerList( Iface *iface
 {
     SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
     params->_ret = iface->RequestInternetServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
-    u_response->add_request( params->_ret );
+    if (!params->_ret) delete u_response;
+    else u_response->add_request( params->_ret );
     return 0;
 }
 
@@ -312,7 +313,8 @@ static NTSTATUS ISteamMatchmakingServers_RequestLANServerList( Iface *iface, Par
 {
     SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
     params->_ret = iface->RequestLANServerList( params->iApp, u_response );
-    u_response->add_request( params->_ret );
+    if (!params->_ret) delete u_response;
+    else u_response->add_request( params->_ret );
     return 0;
 }
 
@@ -321,7 +323,8 @@ static NTSTATUS ISteamMatchmakingServers_RequestFriendsServerList( Iface *iface,
 {
     SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
     params->_ret = iface->RequestFriendsServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
-    u_response->add_request( params->_ret );
+    if (!params->_ret) delete u_response;
+    else u_response->add_request( params->_ret );
     return 0;
 }
 
@@ -330,7 +333,8 @@ static NTSTATUS ISteamMatchmakingServers_RequestFavoritesServerList( Iface *ifac
 {
     SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
     params->_ret = iface->RequestFavoritesServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
-    u_response->add_request( params->_ret );
+    if (!params->_ret) delete u_response;
+    else u_response->add_request( params->_ret );
     return 0;
 }
 
@@ -339,7 +343,8 @@ static NTSTATUS ISteamMatchmakingServers_RequestHistoryServerList( Iface *iface,
 {
     SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
     params->_ret = iface->RequestHistoryServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
-    u_response->add_request( params->_ret );
+    if (!params->_ret) delete u_response;
+    else u_response->add_request( params->_ret );
     return 0;
 }
 
@@ -348,7 +353,8 @@ static NTSTATUS ISteamMatchmakingServers_RequestSpectatorServerList( Iface *ifac
 {
     SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
     params->_ret = iface->RequestSpectatorServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
-    u_response->add_request( params->_ret );
+    if (!params->_ret) delete u_response;
+    else u_response->add_request( params->_ret );
     return 0;
 }
 
