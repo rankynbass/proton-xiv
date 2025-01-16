@@ -8882,11 +8882,6 @@ u32_SteamUGCDetails_t_160::operator w32_SteamUGCDetails_t_160() const
 }
 #endif
 
-static void SteamUGCDetails_t_160_utow(void *dst, const void *src)
-{
-    *(w_SteamUGCDetails_t_160 *)dst = *(const u_SteamUGCDetails_t_160 *)src;
-}
-
 #ifdef __x86_64__
 w64_SteamUGCDetails_t_128x::operator u64_SteamUGCDetails_t_128x() const
 {
@@ -9023,11 +9018,6 @@ u32_SteamUGCDetails_t_128x::operator w32_SteamUGCDetails_t_128x() const
 }
 #endif
 
-static void SteamUGCDetails_t_128x_utow(void *dst, const void *src)
-{
-    *(w_SteamUGCDetails_t_128x *)dst = *(const u_SteamUGCDetails_t_128x *)src;
-}
-
 #ifdef __x86_64__
 w64_SteamUGCDetails_t_126::operator u64_SteamUGCDetails_t_126() const
 {
@@ -9160,11 +9150,6 @@ u32_SteamUGCDetails_t_126::operator w32_SteamUGCDetails_t_126() const
 }
 #endif
 
-static void SteamUGCDetails_t_126_utow(void *dst, const void *src)
-{
-    *(w_SteamUGCDetails_t_126 *)dst = *(const u_SteamUGCDetails_t_126 *)src;
-}
-
 C_ASSERT( sizeof(w64_AddAppDependencyResult_t) >= 24 );
 C_ASSERT( offsetof(w64_AddAppDependencyResult_t, m_eResult) == 0 );
 C_ASSERT( sizeof(w64_AddAppDependencyResult_t().m_eResult) >= 4 );
@@ -9241,11 +9226,6 @@ u32_AddAppDependencyResult_t::operator w32_AddAppDependencyResult_t() const
 }
 #endif
 
-static void AddAppDependencyResult_t_utow(void *dst, const void *src)
-{
-    *(w_AddAppDependencyResult_t *)dst = *(const u_AddAppDependencyResult_t *)src;
-}
-
 C_ASSERT( sizeof(w64_AddUGCDependencyResult_t) >= 24 );
 C_ASSERT( offsetof(w64_AddUGCDependencyResult_t, m_eResult) == 0 );
 C_ASSERT( sizeof(w64_AddUGCDependencyResult_t().m_eResult) >= 4 );
@@ -9321,11 +9301,6 @@ u32_AddUGCDependencyResult_t::operator w32_AddUGCDependencyResult_t() const
     return ret;
 }
 #endif
-
-static void AddUGCDependencyResult_t_utow(void *dst, const void *src)
-{
-    *(w_AddUGCDependencyResult_t *)dst = *(const u_AddUGCDependencyResult_t *)src;
-}
 
 C_ASSERT( sizeof(w64_CSteamAPIContext_141) >= 176 );
 C_ASSERT( offsetof(w64_CSteamAPIContext_141, m_pSteamClient) == 0 );
@@ -10079,26 +10054,6 @@ C_ASSERT( sizeof(u32_CSteamAPIContext_137().m_pSteamVideo) >= 4 );
 C_ASSERT( offsetof(u32_CSteamAPIContext_137, m_pSteamParentalSettings) == 80 );
 C_ASSERT( sizeof(u32_CSteamAPIContext_137().m_pSteamParentalSettings) >= 4 );
 
-static void CSteamAPIContext_141_utow(void *dst, const void *src)
-{
-    *(w_CSteamAPIContext_141 *)dst = *(const u_CSteamAPIContext_141 *)src;
-}
-
-static void CSteamAPIContext_143_utow(void *dst, const void *src)
-{
-    *(w_CSteamAPIContext_143 *)dst = *(const u_CSteamAPIContext_143 *)src;
-}
-
-static void CSteamAPIContext_145_utow(void *dst, const void *src)
-{
-    *(w_CSteamAPIContext_145 *)dst = *(const u_CSteamAPIContext_145 *)src;
-}
-
-static void CSteamAPIContext_137_utow(void *dst, const void *src)
-{
-    *(w_CSteamAPIContext_137 *)dst = *(const u_CSteamAPIContext_137 *)src;
-}
-
 C_ASSERT( sizeof(w64_CSteamGameServerAPIContext_152) >= 64 );
 C_ASSERT( offsetof(w64_CSteamGameServerAPIContext_152, m_pSteamClient) == 0 );
 C_ASSERT( sizeof(w64_CSteamGameServerAPIContext_152().m_pSteamClient) >= 8 );
@@ -10251,16 +10206,6 @@ C_ASSERT( sizeof(u32_CSteamGameServerAPIContext_143().m_pSteamUGC) >= 4 );
 C_ASSERT( offsetof(u32_CSteamGameServerAPIContext_143, m_pSteamApps) == 32 );
 C_ASSERT( sizeof(u32_CSteamGameServerAPIContext_143().m_pSteamApps) >= 4 );
 
-static void CSteamGameServerAPIContext_152_utow(void *dst, const void *src)
-{
-    *(w_CSteamGameServerAPIContext_152 *)dst = *(const u_CSteamGameServerAPIContext_152 *)src;
-}
-
-static void CSteamGameServerAPIContext_143_utow(void *dst, const void *src)
-{
-    *(w_CSteamGameServerAPIContext_143 *)dst = *(const u_CSteamGameServerAPIContext_143 *)src;
-}
-
 C_ASSERT( sizeof(w64_CallbackMsg_t) >= 24 );
 C_ASSERT( offsetof(w64_CallbackMsg_t, m_hSteamUser) == 0 );
 C_ASSERT( sizeof(w64_CallbackMsg_t().m_hSteamUser) >= 4 );
@@ -10300,11 +10245,6 @@ C_ASSERT( offsetof(u32_CallbackMsg_t, m_pubParam) == 8 );
 C_ASSERT( sizeof(u32_CallbackMsg_t().m_pubParam) >= 4 );
 C_ASSERT( offsetof(u32_CallbackMsg_t, m_cubParam) == 12 );
 C_ASSERT( sizeof(u32_CallbackMsg_t().m_cubParam) >= 4 );
-
-static void CallbackMsg_t_utow(void *dst, const void *src)
-{
-    *(w_CallbackMsg_t *)dst = *(const u_CallbackMsg_t *)src;
-}
 
 C_ASSERT( sizeof(w64_CreateBeaconCallback_t) >= 16 );
 C_ASSERT( offsetof(w64_CreateBeaconCallback_t, m_eResult) == 0 );
@@ -10369,11 +10309,6 @@ u32_CreateBeaconCallback_t::operator w32_CreateBeaconCallback_t() const
     return ret;
 }
 #endif
-
-static void CreateBeaconCallback_t_utow(void *dst, const void *src)
-{
-    *(w_CreateBeaconCallback_t *)dst = *(const u_CreateBeaconCallback_t *)src;
-}
 
 C_ASSERT( sizeof(w64_CreateItemResult_t) >= 24 );
 C_ASSERT( offsetof(w64_CreateItemResult_t, m_eResult) == 0 );
@@ -10451,11 +10386,6 @@ u32_CreateItemResult_t::operator w32_CreateItemResult_t() const
 }
 #endif
 
-static void CreateItemResult_t_utow(void *dst, const void *src)
-{
-    *(w_CreateItemResult_t *)dst = *(const u_CreateItemResult_t *)src;
-}
-
 C_ASSERT( sizeof(w64_DeleteItemResult_t) >= 16 );
 C_ASSERT( offsetof(w64_DeleteItemResult_t, m_eResult) == 0 );
 C_ASSERT( sizeof(w64_DeleteItemResult_t().m_eResult) >= 4 );
@@ -10519,11 +10449,6 @@ u32_DeleteItemResult_t::operator w32_DeleteItemResult_t() const
     return ret;
 }
 #endif
-
-static void DeleteItemResult_t_utow(void *dst, const void *src)
-{
-    *(w_DeleteItemResult_t *)dst = *(const u_DeleteItemResult_t *)src;
-}
 
 C_ASSERT( sizeof(w64_DownloadItemResult_t) >= 24 );
 C_ASSERT( offsetof(w64_DownloadItemResult_t, m_unAppID) == 0 );
@@ -10601,11 +10526,6 @@ u32_DownloadItemResult_t::operator w32_DownloadItemResult_t() const
 }
 #endif
 
-static void DownloadItemResult_t_utow(void *dst, const void *src)
-{
-    *(w_DownloadItemResult_t *)dst = *(const u_DownloadItemResult_t *)src;
-}
-
 C_ASSERT( sizeof(w64_EndGameResultCallback_t) >= 16 );
 C_ASSERT( offsetof(w64_EndGameResultCallback_t, m_eResult) == 0 );
 C_ASSERT( sizeof(w64_EndGameResultCallback_t().m_eResult) >= 4 );
@@ -10669,11 +10589,6 @@ u32_EndGameResultCallback_t::operator w32_EndGameResultCallback_t() const
     return ret;
 }
 #endif
-
-static void EndGameResultCallback_t_utow(void *dst, const void *src)
-{
-    *(w_EndGameResultCallback_t *)dst = *(const u_EndGameResultCallback_t *)src;
-}
 
 C_ASSERT( sizeof(w64_FileDetailsResult_t) >= 40 );
 C_ASSERT( offsetof(w64_FileDetailsResult_t, m_eResult) == 0 );
@@ -10762,11 +10677,6 @@ u32_FileDetailsResult_t::operator w32_FileDetailsResult_t() const
     return ret;
 }
 #endif
-
-static void FileDetailsResult_t_utow(void *dst, const void *src)
-{
-    *(w_FileDetailsResult_t *)dst = *(const u_FileDetailsResult_t *)src;
-}
 
 C_ASSERT( sizeof(w64_GSReputation_t_123) >= 40 );
 C_ASSERT( offsetof(w64_GSReputation_t_123, m_eResult) == 0 );
@@ -10956,11 +10866,6 @@ u32_GSReputation_t_123::operator w32_GSReputation_t_123() const
 }
 #endif
 
-static void GSReputation_t_123_utow(void *dst, const void *src)
-{
-    *(w_GSReputation_t_123 *)dst = *(const u_GSReputation_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_GSReputation_t_108::operator u32_GSReputation_t_108() const
 {
@@ -10990,11 +10895,6 @@ u32_GSReputation_t_108::operator w32_GSReputation_t_108() const
     return ret;
 }
 #endif
-
-static void GSReputation_t_108_utow(void *dst, const void *src)
-{
-    *(w_GSReputation_t_108 *)dst = *(const u_GSReputation_t_108 *)src;
-}
 
 C_ASSERT( sizeof(w64_GetAppDependenciesResult_t) >= 152 );
 C_ASSERT( offsetof(w64_GetAppDependenciesResult_t, m_eResult) == 0 );
@@ -11096,11 +10996,6 @@ u32_GetAppDependenciesResult_t::operator w32_GetAppDependenciesResult_t() const
 }
 #endif
 
-static void GetAppDependenciesResult_t_utow(void *dst, const void *src)
-{
-    *(w_GetAppDependenciesResult_t *)dst = *(const u_GetAppDependenciesResult_t *)src;
-}
-
 C_ASSERT( sizeof(w64_HTML_ChangedTitle_t) >= 16 );
 C_ASSERT( offsetof(w64_HTML_ChangedTitle_t, unBrowserHandle) == 0 );
 C_ASSERT( sizeof(w64_HTML_ChangedTitle_t().unBrowserHandle) >= 4 );
@@ -11144,11 +11039,6 @@ u64_HTML_ChangedTitle_t::operator w64_HTML_ChangedTitle_t() const
     return ret;
 }
 #endif
-
-static void HTML_ChangedTitle_t_utow(void *dst, const void *src)
-{
-    *(w_HTML_ChangedTitle_t *)dst = *(const u_HTML_ChangedTitle_t *)src;
-}
 
 C_ASSERT( sizeof(w64_HTML_ComboNeedsPaint_t) >= 24 );
 C_ASSERT( offsetof(w64_HTML_ComboNeedsPaint_t, unBrowserHandle) == 0 );
@@ -11213,11 +11103,6 @@ u64_HTML_ComboNeedsPaint_t::operator w64_HTML_ComboNeedsPaint_t() const
     return ret;
 }
 #endif
-
-static void HTML_ComboNeedsPaint_t_utow(void *dst, const void *src)
-{
-    *(w_HTML_ComboNeedsPaint_t *)dst = *(const u_HTML_ComboNeedsPaint_t *)src;
-}
 
 C_ASSERT( sizeof(w64_HTML_FileOpenDialog_t) >= 24 );
 C_ASSERT( offsetof(w64_HTML_FileOpenDialog_t, unBrowserHandle) == 0 );
@@ -11297,11 +11182,6 @@ u32_HTML_FileOpenDialog_t::operator w32_HTML_FileOpenDialog_t() const
 }
 #endif
 
-static void HTML_FileOpenDialog_t_utow(void *dst, const void *src)
-{
-    *(w_HTML_FileOpenDialog_t *)dst = *(const u_HTML_FileOpenDialog_t *)src;
-}
-
 C_ASSERT( sizeof(w64_HTML_FinishedRequest_t) >= 24 );
 C_ASSERT( offsetof(w64_HTML_FinishedRequest_t, unBrowserHandle) == 0 );
 C_ASSERT( sizeof(w64_HTML_FinishedRequest_t().unBrowserHandle) >= 4 );
@@ -11380,11 +11260,6 @@ u32_HTML_FinishedRequest_t::operator w32_HTML_FinishedRequest_t() const
 }
 #endif
 
-static void HTML_FinishedRequest_t_utow(void *dst, const void *src)
-{
-    *(w_HTML_FinishedRequest_t *)dst = *(const u_HTML_FinishedRequest_t *)src;
-}
-
 C_ASSERT( sizeof(w64_HTML_JSAlert_t) >= 16 );
 C_ASSERT( offsetof(w64_HTML_JSAlert_t, unBrowserHandle) == 0 );
 C_ASSERT( sizeof(w64_HTML_JSAlert_t().unBrowserHandle) >= 4 );
@@ -11429,11 +11304,6 @@ u64_HTML_JSAlert_t::operator w64_HTML_JSAlert_t() const
 }
 #endif
 
-static void HTML_JSAlert_t_utow(void *dst, const void *src)
-{
-    *(w_HTML_JSAlert_t *)dst = *(const u_HTML_JSAlert_t *)src;
-}
-
 C_ASSERT( sizeof(w64_HTML_JSConfirm_t) >= 16 );
 C_ASSERT( offsetof(w64_HTML_JSConfirm_t, unBrowserHandle) == 0 );
 C_ASSERT( sizeof(w64_HTML_JSConfirm_t().unBrowserHandle) >= 4 );
@@ -11477,11 +11347,6 @@ u64_HTML_JSConfirm_t::operator w64_HTML_JSConfirm_t() const
     return ret;
 }
 #endif
-
-static void HTML_JSConfirm_t_utow(void *dst, const void *src)
-{
-    *(w_HTML_JSConfirm_t *)dst = *(const u_HTML_JSConfirm_t *)src;
-}
 
 C_ASSERT( sizeof(w64_HTML_LinkAtPosition_t) >= 32 );
 C_ASSERT( offsetof(w64_HTML_LinkAtPosition_t, unBrowserHandle) == 0 );
@@ -11596,11 +11461,6 @@ u32_HTML_LinkAtPosition_t::operator w32_HTML_LinkAtPosition_t() const
     return ret;
 }
 #endif
-
-static void HTML_LinkAtPosition_t_utow(void *dst, const void *src)
-{
-    *(w_HTML_LinkAtPosition_t *)dst = *(const u_HTML_LinkAtPosition_t *)src;
-}
 
 C_ASSERT( sizeof(w64_HTML_NeedsPaint_t) >= 56 );
 C_ASSERT( offsetof(w64_HTML_NeedsPaint_t, unBrowserHandle) == 0 );
@@ -11745,11 +11605,6 @@ u64_HTML_NeedsPaint_t::operator w64_HTML_NeedsPaint_t() const
     return ret;
 }
 #endif
-
-static void HTML_NeedsPaint_t_utow(void *dst, const void *src)
-{
-    *(w_HTML_NeedsPaint_t *)dst = *(const u_HTML_NeedsPaint_t *)src;
-}
 
 C_ASSERT( sizeof(w64_HTML_NewWindow_t_132x) >= 40 );
 C_ASSERT( offsetof(w64_HTML_NewWindow_t_132x, unBrowserHandle) == 0 );
@@ -11933,11 +11788,6 @@ u32_HTML_NewWindow_t_132x::operator w32_HTML_NewWindow_t_132x() const
 }
 #endif
 
-static void HTML_NewWindow_t_132x_utow(void *dst, const void *src)
-{
-    *(w_HTML_NewWindow_t_132x *)dst = *(const u_HTML_NewWindow_t_132x *)src;
-}
-
 #ifdef __x86_64__
 w64_HTML_NewWindow_t_130x::operator u64_HTML_NewWindow_t_130x() const
 {
@@ -11995,11 +11845,6 @@ u32_HTML_NewWindow_t_130x::operator w32_HTML_NewWindow_t_130x() const
     return ret;
 }
 #endif
-
-static void HTML_NewWindow_t_130x_utow(void *dst, const void *src)
-{
-    *(w_HTML_NewWindow_t_130x *)dst = *(const u_HTML_NewWindow_t_130x *)src;
-}
 
 C_ASSERT( sizeof(w64_HTML_OpenLinkInNewTab_t) >= 16 );
 C_ASSERT( offsetof(w64_HTML_OpenLinkInNewTab_t, unBrowserHandle) == 0 );
@@ -12067,11 +11912,6 @@ u32_HTML_OpenLinkInNewTab_t::operator w32_HTML_OpenLinkInNewTab_t() const
 }
 #endif
 
-static void HTML_OpenLinkInNewTab_t_utow(void *dst, const void *src)
-{
-    *(w_HTML_OpenLinkInNewTab_t *)dst = *(const u_HTML_OpenLinkInNewTab_t *)src;
-}
-
 C_ASSERT( sizeof(w64_HTML_ShowToolTip_t) >= 16 );
 C_ASSERT( offsetof(w64_HTML_ShowToolTip_t, unBrowserHandle) == 0 );
 C_ASSERT( sizeof(w64_HTML_ShowToolTip_t().unBrowserHandle) >= 4 );
@@ -12115,11 +11955,6 @@ u64_HTML_ShowToolTip_t::operator w64_HTML_ShowToolTip_t() const
     return ret;
 }
 #endif
-
-static void HTML_ShowToolTip_t_utow(void *dst, const void *src)
-{
-    *(w_HTML_ShowToolTip_t *)dst = *(const u_HTML_ShowToolTip_t *)src;
-}
 
 C_ASSERT( sizeof(w64_HTML_StartRequest_t) >= 40 );
 C_ASSERT( offsetof(w64_HTML_StartRequest_t, unBrowserHandle) == 0 );
@@ -12223,11 +12058,6 @@ u32_HTML_StartRequest_t::operator w32_HTML_StartRequest_t() const
 }
 #endif
 
-static void HTML_StartRequest_t_utow(void *dst, const void *src)
-{
-    *(w_HTML_StartRequest_t *)dst = *(const u_HTML_StartRequest_t *)src;
-}
-
 C_ASSERT( sizeof(w64_HTML_StatusText_t) >= 16 );
 C_ASSERT( offsetof(w64_HTML_StatusText_t, unBrowserHandle) == 0 );
 C_ASSERT( sizeof(w64_HTML_StatusText_t().unBrowserHandle) >= 4 );
@@ -12271,11 +12101,6 @@ u64_HTML_StatusText_t::operator w64_HTML_StatusText_t() const
     return ret;
 }
 #endif
-
-static void HTML_StatusText_t_utow(void *dst, const void *src)
-{
-    *(w_HTML_StatusText_t *)dst = *(const u_HTML_StatusText_t *)src;
-}
 
 C_ASSERT( sizeof(w64_HTML_URLChanged_t) >= 48 );
 C_ASSERT( offsetof(w64_HTML_URLChanged_t, unBrowserHandle) == 0 );
@@ -12391,11 +12216,6 @@ u32_HTML_URLChanged_t::operator w32_HTML_URLChanged_t() const
 }
 #endif
 
-static void HTML_URLChanged_t_utow(void *dst, const void *src)
-{
-    *(w_HTML_URLChanged_t *)dst = *(const u_HTML_URLChanged_t *)src;
-}
-
 C_ASSERT( sizeof(w64_HTML_UpdateToolTip_t) >= 16 );
 C_ASSERT( offsetof(w64_HTML_UpdateToolTip_t, unBrowserHandle) == 0 );
 C_ASSERT( sizeof(w64_HTML_UpdateToolTip_t().unBrowserHandle) >= 4 );
@@ -12439,11 +12259,6 @@ u64_HTML_UpdateToolTip_t::operator w64_HTML_UpdateToolTip_t() const
     return ret;
 }
 #endif
-
-static void HTML_UpdateToolTip_t_utow(void *dst, const void *src)
-{
-    *(w_HTML_UpdateToolTip_t *)dst = *(const u_HTML_UpdateToolTip_t *)src;
-}
 
 C_ASSERT( sizeof(w64_HTTPRequestCompleted_t_132x) >= 32 );
 C_ASSERT( offsetof(w64_HTTPRequestCompleted_t_132x, m_hRequest) == 0 );
@@ -12625,11 +12440,6 @@ u32_HTTPRequestCompleted_t_132x::operator w32_HTTPRequestCompleted_t_132x() cons
 }
 #endif
 
-static void HTTPRequestCompleted_t_132x_utow(void *dst, const void *src)
-{
-    *(w_HTTPRequestCompleted_t_132x *)dst = *(const u_HTTPRequestCompleted_t_132x *)src;
-}
-
 #ifdef __x86_64__
 w64_HTTPRequestCompleted_t_123::operator u64_HTTPRequestCompleted_t_123() const
 {
@@ -12678,11 +12488,6 @@ u32_HTTPRequestCompleted_t_123::operator w32_HTTPRequestCompleted_t_123() const
 }
 #endif
 
-static void HTTPRequestCompleted_t_123_utow(void *dst, const void *src)
-{
-    *(w_HTTPRequestCompleted_t_123 *)dst = *(const u_HTTPRequestCompleted_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_HTTPRequestCompleted_t_115::operator u32_HTTPRequestCompleted_t_115() const
 {
@@ -12706,11 +12511,6 @@ u32_HTTPRequestCompleted_t_115::operator w32_HTTPRequestCompleted_t_115() const
     return ret;
 }
 #endif
-
-static void HTTPRequestCompleted_t_115_utow(void *dst, const void *src)
-{
-    *(w_HTTPRequestCompleted_t_115 *)dst = *(const u_HTTPRequestCompleted_t_115 *)src;
-}
 
 C_ASSERT( sizeof(w64_HTTPRequestDataReceived_t_123) >= 24 );
 C_ASSERT( offsetof(w64_HTTPRequestDataReceived_t_123, m_hRequest) == 0 );
@@ -12840,11 +12640,6 @@ u32_HTTPRequestDataReceived_t_123::operator w32_HTTPRequestDataReceived_t_123() 
 }
 #endif
 
-static void HTTPRequestDataReceived_t_123_utow(void *dst, const void *src)
-{
-    *(w_HTTPRequestDataReceived_t_123 *)dst = *(const u_HTTPRequestDataReceived_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_HTTPRequestDataReceived_t_121x::operator u32_HTTPRequestDataReceived_t_121x() const
 {
@@ -12868,11 +12663,6 @@ u32_HTTPRequestDataReceived_t_121x::operator w32_HTTPRequestDataReceived_t_121x(
     return ret;
 }
 #endif
-
-static void HTTPRequestDataReceived_t_121x_utow(void *dst, const void *src)
-{
-    *(w_HTTPRequestDataReceived_t_121x *)dst = *(const u_HTTPRequestDataReceived_t_121x *)src;
-}
 
 C_ASSERT( sizeof(w64_HTTPRequestHeadersReceived_t_123) >= 16 );
 C_ASSERT( offsetof(w64_HTTPRequestHeadersReceived_t_123, m_hRequest) == 0 );
@@ -12962,11 +12752,6 @@ u32_HTTPRequestHeadersReceived_t_123::operator w32_HTTPRequestHeadersReceived_t_
 }
 #endif
 
-static void HTTPRequestHeadersReceived_t_123_utow(void *dst, const void *src)
-{
-    *(w_HTTPRequestHeadersReceived_t_123 *)dst = *(const u_HTTPRequestHeadersReceived_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_HTTPRequestHeadersReceived_t_121x::operator u32_HTTPRequestHeadersReceived_t_121x() const
 {
@@ -12986,11 +12771,6 @@ u32_HTTPRequestHeadersReceived_t_121x::operator w32_HTTPRequestHeadersReceived_t
     return ret;
 }
 #endif
-
-static void HTTPRequestHeadersReceived_t_121x_utow(void *dst, const void *src)
-{
-    *(w_HTTPRequestHeadersReceived_t_121x *)dst = *(const u_HTTPRequestHeadersReceived_t_121x *)src;
-}
 
 C_ASSERT( sizeof(w64_ItemInstalled_t_160) >= 32 );
 C_ASSERT( offsetof(w64_ItemInstalled_t_160, m_unAppID) == 0 );
@@ -13104,11 +12884,6 @@ u32_ItemInstalled_t_160::operator w32_ItemInstalled_t_160() const
 }
 #endif
 
-static void ItemInstalled_t_160_utow(void *dst, const void *src)
-{
-    *(w_ItemInstalled_t_160 *)dst = *(const u_ItemInstalled_t_160 *)src;
-}
-
 #ifdef __x86_64__
 w64_ItemInstalled_t_130::operator u64_ItemInstalled_t_130() const
 {
@@ -13148,11 +12923,6 @@ u32_ItemInstalled_t_130::operator w32_ItemInstalled_t_130() const
     return ret;
 }
 #endif
-
-static void ItemInstalled_t_130_utow(void *dst, const void *src)
-{
-    *(w_ItemInstalled_t_130 *)dst = *(const u_ItemInstalled_t_130 *)src;
-}
 
 C_ASSERT( sizeof(w64_JoinPartyCallback_t) >= 280 );
 C_ASSERT( offsetof(w64_JoinPartyCallback_t, m_eResult) == 0 );
@@ -13241,11 +13011,6 @@ u32_JoinPartyCallback_t::operator w32_JoinPartyCallback_t() const
     return ret;
 }
 #endif
-
-static void JoinPartyCallback_t_utow(void *dst, const void *src)
-{
-    *(w_JoinPartyCallback_t *)dst = *(const u_JoinPartyCallback_t *)src;
-}
 
 C_ASSERT( sizeof(w64_LeaderboardEntry_t_123) >= 32 );
 C_ASSERT( offsetof(w64_LeaderboardEntry_t_123, m_steamIDUser) == 0 );
@@ -13435,11 +13200,6 @@ u32_LeaderboardEntry_t_123::operator w32_LeaderboardEntry_t_123() const
 }
 #endif
 
-static void LeaderboardEntry_t_123_utow(void *dst, const void *src)
-{
-    *(w_LeaderboardEntry_t_123 *)dst = *(const u_LeaderboardEntry_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_LeaderboardEntry_t_111x::operator u32_LeaderboardEntry_t_111x() const
 {
@@ -13465,16 +13225,6 @@ u32_LeaderboardEntry_t_111x::operator w32_LeaderboardEntry_t_111x() const
     return ret;
 }
 #endif
-
-static void LeaderboardEntry_t_111x_utow(void *dst, const void *src)
-{
-    *(w_LeaderboardEntry_t_111x *)dst = *(const u_LeaderboardEntry_t_111x *)src;
-}
-
-static void LeaderboardEntry_t_104_utow(void *dst, const void *src)
-{
-    *(w_LeaderboardEntry_t_104 *)dst = *(const u_LeaderboardEntry_t_104 *)src;
-}
 
 C_ASSERT( sizeof(w64_LeaderboardScoreUploaded_t_123) >= 32 );
 C_ASSERT( offsetof(w64_LeaderboardScoreUploaded_t_123, m_bSuccess) == 0 );
@@ -13644,11 +13394,6 @@ u32_LeaderboardScoreUploaded_t_123::operator w32_LeaderboardScoreUploaded_t_123(
 }
 #endif
 
-static void LeaderboardScoreUploaded_t_123_utow(void *dst, const void *src)
-{
-    *(w_LeaderboardScoreUploaded_t_123 *)dst = *(const u_LeaderboardScoreUploaded_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_LeaderboardScoreUploaded_t_104::operator u32_LeaderboardScoreUploaded_t_104() const
 {
@@ -13676,11 +13421,6 @@ u32_LeaderboardScoreUploaded_t_104::operator w32_LeaderboardScoreUploaded_t_104(
     return ret;
 }
 #endif
-
-static void LeaderboardScoreUploaded_t_104_utow(void *dst, const void *src)
-{
-    *(w_LeaderboardScoreUploaded_t_104 *)dst = *(const u_LeaderboardScoreUploaded_t_104 *)src;
-}
 
 C_ASSERT( sizeof(w64_LeaderboardUGCSet_t_123) >= 16 );
 C_ASSERT( offsetof(w64_LeaderboardUGCSet_t_123, m_eResult) == 0 );
@@ -13770,11 +13510,6 @@ u32_LeaderboardUGCSet_t_123::operator w32_LeaderboardUGCSet_t_123() const
 }
 #endif
 
-static void LeaderboardUGCSet_t_123_utow(void *dst, const void *src)
-{
-    *(w_LeaderboardUGCSet_t_123 *)dst = *(const u_LeaderboardUGCSet_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_LeaderboardUGCSet_t_111x::operator u32_LeaderboardUGCSet_t_111x() const
 {
@@ -13794,11 +13529,6 @@ u32_LeaderboardUGCSet_t_111x::operator w32_LeaderboardUGCSet_t_111x() const
     return ret;
 }
 #endif
-
-static void LeaderboardUGCSet_t_111x_utow(void *dst, const void *src)
-{
-    *(w_LeaderboardUGCSet_t_111x *)dst = *(const u_LeaderboardUGCSet_t_111x *)src;
-}
 
 C_ASSERT( sizeof(w64_LobbyCreated_t_123) >= 16 );
 C_ASSERT( offsetof(w64_LobbyCreated_t_123, m_eResult) == 0 );
@@ -13888,11 +13618,6 @@ u32_LobbyCreated_t_123::operator w32_LobbyCreated_t_123() const
 }
 #endif
 
-static void LobbyCreated_t_123_utow(void *dst, const void *src)
-{
-    *(w_LobbyCreated_t_123 *)dst = *(const u_LobbyCreated_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_LobbyCreated_t_099u::operator u32_LobbyCreated_t_099u() const
 {
@@ -13912,11 +13637,6 @@ u32_LobbyCreated_t_099u::operator w32_LobbyCreated_t_099u() const
     return ret;
 }
 #endif
-
-static void LobbyCreated_t_099u_utow(void *dst, const void *src)
-{
-    *(w_LobbyCreated_t_099u *)dst = *(const u_LobbyCreated_t_099u *)src;
-}
 
 C_ASSERT( sizeof(w64_MicroTxnAuthorizationResponse_t_123) >= 24 );
 C_ASSERT( offsetof(w64_MicroTxnAuthorizationResponse_t_123, m_unAppID) == 0 );
@@ -14026,11 +13746,6 @@ u32_MicroTxnAuthorizationResponse_t_123::operator w32_MicroTxnAuthorizationRespo
 }
 #endif
 
-static void MicroTxnAuthorizationResponse_t_123_utow(void *dst, const void *src)
-{
-    *(w_MicroTxnAuthorizationResponse_t_123 *)dst = *(const u_MicroTxnAuthorizationResponse_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_MicroTxnAuthorizationResponse_t_109::operator u32_MicroTxnAuthorizationResponse_t_109() const
 {
@@ -14052,11 +13767,6 @@ u32_MicroTxnAuthorizationResponse_t_109::operator w32_MicroTxnAuthorizationRespo
     return ret;
 }
 #endif
-
-static void MicroTxnAuthorizationResponse_t_109_utow(void *dst, const void *src)
-{
-    *(w_MicroTxnAuthorizationResponse_t_109 *)dst = *(const u_MicroTxnAuthorizationResponse_t_109 *)src;
-}
 
 C_ASSERT( sizeof(w64_PS3TrophiesInstalled_t_123) >= 24 );
 C_ASSERT( offsetof(w64_PS3TrophiesInstalled_t_123, m_nGameID) == 0 );
@@ -14166,11 +13876,6 @@ u32_PS3TrophiesInstalled_t_123::operator w32_PS3TrophiesInstalled_t_123() const
 }
 #endif
 
-static void PS3TrophiesInstalled_t_123_utow(void *dst, const void *src)
-{
-    *(w_PS3TrophiesInstalled_t_123 *)dst = *(const u_PS3TrophiesInstalled_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_PS3TrophiesInstalled_t_112x::operator u32_PS3TrophiesInstalled_t_112x() const
 {
@@ -14192,11 +13897,6 @@ u32_PS3TrophiesInstalled_t_112x::operator w32_PS3TrophiesInstalled_t_112x() cons
     return ret;
 }
 #endif
-
-static void PS3TrophiesInstalled_t_112x_utow(void *dst, const void *src)
-{
-    *(w_PS3TrophiesInstalled_t_112x *)dst = *(const u_PS3TrophiesInstalled_t_112x *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStorageAppSyncProgress_t_123) >= 288 );
 C_ASSERT( offsetof(w64_RemoteStorageAppSyncProgress_t_123, m_rgchCurrentFile) == 0 );
@@ -14346,11 +14046,6 @@ u32_RemoteStorageAppSyncProgress_t_123::operator w32_RemoteStorageAppSyncProgres
 }
 #endif
 
-static void RemoteStorageAppSyncProgress_t_123_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageAppSyncProgress_t_123 *)dst = *(const u_RemoteStorageAppSyncProgress_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageAppSyncProgress_t_111x::operator u32_RemoteStorageAppSyncProgress_t_111x() const
 {
@@ -14376,11 +14071,6 @@ u32_RemoteStorageAppSyncProgress_t_111x::operator w32_RemoteStorageAppSyncProgre
     return ret;
 }
 #endif
-
-static void RemoteStorageAppSyncProgress_t_111x_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageAppSyncProgress_t_111x *)dst = *(const u_RemoteStorageAppSyncProgress_t_111x *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStorageDeletePublishedFileResult_t_123) >= 16 );
 C_ASSERT( offsetof(w64_RemoteStorageDeletePublishedFileResult_t_123, m_eResult) == 0 );
@@ -14470,11 +14160,6 @@ u32_RemoteStorageDeletePublishedFileResult_t_123::operator w32_RemoteStorageDele
 }
 #endif
 
-static void RemoteStorageDeletePublishedFileResult_t_123_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageDeletePublishedFileResult_t_123 *)dst = *(const u_RemoteStorageDeletePublishedFileResult_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageDeletePublishedFileResult_t_116x::operator u32_RemoteStorageDeletePublishedFileResult_t_116x() const
 {
@@ -14494,11 +14179,6 @@ u32_RemoteStorageDeletePublishedFileResult_t_116x::operator w32_RemoteStorageDel
     return ret;
 }
 #endif
-
-static void RemoteStorageDeletePublishedFileResult_t_116x_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageDeletePublishedFileResult_t_116x *)dst = *(const u_RemoteStorageDeletePublishedFileResult_t_116x *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStorageDownloadUGCResult_t_123) >= 296 );
 C_ASSERT( offsetof(w64_RemoteStorageDownloadUGCResult_t_123, m_eResult) == 0 );
@@ -14724,11 +14404,6 @@ u32_RemoteStorageDownloadUGCResult_t_123::operator w32_RemoteStorageDownloadUGCR
 }
 #endif
 
-static void RemoteStorageDownloadUGCResult_t_123_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageDownloadUGCResult_t_123 *)dst = *(const u_RemoteStorageDownloadUGCResult_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageDownloadUGCResult_t_116x::operator u32_RemoteStorageDownloadUGCResult_t_116x() const
 {
@@ -14757,11 +14432,6 @@ u32_RemoteStorageDownloadUGCResult_t_116x::operator w32_RemoteStorageDownloadUGC
 }
 #endif
 
-static void RemoteStorageDownloadUGCResult_t_116x_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageDownloadUGCResult_t_116x *)dst = *(const u_RemoteStorageDownloadUGCResult_t_116x *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageDownloadUGCResult_t_111x::operator u32_RemoteStorageDownloadUGCResult_t_111x() const
 {
@@ -14789,11 +14459,6 @@ u32_RemoteStorageDownloadUGCResult_t_111x::operator w32_RemoteStorageDownloadUGC
     return ret;
 }
 #endif
-
-static void RemoteStorageDownloadUGCResult_t_111x_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageDownloadUGCResult_t_111x *)dst = *(const u_RemoteStorageDownloadUGCResult_t_111x *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStorageEnumerateUserPublishedFilesResult_t_123) >= 416 );
 C_ASSERT( offsetof(w64_RemoteStorageEnumerateUserPublishedFilesResult_t_123, m_eResult) == 0 );
@@ -14923,11 +14588,6 @@ u32_RemoteStorageEnumerateUserPublishedFilesResult_t_123::operator w32_RemoteSto
 }
 #endif
 
-static void RemoteStorageEnumerateUserPublishedFilesResult_t_123_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageEnumerateUserPublishedFilesResult_t_123 *)dst = *(const u_RemoteStorageEnumerateUserPublishedFilesResult_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageEnumerateUserPublishedFilesResult_t_116x::operator u32_RemoteStorageEnumerateUserPublishedFilesResult_t_116x() const
 {
@@ -14951,11 +14611,6 @@ u32_RemoteStorageEnumerateUserPublishedFilesResult_t_116x::operator w32_RemoteSt
     return ret;
 }
 #endif
-
-static void RemoteStorageEnumerateUserPublishedFilesResult_t_116x_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageEnumerateUserPublishedFilesResult_t_116x *)dst = *(const u_RemoteStorageEnumerateUserPublishedFilesResult_t_116x *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123) >= 416 );
 C_ASSERT( offsetof(w64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123, m_eResult) == 0 );
@@ -15085,11 +14740,6 @@ u32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123::operator w32_Remo
 }
 #endif
 
-static void RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123 *)dst = *(const u_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119::operator u32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119() const
 {
@@ -15113,11 +14763,6 @@ u32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119::operator w32_Remo
     return ret;
 }
 #endif
-
-static void RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119 *)dst = *(const u_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119 *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStorageEnumerateUserSubscribedFilesResult_t_123) >= 616 );
 C_ASSERT( offsetof(w64_RemoteStorageEnumerateUserSubscribedFilesResult_t_123, m_eResult) == 0 );
@@ -15267,11 +14912,6 @@ u32_RemoteStorageEnumerateUserSubscribedFilesResult_t_123::operator w32_RemoteSt
 }
 #endif
 
-static void RemoteStorageEnumerateUserSubscribedFilesResult_t_123_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageEnumerateUserSubscribedFilesResult_t_123 *)dst = *(const u_RemoteStorageEnumerateUserSubscribedFilesResult_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x::operator u32_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x() const
 {
@@ -15297,11 +14937,6 @@ u32_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x::operator w32_RemoteS
     return ret;
 }
 #endif
-
-static void RemoteStorageEnumerateUserSubscribedFilesResult_t_116x_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x *)dst = *(const u_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStorageEnumerateWorkshopFilesResult_t_125) >= 624 );
 C_ASSERT( offsetof(w64_RemoteStorageEnumerateWorkshopFilesResult_t_125, m_eResult) == 0 );
@@ -15523,11 +15158,6 @@ u32_RemoteStorageEnumerateWorkshopFilesResult_t_125::operator w32_RemoteStorageE
 }
 #endif
 
-static void RemoteStorageEnumerateWorkshopFilesResult_t_125_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageEnumerateWorkshopFilesResult_t_125 *)dst = *(const u_RemoteStorageEnumerateWorkshopFilesResult_t_125 *)src;
-}
-
 #ifdef __x86_64__
 w64_RemoteStorageEnumerateWorkshopFilesResult_t_123::operator u64_RemoteStorageEnumerateWorkshopFilesResult_t_123() const
 {
@@ -15580,11 +15210,6 @@ u32_RemoteStorageEnumerateWorkshopFilesResult_t_123::operator w32_RemoteStorageE
 }
 #endif
 
-static void RemoteStorageEnumerateWorkshopFilesResult_t_123_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageEnumerateWorkshopFilesResult_t_123 *)dst = *(const u_RemoteStorageEnumerateWorkshopFilesResult_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageEnumerateWorkshopFilesResult_t_119::operator u32_RemoteStorageEnumerateWorkshopFilesResult_t_119() const
 {
@@ -15610,11 +15235,6 @@ u32_RemoteStorageEnumerateWorkshopFilesResult_t_119::operator w32_RemoteStorageE
     return ret;
 }
 #endif
-
-static void RemoteStorageEnumerateWorkshopFilesResult_t_119_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageEnumerateWorkshopFilesResult_t_119 *)dst = *(const u_RemoteStorageEnumerateWorkshopFilesResult_t_119 *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStorageFileShareResult_t_128x) >= 280 );
 C_ASSERT( offsetof(w64_RemoteStorageFileShareResult_t_128x, m_eResult) == 0 );
@@ -15740,11 +15360,6 @@ u32_RemoteStorageFileShareResult_t_128x::operator w32_RemoteStorageFileShareResu
 }
 #endif
 
-static void RemoteStorageFileShareResult_t_128x_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageFileShareResult_t_128x *)dst = *(const u_RemoteStorageFileShareResult_t_128x *)src;
-}
-
 #ifdef __x86_64__
 w64_RemoteStorageFileShareResult_t_123::operator u64_RemoteStorageFileShareResult_t_123() const
 {
@@ -15785,11 +15400,6 @@ u32_RemoteStorageFileShareResult_t_123::operator w32_RemoteStorageFileShareResul
 }
 #endif
 
-static void RemoteStorageFileShareResult_t_123_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageFileShareResult_t_123 *)dst = *(const u_RemoteStorageFileShareResult_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageFileShareResult_t_111x::operator u32_RemoteStorageFileShareResult_t_111x() const
 {
@@ -15809,11 +15419,6 @@ u32_RemoteStorageFileShareResult_t_111x::operator w32_RemoteStorageFileShareResu
     return ret;
 }
 #endif
-
-static void RemoteStorageFileShareResult_t_111x_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageFileShareResult_t_111x *)dst = *(const u_RemoteStorageFileShareResult_t_111x *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStorageGetPublishedFileDetailsResult_t_126) >= 9760 );
 C_ASSERT( offsetof(w64_RemoteStorageGetPublishedFileDetailsResult_t_126, m_eResult) == 0 );
@@ -16891,11 +16496,6 @@ u32_RemoteStorageGetPublishedFileDetailsResult_t_126::operator w32_RemoteStorage
 }
 #endif
 
-static void RemoteStorageGetPublishedFileDetailsResult_t_126_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageGetPublishedFileDetailsResult_t_126 *)dst = *(const u_RemoteStorageGetPublishedFileDetailsResult_t_126 *)src;
-}
-
 #ifdef __x86_64__
 w64_RemoteStorageGetPublishedFileDetailsResult_t_123::operator u64_RemoteStorageGetPublishedFileDetailsResult_t_123() const
 {
@@ -17008,11 +16608,6 @@ u32_RemoteStorageGetPublishedFileDetailsResult_t_123::operator w32_RemoteStorage
 }
 #endif
 
-static void RemoteStorageGetPublishedFileDetailsResult_t_123_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageGetPublishedFileDetailsResult_t_123 *)dst = *(const u_RemoteStorageGetPublishedFileDetailsResult_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageGetPublishedFileDetailsResult_t_119x::operator u32_RemoteStorageGetPublishedFileDetailsResult_t_119x() const
 {
@@ -17069,11 +16664,6 @@ u32_RemoteStorageGetPublishedFileDetailsResult_t_119x::operator w32_RemoteStorag
 }
 #endif
 
-static void RemoteStorageGetPublishedFileDetailsResult_t_119x_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageGetPublishedFileDetailsResult_t_119x *)dst = *(const u_RemoteStorageGetPublishedFileDetailsResult_t_119x *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageGetPublishedFileDetailsResult_t_119::operator u32_RemoteStorageGetPublishedFileDetailsResult_t_119() const
 {
@@ -17128,11 +16718,6 @@ u32_RemoteStorageGetPublishedFileDetailsResult_t_119::operator w32_RemoteStorage
 }
 #endif
 
-static void RemoteStorageGetPublishedFileDetailsResult_t_119_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageGetPublishedFileDetailsResult_t_119 *)dst = *(const u_RemoteStorageGetPublishedFileDetailsResult_t_119 *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageGetPublishedFileDetailsResult_t_118::operator u32_RemoteStorageGetPublishedFileDetailsResult_t_118() const
 {
@@ -17185,11 +16770,6 @@ u32_RemoteStorageGetPublishedFileDetailsResult_t_118::operator w32_RemoteStorage
 }
 #endif
 
-static void RemoteStorageGetPublishedFileDetailsResult_t_118_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageGetPublishedFileDetailsResult_t_118 *)dst = *(const u_RemoteStorageGetPublishedFileDetailsResult_t_118 *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageGetPublishedFileDetailsResult_t_116x::operator u32_RemoteStorageGetPublishedFileDetailsResult_t_116x() const
 {
@@ -17237,11 +16817,6 @@ u32_RemoteStorageGetPublishedFileDetailsResult_t_116x::operator w32_RemoteStorag
     return ret;
 }
 #endif
-
-static void RemoteStorageGetPublishedFileDetailsResult_t_116x_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageGetPublishedFileDetailsResult_t_116x *)dst = *(const u_RemoteStorageGetPublishedFileDetailsResult_t_116x *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStorageGetPublishedItemVoteDetailsResult_t_123) >= 32 );
 C_ASSERT( offsetof(w64_RemoteStorageGetPublishedItemVoteDetailsResult_t_123, m_eResult) == 0 );
@@ -17411,11 +16986,6 @@ u32_RemoteStorageGetPublishedItemVoteDetailsResult_t_123::operator w32_RemoteSto
 }
 #endif
 
-static void RemoteStorageGetPublishedItemVoteDetailsResult_t_123_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageGetPublishedItemVoteDetailsResult_t_123 *)dst = *(const u_RemoteStorageGetPublishedItemVoteDetailsResult_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageGetPublishedItemVoteDetailsResult_t_119::operator u32_RemoteStorageGetPublishedItemVoteDetailsResult_t_119() const
 {
@@ -17443,11 +17013,6 @@ u32_RemoteStorageGetPublishedItemVoteDetailsResult_t_119::operator w32_RemoteSto
     return ret;
 }
 #endif
-
-static void RemoteStorageGetPublishedItemVoteDetailsResult_t_119_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageGetPublishedItemVoteDetailsResult_t_119 *)dst = *(const u_RemoteStorageGetPublishedItemVoteDetailsResult_t_119 *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStoragePublishFileResult_t_125) >= 24 );
 C_ASSERT( offsetof(w64_RemoteStoragePublishFileResult_t_125, m_eResult) == 0 );
@@ -17573,11 +17138,6 @@ u32_RemoteStoragePublishFileResult_t_125::operator w32_RemoteStoragePublishFileR
 }
 #endif
 
-static void RemoteStoragePublishFileResult_t_125_utow(void *dst, const void *src)
-{
-    *(w_RemoteStoragePublishFileResult_t_125 *)dst = *(const u_RemoteStoragePublishFileResult_t_125 *)src;
-}
-
 #ifdef __x86_64__
 w64_RemoteStoragePublishFileResult_t_123::operator u64_RemoteStoragePublishFileResult_t_123() const
 {
@@ -17618,11 +17178,6 @@ u32_RemoteStoragePublishFileResult_t_123::operator w32_RemoteStoragePublishFileR
 }
 #endif
 
-static void RemoteStoragePublishFileResult_t_123_utow(void *dst, const void *src)
-{
-    *(w_RemoteStoragePublishFileResult_t_123 *)dst = *(const u_RemoteStoragePublishFileResult_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStoragePublishFileResult_t_116x::operator u32_RemoteStoragePublishFileResult_t_116x() const
 {
@@ -17642,11 +17197,6 @@ u32_RemoteStoragePublishFileResult_t_116x::operator w32_RemoteStoragePublishFile
     return ret;
 }
 #endif
-
-static void RemoteStoragePublishFileResult_t_116x_utow(void *dst, const void *src)
-{
-    *(w_RemoteStoragePublishFileResult_t_116x *)dst = *(const u_RemoteStoragePublishFileResult_t_116x *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStoragePublishedFileUpdated_t) >= 24 );
 C_ASSERT( offsetof(w64_RemoteStoragePublishedFileUpdated_t, m_nPublishedFileId) == 0 );
@@ -17723,11 +17273,6 @@ u32_RemoteStoragePublishedFileUpdated_t::operator w32_RemoteStoragePublishedFile
     return ret;
 }
 #endif
-
-static void RemoteStoragePublishedFileUpdated_t_utow(void *dst, const void *src)
-{
-    *(w_RemoteStoragePublishedFileUpdated_t *)dst = *(const u_RemoteStoragePublishedFileUpdated_t *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStorageSetUserPublishedFileActionResult_t_123) >= 24 );
 C_ASSERT( offsetof(w64_RemoteStorageSetUserPublishedFileActionResult_t_123, m_eResult) == 0 );
@@ -17837,11 +17382,6 @@ u32_RemoteStorageSetUserPublishedFileActionResult_t_123::operator w32_RemoteStor
 }
 #endif
 
-static void RemoteStorageSetUserPublishedFileActionResult_t_123_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageSetUserPublishedFileActionResult_t_123 *)dst = *(const u_RemoteStorageSetUserPublishedFileActionResult_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageSetUserPublishedFileActionResult_t_119::operator u32_RemoteStorageSetUserPublishedFileActionResult_t_119() const
 {
@@ -17863,11 +17403,6 @@ u32_RemoteStorageSetUserPublishedFileActionResult_t_119::operator w32_RemoteStor
     return ret;
 }
 #endif
-
-static void RemoteStorageSetUserPublishedFileActionResult_t_119_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageSetUserPublishedFileActionResult_t_119 *)dst = *(const u_RemoteStorageSetUserPublishedFileActionResult_t_119 *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStorageSubscribePublishedFileResult_t_123) >= 16 );
 C_ASSERT( offsetof(w64_RemoteStorageSubscribePublishedFileResult_t_123, m_eResult) == 0 );
@@ -17949,16 +17484,6 @@ u32_RemoteStorageSubscribePublishedFileResult_t_123::operator w32_RemoteStorageS
 }
 #endif
 
-static void RemoteStorageSubscribePublishedFileResult_t_123_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageSubscribePublishedFileResult_t_123 *)dst = *(const u_RemoteStorageSubscribePublishedFileResult_t_123 *)src;
-}
-
-static void RemoteStorageSubscribePublishedFileResult_t_116x_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageSubscribePublishedFileResult_t_116x *)dst = *(const u_RemoteStorageSubscribePublishedFileResult_t_116x *)src;
-}
-
 C_ASSERT( sizeof(w64_RemoteStorageUnsubscribePublishedFileResult_t_123) >= 16 );
 C_ASSERT( offsetof(w64_RemoteStorageUnsubscribePublishedFileResult_t_123, m_eResult) == 0 );
 C_ASSERT( sizeof(w64_RemoteStorageUnsubscribePublishedFileResult_t_123().m_eResult) >= 4 );
@@ -18038,16 +17563,6 @@ u32_RemoteStorageUnsubscribePublishedFileResult_t_123::operator w32_RemoteStorag
     return ret;
 }
 #endif
-
-static void RemoteStorageUnsubscribePublishedFileResult_t_123_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageUnsubscribePublishedFileResult_t_123 *)dst = *(const u_RemoteStorageUnsubscribePublishedFileResult_t_123 *)src;
-}
-
-static void RemoteStorageUnsubscribePublishedFileResult_t_116x_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageUnsubscribePublishedFileResult_t_116x *)dst = *(const u_RemoteStorageUnsubscribePublishedFileResult_t_116x *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStorageUpdatePublishedFileRequest_t) >= 64 );
 C_ASSERT( offsetof(w64_RemoteStorageUpdatePublishedFileRequest_t, m_unPublishedFileId) == 0 );
@@ -18160,11 +17675,6 @@ C_ASSERT( offsetof(u32_RemoteStorageUpdatePublishedFileRequest_t, m_bUpdateVisib
 C_ASSERT( sizeof(u32_RemoteStorageUpdatePublishedFileRequest_t().m_bUpdateVisibility) >= 1 );
 C_ASSERT( offsetof(u32_RemoteStorageUpdatePublishedFileRequest_t, m_bUpdateTags) == 37 );
 C_ASSERT( sizeof(u32_RemoteStorageUpdatePublishedFileRequest_t().m_bUpdateTags) >= 1 );
-
-static void RemoteStorageUpdatePublishedFileRequest_t_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageUpdatePublishedFileRequest_t *)dst = *(const u_RemoteStorageUpdatePublishedFileRequest_t *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStorageUpdatePublishedFileResult_t_125) >= 24 );
 C_ASSERT( offsetof(w64_RemoteStorageUpdatePublishedFileResult_t_125, m_eResult) == 0 );
@@ -18290,11 +17800,6 @@ u32_RemoteStorageUpdatePublishedFileResult_t_125::operator w32_RemoteStorageUpda
 }
 #endif
 
-static void RemoteStorageUpdatePublishedFileResult_t_125_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageUpdatePublishedFileResult_t_125 *)dst = *(const u_RemoteStorageUpdatePublishedFileResult_t_125 *)src;
-}
-
 #ifdef __x86_64__
 w64_RemoteStorageUpdatePublishedFileResult_t_123::operator u64_RemoteStorageUpdatePublishedFileResult_t_123() const
 {
@@ -18335,11 +17840,6 @@ u32_RemoteStorageUpdatePublishedFileResult_t_123::operator w32_RemoteStorageUpda
 }
 #endif
 
-static void RemoteStorageUpdatePublishedFileResult_t_123_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageUpdatePublishedFileResult_t_123 *)dst = *(const u_RemoteStorageUpdatePublishedFileResult_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageUpdatePublishedFileResult_t_116x::operator u32_RemoteStorageUpdatePublishedFileResult_t_116x() const
 {
@@ -18359,11 +17859,6 @@ u32_RemoteStorageUpdatePublishedFileResult_t_116x::operator w32_RemoteStorageUpd
     return ret;
 }
 #endif
-
-static void RemoteStorageUpdatePublishedFileResult_t_116x_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageUpdatePublishedFileResult_t_116x *)dst = *(const u_RemoteStorageUpdatePublishedFileResult_t_116x *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStorageUpdateUserPublishedItemVoteResult_t_123) >= 16 );
 C_ASSERT( offsetof(w64_RemoteStorageUpdateUserPublishedItemVoteResult_t_123, m_eResult) == 0 );
@@ -18453,11 +17948,6 @@ u32_RemoteStorageUpdateUserPublishedItemVoteResult_t_123::operator w32_RemoteSto
 }
 #endif
 
-static void RemoteStorageUpdateUserPublishedItemVoteResult_t_123_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageUpdateUserPublishedItemVoteResult_t_123 *)dst = *(const u_RemoteStorageUpdateUserPublishedItemVoteResult_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageUpdateUserPublishedItemVoteResult_t_119::operator u32_RemoteStorageUpdateUserPublishedItemVoteResult_t_119() const
 {
@@ -18477,11 +17967,6 @@ u32_RemoteStorageUpdateUserPublishedItemVoteResult_t_119::operator w32_RemoteSto
     return ret;
 }
 #endif
-
-static void RemoteStorageUpdateUserPublishedItemVoteResult_t_119_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageUpdateUserPublishedItemVoteResult_t_119 *)dst = *(const u_RemoteStorageUpdateUserPublishedItemVoteResult_t_119 *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoteStorageUserVoteDetails_t_123) >= 24 );
 C_ASSERT( offsetof(w64_RemoteStorageUserVoteDetails_t_123, m_eResult) == 0 );
@@ -18591,11 +18076,6 @@ u32_RemoteStorageUserVoteDetails_t_123::operator w32_RemoteStorageUserVoteDetail
 }
 #endif
 
-static void RemoteStorageUserVoteDetails_t_123_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageUserVoteDetails_t_123 *)dst = *(const u_RemoteStorageUserVoteDetails_t_123 *)src;
-}
-
 #ifdef __i386__
 w32_RemoteStorageUserVoteDetails_t_119::operator u32_RemoteStorageUserVoteDetails_t_119() const
 {
@@ -18617,11 +18097,6 @@ u32_RemoteStorageUserVoteDetails_t_119::operator w32_RemoteStorageUserVoteDetail
     return ret;
 }
 #endif
-
-static void RemoteStorageUserVoteDetails_t_119_utow(void *dst, const void *src)
-{
-    *(w_RemoteStorageUserVoteDetails_t_119 *)dst = *(const u_RemoteStorageUserVoteDetails_t_119 *)src;
-}
 
 C_ASSERT( sizeof(w64_RemoveAppDependencyResult_t) >= 24 );
 C_ASSERT( offsetof(w64_RemoveAppDependencyResult_t, m_eResult) == 0 );
@@ -18699,11 +18174,6 @@ u32_RemoveAppDependencyResult_t::operator w32_RemoveAppDependencyResult_t() cons
 }
 #endif
 
-static void RemoveAppDependencyResult_t_utow(void *dst, const void *src)
-{
-    *(w_RemoveAppDependencyResult_t *)dst = *(const u_RemoveAppDependencyResult_t *)src;
-}
-
 C_ASSERT( sizeof(w64_RemoveUGCDependencyResult_t) >= 24 );
 C_ASSERT( offsetof(w64_RemoveUGCDependencyResult_t, m_eResult) == 0 );
 C_ASSERT( sizeof(w64_RemoveUGCDependencyResult_t().m_eResult) >= 4 );
@@ -18779,11 +18249,6 @@ u32_RemoveUGCDependencyResult_t::operator w32_RemoveUGCDependencyResult_t() cons
     return ret;
 }
 #endif
-
-static void RemoveUGCDependencyResult_t_utow(void *dst, const void *src)
-{
-    *(w_RemoveUGCDependencyResult_t *)dst = *(const u_RemoveUGCDependencyResult_t *)src;
-}
 
 C_ASSERT( sizeof(w64_RequestPlayersForGameFinalResultCallback_t) >= 24 );
 C_ASSERT( offsetof(w64_RequestPlayersForGameFinalResultCallback_t, m_eResult) == 0 );
@@ -18861,11 +18326,6 @@ u32_RequestPlayersForGameFinalResultCallback_t::operator w32_RequestPlayersForGa
 }
 #endif
 
-static void RequestPlayersForGameFinalResultCallback_t_utow(void *dst, const void *src)
-{
-    *(w_RequestPlayersForGameFinalResultCallback_t *)dst = *(const u_RequestPlayersForGameFinalResultCallback_t *)src;
-}
-
 C_ASSERT( sizeof(w64_RequestPlayersForGameProgressCallback_t) >= 16 );
 C_ASSERT( offsetof(w64_RequestPlayersForGameProgressCallback_t, m_eResult) == 0 );
 C_ASSERT( sizeof(w64_RequestPlayersForGameProgressCallback_t().m_eResult) >= 4 );
@@ -18929,11 +18389,6 @@ u32_RequestPlayersForGameProgressCallback_t::operator w32_RequestPlayersForGameP
     return ret;
 }
 #endif
-
-static void RequestPlayersForGameProgressCallback_t_utow(void *dst, const void *src)
-{
-    *(w_RequestPlayersForGameProgressCallback_t *)dst = *(const u_RequestPlayersForGameProgressCallback_t *)src;
-}
 
 C_ASSERT( sizeof(w64_RequestPlayersForGameResultCallback_t) >= 64 );
 C_ASSERT( offsetof(w64_RequestPlayersForGameResultCallback_t, m_eResult) == 0 );
@@ -19095,11 +18550,6 @@ u32_RequestPlayersForGameResultCallback_t::operator w32_RequestPlayersForGameRes
 }
 #endif
 
-static void RequestPlayersForGameResultCallback_t_utow(void *dst, const void *src)
-{
-    *(w_RequestPlayersForGameResultCallback_t *)dst = *(const u_RequestPlayersForGameResultCallback_t *)src;
-}
-
 C_ASSERT( sizeof(w64_SteamInputConfigurationLoaded_t) >= 40 );
 C_ASSERT( offsetof(w64_SteamInputConfigurationLoaded_t, m_unAppID) == 0 );
 C_ASSERT( sizeof(w64_SteamInputConfigurationLoaded_t().m_unAppID) >= 4 );
@@ -19224,11 +18674,6 @@ u32_SteamInputConfigurationLoaded_t::operator w32_SteamInputConfigurationLoaded_
 }
 #endif
 
-static void SteamInputConfigurationLoaded_t_utow(void *dst, const void *src)
-{
-    *(w_SteamInputConfigurationLoaded_t *)dst = *(const u_SteamInputConfigurationLoaded_t *)src;
-}
-
 C_ASSERT( sizeof(w64_SteamInputGamepadSlotChange_t) >= 32 );
 C_ASSERT( offsetof(w64_SteamInputGamepadSlotChange_t, m_unAppID) == 0 );
 C_ASSERT( sizeof(w64_SteamInputGamepadSlotChange_t().m_unAppID) >= 4 );
@@ -19329,11 +18774,6 @@ u32_SteamInputGamepadSlotChange_t::operator w32_SteamInputGamepadSlotChange_t() 
 }
 #endif
 
-static void SteamInputGamepadSlotChange_t_utow(void *dst, const void *src)
-{
-    *(w_SteamInputGamepadSlotChange_t *)dst = *(const u_SteamInputGamepadSlotChange_t *)src;
-}
-
 C_ASSERT( sizeof(w64_SteamInventoryStartPurchaseResult_t) >= 24 );
 C_ASSERT( offsetof(w64_SteamInventoryStartPurchaseResult_t, m_result) == 0 );
 C_ASSERT( sizeof(w64_SteamInventoryStartPurchaseResult_t().m_result) >= 4 );
@@ -19409,11 +18849,6 @@ u32_SteamInventoryStartPurchaseResult_t::operator w32_SteamInventoryStartPurchas
     return ret;
 }
 #endif
-
-static void SteamInventoryStartPurchaseResult_t_utow(void *dst, const void *src)
-{
-    *(w_SteamInventoryStartPurchaseResult_t *)dst = *(const u_SteamInventoryStartPurchaseResult_t *)src;
-}
 
 C_ASSERT( sizeof(w64_SteamNetConnectionStatusChangedCallback_t_153a) >= 712 );
 C_ASSERT( offsetof(w64_SteamNetConnectionStatusChangedCallback_t_153a, m_hConn) == 0 );
@@ -19555,11 +18990,6 @@ u32_SteamNetConnectionStatusChangedCallback_t_153a::operator w32_SteamNetConnect
 }
 #endif
 
-static void SteamNetConnectionStatusChangedCallback_t_153a_utow(void *dst, const void *src)
-{
-    *(w_SteamNetConnectionStatusChangedCallback_t_153a *)dst = *(const u_SteamNetConnectionStatusChangedCallback_t_153a *)src;
-}
-
 #ifdef __x86_64__
 w64_SteamNetConnectionStatusChangedCallback_t_144::operator u64_SteamNetConnectionStatusChangedCallback_t_144() const
 {
@@ -19604,11 +19034,6 @@ u32_SteamNetConnectionStatusChangedCallback_t_144::operator w32_SteamNetConnecti
 }
 #endif
 
-static void SteamNetConnectionStatusChangedCallback_t_144_utow(void *dst, const void *src)
-{
-    *(w_SteamNetConnectionStatusChangedCallback_t_144 *)dst = *(const u_SteamNetConnectionStatusChangedCallback_t_144 *)src;
-}
-
 #ifdef __x86_64__
 w64_SteamNetConnectionStatusChangedCallback_t_151::operator u64_SteamNetConnectionStatusChangedCallback_t_151() const
 {
@@ -19652,11 +19077,6 @@ u32_SteamNetConnectionStatusChangedCallback_t_151::operator w32_SteamNetConnecti
     return ret;
 }
 #endif
-
-static void SteamNetConnectionStatusChangedCallback_t_151_utow(void *dst, const void *src)
-{
-    *(w_SteamNetConnectionStatusChangedCallback_t_151 *)dst = *(const u_SteamNetConnectionStatusChangedCallback_t_151 *)src;
-}
 
 C_ASSERT( sizeof(w64_SteamNetworkingMessage_t_153a) >= 216 );
 C_ASSERT( offsetof(w64_SteamNetworkingMessage_t_153a, m_pData) == 0 );
@@ -20106,11 +19526,6 @@ C_ASSERT( sizeof(u32_SteamParamStringArray_t().m_ppStrings) >= 4 );
 C_ASSERT( offsetof(u32_SteamParamStringArray_t, m_nNumStrings) == 4 );
 C_ASSERT( sizeof(u32_SteamParamStringArray_t().m_nNumStrings) >= 4 );
 
-static void SteamParamStringArray_t_utow(void *dst, const void *src)
-{
-    *(w_SteamParamStringArray_t *)dst = *(const u_SteamParamStringArray_t *)src;
-}
-
 C_ASSERT( sizeof(w64_SteamPartyBeaconLocation_t) >= 16 );
 C_ASSERT( offsetof(w64_SteamPartyBeaconLocation_t, m_eType) == 0 );
 C_ASSERT( sizeof(w64_SteamPartyBeaconLocation_t().m_eType) >= 4 );
@@ -20174,11 +19589,6 @@ u32_SteamPartyBeaconLocation_t::operator w32_SteamPartyBeaconLocation_t() const
     return ret;
 }
 #endif
-
-static void SteamPartyBeaconLocation_t_utow(void *dst, const void *src)
-{
-    *(w_SteamPartyBeaconLocation_t *)dst = *(const u_SteamPartyBeaconLocation_t *)src;
-}
 
 C_ASSERT( sizeof(w64_SteamUGCRequestUGCDetailsResult_t_160) >= 9792 );
 C_ASSERT( offsetof(w64_SteamUGCRequestUGCDetailsResult_t_160, m_details) == 0 );
@@ -20308,11 +19718,6 @@ u32_SteamUGCRequestUGCDetailsResult_t_160::operator w32_SteamUGCRequestUGCDetail
 }
 #endif
 
-static void SteamUGCRequestUGCDetailsResult_t_160_utow(void *dst, const void *src)
-{
-    *(w_SteamUGCRequestUGCDetailsResult_t_160 *)dst = *(const u_SteamUGCRequestUGCDetailsResult_t_160 *)src;
-}
-
 #ifdef __x86_64__
 w64_SteamUGCRequestUGCDetailsResult_t_128x::operator u64_SteamUGCRequestUGCDetailsResult_t_128x() const
 {
@@ -20352,11 +19757,6 @@ u32_SteamUGCRequestUGCDetailsResult_t_128x::operator w32_SteamUGCRequestUGCDetai
     return ret;
 }
 #endif
-
-static void SteamUGCRequestUGCDetailsResult_t_128x_utow(void *dst, const void *src)
-{
-    *(w_SteamUGCRequestUGCDetailsResult_t_128x *)dst = *(const u_SteamUGCRequestUGCDetailsResult_t_128x *)src;
-}
 
 #ifdef __x86_64__
 w64_SteamUGCRequestUGCDetailsResult_t_129::operator u64_SteamUGCRequestUGCDetailsResult_t_129() const
@@ -20398,11 +19798,6 @@ u32_SteamUGCRequestUGCDetailsResult_t_129::operator w32_SteamUGCRequestUGCDetail
 }
 #endif
 
-static void SteamUGCRequestUGCDetailsResult_t_129_utow(void *dst, const void *src)
-{
-    *(w_SteamUGCRequestUGCDetailsResult_t_129 *)dst = *(const u_SteamUGCRequestUGCDetailsResult_t_129 *)src;
-}
-
 #ifdef __x86_64__
 w64_SteamUGCRequestUGCDetailsResult_t_126::operator u64_SteamUGCRequestUGCDetailsResult_t_126() const
 {
@@ -20438,11 +19833,6 @@ u32_SteamUGCRequestUGCDetailsResult_t_126::operator w32_SteamUGCRequestUGCDetail
     return ret;
 }
 #endif
-
-static void SteamUGCRequestUGCDetailsResult_t_126_utow(void *dst, const void *src)
-{
-    *(w_SteamUGCRequestUGCDetailsResult_t_126 *)dst = *(const u_SteamUGCRequestUGCDetailsResult_t_126 *)src;
-}
 
 C_ASSERT( sizeof(w64_SubmitPlayerResultResultCallback_t) >= 24 );
 C_ASSERT( offsetof(w64_SubmitPlayerResultResultCallback_t, m_eResult) == 0 );
@@ -20520,233 +19910,228 @@ u32_SubmitPlayerResultResultCallback_t::operator w32_SubmitPlayerResultResultCal
 }
 #endif
 
-static void SubmitPlayerResultResultCallback_t_utow(void *dst, const void *src)
-{
-    *(w_SubmitPlayerResultResultCallback_t *)dst = *(const u_SubmitPlayerResultResultCallback_t *)src;
-}
-
 #ifdef __i386__
 const struct callback_def callback_data[] =
 {
-    { 152, 162, 24, 16, MicroTxnAuthorizationResponse_t_123_utow },
-    /*{ 152, 122, 24, 16, MicroTxnAuthorizationResponse_t_109_utow },*/
-    { 209, 162, 40, 32, GSReputation_t_123_utow },
-    /*{ 209, 122, 40, 32, GSReputation_t_108_utow },*/
-    { 513, 162, 16, 12, LobbyCreated_t_123_utow },
-    /*{ 513, 122, 16, 12, LobbyCreated_t_099u_utow },*/
-    { 1023, 162, 40, 36, FileDetailsResult_t_utow },
-    { 1106, 162, 32, 28, LeaderboardScoreUploaded_t_123_utow },
-    /*{ 1106, 122, 32, 28, LeaderboardScoreUploaded_t_104_utow },*/
-    { 1111, 162, 16, 12, LeaderboardUGCSet_t_123_utow },
-    /*{ 1111, 122, 16, 12, LeaderboardUGCSet_t_111x_utow },*/
-    { 1112, 161, 24, 20, PS3TrophiesInstalled_t_123_utow },
-    /*{ 1112, 122, 24, 20, PS3TrophiesInstalled_t_112x_utow },*/
-    { 1221, 162, 712, 704, SteamNetConnectionStatusChangedCallback_t_153a_utow },
-    /*{ 1221, 152, 712, 704, SteamNetConnectionStatusChangedCallback_t_144_utow },*/
-    { 1221, 151, 584, 576, SteamNetConnectionStatusChangedCallback_t_151_utow },
-    { 1303, 151, 288, 280, RemoteStorageAppSyncProgress_t_123_utow },
-    /*{ 1303, 122, 288, 280, RemoteStorageAppSyncProgress_t_111x_utow },*/
-    { 1307, 162, 280, 272, RemoteStorageFileShareResult_t_128x_utow },
-    { 1307, 128, 16, 12, RemoteStorageFileShareResult_t_123_utow },
-    /*{ 1307, 122, 16, 12, RemoteStorageFileShareResult_t_111x_utow },*/
-    { 1308, 116, 40, 32, RemoteStorageDownloadUGCResult_t_111x_utow },
-    { 1309, 162, 24, 16, RemoteStoragePublishFileResult_t_125_utow },
-    { 1309, 124, 16, 12, RemoteStoragePublishFileResult_t_123_utow },
-    /*{ 1309, 122, 16, 12, RemoteStoragePublishFileResult_t_116x_utow },*/
-    { 1310, 117, 1744, 1732, RemoteStorageGetPublishedFileDetailsResult_t_116x_utow },
-    { 1311, 162, 16, 12, RemoteStorageDeletePublishedFileResult_t_123_utow },
-    /*{ 1311, 122, 16, 12, RemoteStorageDeletePublishedFileResult_t_116x_utow },*/
-    { 1312, 162, 416, 412, RemoteStorageEnumerateUserPublishedFilesResult_t_123_utow },
-    /*{ 1312, 122, 416, 412, RemoteStorageEnumerateUserPublishedFilesResult_t_116x_utow },*/
-    { 1313, 162, 16, 12, RemoteStorageSubscribePublishedFileResult_t_123_utow },
-    { 1313, 122, 4, 4, RemoteStorageSubscribePublishedFileResult_t_116x_utow },
-    { 1314, 162, 616, 612, RemoteStorageEnumerateUserSubscribedFilesResult_t_123_utow },
-    /*{ 1314, 122, 616, 612, RemoteStorageEnumerateUserSubscribedFilesResult_t_116x_utow },*/
-    { 1315, 162, 16, 12, RemoteStorageUnsubscribePublishedFileResult_t_123_utow },
-    { 1315, 122, 4, 4, RemoteStorageUnsubscribePublishedFileResult_t_116x_utow },
-    { 1316, 162, 24, 16, RemoteStorageUpdatePublishedFileResult_t_125_utow },
-    { 1316, 124, 16, 12, RemoteStorageUpdatePublishedFileResult_t_123_utow },
-    /*{ 1316, 122, 16, 12, RemoteStorageUpdatePublishedFileResult_t_116x_utow },*/
-    { 1317, 162, 296, 288, RemoteStorageDownloadUGCResult_t_123_utow },
-    /*{ 1317, 122, 296, 288, RemoteStorageDownloadUGCResult_t_116x_utow },*/
-    { 1318, 162, 9760, 9748, RemoteStorageGetPublishedFileDetailsResult_t_126_utow },
-    { 1318, 125, 9752, 9744, RemoteStorageGetPublishedFileDetailsResult_t_123_utow },
-    /*{ 1318, 122, 9752, 9744, RemoteStorageGetPublishedFileDetailsResult_t_119x_utow },*/
-    { 1318, 119, 9752, 9740, RemoteStorageGetPublishedFileDetailsResult_t_119_utow },
-    { 1318, 118, 9496, 9484, RemoteStorageGetPublishedFileDetailsResult_t_118_utow },
-    { 1319, 162, 624, 620, RemoteStorageEnumerateWorkshopFilesResult_t_125_utow },
-    { 1319, 124, 616, 612, RemoteStorageEnumerateWorkshopFilesResult_t_123_utow },
-    /*{ 1319, 122, 616, 612, RemoteStorageEnumerateWorkshopFilesResult_t_119_utow },*/
-    { 1320, 162, 32, 28, RemoteStorageGetPublishedItemVoteDetailsResult_t_123_utow },
-    /*{ 1320, 122, 32, 28, RemoteStorageGetPublishedItemVoteDetailsResult_t_119_utow },*/
-    { 1324, 162, 16, 12, RemoteStorageUpdateUserPublishedItemVoteResult_t_123_utow },
-    /*{ 1324, 122, 16, 12, RemoteStorageUpdateUserPublishedItemVoteResult_t_119_utow },*/
-    { 1325, 162, 24, 16, RemoteStorageUserVoteDetails_t_123_utow },
-    /*{ 1325, 122, 24, 16, RemoteStorageUserVoteDetails_t_119_utow },*/
-    { 1326, 162, 416, 412, RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123_utow },
-    /*{ 1326, 122, 416, 412, RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119_utow },*/
-    { 1327, 162, 24, 16, RemoteStorageSetUserPublishedFileActionResult_t_123_utow },
-    /*{ 1327, 122, 24, 16, RemoteStorageSetUserPublishedFileActionResult_t_119_utow },*/
-    { 1330, 162, 24, 20, RemoteStoragePublishedFileUpdated_t_utow },
-    { 2101, 162, 32, 24, HTTPRequestCompleted_t_132x_utow },
-    { 2101, 132, 24, 20, HTTPRequestCompleted_t_123_utow },
-    /*{ 2101, 122, 24, 20, HTTPRequestCompleted_t_115_utow },*/
-    { 2102, 162, 16, 12, HTTPRequestHeadersReceived_t_123_utow },
-    /*{ 2102, 122, 16, 12, HTTPRequestHeadersReceived_t_121x_utow },*/
-    { 2103, 162, 24, 20, HTTPRequestDataReceived_t_123_utow },
-    /*{ 2103, 122, 24, 20, HTTPRequestDataReceived_t_121x_utow },*/
-    { 2803, 162, 40, 32, SteamInputConfigurationLoaded_t_utow },
-    { 2804, 162, 32, 24, SteamInputGamepadSlotChange_t_utow },
-    { 3402, 162, 9792, 9776, SteamUGCRequestUGCDetailsResult_t_160_utow },
-    { 3402, 159, 9784, 9768, SteamUGCRequestUGCDetailsResult_t_128x_utow },
-    { 3402, 129, 9776, 9764, SteamUGCRequestUGCDetailsResult_t_129_utow },
-    { 3402, 128, 9768, 9760, SteamUGCRequestUGCDetailsResult_t_126_utow },
-    { 3403, 162, 24, 16, CreateItemResult_t_utow },
-    { 3405, 162, 32, 28, ItemInstalled_t_160_utow },
-    { 3405, 159, 16, 12, ItemInstalled_t_130_utow },
-    { 3406, 162, 24, 16, DownloadItemResult_t_utow },
-    { 3412, 162, 24, 20, AddUGCDependencyResult_t_utow },
-    { 3413, 162, 24, 20, RemoveUGCDependencyResult_t_utow },
-    { 3414, 162, 24, 16, AddAppDependencyResult_t_utow },
-    { 3415, 162, 24, 16, RemoveAppDependencyResult_t_utow },
-    { 3416, 162, 152, 148, GetAppDependenciesResult_t_utow },
-    { 3417, 162, 16, 12, DeleteItemResult_t_utow },
-    { 4502, 162, 48, 48, HTML_NeedsPaint_t_utow },
-    { 4503, 162, 20, 20, HTML_StartRequest_t_utow },
-    { 4505, 162, 24, 24, HTML_URLChanged_t_utow },
-    { 4506, 162, 12, 12, HTML_FinishedRequest_t_utow },
-    { 4507, 162, 8, 8, HTML_OpenLinkInNewTab_t_utow },
-    { 4508, 162, 8, 8, HTML_ChangedTitle_t_utow },
-    { 4513, 162, 20, 20, HTML_LinkAtPosition_t_utow },
-    { 4514, 162, 8, 8, HTML_JSAlert_t_utow },
-    { 4515, 162, 8, 8, HTML_JSConfirm_t_utow },
-    { 4516, 162, 12, 12, HTML_FileOpenDialog_t_utow },
-    { 4517, 132, 16, 16, HTML_ComboNeedsPaint_t_utow },
-    { 4521, 162, 28, 28, HTML_NewWindow_t_132x_utow },
-    { 4521, 132, 24, 24, HTML_NewWindow_t_130x_utow },
-    { 4523, 162, 8, 8, HTML_StatusText_t_utow },
-    { 4524, 162, 8, 8, HTML_ShowToolTip_t_utow },
-    { 4525, 162, 8, 8, HTML_UpdateToolTip_t_utow },
-    { 4704, 162, 24, 20, SteamInventoryStartPurchaseResult_t_utow },
-    { 5211, 162, 16, 12, RequestPlayersForGameProgressCallback_t_utow },
-    { 5212, 162, 64, 56, RequestPlayersForGameResultCallback_t_utow },
-    { 5213, 162, 24, 20, RequestPlayersForGameFinalResultCallback_t_utow },
-    { 5214, 162, 24, 20, SubmitPlayerResultResultCallback_t_utow },
-    { 5215, 162, 16, 12, EndGameResultCallback_t_utow },
-    { 5301, 162, 280, 276, JoinPartyCallback_t_utow },
-    { 5302, 162, 16, 12, CreateBeaconCallback_t_utow },
+    { 152, 162, 24, 16, []( void *d, const void *s ){ *(w32_MicroTxnAuthorizationResponse_t_123 *)d = *(const u32_MicroTxnAuthorizationResponse_t_123 *)s; } },
+    /*{ 152, 122, 24, 16 },*/
+    { 209, 162, 40, 32, []( void *d, const void *s ){ *(w32_GSReputation_t_123 *)d = *(const u32_GSReputation_t_123 *)s; } },
+    /*{ 209, 122, 40, 32 },*/
+    { 513, 162, 16, 12, []( void *d, const void *s ){ *(w32_LobbyCreated_t_123 *)d = *(const u32_LobbyCreated_t_123 *)s; } },
+    /*{ 513, 122, 16, 12 },*/
+    { 1023, 162, 40, 36, []( void *d, const void *s ){ *(w32_FileDetailsResult_t *)d = *(const u32_FileDetailsResult_t *)s; } },
+    { 1106, 162, 32, 28, []( void *d, const void *s ){ *(w32_LeaderboardScoreUploaded_t_123 *)d = *(const u32_LeaderboardScoreUploaded_t_123 *)s; } },
+    /*{ 1106, 122, 32, 28 },*/
+    { 1111, 162, 16, 12, []( void *d, const void *s ){ *(w32_LeaderboardUGCSet_t_123 *)d = *(const u32_LeaderboardUGCSet_t_123 *)s; } },
+    /*{ 1111, 122, 16, 12 },*/
+    { 1112, 161, 24, 20, []( void *d, const void *s ){ *(w32_PS3TrophiesInstalled_t_123 *)d = *(const u32_PS3TrophiesInstalled_t_123 *)s; } },
+    /*{ 1112, 122, 24, 20 },*/
+    { 1221, 162, 712, 704, []( void *d, const void *s ){ *(w32_SteamNetConnectionStatusChangedCallback_t_153a *)d = *(const u32_SteamNetConnectionStatusChangedCallback_t_153a *)s; } },
+    /*{ 1221, 152, 712, 704 },*/
+    { 1221, 151, 584, 576, []( void *d, const void *s ){ *(w32_SteamNetConnectionStatusChangedCallback_t_151 *)d = *(const u32_SteamNetConnectionStatusChangedCallback_t_151 *)s; } },
+    { 1303, 151, 288, 280, []( void *d, const void *s ){ *(w32_RemoteStorageAppSyncProgress_t_123 *)d = *(const u32_RemoteStorageAppSyncProgress_t_123 *)s; } },
+    /*{ 1303, 122, 288, 280 },*/
+    { 1307, 162, 280, 272, []( void *d, const void *s ){ *(w32_RemoteStorageFileShareResult_t_128x *)d = *(const u32_RemoteStorageFileShareResult_t_128x *)s; } },
+    { 1307, 128, 16, 12, []( void *d, const void *s ){ *(w32_RemoteStorageFileShareResult_t_123 *)d = *(const u32_RemoteStorageFileShareResult_t_123 *)s; } },
+    /*{ 1307, 122, 16, 12 },*/
+    { 1308, 116, 40, 32, []( void *d, const void *s ){ *(w32_RemoteStorageDownloadUGCResult_t_111x *)d = *(const u32_RemoteStorageDownloadUGCResult_t_111x *)s; } },
+    { 1309, 162, 24, 16, []( void *d, const void *s ){ *(w32_RemoteStoragePublishFileResult_t_125 *)d = *(const u32_RemoteStoragePublishFileResult_t_125 *)s; } },
+    { 1309, 124, 16, 12, []( void *d, const void *s ){ *(w32_RemoteStoragePublishFileResult_t_123 *)d = *(const u32_RemoteStoragePublishFileResult_t_123 *)s; } },
+    /*{ 1309, 122, 16, 12 },*/
+    { 1310, 117, 1744, 1732, []( void *d, const void *s ){ *(w32_RemoteStorageGetPublishedFileDetailsResult_t_116x *)d = *(const u32_RemoteStorageGetPublishedFileDetailsResult_t_116x *)s; } },
+    { 1311, 162, 16, 12, []( void *d, const void *s ){ *(w32_RemoteStorageDeletePublishedFileResult_t_123 *)d = *(const u32_RemoteStorageDeletePublishedFileResult_t_123 *)s; } },
+    /*{ 1311, 122, 16, 12 },*/
+    { 1312, 162, 416, 412, []( void *d, const void *s ){ *(w32_RemoteStorageEnumerateUserPublishedFilesResult_t_123 *)d = *(const u32_RemoteStorageEnumerateUserPublishedFilesResult_t_123 *)s; } },
+    /*{ 1312, 122, 416, 412 },*/
+    { 1313, 162, 16, 12, []( void *d, const void *s ){ *(w32_RemoteStorageSubscribePublishedFileResult_t_123 *)d = *(const u32_RemoteStorageSubscribePublishedFileResult_t_123 *)s; } },
+    { 1313, 122, 4, 4, []( void *d, const void *s ){ *(w32_RemoteStorageSubscribePublishedFileResult_t_116x *)d = *(const u32_RemoteStorageSubscribePublishedFileResult_t_116x *)s; } },
+    { 1314, 162, 616, 612, []( void *d, const void *s ){ *(w32_RemoteStorageEnumerateUserSubscribedFilesResult_t_123 *)d = *(const u32_RemoteStorageEnumerateUserSubscribedFilesResult_t_123 *)s; } },
+    /*{ 1314, 122, 616, 612 },*/
+    { 1315, 162, 16, 12, []( void *d, const void *s ){ *(w32_RemoteStorageUnsubscribePublishedFileResult_t_123 *)d = *(const u32_RemoteStorageUnsubscribePublishedFileResult_t_123 *)s; } },
+    { 1315, 122, 4, 4, []( void *d, const void *s ){ *(w32_RemoteStorageUnsubscribePublishedFileResult_t_116x *)d = *(const u32_RemoteStorageUnsubscribePublishedFileResult_t_116x *)s; } },
+    { 1316, 162, 24, 16, []( void *d, const void *s ){ *(w32_RemoteStorageUpdatePublishedFileResult_t_125 *)d = *(const u32_RemoteStorageUpdatePublishedFileResult_t_125 *)s; } },
+    { 1316, 124, 16, 12, []( void *d, const void *s ){ *(w32_RemoteStorageUpdatePublishedFileResult_t_123 *)d = *(const u32_RemoteStorageUpdatePublishedFileResult_t_123 *)s; } },
+    /*{ 1316, 122, 16, 12 },*/
+    { 1317, 162, 296, 288, []( void *d, const void *s ){ *(w32_RemoteStorageDownloadUGCResult_t_123 *)d = *(const u32_RemoteStorageDownloadUGCResult_t_123 *)s; } },
+    /*{ 1317, 122, 296, 288 },*/
+    { 1318, 162, 9760, 9748, []( void *d, const void *s ){ *(w32_RemoteStorageGetPublishedFileDetailsResult_t_126 *)d = *(const u32_RemoteStorageGetPublishedFileDetailsResult_t_126 *)s; } },
+    { 1318, 125, 9752, 9744, []( void *d, const void *s ){ *(w32_RemoteStorageGetPublishedFileDetailsResult_t_123 *)d = *(const u32_RemoteStorageGetPublishedFileDetailsResult_t_123 *)s; } },
+    /*{ 1318, 122, 9752, 9744 },*/
+    { 1318, 119, 9752, 9740, []( void *d, const void *s ){ *(w32_RemoteStorageGetPublishedFileDetailsResult_t_119 *)d = *(const u32_RemoteStorageGetPublishedFileDetailsResult_t_119 *)s; } },
+    { 1318, 118, 9496, 9484, []( void *d, const void *s ){ *(w32_RemoteStorageGetPublishedFileDetailsResult_t_118 *)d = *(const u32_RemoteStorageGetPublishedFileDetailsResult_t_118 *)s; } },
+    { 1319, 162, 624, 620, []( void *d, const void *s ){ *(w32_RemoteStorageEnumerateWorkshopFilesResult_t_125 *)d = *(const u32_RemoteStorageEnumerateWorkshopFilesResult_t_125 *)s; } },
+    { 1319, 124, 616, 612, []( void *d, const void *s ){ *(w32_RemoteStorageEnumerateWorkshopFilesResult_t_123 *)d = *(const u32_RemoteStorageEnumerateWorkshopFilesResult_t_123 *)s; } },
+    /*{ 1319, 122, 616, 612 },*/
+    { 1320, 162, 32, 28, []( void *d, const void *s ){ *(w32_RemoteStorageGetPublishedItemVoteDetailsResult_t_123 *)d = *(const u32_RemoteStorageGetPublishedItemVoteDetailsResult_t_123 *)s; } },
+    /*{ 1320, 122, 32, 28 },*/
+    { 1324, 162, 16, 12, []( void *d, const void *s ){ *(w32_RemoteStorageUpdateUserPublishedItemVoteResult_t_123 *)d = *(const u32_RemoteStorageUpdateUserPublishedItemVoteResult_t_123 *)s; } },
+    /*{ 1324, 122, 16, 12 },*/
+    { 1325, 162, 24, 16, []( void *d, const void *s ){ *(w32_RemoteStorageUserVoteDetails_t_123 *)d = *(const u32_RemoteStorageUserVoteDetails_t_123 *)s; } },
+    /*{ 1325, 122, 24, 16 },*/
+    { 1326, 162, 416, 412, []( void *d, const void *s ){ *(w32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123 *)d = *(const u32_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123 *)s; } },
+    /*{ 1326, 122, 416, 412 },*/
+    { 1327, 162, 24, 16, []( void *d, const void *s ){ *(w32_RemoteStorageSetUserPublishedFileActionResult_t_123 *)d = *(const u32_RemoteStorageSetUserPublishedFileActionResult_t_123 *)s; } },
+    /*{ 1327, 122, 24, 16 },*/
+    { 1330, 162, 24, 20, []( void *d, const void *s ){ *(w32_RemoteStoragePublishedFileUpdated_t *)d = *(const u32_RemoteStoragePublishedFileUpdated_t *)s; } },
+    { 2101, 162, 32, 24, []( void *d, const void *s ){ *(w32_HTTPRequestCompleted_t_132x *)d = *(const u32_HTTPRequestCompleted_t_132x *)s; } },
+    { 2101, 132, 24, 20, []( void *d, const void *s ){ *(w32_HTTPRequestCompleted_t_123 *)d = *(const u32_HTTPRequestCompleted_t_123 *)s; } },
+    /*{ 2101, 122, 24, 20 },*/
+    { 2102, 162, 16, 12, []( void *d, const void *s ){ *(w32_HTTPRequestHeadersReceived_t_123 *)d = *(const u32_HTTPRequestHeadersReceived_t_123 *)s; } },
+    /*{ 2102, 122, 16, 12 },*/
+    { 2103, 162, 24, 20, []( void *d, const void *s ){ *(w32_HTTPRequestDataReceived_t_123 *)d = *(const u32_HTTPRequestDataReceived_t_123 *)s; } },
+    /*{ 2103, 122, 24, 20 },*/
+    { 2803, 162, 40, 32, []( void *d, const void *s ){ *(w32_SteamInputConfigurationLoaded_t *)d = *(const u32_SteamInputConfigurationLoaded_t *)s; } },
+    { 2804, 162, 32, 24, []( void *d, const void *s ){ *(w32_SteamInputGamepadSlotChange_t *)d = *(const u32_SteamInputGamepadSlotChange_t *)s; } },
+    { 3402, 162, 9792, 9776, []( void *d, const void *s ){ *(w32_SteamUGCRequestUGCDetailsResult_t_160 *)d = *(const u32_SteamUGCRequestUGCDetailsResult_t_160 *)s; } },
+    { 3402, 159, 9784, 9768, []( void *d, const void *s ){ *(w32_SteamUGCRequestUGCDetailsResult_t_128x *)d = *(const u32_SteamUGCRequestUGCDetailsResult_t_128x *)s; } },
+    { 3402, 129, 9776, 9764, []( void *d, const void *s ){ *(w32_SteamUGCRequestUGCDetailsResult_t_129 *)d = *(const u32_SteamUGCRequestUGCDetailsResult_t_129 *)s; } },
+    { 3402, 128, 9768, 9760, []( void *d, const void *s ){ *(w32_SteamUGCRequestUGCDetailsResult_t_126 *)d = *(const u32_SteamUGCRequestUGCDetailsResult_t_126 *)s; } },
+    { 3403, 162, 24, 16, []( void *d, const void *s ){ *(w32_CreateItemResult_t *)d = *(const u32_CreateItemResult_t *)s; } },
+    { 3405, 162, 32, 28, []( void *d, const void *s ){ *(w32_ItemInstalled_t_160 *)d = *(const u32_ItemInstalled_t_160 *)s; } },
+    { 3405, 159, 16, 12, []( void *d, const void *s ){ *(w32_ItemInstalled_t_130 *)d = *(const u32_ItemInstalled_t_130 *)s; } },
+    { 3406, 162, 24, 16, []( void *d, const void *s ){ *(w32_DownloadItemResult_t *)d = *(const u32_DownloadItemResult_t *)s; } },
+    { 3412, 162, 24, 20, []( void *d, const void *s ){ *(w32_AddUGCDependencyResult_t *)d = *(const u32_AddUGCDependencyResult_t *)s; } },
+    { 3413, 162, 24, 20, []( void *d, const void *s ){ *(w32_RemoveUGCDependencyResult_t *)d = *(const u32_RemoveUGCDependencyResult_t *)s; } },
+    { 3414, 162, 24, 16, []( void *d, const void *s ){ *(w32_AddAppDependencyResult_t *)d = *(const u32_AddAppDependencyResult_t *)s; } },
+    { 3415, 162, 24, 16, []( void *d, const void *s ){ *(w32_RemoveAppDependencyResult_t *)d = *(const u32_RemoveAppDependencyResult_t *)s; } },
+    { 3416, 162, 152, 148, []( void *d, const void *s ){ *(w32_GetAppDependenciesResult_t *)d = *(const u32_GetAppDependenciesResult_t *)s; } },
+    { 3417, 162, 16, 12, []( void *d, const void *s ){ *(w32_DeleteItemResult_t *)d = *(const u32_DeleteItemResult_t *)s; } },
+    { 4502, 162, 48, 48, []( void *d, const void *s ){ *(w32_HTML_NeedsPaint_t *)d = *(const u32_HTML_NeedsPaint_t *)s; } },
+    { 4503, 162, 20, 20, []( void *d, const void *s ){ *(w32_HTML_StartRequest_t *)d = *(const u32_HTML_StartRequest_t *)s; } },
+    { 4505, 162, 24, 24, []( void *d, const void *s ){ *(w32_HTML_URLChanged_t *)d = *(const u32_HTML_URLChanged_t *)s; } },
+    { 4506, 162, 12, 12, []( void *d, const void *s ){ *(w32_HTML_FinishedRequest_t *)d = *(const u32_HTML_FinishedRequest_t *)s; } },
+    { 4507, 162, 8, 8, []( void *d, const void *s ){ *(w32_HTML_OpenLinkInNewTab_t *)d = *(const u32_HTML_OpenLinkInNewTab_t *)s; } },
+    { 4508, 162, 8, 8, []( void *d, const void *s ){ *(w32_HTML_ChangedTitle_t *)d = *(const u32_HTML_ChangedTitle_t *)s; } },
+    { 4513, 162, 20, 20, []( void *d, const void *s ){ *(w32_HTML_LinkAtPosition_t *)d = *(const u32_HTML_LinkAtPosition_t *)s; } },
+    { 4514, 162, 8, 8, []( void *d, const void *s ){ *(w32_HTML_JSAlert_t *)d = *(const u32_HTML_JSAlert_t *)s; } },
+    { 4515, 162, 8, 8, []( void *d, const void *s ){ *(w32_HTML_JSConfirm_t *)d = *(const u32_HTML_JSConfirm_t *)s; } },
+    { 4516, 162, 12, 12, []( void *d, const void *s ){ *(w32_HTML_FileOpenDialog_t *)d = *(const u32_HTML_FileOpenDialog_t *)s; } },
+    { 4517, 132, 16, 16, []( void *d, const void *s ){ *(w32_HTML_ComboNeedsPaint_t *)d = *(const u32_HTML_ComboNeedsPaint_t *)s; } },
+    { 4521, 162, 28, 28, []( void *d, const void *s ){ *(w32_HTML_NewWindow_t_132x *)d = *(const u32_HTML_NewWindow_t_132x *)s; } },
+    { 4521, 132, 24, 24, []( void *d, const void *s ){ *(w32_HTML_NewWindow_t_130x *)d = *(const u32_HTML_NewWindow_t_130x *)s; } },
+    { 4523, 162, 8, 8, []( void *d, const void *s ){ *(w32_HTML_StatusText_t *)d = *(const u32_HTML_StatusText_t *)s; } },
+    { 4524, 162, 8, 8, []( void *d, const void *s ){ *(w32_HTML_ShowToolTip_t *)d = *(const u32_HTML_ShowToolTip_t *)s; } },
+    { 4525, 162, 8, 8, []( void *d, const void *s ){ *(w32_HTML_UpdateToolTip_t *)d = *(const u32_HTML_UpdateToolTip_t *)s; } },
+    { 4704, 162, 24, 20, []( void *d, const void *s ){ *(w32_SteamInventoryStartPurchaseResult_t *)d = *(const u32_SteamInventoryStartPurchaseResult_t *)s; } },
+    { 5211, 162, 16, 12, []( void *d, const void *s ){ *(w32_RequestPlayersForGameProgressCallback_t *)d = *(const u32_RequestPlayersForGameProgressCallback_t *)s; } },
+    { 5212, 162, 64, 56, []( void *d, const void *s ){ *(w32_RequestPlayersForGameResultCallback_t *)d = *(const u32_RequestPlayersForGameResultCallback_t *)s; } },
+    { 5213, 162, 24, 20, []( void *d, const void *s ){ *(w32_RequestPlayersForGameFinalResultCallback_t *)d = *(const u32_RequestPlayersForGameFinalResultCallback_t *)s; } },
+    { 5214, 162, 24, 20, []( void *d, const void *s ){ *(w32_SubmitPlayerResultResultCallback_t *)d = *(const u32_SubmitPlayerResultResultCallback_t *)s; } },
+    { 5215, 162, 16, 12, []( void *d, const void *s ){ *(w32_EndGameResultCallback_t *)d = *(const u32_EndGameResultCallback_t *)s; } },
+    { 5301, 162, 280, 276, []( void *d, const void *s ){ *(w32_JoinPartyCallback_t *)d = *(const u32_JoinPartyCallback_t *)s; } },
+    { 5302, 162, 16, 12, []( void *d, const void *s ){ *(w32_CreateBeaconCallback_t *)d = *(const u32_CreateBeaconCallback_t *)s; } },
 };
 #endif
 #ifdef __x86_64__
 const struct callback_def callback_data[] =
 {
-    { 152, 162, 24, 16, MicroTxnAuthorizationResponse_t_123_utow },
-    { 152, 122, 24, 24, MicroTxnAuthorizationResponse_t_109_utow },
-    { 209, 162, 40, 32, GSReputation_t_123_utow },
-    { 209, 122, 40, 40, GSReputation_t_108_utow },
-    { 513, 162, 16, 12, LobbyCreated_t_123_utow },
-    { 513, 122, 16, 16, LobbyCreated_t_099u_utow },
-    { 1023, 162, 40, 36, FileDetailsResult_t_utow },
-    { 1106, 162, 32, 28, LeaderboardScoreUploaded_t_123_utow },
-    { 1106, 122, 32, 32, LeaderboardScoreUploaded_t_104_utow },
-    { 1111, 162, 16, 12, LeaderboardUGCSet_t_123_utow },
-    { 1111, 122, 16, 16, LeaderboardUGCSet_t_111x_utow },
-    { 1112, 161, 24, 20, PS3TrophiesInstalled_t_123_utow },
-    { 1112, 122, 24, 24, PS3TrophiesInstalled_t_112x_utow },
-    { 1221, 162, 712, 704, SteamNetConnectionStatusChangedCallback_t_153a_utow },
-    /*{ 1221, 152, 712, 704, SteamNetConnectionStatusChangedCallback_t_144_utow },*/
-    { 1221, 151, 584, 576, SteamNetConnectionStatusChangedCallback_t_151_utow },
-    { 1303, 151, 288, 280, RemoteStorageAppSyncProgress_t_123_utow },
-    { 1303, 122, 288, 288, RemoteStorageAppSyncProgress_t_111x_utow },
-    { 1307, 162, 280, 272, RemoteStorageFileShareResult_t_128x_utow },
-    { 1307, 128, 16, 12, RemoteStorageFileShareResult_t_123_utow },
-    { 1307, 122, 16, 16, RemoteStorageFileShareResult_t_111x_utow },
-    { 1308, 116, 40, 40, RemoteStorageDownloadUGCResult_t_111x_utow },
-    { 1309, 162, 24, 16, RemoteStoragePublishFileResult_t_125_utow },
-    { 1309, 124, 16, 12, RemoteStoragePublishFileResult_t_123_utow },
-    { 1309, 122, 16, 16, RemoteStoragePublishFileResult_t_116x_utow },
-    { 1310, 117, 1744, 1744, RemoteStorageGetPublishedFileDetailsResult_t_116x_utow },
-    { 1311, 162, 16, 12, RemoteStorageDeletePublishedFileResult_t_123_utow },
-    { 1311, 122, 16, 16, RemoteStorageDeletePublishedFileResult_t_116x_utow },
-    { 1312, 162, 416, 412, RemoteStorageEnumerateUserPublishedFilesResult_t_123_utow },
-    { 1312, 122, 416, 416, RemoteStorageEnumerateUserPublishedFilesResult_t_116x_utow },
-    { 1313, 162, 16, 12, RemoteStorageSubscribePublishedFileResult_t_123_utow },
-    { 1313, 122, 4, 4, RemoteStorageSubscribePublishedFileResult_t_116x_utow },
-    { 1314, 162, 616, 612, RemoteStorageEnumerateUserSubscribedFilesResult_t_123_utow },
-    { 1314, 122, 616, 616, RemoteStorageEnumerateUserSubscribedFilesResult_t_116x_utow },
-    { 1315, 162, 16, 12, RemoteStorageUnsubscribePublishedFileResult_t_123_utow },
-    { 1315, 122, 4, 4, RemoteStorageUnsubscribePublishedFileResult_t_116x_utow },
-    { 1316, 162, 24, 16, RemoteStorageUpdatePublishedFileResult_t_125_utow },
-    { 1316, 124, 16, 12, RemoteStorageUpdatePublishedFileResult_t_123_utow },
-    { 1316, 122, 16, 16, RemoteStorageUpdatePublishedFileResult_t_116x_utow },
-    { 1317, 162, 296, 288, RemoteStorageDownloadUGCResult_t_123_utow },
-    { 1317, 122, 296, 296, RemoteStorageDownloadUGCResult_t_116x_utow },
-    { 1318, 162, 9760, 9748, RemoteStorageGetPublishedFileDetailsResult_t_126_utow },
-    { 1318, 125, 9752, 9744, RemoteStorageGetPublishedFileDetailsResult_t_123_utow },
-    { 1318, 122, 9752, 9752, RemoteStorageGetPublishedFileDetailsResult_t_119x_utow },
-    /*{ 1318, 119, 9752, 9752, RemoteStorageGetPublishedFileDetailsResult_t_119_utow },*/
-    { 1318, 118, 9496, 9496, RemoteStorageGetPublishedFileDetailsResult_t_118_utow },
-    { 1319, 162, 624, 620, RemoteStorageEnumerateWorkshopFilesResult_t_125_utow },
-    { 1319, 124, 616, 612, RemoteStorageEnumerateWorkshopFilesResult_t_123_utow },
-    { 1319, 122, 616, 616, RemoteStorageEnumerateWorkshopFilesResult_t_119_utow },
-    { 1320, 162, 32, 28, RemoteStorageGetPublishedItemVoteDetailsResult_t_123_utow },
-    { 1320, 122, 32, 32, RemoteStorageGetPublishedItemVoteDetailsResult_t_119_utow },
-    { 1324, 162, 16, 12, RemoteStorageUpdateUserPublishedItemVoteResult_t_123_utow },
-    { 1324, 122, 16, 16, RemoteStorageUpdateUserPublishedItemVoteResult_t_119_utow },
-    { 1325, 162, 24, 16, RemoteStorageUserVoteDetails_t_123_utow },
-    { 1325, 122, 24, 24, RemoteStorageUserVoteDetails_t_119_utow },
-    { 1326, 162, 416, 412, RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123_utow },
-    { 1326, 122, 416, 416, RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119_utow },
-    { 1327, 162, 24, 16, RemoteStorageSetUserPublishedFileActionResult_t_123_utow },
-    { 1327, 122, 24, 24, RemoteStorageSetUserPublishedFileActionResult_t_119_utow },
-    { 1330, 162, 24, 20, RemoteStoragePublishedFileUpdated_t_utow },
-    { 2101, 162, 32, 24, HTTPRequestCompleted_t_132x_utow },
-    { 2101, 132, 24, 20, HTTPRequestCompleted_t_123_utow },
-    { 2101, 122, 24, 24, HTTPRequestCompleted_t_115_utow },
-    { 2102, 162, 16, 12, HTTPRequestHeadersReceived_t_123_utow },
-    { 2102, 122, 16, 16, HTTPRequestHeadersReceived_t_121x_utow },
-    { 2103, 162, 24, 20, HTTPRequestDataReceived_t_123_utow },
-    { 2103, 122, 24, 24, HTTPRequestDataReceived_t_121x_utow },
-    { 2803, 162, 40, 32, SteamInputConfigurationLoaded_t_utow },
-    { 2804, 162, 32, 24, SteamInputGamepadSlotChange_t_utow },
-    { 3402, 162, 9792, 9776, SteamUGCRequestUGCDetailsResult_t_160_utow },
-    { 3402, 159, 9784, 9768, SteamUGCRequestUGCDetailsResult_t_128x_utow },
-    { 3402, 129, 9776, 9764, SteamUGCRequestUGCDetailsResult_t_129_utow },
-    { 3402, 128, 9768, 9760, SteamUGCRequestUGCDetailsResult_t_126_utow },
-    { 3403, 162, 24, 16, CreateItemResult_t_utow },
-    { 3405, 162, 32, 28, ItemInstalled_t_160_utow },
-    { 3405, 159, 16, 12, ItemInstalled_t_130_utow },
-    { 3406, 162, 24, 16, DownloadItemResult_t_utow },
-    { 3412, 162, 24, 20, AddUGCDependencyResult_t_utow },
-    { 3413, 162, 24, 20, RemoveUGCDependencyResult_t_utow },
-    { 3414, 162, 24, 16, AddAppDependencyResult_t_utow },
-    { 3415, 162, 24, 16, RemoveAppDependencyResult_t_utow },
-    { 3416, 162, 152, 148, GetAppDependenciesResult_t_utow },
-    { 3417, 162, 16, 12, DeleteItemResult_t_utow },
-    { 4502, 162, 56, 52, HTML_NeedsPaint_t_utow },
-    { 4503, 162, 40, 32, HTML_StartRequest_t_utow },
-    { 4505, 162, 48, 36, HTML_URLChanged_t_utow },
-    { 4506, 162, 24, 20, HTML_FinishedRequest_t_utow },
-    { 4507, 162, 16, 12, HTML_OpenLinkInNewTab_t_utow },
-    { 4508, 162, 16, 12, HTML_ChangedTitle_t_utow },
-    { 4513, 162, 32, 24, HTML_LinkAtPosition_t_utow },
-    { 4514, 162, 16, 12, HTML_JSAlert_t_utow },
-    { 4515, 162, 16, 12, HTML_JSConfirm_t_utow },
-    { 4516, 162, 24, 20, HTML_FileOpenDialog_t_utow },
-    { 4517, 132, 24, 20, HTML_ComboNeedsPaint_t_utow },
-    { 4521, 162, 40, 32, HTML_NewWindow_t_132x_utow },
-    { 4521, 132, 32, 28, HTML_NewWindow_t_130x_utow },
-    { 4523, 162, 16, 12, HTML_StatusText_t_utow },
-    { 4524, 162, 16, 12, HTML_ShowToolTip_t_utow },
-    { 4525, 162, 16, 12, HTML_UpdateToolTip_t_utow },
-    { 4704, 162, 24, 20, SteamInventoryStartPurchaseResult_t_utow },
-    { 5211, 162, 16, 12, RequestPlayersForGameProgressCallback_t_utow },
-    { 5212, 162, 64, 56, RequestPlayersForGameResultCallback_t_utow },
-    { 5213, 162, 24, 20, RequestPlayersForGameFinalResultCallback_t_utow },
-    { 5214, 162, 24, 20, SubmitPlayerResultResultCallback_t_utow },
-    { 5215, 162, 16, 12, EndGameResultCallback_t_utow },
-    { 5301, 162, 280, 276, JoinPartyCallback_t_utow },
-    { 5302, 162, 16, 12, CreateBeaconCallback_t_utow },
+    { 152, 162, 24, 16, []( void *d, const void *s ){ *(w64_MicroTxnAuthorizationResponse_t_123 *)d = *(const u64_MicroTxnAuthorizationResponse_t_123 *)s; } },
+    { 152, 122, 24, 24, []( void *d, const void *s ){ *(w64_MicroTxnAuthorizationResponse_t_109 *)d = *(const u64_MicroTxnAuthorizationResponse_t_109 *)s; } },
+    { 209, 162, 40, 32, []( void *d, const void *s ){ *(w64_GSReputation_t_123 *)d = *(const u64_GSReputation_t_123 *)s; } },
+    { 209, 122, 40, 40, []( void *d, const void *s ){ *(w64_GSReputation_t_108 *)d = *(const u64_GSReputation_t_108 *)s; } },
+    { 513, 162, 16, 12, []( void *d, const void *s ){ *(w64_LobbyCreated_t_123 *)d = *(const u64_LobbyCreated_t_123 *)s; } },
+    { 513, 122, 16, 16, []( void *d, const void *s ){ *(w64_LobbyCreated_t_099u *)d = *(const u64_LobbyCreated_t_099u *)s; } },
+    { 1023, 162, 40, 36, []( void *d, const void *s ){ *(w64_FileDetailsResult_t *)d = *(const u64_FileDetailsResult_t *)s; } },
+    { 1106, 162, 32, 28, []( void *d, const void *s ){ *(w64_LeaderboardScoreUploaded_t_123 *)d = *(const u64_LeaderboardScoreUploaded_t_123 *)s; } },
+    { 1106, 122, 32, 32, []( void *d, const void *s ){ *(w64_LeaderboardScoreUploaded_t_104 *)d = *(const u64_LeaderboardScoreUploaded_t_104 *)s; } },
+    { 1111, 162, 16, 12, []( void *d, const void *s ){ *(w64_LeaderboardUGCSet_t_123 *)d = *(const u64_LeaderboardUGCSet_t_123 *)s; } },
+    { 1111, 122, 16, 16, []( void *d, const void *s ){ *(w64_LeaderboardUGCSet_t_111x *)d = *(const u64_LeaderboardUGCSet_t_111x *)s; } },
+    { 1112, 161, 24, 20, []( void *d, const void *s ){ *(w64_PS3TrophiesInstalled_t_123 *)d = *(const u64_PS3TrophiesInstalled_t_123 *)s; } },
+    { 1112, 122, 24, 24, []( void *d, const void *s ){ *(w64_PS3TrophiesInstalled_t_112x *)d = *(const u64_PS3TrophiesInstalled_t_112x *)s; } },
+    { 1221, 162, 712, 704, []( void *d, const void *s ){ *(w64_SteamNetConnectionStatusChangedCallback_t_153a *)d = *(const u64_SteamNetConnectionStatusChangedCallback_t_153a *)s; } },
+    /*{ 1221, 152, 712, 704 },*/
+    { 1221, 151, 584, 576, []( void *d, const void *s ){ *(w64_SteamNetConnectionStatusChangedCallback_t_151 *)d = *(const u64_SteamNetConnectionStatusChangedCallback_t_151 *)s; } },
+    { 1303, 151, 288, 280, []( void *d, const void *s ){ *(w64_RemoteStorageAppSyncProgress_t_123 *)d = *(const u64_RemoteStorageAppSyncProgress_t_123 *)s; } },
+    { 1303, 122, 288, 288, []( void *d, const void *s ){ *(w64_RemoteStorageAppSyncProgress_t_111x *)d = *(const u64_RemoteStorageAppSyncProgress_t_111x *)s; } },
+    { 1307, 162, 280, 272, []( void *d, const void *s ){ *(w64_RemoteStorageFileShareResult_t_128x *)d = *(const u64_RemoteStorageFileShareResult_t_128x *)s; } },
+    { 1307, 128, 16, 12, []( void *d, const void *s ){ *(w64_RemoteStorageFileShareResult_t_123 *)d = *(const u64_RemoteStorageFileShareResult_t_123 *)s; } },
+    { 1307, 122, 16, 16, []( void *d, const void *s ){ *(w64_RemoteStorageFileShareResult_t_111x *)d = *(const u64_RemoteStorageFileShareResult_t_111x *)s; } },
+    { 1308, 116, 40, 40, []( void *d, const void *s ){ *(w64_RemoteStorageDownloadUGCResult_t_111x *)d = *(const u64_RemoteStorageDownloadUGCResult_t_111x *)s; } },
+    { 1309, 162, 24, 16, []( void *d, const void *s ){ *(w64_RemoteStoragePublishFileResult_t_125 *)d = *(const u64_RemoteStoragePublishFileResult_t_125 *)s; } },
+    { 1309, 124, 16, 12, []( void *d, const void *s ){ *(w64_RemoteStoragePublishFileResult_t_123 *)d = *(const u64_RemoteStoragePublishFileResult_t_123 *)s; } },
+    { 1309, 122, 16, 16, []( void *d, const void *s ){ *(w64_RemoteStoragePublishFileResult_t_116x *)d = *(const u64_RemoteStoragePublishFileResult_t_116x *)s; } },
+    { 1310, 117, 1744, 1744, []( void *d, const void *s ){ *(w64_RemoteStorageGetPublishedFileDetailsResult_t_116x *)d = *(const u64_RemoteStorageGetPublishedFileDetailsResult_t_116x *)s; } },
+    { 1311, 162, 16, 12, []( void *d, const void *s ){ *(w64_RemoteStorageDeletePublishedFileResult_t_123 *)d = *(const u64_RemoteStorageDeletePublishedFileResult_t_123 *)s; } },
+    { 1311, 122, 16, 16, []( void *d, const void *s ){ *(w64_RemoteStorageDeletePublishedFileResult_t_116x *)d = *(const u64_RemoteStorageDeletePublishedFileResult_t_116x *)s; } },
+    { 1312, 162, 416, 412, []( void *d, const void *s ){ *(w64_RemoteStorageEnumerateUserPublishedFilesResult_t_123 *)d = *(const u64_RemoteStorageEnumerateUserPublishedFilesResult_t_123 *)s; } },
+    { 1312, 122, 416, 416, []( void *d, const void *s ){ *(w64_RemoteStorageEnumerateUserPublishedFilesResult_t_116x *)d = *(const u64_RemoteStorageEnumerateUserPublishedFilesResult_t_116x *)s; } },
+    { 1313, 162, 16, 12, []( void *d, const void *s ){ *(w64_RemoteStorageSubscribePublishedFileResult_t_123 *)d = *(const u64_RemoteStorageSubscribePublishedFileResult_t_123 *)s; } },
+    { 1313, 122, 4, 4, []( void *d, const void *s ){ *(w64_RemoteStorageSubscribePublishedFileResult_t_116x *)d = *(const u64_RemoteStorageSubscribePublishedFileResult_t_116x *)s; } },
+    { 1314, 162, 616, 612, []( void *d, const void *s ){ *(w64_RemoteStorageEnumerateUserSubscribedFilesResult_t_123 *)d = *(const u64_RemoteStorageEnumerateUserSubscribedFilesResult_t_123 *)s; } },
+    { 1314, 122, 616, 616, []( void *d, const void *s ){ *(w64_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x *)d = *(const u64_RemoteStorageEnumerateUserSubscribedFilesResult_t_116x *)s; } },
+    { 1315, 162, 16, 12, []( void *d, const void *s ){ *(w64_RemoteStorageUnsubscribePublishedFileResult_t_123 *)d = *(const u64_RemoteStorageUnsubscribePublishedFileResult_t_123 *)s; } },
+    { 1315, 122, 4, 4, []( void *d, const void *s ){ *(w64_RemoteStorageUnsubscribePublishedFileResult_t_116x *)d = *(const u64_RemoteStorageUnsubscribePublishedFileResult_t_116x *)s; } },
+    { 1316, 162, 24, 16, []( void *d, const void *s ){ *(w64_RemoteStorageUpdatePublishedFileResult_t_125 *)d = *(const u64_RemoteStorageUpdatePublishedFileResult_t_125 *)s; } },
+    { 1316, 124, 16, 12, []( void *d, const void *s ){ *(w64_RemoteStorageUpdatePublishedFileResult_t_123 *)d = *(const u64_RemoteStorageUpdatePublishedFileResult_t_123 *)s; } },
+    { 1316, 122, 16, 16, []( void *d, const void *s ){ *(w64_RemoteStorageUpdatePublishedFileResult_t_116x *)d = *(const u64_RemoteStorageUpdatePublishedFileResult_t_116x *)s; } },
+    { 1317, 162, 296, 288, []( void *d, const void *s ){ *(w64_RemoteStorageDownloadUGCResult_t_123 *)d = *(const u64_RemoteStorageDownloadUGCResult_t_123 *)s; } },
+    { 1317, 122, 296, 296, []( void *d, const void *s ){ *(w64_RemoteStorageDownloadUGCResult_t_116x *)d = *(const u64_RemoteStorageDownloadUGCResult_t_116x *)s; } },
+    { 1318, 162, 9760, 9748, []( void *d, const void *s ){ *(w64_RemoteStorageGetPublishedFileDetailsResult_t_126 *)d = *(const u64_RemoteStorageGetPublishedFileDetailsResult_t_126 *)s; } },
+    { 1318, 125, 9752, 9744, []( void *d, const void *s ){ *(w64_RemoteStorageGetPublishedFileDetailsResult_t_123 *)d = *(const u64_RemoteStorageGetPublishedFileDetailsResult_t_123 *)s; } },
+    { 1318, 122, 9752, 9752, []( void *d, const void *s ){ *(w64_RemoteStorageGetPublishedFileDetailsResult_t_119x *)d = *(const u64_RemoteStorageGetPublishedFileDetailsResult_t_119x *)s; } },
+    /*{ 1318, 119, 9752, 9752 },*/
+    { 1318, 118, 9496, 9496, []( void *d, const void *s ){ *(w64_RemoteStorageGetPublishedFileDetailsResult_t_118 *)d = *(const u64_RemoteStorageGetPublishedFileDetailsResult_t_118 *)s; } },
+    { 1319, 162, 624, 620, []( void *d, const void *s ){ *(w64_RemoteStorageEnumerateWorkshopFilesResult_t_125 *)d = *(const u64_RemoteStorageEnumerateWorkshopFilesResult_t_125 *)s; } },
+    { 1319, 124, 616, 612, []( void *d, const void *s ){ *(w64_RemoteStorageEnumerateWorkshopFilesResult_t_123 *)d = *(const u64_RemoteStorageEnumerateWorkshopFilesResult_t_123 *)s; } },
+    { 1319, 122, 616, 616, []( void *d, const void *s ){ *(w64_RemoteStorageEnumerateWorkshopFilesResult_t_119 *)d = *(const u64_RemoteStorageEnumerateWorkshopFilesResult_t_119 *)s; } },
+    { 1320, 162, 32, 28, []( void *d, const void *s ){ *(w64_RemoteStorageGetPublishedItemVoteDetailsResult_t_123 *)d = *(const u64_RemoteStorageGetPublishedItemVoteDetailsResult_t_123 *)s; } },
+    { 1320, 122, 32, 32, []( void *d, const void *s ){ *(w64_RemoteStorageGetPublishedItemVoteDetailsResult_t_119 *)d = *(const u64_RemoteStorageGetPublishedItemVoteDetailsResult_t_119 *)s; } },
+    { 1324, 162, 16, 12, []( void *d, const void *s ){ *(w64_RemoteStorageUpdateUserPublishedItemVoteResult_t_123 *)d = *(const u64_RemoteStorageUpdateUserPublishedItemVoteResult_t_123 *)s; } },
+    { 1324, 122, 16, 16, []( void *d, const void *s ){ *(w64_RemoteStorageUpdateUserPublishedItemVoteResult_t_119 *)d = *(const u64_RemoteStorageUpdateUserPublishedItemVoteResult_t_119 *)s; } },
+    { 1325, 162, 24, 16, []( void *d, const void *s ){ *(w64_RemoteStorageUserVoteDetails_t_123 *)d = *(const u64_RemoteStorageUserVoteDetails_t_123 *)s; } },
+    { 1325, 122, 24, 24, []( void *d, const void *s ){ *(w64_RemoteStorageUserVoteDetails_t_119 *)d = *(const u64_RemoteStorageUserVoteDetails_t_119 *)s; } },
+    { 1326, 162, 416, 412, []( void *d, const void *s ){ *(w64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123 *)d = *(const u64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123 *)s; } },
+    { 1326, 122, 416, 416, []( void *d, const void *s ){ *(w64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119 *)d = *(const u64_RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119 *)s; } },
+    { 1327, 162, 24, 16, []( void *d, const void *s ){ *(w64_RemoteStorageSetUserPublishedFileActionResult_t_123 *)d = *(const u64_RemoteStorageSetUserPublishedFileActionResult_t_123 *)s; } },
+    { 1327, 122, 24, 24, []( void *d, const void *s ){ *(w64_RemoteStorageSetUserPublishedFileActionResult_t_119 *)d = *(const u64_RemoteStorageSetUserPublishedFileActionResult_t_119 *)s; } },
+    { 1330, 162, 24, 20, []( void *d, const void *s ){ *(w64_RemoteStoragePublishedFileUpdated_t *)d = *(const u64_RemoteStoragePublishedFileUpdated_t *)s; } },
+    { 2101, 162, 32, 24, []( void *d, const void *s ){ *(w64_HTTPRequestCompleted_t_132x *)d = *(const u64_HTTPRequestCompleted_t_132x *)s; } },
+    { 2101, 132, 24, 20, []( void *d, const void *s ){ *(w64_HTTPRequestCompleted_t_123 *)d = *(const u64_HTTPRequestCompleted_t_123 *)s; } },
+    { 2101, 122, 24, 24, []( void *d, const void *s ){ *(w64_HTTPRequestCompleted_t_115 *)d = *(const u64_HTTPRequestCompleted_t_115 *)s; } },
+    { 2102, 162, 16, 12, []( void *d, const void *s ){ *(w64_HTTPRequestHeadersReceived_t_123 *)d = *(const u64_HTTPRequestHeadersReceived_t_123 *)s; } },
+    { 2102, 122, 16, 16, []( void *d, const void *s ){ *(w64_HTTPRequestHeadersReceived_t_121x *)d = *(const u64_HTTPRequestHeadersReceived_t_121x *)s; } },
+    { 2103, 162, 24, 20, []( void *d, const void *s ){ *(w64_HTTPRequestDataReceived_t_123 *)d = *(const u64_HTTPRequestDataReceived_t_123 *)s; } },
+    { 2103, 122, 24, 24, []( void *d, const void *s ){ *(w64_HTTPRequestDataReceived_t_121x *)d = *(const u64_HTTPRequestDataReceived_t_121x *)s; } },
+    { 2803, 162, 40, 32, []( void *d, const void *s ){ *(w64_SteamInputConfigurationLoaded_t *)d = *(const u64_SteamInputConfigurationLoaded_t *)s; } },
+    { 2804, 162, 32, 24, []( void *d, const void *s ){ *(w64_SteamInputGamepadSlotChange_t *)d = *(const u64_SteamInputGamepadSlotChange_t *)s; } },
+    { 3402, 162, 9792, 9776, []( void *d, const void *s ){ *(w64_SteamUGCRequestUGCDetailsResult_t_160 *)d = *(const u64_SteamUGCRequestUGCDetailsResult_t_160 *)s; } },
+    { 3402, 159, 9784, 9768, []( void *d, const void *s ){ *(w64_SteamUGCRequestUGCDetailsResult_t_128x *)d = *(const u64_SteamUGCRequestUGCDetailsResult_t_128x *)s; } },
+    { 3402, 129, 9776, 9764, []( void *d, const void *s ){ *(w64_SteamUGCRequestUGCDetailsResult_t_129 *)d = *(const u64_SteamUGCRequestUGCDetailsResult_t_129 *)s; } },
+    { 3402, 128, 9768, 9760, []( void *d, const void *s ){ *(w64_SteamUGCRequestUGCDetailsResult_t_126 *)d = *(const u64_SteamUGCRequestUGCDetailsResult_t_126 *)s; } },
+    { 3403, 162, 24, 16, []( void *d, const void *s ){ *(w64_CreateItemResult_t *)d = *(const u64_CreateItemResult_t *)s; } },
+    { 3405, 162, 32, 28, []( void *d, const void *s ){ *(w64_ItemInstalled_t_160 *)d = *(const u64_ItemInstalled_t_160 *)s; } },
+    { 3405, 159, 16, 12, []( void *d, const void *s ){ *(w64_ItemInstalled_t_130 *)d = *(const u64_ItemInstalled_t_130 *)s; } },
+    { 3406, 162, 24, 16, []( void *d, const void *s ){ *(w64_DownloadItemResult_t *)d = *(const u64_DownloadItemResult_t *)s; } },
+    { 3412, 162, 24, 20, []( void *d, const void *s ){ *(w64_AddUGCDependencyResult_t *)d = *(const u64_AddUGCDependencyResult_t *)s; } },
+    { 3413, 162, 24, 20, []( void *d, const void *s ){ *(w64_RemoveUGCDependencyResult_t *)d = *(const u64_RemoveUGCDependencyResult_t *)s; } },
+    { 3414, 162, 24, 16, []( void *d, const void *s ){ *(w64_AddAppDependencyResult_t *)d = *(const u64_AddAppDependencyResult_t *)s; } },
+    { 3415, 162, 24, 16, []( void *d, const void *s ){ *(w64_RemoveAppDependencyResult_t *)d = *(const u64_RemoveAppDependencyResult_t *)s; } },
+    { 3416, 162, 152, 148, []( void *d, const void *s ){ *(w64_GetAppDependenciesResult_t *)d = *(const u64_GetAppDependenciesResult_t *)s; } },
+    { 3417, 162, 16, 12, []( void *d, const void *s ){ *(w64_DeleteItemResult_t *)d = *(const u64_DeleteItemResult_t *)s; } },
+    { 4502, 162, 56, 52, []( void *d, const void *s ){ *(w64_HTML_NeedsPaint_t *)d = *(const u64_HTML_NeedsPaint_t *)s; } },
+    { 4503, 162, 40, 32, []( void *d, const void *s ){ *(w64_HTML_StartRequest_t *)d = *(const u64_HTML_StartRequest_t *)s; } },
+    { 4505, 162, 48, 36, []( void *d, const void *s ){ *(w64_HTML_URLChanged_t *)d = *(const u64_HTML_URLChanged_t *)s; } },
+    { 4506, 162, 24, 20, []( void *d, const void *s ){ *(w64_HTML_FinishedRequest_t *)d = *(const u64_HTML_FinishedRequest_t *)s; } },
+    { 4507, 162, 16, 12, []( void *d, const void *s ){ *(w64_HTML_OpenLinkInNewTab_t *)d = *(const u64_HTML_OpenLinkInNewTab_t *)s; } },
+    { 4508, 162, 16, 12, []( void *d, const void *s ){ *(w64_HTML_ChangedTitle_t *)d = *(const u64_HTML_ChangedTitle_t *)s; } },
+    { 4513, 162, 32, 24, []( void *d, const void *s ){ *(w64_HTML_LinkAtPosition_t *)d = *(const u64_HTML_LinkAtPosition_t *)s; } },
+    { 4514, 162, 16, 12, []( void *d, const void *s ){ *(w64_HTML_JSAlert_t *)d = *(const u64_HTML_JSAlert_t *)s; } },
+    { 4515, 162, 16, 12, []( void *d, const void *s ){ *(w64_HTML_JSConfirm_t *)d = *(const u64_HTML_JSConfirm_t *)s; } },
+    { 4516, 162, 24, 20, []( void *d, const void *s ){ *(w64_HTML_FileOpenDialog_t *)d = *(const u64_HTML_FileOpenDialog_t *)s; } },
+    { 4517, 132, 24, 20, []( void *d, const void *s ){ *(w64_HTML_ComboNeedsPaint_t *)d = *(const u64_HTML_ComboNeedsPaint_t *)s; } },
+    { 4521, 162, 40, 32, []( void *d, const void *s ){ *(w64_HTML_NewWindow_t_132x *)d = *(const u64_HTML_NewWindow_t_132x *)s; } },
+    { 4521, 132, 32, 28, []( void *d, const void *s ){ *(w64_HTML_NewWindow_t_130x *)d = *(const u64_HTML_NewWindow_t_130x *)s; } },
+    { 4523, 162, 16, 12, []( void *d, const void *s ){ *(w64_HTML_StatusText_t *)d = *(const u64_HTML_StatusText_t *)s; } },
+    { 4524, 162, 16, 12, []( void *d, const void *s ){ *(w64_HTML_ShowToolTip_t *)d = *(const u64_HTML_ShowToolTip_t *)s; } },
+    { 4525, 162, 16, 12, []( void *d, const void *s ){ *(w64_HTML_UpdateToolTip_t *)d = *(const u64_HTML_UpdateToolTip_t *)s; } },
+    { 4704, 162, 24, 20, []( void *d, const void *s ){ *(w64_SteamInventoryStartPurchaseResult_t *)d = *(const u64_SteamInventoryStartPurchaseResult_t *)s; } },
+    { 5211, 162, 16, 12, []( void *d, const void *s ){ *(w64_RequestPlayersForGameProgressCallback_t *)d = *(const u64_RequestPlayersForGameProgressCallback_t *)s; } },
+    { 5212, 162, 64, 56, []( void *d, const void *s ){ *(w64_RequestPlayersForGameResultCallback_t *)d = *(const u64_RequestPlayersForGameResultCallback_t *)s; } },
+    { 5213, 162, 24, 20, []( void *d, const void *s ){ *(w64_RequestPlayersForGameFinalResultCallback_t *)d = *(const u64_RequestPlayersForGameFinalResultCallback_t *)s; } },
+    { 5214, 162, 24, 20, []( void *d, const void *s ){ *(w64_SubmitPlayerResultResultCallback_t *)d = *(const u64_SubmitPlayerResultResultCallback_t *)s; } },
+    { 5215, 162, 16, 12, []( void *d, const void *s ){ *(w64_EndGameResultCallback_t *)d = *(const u64_EndGameResultCallback_t *)s; } },
+    { 5301, 162, 280, 276, []( void *d, const void *s ){ *(w64_JoinPartyCallback_t *)d = *(const u64_JoinPartyCallback_t *)s; } },
+    { 5302, 162, 16, 12, []( void *d, const void *s ){ *(w64_CreateBeaconCallback_t *)d = *(const u64_CreateBeaconCallback_t *)s; } },
 };
 #endif
 const unsigned int callback_data_size = ARRAY_SIZE(callback_data);

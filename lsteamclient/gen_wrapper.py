@@ -1695,37 +1695,24 @@ with open('unixlib_generated.cpp', 'w') as file:
                 abis['w32'].write_converter('u32_', {})
                 abis['u32'].write_converter('w32_', path_conv_fields)
 
-            out(f'static void {version}_utow(void *dst, const void *src)\n')
-            out(u'{\n')
-            out(f'    *(w_{version} *)dst = *(const u_{version} *)src;\n')
-            out(u'}\n\n')
+    def write_callbacks(u_abi, w_abi):
+        out(u'const struct callback_def callback_data[] =\n{\n');
+        values = set()
+        for cbid, sdkver, abis in sorted(callbacks, key=lambda x: x[0]):
+            name, value = abis[u_abi].name, (cbid, abis[w_abi].size, abis[u_abi].size)
+            if name in all_versions[sdkver]: name = all_versions[sdkver][name]
+
+            if value not in values:
+                out(f'    {{ {cbid}, {sdkver}, {abis[w_abi].size}, {abis[u_abi].size}, []( void *d, const void *s ){{ *({w_abi}_{name} *)d = *(const {u_abi}_{name} *)s; }} }},\n')
+            else:
+                out(f'    /*{{ {cbid}, {sdkver}, {abis[w_abi].size}, {abis[u_abi].size} }},*/\n')
+            values.add(value)
+        out(u'};\n');
 
     out(u'#ifdef __i386__\n')
-    out(u'const struct callback_def callback_data[] =\n{\n');
-    values = set()
-    for cbid, sdkver, abis in sorted(callbacks, key=lambda x: x[0]):
-        name, value = abis["u32"].name, (cbid, abis["w32"].size, abis["u32"].size)
-        if name in all_versions[sdkver]: name = all_versions[sdkver][name]
-
-        if value not in values:
-            out(f'    {{ {cbid}, {sdkver}, {abis["w32"].size}, {abis["u32"].size}, {name}_utow }},\n')
-        else:
-            out(f'    /*{{ {cbid}, {sdkver}, {abis["w32"].size}, {abis["u32"].size}, {name}_utow }},*/\n')
-        values.add(value)
-    out(u'};\n');
+    write_callbacks("u32", "w32")
     out(u'#endif\n')
     out(u'#ifdef __x86_64__\n')
-    out(u'const struct callback_def callback_data[] =\n{\n');
-    values = set()
-    for cbid, sdkver, abis in sorted(callbacks, key=lambda x: x[0]):
-        name, value = abis["u64"].name, (cbid, abis["w64"].size, abis["u64"].size)
-        if name in all_versions[sdkver]: name = all_versions[sdkver][name]
-
-        if value not in values:
-            out(f'    {{ {cbid}, {sdkver}, {abis["w64"].size}, {abis["u64"].size}, {name}_utow }},\n')
-        else:
-            out(f'    /*{{ {cbid}, {sdkver}, {abis["w64"].size}, {abis["u64"].size}, {name}_utow }},*/\n')
-        values.add(value)
-    out(u'};\n');
+    write_callbacks("u64", "w64")
     out(u'#endif\n')
     out(u'const unsigned int callback_data_size = ARRAY_SIZE(callback_data);\n');
