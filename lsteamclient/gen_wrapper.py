@@ -206,7 +206,8 @@ SIZED_STRUCTS = {
 
 # we have converters for these written by hand because they're too complicated to generate
 MANUAL_STRUCTS = [
-    "SteamNetworkingMessage_t"
+    "SteamNetworkingMessage_t",
+    "RemoteStorageUpdatePublishedFileRequest_t",
 ]
 
 UNIX_FUNCS = [
@@ -277,6 +278,8 @@ MANUAL_METHODS = {
     "ISteamClient_Set_SteamAPI_CCheckCallbackRegisteredInProcess": lambda ver, abi: abi == 'u' and ver >= 20,
 
     "ISteamUtils_GetAPICallResult": lambda ver, abi: abi == 'u',
+
+    "ISteamRemoteStorage_UpdatePublishedFile": lambda ver, abi: abi == 'u' and ver >= 5,
 }
 
 
