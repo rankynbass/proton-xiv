@@ -61,14 +61,14 @@ struct vrclient_init_registry_params
 
 struct vrclient_HmdSystemFactory_params
 {
-    void *_ret;
+    struct u_iface _ret;
     const char *name;
     int *return_code;
 };
 
 struct vrclient_VRClientCoreFactory_params
 {
-    void *_ret;
+    struct u_iface _ret;
     const char *name;
     int *return_code;
 };

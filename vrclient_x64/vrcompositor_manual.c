@@ -442,7 +442,7 @@ static void set_skybox_override_done( const w_Texture_t *textures, uint32_t coun
     compositor_data.dxvk_device->lpVtbl->ReleaseSubmissionQueue( compositor_data.dxvk_device );
 }
 
-static void post_present_handoff_init( void *linux_side, unsigned int version )
+static void post_present_handoff_init( struct u_iface u_iface, unsigned int version )
 {
     /* I sure hope no application will submit both D3D11 and D3D12 textures... */
     if (compositor_data.dxvk_device)
@@ -460,7 +460,7 @@ static void post_present_handoff_done(void)
         compositor_data.d3d12_device->lpVtbl->UnlockCommandQueue( compositor_data.d3d12_device, compositor_data.d3d12_queue );
 }
 
-static void wait_get_poses_init( void *linux_side )
+static void wait_get_poses_init( struct u_iface u_iface )
 {
     if (compositor_data.dxvk_device)
         compositor_data.dxvk_device->lpVtbl->LockSubmissionQueue( compositor_data.dxvk_device );
@@ -468,7 +468,7 @@ static void wait_get_poses_init( void *linux_side )
         compositor_data.d3d12_device->lpVtbl->LockCommandQueue( compositor_data.d3d12_device, compositor_data.d3d12_queue );
 }
 
-static void wait_get_poses_done( void *linux_side )
+static void wait_get_poses_done( struct u_iface u_iface )
 {
     if (compositor_data.dxvk_device)
         compositor_data.dxvk_device->lpVtbl->ReleaseSubmissionQueue( compositor_data.dxvk_device );

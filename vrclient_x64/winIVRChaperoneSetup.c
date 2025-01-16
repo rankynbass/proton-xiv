@@ -241,7 +241,7 @@ __ASM_BLOCK_BEGIN(winIVRChaperoneSetup_IVRChaperoneSetup_004_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRChaperoneSetup_IVRChaperoneSetup_004(void *u_iface)
+struct w_iface *create_winIVRChaperoneSetup_IVRChaperoneSetup_004( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -256,7 +256,7 @@ void destroy_winIVRChaperoneSetup_IVRChaperoneSetup_004(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRChaperoneSetup_IVRChaperoneSetup_004_FnTable(void *u_iface)
+struct w_iface *create_winIVRChaperoneSetup_IVRChaperoneSetup_004_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(16);
@@ -588,7 +588,7 @@ __ASM_BLOCK_BEGIN(winIVRChaperoneSetup_IVRChaperoneSetup_005_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRChaperoneSetup_IVRChaperoneSetup_005(void *u_iface)
+struct w_iface *create_winIVRChaperoneSetup_IVRChaperoneSetup_005( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -603,7 +603,7 @@ void destroy_winIVRChaperoneSetup_IVRChaperoneSetup_005(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRChaperoneSetup_IVRChaperoneSetup_005_FnTable(void *u_iface)
+struct w_iface *create_winIVRChaperoneSetup_IVRChaperoneSetup_005_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(20);
@@ -930,7 +930,7 @@ __ASM_BLOCK_BEGIN(winIVRChaperoneSetup_IVRChaperoneSetup_006_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRChaperoneSetup_IVRChaperoneSetup_006(void *u_iface)
+struct w_iface *create_winIVRChaperoneSetup_IVRChaperoneSetup_006( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -945,7 +945,7 @@ void destroy_winIVRChaperoneSetup_IVRChaperoneSetup_006(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRChaperoneSetup_IVRChaperoneSetup_006_FnTable(void *u_iface)
+struct w_iface *create_winIVRChaperoneSetup_IVRChaperoneSetup_006_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(20);

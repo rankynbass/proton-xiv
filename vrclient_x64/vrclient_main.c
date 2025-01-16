@@ -47,14 +47,14 @@ BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, void *reserved)
             break;
 
         case DLL_PROCESS_DETACH:
-            if (compositor_data.client_core_linux_side)
+            if (compositor_data.u_client_core_iface.handle)
             {
                 struct IVRClientCore_IVRClientCore_003_Cleanup_params params =
                 {
-                    .u_iface = compositor_data.client_core_linux_side,
+                    .u_iface = compositor_data.u_client_core_iface,
                 };
                 VRCLIENT_CALL( IVRClientCore_IVRClientCore_003_Cleanup, &params );
-                compositor_data.client_core_linux_side = NULL;
+                compositor_data.u_client_core_iface.handle = 0;
             }
             VRCLIENT_CALL( vrclient_unload, NULL );
             vrclient_loaded = FALSE;
@@ -94,14 +94,14 @@ static BOOL array_reserve(void **elements, SIZE_T *capacity, SIZE_T count, SIZE_
     return TRUE;
 }
 
-struct w_iface *create_win_interface(const char *name, void *linux_side)
+struct w_iface *create_win_interface( const char *name, struct u_iface u_iface )
 {
     iface_constructor constructor;
 
     TRACE("trying to create %s\n", name);
 
-    if (!linux_side) return NULL;
-    if ((constructor = find_iface_constructor( name ))) return constructor( linux_side );
+    if (!u_iface.handle) return NULL;
+    if ((constructor = find_iface_constructor( name ))) return constructor( u_iface );
 
     ERR("Don't recognize interface name: %s\n", name);
     return NULL;
@@ -387,13 +387,13 @@ done:
     return is_hmd_present;
 }
 
-static void *ivrclientcore_get_generic_interface( void *object, const char *name_and_version, struct client_core_data *user_data )
+static struct w_iface *ivrclientcore_get_generic_interface( struct u_iface object, const char *name_and_version, struct client_core_data *user_data )
 {
     struct w_iface *win_object;
     struct generic_interface *iface;
     iface_destructor destructor;
 
-    TRACE( "%p %p\n", object, name_and_version );
+    TRACE( "%#I64x %p\n", object.handle, name_and_version );
 
     if (!(win_object = create_win_interface(name_and_version, object)))
     {
@@ -583,26 +583,25 @@ void *__thiscall winIVRClientCore_IVRClientCore_002_GetGenericInterface( struct 
 
     VRCLIENT_CALL( IVRClientCore_IVRClientCore_002_GetGenericInterface, &params );
 
-    if (!params._ret)
+    if (!params._ret.handle)
     {
         WARN( "Failed to create %s.\n", pchNameAndVersion );
         return NULL;
     }
 
-    params._ret = ivrclientcore_get_generic_interface( params._ret, pchNameAndVersion, &_this->user_data );
-    return params._ret;
+    return ivrclientcore_get_generic_interface( params._ret, pchNameAndVersion, &_this->user_data );
 }
 
 int8_t __thiscall winIVRClientCore_IVRClientCore_002_BIsHmdPresent( struct w_iface *_this )
 {
     struct IVRClientCore_IVRClientCore_002_BIsHmdPresent_params params = {.u_iface = _this->u_iface};
 
-    TRACE( "linux_side %p, compositor_data.client_core_linux_side %p.\n", _this->u_iface,
-           compositor_data.client_core_linux_side );
+    TRACE( "u_iface %#I64x, compositor_data.u_client_core_iface %#I64x.\n", _this->u_iface.handle,
+           compositor_data.u_client_core_iface.handle );
 
     /* BIsHmdPresent() currently always returns FALSE on Linux if called before Init().
      * Return true if the value stored by steam.exe helper in registry says the HMD is presnt. */
-    if (compositor_data.client_core_linux_side || !is_hmd_present_reg())
+    if (compositor_data.u_client_core_iface.handle || !is_hmd_present_reg())
     {
         VRCLIENT_CALL( IVRClientCore_IVRClientCore_002_BIsHmdPresent, &params );
         return params._ret;
@@ -628,7 +627,7 @@ uint32_t __thiscall winIVRClientCore_IVRClientCore_003_Init( struct w_iface *_th
     VRCLIENT_CALL( IVRClientCore_IVRClientCore_003_Init, &params );
 
     if (params._ret) WARN( "error %#x\n", params._ret );
-    else compositor_data.client_core_linux_side = params.u_iface;
+    else compositor_data.u_client_core_iface = params.u_iface;
 
     return params._ret;
 }
@@ -663,26 +662,25 @@ void *__thiscall winIVRClientCore_IVRClientCore_003_GetGenericInterface( struct 
 
     VRCLIENT_CALL( IVRClientCore_IVRClientCore_003_GetGenericInterface, &params );
 
-    if (!params._ret)
+    if (!params._ret.handle)
     {
         WARN( "Failed to create %s.\n", pchNameAndVersion );
         return NULL;
     }
 
-    params._ret = ivrclientcore_get_generic_interface( params._ret, pchNameAndVersion, &_this->user_data );
-    return params._ret;
+    return ivrclientcore_get_generic_interface( params._ret, pchNameAndVersion, &_this->user_data );
 }
 
 int8_t __thiscall winIVRClientCore_IVRClientCore_003_BIsHmdPresent( struct w_iface *_this )
 {
     struct IVRClientCore_IVRClientCore_003_BIsHmdPresent_params params = {.u_iface = _this->u_iface};
 
-    TRACE( "linux_side %p, compositor_data.client_core_linux_side %p.\n", _this->u_iface,
-           compositor_data.client_core_linux_side );
+    TRACE( "u_iface %#I64x, compositor_data.u_client_core_iface %#I64x.\n", _this->u_iface.handle,
+           compositor_data.u_client_core_iface.handle );
 
     /* BIsHmdPresent() currently always returns FALSE on Linux if called before Init().
      * Return true if the value stored by steam.exe helper in registry says the HMD is presnt. */
-    if (compositor_data.client_core_linux_side || !is_hmd_present_reg())
+    if (compositor_data.u_client_core_iface.handle || !is_hmd_present_reg())
     {
         VRCLIENT_CALL( IVRClientCore_IVRClientCore_003_BIsHmdPresent, &params );
         return params._ret;

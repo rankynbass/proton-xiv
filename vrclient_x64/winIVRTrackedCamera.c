@@ -278,7 +278,7 @@ __ASM_BLOCK_BEGIN(winIVRTrackedCamera_IVRTrackedCamera_001_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_001(void *u_iface)
+struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_001( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -293,7 +293,7 @@ void destroy_winIVRTrackedCamera_IVRTrackedCamera_001(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_001_FnTable(void *u_iface)
+struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_001_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(18);
@@ -474,7 +474,7 @@ __ASM_BLOCK_BEGIN(winIVRTrackedCamera_IVRTrackedCamera_002_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_002(void *u_iface)
+struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_002( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -489,7 +489,7 @@ void destroy_winIVRTrackedCamera_IVRTrackedCamera_002(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_002_FnTable(void *u_iface)
+struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_002_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(8);
@@ -730,7 +730,7 @@ __ASM_BLOCK_BEGIN(winIVRTrackedCamera_IVRTrackedCamera_003_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_003(void *u_iface)
+struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_003( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -745,7 +745,7 @@ void destroy_winIVRTrackedCamera_IVRTrackedCamera_003(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_003_FnTable(void *u_iface)
+struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_003_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(12);
@@ -1002,7 +1002,7 @@ __ASM_BLOCK_BEGIN(winIVRTrackedCamera_IVRTrackedCamera_004_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_004(void *u_iface)
+struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_004( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -1017,7 +1017,7 @@ void destroy_winIVRTrackedCamera_IVRTrackedCamera_004(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_004_FnTable(void *u_iface)
+struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_004_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(12);
@@ -1276,7 +1276,7 @@ __ASM_BLOCK_BEGIN(winIVRTrackedCamera_IVRTrackedCamera_005_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_005(void *u_iface)
+struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_005( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -1291,7 +1291,7 @@ void destroy_winIVRTrackedCamera_IVRTrackedCamera_005(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_005_FnTable(void *u_iface)
+struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_005_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(12);
@@ -1576,7 +1576,7 @@ __ASM_BLOCK_BEGIN(winIVRTrackedCamera_IVRTrackedCamera_006_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_006(void *u_iface)
+struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_006( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -1591,7 +1591,7 @@ void destroy_winIVRTrackedCamera_IVRTrackedCamera_006(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_006_FnTable(void *u_iface)
+struct w_iface *create_winIVRTrackedCamera_IVRTrackedCamera_006_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(14);

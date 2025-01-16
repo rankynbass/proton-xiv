@@ -315,7 +315,7 @@ __ASM_BLOCK_BEGIN(winIVRInput_IVRInput_003_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRInput_IVRInput_003(void *u_iface)
+struct w_iface *create_winIVRInput_IVRInput_003( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -330,7 +330,7 @@ void destroy_winIVRInput_IVRInput_003(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRInput_IVRInput_003_FnTable(void *u_iface)
+struct w_iface *create_winIVRInput_IVRInput_003_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(17);
@@ -702,7 +702,7 @@ __ASM_BLOCK_BEGIN(winIVRInput_IVRInput_004_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRInput_IVRInput_004(void *u_iface)
+struct w_iface *create_winIVRInput_IVRInput_004( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -717,7 +717,7 @@ void destroy_winIVRInput_IVRInput_004(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRInput_IVRInput_004_FnTable(void *u_iface)
+struct w_iface *create_winIVRInput_IVRInput_004_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(18);
@@ -1196,7 +1196,7 @@ __ASM_BLOCK_BEGIN(winIVRInput_IVRInput_005_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRInput_IVRInput_005(void *u_iface)
+struct w_iface *create_winIVRInput_IVRInput_005( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -1211,7 +1211,7 @@ void destroy_winIVRInput_IVRInput_005(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRInput_IVRInput_005_FnTable(void *u_iface)
+struct w_iface *create_winIVRInput_IVRInput_005_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(25);
@@ -1720,7 +1720,7 @@ __ASM_BLOCK_BEGIN(winIVRInput_IVRInput_006_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRInput_IVRInput_006(void *u_iface)
+struct w_iface *create_winIVRInput_IVRInput_006( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -1735,7 +1735,7 @@ void destroy_winIVRInput_IVRInput_006(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRInput_IVRInput_006_FnTable(void *u_iface)
+struct w_iface *create_winIVRInput_IVRInput_006_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(26);
@@ -2280,7 +2280,7 @@ __ASM_BLOCK_BEGIN(winIVRInput_IVRInput_007_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRInput_IVRInput_007(void *u_iface)
+struct w_iface *create_winIVRInput_IVRInput_007( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -2295,7 +2295,7 @@ void destroy_winIVRInput_IVRInput_007(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRInput_IVRInput_007_FnTable(void *u_iface)
+struct w_iface *create_winIVRInput_IVRInput_007_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(28);
@@ -2905,7 +2905,7 @@ __ASM_BLOCK_BEGIN(winIVRInput_IVRInput_010_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRInput_IVRInput_010(void *u_iface)
+struct w_iface *create_winIVRInput_IVRInput_010( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -2920,7 +2920,7 @@ void destroy_winIVRInput_IVRInput_010(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRInput_IVRInput_010_FnTable(void *u_iface)
+struct w_iface *create_winIVRInput_IVRInput_010_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(32);

@@ -131,7 +131,7 @@ __ASM_BLOCK_BEGIN(winIVRScreenshots_IVRScreenshots_001_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRScreenshots_IVRScreenshots_001(void *u_iface)
+struct w_iface *create_winIVRScreenshots_IVRScreenshots_001( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -146,7 +146,7 @@ void destroy_winIVRScreenshots_IVRScreenshots_001(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRScreenshots_IVRScreenshots_001_FnTable(void *u_iface)
+struct w_iface *create_winIVRScreenshots_IVRScreenshots_001_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(7);

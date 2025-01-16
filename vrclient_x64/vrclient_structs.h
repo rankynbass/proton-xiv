@@ -7,8 +7,6 @@
 
 #ifdef __cplusplus
 #include <array>
-extern "C"
-{
 #endif /* __cplusplus */
 
 #ifdef __cplusplus
@@ -128,6 +126,11 @@ enum ETextureType
     TextureType_DXGISharedHandle = 5,
 };
 
+struct u_iface
+{
+    UINT64 handle;
 #ifdef __cplusplus
-} /* extern "C" */
+    template< typename T > struct u_iface &operator=(const T* value) { this->handle = (UINT_PTR)value; return *this; }
+    template< typename T > operator T*() const { return (T*)(UINT_PTR)this->handle; }
 #endif /* __cplusplus */
+};

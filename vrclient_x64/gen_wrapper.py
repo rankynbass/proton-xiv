@@ -462,11 +462,17 @@ class Method:
     def get_arguments(self):
         return self._cursor.get_arguments()
 
+    def returns_unix_iface(self):
+        return self.name.startswith('GetGenericInterface')
+
     def write_params(self, out):
         returns_record = self.result_type.get_canonical().kind == TypeKind.RECORD
 
-        ret = "*_ret" if returns_record else "_ret"
-        ret = f'{declspec(self.result_type, ret, "w_")}'
+        if self.returns_unix_iface():
+            ret = 'struct u_iface _ret'
+        else:
+            ret = "*_ret" if returns_record else "_ret"
+            ret = f'{declspec(self.result_type, ret, "w_")}'
 
         names = [p.spelling if p.spelling != "" else f'_{chr(0x61 + i)}'
                  for i, p in enumerate(self.get_arguments())]
@@ -476,7 +482,7 @@ class Method:
             params = [ret] + params
             names = ['_ret'] + names
 
-        params = ['void *u_iface'] + params
+        params = ['struct u_iface u_iface'] + params
         names = ['u_iface'] + names
 
         out(f'struct {self.full_name}_params\n')
@@ -965,7 +971,7 @@ def handle_class(klass):
         out(u'    );\n')
         out(u'__ASM_BLOCK_END\n')
         out(u'\n')
-        out(f'struct w_iface *create_{winclassname}(void *u_iface)\n')
+        out(f'struct w_iface *create_{winclassname}( struct u_iface u_iface )\n')
         out(u'{\n')
         out(u'    struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));\n')
         out(u'    TRACE("-> %p\\n", r);\n')
@@ -980,7 +986,7 @@ def handle_class(klass):
         out(u'}\n\n')
 
         # flat (FnTable) API
-        out(f'struct w_iface *create_{winclassname}_FnTable(void *u_iface)\n')
+        out(f'struct w_iface *create_{winclassname}_FnTable( struct u_iface u_iface )\n')
         out(u'{\n')
         out(u'    struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));\n')
         out(f'    struct thunk *thunks = alloc_thunks({len(klass.methods)});\n')
@@ -1405,8 +1411,8 @@ with open("vrclient_generated.h", "w") as file:
     out(u'/* This file is auto-generated, do not edit. */\n\n')
 
     for _, klass in sorted(all_classes.items()):
-        out(f"extern struct w_iface *create_win{klass.full_name}(void *);\n")
-        out(f"extern struct w_iface *create_win{klass.full_name}_FnTable(void *);\n")
+        out(f"extern struct w_iface *create_win{klass.full_name}( struct u_iface );\n")
+        out(f"extern struct w_iface *create_win{klass.full_name}_FnTable( struct u_iface );\n")
         out(f"extern void destroy_win{klass.full_name}(struct w_iface *);\n")
         out(f"extern void destroy_win{klass.full_name}_FnTable(struct w_iface *);\n")
 

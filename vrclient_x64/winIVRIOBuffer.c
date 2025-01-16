@@ -97,7 +97,7 @@ __ASM_BLOCK_BEGIN(winIVRIOBuffer_IVRIOBuffer_001_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRIOBuffer_IVRIOBuffer_001(void *u_iface)
+struct w_iface *create_winIVRIOBuffer_IVRIOBuffer_001( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -112,7 +112,7 @@ void destroy_winIVRIOBuffer_IVRIOBuffer_001(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRIOBuffer_IVRIOBuffer_001_FnTable(void *u_iface)
+struct w_iface *create_winIVRIOBuffer_IVRIOBuffer_001_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(5);
@@ -243,7 +243,7 @@ __ASM_BLOCK_BEGIN(winIVRIOBuffer_IVRIOBuffer_002_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVRIOBuffer_IVRIOBuffer_002(void *u_iface)
+struct w_iface *create_winIVRIOBuffer_IVRIOBuffer_002( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -258,7 +258,7 @@ void destroy_winIVRIOBuffer_IVRIOBuffer_002(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVRIOBuffer_IVRIOBuffer_002_FnTable(void *u_iface)
+struct w_iface *create_winIVRIOBuffer_IVRIOBuffer_002_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(6);

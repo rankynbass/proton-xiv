@@ -53,7 +53,7 @@ struct compositor_data
     ID3D12DXVKInteropDevice *d3d12_device;
     ID3D12CommandQueue *d3d12_queue;
     BOOL d3d11_explicit_handoff, handoff_called;
-    void *client_core_linux_side;
+    struct u_iface u_client_core_iface;
 
 #define X(proc) PFN_##proc p_##proc;
     VK_PROCS
@@ -84,21 +84,21 @@ extern struct compositor_data compositor_data;
 struct w_iface
 {
     vtable_ptr *vtable;
-    void *u_iface;
+    struct u_iface u_iface;
     union
     {
         struct client_core_data user_data; /* for IVRClientCore */
     };
 };
 
-typedef struct w_iface *(*iface_constructor)( void * );
+typedef struct w_iface *(*iface_constructor)( struct u_iface );
 extern iface_constructor find_iface_constructor( const char *iface_version );
 typedef void (*iface_destructor)( struct w_iface * );
 extern iface_destructor find_iface_destructor( const char *iface_version );
 
 extern void init_rtti( char *base );
 
-struct w_iface *create_win_interface(const char *name, void *linux_side);
+struct w_iface *create_win_interface( const char *name, struct u_iface u_iface );
 void free_compositor_data_d3d12_device(void);
 
 struct generic_interface

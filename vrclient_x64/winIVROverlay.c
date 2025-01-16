@@ -607,7 +607,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_001_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_001(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_001( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -622,7 +622,7 @@ void destroy_winIVROverlay_IVROverlay_001(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_001_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_001_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(40);
@@ -1319,7 +1319,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_002_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_002(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_002( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -1334,7 +1334,7 @@ void destroy_winIVROverlay_IVROverlay_002(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_002_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_002_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(42);
@@ -2098,7 +2098,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_003_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_003(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_003( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -2113,7 +2113,7 @@ void destroy_winIVROverlay_IVROverlay_003(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_003_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_003_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(46);
@@ -2913,7 +2913,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_004_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_004(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_004( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -2928,7 +2928,7 @@ void destroy_winIVROverlay_IVROverlay_004(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_004_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_004_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(48);
@@ -3790,7 +3790,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_005_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_005(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_005( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -3805,7 +3805,7 @@ void destroy_winIVROverlay_IVROverlay_005(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_005_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_005_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(52);
@@ -4751,7 +4751,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_007_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_007(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_007( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -4766,7 +4766,7 @@ void destroy_winIVROverlay_IVROverlay_007(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_007_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_007_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(57);
@@ -5762,7 +5762,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_008_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_008(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_008( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -5777,7 +5777,7 @@ void destroy_winIVROverlay_IVROverlay_008(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_008_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_008_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(60);
@@ -6827,7 +6827,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_010_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_010(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_010( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -6842,7 +6842,7 @@ void destroy_winIVROverlay_IVROverlay_010(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_010_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_010_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(63);
@@ -7960,7 +7960,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_011_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_011(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_011( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -7975,7 +7975,7 @@ void destroy_winIVROverlay_IVROverlay_011(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_011_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_011_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(67);
@@ -9113,7 +9113,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_012_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_012(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_012( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -9128,7 +9128,7 @@ void destroy_winIVROverlay_IVROverlay_012(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_012_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_012_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(68);
@@ -10344,7 +10344,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_013_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_013(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_013( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -10359,7 +10359,7 @@ void destroy_winIVROverlay_IVROverlay_013(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_013_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_013_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(73);
@@ -11615,7 +11615,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_014_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_014(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_014( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -11630,7 +11630,7 @@ void destroy_winIVROverlay_IVROverlay_014(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_014_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_014_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(75);
@@ -12981,7 +12981,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_016_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_016(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_016( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -12996,7 +12996,7 @@ void destroy_winIVROverlay_IVROverlay_016(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_016_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_016_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(81);
@@ -14387,7 +14387,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_017_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_017(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_017( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -14402,7 +14402,7 @@ void destroy_winIVROverlay_IVROverlay_017(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_017_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_017_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(83);
@@ -15780,7 +15780,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_018_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_018(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_018( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -15795,7 +15795,7 @@ void destroy_winIVROverlay_IVROverlay_018(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_018_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_018_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(82);
@@ -17172,7 +17172,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_019_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_019(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_019( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -17187,7 +17187,7 @@ void destroy_winIVROverlay_IVROverlay_019(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_019_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_019_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(82);
@@ -18537,7 +18537,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_020_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_020(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_020( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -18552,7 +18552,7 @@ void destroy_winIVROverlay_IVROverlay_020(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_020_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_020_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(80);
@@ -19840,7 +19840,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_021_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_021(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_021( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -19855,7 +19855,7 @@ void destroy_winIVROverlay_IVROverlay_021(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_021_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_021_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(76);
@@ -21230,7 +21230,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_022_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_022(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_022( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -21245,7 +21245,7 @@ void destroy_winIVROverlay_IVROverlay_022(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_022_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_022_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(82);
@@ -22558,7 +22558,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_024_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_024(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_024( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -22573,7 +22573,7 @@ void destroy_winIVROverlay_IVROverlay_024(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_024_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_024_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(78);
@@ -23900,7 +23900,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_025_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_025(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_025( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -23915,7 +23915,7 @@ void destroy_winIVROverlay_IVROverlay_025(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_025_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_025_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(79);
@@ -25287,7 +25287,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_026_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_026(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_026( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -25302,7 +25302,7 @@ void destroy_winIVROverlay_IVROverlay_026(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_026_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_026_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(82);
@@ -26645,7 +26645,7 @@ __ASM_BLOCK_BEGIN(winIVROverlay_IVROverlay_027_vtables)
     );
 __ASM_BLOCK_END
 
-struct w_iface *create_winIVROverlay_IVROverlay_027(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_027( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     TRACE("-> %p\n", r);
@@ -26660,7 +26660,7 @@ void destroy_winIVROverlay_IVROverlay_027(struct w_iface *object)
     HeapFree(GetProcessHeap(), 0, object);
 }
 
-struct w_iface *create_winIVROverlay_IVROverlay_027_FnTable(void *u_iface)
+struct w_iface *create_winIVROverlay_IVROverlay_027_FnTable( struct u_iface u_iface )
 {
     struct w_iface *r = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(*r));
     struct thunk *thunks = alloc_thunks(80);
