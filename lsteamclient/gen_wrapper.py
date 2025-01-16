@@ -478,8 +478,6 @@ class BasicType:
         return False
 
 
-written_converters = set()
-
 class Struct:
     def __init__(self, sdkver, abi, cursor):
         self._cursor = cursor
@@ -580,21 +578,6 @@ class Struct:
 
     def write_converter(self, prefix, path_conv_fields):
         version = all_versions[sdkver][self.name]
-        from_abi = self._abi[0]
-        func_name = f'{version}_{prefix[0]}_from_{from_abi}'
-        if not func_name in written_converters:
-            written_converters.add(func_name)
-            out(f'static void {func_name}(void *dst, const void *src)\n')
-            out(u'{\n')
-            out(f'    {prefix[0]}_{version} *d = ({prefix[0]}_{version} *)dst;\n')
-            out(f'    const {from_abi}_{version} *s = (const {from_abi}_{version} *)src;\n\n')
-            for field in self.fields:
-                if field.name not in path_conv_fields:
-                    out(f'    d->{field.name} = s->{field.name};\n')
-                else:
-                    out(f'    steamclient_unix_path_to_dos_path(1, s->{field.name}, g_tmppath, TEMP_PATH_BUFFER_LENGTH, 1);\n')
-                    out(f'    d->{field.name} = g_tmppath;\n')
-            out(u'}\n')
 
         if self._abi[1:3] == '64':
             out(u'#ifdef __x86_64__\n')
@@ -606,7 +589,12 @@ class Struct:
         out(f'{self._abi}_{version}::operator {prefix}{version}() const\n')
         out(u'{\n')
         out(f'    {prefix}{version} ret;\n')
-        out(f'    {func_name}((void *)&ret, (const void *)this);\n')
+        for field in self.fields:
+            if field.name not in path_conv_fields:
+                out(f'    ret.{field.name} = this->{field.name};\n')
+            else:
+                out(f'    steamclient_unix_path_to_dos_path(1, this->{field.name}, g_tmppath, TEMP_PATH_BUFFER_LENGTH, 1);\n')
+                out(f'    ret.{field.name} = g_tmppath;\n')
         out(u'    return ret;\n')
         out(u'}\n')
         out(u'#endif\n\n')
@@ -1701,13 +1689,16 @@ with open('unixlib_generated.cpp', 'w') as file:
 
             if abis["w64"].needs_conversion(abis["u64"]):
                 abis['w64'].write_converter('u64_', {})
-                out(u'\n')
                 abis['u64'].write_converter('w64_', path_conv_fields)
 
             if abis["w32"].needs_conversion(abis["u32"]):
                 abis['w32'].write_converter('u32_', {})
-                out(u'\n')
                 abis['u32'].write_converter('w32_', path_conv_fields)
+
+            out(f'static void {version}_utow(void *dst, const void *src)\n')
+            out(u'{\n')
+            out(f'    *(w_{version} *)dst = *(const u_{version} *)src;\n')
+            out(u'}\n\n')
 
     out(u'#ifdef __i386__\n')
     out(u'const struct callback_def callback_data[] =\n{\n');
@@ -1716,14 +1707,10 @@ with open('unixlib_generated.cpp', 'w') as file:
         name, value = abis["u32"].name, (cbid, abis["w32"].size, abis["u32"].size)
         if name in all_versions[sdkver]: name = all_versions[sdkver][name]
 
-        w_from_u = f'{name}_w_from_u'
-        if not w_from_u in written_converters:
-            w_from_u = u'nullptr'
-
         if value not in values:
-            out(f'    {{ {cbid}, {sdkver}, {abis["w32"].size}, {abis["u32"].size}, {w_from_u} }},\n')
+            out(f'    {{ {cbid}, {sdkver}, {abis["w32"].size}, {abis["u32"].size}, {name}_utow }},\n')
         else:
-            out(f'    /*{{ {cbid}, {sdkver}, {abis["w32"].size}, {abis["u32"].size}, {w_from_u} }},*/\n')
+            out(f'    /*{{ {cbid}, {sdkver}, {abis["w32"].size}, {abis["u32"].size}, {name}_utow }},*/\n')
         values.add(value)
     out(u'};\n');
     out(u'#endif\n')
@@ -1734,14 +1721,10 @@ with open('unixlib_generated.cpp', 'w') as file:
         name, value = abis["u64"].name, (cbid, abis["w64"].size, abis["u64"].size)
         if name in all_versions[sdkver]: name = all_versions[sdkver][name]
 
-        w_from_u = f'{name}_w_from_u'
-        if not w_from_u in written_converters:
-            w_from_u = u'nullptr'
-
         if value not in values:
-            out(f'    {{ {cbid}, {sdkver}, {abis["w64"].size}, {abis["u64"].size}, {w_from_u} }},\n')
+            out(f'    {{ {cbid}, {sdkver}, {abis["w64"].size}, {abis["u64"].size}, {name}_utow }},\n')
         else:
-            out(f'    /*{{ {cbid}, {sdkver}, {abis["w64"].size}, {abis["u64"].size}, {w_from_u} }},*/\n')
+            out(f'    /*{{ {cbid}, {sdkver}, {abis["w64"].size}, {abis["u64"].size}, {name}_utow }},*/\n')
         values.add(value)
     out(u'};\n');
     out(u'#endif\n')

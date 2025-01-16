@@ -10769,7 +10769,7 @@ const char * __thiscall winISteamFriends_SteamFriends018_GetPersonaName(struct w
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamFriends_SteamFriends018_GetPersonaName, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winISteamFriends_SteamFriends018_GetPersonaState(struct w_iface *_this)
@@ -10842,7 +10842,7 @@ const char * __thiscall winISteamFriends_SteamFriends018_GetFriendPersonaName(st
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamFriends_SteamFriends018_GetFriendPersonaName, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamFriends_SteamFriends018_GetFriendGamePlayed(struct w_iface *_this, CSteamID steamIDFriend, FriendGameInfo_t *pFriendGameInfo)
@@ -10868,7 +10868,7 @@ const char * __thiscall winISteamFriends_SteamFriends018_GetFriendPersonaNameHis
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamFriends_SteamFriends018_GetFriendPersonaNameHistory, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int32_t __thiscall winISteamFriends_SteamFriends018_GetFriendSteamLevel(struct w_iface *_this, CSteamID steamIDFriend)
@@ -10892,7 +10892,7 @@ const char * __thiscall winISteamFriends_SteamFriends018_GetPlayerNickname(struc
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamFriends_SteamFriends018_GetPlayerNickname, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int32_t __thiscall winISteamFriends_SteamFriends018_GetFriendsGroupCount(struct w_iface *_this)
@@ -10927,7 +10927,7 @@ const char * __thiscall winISteamFriends_SteamFriends018_GetFriendsGroupName(str
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamFriends_SteamFriends018_GetFriendsGroupName, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int32_t __thiscall winISteamFriends_SteamFriends018_GetFriendsGroupMembersCount(struct w_iface *_this, int16_t friendsGroupID)
@@ -11001,7 +11001,7 @@ const char * __thiscall winISteamFriends_SteamFriends018_GetClanName(struct w_if
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamFriends_SteamFriends018_GetClanName, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winISteamFriends_SteamFriends018_GetClanTag(struct w_iface *_this, CSteamID steamIDClan)
@@ -11013,7 +11013,7 @@ const char * __thiscall winISteamFriends_SteamFriends018_GetClanTag(struct w_ifa
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamFriends_SteamFriends018_GetClanTag, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winISteamFriends_SteamFriends018_GetClanActivityCounts(struct w_iface *_this, CSteamID steamIDClan, int32_t *pnOnline, int32_t *pnInGame, int32_t *pnChatting)
@@ -11303,7 +11303,7 @@ const char * __thiscall winISteamFriends_SteamFriends018_GetFriendRichPresence(s
     TRACE("%p\n", _this);
     IsBadStringPtrA(pchKey, -1);
     STEAMCLIENT_CALL( ISteamFriends_SteamFriends018_GetFriendRichPresence, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int32_t __thiscall winISteamFriends_SteamFriends018_GetFriendRichPresenceKeyCount(struct w_iface *_this, CSteamID steamIDFriend)
@@ -11328,7 +11328,7 @@ const char * __thiscall winISteamFriends_SteamFriends018_GetFriendRichPresenceKe
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamFriends_SteamFriends018_GetFriendRichPresenceKeyByIndex, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 void __thiscall winISteamFriends_SteamFriends018_RequestFriendRichPresence(struct w_iface *_this, CSteamID steamIDFriend)
@@ -11719,7 +11719,7 @@ const char * __thiscall winISteamFriends_SteamFriends018_GetProfileItemPropertyS
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamFriends_SteamFriends018_GetProfileItemPropertyString, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winISteamFriends_SteamFriends018_GetProfileItemPropertyUint(struct w_iface *_this, CSteamID steamID, uint32_t itemType, uint32_t prop)

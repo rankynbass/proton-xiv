@@ -4059,7 +4059,7 @@ struct ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionSteamID_p
 struct ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionClientName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t unSessionID;
 };
 
@@ -22615,7 +22615,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementIcon_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementDisplayAttribute_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     const char *pchName;
     const char *pchKey;
 };
@@ -22638,7 +22638,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetNumAchievements_pa
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t iAchievement;
 };
 
@@ -22712,7 +22712,7 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_FindLeaderboard_param
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetLeaderboardName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint64_t hSteamLeaderboard;
 };
 
@@ -33266,7 +33266,7 @@ struct ISteamFriends_SteamFriends017_GetProfileItemPropertyUint_params
 struct ISteamFriends_SteamFriends018_GetPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct ISteamFriends_SteamFriends018_GetPersonaState_params
@@ -33307,7 +33307,7 @@ struct ISteamFriends_SteamFriends018_GetFriendPersonaState_params
 struct ISteamFriends_SteamFriends018_GetFriendPersonaName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
 };
 
@@ -33322,7 +33322,7 @@ struct ISteamFriends_SteamFriends018_GetFriendGamePlayed_params
 struct ISteamFriends_SteamFriends018_GetFriendPersonaNameHistory_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iPersonaName;
 };
@@ -33337,7 +33337,7 @@ struct ISteamFriends_SteamFriends018_GetFriendSteamLevel_params
 struct ISteamFriends_SteamFriends018_GetPlayerNickname_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDPlayer;
 };
 
@@ -33357,7 +33357,7 @@ struct ISteamFriends_SteamFriends018_GetFriendsGroupIDByIndex_params
 struct ISteamFriends_SteamFriends018_GetFriendsGroupName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     int16_t friendsGroupID;
 };
 
@@ -33400,14 +33400,14 @@ struct ISteamFriends_SteamFriends018_GetClanByIndex_params
 struct ISteamFriends_SteamFriends018_GetClanName_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
 struct ISteamFriends_SteamFriends018_GetClanTag_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDClan;
 };
 
@@ -33572,7 +33572,7 @@ struct ISteamFriends_SteamFriends018_ClearRichPresence_params
 struct ISteamFriends_SteamFriends018_GetFriendRichPresence_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     const char *pchKey;
 };
@@ -33587,7 +33587,7 @@ struct ISteamFriends_SteamFriends018_GetFriendRichPresenceKeyCount_params
 struct ISteamFriends_SteamFriends018_GetFriendRichPresenceKeyByIndex_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamIDFriend;
     int32_t iKey;
 };
@@ -33815,7 +33815,7 @@ struct ISteamFriends_SteamFriends018_BHasEquippedProfileItem_params
 struct ISteamFriends_SteamFriends018_GetProfileItemPropertyString_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     CSteamID steamID;
     uint32_t itemType;
     uint32_t prop;

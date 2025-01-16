@@ -316,7 +316,7 @@ const char * __thiscall winISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003
     };
     TRACE("%p\n", _this);
     STEAMCLIENT_CALL( ISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionClientName, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winISteamRemotePlay_STEAMREMOTEPLAY_INTERFACE_VERSION003_GetSessionClientFormFactor(struct w_iface *_this, uint32_t unSessionID)
