@@ -276,7 +276,8 @@ NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION006_SetItemTags( void *args )
 {
     struct ISteamUGC_STEAMUGC_INTERFACE_VERSION006_SetItemTags_params *params = (struct ISteamUGC_STEAMUGC_INTERFACE_VERSION006_SetItemTags_params *)args;
     struct u_ISteamUGC_STEAMUGC_INTERFACE_VERSION006 *iface = (struct u_ISteamUGC_STEAMUGC_INTERFACE_VERSION006 *)params->u_iface;
-    params->_ret = iface->SetItemTags( params->updateHandle, params->pTags );
+    const u_SteamParamStringArray_t u_pTags = *params->pTags;
+    params->_ret = iface->SetItemTags( params->updateHandle, &u_pTags );
     return 0;
 }
 

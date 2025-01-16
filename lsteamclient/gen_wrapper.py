@@ -210,6 +210,27 @@ MANUAL_STRUCTS = [
     "RemoteStorageUpdatePublishedFileRequest_t",
 ]
 
+MANUAL_WOW64_STRUCTS = [
+    "CallbackMsg_t",
+    "HTML_ChangedTitle_t",
+    "HTML_ComboNeedsPaint_t",
+    "HTML_FileOpenDialog_t",
+    "HTML_FinishedRequest_t",
+    "HTML_JSAlert_t",
+    "HTML_JSConfirm_t",
+    "HTML_LinkAtPosition_t",
+    "HTML_NeedsPaint_t",
+    "HTML_NewWindow_t",
+    "HTML_OpenLinkInNewTab_t",
+    "HTML_ShowToolTip_t",
+    "HTML_StartRequest_t",
+    "HTML_StatusText_t",
+    "HTML_UpdateToolTip_t",
+    "HTML_URLChanged_t",
+    "RemoteStorageDownloadUGCResult_t",
+    "SteamParamStringArray_t",
+]
+
 UNIX_FUNCS = [
     'steamclient_init',
     'steamclient_init_registry',
@@ -581,19 +602,20 @@ class Struct:
             out(f'C_ASSERT( sizeof({prefix}{version}().{f.name}) >= {f.size} );\n')
         out(u'\n')
 
-    def write_converter(self, prefix, path_conv_fields):
+    def write_converter(self, abi, path_conv_fields):
         version = all_versions[sdkver][self.name]
+        u_bits = abi[1:3] if abi[0] == 'u' else self._abi[1:3]
 
-        if self._abi[1:3] == '64':
+        if u_bits == '64':
             out(u'#ifdef __x86_64__\n')
-        elif self._abi[1:3] == '32':
+        elif u_bits == '32':
             out(u'#ifdef __i386__\n')
         else:
             assert False
 
-        out(f'{self._abi}_{version}::operator {prefix}{version}() const\n')
+        out(f'{self._abi}_{version}::operator {abi}_{version}() const\n')
         out(u'{\n')
-        out(f'    {prefix}{version} ret;\n')
+        out(f'    {abi}_{version} ret;\n')
         for field in self.fields:
             if field.name not in path_conv_fields:
                 out(f'    ret.{field.name} = this->{field.name};\n')
@@ -851,6 +873,8 @@ def struct_needs_conversion(struct):
     name = canonical_typename(struct)
     if name in EXEMPT_STRUCTS:
         return False
+    if name in unique_structs:
+        return False
     if name in MANUAL_STRUCTS:
         return True
     if name in PATH_CONV_STRUCTS:
@@ -861,6 +885,8 @@ def struct_needs_conversion(struct):
     if abis['w32'].needs_conversion(abis['u32']):
         return True
     if abis['w64'].needs_conversion(abis['u64']):
+        return True
+    if abis['w32'].needs_conversion(abis['u64']):
         return True
     return False
 
@@ -1536,15 +1562,15 @@ with open('steamclient_structs_generated.h', 'w') as file:
                 continue
 
             if not abis["w64"].needs_conversion(abis["u64"]):
-                abis['w64'].write_definition(out, "w64_", [])
+                abis['w64'].write_definition(out, "w64_", ["w32_"])
             else:
                 abis['w64'].write_definition(out, "w64_", ["u64_"])
-                abis['u64'].write_definition(out, "u64_", ["w64_"])
+                abis['u64'].write_definition(out, "u64_", ["w64_", "w32_"])
 
             if not abis["w32"].needs_conversion(abis["u32"]):
-                abis['w32'].write_definition(out, "w32_", [])
+                abis['w32'].write_definition(out, "w32_", ["u64_"])
             else:
-                abis['w32'].write_definition(out, "w32_", ["u32_"])
+                abis['w32'].write_definition(out, "w32_", ["u32_", "u64_"])
                 abis['u32'].write_definition(out, "u32_", ["w32_"])
 
             out(u'#ifdef __i386__\n')
@@ -1694,12 +1720,16 @@ with open('unixlib_generated.cpp', 'w') as file:
             path_conv_fields = PATH_CONV_STRUCTS.get(name, {})
 
             if abis["w64"].needs_conversion(abis["u64"]):
-                abis['w64'].write_converter('u64_', {})
-                abis['u64'].write_converter('w64_', path_conv_fields)
+                abis['w64'].write_converter('u64', {})
+                abis['u64'].write_converter('w64', path_conv_fields)
 
             if abis["w32"].needs_conversion(abis["u32"]):
-                abis['w32'].write_converter('u32_', {})
-                abis['u32'].write_converter('w32_', path_conv_fields)
+                abis['w32'].write_converter('u32', {})
+                abis['u32'].write_converter('w32', path_conv_fields)
+
+            if name not in MANUAL_WOW64_STRUCTS:
+                abis['w32'].write_converter('u64', {})
+                abis['u64'].write_converter('w32', path_conv_fields)
 
     def write_callbacks(u_abi, w_abi):
         out(u'const struct callback_def callback_data[] =\n{\n');
