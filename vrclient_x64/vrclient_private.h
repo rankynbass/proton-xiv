@@ -1,3 +1,6 @@
+#ifndef __VRCLIENT_PRIVATE_H
+#define __VRCLIENT_PRIVATE_H
+
 #include <stdarg.h>
 #include <stddef.h>
 #include <stdint.h>
@@ -123,3 +126,5 @@ extern w_Texture_t vrclient_translate_texture_d3d12( const w_Texture_t *texture,
 #include "vrclient_generated.h"
 
 #endif  /* __cplusplus */
+
+#endif /* __VRCLIENT_PRIVATE_H */

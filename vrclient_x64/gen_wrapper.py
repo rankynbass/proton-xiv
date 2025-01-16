@@ -1124,7 +1124,6 @@ def generate_flatapi_c():
 #include "windef.h"
 #include "winbase.h"
 
-#include "cxx.h"
 #include "flatapi.h"
 
 #ifdef __i386__
