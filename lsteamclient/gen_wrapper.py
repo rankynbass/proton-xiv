@@ -190,10 +190,12 @@ VERSION_ALIASES = {
 EXEMPT_STRUCTS = {
     "CSteamID",
     "CGameID",
-    "CCallbackBase",
+    "CCallbackBase", # not actually used
     "SteamIPAddress_t",
-    "SteamPS3Params_t",
-    "ValvePackingSentinel_t"
+    "SteamPS3Params_t", # not actually used
+    "ValvePackingSentinel_t", # not actually used
+    "CSteamAPIContext", # not actually used
+    "CSteamGameServerAPIContext", # not actually used
 }
 
 # structs for which the size is important, either because of arrays or size parameters
