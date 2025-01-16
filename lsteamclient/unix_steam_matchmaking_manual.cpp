@@ -250,179 +250,157 @@ struct u_ISteamMatchmakingRulesResponse *create_LinuxISteamMatchmakingRulesRespo
     return ret;
 }
 
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers001_RequestInternetServerList( void *args )
+template< typename Params >
+static NTSTATUS ISteamMatchmakingServers_RequestInternetServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params )
 {
-    struct ISteamMatchmakingServers_SteamMatchMakingServers001_RequestInternetServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers001_RequestInternetServerList_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *)params->u_iface;
-    u_ISteamMatchmakingServerListResponse_099u *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
-    iface->RequestInternetServerList( params->iApp, params->ppchFilters, params->nFilters, u_pRequestServersResponse );
+    u_ISteamMatchmakingServerListResponse_099u *u_response = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
+    iface->RequestInternetServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
     return 0;
 }
 
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers001_RequestLANServerList( void *args )
+template< typename Params >
+static NTSTATUS ISteamMatchmakingServers_RequestLANServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params )
 {
-    struct ISteamMatchmakingServers_SteamMatchMakingServers001_RequestLANServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers001_RequestLANServerList_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *)params->u_iface;
-    u_ISteamMatchmakingServerListResponse_099u *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
-    iface->RequestLANServerList( params->iApp, u_pRequestServersResponse );
+    u_ISteamMatchmakingServerListResponse_099u *u_response = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
+    iface->RequestLANServerList( params->iApp, u_response );
     return 0;
 }
 
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers001_RequestFriendsServerList( void *args )
+template< typename Params >
+static NTSTATUS ISteamMatchmakingServers_RequestFriendsServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params )
 {
-    struct ISteamMatchmakingServers_SteamMatchMakingServers001_RequestFriendsServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers001_RequestFriendsServerList_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *)params->u_iface;
-    u_ISteamMatchmakingServerListResponse_099u *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
-    iface->RequestFriendsServerList( params->iApp, params->ppchFilters, params->nFilters, u_pRequestServersResponse );
+    u_ISteamMatchmakingServerListResponse_099u *u_response = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
+    iface->RequestFriendsServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
     return 0;
 }
 
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers001_RequestFavoritesServerList( void *args )
+template< typename Params >
+static NTSTATUS ISteamMatchmakingServers_RequestFavoritesServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params )
 {
-    struct ISteamMatchmakingServers_SteamMatchMakingServers001_RequestFavoritesServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers001_RequestFavoritesServerList_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *)params->u_iface;
-    u_ISteamMatchmakingServerListResponse_099u *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
-    iface->RequestFavoritesServerList( params->iApp, params->ppchFilters, params->nFilters, u_pRequestServersResponse );
+    u_ISteamMatchmakingServerListResponse_099u *u_response = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
+    iface->RequestFavoritesServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
     return 0;
 }
 
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers001_RequestHistoryServerList( void *args )
+template< typename Params >
+static NTSTATUS ISteamMatchmakingServers_RequestHistoryServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params )
 {
-    struct ISteamMatchmakingServers_SteamMatchMakingServers001_RequestHistoryServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers001_RequestHistoryServerList_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *)params->u_iface;
-    u_ISteamMatchmakingServerListResponse_099u *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
-    iface->RequestHistoryServerList( params->iApp, params->ppchFilters, params->nFilters, u_pRequestServersResponse );
+    u_ISteamMatchmakingServerListResponse_099u *u_response = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
+    iface->RequestHistoryServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
     return 0;
 }
 
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers001_RequestSpectatorServerList( void *args )
+template< typename Params >
+static NTSTATUS ISteamMatchmakingServers_RequestSpectatorServerList( u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface, Params *params )
 {
-    struct ISteamMatchmakingServers_SteamMatchMakingServers001_RequestSpectatorServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers001_RequestSpectatorServerList_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *)params->u_iface;
-    u_ISteamMatchmakingServerListResponse_099u *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
-    iface->RequestSpectatorServerList( params->iApp, params->ppchFilters, params->nFilters, u_pRequestServersResponse );
+    u_ISteamMatchmakingServerListResponse_099u *u_response = create_LinuxISteamMatchmakingServerListResponse_099u( params->pRequestServersResponse );
+    iface->RequestSpectatorServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
     return 0;
 }
 
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers001_PingServer( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamMatchmakingServers_RequestInternetServerList( Iface *iface, Params *params )
 {
-    struct ISteamMatchmakingServers_SteamMatchMakingServers001_PingServer_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers001_PingServer_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *)params->u_iface;
-    u_ISteamMatchmakingPingResponse *u_pRequestServersResponse = create_LinuxISteamMatchmakingPingResponse( params->pRequestServersResponse );
-    params->_ret = iface->PingServer( params->unIP, params->usPort, u_pRequestServersResponse );
+    SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
+    params->_ret = iface->RequestInternetServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
+    u_response->add_request( params->_ret );
     return 0;
 }
 
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers001_PlayerDetails( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamMatchmakingServers_RequestLANServerList( Iface *iface, Params *params )
 {
-    struct ISteamMatchmakingServers_SteamMatchMakingServers001_PlayerDetails_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers001_PlayerDetails_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *)params->u_iface;
-    u_ISteamMatchmakingPlayersResponse *u_pRequestServersResponse = create_LinuxISteamMatchmakingPlayersResponse( params->pRequestServersResponse );
-    params->_ret = iface->PlayerDetails( params->unIP, params->usPort, u_pRequestServersResponse );
+    SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
+    params->_ret = iface->RequestLANServerList( params->iApp, u_response );
+    u_response->add_request( params->_ret );
     return 0;
 }
 
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers001_ServerRules( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamMatchmakingServers_RequestFriendsServerList( Iface *iface, Params *params )
 {
-    struct ISteamMatchmakingServers_SteamMatchMakingServers001_ServerRules_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers001_ServerRules_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers001 *)params->u_iface;
-    u_ISteamMatchmakingRulesResponse *u_pRequestServersResponse = create_LinuxISteamMatchmakingRulesResponse( params->pRequestServersResponse );
-    params->_ret = iface->ServerRules( params->unIP, params->usPort, u_pRequestServersResponse );
+    SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
+    params->_ret = iface->RequestFriendsServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
+    u_response->add_request( params->_ret );
     return 0;
 }
 
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_RequestInternetServerList( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamMatchmakingServers_RequestFavoritesServerList( Iface *iface, Params *params )
 {
-    struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestInternetServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestInternetServerList_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->u_iface;
-    SteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
-    params->_ret = iface->RequestInternetServerList( params->iApp, params->ppchFilters, params->nFilters, u_pRequestServersResponse );
-    u_pRequestServersResponse->add_request( params->_ret );
+    SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
+    params->_ret = iface->RequestFavoritesServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
+    u_response->add_request( params->_ret );
     return 0;
 }
 
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_RequestLANServerList( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamMatchmakingServers_RequestHistoryServerList( Iface *iface, Params *params )
 {
-    struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestLANServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestLANServerList_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->u_iface;
-    SteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
-    params->_ret = iface->RequestLANServerList( params->iApp, u_pRequestServersResponse );
-    u_pRequestServersResponse->add_request( params->_ret );
+    SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
+    params->_ret = iface->RequestHistoryServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
+    u_response->add_request( params->_ret );
     return 0;
 }
 
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_RequestFriendsServerList( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamMatchmakingServers_RequestSpectatorServerList( Iface *iface, Params *params )
 {
-    struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestFriendsServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestFriendsServerList_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->u_iface;
-    SteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
-    params->_ret = iface->RequestFriendsServerList( params->iApp, params->ppchFilters, params->nFilters, u_pRequestServersResponse );
-    u_pRequestServersResponse->add_request( params->_ret );
+    SteamMatchmakingServerListResponse_106 *u_response = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
+    params->_ret = iface->RequestSpectatorServerList( params->iApp, params->ppchFilters, params->nFilters, u_response );
+    u_response->add_request( params->_ret );
     return 0;
 }
 
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_RequestFavoritesServerList( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamMatchmakingServers_PingServer( Iface *iface, Params *params )
 {
-    struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestFavoritesServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestFavoritesServerList_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->u_iface;
-    SteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
-    params->_ret = iface->RequestFavoritesServerList( params->iApp, params->ppchFilters, params->nFilters, u_pRequestServersResponse );
-    u_pRequestServersResponse->add_request( params->_ret );
+    u_ISteamMatchmakingPingResponse *u_response = create_LinuxISteamMatchmakingPingResponse( params->pRequestServersResponse );
+    params->_ret = iface->PingServer( params->unIP, params->usPort, u_response );
     return 0;
 }
 
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_RequestHistoryServerList( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamMatchmakingServers_PlayerDetails( Iface *iface, Params *params )
 {
-    struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestHistoryServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestHistoryServerList_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->u_iface;
-    SteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
-    params->_ret = iface->RequestHistoryServerList( params->iApp, params->ppchFilters, params->nFilters, u_pRequestServersResponse );
-    u_pRequestServersResponse->add_request( params->_ret );
+    u_ISteamMatchmakingPlayersResponse *u_response = create_LinuxISteamMatchmakingPlayersResponse( params->pRequestServersResponse );
+    params->_ret = iface->PlayerDetails( params->unIP, params->usPort, u_response );
     return 0;
 }
 
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_RequestSpectatorServerList( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamMatchmakingServers_ServerRules( Iface *iface, Params *params )
 {
-    struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestSpectatorServerList_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_RequestSpectatorServerList_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->u_iface;
-    SteamMatchmakingServerListResponse_106 *u_pRequestServersResponse = create_LinuxISteamMatchmakingServerListResponse_106( params->pRequestServersResponse );
-    params->_ret = iface->RequestSpectatorServerList( params->iApp, params->ppchFilters, params->nFilters, u_pRequestServersResponse );
-    u_pRequestServersResponse->add_request( params->_ret );
+    u_ISteamMatchmakingRulesResponse *u_response = create_LinuxISteamMatchmakingRulesResponse( params->pRequestServersResponse );
+    params->_ret = iface->ServerRules( params->unIP, params->usPort, u_response );
     return 0;
 }
 
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_PingServer( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS ISteamMatchmakingServers_ReleaseRequest( Iface *iface, Params *params )
 {
-    struct ISteamMatchmakingServers_SteamMatchMakingServers002_PingServer_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_PingServer_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->u_iface;
-    u_ISteamMatchmakingPingResponse *u_pRequestServersResponse = create_LinuxISteamMatchmakingPingResponse( params->pRequestServersResponse );
-    params->_ret = iface->PingServer( params->unIP, params->usPort, u_pRequestServersResponse );
-    return 0;
-}
-
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_PlayerDetails( void *args )
-{
-    struct ISteamMatchmakingServers_SteamMatchMakingServers002_PlayerDetails_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_PlayerDetails_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->u_iface;
-    u_ISteamMatchmakingPlayersResponse *u_pRequestServersResponse = create_LinuxISteamMatchmakingPlayersResponse( params->pRequestServersResponse );
-    params->_ret = iface->PlayerDetails( params->unIP, params->usPort, u_pRequestServersResponse );
-    return 0;
-}
-
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_ServerRules( void *args )
-{
-    struct ISteamMatchmakingServers_SteamMatchMakingServers002_ServerRules_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_ServerRules_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->u_iface;
-    u_ISteamMatchmakingRulesResponse *u_pRequestServersResponse = create_LinuxISteamMatchmakingRulesResponse( params->pRequestServersResponse );
-    params->_ret = iface->ServerRules( params->unIP, params->usPort, u_pRequestServersResponse );
-    return 0;
-}
-
-NTSTATUS ISteamMatchmakingServers_SteamMatchMakingServers002_ReleaseRequest( void *args )
-{
-    struct ISteamMatchmakingServers_SteamMatchMakingServers002_ReleaseRequest_params *params = (struct ISteamMatchmakingServers_SteamMatchMakingServers002_ReleaseRequest_params *)args;
-    struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *iface = (struct u_ISteamMatchmakingServers_SteamMatchMakingServers002 *)params->u_iface;
     iface->ReleaseRequest( params->hServerListRequest );
     SteamMatchmakingServerListResponse_106::request_released( params->hServerListRequest );
     return 0;
 }
+
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers001, RequestInternetServerList );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers001, RequestLANServerList );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers001, RequestFriendsServerList );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers001, RequestFavoritesServerList );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers001, RequestHistoryServerList );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers001, RequestSpectatorServerList );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers001, PingServer );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers001, PlayerDetails );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers001, ServerRules );
+
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, RequestInternetServerList );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, RequestLANServerList );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, RequestFriendsServerList );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, RequestFavoritesServerList );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, RequestHistoryServerList );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, RequestSpectatorServerList );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, PingServer );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, PlayerDetails );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, ServerRules );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, ReleaseRequest );
