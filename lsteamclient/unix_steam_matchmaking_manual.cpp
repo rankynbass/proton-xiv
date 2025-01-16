@@ -390,6 +390,48 @@ static NTSTATUS ISteamMatchmakingServers_ReleaseRequest( Iface *iface, Params *p
     return 0;
 }
 
+template< typename Iface, typename Params >
+static NTSTATUS ISteamMatchmakingServers_GetServerDetails( Iface *iface, Params *params )
+{
+    params->_ret = iface->GetServerDetails( params->hRequest, params->iServer );
+    return 0;
+}
+
+template< typename Iface, typename Params >
+static NTSTATUS ISteamMatchmakingServers_CancelQuery( Iface *iface, Params *params )
+{
+    iface->CancelQuery( params->hRequest );
+    return 0;
+}
+
+template< typename Iface, typename Params >
+static NTSTATUS ISteamMatchmakingServers_RefreshQuery( Iface *iface, Params *params )
+{
+    iface->RefreshQuery( params->hRequest );
+    return 0;
+}
+
+template< typename Iface, typename Params >
+static NTSTATUS ISteamMatchmakingServers_IsRefreshing( Iface *iface, Params *params )
+{
+    params->_ret = iface->IsRefreshing( params->hRequest );
+    return 0;
+}
+
+template< typename Iface, typename Params >
+static NTSTATUS ISteamMatchmakingServers_GetServerCount( Iface *iface, Params *params )
+{
+    params->_ret = iface->GetServerCount( params->hRequest );
+    return 0;
+}
+
+template< typename Iface, typename Params >
+static NTSTATUS ISteamMatchmakingServers_RefreshServer( Iface *iface, Params *params )
+{
+    iface->RefreshServer( params->hRequest, params->iServer );
+    return 0;
+}
+
 LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers001, RequestInternetServerList );
 LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers001, RequestLANServerList );
 LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers001, RequestFriendsServerList );
@@ -410,3 +452,9 @@ LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, Pi
 LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, PlayerDetails );
 LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, ServerRules );
 LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, ReleaseRequest );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, GetServerDetails );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, CancelQuery );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, RefreshQuery );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, IsRefreshing );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, GetServerCount );
+LSTEAMCLIENT_UNIX_IMPL( ISteamMatchmakingServers, SteamMatchMakingServers002, RefreshServer );
