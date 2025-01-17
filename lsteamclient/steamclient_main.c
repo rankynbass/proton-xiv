@@ -54,7 +54,7 @@ static BOOL wsa_initialized;
 
 BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, void *reserved)
 {
-    TRACE("(%p, %u, %p)\n", instance, reason, reserved);
+    TRACE("(%p, %lu, %p)\n", instance, reason, reserved);
 
     switch (reason)
     {
@@ -158,7 +158,7 @@ static void *get_mem_from_steamclient_dll(size_t size, unsigned int version, voi
         if (!(mod = GetModuleHandleW(steamclientW)))
         {
             /* That is steamclient64.dll for x64 but no known use cases on x64.*/
-            WARN("Module not found, err %u.\n", GetLastError());
+            WARN("Module not found, err %lu.\n", GetLastError());
             alloc_base = error_ptr;
             return NULL;
         }
