@@ -1193,6 +1193,7 @@ def default_compat_config():
                 "6030", #Star Wars - Jedi Knight II: Jedi Outcast
                 "2842040", #Star Wars Outlaws
                 "245300", #Disney Epic Mickey 2: The Power of Two
+                "2594920", #Atelier Resleriana: Forgotten Alchemy and the Polar Night Liberator
                 ]:
             ret.add("gamedrive")
 
