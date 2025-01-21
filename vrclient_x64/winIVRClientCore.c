@@ -45,7 +45,7 @@ const char * __thiscall winIVRClientCore_IVRClientCore_002_GetEnglishStringForHm
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRClientCore_IVRClientCore_002_GetEnglishStringForHmdError, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRClientCore_IVRClientCore_002_GetIDForVRInitError(struct w_iface *_this, uint32_t eError)
@@ -57,7 +57,7 @@ const char * __thiscall winIVRClientCore_IVRClientCore_002_GetIDForVRInitError(s
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRClientCore_IVRClientCore_002_GetIDForVRInitError, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 extern vtable_ptr winIVRClientCore_IVRClientCore_002_vtable;
@@ -158,7 +158,7 @@ const char * __thiscall winIVRClientCore_IVRClientCore_003_GetEnglishStringForHm
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRClientCore_IVRClientCore_003_GetEnglishStringForHmdError, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRClientCore_IVRClientCore_003_GetIDForVRInitError(struct w_iface *_this, uint32_t eError)
@@ -170,7 +170,7 @@ const char * __thiscall winIVRClientCore_IVRClientCore_003_GetIDForVRInitError(s
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRClientCore_IVRClientCore_003_GetIDForVRInitError, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 extern vtable_ptr winIVRClientCore_IVRClientCore_003_vtable;

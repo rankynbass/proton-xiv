@@ -164,7 +164,7 @@ const char * __thiscall winIVRApplications_IVRApplications_001_GetApplicationsEr
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRApplications_IVRApplications_001_GetApplicationsErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVRApplications_IVRApplications_001_GetApplicationPropertyString(struct w_iface *_this, const char *pchAppKey, uint32_t eProperty, char *pchPropertyValueBuffer, uint32_t unPropertyValueBufferLen, uint32_t *peError)
@@ -292,7 +292,7 @@ const char * __thiscall winIVRApplications_IVRApplications_001_GetApplicationsTr
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRApplications_IVRApplications_001_GetApplicationsTransitionStateNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 extern vtable_ptr winIVRApplications_IVRApplications_001_vtable;
@@ -539,7 +539,7 @@ const char * __thiscall winIVRApplications_IVRApplications_002_GetApplicationsEr
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRApplications_IVRApplications_002_GetApplicationsErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVRApplications_IVRApplications_002_GetApplicationPropertyString(struct w_iface *_this, const char *pchAppKey, uint32_t eProperty, char *pchPropertyValueBuffer, uint32_t unPropertyValueBufferLen, uint32_t *peError)
@@ -642,7 +642,7 @@ const char * __thiscall winIVRApplications_IVRApplications_002_GetApplicationsTr
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRApplications_IVRApplications_002_GetApplicationsTransitionStateNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRApplications_IVRApplications_002_IsQuitUserPromptRequested(struct w_iface *_this)
@@ -899,7 +899,7 @@ const char * __thiscall winIVRApplications_IVRApplications_003_GetApplicationsEr
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRApplications_IVRApplications_003_GetApplicationsErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVRApplications_IVRApplications_003_GetApplicationPropertyString(struct w_iface *_this, const char *pchAppKey, uint32_t eProperty, char *pchPropertyValueBuffer, uint32_t unPropertyValueBufferLen, uint32_t *peError)
@@ -1016,7 +1016,7 @@ const char * __thiscall winIVRApplications_IVRApplications_003_GetApplicationsTr
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRApplications_IVRApplications_003_GetApplicationsTransitionStateNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRApplications_IVRApplications_003_IsQuitUserPromptRequested(struct w_iface *_this)
@@ -1289,7 +1289,7 @@ const char * __thiscall winIVRApplications_IVRApplications_004_GetApplicationsEr
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRApplications_IVRApplications_004_GetApplicationsErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVRApplications_IVRApplications_004_GetApplicationPropertyString(struct w_iface *_this, const char *pchAppKey, uint32_t eProperty, char *pchPropertyValueBuffer, uint32_t unPropertyValueBufferLen, uint32_t *peError)
@@ -1406,7 +1406,7 @@ const char * __thiscall winIVRApplications_IVRApplications_004_GetApplicationsTr
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRApplications_IVRApplications_004_GetApplicationsTransitionStateNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRApplications_IVRApplications_004_IsQuitUserPromptRequested(struct w_iface *_this)
@@ -1713,7 +1713,7 @@ const char * __thiscall winIVRApplications_IVRApplications_005_GetApplicationsEr
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRApplications_IVRApplications_005_GetApplicationsErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVRApplications_IVRApplications_005_GetApplicationPropertyString(struct w_iface *_this, const char *pchAppKey, uint32_t eProperty, char *pchPropertyValueBuffer, uint32_t unPropertyValueBufferLen, uint32_t *peError)
@@ -1830,7 +1830,7 @@ const char * __thiscall winIVRApplications_IVRApplications_005_GetApplicationsTr
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRApplications_IVRApplications_005_GetApplicationsTransitionStateNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRApplications_IVRApplications_005_IsQuitUserPromptRequested(struct w_iface *_this)
@@ -2159,7 +2159,7 @@ const char * __thiscall winIVRApplications_IVRApplications_006_GetApplicationsEr
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRApplications_IVRApplications_006_GetApplicationsErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVRApplications_IVRApplications_006_GetApplicationPropertyString(struct w_iface *_this, const char *pchAppKey, uint32_t eProperty, char *pchPropertyValueBuffer, uint32_t unPropertyValueBufferLen, uint32_t *peError)
@@ -2345,7 +2345,7 @@ const char * __thiscall winIVRApplications_IVRApplications_006_GetApplicationsTr
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRApplications_IVRApplications_006_GetApplicationsTransitionStateNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRApplications_IVRApplications_006_IsQuitUserPromptRequested(struct w_iface *_this)
@@ -2698,7 +2698,7 @@ const char * __thiscall winIVRApplications_IVRApplications_007_GetApplicationsEr
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRApplications_IVRApplications_007_GetApplicationsErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVRApplications_IVRApplications_007_GetApplicationPropertyString(struct w_iface *_this, const char *pchAppKey, uint32_t eProperty, char *pchPropertyValueBuffer, uint32_t unPropertyValueBufferLen, uint32_t *peError)
@@ -2884,7 +2884,7 @@ const char * __thiscall winIVRApplications_IVRApplications_007_GetSceneApplicati
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRApplications_IVRApplications_007_GetSceneApplicationStateNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVRApplications_IVRApplications_007_LaunchInternalProcess(struct w_iface *_this, const char *pchBinaryPath, const char *pchArguments, const char *pchWorkingDirectory)

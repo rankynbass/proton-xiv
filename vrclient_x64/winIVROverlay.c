@@ -120,7 +120,7 @@ const char * __thiscall winIVROverlay_IVROverlay_001_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_001_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_001_SetOverlayFlag(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t eOverlayFlag, int8_t bEnabled)
@@ -799,7 +799,7 @@ const char * __thiscall winIVROverlay_IVROverlay_002_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_002_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_002_SetOverlayFlag(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t eOverlayFlag, int8_t bEnabled)
@@ -1563,7 +1563,7 @@ const char * __thiscall winIVROverlay_IVROverlay_003_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_003_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_003_SetOverlayFlag(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t eOverlayFlag, int8_t bEnabled)
@@ -2348,7 +2348,7 @@ const char * __thiscall winIVROverlay_IVROverlay_004_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_004_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_004_SetOverlayFlag(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t eOverlayFlag, int8_t bEnabled)
@@ -3169,7 +3169,7 @@ const char * __thiscall winIVROverlay_IVROverlay_005_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_005_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_005_SetOverlayFlag(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t eOverlayFlag, int8_t bEnabled)
@@ -4055,7 +4055,7 @@ const char * __thiscall winIVROverlay_IVROverlay_007_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_007_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_007_SetOverlayFlag(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t eOverlayFlag, int8_t bEnabled)
@@ -5024,7 +5024,7 @@ const char * __thiscall winIVROverlay_IVROverlay_008_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_008_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_008_SetOverlayFlag(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t eOverlayFlag, int8_t bEnabled)
@@ -6041,7 +6041,7 @@ const char * __thiscall winIVROverlay_IVROverlay_010_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_010_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_010_SetOverlayFlag(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t eOverlayFlag, int8_t bEnabled)
@@ -7113,7 +7113,7 @@ const char * __thiscall winIVROverlay_IVROverlay_011_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_011_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_011_SetOverlayRenderingPid(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t unPID)
@@ -8251,7 +8251,7 @@ const char * __thiscall winIVROverlay_IVROverlay_012_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_012_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_012_SetOverlayRenderingPid(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t unPID)
@@ -9410,7 +9410,7 @@ const char * __thiscall winIVROverlay_IVROverlay_013_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_013_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_013_SetOverlayRenderingPid(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t unPID)
@@ -10648,7 +10648,7 @@ const char * __thiscall winIVROverlay_IVROverlay_014_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_014_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_014_SetOverlayRenderingPid(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t unPID)
@@ -11940,7 +11940,7 @@ const char * __thiscall winIVROverlay_IVROverlay_016_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_016_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_016_SetOverlayRenderingPid(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t unPID)
@@ -13314,7 +13314,7 @@ const char * __thiscall winIVROverlay_IVROverlay_017_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_017_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_017_SetOverlayRenderingPid(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t unPID)
@@ -14721,7 +14721,7 @@ const char * __thiscall winIVROverlay_IVROverlay_018_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_018_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_018_SetOverlayRenderingPid(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t unPID)
@@ -16113,7 +16113,7 @@ const char * __thiscall winIVROverlay_IVROverlay_019_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_019_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_019_SetOverlayRenderingPid(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t unPID)
@@ -17480,7 +17480,7 @@ const char * __thiscall winIVROverlay_IVROverlay_020_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_020_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_020_SetOverlayRenderingPid(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t unPID)
@@ -18839,7 +18839,7 @@ const char * __thiscall winIVROverlay_IVROverlay_021_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_021_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_021_SetOverlayRenderingPid(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t unPID)
@@ -20144,7 +20144,7 @@ const char * __thiscall winIVROverlay_IVROverlay_022_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_022_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_022_SetOverlayRenderingPid(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t unPID)
@@ -21536,7 +21536,7 @@ const char * __thiscall winIVROverlay_IVROverlay_024_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_024_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_024_SetOverlayRenderingPid(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t unPID)
@@ -22861,7 +22861,7 @@ const char * __thiscall winIVROverlay_IVROverlay_025_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_025_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_025_SetOverlayRenderingPid(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t unPID)
@@ -24207,7 +24207,7 @@ const char * __thiscall winIVROverlay_IVROverlay_026_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_026_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_026_SetOverlayRenderingPid(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t unPID)
@@ -25595,7 +25595,7 @@ const char * __thiscall winIVROverlay_IVROverlay_027_GetOverlayErrorNameFromEnum
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVROverlay_IVROverlay_027_GetOverlayErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVROverlay_IVROverlay_027_SetOverlayRenderingPid(struct w_iface *_this, uint64_t ulOverlayHandle, uint32_t unPID)

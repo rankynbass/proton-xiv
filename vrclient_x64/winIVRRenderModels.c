@@ -709,7 +709,7 @@ const char * __thiscall winIVRRenderModels_IVRRenderModels_005_GetRenderModelErr
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRRenderModels_IVRRenderModels_005_GetRenderModelErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 extern vtable_ptr winIVRRenderModels_IVRRenderModels_005_vtable;
@@ -993,7 +993,7 @@ const char * __thiscall winIVRRenderModels_IVRRenderModels_006_GetRenderModelErr
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRRenderModels_IVRRenderModels_006_GetRenderModelErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 extern vtable_ptr winIVRRenderModels_IVRRenderModels_006_vtable;

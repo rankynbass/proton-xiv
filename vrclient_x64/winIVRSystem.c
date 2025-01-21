@@ -365,7 +365,7 @@ const char * __thiscall winIVRSystem_IVRSystem_003_GetPropErrorNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_003_GetPropErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_003_PollNextEvent(struct w_iface *_this, w_VREvent_t_090 *pEvent)
@@ -403,7 +403,7 @@ const char * __thiscall winIVRSystem_IVRSystem_003_GetEventTypeNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_003_GetEventTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 w_HiddenAreaMesh_t * __thiscall winIVRSystem_IVRSystem_003_GetHiddenAreaMesh(struct w_iface *_this, w_HiddenAreaMesh_t *_ret, uint32_t eEye)
@@ -469,7 +469,7 @@ const char * __thiscall winIVRSystem_IVRSystem_003_GetButtonIdNameFromEnum(struc
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_003_GetButtonIdNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRSystem_IVRSystem_003_GetControllerAxisTypeNameFromEnum(struct w_iface *_this, uint32_t eAxisType)
@@ -481,7 +481,7 @@ const char * __thiscall winIVRSystem_IVRSystem_003_GetControllerAxisTypeNameFrom
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_003_GetControllerAxisTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_003_HandleControllerOverlayInteractionAsMouse(struct w_iface *_this, const Compositor_OverlaySettings *overlaySettings, HmdVector2_t vecWindowClientPositionOnScreen, HmdVector2_t vecWindowClientSize, uint32_t unControllerDeviceIndex, uint32_t eOutputType)
@@ -986,7 +986,7 @@ const char * __thiscall winIVRSystem_IVRSystem_004_GetPropErrorNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_004_GetPropErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_004_PollNextEvent(struct w_iface *_this, w_VREvent_t_092 *pEvent)
@@ -1024,7 +1024,7 @@ const char * __thiscall winIVRSystem_IVRSystem_004_GetEventTypeNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_004_GetEventTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 w_HiddenAreaMesh_t * __thiscall winIVRSystem_IVRSystem_004_GetHiddenAreaMesh(struct w_iface *_this, w_HiddenAreaMesh_t *_ret, uint32_t eEye)
@@ -1090,7 +1090,7 @@ const char * __thiscall winIVRSystem_IVRSystem_004_GetButtonIdNameFromEnum(struc
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_004_GetButtonIdNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRSystem_IVRSystem_004_GetControllerAxisTypeNameFromEnum(struct w_iface *_this, uint32_t eAxisType)
@@ -1102,7 +1102,7 @@ const char * __thiscall winIVRSystem_IVRSystem_004_GetControllerAxisTypeNameFrom
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_004_GetControllerAxisTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_004_CaptureInputFocus(struct w_iface *_this)
@@ -1618,7 +1618,7 @@ const char * __thiscall winIVRSystem_IVRSystem_005_GetPropErrorNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_005_GetPropErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_005_PollNextEvent(struct w_iface *_this, w_VREvent_t_097 *pEvent)
@@ -1656,7 +1656,7 @@ const char * __thiscall winIVRSystem_IVRSystem_005_GetEventTypeNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_005_GetEventTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 w_HiddenAreaMesh_t * __thiscall winIVRSystem_IVRSystem_005_GetHiddenAreaMesh(struct w_iface *_this, w_HiddenAreaMesh_t *_ret, uint32_t eEye)
@@ -1722,7 +1722,7 @@ const char * __thiscall winIVRSystem_IVRSystem_005_GetButtonIdNameFromEnum(struc
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_005_GetButtonIdNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRSystem_IVRSystem_005_GetControllerAxisTypeNameFromEnum(struct w_iface *_this, uint32_t eAxisType)
@@ -1734,7 +1734,7 @@ const char * __thiscall winIVRSystem_IVRSystem_005_GetControllerAxisTypeNameFrom
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_005_GetControllerAxisTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_005_CaptureInputFocus(struct w_iface *_this)
@@ -2281,7 +2281,7 @@ const char * __thiscall winIVRSystem_IVRSystem_006_GetPropErrorNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_006_GetPropErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_006_PollNextEvent(struct w_iface *_this, w_VREvent_t_0910 *pEvent)
@@ -2319,7 +2319,7 @@ const char * __thiscall winIVRSystem_IVRSystem_006_GetEventTypeNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_006_GetEventTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 w_HiddenAreaMesh_t * __thiscall winIVRSystem_IVRSystem_006_GetHiddenAreaMesh(struct w_iface *_this, w_HiddenAreaMesh_t *_ret, uint32_t eEye)
@@ -2385,7 +2385,7 @@ const char * __thiscall winIVRSystem_IVRSystem_006_GetButtonIdNameFromEnum(struc
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_006_GetButtonIdNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRSystem_IVRSystem_006_GetControllerAxisTypeNameFromEnum(struct w_iface *_this, uint32_t eAxisType)
@@ -2397,7 +2397,7 @@ const char * __thiscall winIVRSystem_IVRSystem_006_GetControllerAxisTypeNameFrom
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_006_GetControllerAxisTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_006_CaptureInputFocus(struct w_iface *_this)
@@ -2984,7 +2984,7 @@ const char * __thiscall winIVRSystem_IVRSystem_009_GetPropErrorNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_009_GetPropErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_009_PollNextEvent(struct w_iface *_this, w_VREvent_t_0912 *pEvent)
@@ -3022,7 +3022,7 @@ const char * __thiscall winIVRSystem_IVRSystem_009_GetEventTypeNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_009_GetEventTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 w_HiddenAreaMesh_t * __thiscall winIVRSystem_IVRSystem_009_GetHiddenAreaMesh(struct w_iface *_this, w_HiddenAreaMesh_t *_ret, uint32_t eEye)
@@ -3088,7 +3088,7 @@ const char * __thiscall winIVRSystem_IVRSystem_009_GetButtonIdNameFromEnum(struc
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_009_GetButtonIdNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRSystem_IVRSystem_009_GetControllerAxisTypeNameFromEnum(struct w_iface *_this, uint32_t eAxisType)
@@ -3100,7 +3100,7 @@ const char * __thiscall winIVRSystem_IVRSystem_009_GetControllerAxisTypeNameFrom
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_009_GetControllerAxisTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_009_CaptureInputFocus(struct w_iface *_this)
@@ -3712,7 +3712,7 @@ const char * __thiscall winIVRSystem_IVRSystem_010_GetPropErrorNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_010_GetPropErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_010_PollNextEvent(struct w_iface *_this, w_VREvent_t_0914 *pEvent)
@@ -3750,7 +3750,7 @@ const char * __thiscall winIVRSystem_IVRSystem_010_GetEventTypeNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_010_GetEventTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 w_HiddenAreaMesh_t * __thiscall winIVRSystem_IVRSystem_010_GetHiddenAreaMesh(struct w_iface *_this, w_HiddenAreaMesh_t *_ret, uint32_t eEye)
@@ -3816,7 +3816,7 @@ const char * __thiscall winIVRSystem_IVRSystem_010_GetButtonIdNameFromEnum(struc
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_010_GetButtonIdNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRSystem_IVRSystem_010_GetControllerAxisTypeNameFromEnum(struct w_iface *_this, uint32_t eAxisType)
@@ -3828,7 +3828,7 @@ const char * __thiscall winIVRSystem_IVRSystem_010_GetControllerAxisTypeNameFrom
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_010_GetControllerAxisTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_010_CaptureInputFocus(struct w_iface *_this)
@@ -4470,7 +4470,7 @@ const char * __thiscall winIVRSystem_IVRSystem_011_GetPropErrorNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_011_GetPropErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_011_PollNextEvent(struct w_iface *_this, w_VREvent_t_0918 *pEvent, uint32_t uncbVREvent)
@@ -4518,7 +4518,7 @@ const char * __thiscall winIVRSystem_IVRSystem_011_GetEventTypeNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_011_GetEventTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 w_HiddenAreaMesh_t * __thiscall winIVRSystem_IVRSystem_011_GetHiddenAreaMesh(struct w_iface *_this, w_HiddenAreaMesh_t *_ret, uint32_t eEye)
@@ -4584,7 +4584,7 @@ const char * __thiscall winIVRSystem_IVRSystem_011_GetButtonIdNameFromEnum(struc
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_011_GetButtonIdNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRSystem_IVRSystem_011_GetControllerAxisTypeNameFromEnum(struct w_iface *_this, uint32_t eAxisType)
@@ -4596,7 +4596,7 @@ const char * __thiscall winIVRSystem_IVRSystem_011_GetControllerAxisTypeNameFrom
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_011_GetControllerAxisTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_011_CaptureInputFocus(struct w_iface *_this)
@@ -5236,7 +5236,7 @@ const char * __thiscall winIVRSystem_IVRSystem_012_GetPropErrorNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_012_GetPropErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_012_PollNextEvent(struct w_iface *_this, w_VREvent_t_103 *pEvent, uint32_t uncbVREvent)
@@ -5284,7 +5284,7 @@ const char * __thiscall winIVRSystem_IVRSystem_012_GetEventTypeNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_012_GetEventTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 w_HiddenAreaMesh_t * __thiscall winIVRSystem_IVRSystem_012_GetHiddenAreaMesh(struct w_iface *_this, w_HiddenAreaMesh_t *_ret, uint32_t eEye)
@@ -5350,7 +5350,7 @@ const char * __thiscall winIVRSystem_IVRSystem_012_GetButtonIdNameFromEnum(struc
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_012_GetButtonIdNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRSystem_IVRSystem_012_GetControllerAxisTypeNameFromEnum(struct w_iface *_this, uint32_t eAxisType)
@@ -5362,7 +5362,7 @@ const char * __thiscall winIVRSystem_IVRSystem_012_GetControllerAxisTypeNameFrom
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_012_GetControllerAxisTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_012_CaptureInputFocus(struct w_iface *_this)
@@ -5976,7 +5976,7 @@ const char * __thiscall winIVRSystem_IVRSystem_014_GetPropErrorNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_014_GetPropErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_014_PollNextEvent(struct w_iface *_this, w_VREvent_t_103 *pEvent, uint32_t uncbVREvent)
@@ -6024,7 +6024,7 @@ const char * __thiscall winIVRSystem_IVRSystem_014_GetEventTypeNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_014_GetEventTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 w_HiddenAreaMesh_t * __thiscall winIVRSystem_IVRSystem_014_GetHiddenAreaMesh(struct w_iface *_this, w_HiddenAreaMesh_t *_ret, uint32_t eEye, uint32_t type)
@@ -6101,7 +6101,7 @@ const char * __thiscall winIVRSystem_IVRSystem_014_GetButtonIdNameFromEnum(struc
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_014_GetButtonIdNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRSystem_IVRSystem_014_GetControllerAxisTypeNameFromEnum(struct w_iface *_this, uint32_t eAxisType)
@@ -6113,7 +6113,7 @@ const char * __thiscall winIVRSystem_IVRSystem_014_GetControllerAxisTypeNameFrom
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_014_GetControllerAxisTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_014_CaptureInputFocus(struct w_iface *_this)
@@ -6726,7 +6726,7 @@ const char * __thiscall winIVRSystem_IVRSystem_015_GetPropErrorNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_015_GetPropErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_015_PollNextEvent(struct w_iface *_this, w_VREvent_t_106 *pEvent, uint32_t uncbVREvent)
@@ -6774,7 +6774,7 @@ const char * __thiscall winIVRSystem_IVRSystem_015_GetEventTypeNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_015_GetEventTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 w_HiddenAreaMesh_t * __thiscall winIVRSystem_IVRSystem_015_GetHiddenAreaMesh(struct w_iface *_this, w_HiddenAreaMesh_t *_ret, uint32_t eEye, uint32_t type)
@@ -6851,7 +6851,7 @@ const char * __thiscall winIVRSystem_IVRSystem_015_GetButtonIdNameFromEnum(struc
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_015_GetButtonIdNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRSystem_IVRSystem_015_GetControllerAxisTypeNameFromEnum(struct w_iface *_this, uint32_t eAxisType)
@@ -6863,7 +6863,7 @@ const char * __thiscall winIVRSystem_IVRSystem_015_GetControllerAxisTypeNameFrom
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_015_GetControllerAxisTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_015_CaptureInputFocus(struct w_iface *_this)
@@ -7489,7 +7489,7 @@ const char * __thiscall winIVRSystem_IVRSystem_016_GetPropErrorNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_016_GetPropErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_016_PollNextEvent(struct w_iface *_this, w_VREvent_t_106 *pEvent, uint32_t uncbVREvent)
@@ -7537,7 +7537,7 @@ const char * __thiscall winIVRSystem_IVRSystem_016_GetEventTypeNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_016_GetEventTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 w_HiddenAreaMesh_t * __thiscall winIVRSystem_IVRSystem_016_GetHiddenAreaMesh(struct w_iface *_this, w_HiddenAreaMesh_t *_ret, uint32_t eEye, uint32_t type)
@@ -7614,7 +7614,7 @@ const char * __thiscall winIVRSystem_IVRSystem_016_GetButtonIdNameFromEnum(struc
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_016_GetButtonIdNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRSystem_IVRSystem_016_GetControllerAxisTypeNameFromEnum(struct w_iface *_this, uint32_t eAxisType)
@@ -7626,7 +7626,7 @@ const char * __thiscall winIVRSystem_IVRSystem_016_GetControllerAxisTypeNameFrom
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_016_GetControllerAxisTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_016_CaptureInputFocus(struct w_iface *_this)
@@ -8255,7 +8255,7 @@ const char * __thiscall winIVRSystem_IVRSystem_017_GetPropErrorNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_017_GetPropErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_017_PollNextEvent(struct w_iface *_this, w_VREvent_t_1011 *pEvent, uint32_t uncbVREvent)
@@ -8303,7 +8303,7 @@ const char * __thiscall winIVRSystem_IVRSystem_017_GetEventTypeNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_017_GetEventTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 w_HiddenAreaMesh_t * __thiscall winIVRSystem_IVRSystem_017_GetHiddenAreaMesh(struct w_iface *_this, w_HiddenAreaMesh_t *_ret, uint32_t eEye, uint32_t type)
@@ -8380,7 +8380,7 @@ const char * __thiscall winIVRSystem_IVRSystem_017_GetButtonIdNameFromEnum(struc
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_017_GetButtonIdNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRSystem_IVRSystem_017_GetControllerAxisTypeNameFromEnum(struct w_iface *_this, uint32_t eAxisType)
@@ -8392,7 +8392,7 @@ const char * __thiscall winIVRSystem_IVRSystem_017_GetControllerAxisTypeNameFrom
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_017_GetControllerAxisTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_017_CaptureInputFocus(struct w_iface *_this)
@@ -9040,7 +9040,7 @@ const char * __thiscall winIVRSystem_IVRSystem_019_GetPropErrorNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_019_GetPropErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_019_PollNextEvent(struct w_iface *_this, w_VREvent_t_1322 *pEvent, uint32_t uncbVREvent)
@@ -9088,7 +9088,7 @@ const char * __thiscall winIVRSystem_IVRSystem_019_GetEventTypeNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_019_GetEventTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 w_HiddenAreaMesh_t * __thiscall winIVRSystem_IVRSystem_019_GetHiddenAreaMesh(struct w_iface *_this, w_HiddenAreaMesh_t *_ret, uint32_t eEye, uint32_t type)
@@ -9165,7 +9165,7 @@ const char * __thiscall winIVRSystem_IVRSystem_019_GetButtonIdNameFromEnum(struc
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_019_GetButtonIdNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRSystem_IVRSystem_019_GetControllerAxisTypeNameFromEnum(struct w_iface *_this, uint32_t eAxisType)
@@ -9177,7 +9177,7 @@ const char * __thiscall winIVRSystem_IVRSystem_019_GetControllerAxisTypeNameFrom
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_019_GetControllerAxisTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_019_IsInputAvailable(struct w_iface *_this)
@@ -9842,7 +9842,7 @@ const char * __thiscall winIVRSystem_IVRSystem_020_GetPropErrorNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_020_GetPropErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_020_PollNextEvent(struct w_iface *_this, w_VREvent_t_1322 *pEvent, uint32_t uncbVREvent)
@@ -9890,7 +9890,7 @@ const char * __thiscall winIVRSystem_IVRSystem_020_GetEventTypeNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_020_GetEventTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 w_HiddenAreaMesh_t * __thiscall winIVRSystem_IVRSystem_020_GetHiddenAreaMesh(struct w_iface *_this, w_HiddenAreaMesh_t *_ret, uint32_t eEye, uint32_t type)
@@ -9967,7 +9967,7 @@ const char * __thiscall winIVRSystem_IVRSystem_020_GetButtonIdNameFromEnum(struc
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_020_GetButtonIdNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRSystem_IVRSystem_020_GetControllerAxisTypeNameFromEnum(struct w_iface *_this, uint32_t eAxisType)
@@ -9979,7 +9979,7 @@ const char * __thiscall winIVRSystem_IVRSystem_020_GetControllerAxisTypeNameFrom
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_020_GetControllerAxisTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_020_IsInputAvailable(struct w_iface *_this)
@@ -10079,7 +10079,7 @@ const char * __thiscall winIVRSystem_IVRSystem_020_GetRuntimeVersion(struct w_if
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_020_GetRuntimeVersion, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 extern vtable_ptr winIVRSystem_IVRSystem_020_vtable;
@@ -10654,7 +10654,7 @@ const char * __thiscall winIVRSystem_IVRSystem_021_GetPropErrorNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_021_GetPropErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_021_PollNextEvent(struct w_iface *_this, w_VREvent_t_11030 *pEvent, uint32_t uncbVREvent)
@@ -10702,7 +10702,7 @@ const char * __thiscall winIVRSystem_IVRSystem_021_GetEventTypeNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_021_GetEventTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 w_HiddenAreaMesh_t * __thiscall winIVRSystem_IVRSystem_021_GetHiddenAreaMesh(struct w_iface *_this, w_HiddenAreaMesh_t *_ret, uint32_t eEye, uint32_t type)
@@ -10779,7 +10779,7 @@ const char * __thiscall winIVRSystem_IVRSystem_021_GetButtonIdNameFromEnum(struc
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_021_GetButtonIdNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRSystem_IVRSystem_021_GetControllerAxisTypeNameFromEnum(struct w_iface *_this, uint32_t eAxisType)
@@ -10791,7 +10791,7 @@ const char * __thiscall winIVRSystem_IVRSystem_021_GetControllerAxisTypeNameFrom
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_021_GetControllerAxisTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_021_IsInputAvailable(struct w_iface *_this)
@@ -10881,7 +10881,7 @@ const char * __thiscall winIVRSystem_IVRSystem_021_GetRuntimeVersion(struct w_if
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_021_GetRuntimeVersion, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 extern vtable_ptr winIVRSystem_IVRSystem_021_vtable;
@@ -11443,7 +11443,7 @@ const char * __thiscall winIVRSystem_IVRSystem_022_GetPropErrorNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_022_GetPropErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_022_PollNextEvent(struct w_iface *_this, w_VREvent_t_223 *pEvent, uint32_t uncbVREvent)
@@ -11491,7 +11491,7 @@ const char * __thiscall winIVRSystem_IVRSystem_022_GetEventTypeNameFromEnum(stru
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_022_GetEventTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 w_HiddenAreaMesh_t * __thiscall winIVRSystem_IVRSystem_022_GetHiddenAreaMesh(struct w_iface *_this, w_HiddenAreaMesh_t *_ret, uint32_t eEye, uint32_t type)
@@ -11568,7 +11568,7 @@ const char * __thiscall winIVRSystem_IVRSystem_022_GetButtonIdNameFromEnum(struc
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_022_GetButtonIdNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 const char * __thiscall winIVRSystem_IVRSystem_022_GetControllerAxisTypeNameFromEnum(struct w_iface *_this, uint32_t eAxisType)
@@ -11580,7 +11580,7 @@ const char * __thiscall winIVRSystem_IVRSystem_022_GetControllerAxisTypeNameFrom
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_022_GetControllerAxisTypeNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSystem_IVRSystem_022_IsInputAvailable(struct w_iface *_this)
@@ -11670,7 +11670,7 @@ const char * __thiscall winIVRSystem_IVRSystem_022_GetRuntimeVersion(struct w_if
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSystem_IVRSystem_022_GetRuntimeVersion, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 extern vtable_ptr winIVRSystem_IVRSystem_022_vtable;

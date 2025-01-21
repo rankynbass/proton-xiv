@@ -87,7 +87,7 @@ struct IVRApplications_IVRApplications_001_GetApplicationProcessId_params
 struct IVRApplications_IVRApplications_001_GetApplicationsErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -165,7 +165,7 @@ struct IVRApplications_IVRApplications_001_PerformApplicationPrelaunchCheck_para
 struct IVRApplications_IVRApplications_001_GetApplicationsTransitionStateNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t state;
 };
 
@@ -247,7 +247,7 @@ struct IVRApplications_IVRApplications_002_GetApplicationProcessId_params
 struct IVRApplications_IVRApplications_002_GetApplicationsErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -310,7 +310,7 @@ struct IVRApplications_IVRApplications_002_PerformApplicationPrelaunchCheck_para
 struct IVRApplications_IVRApplications_002_GetApplicationsTransitionStateNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t state;
 };
 
@@ -398,7 +398,7 @@ struct IVRApplications_IVRApplications_003_GetApplicationProcessId_params
 struct IVRApplications_IVRApplications_003_GetApplicationsErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -470,7 +470,7 @@ struct IVRApplications_IVRApplications_003_PerformApplicationPrelaunchCheck_para
 struct IVRApplications_IVRApplications_003_GetApplicationsTransitionStateNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t state;
 };
 
@@ -565,7 +565,7 @@ struct IVRApplications_IVRApplications_004_GetApplicationProcessId_params
 struct IVRApplications_IVRApplications_004_GetApplicationsErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -637,7 +637,7 @@ struct IVRApplications_IVRApplications_004_PerformApplicationPrelaunchCheck_para
 struct IVRApplications_IVRApplications_004_GetApplicationsTransitionStateNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t state;
 };
 
@@ -751,7 +751,7 @@ struct IVRApplications_IVRApplications_005_GetApplicationProcessId_params
 struct IVRApplications_IVRApplications_005_GetApplicationsErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -823,7 +823,7 @@ struct IVRApplications_IVRApplications_005_PerformApplicationPrelaunchCheck_para
 struct IVRApplications_IVRApplications_005_GetApplicationsTransitionStateNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t state;
 };
 
@@ -945,7 +945,7 @@ struct IVRApplications_IVRApplications_006_GetApplicationProcessId_params
 struct IVRApplications_IVRApplications_006_GetApplicationsErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -1061,7 +1061,7 @@ struct IVRApplications_IVRApplications_006_PerformApplicationPrelaunchCheck_para
 struct IVRApplications_IVRApplications_006_GetApplicationsTransitionStateNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t state;
 };
 
@@ -1189,7 +1189,7 @@ struct IVRApplications_IVRApplications_007_GetApplicationProcessId_params
 struct IVRApplications_IVRApplications_007_GetApplicationsErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -1305,7 +1305,7 @@ struct IVRApplications_IVRApplications_007_PerformApplicationPrelaunchCheck_para
 struct IVRApplications_IVRApplications_007_GetSceneApplicationStateNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t state;
 };
 
@@ -1918,14 +1918,14 @@ struct IVRClientCore_IVRClientCore_002_BIsHmdPresent_params
 struct IVRClientCore_IVRClientCore_002_GetEnglishStringForHmdError_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eError;
 };
 
 struct IVRClientCore_IVRClientCore_002_GetIDForVRInitError_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eError;
 };
 
@@ -1966,14 +1966,14 @@ struct IVRClientCore_IVRClientCore_003_BIsHmdPresent_params
 struct IVRClientCore_IVRClientCore_003_GetEnglishStringForHmdError_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eError;
 };
 
 struct IVRClientCore_IVRClientCore_003_GetIDForVRInitError_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eError;
 };
 
@@ -9030,7 +9030,7 @@ struct IVROverlay_IVROverlay_001_GetHighQualityOverlay_params
 struct IVROverlay_IVROverlay_001_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -9350,7 +9350,7 @@ struct IVROverlay_IVROverlay_002_GetHighQualityOverlay_params
 struct IVROverlay_IVROverlay_002_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -9723,7 +9723,7 @@ struct IVROverlay_IVROverlay_003_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_003_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -10102,7 +10102,7 @@ struct IVROverlay_IVROverlay_004_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_004_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -10499,7 +10499,7 @@ struct IVROverlay_IVROverlay_005_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_005_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -10928,7 +10928,7 @@ struct IVROverlay_IVROverlay_007_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_007_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -11401,7 +11401,7 @@ struct IVROverlay_IVROverlay_008_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_008_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -11898,7 +11898,7 @@ struct IVROverlay_IVROverlay_010_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_010_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -12421,7 +12421,7 @@ struct IVROverlay_IVROverlay_011_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_011_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -12981,7 +12981,7 @@ struct IVROverlay_IVROverlay_012_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_012_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -13550,7 +13550,7 @@ struct IVROverlay_IVROverlay_013_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_013_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -14161,7 +14161,7 @@ struct IVROverlay_IVROverlay_014_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_014_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -14801,7 +14801,7 @@ struct IVROverlay_IVROverlay_016_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_016_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -15484,7 +15484,7 @@ struct IVROverlay_IVROverlay_017_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_017_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -16187,7 +16187,7 @@ struct IVROverlay_IVROverlay_018_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_018_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -16882,7 +16882,7 @@ struct IVROverlay_IVROverlay_019_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_019_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -17564,7 +17564,7 @@ struct IVROverlay_IVROverlay_020_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_020_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -18246,7 +18246,7 @@ struct IVROverlay_IVROverlay_021_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_021_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -18896,7 +18896,7 @@ struct IVROverlay_IVROverlay_022_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_022_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -19595,7 +19595,7 @@ struct IVROverlay_IVROverlay_024_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_024_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -20254,7 +20254,7 @@ struct IVROverlay_IVROverlay_025_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_025_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -20924,7 +20924,7 @@ struct IVROverlay_IVROverlay_026_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_026_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -21617,7 +21617,7 @@ struct IVROverlay_IVROverlay_027_GetOverlayImageData_params
 struct IVROverlay_IVROverlay_027_GetOverlayErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -22606,7 +22606,7 @@ struct IVRRenderModels_IVRRenderModels_005_GetRenderModelOriginalPath_params
 struct IVRRenderModels_IVRRenderModels_005_GetRenderModelErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -22764,7 +22764,7 @@ struct IVRRenderModels_IVRRenderModels_006_GetRenderModelOriginalPath_params
 struct IVRRenderModels_IVRRenderModels_006_GetRenderModelErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -22854,7 +22854,7 @@ struct IVRScreenshots_IVRScreenshots_001_SubmitScreenshot_params
 struct IVRSettings_IVRSettings_001_GetSettingsErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eError;
 };
 
@@ -22961,7 +22961,7 @@ struct IVRSettings_IVRSettings_001_RemoveKeyInSection_params
 struct IVRSettings_IVRSettings_002_GetSettingsErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eError;
 };
 
@@ -23064,7 +23064,7 @@ struct IVRSettings_IVRSettings_002_RemoveKeyInSection_params
 struct IVRSettings_IVRSettings_003_GetSettingsErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eError;
 };
 
@@ -23353,7 +23353,7 @@ struct IVRSystem_IVRSystem_003_GetStringTrackedDeviceProperty_params
 struct IVRSystem_IVRSystem_003_GetPropErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -23376,7 +23376,7 @@ struct IVRSystem_IVRSystem_003_PollNextEventWithPose_params
 struct IVRSystem_IVRSystem_003_GetEventTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eType;
 };
 
@@ -23416,14 +23416,14 @@ struct IVRSystem_IVRSystem_003_TriggerHapticPulse_params
 struct IVRSystem_IVRSystem_003_GetButtonIdNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_003_GetControllerAxisTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eAxisType;
 };
 
@@ -23638,7 +23638,7 @@ struct IVRSystem_IVRSystem_004_GetStringTrackedDeviceProperty_params
 struct IVRSystem_IVRSystem_004_GetPropErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -23661,7 +23661,7 @@ struct IVRSystem_IVRSystem_004_PollNextEventWithPose_params
 struct IVRSystem_IVRSystem_004_GetEventTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eType;
 };
 
@@ -23701,14 +23701,14 @@ struct IVRSystem_IVRSystem_004_TriggerHapticPulse_params
 struct IVRSystem_IVRSystem_004_GetButtonIdNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_004_GetControllerAxisTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eAxisType;
 };
 
@@ -23932,7 +23932,7 @@ struct IVRSystem_IVRSystem_005_GetStringTrackedDeviceProperty_params
 struct IVRSystem_IVRSystem_005_GetPropErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -23955,7 +23955,7 @@ struct IVRSystem_IVRSystem_005_PollNextEventWithPose_params
 struct IVRSystem_IVRSystem_005_GetEventTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eType;
 };
 
@@ -23995,14 +23995,14 @@ struct IVRSystem_IVRSystem_005_TriggerHapticPulse_params
 struct IVRSystem_IVRSystem_005_GetButtonIdNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_005_GetControllerAxisTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eAxisType;
 };
 
@@ -24239,7 +24239,7 @@ struct IVRSystem_IVRSystem_006_GetStringTrackedDeviceProperty_params
 struct IVRSystem_IVRSystem_006_GetPropErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -24262,7 +24262,7 @@ struct IVRSystem_IVRSystem_006_PollNextEventWithPose_params
 struct IVRSystem_IVRSystem_006_GetEventTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eType;
 };
 
@@ -24302,14 +24302,14 @@ struct IVRSystem_IVRSystem_006_TriggerHapticPulse_params
 struct IVRSystem_IVRSystem_006_GetButtonIdNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_006_GetControllerAxisTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eAxisType;
 };
 
@@ -24560,7 +24560,7 @@ struct IVRSystem_IVRSystem_009_GetStringTrackedDeviceProperty_params
 struct IVRSystem_IVRSystem_009_GetPropErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -24583,7 +24583,7 @@ struct IVRSystem_IVRSystem_009_PollNextEventWithPose_params
 struct IVRSystem_IVRSystem_009_GetEventTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eType;
 };
 
@@ -24623,14 +24623,14 @@ struct IVRSystem_IVRSystem_009_TriggerHapticPulse_params
 struct IVRSystem_IVRSystem_009_GetButtonIdNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_009_GetControllerAxisTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eAxisType;
 };
 
@@ -24892,7 +24892,7 @@ struct IVRSystem_IVRSystem_010_GetStringTrackedDeviceProperty_params
 struct IVRSystem_IVRSystem_010_GetPropErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -24915,7 +24915,7 @@ struct IVRSystem_IVRSystem_010_PollNextEventWithPose_params
 struct IVRSystem_IVRSystem_010_GetEventTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eType;
 };
 
@@ -24955,14 +24955,14 @@ struct IVRSystem_IVRSystem_010_TriggerHapticPulse_params
 struct IVRSystem_IVRSystem_010_GetButtonIdNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_010_GetControllerAxisTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eAxisType;
 };
 
@@ -25236,7 +25236,7 @@ struct IVRSystem_IVRSystem_011_GetStringTrackedDeviceProperty_params
 struct IVRSystem_IVRSystem_011_GetPropErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -25261,7 +25261,7 @@ struct IVRSystem_IVRSystem_011_PollNextEventWithPose_params
 struct IVRSystem_IVRSystem_011_GetEventTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eType;
 };
 
@@ -25301,14 +25301,14 @@ struct IVRSystem_IVRSystem_011_TriggerHapticPulse_params
 struct IVRSystem_IVRSystem_011_GetButtonIdNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_011_GetControllerAxisTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eAxisType;
 };
 
@@ -25582,7 +25582,7 @@ struct IVRSystem_IVRSystem_012_GetStringTrackedDeviceProperty_params
 struct IVRSystem_IVRSystem_012_GetPropErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -25607,7 +25607,7 @@ struct IVRSystem_IVRSystem_012_PollNextEventWithPose_params
 struct IVRSystem_IVRSystem_012_GetEventTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eType;
 };
 
@@ -25647,14 +25647,14 @@ struct IVRSystem_IVRSystem_012_TriggerHapticPulse_params
 struct IVRSystem_IVRSystem_012_GetButtonIdNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_012_GetControllerAxisTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eAxisType;
 };
 
@@ -25917,7 +25917,7 @@ struct IVRSystem_IVRSystem_014_GetStringTrackedDeviceProperty_params
 struct IVRSystem_IVRSystem_014_GetPropErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -25942,7 +25942,7 @@ struct IVRSystem_IVRSystem_014_PollNextEventWithPose_params
 struct IVRSystem_IVRSystem_014_GetEventTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eType;
 };
 
@@ -25985,14 +25985,14 @@ struct IVRSystem_IVRSystem_014_TriggerHapticPulse_params
 struct IVRSystem_IVRSystem_014_GetButtonIdNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_014_GetControllerAxisTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eAxisType;
 };
 
@@ -26254,7 +26254,7 @@ struct IVRSystem_IVRSystem_015_GetStringTrackedDeviceProperty_params
 struct IVRSystem_IVRSystem_015_GetPropErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -26279,7 +26279,7 @@ struct IVRSystem_IVRSystem_015_PollNextEventWithPose_params
 struct IVRSystem_IVRSystem_015_GetEventTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eType;
 };
 
@@ -26322,14 +26322,14 @@ struct IVRSystem_IVRSystem_015_TriggerHapticPulse_params
 struct IVRSystem_IVRSystem_015_GetButtonIdNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_015_GetControllerAxisTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eAxisType;
 };
 
@@ -26598,7 +26598,7 @@ struct IVRSystem_IVRSystem_016_GetStringTrackedDeviceProperty_params
 struct IVRSystem_IVRSystem_016_GetPropErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -26623,7 +26623,7 @@ struct IVRSystem_IVRSystem_016_PollNextEventWithPose_params
 struct IVRSystem_IVRSystem_016_GetEventTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eType;
 };
 
@@ -26666,14 +26666,14 @@ struct IVRSystem_IVRSystem_016_TriggerHapticPulse_params
 struct IVRSystem_IVRSystem_016_GetButtonIdNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_016_GetControllerAxisTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eAxisType;
 };
 
@@ -26943,7 +26943,7 @@ struct IVRSystem_IVRSystem_017_GetStringTrackedDeviceProperty_params
 struct IVRSystem_IVRSystem_017_GetPropErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -26968,7 +26968,7 @@ struct IVRSystem_IVRSystem_017_PollNextEventWithPose_params
 struct IVRSystem_IVRSystem_017_GetEventTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eType;
 };
 
@@ -27011,14 +27011,14 @@ struct IVRSystem_IVRSystem_017_TriggerHapticPulse_params
 struct IVRSystem_IVRSystem_017_GetButtonIdNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_017_GetControllerAxisTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eAxisType;
 };
 
@@ -27300,7 +27300,7 @@ struct IVRSystem_IVRSystem_019_GetStringTrackedDeviceProperty_params
 struct IVRSystem_IVRSystem_019_GetPropErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -27325,7 +27325,7 @@ struct IVRSystem_IVRSystem_019_PollNextEventWithPose_params
 struct IVRSystem_IVRSystem_019_GetEventTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eType;
 };
 
@@ -27368,14 +27368,14 @@ struct IVRSystem_IVRSystem_019_TriggerHapticPulse_params
 struct IVRSystem_IVRSystem_019_GetButtonIdNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_019_GetControllerAxisTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eAxisType;
 };
 
@@ -27664,7 +27664,7 @@ struct IVRSystem_IVRSystem_020_GetStringTrackedDeviceProperty_params
 struct IVRSystem_IVRSystem_020_GetPropErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -27689,7 +27689,7 @@ struct IVRSystem_IVRSystem_020_PollNextEventWithPose_params
 struct IVRSystem_IVRSystem_020_GetEventTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eType;
 };
 
@@ -27732,14 +27732,14 @@ struct IVRSystem_IVRSystem_020_TriggerHapticPulse_params
 struct IVRSystem_IVRSystem_020_GetButtonIdNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_020_GetControllerAxisTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eAxisType;
 };
 
@@ -27795,7 +27795,7 @@ struct IVRSystem_IVRSystem_020_GetAppContainerFilePaths_params
 struct IVRSystem_IVRSystem_020_GetRuntimeVersion_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct IVRSystem_IVRSystem_021_GetRecommendedRenderTargetSize_params
@@ -28032,7 +28032,7 @@ struct IVRSystem_IVRSystem_021_GetStringTrackedDeviceProperty_params
 struct IVRSystem_IVRSystem_021_GetPropErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -28057,7 +28057,7 @@ struct IVRSystem_IVRSystem_021_PollNextEventWithPose_params
 struct IVRSystem_IVRSystem_021_GetEventTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eType;
 };
 
@@ -28100,14 +28100,14 @@ struct IVRSystem_IVRSystem_021_TriggerHapticPulse_params
 struct IVRSystem_IVRSystem_021_GetButtonIdNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_021_GetControllerAxisTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eAxisType;
 };
 
@@ -28158,7 +28158,7 @@ struct IVRSystem_IVRSystem_021_GetAppContainerFilePaths_params
 struct IVRSystem_IVRSystem_021_GetRuntimeVersion_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct IVRSystem_IVRSystem_022_GetRecommendedRenderTargetSize_params
@@ -28390,7 +28390,7 @@ struct IVRSystem_IVRSystem_022_GetStringTrackedDeviceProperty_params
 struct IVRSystem_IVRSystem_022_GetPropErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t error;
 };
 
@@ -28415,7 +28415,7 @@ struct IVRSystem_IVRSystem_022_PollNextEventWithPose_params
 struct IVRSystem_IVRSystem_022_GetEventTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eType;
 };
 
@@ -28458,14 +28458,14 @@ struct IVRSystem_IVRSystem_022_TriggerHapticPulse_params
 struct IVRSystem_IVRSystem_022_GetButtonIdNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eButtonId;
 };
 
 struct IVRSystem_IVRSystem_022_GetControllerAxisTypeNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eAxisType;
 };
 
@@ -28516,7 +28516,7 @@ struct IVRSystem_IVRSystem_022_GetAppContainerFilePaths_params
 struct IVRSystem_IVRSystem_022_GetRuntimeVersion_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
 };
 
 struct IVRTrackedCamera_IVRTrackedCamera_001_HasCamera_params
@@ -28666,7 +28666,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_001_GetCameraProjection_params
 struct IVRTrackedCamera_IVRTrackedCamera_002_GetCameraErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eCameraError;
 };
 
@@ -28740,7 +28740,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_002_GetVideoStreamFrameBuffer_params
 struct IVRTrackedCamera_IVRTrackedCamera_003_GetCameraErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eCameraError;
 };
 
@@ -28856,7 +28856,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_003_ReleaseVideoStreamTextureGL_params
 struct IVRTrackedCamera_IVRTrackedCamera_004_GetCameraErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eCameraError;
 };
 
@@ -28972,7 +28972,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_004_ReleaseVideoStreamTextureGL_params
 struct IVRTrackedCamera_IVRTrackedCamera_005_GetCameraErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eCameraError;
 };
 
@@ -29090,7 +29090,7 @@ struct IVRTrackedCamera_IVRTrackedCamera_005_ReleaseVideoStreamTextureGL_params
 struct IVRTrackedCamera_IVRTrackedCamera_006_GetCameraErrorNameFromEnum_params
 {
     struct u_iface u_iface;
-    const char *_ret;
+    struct u_buffer _ret;
     uint32_t eCameraError;
 };
 

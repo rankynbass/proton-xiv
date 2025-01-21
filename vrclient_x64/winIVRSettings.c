@@ -30,7 +30,7 @@ const char * __thiscall winIVRSettings_IVRSettings_001_GetSettingsErrorNameFromE
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSettings_IVRSettings_001_GetSettingsErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSettings_IVRSettings_001_Sync(struct w_iface *_this, int8_t bForce, uint32_t *peError)
@@ -281,7 +281,7 @@ const char * __thiscall winIVRSettings_IVRSettings_002_GetSettingsErrorNameFromE
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSettings_IVRSettings_002_GetSettingsErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 int8_t __thiscall winIVRSettings_IVRSettings_002_Sync(struct w_iface *_this, int8_t bForce, uint32_t *peError)
@@ -527,7 +527,7 @@ const char * __thiscall winIVRSettings_IVRSettings_003_GetSettingsErrorNameFromE
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRSettings_IVRSettings_003_GetSettingsErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 void __thiscall winIVRSettings_IVRSettings_003_SetBool(struct w_iface *_this, const char *pchSection, const char *pchSettingsKey, int8_t bValue, uint32_t *peError)

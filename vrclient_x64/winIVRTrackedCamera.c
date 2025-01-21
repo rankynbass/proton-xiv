@@ -352,7 +352,7 @@ const char * __thiscall winIVRTrackedCamera_IVRTrackedCamera_002_GetCameraErrorN
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRTrackedCamera_IVRTrackedCamera_002_GetCameraErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVRTrackedCamera_IVRTrackedCamera_002_HasCamera(struct w_iface *_this, uint32_t nDeviceIndex, int8_t *pHasCamera)
@@ -542,7 +542,7 @@ const char * __thiscall winIVRTrackedCamera_IVRTrackedCamera_003_GetCameraErrorN
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRTrackedCamera_IVRTrackedCamera_003_GetCameraErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVRTrackedCamera_IVRTrackedCamera_003_HasCamera(struct w_iface *_this, uint32_t nDeviceIndex, int8_t *pHasCamera)
@@ -802,7 +802,7 @@ const char * __thiscall winIVRTrackedCamera_IVRTrackedCamera_004_GetCameraErrorN
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRTrackedCamera_IVRTrackedCamera_004_GetCameraErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVRTrackedCamera_IVRTrackedCamera_004_HasCamera(struct w_iface *_this, uint32_t nDeviceIndex, int8_t *pHasCamera)
@@ -1074,7 +1074,7 @@ const char * __thiscall winIVRTrackedCamera_IVRTrackedCamera_005_GetCameraErrorN
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRTrackedCamera_IVRTrackedCamera_005_GetCameraErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVRTrackedCamera_IVRTrackedCamera_005_HasCamera(struct w_iface *_this, uint32_t nDeviceIndex, int8_t *pHasCamera)
@@ -1350,7 +1350,7 @@ const char * __thiscall winIVRTrackedCamera_IVRTrackedCamera_006_GetCameraErrorN
     };
     TRACE("%p\n", _this);
     VRCLIENT_CALL( IVRTrackedCamera_IVRTrackedCamera_006_GetCameraErrorNameFromEnum, &params );
-    return params._ret;
+    return get_unix_buffer( params._ret );
 }
 
 uint32_t __thiscall winIVRTrackedCamera_IVRTrackedCamera_006_HasCamera(struct w_iface *_this, uint32_t nDeviceIndex, int8_t *pHasCamera)
