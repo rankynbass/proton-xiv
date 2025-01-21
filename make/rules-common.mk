@@ -32,6 +32,7 @@ all-configure: $(1)-configure
 $$(OBJ)/.$(1)-$(3)-build: CCACHE_BASEDIR = $$($(2)_SRC)
 $$(OBJ)/.$(1)-$(3)-build: $$(OBJ)/.$(1)-source
 $$(OBJ)/.$(1)-$(3)-build: $$(OBJ)/.$(1)-$(3)-configure
+$$(OBJ)/.$(1)-$(3)-build: $$(patsubst %,$$(OBJ)/.%-$(3)-post-build,$$($(2)_DEPENDS) $$($(2)_$(3)_DEPENDS))
 
 $$(OBJ)/.$(1)-$(3)-post-build: $$(OBJ)/.$(1)-$(3)-build
 

@@ -31,3 +31,4 @@ endif
 endef
 
 rules-wine-tools = $(call create-rules-wine-tools,$(1),$(call toupper,$(1)),$(2),$(3))
+make-builtin = $(WINE_$(HOST_ARCH)_OBJ)/tools/winebuild/winebuild --builtin $(1)
