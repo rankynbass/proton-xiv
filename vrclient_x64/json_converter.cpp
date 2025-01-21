@@ -31,7 +31,7 @@ static char *get_unix_file_name( const WCHAR *path )
 {
     UNICODE_STRING nt_name;
     OBJECT_ATTRIBUTES attr;
-    NTSTATUS status;
+    UINT status;
     ULONG size = 256;
     char *buffer;
 
@@ -126,7 +126,7 @@ void vrclient_free_path( char *path )
 /* returns the number of bytes written to dst, not including the NUL terminator */
 unsigned int vrclient_unix_path_to_dos_path( bool api_result, const char *src, char *dst, uint32_t dst_bytes )
 {
-    NTSTATUS status;
+    UINT status;
     uint32_t r = 0;
     ULONG size = 0;
     WCHAR *dosW;

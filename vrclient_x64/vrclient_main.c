@@ -33,7 +33,7 @@ static BOOL vrclient_loaded;
 
 BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, void *reserved)
 {
-    TRACE("(%p, %u, %p)\n", instance, reason, reserved);
+    TRACE("(%p, %lu, %p)\n", instance, reason, reserved);
 
     switch (reason)
     {
@@ -130,20 +130,20 @@ static int load_vrclient(void)
 
         if ((status = RegOpenKeyExW(HKEY_CURRENT_USER, L"Software\\Wine\\VR", 0, KEY_READ, &vr_key)))
         {
-            WINE_WARN("Could not create key, status %#x.\n", status);
+            WINE_WARN("Could not create key, status %#lx.\n", status);
             return 0;
         }
 
         size = sizeof(pathW);
         if ((status = RegQueryValueExW(vr_key, L"PROTON_VR_RUNTIME", NULL, &type, (BYTE *)pathW, &size)))
         {
-            WINE_WARN("Could not query value, status %#x.\n", status);
+            WINE_WARN("Could not query value, status %#lx.\n", status);
             RegCloseKey(vr_key);
             return 0;
         }
         if (type != REG_SZ)
         {
-            WINE_ERR("Unexpected value type %#x.\n", type);
+            WINE_ERR("Unexpected value type %#lx.\n", type);
             RegCloseKey(vr_key);
             return 0;
         }
@@ -202,7 +202,7 @@ static BOOL set_vr_status( HKEY key, DWORD value )
 
     if ((status = RegSetValueExW( key, L"state", 0, REG_DWORD, (BYTE *)&value, sizeof(value) )))
     {
-        ERR( "Could not set state value, status %#x.\n", status );
+        ERR( "Could not set state value, status %#lx.\n", status );
         return FALSE;
     }
     return TRUE;
@@ -226,7 +226,7 @@ static DWORD WINAPI initialize_vr_data( void *arg )
     else
     {
         if (!(openxr = LoadLibraryW( L"wineopenxr" )))
-            WARN( "Could not load wineopenxr, err %u.\n", GetLastError() );
+            WARN( "Could not load wineopenxr, err %lu.\n", GetLastError() );
         else
         {
             BOOL (CDECL * init)(void);
@@ -257,7 +257,7 @@ BOOL CDECL vrclient_init_registry(void)
     if ((status = RegCreateKeyExW( HKEY_CURRENT_USER, L"Software\\Wine\\VR", 0, NULL,
                                    REG_OPTION_VOLATILE, KEY_ALL_ACCESS, NULL, &vr_key, &disp )))
     {
-        ERR( "Could not create key, status %#x.\n", status );
+        ERR( "Could not create key, status %#lx.\n", status );
         return FALSE;
     }
     if (disp != REG_CREATED_NEW_KEY)
@@ -272,7 +272,7 @@ BOOL CDECL vrclient_init_registry(void)
         if ((status = RegSetValueExW( vr_key, L"PROTON_VR_RUNTIME", 0, REG_SZ, (BYTE *)pathW,
                                       (wcslen( pathW ) + 1) * sizeof(*pathW) )))
         {
-            ERR( "Could not set PROTON_VR_RUNTIME value, status %#x.\n", status );
+            ERR( "Could not set PROTON_VR_RUNTIME value, status %#lx.\n", status );
             set_vr_status( vr_key, -1 );
             RegCloseKey( vr_key );
             return FALSE;
@@ -303,7 +303,7 @@ BOOL CDECL vrclient_init_registry(void)
     GetModuleHandleExA( GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS, (void *)initialize_vr_data, &vrclient );
     if (!(thread = CreateThread( NULL, 0, initialize_vr_data, vr_key, 0, NULL )))
     {
-        WINE_ERR( "Could not create thread, error %u.\n", GetLastError() );
+        WINE_ERR( "Could not create thread, error %lu.\n", GetLastError() );
         FreeLibrary( vrclient );
         RegCloseKey( vr_key );
         return FALSE;
@@ -342,20 +342,20 @@ static int8_t is_hmd_present_reg(void)
 
     if ((status = RegOpenKeyExW(HKEY_CURRENT_USER, L"Software\\Wine\\VR", 0, KEY_READ, &vr_key)))
     {
-        WINE_ERR("Could not create key, status %#x.\n", status);
+        WINE_ERR("Could not create key, status %#lx.\n", status);
         return FALSE;
     }
 
     size = sizeof(value);
     if ((status = RegQueryValueExW(vr_key, L"state", NULL, &type, (BYTE *)&value, &size)))
     {
-        WINE_ERR("Could not query value, status %#x.\n", status);
+        WINE_ERR("Could not query value, status %#lx.\n", status);
         RegCloseKey(vr_key);
         return FALSE;
     }
     if (type != REG_DWORD)
     {
-        WINE_ERR("Unexpected value type %#x.\n", type);
+        WINE_ERR("Unexpected value type %#lx.\n", type);
         RegCloseKey(vr_key);
         return FALSE;
     }
@@ -377,7 +377,7 @@ static int8_t is_hmd_present_reg(void)
         size = sizeof(value);
         if ((status = RegQueryValueExW(vr_key, L"state", NULL, &type, (BYTE *)&value, &size)))
         {
-            WINE_ERR("Could not query value, status %#x.\n", status);
+            WINE_ERR("Could not query value, status %#lx.\n", status);
             goto done;
         }
         if (value)
@@ -387,7 +387,7 @@ static int8_t is_hmd_present_reg(void)
 
         if (wait_status != WAIT_OBJECT_0)
         {
-            WINE_ERR("Got unexpected wait status %#x.\n", wait_status);
+            WINE_ERR("Got unexpected wait status %#lx.\n", wait_status);
             break;
         }
     }
@@ -397,7 +397,7 @@ static int8_t is_hmd_present_reg(void)
 
     size = sizeof(is_hmd_present);
     if ((status = RegQueryValueExW(vr_key, L"is_hmd_present", NULL, &type, (BYTE *)&is_hmd_present, &size)))
-        WINE_ERR("Could not query is_hmd_present value, status %#x.\n", status);
+        WINE_ERR("Could not query is_hmd_present value, status %#lx.\n", status);
 
 done:
     CloseHandle(event);

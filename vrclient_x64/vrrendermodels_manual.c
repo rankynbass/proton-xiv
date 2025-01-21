@@ -76,7 +76,7 @@ static uint32_t ivrrendermodels_load_texture_d3d11_async( void *device, w_Render
     hr = d3d11_device->lpVtbl->CreateTexture2D( d3d11_device, &desc, NULL, &texture );
     if (FAILED(hr))
     {
-        WARN( "Failed to create D3D11 texture %#x\n", hr );
+        WARN( "Failed to create D3D11 texture %#lx\n", hr );
         return VRRenderModelError_InvalidTexture;
     }
 

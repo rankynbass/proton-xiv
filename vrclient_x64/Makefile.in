@@ -7,7 +7,7 @@ x86_64_UNIXLIB  = vrclient_x64.so
 aarch64_MODULE  = vrclient_x64.dll
 aarch64_UNIXLIB = vrclient_x64.so
 
-EXTRADEFS = -DWINE_NO_LONG_TYPES -DGNUC
+EXTRADEFS = -DGNUC
 
 SOURCES = \
 	flatapi.c \

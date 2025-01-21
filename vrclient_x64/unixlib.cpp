@@ -198,7 +198,7 @@ NTSTATUS vrclient_init_registry( void *args )
     HMODULE hwineopenxr;
     void *lib_vrclient;
     void *unix_handle;
-    DWORD hmd_present;
+    UINT hmd_present;
     int return_code;
     unsigned int i;
     VkResult res;
