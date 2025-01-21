@@ -442,6 +442,8 @@ $(eval $(call rules-wine-tools,wine,x86_64,unix))
 $(eval $(call rules-autoconf,wine,i386,unix))
 $(eval $(call rules-autoconf,wine,x86_64,unix))
 
+$(WINE_SRC)/configure: $(WINE_ORIGIN)/aclocal.m4
+
 $(OBJ)/.wine-post-source:
 	cd $(WINE_SRC) && XDG_CACHE_HOME=$(OBJ) dlls/winevulkan/make_vulkan -x vk.xml -X video.xml
 	-cd $(WINE_SRC) && tools/make_specfiles
