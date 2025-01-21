@@ -314,6 +314,24 @@ BOOL CDECL vrclient_init_registry(void)
     return TRUE;
 }
 
+void *get_unix_buffer( struct u_buffer buf )
+{
+    struct vrclient_get_unix_buffer_params params = {.buf = buf};
+    void *ret;
+
+    if ((UINT_PTR)buf.ptr == buf.ptr && (UINT_PTR)(buf.ptr + buf.len) == (buf.ptr + buf.len))
+        return (void *)(UINT_PTR)buf.ptr;
+
+    if (!(params.ptr = ret = HeapAlloc( GetProcessHeap(), 0, buf.len ))) return NULL;
+    if (VRCLIENT_CALL( vrclient_get_unix_buffer, &params ) || (ret != params.ptr))
+    {
+        HeapFree( GetProcessHeap(), 0, ret );
+        ret = params.ptr;
+    }
+
+    return ret;
+}
+
 static int8_t is_hmd_present_reg(void)
 {
     DWORD type, value, wait_status, size;

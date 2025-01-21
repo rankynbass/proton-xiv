@@ -104,6 +104,8 @@ extern void init_rtti( char *base );
 struct w_iface *create_win_interface( const char *name, struct u_iface u_iface );
 void free_compositor_data_d3d12_device(void);
 
+extern void *get_unix_buffer( struct u_buffer buf );
+
 struct generic_interface
 {
     struct w_iface *object;

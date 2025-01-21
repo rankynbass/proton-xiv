@@ -2,7 +2,9 @@
 
 #include <winternl.h>
 #include <dlfcn.h>
+#include <pthread.h>
 #include <stdlib.h>
+#include <unordered_map>
 
 #define WINE_VK_HOST
 #include <vulkan/vulkan.h>
@@ -368,5 +370,37 @@ NTSTATUS IVRTrackedCamera_IVRTrackedCamera_001_GetVideoStreamFrame( void *args )
     struct IVRTrackedCamera_IVRTrackedCamera_001_GetVideoStreamFrame_params *params = (struct IVRTrackedCamera_IVRTrackedCamera_001_GetVideoStreamFrame_params *)args;
     struct u_IVRTrackedCamera_IVRTrackedCamera_001 *iface = (struct u_IVRTrackedCamera_IVRTrackedCamera_001 *)params->u_iface;
     *(w_CameraVideoStreamFrame_t_0914 *)params->_ret = *iface->GetVideoStreamFrame( params->nDeviceIndex );
+    return 0;
+}
+
+namespace std
+{
+template<> struct hash< struct u_buffer >
+{
+    using argument_type = struct u_buffer;
+    using result_type = std::size_t;
+    result_type operator()( argument_type const& buf ) const { return buf.ptr; }
+};
+}
+
+static pthread_mutex_t buffer_cache_lock = PTHREAD_MUTEX_INITIALIZER;
+static std::unordered_map< struct u_buffer, void * > buffer_cache;
+
+NTSTATUS vrclient_get_unix_buffer( void *args )
+{
+    struct vrclient_get_unix_buffer_params *params = (struct vrclient_get_unix_buffer_params *)args;
+    struct cache_entry *entry;
+    struct rb_entry *ptr;
+
+    pthread_mutex_lock( &buffer_cache_lock );
+    auto iter = buffer_cache.find( params->buf );
+    if (iter != buffer_cache.end()) params->ptr = iter->second;
+    else
+    {
+        memcpy( params->ptr, (char *)params->buf, params->buf.len );
+        buffer_cache[params->buf] = params->ptr;
+    }
+    pthread_mutex_unlock( &buffer_cache_lock );
+
     return 0;
 }

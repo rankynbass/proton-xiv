@@ -29223,6 +29223,7 @@ enum unix_funcs
 {
     unix_vrclient_init,
     unix_vrclient_init_registry,
+    unix_vrclient_get_unix_buffer,
     unix_vrclient_HmdSystemFactory,
     unix_vrclient_VRClientCoreFactory,
     unix_vrclient_unload,

@@ -9,6 +9,7 @@ extern "C" const unixlib_entry_t __wine_unix_call_funcs[] =
 {
     vrclient_init,
     vrclient_init_registry,
+    vrclient_get_unix_buffer,
     vrclient_HmdSystemFactory,
     vrclient_VRClientCoreFactory,
     vrclient_unload,

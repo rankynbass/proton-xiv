@@ -73,6 +73,12 @@ struct vrclient_VRClientCoreFactory_params
     int *return_code;
 };
 
+struct vrclient_get_unix_buffer_params
+{
+    struct u_buffer buf;
+    void *ptr; /* client-side ptr */
+};
+
 #include <poppack.h>
 
 #define VRCLIENT_CALL( code, args )                                        \
