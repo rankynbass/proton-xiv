@@ -319,7 +319,7 @@ static NTSTATUS vrclient_init( Params *params, bool wow64 )
 
     if (!(vrclient = dlopen( params->unix_path, RTLD_NOW )))
     {
-        TRACE( "unable to load %s\n", params->unix_path );
+        TRACE( "unable to load %s\n", (const char *)params->unix_path );
         return 0;
     }
 
@@ -368,7 +368,9 @@ static NTSTATUS vrclient_VRClientCoreFactory( Params *params, bool wow64 )
 template< typename Iface, typename Params >
 static NTSTATUS IVRTrackedCamera_GetVideoStreamFrame( Iface *iface, Params *params, bool wow64 )
 {
-    *(w_CameraVideoStreamFrame_t_0914 *)params->_ret = *iface->GetVideoStreamFrame( params->nDeviceIndex );
+    using w_camera_type = std::remove_const_t< std::remove_reference_t< decltype(*params->_ret) > >;
+    u_CameraVideoStreamFrame_t_0914 camera = *iface->GetVideoStreamFrame( params->nDeviceIndex );
+    *(w_camera_type *)(&*params->_ret) = camera;
     return 0;
 }
 
@@ -404,8 +406,16 @@ static NTSTATUS vrclient_get_unix_buffer( Params *params, bool wow64 )
     return 0;
 }
 
+#ifdef __x86_64__
+#define VRCLIENT_UNIX_WOW64_FUNC( name ) \
+    NTSTATUS wow64_ ## name( void *args ) { return name( (struct wow64_ ## name ## _params *)args, true ); }
+#else
+#define VRCLIENT_UNIX_WOW64_FUNC( name )
+#endif
+
 #define VRCLIENT_UNIX_FUNC( name ) \
     NTSTATUS name( void *args ) { return name( (struct name ## _params *)args, false ); } \
+    VRCLIENT_UNIX_WOW64_FUNC( name )
 
 VRCLIENT_UNIX_FUNC( vrclient_init );
 VRCLIENT_UNIX_FUNC( vrclient_init_registry );

@@ -486,20 +486,26 @@ class Method:
     def returns_string(self):
         return self.result_type.spelling == "const char *"
 
-    def write_params(self, out):
+    def write_params(self, out, wow64):
         returns_record = self.result_type.get_canonical().kind == TypeKind.RECORD
+        prefix = "wow64_" if wow64 else ""
 
         if self.returns_unix_iface():
             ret = 'struct u_iface _ret'
         elif self.returns_string():
             ret = 'struct u_buffer _ret'
+        elif returns_record and wow64:
+            ret = f'{declspec(self.result_type, "*_ret", "w32_" if wow64 else "w_", wow64)}'
+            typ = f'{declspec(self.result_type, "*", "w32_" if wow64 else "w_", wow64)}'
+            ret = f'W32_PTR({ret}, _ret, {typ})'
         else:
+            assert not returns_record or not wow64
             ret = "*_ret" if returns_record else "_ret"
-            ret = f'{declspec(self.result_type, ret, "w_")}'
+            ret = f'{declspec(self.result_type, ret, "w32_" if wow64 else "w_", wow64)}'
 
         names = [p.spelling if p.spelling != "" else f'_{chr(0x61 + i)}'
                  for i, p in enumerate(self.get_arguments())]
-        params = [declspec(p, names[i], "w_") for i, p in enumerate(self.get_arguments())]
+        params = [declspec(p, names[i], "w32_" if wow64 else "w_", wow64) for i, p in enumerate(self.get_arguments())]
 
         if self.result_type.kind != TypeKind.VOID:
             params = [ret] + params
@@ -511,7 +517,7 @@ class Method:
         params = ['struct u_iface u_iface'] + params
         names = ['u_iface'] + names
 
-        out(f'struct {self.full_name}_params\n')
+        out(f'struct {prefix}{self.full_name}_params\n')
         out(u'{\n')
         for param in params:
             out(f'    {param};\n')
@@ -530,7 +536,7 @@ class Destructor(Method):
         if self._override > 1: return f'destructor_{self._override}'
         return 'destructor'
 
-    def write_params(self, out):
+    def write_params(self, out, wow64):
         pass
 
 
@@ -647,10 +653,22 @@ def underlying_type(decl):
     return decl
 
 
-def param_needs_conversion(decl):
+def is_pointer_pointer(decl):
+    if type(decl) is Cursor:
+        decl = decl.type
+    decl = decl.get_canonical()
+    if decl.kind != TypeKind.POINTER:
+        return False
+    decl = decl.get_pointee().get_canonical()
+    return decl.kind == TypeKind.POINTER
+
+
+def param_needs_conversion(decl, wow64):
+    if is_pointer_pointer(decl) and wow64:
+        return True
     decl = underlying_type(decl)
     return decl.kind == TypeKind.RECORD and \
-           struct_needs_conversion(decl)
+           struct_needs_conversion(decl, wow64)
 
 
 def callconv(cursor, prefix):
@@ -734,22 +752,23 @@ def declspec(decl, name, prefix, wrapped=False):
     return f'{const}{type_name}{name}'
 
 
-def handle_method_cpp(method, classname, out):
+def handle_method_cpp(method, classname, out, wow64):
     returns_void = method.result_type.kind == TypeKind.VOID
     returns_record = method.result_type.get_canonical().kind == TypeKind.RECORD
+    prefix = "wow64_" if wow64 else ""
 
     names = [p.spelling if p.spelling != "" else f'_{chr(0x61 + i)}'
              for i, p in enumerate(method.get_arguments())]
     outstr_param = OUTSTR_PARAMS.get(method.name, None)
 
     need_convert = {n: p for n, p in zip(names, method.get_arguments())
-                    if param_needs_conversion(p) and n != outstr_param}
+                    if param_needs_conversion(p, wow64) and n != outstr_param}
 
     names = ['u_iface'] + names
 
-    out(f'NTSTATUS {method.full_name}( void *args )\n')
+    out(f'NTSTATUS {prefix}{method.full_name}( void *args )\n')
     out(u'{\n')
-    out(f'    struct {method.full_name}_params *params = (struct {method.full_name}_params *)args;\n')
+    out(f'    struct {prefix}{method.full_name}_params *params = (struct {prefix}{method.full_name}_params *)args;\n')
     out(f'    struct u_{klass.full_name} *iface = (struct u_{klass.full_name} *)params->u_iface;\n')
     if method.name in OUTSTR_PARAMS and OUTSTR_PARAMS[method.name] in names:
         out(u'    char *u_str;\n')
@@ -851,7 +870,7 @@ def handle_method_cpp(method, classname, out):
         out(f'    if (params->{OUTSTR_PARAMS[method.name]}) params->_str = u_str;\n');
 
     out(u'    return 0;\n')
-    out(u'}\n\n')
+    out(u'}\n')
 
 
 def handle_thiscall_wrapper(klass, method, out):
@@ -880,7 +899,7 @@ def handle_method_c(klass, method, winclassname, out):
     params = [declspec(p, names[i], "w_") for i, p in enumerate(method.get_arguments())]
 
     need_convert = {n: p for n, p in zip(names, method.get_arguments())
-                    if param_needs_conversion(p)}
+                    if param_needs_conversion(p, False)}
 
     if returns_record:
         params = [f'{declspec(method.result_type, "*_ret", "w_")}'] + params
@@ -981,7 +1000,10 @@ def handle_class(klass):
                 continue
             if is_manual_method(klass, method, "u"):
                 continue
-            handle_method_cpp(method, klass.name, out)
+            handle_method_cpp(method, klass.name, out, False)
+            out(u'\n#ifdef __x86_64__\n')
+            handle_method_cpp(method, klass.name, out, True)
+            out(u'#endif\n\n')
 
     winclassname = f'win{klass.full_name}'
     with open(f'win{klass.name}.c', 'a') as file:
@@ -1074,7 +1096,7 @@ def find_struct_abis(name):
     return structs[sdkver]
 
 
-def struct_needs_conversion(struct):
+def struct_needs_conversion(struct, wow64):
     name = canonical_typename(struct)
     if name in EXEMPT_STRUCTS:
         return False
@@ -1095,12 +1117,12 @@ def struct_needs_conversion(struct):
 
     assert abis['u32'].size <= abis['w32'].size
     if abis['u32'].size < abis['w32'].size:
-        return False
+        return wow64
     assert abis['u64'].size <= abis['w64'].size
     if abis['u64'].size < abis['w64'].size:
-        return False
+        return wow64
 
-    return False
+    return wow64
 
 
 def get_field_attribute_str(field):
@@ -1629,7 +1651,9 @@ with open("unix_private_generated.h", "w") as file:
         sdkver = klass._sdkver
         if type(method) is Destructor:
             continue
+
         out(f'NTSTATUS {method.full_name}( void * );\n')
+        out(f'NTSTATUS wow64_{method.full_name}( void * );\n')
     out(u'\n')
 
     out(u'#ifdef __cplusplus\n')
@@ -1653,7 +1677,8 @@ with open(u"unixlib_generated.h", "w") as file:
     out(u'#include <pshpack1.h>\n\n')
     for klass, method in all_methods:
         sdkver = klass._sdkver
-        method.write_params(out)
+        method.write_params(out, False)
+        method.write_params(out, True)
     out(u'#include <poppack.h>\n\n')
 
     out(u'enum unix_funcs\n')
@@ -1693,6 +1718,19 @@ with open('unixlib_generated.cpp', 'w') as file:
         out(f'    {method.full_name},\n')
     out(u'};\n')
     out(u'\n')
+
+    out(u'#ifdef __x86_64__\n')
+    out(u'extern "C" const unixlib_entry_t __wine_unix_call_wow64_funcs[] =\n')
+    out(u'{\n')
+    for func in UNIX_FUNCS:
+        out(f'    wow64_{func},\n')
+    for klass, method in all_methods:
+        sdkver = klass._sdkver
+        if type(method) is Destructor:
+            continue
+        out(f'    wow64_{method.full_name},\n')
+    out(u'};\n')
+    out(u'#endif\n')
 
     for name in sorted(unique_structs, key=struct_order):
         for sdkver, abis in all_structs[name].items():

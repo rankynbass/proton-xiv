@@ -10,6 +10,12 @@ static w_VRVulkanTextureData_t *get_vulkan_texture_data( const w_Texture_t *w_te
 {
     return (w_VRVulkanTextureData_t *)w_texture->handle;
 }
+#ifdef __x86_64__
+static w32_VRVulkanTextureData_t *get_vulkan_texture_data( const w32_Texture_t *w_texture )
+{
+    return (w32_VRVulkanTextureData_t *)(void *)w_texture->handle;
+}
+#endif /* __x86_64__ */
 
 template< typename WTexture >
 static u_Texture_t unwrap_texture_data( const WTexture *w_texture, u_VRVulkanTextureData_t *u_vkdata )
@@ -30,6 +36,12 @@ static u_Texture_t unwrap_texture_data( const WTexture *w_texture, u_VRVulkanTex
     }
 
     return u_texture;
+}
+
+static u_Texture_t unwrap_texture_data( ptr32<const w32_Texture_t *>ptr, u_VRVulkanTextureData_t *u_vkdata )
+{
+    const w32_Texture_t *w_texture = ptr;
+    return unwrap_texture_data( w_texture, u_vkdata );
 }
 
 template< typename Params >
