@@ -256,6 +256,9 @@ MANUAL_METHODS = {
     "IVRTrackedCamera_GetVideoStreamFrame": True,
 }
 
+OUTSTR_PARAMS = {
+}
+
 
 def is_manual_method(klass, method, abi):
     version = re.search(r'(\d+)$', klass.version)
@@ -487,6 +490,9 @@ class Method:
         if self.result_type.kind != TypeKind.VOID:
             params = [ret] + params
             names = ['_ret'] + names
+
+        if self.name in OUTSTR_PARAMS and OUTSTR_PARAMS[self.name] in names:
+            params = ["struct u_buffer _str"] + params
 
         params = ['struct u_iface u_iface'] + params
         names = ['u_iface'] + names
@@ -723,9 +729,10 @@ def handle_method_cpp(method, classname, out):
 
     names = [p.spelling if p.spelling != "" else f'_{chr(0x61 + i)}'
              for i, p in enumerate(method.get_arguments())]
+    outstr_param = OUTSTR_PARAMS.get(method.name, None)
 
     need_convert = {n: p for n, p in zip(names, method.get_arguments())
-                    if param_needs_conversion(p)}
+                    if param_needs_conversion(p) and n != outstr_param}
 
     names = ['u_iface'] + names
 
@@ -733,6 +740,8 @@ def handle_method_cpp(method, classname, out):
     out(u'{\n')
     out(f'    struct {method.full_name}_params *params = (struct {method.full_name}_params *)args;\n')
     out(f'    struct u_{klass.full_name} *iface = (struct u_{klass.full_name} *)params->u_iface;\n')
+    if method.name in OUTSTR_PARAMS and OUTSTR_PARAMS[method.name] in names:
+        out(u'    char *u_str;\n')
 
     params = list(zip(names[1:], method.get_arguments()))
     for i, (name, param) in enumerate(params[:-1]):
@@ -806,6 +815,8 @@ def handle_method_cpp(method, classname, out):
         if name in size_fixup: return f"u_{name}"
         if name in path_conv_wtou: return f"u_{name}"
         if name in need_convert: return f"params->{name} ? {pfx}u_{name} : nullptr"
+        if name == OUTSTR_PARAMS.get(method.name, None):
+            return f'params->{name} ? ({declspec(param, "", "u_")})&u_str : nullptr'
         return f'params->{name}'
 
     params = [param_call(n, p) for n, p in zip(names[1:], method.get_arguments())]
@@ -824,6 +835,9 @@ def handle_method_cpp(method, classname, out):
 
     for name in filter(lambda x: x in names, sorted(path_conv_wtou)):
         out(f'    vrclient_free_path( u_{name} );\n')
+
+    if method.name in OUTSTR_PARAMS and OUTSTR_PARAMS[method.name] in names:
+        out(f'    if (params->{OUTSTR_PARAMS[method.name]}) params->_str = u_str;\n');
 
     out(u'    return 0;\n')
     out(u'}\n\n')
@@ -913,6 +927,9 @@ def handle_method_c(klass, method, winclassname, out):
     out(f'    VRCLIENT_CALL( {method.full_name}, &params );\n')
     for name, size in param_sizes.items():
         out(f'    if ({name}) memcpy( {name}, &w_{name}, {size} );\n')
+
+    if method.name in OUTSTR_PARAMS and OUTSTR_PARAMS[method.name] in names:
+        out(f'    if ({OUTSTR_PARAMS[method.name]}) *{OUTSTR_PARAMS[method.name]} = get_unix_buffer( params._str );\n')
 
     if method.returns_string():
         out(u'    return get_unix_buffer( params._ret );\n')

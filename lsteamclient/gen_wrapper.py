@@ -964,9 +964,10 @@ def handle_method_cpp(method, classname, out):
 
     names = [p.spelling if p.spelling != "" else f'_{chr(0x61 + i)}'
              for i, p in enumerate(method.get_arguments())]
+    outstr_param = OUTSTR_PARAMS.get(method.name, None)
 
     need_convert = {n: p for n, p in zip(names, method.get_arguments())
-                    if param_needs_conversion(p)}
+                    if param_needs_conversion(p) and n != outstr_param}
     manual_convert = {n: p for n, p in zip(names, method.get_arguments())
                       if underlying_type(p).spelling in MANUAL_TYPES
                       or p.spelling in MANUAL_PARAMS}
