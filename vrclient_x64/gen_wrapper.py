@@ -219,6 +219,9 @@ all_sources = {}
 all_versions = {}
 unique_structs = []
 
+MANUAL_STRUCTS = [
+    "COpenVRContext", # not actually used
+]
 
 UNIX_FUNCS = [
     'vrclient_init',
@@ -1060,6 +1063,12 @@ def find_struct_abis(name):
 
 def struct_needs_conversion(struct):
     name = canonical_typename(struct)
+    if name in EXEMPT_STRUCTS:
+        return False
+    if name in unique_structs:
+        return False
+    if name in MANUAL_STRUCTS:
+        return True
 
     abis = find_struct_abis(name)
     if abis is None:
@@ -1697,6 +1706,8 @@ with open('unixlib_generated.cpp', 'w') as file:
             abis['u64'].write_checks(out, "u64_")
             abis['w32'].write_checks(out, "w32_")
             abis['u32'].write_checks(out, "u32_")
+
+        if name in MANUAL_STRUCTS: continue
 
         for sdkver, abis in structs.items():
             if name not in all_versions[sdkver]: continue
