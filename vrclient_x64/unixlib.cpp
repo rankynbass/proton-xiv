@@ -164,9 +164,9 @@ static int parse_extensions( const char *extensions, char ***list )
     return count;
 }
 
-NTSTATUS vrclient_init_registry( void *args )
+template< typename Params >
+static NTSTATUS vrclient_init_registry( Params *params, bool wow64 )
 {
-    struct vrclient_init_registry_params *params = (struct vrclient_init_registry_params *)args;
     VkApplicationInfo app_info =
     {
         .sType = VK_STRUCTURE_TYPE_APPLICATION_INFO,
@@ -305,9 +305,9 @@ failed:
     return 0;
 }
 
-NTSTATUS vrclient_init( void *args )
+template< typename Params >
+static NTSTATUS vrclient_init( Params *params, bool wow64 )
 {
-    struct vrclient_init_params *params = (struct vrclient_init_params *)args;
 
     params->_ret = false;
 
@@ -341,9 +341,9 @@ NTSTATUS vrclient_init( void *args )
     return 0;
 }
 
-NTSTATUS vrclient_unload( void *args )
+template< typename Params >
+static NTSTATUS vrclient_unload( Params *params, bool wow64 )
 {
-    if (!vrclient) return 0;
     dlclose( vrclient );
     vrclient = NULL;
     p_HmdSystemFactory = NULL;
@@ -351,24 +351,23 @@ NTSTATUS vrclient_unload( void *args )
     return 0;
 }
 
-NTSTATUS vrclient_HmdSystemFactory( void *args )
+template< typename Params >
+static NTSTATUS vrclient_HmdSystemFactory( Params *params, bool wow64 )
 {
-    struct vrclient_HmdSystemFactory_params *params = (struct vrclient_HmdSystemFactory_params *)args;
     params->_ret = p_HmdSystemFactory( params->name, params->return_code );
     return 0;
 }
 
-NTSTATUS vrclient_VRClientCoreFactory( void *args )
+template< typename Params >
+static NTSTATUS vrclient_VRClientCoreFactory( Params *params, bool wow64 )
 {
-    struct vrclient_VRClientCoreFactory_params *params = (struct vrclient_VRClientCoreFactory_params *)args;
     params->_ret = p_VRClientCoreFactory( params->name, params->return_code );
     return 0;
 }
 
-NTSTATUS IVRTrackedCamera_IVRTrackedCamera_001_GetVideoStreamFrame( void *args )
+template< typename Iface, typename Params >
+static NTSTATUS IVRTrackedCamera_GetVideoStreamFrame( Iface *iface, Params *params, bool wow64 )
 {
-    struct IVRTrackedCamera_IVRTrackedCamera_001_GetVideoStreamFrame_params *params = (struct IVRTrackedCamera_IVRTrackedCamera_001_GetVideoStreamFrame_params *)args;
-    struct u_IVRTrackedCamera_IVRTrackedCamera_001 *iface = (struct u_IVRTrackedCamera_IVRTrackedCamera_001 *)params->u_iface;
     *(w_CameraVideoStreamFrame_t_0914 *)params->_ret = *iface->GetVideoStreamFrame( params->nDeviceIndex );
     return 0;
 }
@@ -386,9 +385,9 @@ template<> struct hash< struct u_buffer >
 static pthread_mutex_t buffer_cache_lock = PTHREAD_MUTEX_INITIALIZER;
 static std::unordered_map< struct u_buffer, void * > buffer_cache;
 
-NTSTATUS vrclient_get_unix_buffer( void *args )
+template< typename Params >
+static NTSTATUS vrclient_get_unix_buffer( Params *params, bool wow64 )
 {
-    struct vrclient_get_unix_buffer_params *params = (struct vrclient_get_unix_buffer_params *)args;
     struct cache_entry *entry;
     struct rb_entry *ptr;
 
@@ -404,3 +403,15 @@ NTSTATUS vrclient_get_unix_buffer( void *args )
 
     return 0;
 }
+
+#define VRCLIENT_UNIX_FUNC( name ) \
+    NTSTATUS name( void *args ) { return name( (struct name ## _params *)args, false ); } \
+
+VRCLIENT_UNIX_FUNC( vrclient_init );
+VRCLIENT_UNIX_FUNC( vrclient_init_registry );
+VRCLIENT_UNIX_FUNC( vrclient_unload );
+VRCLIENT_UNIX_FUNC( vrclient_HmdSystemFactory );
+VRCLIENT_UNIX_FUNC( vrclient_VRClientCoreFactory );
+VRCLIENT_UNIX_FUNC( vrclient_get_unix_buffer );
+
+VRCLIENT_UNIX_IMPL( IVRTrackedCamera, 001, GetVideoStreamFrame );

@@ -36,6 +36,14 @@ extern char *vrclient_dos_to_unix_path( const char *src );
 extern void vrclient_free_path( char *path );
 extern unsigned int vrclient_unix_path_to_dos_path( bool api_result, const char *src, char *dst, uint32_t dst_bytes );
 
+#define VRCLIENT_UNIX_IMPL( iface, version, method, ... ) \
+    NTSTATUS iface ## _ ## iface ## _ ## version ## _ ## method( void *args ) \
+    { \
+        auto params = (struct iface ## _ ## iface ## _ ## version ## _ ## method ## _params *)args; \
+        auto u_iface = (struct u_ ## iface ## _ ## iface ## _ ## version *)params->u_iface; \
+        return iface ## _ ## method( u_iface, params, false, ## __VA_ARGS__ ); \
+    } \
+
 #ifdef __cplusplus
 } /* extern "C" */
 #endif /* __cplusplus */
