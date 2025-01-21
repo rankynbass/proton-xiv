@@ -326,7 +326,6 @@ class Struct:
         self._conv_cache = {}
 
         self.name = canonical_typename(self._cursor)
-        self.name = self.name.removeprefix("vr::")
         self.type = self._cursor.type.get_canonical()
         self.size = self.type.get_size()
         self.align = self.type.get_align()
@@ -608,7 +607,7 @@ def Record(sdkver, abi, cursor):
 
 
 def Type(decl, sdkver, abi):
-    name = strip_ns(canonical_typename(decl))
+    name = canonical_typename(decl)
     if name not in all_structs:
         return BasicType(decl, abi)
     return all_structs[name][sdkver][abi]
@@ -709,10 +708,6 @@ def declspec(decl, name, prefix, wrapped=False):
             return f'{const}{all_versions[sdkver][type_name]}{name}'
         return f'{const}{prefix}{all_versions[sdkver][type_name]}{name}'
 
-    real_name = canonical_typename(decl)
-    real_name = real_name.removeprefix("const ")
-    real_name = real_name.removeprefix("vr::")
-
     if type_name in ('void', 'char', 'float', 'double'):
         return f'{const}{type_name}{name}'
     if type_name.startswith(('bool', 'int', 'long', 'short', 'signed')):
@@ -750,7 +745,7 @@ def handle_method_cpp(method, classname, out):
         next_name, next_param = params[i + 1]
         if not any(w in next_name.lower() for w in ('count', 'len', 'size', 'num')):
             continue
-        assert strip_ns(underlying_typename(param)) in SIZED_STRUCTS | EXEMPT_STRUCTS
+        assert underlying_typename(param) in SIZED_STRUCTS | EXEMPT_STRUCTS
 
     for i, (name, param) in enumerate(params[1:]):
         if underlying_type(param).kind != TypeKind.RECORD:
@@ -758,8 +753,8 @@ def handle_method_cpp(method, classname, out):
         prev_name, prev_param = params[i - 1]
         if not any(w in prev_name.lower() for w in ('count', 'len', 'size', 'num')):
             continue
-        if strip_ns(underlying_typename(param)) not in SIZED_STRUCTS | EXEMPT_STRUCTS:
-            print('Warning:', strip_ns(underlying_typename(param)), name, 'following', prev_name)
+        if underlying_typename(param) not in SIZED_STRUCTS | EXEMPT_STRUCTS:
+            print('Warning:', underlying_typename(param), name, 'following', prev_name)
 
     path_conv_wtou = PATH_CONV_METHODS_WTOU.get(f'{klass.name}_{method.spelling}', {})
     for name in filter(lambda x: x in names, sorted(path_conv_wtou)):
@@ -1044,7 +1039,9 @@ def canonical_typename(cursor):
         return canonical_typename(cursor.type)
 
     name = cursor.get_canonical().spelling
-    return name.removeprefix("const ")
+    name = name.removeprefix("const ")
+    name = name.removeprefix("vr::")
+    return name
 
 
 def underlying_typename(decl):
