@@ -344,7 +344,7 @@ static NTSTATUS vrclient_init( Params *params, bool wow64 )
 template< typename Params >
 static NTSTATUS vrclient_unload( Params *params, bool wow64 )
 {
-    dlclose( vrclient );
+    if (vrclient) dlclose( vrclient );
     vrclient = NULL;
     p_HmdSystemFactory = NULL;
     p_VRClientCoreFactory = NULL;
