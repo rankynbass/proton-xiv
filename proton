@@ -1196,6 +1196,8 @@ def default_compat_config():
                 "2594920", #Atelier Resleriana: Forgotten Alchemy and the Polar Night Liberator
                 "3209830", #Stronghold Crusader: Definitive Edition Demo
                 "3024040", #Stronghold Crusader: Definitive Edition
+                "2433890", #Stronghold: Definitive Edition Demo
+                "2140020", #Stronghold: Definitive Edition
                 ]:
             ret.add("gamedrive")
 
