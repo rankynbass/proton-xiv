@@ -9041,6 +9041,145 @@ struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_SetTimelineGameMode_params
     uint32_t eMode;
 };
 
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetTimelineTooltip_params
+{
+    struct u_steam_iface *linux_side;
+    const char *pchDescription;
+    float flTimeDelta;
+};
+
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_ClearTimelineTooltip_params
+{
+    struct u_steam_iface *linux_side;
+    float flTimeDelta;
+};
+
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetTimelineGameMode_params
+{
+    struct u_steam_iface *linux_side;
+    uint32_t eMode;
+};
+
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddInstantaneousTimelineEvent_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t _ret;
+    const char *pchTitle;
+    const char *pchDescription;
+    const char *pchIcon;
+    uint32_t unIconPriority;
+    float flStartOffsetSeconds;
+    uint32_t ePossibleClip;
+};
+
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddRangeTimelineEvent_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t _ret;
+    const char *pchTitle;
+    const char *pchDescription;
+    const char *pchIcon;
+    uint32_t unIconPriority;
+    float flStartOffsetSeconds;
+    float flDuration;
+    uint32_t ePossibleClip;
+};
+
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_StartRangeTimelineEvent_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t _ret;
+    const char *pchTitle;
+    const char *pchDescription;
+    const char *pchIcon;
+    uint32_t unPriority;
+    float flStartOffsetSeconds;
+    uint32_t ePossibleClip;
+};
+
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_UpdateRangeTimelineEvent_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t ulEvent;
+    const char *pchTitle;
+    const char *pchDescription;
+    const char *pchIcon;
+    uint32_t unPriority;
+    uint32_t ePossibleClip;
+};
+
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_EndRangeTimelineEvent_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t ulEvent;
+    float flEndOffsetSeconds;
+};
+
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_RemoveTimelineEvent_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t ulEvent;
+};
+
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_DoesEventRecordingExist_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t _ret;
+    uint64_t ulEvent;
+};
+
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_StartGamePhase_params
+{
+    struct u_steam_iface *linux_side;
+};
+
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_EndGamePhase_params
+{
+    struct u_steam_iface *linux_side;
+};
+
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetGamePhaseID_params
+{
+    struct u_steam_iface *linux_side;
+    const char *pchPhaseID;
+};
+
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_DoesGamePhaseRecordingExist_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t _ret;
+    const char *pchPhaseID;
+};
+
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddGamePhaseTag_params
+{
+    struct u_steam_iface *linux_side;
+    const char *pchTagName;
+    const char *pchTagIcon;
+    const char *pchTagGroup;
+    uint32_t unPriority;
+};
+
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetGamePhaseAttribute_params
+{
+    struct u_steam_iface *linux_side;
+    const char *pchAttributeGroup;
+    const char *pchAttributeValue;
+    uint32_t unPriority;
+};
+
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_OpenOverlayToGamePhase_params
+{
+    struct u_steam_iface *linux_side;
+    const char *pchPhaseID;
+};
+
+struct ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_OpenOverlayToTimelineEvent_params
+{
+    struct u_steam_iface *linux_side;
+    const uint64_t ulEvent;
+};
+
 struct ISteamUGC_STEAMUGC_INTERFACE_VERSION001_CreateQueryUserUGCRequest_params
 {
     struct u_steam_iface *linux_side;
@@ -21446,6 +21585,365 @@ struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_GetAchievementProgres
 };
 
 struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_GetAchievementProgressLimits_2_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    const char *pchName;
+    float *pfMinProgress;
+    float *pfMaxProgress;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetStat_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    const char *pchName;
+    int32_t *pData;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetStat_2_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    const char *pchName;
+    float *pData;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_SetStat_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    const char *pchName;
+    int32_t nData;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_SetStat_2_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    const char *pchName;
+    float fData;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_UpdateAvgRateStat_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    const char *pchName;
+    float flCountThisSession;
+    double dSessionLength;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievement_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    const char *pchName;
+    int8_t *pbAchieved;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_SetAchievement_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    const char *pchName;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_ClearAchievement_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    const char *pchName;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementAndUnlockTime_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    const char *pchName;
+    int8_t *pbAchieved;
+    uint32_t *punUnlockTime;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_StoreStats_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementIcon_params
+{
+    struct u_steam_iface *linux_side;
+    int32_t _ret;
+    const char *pchName;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementDisplayAttribute_params
+{
+    struct u_steam_iface *linux_side;
+    const char *_ret;
+    const char *pchName;
+    const char *pchKey;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_IndicateAchievementProgress_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    const char *pchName;
+    uint32_t nCurProgress;
+    uint32_t nMaxProgress;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetNumAchievements_params
+{
+    struct u_steam_iface *linux_side;
+    uint32_t _ret;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementName_params
+{
+    struct u_steam_iface *linux_side;
+    const char *_ret;
+    uint32_t iAchievement;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_RequestUserStats_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t _ret;
+    CSteamID steamIDUser;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetUserStat_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    CSteamID steamIDUser;
+    const char *pchName;
+    int32_t *pData;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetUserStat_2_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    CSteamID steamIDUser;
+    const char *pchName;
+    float *pData;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetUserAchievement_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    CSteamID steamIDUser;
+    const char *pchName;
+    int8_t *pbAchieved;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetUserAchievementAndUnlockTime_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    CSteamID steamIDUser;
+    const char *pchName;
+    int8_t *pbAchieved;
+    uint32_t *punUnlockTime;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_ResetAllStats_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    int8_t bAchievementsToo;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_FindOrCreateLeaderboard_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t _ret;
+    const char *pchLeaderboardName;
+    uint32_t eLeaderboardSortMethod;
+    uint32_t eLeaderboardDisplayType;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_FindLeaderboard_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t _ret;
+    const char *pchLeaderboardName;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetLeaderboardName_params
+{
+    struct u_steam_iface *linux_side;
+    const char *_ret;
+    uint64_t hSteamLeaderboard;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetLeaderboardEntryCount_params
+{
+    struct u_steam_iface *linux_side;
+    int32_t _ret;
+    uint64_t hSteamLeaderboard;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetLeaderboardSortMethod_params
+{
+    struct u_steam_iface *linux_side;
+    uint32_t _ret;
+    uint64_t hSteamLeaderboard;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetLeaderboardDisplayType_params
+{
+    struct u_steam_iface *linux_side;
+    uint32_t _ret;
+    uint64_t hSteamLeaderboard;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_DownloadLeaderboardEntries_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t _ret;
+    uint64_t hSteamLeaderboard;
+    uint32_t eLeaderboardDataRequest;
+    int32_t nRangeStart;
+    int32_t nRangeEnd;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_DownloadLeaderboardEntriesForUsers_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t _ret;
+    uint64_t hSteamLeaderboard;
+    CSteamID *prgUsers;
+    int32_t cUsers;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetDownloadedLeaderboardEntry_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    uint64_t hSteamLeaderboardEntries;
+    int32_t index;
+    w_LeaderboardEntry_t_123 *pLeaderboardEntry;
+    int32_t *pDetails;
+    int32_t cDetailsMax;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_UploadLeaderboardScore_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t _ret;
+    uint64_t hSteamLeaderboard;
+    uint32_t eLeaderboardUploadScoreMethod;
+    int32_t nScore;
+    const int32_t *pScoreDetails;
+    int32_t cScoreDetailsCount;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_AttachLeaderboardUGC_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t _ret;
+    uint64_t hSteamLeaderboard;
+    uint64_t hUGC;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetNumberOfCurrentPlayers_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t _ret;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_RequestGlobalAchievementPercentages_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t _ret;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetMostAchievedAchievementInfo_params
+{
+    struct u_steam_iface *linux_side;
+    int32_t _ret;
+    char *pchName;
+    uint32_t unNameBufLen;
+    float *pflPercent;
+    int8_t *pbAchieved;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetNextMostAchievedAchievementInfo_params
+{
+    struct u_steam_iface *linux_side;
+    int32_t _ret;
+    int32_t iIteratorPrevious;
+    char *pchName;
+    uint32_t unNameBufLen;
+    float *pflPercent;
+    int8_t *pbAchieved;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementAchievedPercent_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    const char *pchName;
+    float *pflPercent;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_RequestGlobalStats_params
+{
+    struct u_steam_iface *linux_side;
+    uint64_t _ret;
+    int32_t nHistoryDays;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetGlobalStat_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    const char *pchStatName;
+    int64_t *pData;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetGlobalStat_2_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    const char *pchStatName;
+    double *pData;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetGlobalStatHistory_params
+{
+    struct u_steam_iface *linux_side;
+    int32_t _ret;
+    const char *pchStatName;
+    int64_t *pData;
+    uint32_t cubData;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetGlobalStatHistory_2_params
+{
+    struct u_steam_iface *linux_side;
+    int32_t _ret;
+    const char *pchStatName;
+    double *pData;
+    uint32_t cubData;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementProgressLimits_params
+{
+    struct u_steam_iface *linux_side;
+    int8_t _ret;
+    const char *pchName;
+    int32_t *pnMinProgress;
+    int32_t *pnMaxProgress;
+};
+
+struct ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementProgressLimits_2_params
 {
     struct u_steam_iface *linux_side;
     int8_t _ret;
@@ -47961,6 +48459,24 @@ enum unix_funcs
     unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_ClearTimelineStateDescription,
     unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_AddTimelineEvent,
     unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_SetTimelineGameMode,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetTimelineTooltip,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_ClearTimelineTooltip,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetTimelineGameMode,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddInstantaneousTimelineEvent,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddRangeTimelineEvent,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_StartRangeTimelineEvent,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_UpdateRangeTimelineEvent,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_EndRangeTimelineEvent,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_RemoveTimelineEvent,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_DoesEventRecordingExist,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_StartGamePhase,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_EndGamePhase,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetGamePhaseID,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_DoesGamePhaseRecordingExist,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddGamePhaseTag,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetGamePhaseAttribute,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_OpenOverlayToGamePhase,
+    unix_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_OpenOverlayToTimelineEvent,
     unix_ISteamUGC_STEAMUGC_INTERFACE_VERSION001_CreateQueryUserUGCRequest,
     unix_ISteamUGC_STEAMUGC_INTERFACE_VERSION001_CreateQueryAllUGCRequest,
     unix_ISteamUGC_STEAMUGC_INTERFACE_VERSION001_SendQueryUGCRequest,
@@ -49456,6 +49972,50 @@ enum unix_funcs
     unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_GetGlobalStatHistory_2,
     unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_GetAchievementProgressLimits,
     unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_GetAchievementProgressLimits_2,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetStat,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetStat_2,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_SetStat,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_SetStat_2,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_UpdateAvgRateStat,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievement,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_SetAchievement,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_ClearAchievement,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementAndUnlockTime,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_StoreStats,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementIcon,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementDisplayAttribute,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_IndicateAchievementProgress,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetNumAchievements,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementName,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_RequestUserStats,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetUserStat,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetUserStat_2,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetUserAchievement,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetUserAchievementAndUnlockTime,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_ResetAllStats,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_FindOrCreateLeaderboard,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_FindLeaderboard,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetLeaderboardName,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetLeaderboardEntryCount,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetLeaderboardSortMethod,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetLeaderboardDisplayType,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_DownloadLeaderboardEntries,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_DownloadLeaderboardEntriesForUsers,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetDownloadedLeaderboardEntry,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_UploadLeaderboardScore,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_AttachLeaderboardUGC,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetNumberOfCurrentPlayers,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_RequestGlobalAchievementPercentages,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetMostAchievedAchievementInfo,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetNextMostAchievedAchievementInfo,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementAchievedPercent,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_RequestGlobalStats,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetGlobalStat,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetGlobalStat_2,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetGlobalStatHistory,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetGlobalStatHistory_2,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementProgressLimits,
+    unix_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementProgressLimits_2,
     unix_ISteamVideo_STEAMVIDEO_INTERFACE_V001_GetVideoURL,
     unix_ISteamVideo_STEAMVIDEO_INTERFACE_V001_IsBroadcasting,
     unix_ISteamVideo_STEAMVIDEO_INTERFACE_V002_GetVideoURL,

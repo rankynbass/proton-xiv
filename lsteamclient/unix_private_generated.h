@@ -7209,6 +7209,80 @@ struct u_ISteamVideo_STEAMVIDEO_INTERFACE_V007
 #endif /* __cplusplus */
 };
 
+struct u_ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013
+{
+#ifdef __cplusplus
+    virtual int8_t GetStat( const char *, int32_t * ) = 0;
+    virtual int8_t GetStat( const char *, float * ) = 0;
+    virtual int8_t SetStat( const char *, int32_t ) = 0;
+    virtual int8_t SetStat( const char *, float ) = 0;
+    virtual int8_t UpdateAvgRateStat( const char *, float, double ) = 0;
+    virtual int8_t GetAchievement( const char *, int8_t * ) = 0;
+    virtual int8_t SetAchievement( const char * ) = 0;
+    virtual int8_t ClearAchievement( const char * ) = 0;
+    virtual int8_t GetAchievementAndUnlockTime( const char *, int8_t *, uint32_t * ) = 0;
+    virtual int8_t StoreStats(  ) = 0;
+    virtual int32_t GetAchievementIcon( const char * ) = 0;
+    virtual const char * GetAchievementDisplayAttribute( const char *, const char * ) = 0;
+    virtual int8_t IndicateAchievementProgress( const char *, uint32_t, uint32_t ) = 0;
+    virtual uint32_t GetNumAchievements(  ) = 0;
+    virtual const char * GetAchievementName( uint32_t ) = 0;
+    virtual uint64_t RequestUserStats( CSteamID ) = 0;
+    virtual int8_t GetUserStat( CSteamID, const char *, int32_t * ) = 0;
+    virtual int8_t GetUserStat( CSteamID, const char *, float * ) = 0;
+    virtual int8_t GetUserAchievement( CSteamID, const char *, int8_t * ) = 0;
+    virtual int8_t GetUserAchievementAndUnlockTime( CSteamID, const char *, int8_t *, uint32_t * ) = 0;
+    virtual int8_t ResetAllStats( int8_t ) = 0;
+    virtual uint64_t FindOrCreateLeaderboard( const char *, uint32_t, uint32_t ) = 0;
+    virtual uint64_t FindLeaderboard( const char * ) = 0;
+    virtual const char * GetLeaderboardName( uint64_t ) = 0;
+    virtual int32_t GetLeaderboardEntryCount( uint64_t ) = 0;
+    virtual uint32_t GetLeaderboardSortMethod( uint64_t ) = 0;
+    virtual uint32_t GetLeaderboardDisplayType( uint64_t ) = 0;
+    virtual uint64_t DownloadLeaderboardEntries( uint64_t, uint32_t, int32_t, int32_t ) = 0;
+    virtual uint64_t DownloadLeaderboardEntriesForUsers( uint64_t, CSteamID *, int32_t ) = 0;
+    virtual int8_t GetDownloadedLeaderboardEntry( uint64_t, int32_t, u_LeaderboardEntry_t_123 *, int32_t *, int32_t ) = 0;
+    virtual uint64_t UploadLeaderboardScore( uint64_t, uint32_t, int32_t, const int32_t *, int32_t ) = 0;
+    virtual uint64_t AttachLeaderboardUGC( uint64_t, uint64_t ) = 0;
+    virtual uint64_t GetNumberOfCurrentPlayers(  ) = 0;
+    virtual uint64_t RequestGlobalAchievementPercentages(  ) = 0;
+    virtual int32_t GetMostAchievedAchievementInfo( char *, uint32_t, float *, int8_t * ) = 0;
+    virtual int32_t GetNextMostAchievedAchievementInfo( int32_t, char *, uint32_t, float *, int8_t * ) = 0;
+    virtual int8_t GetAchievementAchievedPercent( const char *, float * ) = 0;
+    virtual uint64_t RequestGlobalStats( int32_t ) = 0;
+    virtual int8_t GetGlobalStat( const char *, int64_t * ) = 0;
+    virtual int8_t GetGlobalStat( const char *, double * ) = 0;
+    virtual int32_t GetGlobalStatHistory( const char *, int64_t *, uint32_t ) = 0;
+    virtual int32_t GetGlobalStatHistory( const char *, double *, uint32_t ) = 0;
+    virtual int8_t GetAchievementProgressLimits( const char *, int32_t *, int32_t * ) = 0;
+    virtual int8_t GetAchievementProgressLimits( const char *, float *, float * ) = 0;
+#endif /* __cplusplus */
+};
+
+struct u_ISteamTimeline_STEAMTIMELINE_INTERFACE_V004
+{
+#ifdef __cplusplus
+    virtual void SetTimelineTooltip( const char *, float ) = 0;
+    virtual void ClearTimelineTooltip( float ) = 0;
+    virtual void SetTimelineGameMode( uint32_t ) = 0;
+    virtual uint64_t AddInstantaneousTimelineEvent( const char *, const char *, const char *, uint32_t, float, uint32_t ) = 0;
+    virtual uint64_t AddRangeTimelineEvent( const char *, const char *, const char *, uint32_t, float, float, uint32_t ) = 0;
+    virtual uint64_t StartRangeTimelineEvent( const char *, const char *, const char *, uint32_t, float, uint32_t ) = 0;
+    virtual void UpdateRangeTimelineEvent( uint64_t, const char *, const char *, const char *, uint32_t, uint32_t ) = 0;
+    virtual void EndRangeTimelineEvent( uint64_t, float ) = 0;
+    virtual void RemoveTimelineEvent( uint64_t ) = 0;
+    virtual uint64_t DoesEventRecordingExist( uint64_t ) = 0;
+    virtual void StartGamePhase(  ) = 0;
+    virtual void EndGamePhase(  ) = 0;
+    virtual void SetGamePhaseID( const char * ) = 0;
+    virtual uint64_t DoesGamePhaseRecordingExist( const char * ) = 0;
+    virtual void AddGamePhaseTag( const char *, const char *, const char *, uint32_t ) = 0;
+    virtual void SetGamePhaseAttribute( const char *, const char *, uint32_t ) = 0;
+    virtual void OpenOverlayToGamePhase( const char * ) = 0;
+    virtual void OpenOverlayToTimelineEvent( const uint64_t ) = 0;
+#endif /* __cplusplus */
+};
+
 
 NTSTATUS ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetNumInstalledApps( void * );
 NTSTATUS ISteamAppList_STEAMAPPLIST_INTERFACE_VERSION001_GetInstalledApps( void * );
@@ -8386,6 +8460,24 @@ NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_SetTimelineStateDescription
 NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_ClearTimelineStateDescription( void * );
 NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_AddTimelineEvent( void * );
 NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_SetTimelineGameMode( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetTimelineTooltip( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_ClearTimelineTooltip( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetTimelineGameMode( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddInstantaneousTimelineEvent( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddRangeTimelineEvent( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_StartRangeTimelineEvent( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_UpdateRangeTimelineEvent( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_EndRangeTimelineEvent( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_RemoveTimelineEvent( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_DoesEventRecordingExist( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_StartGamePhase( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_EndGamePhase( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetGamePhaseID( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_DoesGamePhaseRecordingExist( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddGamePhaseTag( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetGamePhaseAttribute( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_OpenOverlayToGamePhase( void * );
+NTSTATUS ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_OpenOverlayToTimelineEvent( void * );
 NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION001_CreateQueryUserUGCRequest( void * );
 NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION001_CreateQueryAllUGCRequest( void * );
 NTSTATUS ISteamUGC_STEAMUGC_INTERFACE_VERSION001_SendQueryUGCRequest( void * );
@@ -9881,6 +9973,50 @@ NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_GetGlobalStatHistor
 NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_GetGlobalStatHistory_2( void * );
 NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_GetAchievementProgressLimits( void * );
 NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_GetAchievementProgressLimits_2( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetStat( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetStat_2( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_SetStat( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_SetStat_2( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_UpdateAvgRateStat( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievement( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_SetAchievement( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_ClearAchievement( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementAndUnlockTime( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_StoreStats( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementIcon( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementDisplayAttribute( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_IndicateAchievementProgress( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetNumAchievements( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementName( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_RequestUserStats( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetUserStat( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetUserStat_2( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetUserAchievement( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetUserAchievementAndUnlockTime( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_ResetAllStats( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_FindOrCreateLeaderboard( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_FindLeaderboard( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetLeaderboardName( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetLeaderboardEntryCount( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetLeaderboardSortMethod( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetLeaderboardDisplayType( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_DownloadLeaderboardEntries( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_DownloadLeaderboardEntriesForUsers( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetDownloadedLeaderboardEntry( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_UploadLeaderboardScore( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_AttachLeaderboardUGC( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetNumberOfCurrentPlayers( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_RequestGlobalAchievementPercentages( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetMostAchievedAchievementInfo( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetNextMostAchievedAchievementInfo( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementAchievedPercent( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_RequestGlobalStats( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetGlobalStat( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetGlobalStat_2( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetGlobalStatHistory( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetGlobalStatHistory_2( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementProgressLimits( void * );
+NTSTATUS ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementProgressLimits_2( void * );
 NTSTATUS ISteamVideo_STEAMVIDEO_INTERFACE_V001_GetVideoURL( void * );
 NTSTATUS ISteamVideo_STEAMVIDEO_INTERFACE_V001_IsBroadcasting( void * );
 NTSTATUS ISteamVideo_STEAMVIDEO_INTERFACE_V002_GetVideoURL( void * );
