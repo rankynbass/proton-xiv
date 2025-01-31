@@ -1189,8 +1189,6 @@ def default_compat_config():
         appid = os.environ["SteamAppId"]
         if appid in [
                 #affected by CW bug 19126
-                "1359980", #POSTAL: Brain Damaged
-                "1766430", #POSTAL Brain Damaged Demo
                 "692890", #Roboquest
 
                 #affected by CW bug 19741
