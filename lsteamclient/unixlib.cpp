@@ -306,13 +306,14 @@ static void (*p_Steam_NotifyMissingInterface)( int32_t, const char * );
 template< typename Params >
 static NTSTATUS steamclient_Steam_BGetCallback( Params *params, bool wow64 )
 {
-    u_CallbackMsg_t *u_msg = new u_CallbackMsg_t();
+    u_CallbackMsg_t *u_msg, u_msg_tmp;
     auto *w_msg = &*params->w_msg;
 
-    if (!u_msg || !p_Steam_BGetCallback( params->pipe, u_msg, params->ignored ))
+    if (!p_Steam_BGetCallback( params->pipe, &u_msg_tmp, params->ignored ))
         params->_ret = false;
     else
     {
+        u_msg = new u_CallbackMsg_t(u_msg_tmp);
         TRACE( "id %d, u_size %d.\n", u_msg->m_iCallback, u_msg->m_cubParam );
         w_msg->m_hSteamUser = u_msg->m_hSteamUser;
         w_msg->m_iCallback = u_msg->m_iCallback;
