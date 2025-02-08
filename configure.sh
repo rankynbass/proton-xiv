@@ -49,21 +49,35 @@ dependency_command() {
 CONTAINER_MOUNT_OPTS=""
 
 check_container_engine() {
-    stat "Trying $1."
-    if ! cmd $1 run --rm $2; then
-        info "$1 is unable to run the container."
+    # Check if we're actually running Podman masquerading as Docker
+    if [ "$1" = "docker" ] && [ -f "$(which docker)" ]; then
+        if cat "$(which docker)" | grep -q "bin/podman"; then
+            info "Detected Docker command is actually Podman"
+            # return 1 to force use podman directly
+            return 1
+        else
+            ENGINE="$1"
+        fi
+    else
+        ENGINE="$1"
+    fi
+
+    stat "Trying $ENGINE."
+
+    if ! cmd "$ENGINE" run --rm "$2"; then
+        info "$ENGINE is unable to run the container."
         return 1
     fi
 
     touch permission_check
-    local inner_uid="$($1 run -v "$(pwd):/test$CONTAINER_MOUNT_OPTS" \
-                                            --rm $2 \
-                                            stat --format "%u" /test/permission_check 2>&1)"
+    local inner_uid="$($ENGINE run -v "$(pwd):/test$CONTAINER_MOUNT_OPTS" \
+                                        --rm "$2" \
+                                        stat --format "%u" /test/permission_check 2>&1)"
     rm permission_check
 
     if [[ $inner_uid == *"Permission denied"* ]]; then
         err "The container cannot access files. Are you using SELinux?"
-        die "Please read README.md and check your $1 setup works."
+        die "Please read README.md and check your $ENGINE setup works."
     elif [ "$inner_uid" -eq 0 ]; then
         # namespace maps the user as root or the build is performed as host's root
         ROOTLESS_CONTAINER=1
@@ -71,7 +85,7 @@ check_container_engine() {
         ROOTLESS_CONTAINER=0
     else
         err "File owner's UID doesn't map to 0 or $(id -u) in the container."
-        die "Don't know how to map permissions. Please check your $1 setup."
+        die "Don't know how to map permissions. Please check your $ENGINE setup."
     fi
 }
 
@@ -114,8 +128,12 @@ function configure() {
   if [[ -n $build_name ]]; then
     info "Configuring with build name: $build_name"
   else
-    build_name="$DEFAULT_BUILD_NAME"
-    info "No build name specified, using default: $build_name"
+    build_name="$DEFAULT_BUILD_NAME" info "No build name specified, using default: $build_name"
+  fi
+  if [[ ${build_name,,} == *proton* ]]; then
+    internal_tool_name=${build_name}
+  else
+    internal_tool_name=${build_name}-proton
   fi
 
   dependency_command make "GNU Make"
@@ -153,6 +171,7 @@ function configure() {
     echo ""
     echo "SRCDIR     := $(escape_for_make "$srcdir")"
     echo "BUILD_NAME := $(escape_for_make "$build_name")"
+    echo "INTERNAL_TOOL_NAME := $(escape_for_make "$internal_tool_name")"
 
     # SteamRT was specified, baking it into the Makefile
     if [[ -n $arg_protonsdk_image ]]; then
@@ -167,9 +186,7 @@ function configure() {
     if [[ -n "$CONTAINER_MOUNT_OPTS" ]]; then
       echo "CONTAINER_MOUNT_OPTS := $CONTAINER_MOUNT_OPTS"
     fi
-    if [[ -n "$arg_enable_ccache" ]]; then
-      echo "ENABLE_CCACHE := 1"
-    fi
+    echo "ENABLE_CCACHE := 1"
     if [[ -n "$arg_enable_bear" ]]; then
       echo "ENABLE_BEAR := 1"
     fi
@@ -192,7 +209,6 @@ arg_build_name=""
 arg_container_engine=""
 arg_docker_opts=""
 arg_relabel_volumes=""
-arg_enable_ccache=""
 arg_enable_bear=""
 arg_help=""
 invalid_args=""
@@ -238,8 +254,6 @@ function parse_args() {
       val_used=1
     elif [[ $arg = --relabel-volumes ]]; then
       arg_relabel_volumes="1"
-    elif [[ $arg = --enable-ccache ]]; then
-      arg_enable_ccache="1"
     elif [[ $arg = --enable-bear ]]; then
       arg_enable_bear="1"
     elif [[ $arg = --proton-sdk-image ]]; then

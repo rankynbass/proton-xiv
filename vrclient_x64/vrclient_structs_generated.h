@@ -1588,6 +1588,10 @@ typedef struct u64_CameraVideoStreamFrame_t_0912 u64_CameraVideoStreamFrame_t_09
 typedef struct w64_CameraVideoStreamFrame_t_0912 w64_CameraVideoStreamFrame_t_0912;
 typedef struct w32_CameraVideoStreamFrame_t_0912 u32_CameraVideoStreamFrame_t_0912;
 typedef struct w32_CameraVideoStreamFrame_t_0912 w32_CameraVideoStreamFrame_t_0912;
+typedef struct w64_Compositor_FrameTiming_251 u64_Compositor_FrameTiming_251;
+typedef struct w64_Compositor_FrameTiming_251 w64_Compositor_FrameTiming_251;
+typedef struct w32_Compositor_FrameTiming_251 u32_Compositor_FrameTiming_251;
+typedef struct w32_Compositor_FrameTiming_251 w32_Compositor_FrameTiming_251;
 typedef struct w64_Compositor_FrameTiming_1017 u64_Compositor_FrameTiming_1017;
 typedef struct w64_Compositor_FrameTiming_1017 w64_Compositor_FrameTiming_1017;
 typedef struct w32_Compositor_FrameTiming_1017 u32_Compositor_FrameTiming_1017;
@@ -2843,6 +2847,83 @@ typedef u32_CameraVideoStreamFrame_t_0912 u_CameraVideoStreamFrame_t_0912;
 #ifdef __x86_64__
 typedef w64_CameraVideoStreamFrame_t_0912 w_CameraVideoStreamFrame_t_0912;
 typedef u64_CameraVideoStreamFrame_t_0912 u_CameraVideoStreamFrame_t_0912;
+#endif
+
+#pragma pack( push, 8 )
+struct w64_Compositor_FrameTiming_251
+{
+    uint32_t m_nSize;
+    uint32_t m_nFrameIndex;
+    uint32_t m_nNumFramePresents;
+    uint32_t m_nNumMisPresented;
+    uint32_t m_nNumDroppedFrames;
+    uint32_t m_nReprojectionFlags;
+    double m_flSystemTimeInSeconds;
+    float m_flPreSubmitGpuMs;
+    float m_flPostSubmitGpuMs;
+    float m_flTotalRenderGpuMs;
+    float m_flCompositorRenderGpuMs;
+    float m_flCompositorRenderCpuMs;
+    float m_flCompositorIdleCpuMs;
+    float m_flClientFrameIntervalMs;
+    float m_flPresentCallCpuMs;
+    float m_flWaitForPresentCpuMs;
+    float m_flSubmitFrameMs;
+    float m_flWaitGetPosesCalledMs;
+    float m_flNewPosesReadyMs;
+    float m_flNewFrameReadyMs;
+    float m_flCompositorUpdateStartMs;
+    float m_flCompositorUpdateEndMs;
+    float m_flCompositorRenderStartMs;
+    TrackedDevicePose_t m_HmdPose;
+    uint32_t m_nNumVSyncsReadyForUse;
+    uint32_t m_nNumVSyncsToFirstView;
+    float m_flTransferLatencyMs;
+    uint8_t __pad_188[4];
+};
+#pragma pack( pop )
+
+#pragma pack( push, 8 )
+struct w32_Compositor_FrameTiming_251
+{
+    uint32_t m_nSize;
+    uint32_t m_nFrameIndex;
+    uint32_t m_nNumFramePresents;
+    uint32_t m_nNumMisPresented;
+    uint32_t m_nNumDroppedFrames;
+    uint32_t m_nReprojectionFlags;
+    double m_flSystemTimeInSeconds;
+    float m_flPreSubmitGpuMs;
+    float m_flPostSubmitGpuMs;
+    float m_flTotalRenderGpuMs;
+    float m_flCompositorRenderGpuMs;
+    float m_flCompositorRenderCpuMs;
+    float m_flCompositorIdleCpuMs;
+    float m_flClientFrameIntervalMs;
+    float m_flPresentCallCpuMs;
+    float m_flWaitForPresentCpuMs;
+    float m_flSubmitFrameMs;
+    float m_flWaitGetPosesCalledMs;
+    float m_flNewPosesReadyMs;
+    float m_flNewFrameReadyMs;
+    float m_flCompositorUpdateStartMs;
+    float m_flCompositorUpdateEndMs;
+    float m_flCompositorRenderStartMs;
+    TrackedDevicePose_t m_HmdPose;
+    uint32_t m_nNumVSyncsReadyForUse;
+    uint32_t m_nNumVSyncsToFirstView;
+    float m_flTransferLatencyMs;
+    uint8_t __pad_188[4];
+};
+#pragma pack( pop )
+
+#ifdef __i386__
+typedef w32_Compositor_FrameTiming_251 w_Compositor_FrameTiming_251;
+typedef u32_Compositor_FrameTiming_251 u_Compositor_FrameTiming_251;
+#endif
+#ifdef __x86_64__
+typedef w64_Compositor_FrameTiming_251 w_Compositor_FrameTiming_251;
+typedef u64_Compositor_FrameTiming_251 u_Compositor_FrameTiming_251;
 #endif
 
 #pragma pack( push, 8 )

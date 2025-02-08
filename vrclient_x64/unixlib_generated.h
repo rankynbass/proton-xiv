@@ -6811,7 +6811,7 @@ struct IVRCompositor_IVRCompositor_028_GetFrameTiming_params
 {
     void *linux_side;
     int8_t _ret;
-    w_Compositor_FrameTiming_1017 *pTiming;
+    w_Compositor_FrameTiming_251 *pTiming;
     uint32_t unFramesAgo;
 };
 
@@ -6819,7 +6819,7 @@ struct IVRCompositor_IVRCompositor_028_GetFrameTimings_params
 {
     void *linux_side;
     uint32_t _ret;
-    w_Compositor_FrameTiming_1017 *pTiming;
+    w_Compositor_FrameTiming_251 *pTiming;
     uint32_t nFrames;
 };
 

@@ -4307,8 +4307,8 @@ struct u_IVRCompositor_IVRCompositor_028
     virtual uint32_t SubmitWithArrayIndex( uint32_t, const u_Texture_t *, uint32_t, const VRTextureBounds_t *, uint32_t ) = 0;
     virtual void ClearLastSubmittedFrame(  ) = 0;
     virtual void PostPresentHandoff(  ) = 0;
-    virtual int8_t GetFrameTiming( u_Compositor_FrameTiming_1017 *, uint32_t ) = 0;
-    virtual uint32_t GetFrameTimings( u_Compositor_FrameTiming_1017 *, uint32_t ) = 0;
+    virtual int8_t GetFrameTiming( u_Compositor_FrameTiming_251 *, uint32_t ) = 0;
+    virtual uint32_t GetFrameTimings( u_Compositor_FrameTiming_251 *, uint32_t ) = 0;
     virtual float GetFrameTimeRemaining(  ) = 0;
     virtual void GetCumulativeStats( Compositor_CumulativeStats_1267 *, uint32_t ) = 0;
     virtual void FadeToColor( float, float, float, float, float, int8_t ) = 0;

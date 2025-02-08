@@ -1199,6 +1199,24 @@ extern "C" const unixlib_entry_t __wine_unix_call_funcs[] =
     ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_ClearTimelineStateDescription,
     ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_AddTimelineEvent,
     ISteamTimeline_STEAMTIMELINE_INTERFACE_V001_SetTimelineGameMode,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetTimelineTooltip,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_ClearTimelineTooltip,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetTimelineGameMode,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddInstantaneousTimelineEvent,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddRangeTimelineEvent,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_StartRangeTimelineEvent,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_UpdateRangeTimelineEvent,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_EndRangeTimelineEvent,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_RemoveTimelineEvent,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_DoesEventRecordingExist,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_StartGamePhase,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_EndGamePhase,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetGamePhaseID,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_DoesGamePhaseRecordingExist,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_AddGamePhaseTag,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_SetGamePhaseAttribute,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_OpenOverlayToGamePhase,
+    ISteamTimeline_STEAMTIMELINE_INTERFACE_V004_OpenOverlayToTimelineEvent,
     ISteamUGC_STEAMUGC_INTERFACE_VERSION001_CreateQueryUserUGCRequest,
     ISteamUGC_STEAMUGC_INTERFACE_VERSION001_CreateQueryAllUGCRequest,
     ISteamUGC_STEAMUGC_INTERFACE_VERSION001_SendQueryUGCRequest,
@@ -2694,6 +2712,50 @@ extern "C" const unixlib_entry_t __wine_unix_call_funcs[] =
     ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_GetGlobalStatHistory_2,
     ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_GetAchievementProgressLimits,
     ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012_GetAchievementProgressLimits_2,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetStat,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetStat_2,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_SetStat,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_SetStat_2,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_UpdateAvgRateStat,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievement,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_SetAchievement,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_ClearAchievement,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementAndUnlockTime,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_StoreStats,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementIcon,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementDisplayAttribute,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_IndicateAchievementProgress,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetNumAchievements,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementName,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_RequestUserStats,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetUserStat,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetUserStat_2,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetUserAchievement,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetUserAchievementAndUnlockTime,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_ResetAllStats,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_FindOrCreateLeaderboard,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_FindLeaderboard,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetLeaderboardName,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetLeaderboardEntryCount,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetLeaderboardSortMethod,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetLeaderboardDisplayType,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_DownloadLeaderboardEntries,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_DownloadLeaderboardEntriesForUsers,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetDownloadedLeaderboardEntry,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_UploadLeaderboardScore,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_AttachLeaderboardUGC,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetNumberOfCurrentPlayers,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_RequestGlobalAchievementPercentages,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetMostAchievedAchievementInfo,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetNextMostAchievedAchievementInfo,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementAchievedPercent,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_RequestGlobalStats,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetGlobalStat,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetGlobalStat_2,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetGlobalStatHistory,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetGlobalStatHistory_2,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementProgressLimits,
+    ISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013_GetAchievementProgressLimits_2,
     ISteamVideo_STEAMVIDEO_INTERFACE_V001_GetVideoURL,
     ISteamVideo_STEAMVIDEO_INTERFACE_V001_IsBroadcasting,
     ISteamVideo_STEAMVIDEO_INTERFACE_V002_GetVideoURL,
@@ -6175,7 +6237,11 @@ C_ASSERT( sizeof(AvatarImageLoaded_t().m_iWide) >= 4 );
 C_ASSERT( offsetof(AvatarImageLoaded_t, m_iTall) == 16 );
 C_ASSERT( sizeof(AvatarImageLoaded_t().m_iTall) >= 4 );
 
-C_ASSERT( sizeof(BroadcastUploadStart_t) >= 1 );
+C_ASSERT( sizeof(BroadcastUploadStart_t_161) >= 1 );
+C_ASSERT( offsetof(BroadcastUploadStart_t_161, m_bIsRTMP) == 0 );
+C_ASSERT( sizeof(BroadcastUploadStart_t_161().m_bIsRTMP) >= 1 );
+
+C_ASSERT( sizeof(BroadcastUploadStart_t_132x) >= 1 );
 
 C_ASSERT( sizeof(BroadcastUploadStop_t) >= 4 );
 C_ASSERT( offsetof(BroadcastUploadStop_t, m_eResult) == 0 );
@@ -6319,21 +6385,39 @@ C_ASSERT( sizeof(EquippedProfileItemsChanged_t) >= 8 );
 C_ASSERT( offsetof(EquippedProfileItemsChanged_t, m_steamID) == 0 );
 C_ASSERT( sizeof(EquippedProfileItemsChanged_t().m_steamID) >= 8 );
 
-C_ASSERT( sizeof(EquippedProfileItems_t) >= 20 );
-C_ASSERT( offsetof(EquippedProfileItems_t, m_eResult) == 0 );
-C_ASSERT( sizeof(EquippedProfileItems_t().m_eResult) >= 4 );
-C_ASSERT( offsetof(EquippedProfileItems_t, m_steamID) == 4 );
-C_ASSERT( sizeof(EquippedProfileItems_t().m_steamID) >= 8 );
-C_ASSERT( offsetof(EquippedProfileItems_t, m_bHasAnimatedAvatar) == 12 );
-C_ASSERT( sizeof(EquippedProfileItems_t().m_bHasAnimatedAvatar) >= 1 );
-C_ASSERT( offsetof(EquippedProfileItems_t, m_bHasAvatarFrame) == 13 );
-C_ASSERT( sizeof(EquippedProfileItems_t().m_bHasAvatarFrame) >= 1 );
-C_ASSERT( offsetof(EquippedProfileItems_t, m_bHasProfileModifier) == 14 );
-C_ASSERT( sizeof(EquippedProfileItems_t().m_bHasProfileModifier) >= 1 );
-C_ASSERT( offsetof(EquippedProfileItems_t, m_bHasProfileBackground) == 15 );
-C_ASSERT( sizeof(EquippedProfileItems_t().m_bHasProfileBackground) >= 1 );
-C_ASSERT( offsetof(EquippedProfileItems_t, m_bHasMiniProfileBackground) == 16 );
-C_ASSERT( sizeof(EquippedProfileItems_t().m_bHasMiniProfileBackground) >= 1 );
+C_ASSERT( sizeof(EquippedProfileItems_t_161) >= 20 );
+C_ASSERT( offsetof(EquippedProfileItems_t_161, m_eResult) == 0 );
+C_ASSERT( sizeof(EquippedProfileItems_t_161().m_eResult) >= 4 );
+C_ASSERT( offsetof(EquippedProfileItems_t_161, m_steamID) == 4 );
+C_ASSERT( sizeof(EquippedProfileItems_t_161().m_steamID) >= 8 );
+C_ASSERT( offsetof(EquippedProfileItems_t_161, m_bHasAnimatedAvatar) == 12 );
+C_ASSERT( sizeof(EquippedProfileItems_t_161().m_bHasAnimatedAvatar) >= 1 );
+C_ASSERT( offsetof(EquippedProfileItems_t_161, m_bHasAvatarFrame) == 13 );
+C_ASSERT( sizeof(EquippedProfileItems_t_161().m_bHasAvatarFrame) >= 1 );
+C_ASSERT( offsetof(EquippedProfileItems_t_161, m_bHasProfileModifier) == 14 );
+C_ASSERT( sizeof(EquippedProfileItems_t_161().m_bHasProfileModifier) >= 1 );
+C_ASSERT( offsetof(EquippedProfileItems_t_161, m_bHasProfileBackground) == 15 );
+C_ASSERT( sizeof(EquippedProfileItems_t_161().m_bHasProfileBackground) >= 1 );
+C_ASSERT( offsetof(EquippedProfileItems_t_161, m_bHasMiniProfileBackground) == 16 );
+C_ASSERT( sizeof(EquippedProfileItems_t_161().m_bHasMiniProfileBackground) >= 1 );
+C_ASSERT( offsetof(EquippedProfileItems_t_161, m_bFromCache) == 17 );
+C_ASSERT( sizeof(EquippedProfileItems_t_161().m_bFromCache) >= 1 );
+
+C_ASSERT( sizeof(EquippedProfileItems_t_154) >= 20 );
+C_ASSERT( offsetof(EquippedProfileItems_t_154, m_eResult) == 0 );
+C_ASSERT( sizeof(EquippedProfileItems_t_154().m_eResult) >= 4 );
+C_ASSERT( offsetof(EquippedProfileItems_t_154, m_steamID) == 4 );
+C_ASSERT( sizeof(EquippedProfileItems_t_154().m_steamID) >= 8 );
+C_ASSERT( offsetof(EquippedProfileItems_t_154, m_bHasAnimatedAvatar) == 12 );
+C_ASSERT( sizeof(EquippedProfileItems_t_154().m_bHasAnimatedAvatar) >= 1 );
+C_ASSERT( offsetof(EquippedProfileItems_t_154, m_bHasAvatarFrame) == 13 );
+C_ASSERT( sizeof(EquippedProfileItems_t_154().m_bHasAvatarFrame) >= 1 );
+C_ASSERT( offsetof(EquippedProfileItems_t_154, m_bHasProfileModifier) == 14 );
+C_ASSERT( sizeof(EquippedProfileItems_t_154().m_bHasProfileModifier) >= 1 );
+C_ASSERT( offsetof(EquippedProfileItems_t_154, m_bHasProfileBackground) == 15 );
+C_ASSERT( sizeof(EquippedProfileItems_t_154().m_bHasProfileBackground) >= 1 );
+C_ASSERT( offsetof(EquippedProfileItems_t_154, m_bHasMiniProfileBackground) == 16 );
+C_ASSERT( sizeof(EquippedProfileItems_t_154().m_bHasMiniProfileBackground) >= 1 );
 
 C_ASSERT( sizeof(FavoritesListAccountsUpdated_t) >= 4 );
 C_ASSERT( offsetof(FavoritesListAccountsUpdated_t, m_eResult) == 0 );
@@ -7522,6 +7606,24 @@ C_ASSERT( offsetof(SteamServersDisconnected_t, m_eResult) == 0 );
 C_ASSERT( sizeof(SteamServersDisconnected_t().m_eResult) >= 4 );
 
 C_ASSERT( sizeof(SteamShutdown_t) >= 1 );
+
+C_ASSERT( sizeof(SteamTimelineEventRecordingExists_t) >= 16 );
+C_ASSERT( offsetof(SteamTimelineEventRecordingExists_t, m_ulEventID) == 0 );
+C_ASSERT( sizeof(SteamTimelineEventRecordingExists_t().m_ulEventID) >= 8 );
+C_ASSERT( offsetof(SteamTimelineEventRecordingExists_t, m_bRecordingExists) == 8 );
+C_ASSERT( sizeof(SteamTimelineEventRecordingExists_t().m_bRecordingExists) >= 1 );
+
+C_ASSERT( sizeof(SteamTimelineGamePhaseRecordingExists_t) >= 88 );
+C_ASSERT( offsetof(SteamTimelineGamePhaseRecordingExists_t, m_rgchPhaseID) == 0 );
+C_ASSERT( sizeof(SteamTimelineGamePhaseRecordingExists_t().m_rgchPhaseID) >= 64 );
+C_ASSERT( offsetof(SteamTimelineGamePhaseRecordingExists_t, m_ulRecordingMS) == 64 );
+C_ASSERT( sizeof(SteamTimelineGamePhaseRecordingExists_t().m_ulRecordingMS) >= 8 );
+C_ASSERT( offsetof(SteamTimelineGamePhaseRecordingExists_t, m_ulLongestClipMS) == 72 );
+C_ASSERT( sizeof(SteamTimelineGamePhaseRecordingExists_t().m_ulLongestClipMS) >= 8 );
+C_ASSERT( offsetof(SteamTimelineGamePhaseRecordingExists_t, m_unClipCount) == 80 );
+C_ASSERT( sizeof(SteamTimelineGamePhaseRecordingExists_t().m_unClipCount) >= 4 );
+C_ASSERT( offsetof(SteamTimelineGamePhaseRecordingExists_t, m_unScreenshotCount) == 84 );
+C_ASSERT( sizeof(SteamTimelineGamePhaseRecordingExists_t().m_unScreenshotCount) >= 4 );
 
 C_ASSERT( sizeof(SteamUGCQueryCompleted_t_143) >= 280 );
 C_ASSERT( offsetof(SteamUGCQueryCompleted_t_143, m_handle) == 0 );
@@ -20729,225 +20831,225 @@ u32_SubmitPlayerResultResultCallback_t::operator w32_SubmitPlayerResultResultCal
 #ifdef __i386__
 const struct callback_def callback_data[] =
 {
-    { 152, 160, 24, 16, MicroTxnAuthorizationResponse_t_123_w_from_u },
+    { 152, 161, 24, 16, MicroTxnAuthorizationResponse_t_123_w_from_u },
     /*{ 152, 122, 24, 16, MicroTxnAuthorizationResponse_t_109_w_from_u },*/
-    { 209, 160, 40, 32, GSReputation_t_123_w_from_u },
+    { 209, 161, 40, 32, GSReputation_t_123_w_from_u },
     /*{ 209, 122, 40, 32, GSReputation_t_108_w_from_u },*/
-    { 513, 160, 16, 12, LobbyCreated_t_123_w_from_u },
+    { 513, 161, 16, 12, LobbyCreated_t_123_w_from_u },
     /*{ 513, 122, 16, 12, LobbyCreated_t_099u_w_from_u },*/
-    { 1023, 160, 40, 36, FileDetailsResult_t_w_from_u },
-    { 1106, 160, 32, 28, LeaderboardScoreUploaded_t_123_w_from_u },
+    { 1023, 161, 40, 36, FileDetailsResult_t_w_from_u },
+    { 1106, 161, 32, 28, LeaderboardScoreUploaded_t_123_w_from_u },
     /*{ 1106, 122, 32, 28, LeaderboardScoreUploaded_t_104_w_from_u },*/
-    { 1111, 160, 16, 12, LeaderboardUGCSet_t_123_w_from_u },
+    { 1111, 161, 16, 12, LeaderboardUGCSet_t_123_w_from_u },
     /*{ 1111, 122, 16, 12, LeaderboardUGCSet_t_111x_w_from_u },*/
-    { 1112, 160, 24, 20, PS3TrophiesInstalled_t_123_w_from_u },
+    { 1112, 161, 24, 20, PS3TrophiesInstalled_t_123_w_from_u },
     /*{ 1112, 122, 24, 20, PS3TrophiesInstalled_t_112x_w_from_u },*/
-    { 1221, 160, 712, 704, SteamNetConnectionStatusChangedCallback_t_153a_w_from_u },
+    { 1221, 161, 712, 704, SteamNetConnectionStatusChangedCallback_t_153a_w_from_u },
     /*{ 1221, 152, 712, 704, SteamNetConnectionStatusChangedCallback_t_144_w_from_u },*/
     { 1221, 151, 584, 576, SteamNetConnectionStatusChangedCallback_t_151_w_from_u },
     { 1303, 151, 288, 280, RemoteStorageAppSyncProgress_t_123_w_from_u },
     /*{ 1303, 122, 288, 280, RemoteStorageAppSyncProgress_t_111x_w_from_u },*/
-    { 1307, 160, 280, 272, RemoteStorageFileShareResult_t_128x_w_from_u },
+    { 1307, 161, 280, 272, RemoteStorageFileShareResult_t_128x_w_from_u },
     { 1307, 128, 16, 12, RemoteStorageFileShareResult_t_123_w_from_u },
     /*{ 1307, 122, 16, 12, RemoteStorageFileShareResult_t_111x_w_from_u },*/
     { 1308, 116, 40, 32, RemoteStorageDownloadUGCResult_t_111x_w_from_u },
-    { 1309, 160, 24, 16, RemoteStoragePublishFileResult_t_125_w_from_u },
+    { 1309, 161, 24, 16, RemoteStoragePublishFileResult_t_125_w_from_u },
     { 1309, 124, 16, 12, RemoteStoragePublishFileResult_t_123_w_from_u },
     /*{ 1309, 122, 16, 12, RemoteStoragePublishFileResult_t_116x_w_from_u },*/
     { 1310, 117, 1744, 1732, RemoteStorageGetPublishedFileDetailsResult_t_116x_w_from_u },
-    { 1311, 160, 16, 12, RemoteStorageDeletePublishedFileResult_t_123_w_from_u },
+    { 1311, 161, 16, 12, RemoteStorageDeletePublishedFileResult_t_123_w_from_u },
     /*{ 1311, 122, 16, 12, RemoteStorageDeletePublishedFileResult_t_116x_w_from_u },*/
-    { 1312, 160, 416, 412, RemoteStorageEnumerateUserPublishedFilesResult_t_123_w_from_u },
+    { 1312, 161, 416, 412, RemoteStorageEnumerateUserPublishedFilesResult_t_123_w_from_u },
     /*{ 1312, 122, 416, 412, RemoteStorageEnumerateUserPublishedFilesResult_t_116x_w_from_u },*/
-    { 1313, 160, 16, 12, RemoteStorageSubscribePublishedFileResult_t_123_w_from_u },
+    { 1313, 161, 16, 12, RemoteStorageSubscribePublishedFileResult_t_123_w_from_u },
     { 1313, 122, 4, 4, nullptr },
-    { 1314, 160, 616, 612, RemoteStorageEnumerateUserSubscribedFilesResult_t_123_w_from_u },
+    { 1314, 161, 616, 612, RemoteStorageEnumerateUserSubscribedFilesResult_t_123_w_from_u },
     /*{ 1314, 122, 616, 612, RemoteStorageEnumerateUserSubscribedFilesResult_t_116x_w_from_u },*/
-    { 1315, 160, 16, 12, RemoteStorageUnsubscribePublishedFileResult_t_123_w_from_u },
+    { 1315, 161, 16, 12, RemoteStorageUnsubscribePublishedFileResult_t_123_w_from_u },
     { 1315, 122, 4, 4, nullptr },
-    { 1316, 160, 24, 16, RemoteStorageUpdatePublishedFileResult_t_125_w_from_u },
+    { 1316, 161, 24, 16, RemoteStorageUpdatePublishedFileResult_t_125_w_from_u },
     { 1316, 124, 16, 12, RemoteStorageUpdatePublishedFileResult_t_123_w_from_u },
     /*{ 1316, 122, 16, 12, RemoteStorageUpdatePublishedFileResult_t_116x_w_from_u },*/
-    { 1317, 160, 296, 288, RemoteStorageDownloadUGCResult_t_123_w_from_u },
+    { 1317, 161, 296, 288, RemoteStorageDownloadUGCResult_t_123_w_from_u },
     /*{ 1317, 122, 296, 288, RemoteStorageDownloadUGCResult_t_116x_w_from_u },*/
-    { 1318, 160, 9760, 9748, RemoteStorageGetPublishedFileDetailsResult_t_126_w_from_u },
+    { 1318, 161, 9760, 9748, RemoteStorageGetPublishedFileDetailsResult_t_126_w_from_u },
     { 1318, 125, 9752, 9744, RemoteStorageGetPublishedFileDetailsResult_t_123_w_from_u },
     /*{ 1318, 122, 9752, 9744, RemoteStorageGetPublishedFileDetailsResult_t_119x_w_from_u },*/
     { 1318, 119, 9752, 9740, RemoteStorageGetPublishedFileDetailsResult_t_119_w_from_u },
     { 1318, 118, 9496, 9484, RemoteStorageGetPublishedFileDetailsResult_t_118_w_from_u },
-    { 1319, 160, 624, 620, RemoteStorageEnumerateWorkshopFilesResult_t_125_w_from_u },
+    { 1319, 161, 624, 620, RemoteStorageEnumerateWorkshopFilesResult_t_125_w_from_u },
     { 1319, 124, 616, 612, RemoteStorageEnumerateWorkshopFilesResult_t_123_w_from_u },
     /*{ 1319, 122, 616, 612, RemoteStorageEnumerateWorkshopFilesResult_t_119_w_from_u },*/
-    { 1320, 160, 32, 28, RemoteStorageGetPublishedItemVoteDetailsResult_t_123_w_from_u },
+    { 1320, 161, 32, 28, RemoteStorageGetPublishedItemVoteDetailsResult_t_123_w_from_u },
     /*{ 1320, 122, 32, 28, RemoteStorageGetPublishedItemVoteDetailsResult_t_119_w_from_u },*/
-    { 1324, 160, 16, 12, RemoteStorageUpdateUserPublishedItemVoteResult_t_123_w_from_u },
+    { 1324, 161, 16, 12, RemoteStorageUpdateUserPublishedItemVoteResult_t_123_w_from_u },
     /*{ 1324, 122, 16, 12, RemoteStorageUpdateUserPublishedItemVoteResult_t_119_w_from_u },*/
-    { 1325, 160, 24, 16, RemoteStorageUserVoteDetails_t_123_w_from_u },
+    { 1325, 161, 24, 16, RemoteStorageUserVoteDetails_t_123_w_from_u },
     /*{ 1325, 122, 24, 16, RemoteStorageUserVoteDetails_t_119_w_from_u },*/
-    { 1326, 160, 416, 412, RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123_w_from_u },
+    { 1326, 161, 416, 412, RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123_w_from_u },
     /*{ 1326, 122, 416, 412, RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119_w_from_u },*/
-    { 1327, 160, 24, 16, RemoteStorageSetUserPublishedFileActionResult_t_123_w_from_u },
+    { 1327, 161, 24, 16, RemoteStorageSetUserPublishedFileActionResult_t_123_w_from_u },
     /*{ 1327, 122, 24, 16, RemoteStorageSetUserPublishedFileActionResult_t_119_w_from_u },*/
-    { 1330, 160, 24, 20, RemoteStoragePublishedFileUpdated_t_w_from_u },
-    { 2101, 160, 32, 24, HTTPRequestCompleted_t_132x_w_from_u },
+    { 1330, 161, 24, 20, RemoteStoragePublishedFileUpdated_t_w_from_u },
+    { 2101, 161, 32, 24, HTTPRequestCompleted_t_132x_w_from_u },
     { 2101, 132, 24, 20, HTTPRequestCompleted_t_123_w_from_u },
     /*{ 2101, 122, 24, 20, HTTPRequestCompleted_t_115_w_from_u },*/
-    { 2102, 160, 16, 12, HTTPRequestHeadersReceived_t_123_w_from_u },
+    { 2102, 161, 16, 12, HTTPRequestHeadersReceived_t_123_w_from_u },
     /*{ 2102, 122, 16, 12, HTTPRequestHeadersReceived_t_121x_w_from_u },*/
-    { 2103, 160, 24, 20, HTTPRequestDataReceived_t_123_w_from_u },
+    { 2103, 161, 24, 20, HTTPRequestDataReceived_t_123_w_from_u },
     /*{ 2103, 122, 24, 20, HTTPRequestDataReceived_t_121x_w_from_u },*/
-    { 2803, 160, 40, 32, SteamInputConfigurationLoaded_t_w_from_u },
-    { 2804, 160, 32, 24, SteamInputGamepadSlotChange_t_w_from_u },
-    { 3402, 160, 9792, 9776, SteamUGCRequestUGCDetailsResult_t_160_w_from_u },
+    { 2803, 161, 40, 32, SteamInputConfigurationLoaded_t_w_from_u },
+    { 2804, 161, 32, 24, SteamInputGamepadSlotChange_t_w_from_u },
+    { 3402, 161, 9792, 9776, SteamUGCRequestUGCDetailsResult_t_160_w_from_u },
     { 3402, 159, 9784, 9768, SteamUGCRequestUGCDetailsResult_t_128x_w_from_u },
     { 3402, 129, 9776, 9764, SteamUGCRequestUGCDetailsResult_t_129_w_from_u },
     { 3402, 128, 9768, 9760, SteamUGCRequestUGCDetailsResult_t_126_w_from_u },
-    { 3403, 160, 24, 16, CreateItemResult_t_w_from_u },
-    { 3405, 160, 32, 28, ItemInstalled_t_160_w_from_u },
+    { 3403, 161, 24, 16, CreateItemResult_t_w_from_u },
+    { 3405, 161, 32, 28, ItemInstalled_t_160_w_from_u },
     { 3405, 159, 16, 12, ItemInstalled_t_130_w_from_u },
-    { 3406, 160, 24, 16, DownloadItemResult_t_w_from_u },
-    { 3412, 160, 24, 20, AddUGCDependencyResult_t_w_from_u },
-    { 3413, 160, 24, 20, RemoveUGCDependencyResult_t_w_from_u },
-    { 3414, 160, 24, 16, AddAppDependencyResult_t_w_from_u },
-    { 3415, 160, 24, 16, RemoveAppDependencyResult_t_w_from_u },
-    { 3416, 160, 152, 148, GetAppDependenciesResult_t_w_from_u },
-    { 3417, 160, 16, 12, DeleteItemResult_t_w_from_u },
-    { 4502, 160, 48, 48, HTML_NeedsPaint_t_w_from_u },
-    { 4503, 160, 20, 20, HTML_StartRequest_t_w_from_u },
-    { 4505, 160, 24, 24, HTML_URLChanged_t_w_from_u },
-    { 4506, 160, 12, 12, HTML_FinishedRequest_t_w_from_u },
-    { 4507, 160, 8, 8, HTML_OpenLinkInNewTab_t_w_from_u },
-    { 4508, 160, 8, 8, HTML_ChangedTitle_t_w_from_u },
-    { 4513, 160, 20, 20, HTML_LinkAtPosition_t_w_from_u },
-    { 4514, 160, 8, 8, HTML_JSAlert_t_w_from_u },
-    { 4515, 160, 8, 8, HTML_JSConfirm_t_w_from_u },
-    { 4516, 160, 12, 12, HTML_FileOpenDialog_t_w_from_u },
+    { 3406, 161, 24, 16, DownloadItemResult_t_w_from_u },
+    { 3412, 161, 24, 20, AddUGCDependencyResult_t_w_from_u },
+    { 3413, 161, 24, 20, RemoveUGCDependencyResult_t_w_from_u },
+    { 3414, 161, 24, 16, AddAppDependencyResult_t_w_from_u },
+    { 3415, 161, 24, 16, RemoveAppDependencyResult_t_w_from_u },
+    { 3416, 161, 152, 148, GetAppDependenciesResult_t_w_from_u },
+    { 3417, 161, 16, 12, DeleteItemResult_t_w_from_u },
+    { 4502, 161, 48, 48, HTML_NeedsPaint_t_w_from_u },
+    { 4503, 161, 20, 20, HTML_StartRequest_t_w_from_u },
+    { 4505, 161, 24, 24, HTML_URLChanged_t_w_from_u },
+    { 4506, 161, 12, 12, HTML_FinishedRequest_t_w_from_u },
+    { 4507, 161, 8, 8, HTML_OpenLinkInNewTab_t_w_from_u },
+    { 4508, 161, 8, 8, HTML_ChangedTitle_t_w_from_u },
+    { 4513, 161, 20, 20, HTML_LinkAtPosition_t_w_from_u },
+    { 4514, 161, 8, 8, HTML_JSAlert_t_w_from_u },
+    { 4515, 161, 8, 8, HTML_JSConfirm_t_w_from_u },
+    { 4516, 161, 12, 12, HTML_FileOpenDialog_t_w_from_u },
     { 4517, 132, 16, 16, HTML_ComboNeedsPaint_t_w_from_u },
-    { 4521, 160, 28, 28, HTML_NewWindow_t_132x_w_from_u },
+    { 4521, 161, 28, 28, HTML_NewWindow_t_132x_w_from_u },
     { 4521, 132, 24, 24, HTML_NewWindow_t_130x_w_from_u },
-    { 4523, 160, 8, 8, HTML_StatusText_t_w_from_u },
-    { 4524, 160, 8, 8, HTML_ShowToolTip_t_w_from_u },
-    { 4525, 160, 8, 8, HTML_UpdateToolTip_t_w_from_u },
-    { 4704, 160, 24, 20, SteamInventoryStartPurchaseResult_t_w_from_u },
-    { 5211, 160, 16, 12, RequestPlayersForGameProgressCallback_t_w_from_u },
-    { 5212, 160, 64, 56, RequestPlayersForGameResultCallback_t_w_from_u },
-    { 5213, 160, 24, 20, RequestPlayersForGameFinalResultCallback_t_w_from_u },
-    { 5214, 160, 24, 20, SubmitPlayerResultResultCallback_t_w_from_u },
-    { 5215, 160, 16, 12, EndGameResultCallback_t_w_from_u },
-    { 5301, 160, 280, 276, JoinPartyCallback_t_w_from_u },
-    { 5302, 160, 16, 12, CreateBeaconCallback_t_w_from_u },
+    { 4523, 161, 8, 8, HTML_StatusText_t_w_from_u },
+    { 4524, 161, 8, 8, HTML_ShowToolTip_t_w_from_u },
+    { 4525, 161, 8, 8, HTML_UpdateToolTip_t_w_from_u },
+    { 4704, 161, 24, 20, SteamInventoryStartPurchaseResult_t_w_from_u },
+    { 5211, 161, 16, 12, RequestPlayersForGameProgressCallback_t_w_from_u },
+    { 5212, 161, 64, 56, RequestPlayersForGameResultCallback_t_w_from_u },
+    { 5213, 161, 24, 20, RequestPlayersForGameFinalResultCallback_t_w_from_u },
+    { 5214, 161, 24, 20, SubmitPlayerResultResultCallback_t_w_from_u },
+    { 5215, 161, 16, 12, EndGameResultCallback_t_w_from_u },
+    { 5301, 161, 280, 276, JoinPartyCallback_t_w_from_u },
+    { 5302, 161, 16, 12, CreateBeaconCallback_t_w_from_u },
 };
 #endif
 #ifdef __x86_64__
 const struct callback_def callback_data[] =
 {
-    { 152, 160, 24, 16, MicroTxnAuthorizationResponse_t_123_w_from_u },
+    { 152, 161, 24, 16, MicroTxnAuthorizationResponse_t_123_w_from_u },
     { 152, 122, 24, 24, MicroTxnAuthorizationResponse_t_109_w_from_u },
-    { 209, 160, 40, 32, GSReputation_t_123_w_from_u },
+    { 209, 161, 40, 32, GSReputation_t_123_w_from_u },
     { 209, 122, 40, 40, GSReputation_t_108_w_from_u },
-    { 513, 160, 16, 12, LobbyCreated_t_123_w_from_u },
+    { 513, 161, 16, 12, LobbyCreated_t_123_w_from_u },
     { 513, 122, 16, 16, LobbyCreated_t_099u_w_from_u },
-    { 1023, 160, 40, 36, FileDetailsResult_t_w_from_u },
-    { 1106, 160, 32, 28, LeaderboardScoreUploaded_t_123_w_from_u },
+    { 1023, 161, 40, 36, FileDetailsResult_t_w_from_u },
+    { 1106, 161, 32, 28, LeaderboardScoreUploaded_t_123_w_from_u },
     { 1106, 122, 32, 32, LeaderboardScoreUploaded_t_104_w_from_u },
-    { 1111, 160, 16, 12, LeaderboardUGCSet_t_123_w_from_u },
+    { 1111, 161, 16, 12, LeaderboardUGCSet_t_123_w_from_u },
     { 1111, 122, 16, 16, LeaderboardUGCSet_t_111x_w_from_u },
-    { 1112, 160, 24, 20, PS3TrophiesInstalled_t_123_w_from_u },
+    { 1112, 161, 24, 20, PS3TrophiesInstalled_t_123_w_from_u },
     { 1112, 122, 24, 24, PS3TrophiesInstalled_t_112x_w_from_u },
-    { 1221, 160, 712, 704, SteamNetConnectionStatusChangedCallback_t_153a_w_from_u },
+    { 1221, 161, 712, 704, SteamNetConnectionStatusChangedCallback_t_153a_w_from_u },
     /*{ 1221, 152, 712, 704, SteamNetConnectionStatusChangedCallback_t_144_w_from_u },*/
     { 1221, 151, 584, 576, SteamNetConnectionStatusChangedCallback_t_151_w_from_u },
     { 1303, 151, 288, 280, RemoteStorageAppSyncProgress_t_123_w_from_u },
     { 1303, 122, 288, 288, RemoteStorageAppSyncProgress_t_111x_w_from_u },
-    { 1307, 160, 280, 272, RemoteStorageFileShareResult_t_128x_w_from_u },
+    { 1307, 161, 280, 272, RemoteStorageFileShareResult_t_128x_w_from_u },
     { 1307, 128, 16, 12, RemoteStorageFileShareResult_t_123_w_from_u },
     { 1307, 122, 16, 16, RemoteStorageFileShareResult_t_111x_w_from_u },
     { 1308, 116, 40, 40, RemoteStorageDownloadUGCResult_t_111x_w_from_u },
-    { 1309, 160, 24, 16, RemoteStoragePublishFileResult_t_125_w_from_u },
+    { 1309, 161, 24, 16, RemoteStoragePublishFileResult_t_125_w_from_u },
     { 1309, 124, 16, 12, RemoteStoragePublishFileResult_t_123_w_from_u },
     { 1309, 122, 16, 16, RemoteStoragePublishFileResult_t_116x_w_from_u },
     { 1310, 117, 1744, 1744, RemoteStorageGetPublishedFileDetailsResult_t_116x_w_from_u },
-    { 1311, 160, 16, 12, RemoteStorageDeletePublishedFileResult_t_123_w_from_u },
+    { 1311, 161, 16, 12, RemoteStorageDeletePublishedFileResult_t_123_w_from_u },
     { 1311, 122, 16, 16, RemoteStorageDeletePublishedFileResult_t_116x_w_from_u },
-    { 1312, 160, 416, 412, RemoteStorageEnumerateUserPublishedFilesResult_t_123_w_from_u },
+    { 1312, 161, 416, 412, RemoteStorageEnumerateUserPublishedFilesResult_t_123_w_from_u },
     { 1312, 122, 416, 416, RemoteStorageEnumerateUserPublishedFilesResult_t_116x_w_from_u },
-    { 1313, 160, 16, 12, RemoteStorageSubscribePublishedFileResult_t_123_w_from_u },
+    { 1313, 161, 16, 12, RemoteStorageSubscribePublishedFileResult_t_123_w_from_u },
     { 1313, 122, 4, 4, nullptr },
-    { 1314, 160, 616, 612, RemoteStorageEnumerateUserSubscribedFilesResult_t_123_w_from_u },
+    { 1314, 161, 616, 612, RemoteStorageEnumerateUserSubscribedFilesResult_t_123_w_from_u },
     { 1314, 122, 616, 616, RemoteStorageEnumerateUserSubscribedFilesResult_t_116x_w_from_u },
-    { 1315, 160, 16, 12, RemoteStorageUnsubscribePublishedFileResult_t_123_w_from_u },
+    { 1315, 161, 16, 12, RemoteStorageUnsubscribePublishedFileResult_t_123_w_from_u },
     { 1315, 122, 4, 4, nullptr },
-    { 1316, 160, 24, 16, RemoteStorageUpdatePublishedFileResult_t_125_w_from_u },
+    { 1316, 161, 24, 16, RemoteStorageUpdatePublishedFileResult_t_125_w_from_u },
     { 1316, 124, 16, 12, RemoteStorageUpdatePublishedFileResult_t_123_w_from_u },
     { 1316, 122, 16, 16, RemoteStorageUpdatePublishedFileResult_t_116x_w_from_u },
-    { 1317, 160, 296, 288, RemoteStorageDownloadUGCResult_t_123_w_from_u },
+    { 1317, 161, 296, 288, RemoteStorageDownloadUGCResult_t_123_w_from_u },
     { 1317, 122, 296, 296, RemoteStorageDownloadUGCResult_t_116x_w_from_u },
-    { 1318, 160, 9760, 9748, RemoteStorageGetPublishedFileDetailsResult_t_126_w_from_u },
+    { 1318, 161, 9760, 9748, RemoteStorageGetPublishedFileDetailsResult_t_126_w_from_u },
     { 1318, 125, 9752, 9744, RemoteStorageGetPublishedFileDetailsResult_t_123_w_from_u },
     { 1318, 122, 9752, 9752, RemoteStorageGetPublishedFileDetailsResult_t_119x_w_from_u },
     /*{ 1318, 119, 9752, 9752, RemoteStorageGetPublishedFileDetailsResult_t_119_w_from_u },*/
     { 1318, 118, 9496, 9496, RemoteStorageGetPublishedFileDetailsResult_t_118_w_from_u },
-    { 1319, 160, 624, 620, RemoteStorageEnumerateWorkshopFilesResult_t_125_w_from_u },
+    { 1319, 161, 624, 620, RemoteStorageEnumerateWorkshopFilesResult_t_125_w_from_u },
     { 1319, 124, 616, 612, RemoteStorageEnumerateWorkshopFilesResult_t_123_w_from_u },
     { 1319, 122, 616, 616, RemoteStorageEnumerateWorkshopFilesResult_t_119_w_from_u },
-    { 1320, 160, 32, 28, RemoteStorageGetPublishedItemVoteDetailsResult_t_123_w_from_u },
+    { 1320, 161, 32, 28, RemoteStorageGetPublishedItemVoteDetailsResult_t_123_w_from_u },
     { 1320, 122, 32, 32, RemoteStorageGetPublishedItemVoteDetailsResult_t_119_w_from_u },
-    { 1324, 160, 16, 12, RemoteStorageUpdateUserPublishedItemVoteResult_t_123_w_from_u },
+    { 1324, 161, 16, 12, RemoteStorageUpdateUserPublishedItemVoteResult_t_123_w_from_u },
     { 1324, 122, 16, 16, RemoteStorageUpdateUserPublishedItemVoteResult_t_119_w_from_u },
-    { 1325, 160, 24, 16, RemoteStorageUserVoteDetails_t_123_w_from_u },
+    { 1325, 161, 24, 16, RemoteStorageUserVoteDetails_t_123_w_from_u },
     { 1325, 122, 24, 24, RemoteStorageUserVoteDetails_t_119_w_from_u },
-    { 1326, 160, 416, 412, RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123_w_from_u },
+    { 1326, 161, 416, 412, RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_123_w_from_u },
     { 1326, 122, 416, 416, RemoteStorageEnumerateUserSharedWorkshopFilesResult_t_119_w_from_u },
-    { 1327, 160, 24, 16, RemoteStorageSetUserPublishedFileActionResult_t_123_w_from_u },
+    { 1327, 161, 24, 16, RemoteStorageSetUserPublishedFileActionResult_t_123_w_from_u },
     { 1327, 122, 24, 24, RemoteStorageSetUserPublishedFileActionResult_t_119_w_from_u },
-    { 1330, 160, 24, 20, RemoteStoragePublishedFileUpdated_t_w_from_u },
-    { 2101, 160, 32, 24, HTTPRequestCompleted_t_132x_w_from_u },
+    { 1330, 161, 24, 20, RemoteStoragePublishedFileUpdated_t_w_from_u },
+    { 2101, 161, 32, 24, HTTPRequestCompleted_t_132x_w_from_u },
     { 2101, 132, 24, 20, HTTPRequestCompleted_t_123_w_from_u },
     { 2101, 122, 24, 24, HTTPRequestCompleted_t_115_w_from_u },
-    { 2102, 160, 16, 12, HTTPRequestHeadersReceived_t_123_w_from_u },
+    { 2102, 161, 16, 12, HTTPRequestHeadersReceived_t_123_w_from_u },
     { 2102, 122, 16, 16, HTTPRequestHeadersReceived_t_121x_w_from_u },
-    { 2103, 160, 24, 20, HTTPRequestDataReceived_t_123_w_from_u },
+    { 2103, 161, 24, 20, HTTPRequestDataReceived_t_123_w_from_u },
     { 2103, 122, 24, 24, HTTPRequestDataReceived_t_121x_w_from_u },
-    { 2803, 160, 40, 32, SteamInputConfigurationLoaded_t_w_from_u },
-    { 2804, 160, 32, 24, SteamInputGamepadSlotChange_t_w_from_u },
-    { 3402, 160, 9792, 9776, SteamUGCRequestUGCDetailsResult_t_160_w_from_u },
+    { 2803, 161, 40, 32, SteamInputConfigurationLoaded_t_w_from_u },
+    { 2804, 161, 32, 24, SteamInputGamepadSlotChange_t_w_from_u },
+    { 3402, 161, 9792, 9776, SteamUGCRequestUGCDetailsResult_t_160_w_from_u },
     { 3402, 159, 9784, 9768, SteamUGCRequestUGCDetailsResult_t_128x_w_from_u },
     { 3402, 129, 9776, 9764, SteamUGCRequestUGCDetailsResult_t_129_w_from_u },
     { 3402, 128, 9768, 9760, SteamUGCRequestUGCDetailsResult_t_126_w_from_u },
-    { 3403, 160, 24, 16, CreateItemResult_t_w_from_u },
-    { 3405, 160, 32, 28, ItemInstalled_t_160_w_from_u },
+    { 3403, 161, 24, 16, CreateItemResult_t_w_from_u },
+    { 3405, 161, 32, 28, ItemInstalled_t_160_w_from_u },
     { 3405, 159, 16, 12, ItemInstalled_t_130_w_from_u },
-    { 3406, 160, 24, 16, DownloadItemResult_t_w_from_u },
-    { 3412, 160, 24, 20, AddUGCDependencyResult_t_w_from_u },
-    { 3413, 160, 24, 20, RemoveUGCDependencyResult_t_w_from_u },
-    { 3414, 160, 24, 16, AddAppDependencyResult_t_w_from_u },
-    { 3415, 160, 24, 16, RemoveAppDependencyResult_t_w_from_u },
-    { 3416, 160, 152, 148, GetAppDependenciesResult_t_w_from_u },
-    { 3417, 160, 16, 12, DeleteItemResult_t_w_from_u },
-    { 4502, 160, 56, 52, HTML_NeedsPaint_t_w_from_u },
-    { 4503, 160, 40, 32, HTML_StartRequest_t_w_from_u },
-    { 4505, 160, 48, 36, HTML_URLChanged_t_w_from_u },
-    { 4506, 160, 24, 20, HTML_FinishedRequest_t_w_from_u },
-    { 4507, 160, 16, 12, HTML_OpenLinkInNewTab_t_w_from_u },
-    { 4508, 160, 16, 12, HTML_ChangedTitle_t_w_from_u },
-    { 4513, 160, 32, 24, HTML_LinkAtPosition_t_w_from_u },
-    { 4514, 160, 16, 12, HTML_JSAlert_t_w_from_u },
-    { 4515, 160, 16, 12, HTML_JSConfirm_t_w_from_u },
-    { 4516, 160, 24, 20, HTML_FileOpenDialog_t_w_from_u },
+    { 3406, 161, 24, 16, DownloadItemResult_t_w_from_u },
+    { 3412, 161, 24, 20, AddUGCDependencyResult_t_w_from_u },
+    { 3413, 161, 24, 20, RemoveUGCDependencyResult_t_w_from_u },
+    { 3414, 161, 24, 16, AddAppDependencyResult_t_w_from_u },
+    { 3415, 161, 24, 16, RemoveAppDependencyResult_t_w_from_u },
+    { 3416, 161, 152, 148, GetAppDependenciesResult_t_w_from_u },
+    { 3417, 161, 16, 12, DeleteItemResult_t_w_from_u },
+    { 4502, 161, 56, 52, HTML_NeedsPaint_t_w_from_u },
+    { 4503, 161, 40, 32, HTML_StartRequest_t_w_from_u },
+    { 4505, 161, 48, 36, HTML_URLChanged_t_w_from_u },
+    { 4506, 161, 24, 20, HTML_FinishedRequest_t_w_from_u },
+    { 4507, 161, 16, 12, HTML_OpenLinkInNewTab_t_w_from_u },
+    { 4508, 161, 16, 12, HTML_ChangedTitle_t_w_from_u },
+    { 4513, 161, 32, 24, HTML_LinkAtPosition_t_w_from_u },
+    { 4514, 161, 16, 12, HTML_JSAlert_t_w_from_u },
+    { 4515, 161, 16, 12, HTML_JSConfirm_t_w_from_u },
+    { 4516, 161, 24, 20, HTML_FileOpenDialog_t_w_from_u },
     { 4517, 132, 24, 20, HTML_ComboNeedsPaint_t_w_from_u },
-    { 4521, 160, 40, 32, HTML_NewWindow_t_132x_w_from_u },
+    { 4521, 161, 40, 32, HTML_NewWindow_t_132x_w_from_u },
     { 4521, 132, 32, 28, HTML_NewWindow_t_130x_w_from_u },
-    { 4523, 160, 16, 12, HTML_StatusText_t_w_from_u },
-    { 4524, 160, 16, 12, HTML_ShowToolTip_t_w_from_u },
-    { 4525, 160, 16, 12, HTML_UpdateToolTip_t_w_from_u },
-    { 4704, 160, 24, 20, SteamInventoryStartPurchaseResult_t_w_from_u },
-    { 5211, 160, 16, 12, RequestPlayersForGameProgressCallback_t_w_from_u },
-    { 5212, 160, 64, 56, RequestPlayersForGameResultCallback_t_w_from_u },
-    { 5213, 160, 24, 20, RequestPlayersForGameFinalResultCallback_t_w_from_u },
-    { 5214, 160, 24, 20, SubmitPlayerResultResultCallback_t_w_from_u },
-    { 5215, 160, 16, 12, EndGameResultCallback_t_w_from_u },
-    { 5301, 160, 280, 276, JoinPartyCallback_t_w_from_u },
-    { 5302, 160, 16, 12, CreateBeaconCallback_t_w_from_u },
+    { 4523, 161, 16, 12, HTML_StatusText_t_w_from_u },
+    { 4524, 161, 16, 12, HTML_ShowToolTip_t_w_from_u },
+    { 4525, 161, 16, 12, HTML_UpdateToolTip_t_w_from_u },
+    { 4704, 161, 24, 20, SteamInventoryStartPurchaseResult_t_w_from_u },
+    { 5211, 161, 16, 12, RequestPlayersForGameProgressCallback_t_w_from_u },
+    { 5212, 161, 64, 56, RequestPlayersForGameResultCallback_t_w_from_u },
+    { 5213, 161, 24, 20, RequestPlayersForGameFinalResultCallback_t_w_from_u },
+    { 5214, 161, 24, 20, SubmitPlayerResultResultCallback_t_w_from_u },
+    { 5215, 161, 16, 12, EndGameResultCallback_t_w_from_u },
+    { 5301, 161, 280, 276, JoinPartyCallback_t_w_from_u },
+    { 5302, 161, 16, 12, CreateBeaconCallback_t_w_from_u },
 };
 #endif
 const unsigned int callback_data_size = ARRAY_SIZE(callback_data);

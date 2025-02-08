@@ -2,32 +2,20 @@
 
 ### (1) PREP SECTION ###
 
-# NOTE: Nvidia reflex patches are disabled now as they are currently not ready/problematic/known to cause stutters
-# I was pinged about it from DXVK dev discord.
-# https://github.com/doitsujin/dxvk/pull/3690#discussion_r1405306492
-
     pushd dxvk
     git reset --hard HEAD
     git clean -xdf
-    #echo "DXVK: -Nvidia Reflex- Add NV low latency support"
-    #pushd include/vulkan; git pull; git checkout bbe0f575ebd6098369f0ac6c6a43532732ed0ba6; popd
-    #patch -Np1 < ../patches/proton/80-nv_low_latency_dxvk.patch
     popd
 
     pushd vkd3d-proton
     git reset --hard HEAD
     git clean -xdf
     
-    #echo "VKD3D-PROTON: -Nvidia Reflex- Add NV low latency support"
-    #pushd khronos/Vulkan-Headers; git pull; git checkout bbe0f575ebd6098369f0ac6c6a43532732ed0ba6; popd
-    #patch -Np1 < ../patches/proton/81-nv_low_latency_vkd3d_proton.patch
     popd
 
     pushd dxvk-nvapi
     git reset --hard HEAD
     git clean -xdf
-    #echo "DXVK-NVAPI: -Nvidia Reflex- Add support for Reflex"
-    #patch -Np1 < ../patches/proton/82-nv_low_latency_dxvk_nvapi.patch
     popd
 
     pushd gstreamer
@@ -297,6 +285,9 @@
     echo "WINE: -GAME FIXES- add xinput support to Dragon Age Inquisition"
     patch -Np1 < ../patches/game-patches/dai_xinput.patch
 
+    echo "WINE: -GAME FIXES- add set current directory workaround for Vanguard Saga of Heroes"
+    patch -Np1 < ../patches/game-patches/vgsoh.patch
+
     echo "WINE: -GAME FIXES- add __TRY/__EXCEPT_PAGE_FAULT wnsprintfA xDefiant patch because of a bad arg passed by the game that would exit to desktop"
     patch -Np1 < ../patches/game-patches/xdefiant.patch
 
@@ -333,14 +324,20 @@
     echo "WINE: -PENDING- Add options to disable proton media converter."
     patch -Np1 < ../patches/wine-hotfixes/pending/add-envvar-to-gate-media-converter.patch
 
-    #echo "WINE: -Nvidia Reflex- Support VK_NV_low_latency2"
-    #patch -Np1 < ../patches/proton/83-nv_low_latency_wine.patch
+    echo "WINE: -Nvidia Reflex- Support VK_NV_low_latency2"
+    patch -Np1 < ../patches/proton/83-nv_low_latency_wine.patch
 
     echo "WINE: -CUSTOM- Downgrade MESSAGE to TRACE to remove write_watches spam"
     patch -Np1 < ../patches/proton/0001-ntdll-Downgrade-using-kernel-write-watches-from-MESS.patch
 
     echo "WINE: -CUSTOM- Fix wine bug #56653 - GetLogicalProcessorInformation can be missing Cache information"
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-bug-56653.patch
+
+    echo "WINE: -CUSTOM- Add WINE_NO_WM_DECORATION option to disable window decorations so that borders behave properly"
+    patch -Np1 < ../patches/proton/WINE_NO_WM_DECORATION.patch
+
+    echo "WINE: -CUSTOM- Add PROTON_PREFER_SDL option to make it not prefer hidraw and instead expose both sdl and hidraw"
+    patch -Np1 < ../patches/proton/PREFER_SDL.patch
 
     popd
 

@@ -24,7 +24,7 @@ pkgconfig = '$$$$PKG_CONFIG'
 [properties]
 needs_exe_wrapper = true
 c_args = [$$(call list-quote,$$($(2)_INCFLAGS$(3)) $$($(2)_CPPFLAGS) $$(COMMON_FLAGS) $$(COMMON_FLAGS$(3)))]
-cpp_args = [$$(call list-quote,$$($(2)_INCFLAGS$(3)) $$($(2)_CPPFLAGS) $$(COMMON_FLAGS) $$(COMMON_FLAGS$(3)) -std=c++17)]
+cpp_args = [$$(call list-quote,$$($(2)_INCFLAGS$(3)) $$($(2)_CPPFLAGS) $$(COMMON_FLAGS) $$(COMMON_FLAGS$(3)))]
 link_args = [$$(call list-quote,$$($(2)_LIBFLAGS$(3)) $$($(2)_LDFLAGS$(3)) $$($(2)_LDFLAGS) $$(CROSSLDFLAGS))]
 pkg_config_libdir = '$$$$CROSSPKG_CONFIG_LIBDIR'
 

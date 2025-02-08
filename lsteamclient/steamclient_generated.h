@@ -46,6 +46,7 @@ extern struct w_steam_iface *create_winISteamScreenshots_STEAMSCREENSHOTS_INTERF
 extern struct w_steam_iface *create_winISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION002(void *);
 extern struct w_steam_iface *create_winISteamScreenshots_STEAMSCREENSHOTS_INTERFACE_VERSION003(void *);
 extern struct w_steam_iface *create_winISteamTimeline_STEAMTIMELINE_INTERFACE_V001(void *);
+extern struct w_steam_iface *create_winISteamTimeline_STEAMTIMELINE_INTERFACE_V004(void *);
 extern struct w_steam_iface *create_winISteamUGC_STEAMUGC_INTERFACE_VERSION001(void *);
 extern struct w_steam_iface *create_winISteamUGC_STEAMUGC_INTERFACE_VERSION002(void *);
 extern struct w_steam_iface *create_winISteamUGC_STEAMUGC_INTERFACE_VERSION003(void *);
@@ -77,6 +78,7 @@ extern struct w_steam_iface *create_winISteamUserStats_STEAMUSERSTATS_INTERFACE_
 extern struct w_steam_iface *create_winISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION010(void *);
 extern struct w_steam_iface *create_winISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION011(void *);
 extern struct w_steam_iface *create_winISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION012(void *);
+extern struct w_steam_iface *create_winISteamUserStats_STEAMUSERSTATS_INTERFACE_VERSION013(void *);
 extern struct w_steam_iface *create_winISteamVideo_STEAMVIDEO_INTERFACE_V001(void *);
 extern struct w_steam_iface *create_winISteamVideo_STEAMVIDEO_INTERFACE_V002(void *);
 extern struct w_steam_iface *create_winISteamVideo_STEAMVIDEO_INTERFACE_V007(void *);

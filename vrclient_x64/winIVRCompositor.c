@@ -10905,7 +10905,7 @@ void __thiscall winIVRCompositor_IVRCompositor_028_ClearLastSubmittedFrame(struc
 
 extern void __thiscall winIVRCompositor_IVRCompositor_028_PostPresentHandoff(struct w_steam_iface *_this);
 
-int8_t __thiscall winIVRCompositor_IVRCompositor_028_GetFrameTiming(struct w_steam_iface *_this, w_Compositor_FrameTiming_1017 *pTiming, uint32_t unFramesAgo)
+int8_t __thiscall winIVRCompositor_IVRCompositor_028_GetFrameTiming(struct w_steam_iface *_this, w_Compositor_FrameTiming_251 *pTiming, uint32_t unFramesAgo)
 {
     struct IVRCompositor_IVRCompositor_028_GetFrameTiming_params params =
     {
@@ -10918,7 +10918,7 @@ int8_t __thiscall winIVRCompositor_IVRCompositor_028_GetFrameTiming(struct w_ste
     return params._ret;
 }
 
-uint32_t __thiscall winIVRCompositor_IVRCompositor_028_GetFrameTimings(struct w_steam_iface *_this, w_Compositor_FrameTiming_1017 *pTiming, uint32_t nFrames)
+uint32_t __thiscall winIVRCompositor_IVRCompositor_028_GetFrameTimings(struct w_steam_iface *_this, w_Compositor_FrameTiming_251 *pTiming, uint32_t nFrames)
 {
     struct IVRCompositor_IVRCompositor_028_GetFrameTimings_params params =
     {

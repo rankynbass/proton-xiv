@@ -227,11 +227,11 @@ grep -i error patchlog.txt
 
 4. Navigate to the parent directory containing the proton-ge-custom folder.
 
-5. Type the following (note: if using docker instead of podman, change to --container-engine=docker):
+5. Type the following:
 
 ```sh
 mkdir build && cd build
-../configure.sh --enable-ccache --build-name=SOME-BUILD-NAME-HERE --container-engine=podman
+../configure.sh --build-name=SOME-BUILD-NAME-HERE
 make redist &> log
 ```
 

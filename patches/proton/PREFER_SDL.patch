@@ -1,0 +1,63 @@
+diff --git a/dlls/winebus.sys/main.c b/dlls/winebus.sys/main.c
+index f7627fb3bb8..9611cc037fe 100644
+--- a/dlls/winebus.sys/main.c
++++ b/dlls/winebus.sys/main.c
+@@ -19,6 +19,7 @@
+  */
+ 
+ #include <stdarg.h>
++#include <stdlib.h>
+ #include <assert.h>
+ 
+ #include "ntstatus.h"
+@@ -357,8 +358,15 @@ static DEVICE_OBJECT *bus_find_unix_device(UINT64 unix_device)
+ 
+ static DEVICE_OBJECT *bus_find_device_from_vid_pid(const WCHAR *bus_name, struct device_desc *desc)
+ {
++    static int once;
+     struct device_extension *ext;
+ 
++    if (desc->prefer_sdl) {
++
++        if (!once++) FIXME("Preferring SDL for inputs!\n");
++        return NULL;
++    }
++
+     LIST_FOR_EACH_ENTRY(ext, &device_list, struct device_extension, entry)
+         if (!wcscmp(ext->bus_name, bus_name) && ext->desc.vid == desc->vid &&
+             ext->desc.pid == desc->pid) return ext->device;
+diff --git a/dlls/winebus.sys/unixlib.c b/dlls/winebus.sys/unixlib.c
+index c3407e39b3f..2dd478b3888 100644
+--- a/dlls/winebus.sys/unixlib.c
++++ b/dlls/winebus.sys/unixlib.c
+@@ -490,6 +490,7 @@ BOOL bus_event_queue_device_created(struct list *queue, struct unix_device *devi
+ {
+     ULONG size = sizeof(struct bus_event_entry);
+     struct bus_event_entry *entry = malloc(size);
++    const char* prefer_sdl = NULL;
+     if (!entry) return FALSE;
+ 
+     if (unix_device_incref(device) == 1) /* being destroyed */
+@@ -498,6 +499,10 @@ BOOL bus_event_queue_device_created(struct list *queue, struct unix_device *devi
+         return FALSE;
+     }
+ 
++    desc->prefer_sdl = FALSE;
++    prefer_sdl = getenv("PROTON_PREFER_SDL");
++    if (prefer_sdl && prefer_sdl[0] == '1') desc->prefer_sdl = TRUE;
++
+     entry->event.type = BUS_EVENT_TYPE_DEVICE_CREATED;
+     entry->event.device = (UINT_PTR)device;
+     entry->event.device_created.desc = *desc;
+diff --git a/dlls/winebus.sys/unixlib.h b/dlls/winebus.sys/unixlib.h
+index 731745bb9a4..3a0fc21ea0c 100644
+--- a/dlls/winebus.sys/unixlib.h
++++ b/dlls/winebus.sys/unixlib.h
+@@ -38,6 +38,7 @@ struct device_desc
+     UINT input;
+     UINT uid;
+     BOOL is_gamepad;
++    BOOL prefer_sdl; /* getenv must be called in unix code */
+ 
+     WCHAR manufacturer[MAX_PATH];
+     WCHAR product[MAX_PATH];

@@ -1,4 +1,4 @@
-From deb0657a710f75e8e88519defda772c735ed0bae Mon Sep 17 00:00:00 2001
+From a614ec584bc19995fdfb535ae4cef81efe9966df Mon Sep 17 00:00:00 2001
 From: Eric Sullivan <esullivan@nvidia.com>
 Date: Wed, 11 Oct 2023 15:43:36 -0700
 Subject: [PATCH] winevulkan: Add support for VK_NV_low_latency2
@@ -14,10 +14,10 @@ is enabled.
  3 files changed, 33 insertions(+)
 
 diff --git a/dlls/winevulkan/make_vulkan b/dlls/winevulkan/make_vulkan
-index 6f5e63ce528..63942461c17 100755
+index f5d2a5a9575..0c97c068f5f 100755
 --- a/dlls/winevulkan/make_vulkan
 +++ b/dlls/winevulkan/make_vulkan
-@@ -213,6 +213,9 @@ FUNCTION_OVERRIDES = {
+@@ -214,6 +214,9 @@ FUNCTION_OVERRIDES = {
      # VK_KHR_synchronization2
      "vkQueueSubmit2KHR" : {"dispatch" : True, "extra_param" : "pSubmits"},
  
@@ -28,10 +28,10 @@ index 6f5e63ce528..63942461c17 100755
      "wine_vkAcquireKeyedMutex" : {"dispatch": True},
      "wine_vkReleaseKeyedMutex" : {"dispatch": True},
 diff --git a/dlls/winevulkan/vulkan.c b/dlls/winevulkan/vulkan.c
-index 114e274ba8d..ece3fe09aba 100644
+index cf2af817ecd..d677ef777f1 100644
 --- a/dlls/winevulkan/vulkan.c
 +++ b/dlls/winevulkan/vulkan.c
-@@ -924,6 +924,24 @@ static void wine_vk_instance_free(struct wine_instance *instance)
+@@ -922,6 +922,24 @@ static void wine_vk_instance_free(struct wine_instance *instance)
      free(instance);
  }
  
@@ -56,7 +56,7 @@ index 114e274ba8d..ece3fe09aba 100644
  VkResult wine_vkAllocateCommandBuffers(VkDevice handle, const VkCommandBufferAllocateInfo *allocate_info,
                                         VkCommandBuffer *buffers )
  {
-@@ -4292,6 +4310,8 @@ VkResult fshack_vk_queue_present(VkQueue queue_handle, const VkPresentInfoKHR *p
+@@ -3951,6 +3969,8 @@ VkResult fshack_vk_queue_present(VkQueue queue_handle, const VkPresentInfoKHR *p
      if (n_hacks > 0)
      {
          VkPipelineStageFlags waitStage, *waitStages, *waitStages_arr = NULL;
@@ -65,7 +65,7 @@ index 114e274ba8d..ece3fe09aba 100644
  
          if (pPresentInfo->waitSemaphoreCount > 1)
          {
-@@ -4315,6 +4335,15 @@ VkResult fshack_vk_queue_present(VkQueue queue_handle, const VkPresentInfoKHR *p
+@@ -3974,6 +3994,15 @@ VkResult fshack_vk_queue_present(VkQueue queue_handle, const VkPresentInfoKHR *p
          submitInfo.signalSemaphoreCount = 1;
          submitInfo.pSignalSemaphores = &blit_sema;
  
@@ -82,7 +82,7 @@ index 114e274ba8d..ece3fe09aba 100644
          if (res != VK_SUCCESS)
              ERR("vkQueueSubmit: %d\n", res);
 diff --git a/dlls/winevulkan/vulkan_private.h b/dlls/winevulkan/vulkan_private.h
-index 3a439a6e760..bd05481819d 100644
+index ecd148ea48a..4d55eff5059 100644
 --- a/dlls/winevulkan/vulkan_private.h
 +++ b/dlls/winevulkan/vulkan_private.h
 @@ -99,6 +99,7 @@ struct wine_device
@@ -93,6 +93,3 @@ index 3a439a6e760..bd05481819d 100644
  };
  
  static inline struct wine_device *wine_device_from_handle(VkDevice handle)
--- 
-2.45.2
-
