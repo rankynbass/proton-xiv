@@ -1325,9 +1325,6 @@ def default_compat_config():
                 "108710", #Alan Wake
                 "435150", #Divinity: Original Sin 2 - Definitive Edition
                 "505170", #Carmageddon: Max Damage
-                "109600", #Neverwinter
-                "9900", #Star Trek Online
-                "9880", #Champions Online
                 "202750", #Alan Wake's American Nightmare
                 "255220", #GRID Autosport
                 "44350", #GRID 2
