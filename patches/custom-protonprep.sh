@@ -21,4 +21,7 @@ patch -Np1 < ../patches/dualsense/0007-draft-winebus-store-container-sysfs-path-
 patch -Np1 < ../patches/dualsense/0008-draft-winebus-implement-BusQueryContainerID-based-on.patch
 patch -Np1 < ../patches/dualsense/0009-WiP-Implement-SetupDiGetDeviceInterfacePropertyW-for.patch
 
+echo "WINE: Add ntsync patches for valve wine"
+patch -Np1 < ../patches/custom/ntsync-valvexbe.patch"
+
 popd
