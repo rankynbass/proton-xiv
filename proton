@@ -1196,6 +1196,9 @@ def default_compat_config():
 
                 #affected by CW bug 20240
                 "1331440", #FUSER
+
+                #CW bug 24913
+                "2620730",
                 ]:
             ret.add("nomfdxgiman")
 
