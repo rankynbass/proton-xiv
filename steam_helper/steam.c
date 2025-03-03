@@ -118,7 +118,7 @@ static char *escape_path_unix_to_dos( const char *path )
     if ((escaped = malloc( len ))) WideCharToMultiByte( CP_UTF8, 0, tmp, (dst - tmp), escaped, len, NULL, NULL );
 
 done:
-    free( dos );
+    HeapFree( GetProcessHeap(), 0, dos );
     free( tmp );
     return escaped;
 }
