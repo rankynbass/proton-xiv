@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <dlfcn.h>
 #include <unordered_map>
+#include <vector>
 
 #if 0
 #pragma makedep unix
@@ -418,6 +419,15 @@ static void set_reg_ascii_str( HANDLE hkey, const char *name, const char *value 
     free( valueW );
 }
 
+static void set_reg_ascii_wstr( HANDLE hkey, const char *name, const WCHAR *valueW )
+{
+    size_t len = lstrlenW( valueW ) + 1;
+    WCHAR nameW[64];
+
+    asciiz_to_unicode( nameW, name );
+    set_reg_value( hkey, nameW, REG_SZ, valueW, len * sizeof(*valueW) );
+}
+
 static inline void init_unicode_string( UNICODE_STRING *str, const WCHAR *data )
 {
     str->Length = wcslen( data ) * sizeof(WCHAR);
@@ -605,6 +615,65 @@ static void setup_proton_voice_files( u_ISteamClient_SteamClient017 *client, int
     setenv( "PROTON_VOICE_FILES", path, 1 );
 }
 
+static void setup_proton_soundfonts( u_ISteamClient_SteamClient017 *client, int pipe, int user )
+{
+    static const WCHAR PROTON_SOUNDFILES_FILES_W[] = u"PROTON_SOUNDFONT_FILES";
+    static const WCHAR SF2_NAME[] = u"FluidR3_GM.sf2";
+    u_ISteamApps_STEAMAPPS_INTERFACE_VERSION008 *apps;
+    const unsigned int soundfonts_appid = 3368180;
+    std::vector<WCHAR> dos_path{};
+    OBJECT_ATTRIBUTES attr;
+    ULONG nt_path_len = 0;
+    char unix_path[2048];
+    UNICODE_STRING name;
+    NTSTATUS status;
+    char *path_end;
+    HANDLE gm_key;
+
+    apps = (u_ISteamApps_STEAMAPPS_INTERFACE_VERSION008 *)client->GetISteamApps( user, pipe, "STEAMAPPS_INTERFACE_VERSION008" );
+    if (!apps->BIsAppInstalled( soundfonts_appid )) return;
+    if (!apps->GetAppInstallDir( soundfonts_appid, unix_path, sizeof(unix_path) )) return;
+
+    WINE_TRACE( "Found Proton Soundfont at %s\n", unix_path );
+
+    if ((status = wine_unix_to_nt_file_name( unix_path, NULL, &nt_path_len )) != STATUS_BUFFER_TOO_SMALL)
+    {
+        WINE_ERR( "Failed to convert unix path to NT: %lx\n", status );
+        return;
+    }
+    nt_path_len += ARRAYSIZE(SF2_NAME);
+    dos_path = std::vector<WCHAR>(nt_path_len);
+    if ((status = wine_unix_to_nt_file_name( unix_path, dos_path.data(), &nt_path_len )))
+    {
+        WINE_ERR( "Failed to convert unix path to NT: %x\n", status );
+        return;
+    }
+    dos_path[nt_path_len - 1] = u'\\';
+    wcscpy( dos_path.data() + nt_path_len, SF2_NAME );
+
+    WINE_TRACE( "GM file path %s\n", wine_dbgstr_w(dos_path.data()) );
+
+    init_unicode_string( &name, u"\\Registry\\Machine\\Software\\Microsoft\\DirectMusic" );
+    InitializeObjectAttributes( &attr, &name, OBJ_CASE_INSENSITIVE, 0, NULL );
+    if ((status = NtCreateKey( &gm_key, KEY_ALL_ACCESS, &attr, 0, NULL, 0, NULL )))
+    {
+        WINE_ERR( "Failed to open DirectMusic key: %x\n", status );
+        return;
+    }
+
+    set_reg_ascii_wstr( gm_key, "GMFilePath", dos_path.data() );
+    NtClose( gm_key );
+
+    init_unicode_string( &name, u"\\Registry\\Machine\\Software\\Wow6432Node\\Microsoft\\DirectMusic" );
+    if ((status = NtCreateKey( &gm_key, KEY_ALL_ACCESS | KEY_WOW64_32KEY, &attr, 0, NULL, 0, NULL)))
+    {
+        WINE_ERR( "Failed to open DirectMusic key (32 bit): %x\n", status);
+        return;
+    }
+    set_reg_ascii_wstr( gm_key, "GMFilePath", dos_path.data() );
+    NtClose( gm_key );
+}
+
 template< typename Params >
 static NTSTATUS steamclient_init_registry( Params *params, bool wow64 )
 {
@@ -623,6 +692,7 @@ static NTSTATUS steamclient_init_registry( Params *params, bool wow64 )
     setup_battleye_bridge( client, pipe, user );
     setup_eac_bridge( client, pipe, user );
     setup_proton_voice_files( client, pipe, user );
+    setup_proton_soundfonts( client, pipe, user );
 
     client->BReleaseSteamPipe( pipe );
     return 0;
