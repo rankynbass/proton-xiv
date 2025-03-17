@@ -1461,6 +1461,48 @@ struct RegisterActivationCodeResponse_t
 };
 #pragma pack( pop )
 
+typedef struct RemotePlayInputKey_t RemotePlayInputKey_t;
+#pragma pack( push, 4 )
+struct RemotePlayInputKey_t
+{
+    int32_t m_eScancode;
+    uint32_t m_unModifiers;
+    uint32_t m_unKeycode;
+};
+#pragma pack( pop )
+
+typedef struct RemotePlayInputMouseMotion_t RemotePlayInputMouseMotion_t;
+#pragma pack( push, 4 )
+struct RemotePlayInputMouseMotion_t
+{
+    int8_t m_bAbsolute;
+    uint8_t __pad_1[3];
+    float m_flNormalizedX;
+    float m_flNormalizedY;
+    int32_t m_nDeltaX;
+    int32_t m_nDeltaY;
+};
+#pragma pack( pop )
+
+typedef struct RemotePlayInputMouseWheel_t RemotePlayInputMouseWheel_t;
+#pragma pack( push, 4 )
+struct RemotePlayInputMouseWheel_t
+{
+    uint32_t m_eDirection;
+    float m_flAmount;
+};
+#pragma pack( pop )
+
+typedef struct RemotePlayInput_t RemotePlayInput_t;
+#pragma pack( push, 4 )
+struct RemotePlayInput_t
+{
+    uint32_t m_unSessionID;
+    uint32_t m_eType;
+    struct { uint8_t _[56]; } data;
+};
+#pragma pack( pop )
+
 typedef struct RemoteStorageAppSyncStatusCheck_t RemoteStorageAppSyncStatusCheck_t;
 #pragma pack( push, 4 )
 struct RemoteStorageAppSyncStatusCheck_t
