@@ -1621,6 +1621,18 @@ class Session:
         if os.environ.get("SteamGameId", 0) == "500810":
             self.dlloverrides["ddraw"] = "n,b"
 
+        if "PROTON_LIMIT_RESOLUTIONS" not in self.env:
+            if os.environ.get("SteamGameId", 0) in [
+                    "39540", #SpellForce: Platinum Edition
+                    ]:
+                self.env["PROTON_LIMIT_RESOLUTIONS"] = "16"
+            elif os.environ.get("SteamGameId", 0) in [
+                    "524220", #NieR: Automata
+                    "814380", #Sekiro: Shadows Die Twice
+                    "374320", #DARK SOULS III
+                    ]:
+                self.env["PROTON_LIMIT_RESOLUTIONS"] = "32"
+
         if "forcelgadd" in self.compat_config:
             self.env["WINE_LARGE_ADDRESS_AWARE"] = "1"
         else:
