@@ -43,7 +43,7 @@ from pathlib import Path
 #To enable debug logging, copy "user_settings.sample.py" to "user_settings.py"
 #and edit it if needed.
 
-CURRENT_PREFIX_VERSION="GE-Proton9-25"
+CURRENT_PREFIX_VERSION="GE-Proton9-26"
 
 PFX="Proton: "
 ld_path_var = "LD_LIBRARY_PATH"
@@ -1236,6 +1236,8 @@ def default_compat_config():
                 "1097480", #Iragon 18+
                 #CW bug 23986
                 "1928420", #Farlight 84
+                #CW bug 24913
+                "2620730", #Deviator
                 ]:
             ret.add("nomfdxgiman")
 
@@ -1317,6 +1319,7 @@ def default_compat_config():
                 "2433890", #Stronghold: Definitive Edition Demo
                 "2140020", #Stronghold: Definitive Edition
                 "3314070", #The Sims 2 Legacy Collection
+                "2709570", #Supermarket Together
                 ]:
             ret.add("gamedrive")
 
@@ -1866,7 +1869,7 @@ class Session:
             log(sys.argv[2])
             if len(sys.argv) >=  3 and sys.argv[2].startswith('/'):
                 log("Executable a unix path, launching with /unix option.")
-                argv = [g_proton.wine64_bin, "start", "/unix"]
+                argv = [g_proton.wine64_bin, "c:\\windows\\system32\\start.exe", "/wait", "/unix"]
             else:
                 log("Executable is inside wine prefix, launching normally.")
                 argv = [g_proton.wine64_bin]

@@ -1,0 +1,45 @@
+From a93623eced47efd4544ca334f9de373e2d529a1c Mon Sep 17 00:00:00 2001
+From: Alistair Leslie-Hughes <leslie_alistair@hotmail.com>
+Date: Tue, 12 Nov 2024 17:05:46 +1100
+Subject: [PATCH] user32: Implement GetDpiAwarenessContextForProcess.
+
+Wine-Bug: https://bugs.winehq.org/show_bug.cgi?id=57169
+---
+ dlls/user32/user32.spec | 1 +-
+ dlls/user32/win.c       | 7 +++++++
+ 2 files changed, 8 insertions(+)
+
+diff --git a/dlls/user32/user32.spec b/dlls/user32/user32.spec
+index 87ed8f64527..56eb47c9440 100644
+--- a/dlls/user32/user32.spec
++++ b/dlls/user32/user32.spec
+@@ -299,6 +299,7 @@
+@ stdcall GetDlgItemTextA(long long ptr long)
+@ stdcall GetDlgItemTextW(long long ptr long)
+@ stdcall GetDoubleClickTime() NtUserGetDoubleClickTime
++@ stdcall GetDpiAwarenessContextForProcess(ptr)
+@ stdcall GetDpiForMonitorInternal(long long ptr ptr) NtUserGetDpiForMonitor
+@ stdcall GetDpiForSystem()
+@ stdcall GetDpiForWindow(long)
+
+diff --git a/dlls/user32/win.c b/dlls/user32/win.c
+index 7a552b48db4..2443ea465c5 100644
+--- a/dlls/user32/win.c
++++ b/dlls/user32/win.c
+@@ -615,6 +615,13 @@ DPI_AWARENESS_CONTEXT WINAPI GetWindowDpiAwarenessContext( HWND hwnd )
+     return LongToHandle( NtUserGetWindowDpiAwarenessContext( hwnd ) );
+ }
+ 
++/***********************************************************************
++ *		GetDpiAwarenessContextForProcess  (USER32.@)
++ */
++DPI_AWARENESS_CONTEXT WINAPI GetDpiAwarenessContextForProcess(HANDLE process)
++{
++    return LongToHandle( NtUserGetProcessDpiAwarenessContext( process ) );
++}
+ 
+ /***********************************************************************
+  *		GetWindowDpiHostingBehavior  (USER32.@)
+-- 
+GitLab
+

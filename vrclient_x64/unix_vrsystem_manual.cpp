@@ -23,6 +23,18 @@ static uint64_t wrap_device( uint32_t type, VkInstance_T *instance, uint64_t dev
     return device;
 }
 
+NTSTATUS IVRSystem_IVRSystem_016_GetOutputDevice( void *args )
+{
+    /* hijacking IVRSystem_IVRSystem_017_GetOutputDevice_params because we need the instance for wrapping */
+    struct IVRSystem_IVRSystem_017_GetOutputDevice_params *params = (struct IVRSystem_IVRSystem_017_GetOutputDevice_params *)args;
+    struct u_IVRSystem_IVRSystem_016 *iface = (struct u_IVRSystem_IVRSystem_016 *)params->linux_side;
+    uint64_t host_device;
+
+    iface->GetOutputDevice( &host_device, params->textureType );
+    *params->pnDevice = wrap_device( params->textureType, params->pInstance, host_device );
+    return 0;
+}
+
 NTSTATUS IVRSystem_IVRSystem_017_GetOutputDevice( void *args )
 {
     struct IVRSystem_IVRSystem_017_GetOutputDevice_params *params = (struct IVRSystem_IVRSystem_017_GetOutputDevice_params *)args;

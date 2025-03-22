@@ -1,0 +1,130 @@
+From c2a4f3810b17f9efa3c848b473b19f641f7881f6 Mon Sep 17 00:00:00 2001
+From: Vijay Kiran Kamuju <infyquest@gmail.com>
+Date: Tue, 27 Feb 2024 13:28:47 +0100
+Subject: [PATCH] taskschd: Implement TaskService_get_ConnectedDomain.
+
+Wine-Bug: https://bugs.winehq.org/show_bug.cgi?id=48110
+---
+ dlls/taskschd/task.c            | 26 ++++++++++++++++++++++++--
+ dlls/taskschd/tests/scheduler.c | 21 +++++++++++++++++++++
+ 2 files changed, 45 insertions(+), 2 deletions(-)
+
+diff --git a/dlls/taskschd/task.c b/dlls/taskschd/task.c
+index 2fc5e15a599..76cba042164 100644
+--- a/dlls/taskschd/task.c
++++ b/dlls/taskschd/task.c
+@@ -3936,6 +3936,7 @@ typedef struct
+     DWORD version;
+     WCHAR comp_name[MAX_COMPUTERNAME_LENGTH + 1];
+     WCHAR user_name[256];
++    WCHAR domain_name[256];
+ } TaskService;
+ 
+ static inline TaskService *impl_from_ITaskService(ITaskService *iface)
+@@ -4108,6 +4109,7 @@ static HRESULT WINAPI TaskService_Connect(ITaskService *iface, VARIANT server, V
+     TaskService *task_svc = impl_from_ITaskService(iface);
+     WCHAR comp_name[MAX_COMPUTERNAME_LENGTH + 1];
+     WCHAR user_name[256];
++    WCHAR domain_name[256];
+     DWORD len;
+     HRESULT hr;
+     RPC_WSTR binding_str;
+@@ -4127,6 +4129,14 @@ static HRESULT WINAPI TaskService_Connect(ITaskService *iface, VARIANT server, V
+     if (!GetUserNameW(user_name, &len))
+         return HRESULT_FROM_WIN32(GetLastError());
+ 
++    len = ARRAY_SIZE(domain_name);
++    if(!GetEnvironmentVariableW(L"USERDOMAIN", domain_name, len))
++    {
++        if (!GetComputerNameExW(ComputerNameDnsHostname, domain_name, &len))
++            return HRESULT_FROM_WIN32(GetLastError());
++        wcsupr(domain_name);
++    }
++
+     if (!is_variant_null(&server))
+     {
+         const WCHAR *server_name;
+@@ -4166,6 +4176,7 @@ static HRESULT WINAPI TaskService_Connect(ITaskService *iface, VARIANT server, V
+ 
+     lstrcpyW(task_svc->comp_name, comp_name);
+     lstrcpyW(task_svc->user_name, user_name);
++    lstrcpyW(task_svc->domain_name, domain_name);
+     task_svc->connected = TRUE;
+ 
+     return S_OK;
+@@ -4220,8 +4231,19 @@ static HRESULT WINAPI TaskService_get_ConnectedUser(ITaskService *iface, BSTR *u
+ 
+ static HRESULT WINAPI TaskService_get_ConnectedDomain(ITaskService *iface, BSTR *domain)
+ {
+-    FIXME("%p,%p: stub\n", iface, domain);
+-    return E_NOTIMPL;
++    TaskService *task_svc = impl_from_ITaskService(iface);
++
++    TRACE("%p,%p\n", iface, domain);
++
++    if (!domain) return E_POINTER;
++
++    if (!task_svc->connected)
++        return HRESULT_FROM_WIN32(ERROR_ONLY_IF_CONNECTED);
++
++    *domain = SysAllocString(task_svc->domain_name);
++    if (!*domain) return E_OUTOFMEMORY;
++
++    return S_OK;
+ }
+ 
+ static HRESULT WINAPI TaskService_get_HighestVersion(ITaskService *iface, DWORD *version)
+diff --git a/dlls/taskschd/tests/scheduler.c b/dlls/taskschd/tests/scheduler.c
+index 65d34dffd33..31e9878a48a 100644
+--- a/dlls/taskschd/tests/scheduler.c
++++ b/dlls/taskschd/tests/scheduler.c
+@@ -60,11 +60,13 @@ static BOOL check_win_version(int min_major, int min_minor)
+             rtlver.dwMinorVersion >= min_minor);
+ }
+ #define is_win8_plus() check_win_version(6, 2)
++#define is_win10_plus() check_win_version(10, 0)
+ 
+ static void test_Connect(void)
+ {
+     WCHAR comp_name[MAX_COMPUTERNAME_LENGTH + 1];
+     WCHAR user_name[256];
++    WCHAR domain_name[256];
+     DWORD len;
+     HRESULT hr;
+     BSTR bstr;
+@@ -100,6 +102,12 @@ static void test_Connect(void)
+     hr = ITaskService_get_ConnectedUser(service, &bstr);
+     ok(hr == HRESULT_FROM_WIN32(ERROR_ONLY_IF_CONNECTED), "expected ERROR_ONLY_IF_CONNECTED, got %#lx\n", hr);
+ 
++    hr = ITaskService_get_ConnectedDomain(service, NULL);
++    ok(hr == E_POINTER, "expected E_POINTER, got %#lx\n", hr);
++
++    hr = ITaskService_get_ConnectedDomain(service, &bstr);
++    ok(hr == HRESULT_FROM_WIN32(ERROR_ONLY_IF_CONNECTED), "expected ERROR_ONLY_IF_CONNECTED, got %#lx\n", hr);
++
+     /* Win7 doesn't support UNC \\ prefix, but according to a user
+      * comment on MSDN Win8 supports both ways.
+      */
+@@ -159,6 +167,19 @@ static void test_Connect(void)
+     ok(!lstrcmpW(user_name, bstr), "username %s != user name %s\n", wine_dbgstr_w(user_name), wine_dbgstr_w(bstr));
+     SysFreeString(bstr);
+ 
++    len = ARRAY_SIZE(domain_name);
++    if (!GetEnvironmentVariableW(L"USERDOMAIN", domain_name, len))
++    {
++         GetComputerNameExW(ComputerNameDnsHostname, domain_name, &len);
++         if (is_win10_plus())
++             wcsupr(domain_name);
++    }
++
++    hr = ITaskService_get_ConnectedDomain(service, &bstr);
++    ok(hr == S_OK, "get_ConnectedDomain error %#lx\n", hr);
++    ok(!lstrcmpW(domain_name, bstr), "domainname %s != domain name %s\n", wine_dbgstr_w(domain_name), wine_dbgstr_w(bstr));
++    SysFreeString(bstr);
++
+     ITaskService_Release(service);
+ }
+ 
+-- 
+GitLab
+

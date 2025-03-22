@@ -1,0 +1,484 @@
+From c34159db3960104d96d6d0804476b5feda8bd522 Mon Sep 17 00:00:00 2001
+From: Vijay Kiran Kamuju <infyquest@gmail.com>
+Date: Fri, 23 Feb 2024 20:25:02 +0100
+Subject: [PATCH 1/4] include: Add IRegistrationTrigger definition.
+
+---
+ include/taskschd.idl | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/include/taskschd.idl b/include/taskschd.idl
+index d5577555e56..6c5e5533934 100644
+--- a/include/taskschd.idl
++++ b/include/taskschd.idl
+@@ -407,6 +407,18 @@ interface IDailyTrigger : ITrigger
+     [propput] HRESULT RandomDelay([in] BSTR randomDelay);
+ }
+ 
++[
++    uuid(4c8fec3a-c218-4e0c-b23d-629024db91a2),
++    oleautomation,
++    dual,
++    nonextensible
++]
++interface IRegistrationTrigger : ITrigger
++{
++    [propget] HRESULT Delay([out, retval] BSTR *pDelay);
++    [propput] HRESULT Delay([in] BSTR delay);
++}
++
+ [
+     object,
+     oleautomation,
+-- 
+GitLab
+
+
+From 4b9e76914aa0573abe3c4e186b9c95b0f859e4d0 Mon Sep 17 00:00:00 2001
+From: Vijay Kiran Kamuju <infyquest@gmail.com>
+Date: Fri, 23 Feb 2024 20:49:06 +0100
+Subject: [PATCH 2/4] taskschd: Add IRegistrationTrigger stub implementation.
+
+Wine-Bug: https://bugs.winehq.org/show_bug.cgi?id=46773
+---
+ dlls/taskschd/task.c            | 238 ++++++++++++++++++++++++++++++++
+ dlls/taskschd/tests/scheduler.c |  31 +++++
+ 2 files changed, 269 insertions(+)
+
+diff --git a/dlls/taskschd/task.c b/dlls/taskschd/task.c
+index 99a2ccdf992..7ed69728b76 100644
+--- a/dlls/taskschd/task.c
++++ b/dlls/taskschd/task.c
+@@ -324,6 +324,242 @@ static HRESULT DailyTrigger_create(ITrigger **trigger)
+     return S_OK;
+ }
+ 
++typedef struct {
++    IRegistrationTrigger IRegistrationTrigger_iface;
++    LONG ref;
++} RegistrationTrigger;
++
++static inline RegistrationTrigger *impl_from_IRegistrationTrigger(IRegistrationTrigger *iface)
++{
++    return CONTAINING_RECORD(iface, RegistrationTrigger, IRegistrationTrigger_iface);
++}
++
++static HRESULT WINAPI RegistrationTrigger_QueryInterface(IRegistrationTrigger *iface, REFIID riid, void **ppv)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++
++    TRACE("(%p)->(%s %p)\n", This, debugstr_guid(riid), ppv);
++
++    if(IsEqualGUID(&IID_IUnknown, riid) ||
++       IsEqualGUID(&IID_IDispatch, riid) ||
++       IsEqualGUID(&IID_ITrigger, riid) ||
++       IsEqualGUID(&IID_IRegistrationTrigger, riid))
++    {
++        *ppv = &This->IRegistrationTrigger_iface;
++    }
++    else
++    {
++        FIXME("unsupported riid %s\n", debugstr_guid(riid));
++        *ppv = NULL;
++        return E_NOINTERFACE;
++    }
++
++    IUnknown_AddRef((IUnknown*)*ppv);
++    return S_OK;
++}
++
++static ULONG WINAPI RegistrationTrigger_AddRef(IRegistrationTrigger *iface)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    LONG ref = InterlockedIncrement(&This->ref);
++
++    TRACE("(%p) ref=%ld\n", This, ref);
++
++    return ref;
++}
++
++static ULONG WINAPI RegistrationTrigger_Release(IRegistrationTrigger *iface)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    LONG ref = InterlockedDecrement(&This->ref);
++
++    TRACE("(%p) ref=%ld\n", This, ref);
++
++    if(!ref)
++    {
++        TRACE("destroying %p\n", iface);
++        free(This);
++    }
++
++    return ref;
++}
++
++static HRESULT WINAPI RegistrationTrigger_GetTypeInfoCount(IRegistrationTrigger *iface, UINT *count)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%p)\n", This, count);
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_GetTypeInfo(IRegistrationTrigger *iface, UINT index, LCID lcid, ITypeInfo **info)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%u %lu %p)\n", This, index, lcid, info);
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_GetIDsOfNames(IRegistrationTrigger *iface, REFIID riid, LPOLESTR *names,
++                                            UINT count, LCID lcid, DISPID *dispid)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%s %p %u %lu %p)\n", This, debugstr_guid(riid), names, count, lcid, dispid);
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_Invoke(IRegistrationTrigger *iface, DISPID dispid, REFIID riid, LCID lcid, WORD flags,
++                                     DISPPARAMS *params, VARIANT *result, EXCEPINFO *excepinfo, UINT *argerr)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%ld %s %lx %x %p %p %p %p)\n", This, dispid, debugstr_guid(riid), lcid, flags,
++          params, result, excepinfo, argerr);
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_get_Type(IRegistrationTrigger *iface, TASK_TRIGGER_TYPE2 *type)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%p)\n", This, type);
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_get_Id(IRegistrationTrigger *iface, BSTR *id)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%p)\n", This, id);
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_put_Id(IRegistrationTrigger *iface, BSTR id)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%s)\n", This, debugstr_w(id));
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_get_Repetition(IRegistrationTrigger *iface, IRepetitionPattern **repeat)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%p)\n", This, repeat);
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_put_Repetition(IRegistrationTrigger *iface, IRepetitionPattern *repeat)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%p)\n", This, repeat);
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_get_ExecutionTimeLimit(IRegistrationTrigger *iface, BSTR *limit)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%p)\n", This, limit);
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_put_ExecutionTimeLimit(IRegistrationTrigger *iface, BSTR limit)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%s)\n", This, debugstr_w(limit));
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_get_StartBoundary(IRegistrationTrigger *iface, BSTR *start)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%p)\n", This, start);
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_put_StartBoundary(IRegistrationTrigger *iface, BSTR start)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%s)\n", This, debugstr_w(start));
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_get_EndBoundary(IRegistrationTrigger *iface, BSTR *end)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%p)\n", This, end);
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_put_EndBoundary(IRegistrationTrigger *iface, BSTR end)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%s)\n", This, debugstr_w(end));
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_get_Enabled(IRegistrationTrigger *iface, VARIANT_BOOL *enabled)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%p)\n", This, enabled);
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_put_Enabled(IRegistrationTrigger *iface, VARIANT_BOOL enabled)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%x)\n", This, enabled);
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_get_Delay(IRegistrationTrigger *iface, BSTR *pDelay)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%p)\n", This, pDelay);
++    return E_NOTIMPL;
++}
++
++static HRESULT WINAPI RegistrationTrigger_put_Delay(IRegistrationTrigger *iface, BSTR delay)
++{
++    RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
++    FIXME("(%p)->(%s)\n", This, debugstr_w(delay));
++    return E_NOTIMPL;
++}
++
++static const IRegistrationTriggerVtbl RegistrationTrigger_vtbl = {
++    RegistrationTrigger_QueryInterface,
++    RegistrationTrigger_AddRef,
++    RegistrationTrigger_Release,
++    RegistrationTrigger_GetTypeInfoCount,
++    RegistrationTrigger_GetTypeInfo,
++    RegistrationTrigger_GetIDsOfNames,
++    RegistrationTrigger_Invoke,
++    RegistrationTrigger_get_Type,
++    RegistrationTrigger_get_Id,
++    RegistrationTrigger_put_Id,
++    RegistrationTrigger_get_Repetition,
++    RegistrationTrigger_put_Repetition,
++    RegistrationTrigger_get_ExecutionTimeLimit,
++    RegistrationTrigger_put_ExecutionTimeLimit,
++    RegistrationTrigger_get_StartBoundary,
++    RegistrationTrigger_put_StartBoundary,
++    RegistrationTrigger_get_EndBoundary,
++    RegistrationTrigger_put_EndBoundary,
++    RegistrationTrigger_get_Enabled,
++    RegistrationTrigger_put_Enabled,
++    RegistrationTrigger_get_Delay,
++    RegistrationTrigger_put_Delay
++};
++
++static HRESULT RegistrationTrigger_create(ITrigger **trigger)
++{
++    RegistrationTrigger *registration_trigger;
++
++    registration_trigger = malloc(sizeof(*registration_trigger));
++    if (!registration_trigger)
++        return E_OUTOFMEMORY;
++
++    registration_trigger->IRegistrationTrigger_iface.lpVtbl = &RegistrationTrigger_vtbl;
++    registration_trigger->ref = 1;
++
++    *trigger = (ITrigger*)&registration_trigger->IRegistrationTrigger_iface;
++    return S_OK;
++}
++
+ typedef struct
+ {
+     ITriggerCollection ITriggerCollection_iface;
+@@ -439,6 +675,8 @@ static HRESULT WINAPI TriggerCollection_Create(ITriggerCollection *iface, TASK_T
+     switch(type) {
+     case TASK_TRIGGER_DAILY:
+         return DailyTrigger_create(trigger);
++    case TASK_TRIGGER_REGISTRATION:
++        return RegistrationTrigger_create(trigger);
+     default:
+         FIXME("Unimplemented type %d\n", type);
+         return E_NOTIMPL;
+diff --git a/dlls/taskschd/tests/scheduler.c b/dlls/taskschd/tests/scheduler.c
+index 2829ba98ff2..bc7c654e9a2 100644
+--- a/dlls/taskschd/tests/scheduler.c
++++ b/dlls/taskschd/tests/scheduler.c
+@@ -1391,6 +1391,31 @@ static void test_daily_trigger(ITrigger *trigger)
+     IDailyTrigger_Release(daily_trigger);
+ }
+ 
++static void test_registration_trigger(ITrigger *trigger)
++{
++    IRegistrationTrigger *reg_trigger;
++    VARIANT_BOOL enabled;
++    HRESULT hr;
++
++    hr = ITrigger_QueryInterface(trigger, &IID_IRegistrationTrigger, (void**)&reg_trigger);
++    ok(hr == S_OK, "Could not get IRegistrationTrigger iface: %08lx\n", hr);
++
++    enabled = VARIANT_FALSE;
++    hr = IRegistrationTrigger_get_Enabled(reg_trigger, &enabled);
++    todo_wine ok(hr == S_OK, "get_Enabled failed: %08lx\n", hr);
++    todo_wine ok(enabled == VARIANT_TRUE, "got %d\n", enabled);
++
++    hr = IRegistrationTrigger_put_Enabled(reg_trigger, VARIANT_FALSE);
++    todo_wine ok(hr == S_OK, "put_Enabled failed: %08lx\n", hr);
++
++    enabled = VARIANT_TRUE;
++    hr = IRegistrationTrigger_get_Enabled(reg_trigger, &enabled);
++    todo_wine ok(hr == S_OK, "get_Enabled failed: %08lx\n", hr);
++    todo_wine ok(enabled == VARIANT_FALSE, "got %d\n", enabled);
++
++    IRegistrationTrigger_Release(reg_trigger);
++}
++
+ static void create_action(ITaskDefinition *taskdef)
+ {
+     static WCHAR task1_exe[] = L"task1.exe";
+@@ -1789,6 +1814,12 @@ static void test_TaskDefinition(void)
+     ok(trigger != NULL, "trigger = NULL\n");
+     test_daily_trigger(trigger);
+     ITrigger_Release(trigger);
++
++    hr = ITriggerCollection_Create(trigger_col, TASK_TRIGGER_REGISTRATION, &trigger);
++    ok(hr == S_OK, "Create failed: %08lx\n", hr);
++    ok(trigger != NULL, "trigger = NULL\n");
++    test_registration_trigger(trigger);
++    ITrigger_Release(trigger);
+     ITriggerCollection_Release(trigger_col);
+ 
+     hr = ITaskDefinition_get_Triggers(taskdef, &trigger_col2);
+-- 
+GitLab
+
+
+From ea552a6f39771d24061b5bdd88e10371883645fe Mon Sep 17 00:00:00 2001
+From: Vijay Kiran Kamuju <infyquest@gmail.com>
+Date: Fri, 23 Feb 2024 21:01:12 +0100
+Subject: [PATCH 3/4] taskschd: Implement IRegistrationTrigger_putEnabled.
+
+---
+ dlls/taskschd/task.c            | 9 +++++++--
+ dlls/taskschd/tests/scheduler.c | 2 +-
+ 2 files changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/dlls/taskschd/task.c b/dlls/taskschd/task.c
+index 7ed69728b76..6c94c8ec8f3 100644
+--- a/dlls/taskschd/task.c
++++ b/dlls/taskschd/task.c
+@@ -326,6 +326,7 @@ static HRESULT DailyTrigger_create(ITrigger **trigger)
+ 
+ typedef struct {
+     IRegistrationTrigger IRegistrationTrigger_iface;
++    BOOL enabled;
+     LONG ref;
+ } RegistrationTrigger;
+ 
+@@ -502,8 +503,11 @@ static HRESULT WINAPI RegistrationTrigger_get_Enabled(IRegistrationTrigger *ifac
+ static HRESULT WINAPI RegistrationTrigger_put_Enabled(IRegistrationTrigger *iface, VARIANT_BOOL enabled)
+ {
+     RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
+-    FIXME("(%p)->(%x)\n", This, enabled);
+-    return E_NOTIMPL;
++
++    TRACE("(%p)->(%x)\n", This, enabled);
++
++    This->enabled = !!enabled;
++    return S_OK;
+ }
+ 
+ static HRESULT WINAPI RegistrationTrigger_get_Delay(IRegistrationTrigger *iface, BSTR *pDelay)
+@@ -555,6 +559,7 @@ static HRESULT RegistrationTrigger_create(ITrigger **trigger)
+ 
+     registration_trigger->IRegistrationTrigger_iface.lpVtbl = &RegistrationTrigger_vtbl;
+     registration_trigger->ref = 1;
++    registration_trigger->enabled = FALSE;
+ 
+     *trigger = (ITrigger*)&registration_trigger->IRegistrationTrigger_iface;
+     return S_OK;
+diff --git a/dlls/taskschd/tests/scheduler.c b/dlls/taskschd/tests/scheduler.c
+index bc7c654e9a2..31f6e586e90 100644
+--- a/dlls/taskschd/tests/scheduler.c
++++ b/dlls/taskschd/tests/scheduler.c
+@@ -1406,7 +1406,7 @@ static void test_registration_trigger(ITrigger *trigger)
+     todo_wine ok(enabled == VARIANT_TRUE, "got %d\n", enabled);
+ 
+     hr = IRegistrationTrigger_put_Enabled(reg_trigger, VARIANT_FALSE);
+-    todo_wine ok(hr == S_OK, "put_Enabled failed: %08lx\n", hr);
++    ok(hr == S_OK, "put_Enabled failed: %08lx\n", hr);
+ 
+     enabled = VARIANT_TRUE;
+     hr = IRegistrationTrigger_get_Enabled(reg_trigger, &enabled);
+-- 
+GitLab
+
+
+From e1e0db6ebe18fa8f206246e4a0f572d5b9dd4387 Mon Sep 17 00:00:00 2001
+From: Vijay Kiran Kamuju <infyquest@gmail.com>
+Date: Fri, 23 Feb 2024 21:07:28 +0100
+Subject: [PATCH 4/4] taskschd: Implement IRegistrationTrigger_getEnabled.
+
+---
+ dlls/taskschd/task.c            | 11 ++++++++---
+ dlls/taskschd/tests/scheduler.c |  8 ++++----
+ 2 files changed, 12 insertions(+), 7 deletions(-)
+
+diff --git a/dlls/taskschd/task.c b/dlls/taskschd/task.c
+index 6c94c8ec8f3..2fc5e15a599 100644
+--- a/dlls/taskschd/task.c
++++ b/dlls/taskschd/task.c
+@@ -496,8 +496,13 @@ static HRESULT WINAPI RegistrationTrigger_put_EndBoundary(IRegistrationTrigger *
+ static HRESULT WINAPI RegistrationTrigger_get_Enabled(IRegistrationTrigger *iface, VARIANT_BOOL *enabled)
+ {
+     RegistrationTrigger *This = impl_from_IRegistrationTrigger(iface);
+-    FIXME("(%p)->(%p)\n", This, enabled);
+-    return E_NOTIMPL;
++
++    TRACE("(%p)->(%p)\n", This, enabled);
++
++    if (!enabled) return E_POINTER;
++
++    *enabled = This->enabled ? VARIANT_TRUE : VARIANT_FALSE;
++    return S_OK;
+ }
+ 
+ static HRESULT WINAPI RegistrationTrigger_put_Enabled(IRegistrationTrigger *iface, VARIANT_BOOL enabled)
+@@ -559,7 +564,7 @@ static HRESULT RegistrationTrigger_create(ITrigger **trigger)
+ 
+     registration_trigger->IRegistrationTrigger_iface.lpVtbl = &RegistrationTrigger_vtbl;
+     registration_trigger->ref = 1;
+-    registration_trigger->enabled = FALSE;
++    registration_trigger->enabled = TRUE;
+ 
+     *trigger = (ITrigger*)&registration_trigger->IRegistrationTrigger_iface;
+     return S_OK;
+diff --git a/dlls/taskschd/tests/scheduler.c b/dlls/taskschd/tests/scheduler.c
+index 31f6e586e90..65d34dffd33 100644
+--- a/dlls/taskschd/tests/scheduler.c
++++ b/dlls/taskschd/tests/scheduler.c
+@@ -1402,16 +1402,16 @@ static void test_registration_trigger(ITrigger *trigger)
+ 
+     enabled = VARIANT_FALSE;
+     hr = IRegistrationTrigger_get_Enabled(reg_trigger, &enabled);
+-    todo_wine ok(hr == S_OK, "get_Enabled failed: %08lx\n", hr);
+-    todo_wine ok(enabled == VARIANT_TRUE, "got %d\n", enabled);
++    ok(hr == S_OK, "get_Enabled failed: %08lx\n", hr);
++    ok(enabled == VARIANT_TRUE, "got %d\n", enabled);
+ 
+     hr = IRegistrationTrigger_put_Enabled(reg_trigger, VARIANT_FALSE);
+     ok(hr == S_OK, "put_Enabled failed: %08lx\n", hr);
+ 
+     enabled = VARIANT_TRUE;
+     hr = IRegistrationTrigger_get_Enabled(reg_trigger, &enabled);
+-    todo_wine ok(hr == S_OK, "get_Enabled failed: %08lx\n", hr);
+-    todo_wine ok(enabled == VARIANT_FALSE, "got %d\n", enabled);
++    ok(hr == S_OK, "get_Enabled failed: %08lx\n", hr);
++    ok(enabled == VARIANT_FALSE, "got %d\n", enabled);
+ 
+     IRegistrationTrigger_Release(reg_trigger);
+ }
+-- 
+GitLab
+

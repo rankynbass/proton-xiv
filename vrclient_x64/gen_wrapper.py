@@ -234,7 +234,7 @@ MANUAL_METHODS = {
     "IVRClientCore_GetGenericInterface": lambda ver, abi: abi == 'w',
     "IVRClientCore_Cleanup": lambda ver, abi: abi == 'w',
     "IVRSystem_GetDXGIOutputInfo": lambda ver, abi: abi == 'w',
-    "IVRSystem_GetOutputDevice": lambda ver, abi: abi == 'u' and ver > 16,
+    "IVRSystem_GetOutputDevice": lambda ver, abi: ver > 15,
     "IVRCompositor_Submit": lambda ver, abi: ver > 8,
     "IVRCompositor_SubmitWithArrayIndex": lambda ver, abi: ver > 8,
     "IVRCompositor_SetSkyboxOverride": lambda ver, abi: ver > 8,

@@ -1,0 +1,26 @@
+From 3db38ea7f4856b2856f1fd5c5f9d7272ff8d0063 Mon Sep 17 00:00:00 2001
+From: Vijay Kiran Kamuju <infyquest@gmail.com>
+Date: Fri, 23 Feb 2024 21:30:29 +0100
+Subject: [PATCH] taskschd: Return success from Principal_put_RunLevel.
+
+Wine-Bug: https://bugs.winehq.org/show_bug.cgi?id=49877
+---
+ dlls/taskschd/task.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/dlls/taskschd/task.c b/dlls/taskschd/task.c
+index 26cfeb950b0..99a2ccdf992 100644
+--- a/dlls/taskschd/task.c
++++ b/dlls/taskschd/task.c
+@@ -1620,7 +1620,7 @@ static HRESULT WINAPI Principal_get_RunLevel(IPrincipal *iface, TASK_RUNLEVEL_TY
+ static HRESULT WINAPI Principal_put_RunLevel(IPrincipal *iface, TASK_RUNLEVEL_TYPE run_level)
+ {
+     FIXME("%p,%u: stub\n", iface, run_level);
+-    return E_NOTIMPL;
++    return S_OK;
+ }
+ 
+ static const IPrincipalVtbl Principal_vtbl =
+-- 
+GitLab
+
