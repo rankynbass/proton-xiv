@@ -1301,6 +1301,7 @@ def default_compat_config():
 
         if appid in [
                 "71230", #Crazy Taxi
+                "3328910", #MySims Kingdom
                 ]:
             ret.add("heaptopdown")
 
