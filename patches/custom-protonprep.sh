@@ -5,6 +5,9 @@ pushd wine
 echo "WINE: Add Wine-to-Unix PID mapping"
 patch -Np1 < ../patches/custom/proton9-unix-pid-maps.patch
 
+echo "WINE: Add winedbg patch to fix FFXIV 7.2 with Dalamud"
+patch -Np1 < ../patches/custom/dbghelp_ffxiv.patch
+
 echo "WINE: Add Ping Fix"
 patch -Np1 < ../patches/custom/ping-fix.patch
 
