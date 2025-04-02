@@ -56,6 +56,11 @@
 
     git revert --no-commit e813ca5771658b00875924ab88d525322e50d39f
 
+# This doesn't correctly resolve the issue. We have patches that handle this for gstreamer
+# Need to revert this so our patches work.
+
+    git revert --no-commit 37818f7a547f7090ef684f8202438374fc31a165
+
 ### END PROBLEMATIC COMMIT REVERT SECTION ###
 
 ### (2-2) WINE STAGING APPLY SECTION ###
@@ -290,9 +295,6 @@
 
     echo "WINE: -GAME FIXES- add __TRY/__EXCEPT_PAGE_FAULT wnsprintfA xDefiant patch because of a bad arg passed by the game that would exit to desktop"
     patch -Np1 < ../patches/game-patches/xdefiant.patch
-    
-    echo "WINE: -GAME FIXES- Microsoft Flight Simulator 2024 needs WerRegisterCustomMetadata since SU1"
-    patch -Np1 < ../patches/game-patches/msfs2024.patch
 
 ### END GAME PATCH SECTION ###
 
@@ -337,9 +339,6 @@
     patch -Np1 < ../patches/wine-hotfixes/pending/0004-taskschd-ncsoft-purple-5175.patch
     patch -Np1 < ../patches/wine-hotfixes/pending/0005-taskschd-ncsoft-purple-5103.patch
 
-    echo "WINE: -PENDING- GetDpiAwarenessContextForProcess (GTA V Enhanced)"
-    # https://gitlab.winehq.org/wine/wine/-/merge_requests/6802
-    patch -Np1 < ../patches/wine-hotfixes/pending/6802.patch
 ### END WINE PENDING UPSTREAM SECTION ###
 
 
