@@ -15,8 +15,9 @@ jobs:
     - name: Prepare host
       run: sudo apt update && sudo apt-get install -y ccache fontforge-nox
 
-    - name: Download cache
-      uses: actions/cache@v3
+    - name: Restore Cache
+      uses: actions/cache/restore@v4
+      id: restore-cache
       with:
         path: ~/.ccache
         key: ccache-proton-${{ github.run_id }}
@@ -45,6 +46,13 @@ jobs:
     - name: Make ${{ inputs.name }}
       working-directory: ./build
       run: make -j3 redist
+
+    - name: Always Save Cache
+      uses: actions/cache/save@v4
+      if: always() && steps.cache-prime-numbers-restore.outputs.cache-hit != 'true'
+      with:
+        path: ~/.ccache
+        key: ${{ steps.restore-cache.outputs.cache-primary-key }}
 
     - name: Upload artifact ${{ inputs.name }}.tar.gz
       uses: actions/upload-artifact@v4
