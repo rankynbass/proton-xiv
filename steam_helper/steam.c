@@ -123,7 +123,7 @@ done:
     return escaped;
 }
 
-size_t strappend( char **buf, size_t *len, size_t pos, const char *fmt, ... )
+size_t strappend( char **buf, size_t *buf_size, size_t pos, const char *fmt, ... )
 {
     size_t size;
     va_list ap;
@@ -132,7 +132,7 @@ size_t strappend( char **buf, size_t *len, size_t pos, const char *fmt, ... )
 
     if (*buf)
     {
-        size = *len;
+        size = *buf_size;
         ptr = *buf;
     }
     else
@@ -152,7 +152,7 @@ size_t strappend( char **buf, size_t *len, size_t pos, const char *fmt, ... )
         ptr = realloc( ptr, size );
     }
 
-    *len = size;
+    *buf_size = size;
     *buf = ptr;
     return n;
 }
@@ -622,7 +622,7 @@ static void setup_steam_files(void)
     const char *steam_install_path = getenv("STEAM_COMPAT_CLIENT_INSTALL_PATH");
     const char *steam_library_paths = getenv("STEAM_COMPAT_LIBRARY_PATHS");
     const char *start, *end, *next;
-    size_t len = 0, pos = 0;
+    size_t buf_size = 0, pos = 0;
     char *buf = NULL, *str;
     unsigned int index = 0;
 
@@ -638,7 +638,7 @@ static void setup_steam_files(void)
         return;
     }
 
-    pos += strappend( &buf, &len, pos, "\"LibraryFolders\"\n{\n" );
+    pos += strappend( &buf, &buf_size, pos, "\"LibraryFolders\"\n{\n" );
 
     TRACE( "steam_install_path %s.\n", debugstr_a(steam_install_path) );
     if (steam_install_path)
@@ -647,7 +647,7 @@ static void setup_steam_files(void)
             ERR( "Could not convert %s to win path.\n", debugstr_a(steam_install_path) );
         else
         {
-            pos += strappend( &buf, &len, pos, "\t\"%u\"\n\t{\n\t\t\"path\"\t\t\"%s\"\n\t}\n", index, str );
+            pos += strappend( &buf, &buf_size, pos, "\t\"%u\"\n\t{\n\t\t\"path\"\t\t\"%s\"\n\t}\n", index, str );
             free( str );
         }
     }
@@ -670,7 +670,7 @@ static void setup_steam_files(void)
             ERR( "Could not convert %s to win path.\n", debugstr_a(path) );
         else
         {
-            pos += strappend( &buf, &len, pos, "\t\"%u\"\n\t{\n\t\t\"path\"\t\t\"%s\"\n\t}\n", index, str );
+            pos += strappend( &buf, &buf_size, pos, "\t\"%u\"\n\t{\n\t\t\"path\"\t\t\"%s\"\n\t}\n", index, str );
             free( str );
         }
         free( path );
@@ -679,8 +679,8 @@ static void setup_steam_files(void)
         start = next;
     }
 
-    pos += strappend( &buf, &len, pos, "}\n" );
-    write_file( L"C:\\Program Files (x86)\\Steam\\steamapps\\libraryfolders.vdf", buf, len );
+    pos += strappend( &buf, &buf_size, pos, "}\n" );
+    write_file( L"C:\\Program Files (x86)\\Steam\\steamapps\\libraryfolders.vdf", buf, buf_size );
 }
 
 #ifndef DIRECTORY_QUERY
