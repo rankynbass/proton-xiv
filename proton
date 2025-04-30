@@ -769,6 +769,9 @@ class CompatData:
         except ValueError:
             log("Prefix has an invalid version?! You may want to back up user files and delete this prefix.")
             #Just let the Wine upgrade happen and hope it works...
+            with open(self.creation_sync_guard, "w"):
+                pass
+            os.sync()
             return
 
     def pfx_copy(self, src, dst, dll_copy=False):
