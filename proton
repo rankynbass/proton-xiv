@@ -1256,6 +1256,11 @@ def default_compat_config():
             ret.add("hidevggpu")
 
         if appid in [
+                "1977170", #Jusant
+                ]:
+            ret.add("hideintelgpu")
+
+        if appid in [
                 "1341820", #As Dusk falls
                 "280790", #Creativerse
                 "306130", #The Elder Scrolls Online
@@ -1284,6 +1289,7 @@ def default_compat_config():
                 "2140020", #Stronghold: Definitive Edition
                 "3314070", #The Sims 2 Legacy Collection
                 "2709570", #Supermarket Together
+                "2623190", #The Elder Scrolls IV: Oblivion Remastered
                 ]:
             ret.add("gamedrive")
 
@@ -1592,6 +1598,7 @@ class Session:
         self.check_environment("PROTON_OLD_GL_STRING", "oldglstr")
         self.check_environment("PROTON_HIDE_NVIDIA_GPU", "hidenvgpu")
         self.check_environment("PROTON_HIDE_VANGOGH_GPU", "hidevggpu")
+        self.check_environment("PROTON_HIDE_INTEL_GPU", "hideintelgpu")
         self.check_environment("PROTON_SET_GAME_DRIVE", "gamedrive")
         self.check_environment("PROTON_SET_STEAM_DRIVE", "steamdrive")
         self.check_environment("PROTON_NO_XIM", "noxim")
@@ -1662,6 +1669,9 @@ class Session:
 
         if "hidenvgpu" in self.compat_config and "forcenvapi" not in self.compat_config:
             self.env["WINE_HIDE_NVIDIA_GPU"] = "1"
+
+        if "hideintelgpu" in self.compat_config:
+            self.env["WINE_HIDE_INTEL_GPU"] = "1"
 
         if "hideapu" in self.compat_config:
             self.env["WINE_HIDE_APU"] = "1"
