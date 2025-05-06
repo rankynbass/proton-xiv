@@ -2,7 +2,7 @@
 
 pushd wine
 
-echo "WINE: Add NTSync for Valve Bleeding Edge"
-patch -Np1 < ../patches/custom/ntsync-valvexbe.patch
+echo "WINE: Add NTSync for Valve Wine 10"
+patch -Np1 < ../patches/custom/proton10-ntsync.patch
 
 popd
