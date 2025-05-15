@@ -2,11 +2,12 @@ MODULE    = lsteamclient.dll
 UNIXLIB   = lsteamclient.so
 IMPORTS   = user32 ws2_32
 
-EXTRADEFS = -DWINE_NO_LONG_TYPES -DSTEAM_API_EXPORTS -Dprivate=public -Dprotected=public
+EXTRADEFS = -DSTEAM_API_EXPORTS -Dprivate=public -Dprotected=public
 
 SOURCES = \
 	steam_input_manual.c \
 	steam_networking_manual.c \
+	steam_matchmaking_manual.c \
 	steamclient_generated.c \
 	steamclient_main.c \
 	winISteamAppList.c \
@@ -253,6 +254,8 @@ SOURCES = \
 	cppISteamVideo_STEAMVIDEO_INTERFACE_V007.cpp \
 	unix_steam_input_manual.cpp \
 	unix_steam_networking_manual.cpp \
+	unix_steam_remote_storage_manual.cpp \
 	unix_steam_utils_manual.cpp \
+	unix_steam_matchmaking_manual.cpp \
 	unixlib.cpp \
 	unixlib_generated.cpp \

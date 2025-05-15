@@ -105,9 +105,9 @@ After every install you need to restart Steam, and [enable proton-ge-custom](#en
 This section is for those that use the native version of Steam.
 
 1. Download a release from the [Releases](https://github.com/GloriousEggroll/proton-ge-custom/releases) page.
-2. Create a `~/.steam/root/compatibilitytools.d` directory if it does not exist.
-3. Extract the release tarball into `~/.steam/root/compatibilitytools.d/`.
-   * `tar -xf GE-ProtonVERSION.tar.gz -C ~/.steam/root/compatibilitytools.d/`
+2. Create a `~/.steam/steam/compatibilitytools.d` directory if it does not exist.
+3. Extract the release tarball into `~/.steam/steam/compatibilitytools.d/`.
+   * `tar -xf GE-ProtonVERSION.tar.gz -C ~/.steam/steam/compatibilitytools.d/`
 4. Restart Steam.
 5. [Enable proton-ge-custom](#enabling).
   
@@ -141,11 +141,11 @@ sha512sum -c $checksum_name
 
 # make steam directory if it does not exist
 echo "Creating Steam directory if it does not exist..."
-mkdir -p ~/.steam/root/compatibilitytools.d
+mkdir -p ~/.steam/steam/compatibilitytools.d
 
 # extract proton tarball to steam directory
 echo "Extracting $tarball_name to Steam directory..."
-tar -xf $tarball_name -C ~/.steam/root/compatibilitytools.d/
+tar -xf $tarball_name -C ~/.steam/steam/compatibilitytools.d/
 echo "All done :)"
 ```
 
@@ -182,7 +182,45 @@ This section is for those that use the Steam flatpak.
 3. Extract the release tarball into `~/.var/app/com.valvesoftware.Steam/data/Steam/compatibilitytools.d/`.
    * `tar -xf GE-ProtonVERSION.tar.gz -C ~/.var/app/com.valvesoftware.Steam/data/Steam/compatibilitytools.d/`
 4. Restart Steam.
-5. [Enable proton-ge-custom](#enabling).
+5. [Enable proton-ge-custom](#enabling).   
+
+    
+*Terminal example based on Latest Release*
+```bash
+# make temp working directory
+echo "Creating temporary working directory..."
+rm -rf /tmp/proton-ge-custom
+mkdir /tmp/proton-ge-custom
+cd /tmp/proton-ge-custom
+
+# download tarball
+echo "Fetching tarball URL..."
+tarball_url=$(curl -s https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | grep browser_download_url | cut -d\" -f4 | grep .tar.gz)
+tarball_name=$(basename $tarball_url)
+echo "Downloading tarball: $tarball_name..."
+curl -# -L $tarball_url -o $tarball_name --no-progress-meter
+
+# download checksum
+echo "Fetching checksum URL..."
+checksum_url=$(curl -s https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | grep browser_download_url | cut -d\" -f4 | grep .sha512sum)
+checksum_name=$(basename $checksum_url)
+echo "Downloading checksum: $checksum_name..."
+curl -# -L $checksum_url -o $checksum_name --no-progress-meter
+
+# check tarball with checksum
+echo "Verifying tarball $tarball_name with checksum $checksum_name..."
+sha512sum -c $checksum_name
+# if result is ok, continue
+
+# make steam directory if it does not exist
+echo "Creating Steam directory if it does not exist..."
+mkdir -p ~/.var/app/com.valvesoftware.Steam/data/Steam/compatibilitytools.d
+
+# extract proton tarball to steam directory
+echo "Extracting $tarball_name to Steam directory..."
+tar -xf $tarball_name -C ~/.var/app/com.valvesoftware.Steam/data/Steam/compatibilitytools.d/
+echo "All done :)"
+```
 
 #### Snap
 

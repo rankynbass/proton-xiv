@@ -39,20 +39,25 @@ not detach the message queue afterwards. This leads me to believe
 that the bug might just be caused by incomplete wine
 functionality / stubs. Although, this part is speculation.
 
-user32: [GAMEFIX] 2/2 Dragon Age Inquisition: fix xinput support
+win32u: [GAMEFIX] 2/2 Dragon Age Inquisition: fix xinput support
 
 Wrap hack with a SteamGameId check and cache it.
 ---
- dlls/user32/input.c | 22 +++++++++++++++++++++-
- dlls/win32u/input.c | 37 +++++++++++++++++++++++++++++++++++++
- 2 files changed, 58 insertions(+), 1 deletion(-)
-
-diff --git a/dlls/user32/input.c b/dlls/user32/input.c
-index f91b65a5f56..dda952262ac 100644
---- a/dlls/user32/input.c
-+++ b/dlls/user32/input.c
-@@ -814,8 +814,28 @@ HWND WINAPI GetActiveWindow(void)
- HWND WINAPI GetFocus(void)
+diff --git a/dlls/win32u/input.c b/dlls/win32u/input.c
+index 97e651a7ce5..9b7796645b7 100644
+--- a/dlls/win32u/input.c
++++ b/dlls/win32u/input.c
+@@ -30,6 +30,8 @@
+ #pragma makedep unix
+ #endif
+ 
++#include <sys/prctl.h>
++#include <string.h>
+ #include "ntstatus.h"
+ #define WIN32_NO_STATUS
+ #include "win32u_private.h"
+@@ -585,8 +587,27 @@ HWND get_capture(void)
+ HWND get_focus(void)
  {
      GUITHREADINFO info;
 +    HWND retValueWindow;
@@ -62,7 +67,6 @@ index f91b65a5f56..dda952262ac 100644
 +
      info.cbSize = sizeof(info);
 -    return NtUserGetGUIThreadInfo( GetCurrentThreadId(), &info ) ? info.hwndFocus : 0;
-+
 +    retValueWindow = NtUserGetGUIThreadInfo( GetCurrentThreadId(), &info ) ? info.hwndFocus : 0;
 +
 +    if (is_DragonAgeInquis)
@@ -80,21 +84,8 @@ index f91b65a5f56..dda952262ac 100644
 +    return retValueWindow;
  }
  
- 
-diff --git a/dlls/win32u/input.c b/dlls/win32u/input.c
-index 6268c978dab..1dbb6690c03 100644
---- a/dlls/win32u/input.c
-+++ b/dlls/win32u/input.c
-@@ -30,6 +30,8 @@
- #pragma makedep unix
- #endif
- 
-+#include <sys/prctl.h>
-+#include <string.h>
- #include "ntstatus.h"
- #define WIN32_NO_STATUS
- #include "win32u_private.h"
-@@ -596,6 +598,41 @@ HWND get_focus(void)
+ /**********************************************************************
+@@ -595,6 +616,41 @@ HWND get_focus(void)
  BOOL WINAPI NtUserAttachThreadInput( DWORD from, DWORD to, BOOL attach )
  {
      BOOL ret;

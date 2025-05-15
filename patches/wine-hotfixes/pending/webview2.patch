@@ -218,13 +218,13 @@ index d56bc5182d8..c5fa5980ccf 100644
 --- a/include/Makefile.in
 +++ b/include/Makefile.in
 @@ -817,6 +817,7 @@ SOURCES = \
-	wdbgexts.h \
-	weakreference.idl \
-	webservices.h \
+ 	wdbgexts.h \
+ 	weakreference.idl \
+ 	webservices.h \
 +	webview2.idl \
+ 	websocket.h \
  	werapi.h \
- 	wfext.h \
- 	wia.h \
+ 	wfext.h 
 diff --git a/include/webview2.idl b/include/webview2.idl
 new file mode 100644
 index 00000000000..2c715b649c9
