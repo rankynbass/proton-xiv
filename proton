@@ -42,7 +42,7 @@ from pathlib import Path
 #To enable debug logging, copy "user_settings.sample.py" to "user_settings.py"
 #and edit it if needed.
 
-CURRENT_PREFIX_VERSION="GE-Proton10-2"
+CURRENT_PREFIX_VERSION="GE-Proton10-3"
 
 PFX="Proton: "
 ld_path_var = "LD_LIBRARY_PATH"
@@ -1713,6 +1713,7 @@ class Session:
             if self.env.get("WAYLAND_DISPLAY", False):
                 self.dlloverrides["winex11.drv"] = "d"
                 self.dlloverrides["winewayland.drv"] = "b"
+                self.env["WINE_WAYLAND_HACKS"] = "1"
                 if "enablehdr" in self.compat_config:
                     self.env["DXVK_HDR"] = "1"
 
