@@ -2,7 +2,7 @@ STEAMRT_VERSION = 3.0.20250210.116596
 STEAMRT_URLBASE = registry.gitlab.steamos.cloud
 
 PROTONSDK_URLBASE = ghcr.io/open-wine-components/umu-sdk
-PROTONSDK_VERSION = latest
+PROTONSDK_VERSION = @sha256:3506ccda91f7a7dcc4f2b2b6f60355798a59d5ee16401b5e204cacb1d90f9381
 
 # this is just for building toolchain, as we do static builds it should
 # not have any impact on the end result, but changing it will invalidate
