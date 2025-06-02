@@ -1,7 +1,7 @@
 From c2ff98de8065d02410fea98451cf6844599d7d78 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty <etaash.mathamsetty@gmail.com>
 Date: Wed, 29 Jan 2025 19:05:17 -0500
-Subject: [PATCH 36/77] twinapi.appcore/tests: Fix broken registry query.
+Subject: [PATCH 36/78] twinapi.appcore/tests: Fix broken registry query.
 
 ---
  dlls/twinapi.appcore/tests/twinapi.c | 1 +

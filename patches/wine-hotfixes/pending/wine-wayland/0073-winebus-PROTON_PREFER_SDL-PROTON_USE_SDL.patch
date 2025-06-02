@@ -2,7 +2,7 @@ From d7e0460c4fb895f05f295dedb9968952ed273f28 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Wed, 28 May 2025 16:43:23 -0400
-Subject: [PATCH 73/77] winebus: PROTON_PREFER_SDL -> PROTON_USE_SDL
+Subject: [PATCH 73/78] winebus: PROTON_PREFER_SDL -> PROTON_USE_SDL
 
 More accurately name the env
 ---

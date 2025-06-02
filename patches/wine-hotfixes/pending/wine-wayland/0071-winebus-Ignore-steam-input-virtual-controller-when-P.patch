@@ -2,7 +2,7 @@ From 048a2ad9513f37f15c054d52ff0bccf7ab444044 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Tue, 27 May 2025 00:08:02 -0400
-Subject: [PATCH 71/77] winebus: Ignore steam input virtual controller when
+Subject: [PATCH 71/78] winebus: Ignore steam input virtual controller when
  PROTON_PREFER_SDL is set.
 
 ---

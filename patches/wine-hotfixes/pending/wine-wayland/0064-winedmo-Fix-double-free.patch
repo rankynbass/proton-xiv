@@ -2,7 +2,7 @@ From 8d27448b180bfc5512e27c4cf1bc84860c15592f Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Sat, 24 May 2025 13:26:50 -0400
-Subject: [PATCH 64/77] winedmo: Fix double free
+Subject: [PATCH 64/78] winedmo: Fix double free
 
 ---
  dlls/winedmo/unix_demuxer.c           | 4 ++--

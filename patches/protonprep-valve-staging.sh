@@ -371,6 +371,7 @@
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0075-winewayland-Update-min-max-window-based-on-window-re.patch
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0076-winewayland-add-opcode-3-of-zwlr_data_control_device.patch
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0077-winewayland-systray-skeleton.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0078-fixup-HACK-winewayland-Send-relative-event-with-abso.patch
     popd
 
 ### END PROTON-GE ADDITIONAL CUSTOM PATCHES ###

@@ -2,7 +2,7 @@ From 13f805294b63bb2477e08dcbcf4c4aa397532a36 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Wed, 28 May 2025 16:04:21 -0400
-Subject: [PATCH 72/77] winewayland: Refactor output selection
+Subject: [PATCH 72/78] winewayland: Refactor output selection
 
 ---
  dlls/winewayland.drv/display.c         | 64 +++++++++++++++++++++++---

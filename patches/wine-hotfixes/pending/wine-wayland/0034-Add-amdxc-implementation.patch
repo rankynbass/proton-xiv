@@ -2,7 +2,7 @@ From 872e570653759f42c73834e719caee2588943f69 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Fri, 9 May 2025 08:38:26 -0400
-Subject: [PATCH 34/77] Add amdxc implementation
+Subject: [PATCH 34/78] Add amdxc implementation
 
 ---
  .gitignore                        |   1 +
