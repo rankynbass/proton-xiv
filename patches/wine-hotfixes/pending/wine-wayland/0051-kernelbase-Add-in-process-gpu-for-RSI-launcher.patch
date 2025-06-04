@@ -1,0 +1,25 @@
+From f05f47d789ae1611d82db331c86ec4409e243750 Mon Sep 17 00:00:00 2001
+From: Etaash Mathamsetty
+ <45927311+Etaash-mathamsetty@users.noreply.github.com>
+Date: Thu, 15 May 2025 16:11:24 -0400
+Subject: [PATCH 51/78] kernelbase: Add in-process-gpu for RSI launcher
+
+---
+ dlls/kernelbase/process.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/dlls/kernelbase/process.c b/dlls/kernelbase/process.c
+index f0534eff8c0..4797d30dc8f 100644
+--- a/dlls/kernelbase/process.c
++++ b/dlls/kernelbase/process.c
+@@ -626,6 +626,7 @@ static const WCHAR *hack_append_command_line( const WCHAR *cmd )
+     static const struct option wayland_options[] = {
+         {L"launcher_epic.exe", L" --in-process-gpu"}, /* ZZZ EGS */
+         {L"Battle.net.exe", L" --in-process-gpu"},
++        {L"RSI Launcher.exe", L" --in-process-gpu"}
+     };
+ 
+     unsigned int i;
+-- 
+2.49.0
+

@@ -10,6 +10,7 @@
     pushd vkd3d-proton
     git reset --hard HEAD
     git clean -xdf
+    patch -Np1 < ../patches/vkd3d/vkd3d-proton-0001-vkd3d-Load-amdxc64-when-using-AMD.patch
     popd
 
     pushd dxvk-nvapi
@@ -292,76 +293,85 @@
     patch -Np1 < ../patches/proton/dualsense/0002-containerid-helper-to-generate-a-containerid-from-a-.patch
     patch -Np1 < ../patches/proton/dualsense/0003-Implement-SetupDiGetDeviceInterfacePropertyW-for-DEV.patch
 
-    echo "WINE: -CUSTOM- add gstreamer surfaceless option"
-    patch -Np1 < ../patches/proton/0001-use-surfaceless-for-GST.patch
-
-    echo "WINE: -CUSTOM- fixup for enable/disable hidraw"
-    patch -Np1 < ../patches/proton/1c2f561d80d20fa770c5fd170b9100c94293792d.patch
-
     echo "WINE: -CUSTOM- wine wayland"
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0001-winewayland-Enable-disable-the-zwp_text_input_v3-obj.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0002-winewayland-Post-IME-update-for-committed-text.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0003-winewayland-Implement-SetIMECompositionRect.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0004-winewayland-Post-IME-update-for-preedit-text.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0005-winewayland-Round-the-Wayland-refresh-rate-to-calcul.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0006-winewayland-Implement-zwlr_data_control_device_v1-in.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0007-winewayland-Support-copying-text-from-win32-clipboar.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0008-winewayland-Generalize-support-for-exporting-clipboa.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0009-winewayland-Support-exporting-various-clipboard-form.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0010-winewayland-Support-copying-data-from-native-clipboa.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0011-winewayland-Normalize-received-MIME-type-strings.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0012-winewayland-Update-locked-pointer-position-hint.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0013-winewayland-Implement-SetCursorPos-via-pointer-lock.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0014-winewayland-Don-t-crash-on-text-input-done-events-wi.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0015-winewayland-Present-EGL-surfaces-opaquely.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0016-winewayland-Treat-fully-transparent-cursors-as-hidde.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0017-win32u-Return-0-from-NtUserGetKeyNameText-if-there-i.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0018-winewayland-Implement-wl_data_device-initialization.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0019-winewayland-Support-wl_data_device-for-copies-from-w.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0020-winewayland-Support-wl_data_device-for-copies-from-n.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0021-winewayland-Warn-about-missing-clipboard-functionali.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0022-winewayland.drv-Implement-support-for-xdg-toplevel-i.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0023-winewayland-Implement-relative-motion-accumulator.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0024-winewayland-Require-wl_pointer-for-pointer-constrain.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0025-support-older-EGL-headers.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0026-winewayland-Always-check-the-role-to-determine-wheth.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0027-winewayland-Introduce-helper-to-check-whether-a-surf.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0028-hack-winewayland-handle-fractional-scaling.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0029-cursor-shape-v1.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0030-Avoid-long-types-on-the-Unix-side.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0031-Create-.gitignore.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0032-winewayland-ensure-egl_display-is-not-EGL_BAD_PARAME.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0033-Add-amdxc-implementation.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0034-wine.inf-Don-t-clobber-UBR-key.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0035-twinapi.appcore-tests-Fix-broken-registry-query.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0036-winecfg-Add-support-for-UBR-key.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0037-winewayland-Don-t-use-a-destroyed-surface-in-text-in.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0038-hack-win32u-fix-opengl-applications-on-winewayland.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0039-winewayland-register-swap-control-tear.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0040-check-if-FSR4_UPGRADE-env-is-nonzero.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0041-fixup-winewayland-handle-locking-with-fractional-sca.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0042-winewayland-Use-ARGB-buffers-for-shaped-windows.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0043-winewayland-Implement-window-surface-shape-and-color.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0044-minor-formatting-fix.patch
-
-    # Fix orientation on steam deck
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/cb400427c7fd6c80664f11b7bbaf128fc46fcd59.patch
-
-    # Game/launcher wayland fixes
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/cursor_and_launchers/0001-ntdll-remove-outdated-workaround-for-rainbow-six-ext.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/cursor_and_launchers/0002-HACK-kernelbase-Add-Wayland-specific-workarounds.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/cursor_and_launchers/0003-fixup-kernelbase-Check-for-wayland-hacks-first.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/cursor_and_launchers/0004-formatting-fix.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/cursor_and_launchers/0005-kernelbase-Enable-in-process-gpu-for-battle.net.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/cursor_and_launchers/0006-kernelbase-Add-in-process-gpu-for-RSI-launcher.patch
-
-    # Touchpad wayland fix
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/cursor_and_launchers/0007-winewayland-Implement-touchpad-scrolling-support.patch
-
-    # Un-accelerated mouse input (rawinput)
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/cursor_and_launchers/0008-winewayland-Use-unaccelerated-relative-motion.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/cursor_and_launchers/0009-winewayland-Use-discrete-event-when-possible.patch
-
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0001-use-surfaceless-for-GST.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0002-winewayland-Enable-disable-the-zwp_text_input_v3-obj.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0003-winewayland-Post-IME-update-for-committed-text.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0004-winewayland-Implement-SetIMECompositionRect.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0005-winewayland-Post-IME-update-for-preedit-text.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0006-winewayland-Round-the-Wayland-refresh-rate-to-calcul.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0007-winewayland-Implement-zwlr_data_control_device_v1-in.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0008-winewayland-Support-copying-text-from-win32-clipboar.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0009-winewayland-Generalize-support-for-exporting-clipboa.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0010-winewayland-Support-exporting-various-clipboard-form.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0011-winewayland-Support-copying-data-from-native-clipboa.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0012-winewayland-Normalize-received-MIME-type-strings.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0013-winewayland-Update-locked-pointer-position-hint.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0014-winewayland-Implement-SetCursorPos-via-pointer-lock.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0015-winewayland-Don-t-crash-on-text-input-done-events-wi.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0016-winewayland-Present-EGL-surfaces-opaquely.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0017-winewayland-Treat-fully-transparent-cursors-as-hidde.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0018-win32u-Return-0-from-NtUserGetKeyNameText-if-there-i.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0019-winewayland-Implement-wl_data_device-initialization.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0020-winewayland-Support-wl_data_device-for-copies-from-w.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0021-winewayland-Support-wl_data_device-for-copies-from-n.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0022-winewayland-Warn-about-missing-clipboard-functionali.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0023-winewayland.drv-Implement-support-for-xdg-toplevel-i.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0024-winewayland-Implement-relative-motion-accumulator.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0025-winewayland-Require-wl_pointer-for-pointer-constrain.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0026-support-older-EGL-headers.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0027-winewayland-Always-check-the-role-to-determine-wheth.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0028-winewayland-Introduce-helper-to-check-whether-a-surf.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0029-hack-winewayland-handle-fractional-scaling.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0030-cursor-shape-v1.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0031-Avoid-long-types-on-the-Unix-side.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0032-Create-.gitignore.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0033-winewayland-ensure-egl_display-is-not-EGL_BAD_PARAME.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0034-Add-amdxc-implementation.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0035-wine.inf-Don-t-clobber-UBR-key.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0036-twinapi.appcore-tests-Fix-broken-registry-query.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0037-winecfg-Add-support-for-UBR-key.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0038-winewayland-Don-t-use-a-destroyed-surface-in-text-in.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0039-hack-win32u-fix-opengl-applications-on-winewayland.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0040-winewayland-register-swap-control-tear.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0041-check-if-FSR4_UPGRADE-env-is-nonzero.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0042-fixup-winewayland-handle-locking-with-fractional-sca.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0043-winewayland-Use-ARGB-buffers-for-shaped-windows.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0044-winewayland-Implement-window-surface-shape-and-color.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0045-minor-formatting-fix.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0046-ntdll-remove-outdated-workaround-for-rainbow-six-ext.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0047-HACK-kernelbase-Add-Wayland-specific-workarounds.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0048-fixup-kernelbase-Check-for-wayland-hacks-first.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0049-formatting-fix.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0050-kernelbase-Enable-in-process-gpu-for-battle.net.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0051-kernelbase-Add-in-process-gpu-for-RSI-launcher.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0052-winewayland-Implement-touchpad-scrolling-support.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0053-winewayland-Use-unaccelerated-relative-motion.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0054-winewayland-Use-discrete-event-when-possible.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0055-winewayland-Handle-rotated-screens.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0056-winebus-Fix-PROTON_ENABLE-DISABLE_HIDRAW.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0057-fixup-winewayland-Handle-rotated-screens.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0058-winewayland-make-wp_fractional_scale_handle_scale-st.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0059-winewayland-Place-fullscreen-windows-on-associated-o.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0060-HACK-ntdll-Ignore-SDL_VIDEODRIVER-env.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0061-fixup-winewayland-Place-fullscreen-windows-on-associ.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0062-HACK-winewayland-Support-output-switching.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0063-WIP-winewayland-emulate-some-edid-data.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0064-winedmo-Fix-double-free.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0065-winebus-remove-duplicated-code.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0066-winewayland-Set-edid-chromaticity-values.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0067-fixup-winewayland-Support-output-switching.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0068-HACK-winewayland-Add-option-to-offset-monitor-positi.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0069-winewayland-Add-error-message-when-wp_color_manager_.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0070-amdxc-Only-load-amdxcffx-when-FSR4-upgrade-is-enable.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0071-winebus-Ignore-steam-input-virtual-controller-when-P.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0072-winewayland-Refactor-output-selection.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0073-winebus-PROTON_PREFER_SDL-PROTON_USE_SDL.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0074-HACK-winewayland-Send-relative-event-with-absolute-e.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0075-winewayland-Update-min-max-window-based-on-window-re.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0076-winewayland-add-opcode-3-of-zwlr_data_control_device.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0077-winewayland-systray-skeleton.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0078-fixup-HACK-winewayland-Send-relative-event-with-abso.patch
     popd
 
 ### END PROTON-GE ADDITIONAL CUSTOM PATCHES ###
