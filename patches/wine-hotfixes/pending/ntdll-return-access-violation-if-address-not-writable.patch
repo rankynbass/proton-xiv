@@ -1,0 +1,85 @@
+From 2364128c56f58561f5204b445fa8abd8f9c56105 Mon Sep 17 00:00:00 2001
+From: Dylan Donnell <dylan.donnell@student.griffith.ie>
+Date: Fri, 14 Mar 2025 23:32:03 +0200
+Subject: [PATCH 1/2] ntdll: Return STATUS_ACCESS_VIOLATION from
+ NtQueryInformationThread ThreadHideFromDebugger if *ret_len is not writable.
+
+---
+ dlls/ntdll/unix/thread.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/dlls/ntdll/unix/thread.c b/dlls/ntdll/unix/thread.c
+index b64a7dd40af..d3ddcf13963 100644
+--- a/dlls/ntdll/unix/thread.c
++++ b/dlls/ntdll/unix/thread.c
+@@ -2275,6 +2275,12 @@ NTSTATUS WINAPI NtQueryInformationThread( HANDLE handle, THREADINFOCLASS class,
+         return get_thread_wow64_context( handle, data, length );
+ 
+     case ThreadHideFromDebugger:
++        /* TP Shell Service depends on ThreadHideFromDebugger returning
++         * STATUS_ACCESS_VIOLATION if *ret_len is not writable, before
++         * any other checks. Despite the status, the variable does not
++         * actually seem to be written at that time. */
++        if (ret_len) *(volatile ULONG *)ret_len |= 0;
++
+         if (length != sizeof(BOOLEAN)) return STATUS_INFO_LENGTH_MISMATCH;
+         if (!data) return STATUS_ACCESS_VIOLATION;
+         SERVER_START_REQ( get_thread_info )
+-- 
+GitLab
+
+
+From 408710e37b21da4cd1bb56f4df49f0f64e66fa5d Mon Sep 17 00:00:00 2001
+From: Dylan Donnell <dylan.donnell@student.griffith.ie>
+Date: Sat, 15 Mar 2025 00:34:23 +0200
+Subject: [PATCH 2/2] ntdll/tests: Add tests for ret_len on
+ NtQueryInformationThread HideFromDebugger.
+
+---
+ dlls/ntdll/tests/info.c | 23 ++++++++++++++++++++++-
+ 1 file changed, 22 insertions(+), 1 deletion(-)
+
+diff --git a/dlls/ntdll/tests/info.c b/dlls/ntdll/tests/info.c
+index 5003a5b50c2..d24639b6b68 100644
+--- a/dlls/ntdll/tests/info.c
++++ b/dlls/ntdll/tests/info.c
+@@ -3274,7 +3274,7 @@ static void test_HideFromDebugger(void)
+ {
+     NTSTATUS status;
+     HANDLE thread, stop_event;
+-    ULONG dummy;
++    ULONG dummy, ret_len;
+ 
+     dummy = 0;
+     status = pNtSetInformationThread( GetCurrentThread(), ThreadHideFromDebugger, &dummy, sizeof(ULONG) );
+@@ -3321,6 +3321,27 @@ static void test_HideFromDebugger(void)
+     ok( status == STATUS_SUCCESS, "got %#lx\n", status );
+     ok( dummy == 1, "Expected dummy == 1, got %08lx\n", dummy );
+ 
++    status = NtQueryInformationThread( thread, ThreadHideFromDebugger, &dummy, 1, (ULONG *)1 );
++    ok( status == STATUS_ACCESS_VIOLATION, "Expected STATUS_ACCESS_VIOLATION, got %08lx\n", status );
++
++    status = NtQueryInformationThread( thread, ThreadHideFromDebugger, &dummy, 0, (ULONG *)1 );
++    ok( status == STATUS_ACCESS_VIOLATION, "Expected STATUS_ACCESS_VIOLATION, got %08lx\n", status );
++
++    ret_len = 0xdeadbeef;
++    status = NtQueryInformationThread( thread, ThreadHideFromDebugger, &dummy, 0, &ret_len );
++    ok( status == STATUS_INFO_LENGTH_MISMATCH, "Expected STATUS_INFO_LENGTH_MISMATCH, got %#lx\n", status );
++    ok( ret_len == 0xdeadbeef, "Expected ret_len == deadbeef, got %08lx\n", ret_len );
++
++    ret_len = 0xdeadbeef;
++    status = NtQueryInformationThread( (HANDLE)0xdeadbeef, ThreadHideFromDebugger, &dummy, 1, &ret_len );
++    ok( status == STATUS_INVALID_HANDLE, "Expected STATUS_INVALID_HANDLE, got %#lx\n", status );
++    ok( ret_len == 0xdeadbeef, "Expected ret_len == deadbeef, got %08lx\n", ret_len );
++
++    ret_len = 0xdeadbeef;
++    status = NtQueryInformationThread( thread, ThreadHideFromDebugger, &dummy, 1, &ret_len );
++    ok( status == STATUS_SUCCESS, "got %#lx\n", status );
++    ok( ret_len == 1, "Expected ret_len == 1, got %08lx\n", ret_len );
++
+     SetEvent( stop_event );
+     WaitForSingleObject( thread, INFINITE );
+     CloseHandle( thread );
+-- 
+GitLab
+
