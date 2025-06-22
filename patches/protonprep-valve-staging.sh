@@ -34,10 +34,6 @@
     git reset --hard HEAD
     git clean -xdf
     popd
-    pushd python-xlib
-    git reset --hard HEAD
-    git clean -xdf
-    popd
     pushd umu-database
     git reset --hard HEAD
     git clean -xdf
