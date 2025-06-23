@@ -287,6 +287,9 @@
     echo "WINE: -CUSTOM- Add WINE_NO_WM_DECORATION option to disable window decorations so that borders behave properly"
     patch -Np1 < ../patches/proton/0001-win32u-add-env-switch-to-disable-wm-decorations.patch
 
+    echo "WINE: -CUSTOM- Fix a crash in ID2D1DeviceContext if no target is set"
+    patch -Np1 < ../patches/proton/fix-a-crash-in-ID2D1DeviceContext-if-no-target-is-set.patch
+
     # https://gitlab.winehq.org/wine/wine/-/merge_requests/7238
     echo "WINE: -CUSTOM- Add enhanced dualsense patches"
     patch -Np1 < ../patches/proton/dualsense/0001-mmdevapi-correctly-read-and-write-containerid-as-cls.patch
