@@ -3,6 +3,7 @@
 #endif
 
 #include "unix_private.h"
+#include <type_traits>
 
 WINE_DEFAULT_DEBUG_CHANNEL(steamclient);
 
@@ -274,127 +275,154 @@ static NTSTATUS ISteamNetworkingUtils_AllocateMessage( Iface *iface, Params *par
     return 0;
 }
 
-static void (*W_CDECL w_SteamNetConnectionStatusChanged)( w_SteamNetConnectionStatusChangedCallback_t_151 * );
-static void U_CDECL u_SteamNetConnectionStatusChanged( u_SteamNetConnectionStatusChangedCallback_t_151 *u_dat )
+template <typename w_callback_type, typename u_callback_type>
+class wrap_callback_cdecl_impl
 {
-    w_SteamNetConnectionStatusChangedCallback_t_151 w_dat = *u_dat;
-    if (w_SteamNetConnectionStatusChanged) queue_cdecl_func_callback( (w_cdecl_func)w_SteamNetConnectionStatusChanged, &w_dat, sizeof(w_dat) );
+    private:
+        static void *w_callback_func;
+        static void U_CDECL u_callback( u_callback_type *u_dat )
+        {
+            TRACE( "u_callback %p, w_callback_func %p, u_dat %p.\n", u_callback, w_callback_func, u_dat );
+            if (std::is_same<w_callback_type, u_callback_type>::value)
+            {
+                if (w_callback_func) queue_cdecl_func_callback( (w_cdecl_func)w_callback_func, u_dat, sizeof(*u_dat) );
+            }
+            else
+            {
+                w_callback_type w_dat = *u_dat;
+                if (w_callback_func) queue_cdecl_func_callback( (w_cdecl_func)w_callback_func, &w_dat, sizeof(w_dat) );
+            }
+        }
+
+    public:
+        static void *get_wrapped_callback( void ***w_callback_ptr )
+        {
+            *w_callback_ptr = &w_callback_func;
+            return (void *)u_callback;
+        }
+};
+
+template<typename w_callback_type, typename u_callback_type>
+void *wrap_callback_cdecl_impl<w_callback_type, u_callback_type>::w_callback_func;
+
+template <int sdk_version>
+void *wrap_callback_cdecl( int eValue, void ***w_callback_ptr )
+{
+    static_assert(sdk_version == 151 || sdk_version == 153);
+
+    switch (eValue)
+    {
+        case 201 /*ConnectionStatusChanged*/:
+            if (sdk_version == 151)
+                return wrap_callback_cdecl_impl<w_SteamNetConnectionStatusChangedCallback_t_151, u_SteamNetConnectionStatusChangedCallback_t_151>
+                       ::get_wrapped_callback( w_callback_ptr );
+            return wrap_callback_cdecl_impl<w_SteamNetConnectionStatusChangedCallback_t_153a, u_SteamNetConnectionStatusChangedCallback_t_153a>
+                   ::get_wrapped_callback( w_callback_ptr );
+        case 202 /*AuthStatusChanged*/:
+            return wrap_callback_cdecl_impl<SteamNetAuthenticationStatus_t, SteamNetAuthenticationStatus_t>::get_wrapped_callback( w_callback_ptr );
+        case 203 /*RelayNetworkStatusChanged*/:
+            return wrap_callback_cdecl_impl<SteamRelayNetworkStatus_t, SteamRelayNetworkStatus_t>::get_wrapped_callback( w_callback_ptr );
+        case 204 /*MessagesSessionRequest*/:
+            return wrap_callback_cdecl_impl<SteamNetworkingMessagesSessionRequest_t_151, SteamNetworkingMessagesSessionRequest_t_151>::get_wrapped_callback( w_callback_ptr );
+        case 205 /*MessagesSessionFailed*/:
+            if (sdk_version == 151)
+                return wrap_callback_cdecl_impl<SteamNetworkingMessagesSessionFailed_t_151, SteamNetworkingMessagesSessionFailed_t_151>
+                       ::get_wrapped_callback( w_callback_ptr );
+            return wrap_callback_cdecl_impl<SteamNetworkingMessagesSessionFailed_t_153a, SteamNetworkingMessagesSessionFailed_t_153a>
+                   ::get_wrapped_callback( w_callback_ptr );
+        case 206 /*CreateConnectionSignaling*/:
+            FIXME( "CreateConnectionSignaling not handled.\n");
+            break;
+        case 207 /*FakeIPResult*/:
+            return wrap_callback_cdecl_impl<SteamNetworkingFakeIPResult_t, SteamNetworkingFakeIPResult_t>
+                   ::get_wrapped_callback( w_callback_ptr );
+    }
+    return nullptr;
 }
 
-static void (*W_CDECL w_SteamNetAuthenticationStatusChanged)( SteamNetAuthenticationStatus_t * );
-static void U_CDECL u_SteamNetAuthenticationStatusChanged( SteamNetAuthenticationStatus_t *dat )
+class convert_SteamNetworkingConfigValue_t_array
 {
-    if (w_SteamNetAuthenticationStatusChanged) queue_cdecl_func_callback( (w_cdecl_func)w_SteamNetAuthenticationStatusChanged, dat, sizeof(*dat) );
-}
+    private:
+        bool converted;
 
-static void (*W_CDECL w_SteamRelayNetworkStatusChanged)( SteamRelayNetworkStatus_t * );
-static void U_CDECL u_SteamRelayNetworkStatusChanged( SteamRelayNetworkStatus_t *dat )
-{
-    if (w_SteamRelayNetworkStatusChanged) queue_cdecl_func_callback( (w_cdecl_func)w_SteamRelayNetworkStatusChanged, dat, sizeof(*dat) );
-}
+    public:
+        SteamNetworkingConfigValue_t *converted_options;
 
-static void (*W_CDECL w_SteamNetworkingMessagesSessionRequest)( SteamNetworkingMessagesSessionRequest_t_151 * );
-static void U_CDECL u_SteamNetworkingMessagesSessionRequest( SteamNetworkingMessagesSessionRequest_t_151 *dat )
-{
-    if (w_SteamNetworkingMessagesSessionRequest) queue_cdecl_func_callback( (w_cdecl_func)w_SteamNetworkingMessagesSessionRequest, dat, sizeof(*dat) );
-}
+        convert_SteamNetworkingConfigValue_t_array( const SteamNetworkingConfigValue_t *options, int count )
+            : converted_options((SteamNetworkingConfigValue_t *)options), converted(false)
+        {
+            void **wrap_callback_ptr;
+            void *u_fn;
+            int i;
 
-static void (*W_CDECL w_SteamNetworkingMessagesSessionFailed)( SteamNetworkingMessagesSessionFailed_t_151 * );
-static void U_CDECL u_SteamNetworkingMessagesSessionFailed( SteamNetworkingMessagesSessionFailed_t_151 *dat )
-{
-    if (w_SteamNetworkingMessagesSessionFailed) queue_cdecl_func_callback( (w_cdecl_func)w_SteamNetworkingMessagesSessionFailed, dat, sizeof(*dat) );
-}
+            if (!options || !count) return;
+
+            for (i = 0; i < count; ++i)
+            {
+                TRACE( "option eValue %d, type %d, value %s.\n", options[i].m_eValue, options[i].m_eDataType, wine_dbgstr_longlong(*(int64_t *)&options[i].m_val) );
+                if (converted) converted_options[i] = options[i];
+                if ((u_fn = wrap_callback_cdecl<153>( options[i].m_eValue, &wrap_callback_ptr)))
+                {
+                    *wrap_callback_ptr = *(void **)&options[i].m_val;
+                    if (!converted)
+                    {
+                        converted_options = (SteamNetworkingConfigValue_t *)malloc( sizeof(*converted_options) * count );
+                        converted = true;
+                        memcpy( converted_options, options, (i + 1) * sizeof(*converted_options) );
+                    }
+                    *(void **)&converted_options[i].m_val = u_fn;
+                }
+            }
+        }
+        ~convert_SteamNetworkingConfigValue_t_array()
+        {
+            if (converted) free( converted_options );
+        }
+};
 
 template< typename Params, typename Umsg >
 static NTSTATUS ISteamNetworkingUtils_SetConfigValue( u_ISteamNetworkingUtils_SteamNetworkingUtils003 *iface, Params *params, bool wow64, Umsg const& )
 {
     void *u_fn; /* api requires passing pointer-to-pointer */
+    void **w_callback_ptr;
 
-    switch (params->eValue)
+    TRACE("eValue %d, pArg %p.\n", params->eValue, params->pArg);
+
+    if (params->pArg && (u_fn = wrap_callback_cdecl<151>( params->eValue, &w_callback_ptr )))
     {
-#define CASE( y )                                                                                  \
-    if (!params->pArg)                                                                             \
-    {                                                                                              \
-        params->_ret = iface->SetConfigValue( params->eValue, params->eScopeType,                  \
-                                              params->scopeObj, params->eDataType, NULL );         \
-    }                                                                                              \
-    else                                                                                           \
-    {                                                                                              \
-        if (*(void **)(const void *)params->pArg == NULL) u_fn = NULL;                             \
-        else u_fn = (void *)&u_##y;                                                                \
-        params->_ret = iface->SetConfigValue( params->eValue, params->eScopeType,                  \
-                                              params->scopeObj, params->eDataType, &u_fn );        \
-        if (params->_ret) w_##y = *(decltype(w_##y) *)(const void *)params->pArg;                  \
-    }                                                                                              \
-    break;
-
-    case 201 /*ConnectionStatusChanged*/: CASE( SteamNetConnectionStatusChanged )
-    case 202 /*AuthStatusChanged*/: CASE( SteamNetAuthenticationStatusChanged )
-    case 203 /*RelayNetworkStatusChanged*/: CASE( SteamRelayNetworkStatusChanged )
-    case 204 /*MessagesSessionRequest*/: CASE( SteamNetworkingMessagesSessionRequest )
-    case 205 /*MessagesSessionFailed*/: CASE( SteamNetworkingMessagesSessionFailed )
-
-#undef CASE
-
-    default:
+        if (!*(void **)(const void *)params->pArg) u_fn = NULL;
+        params->_ret = iface->SetConfigValue( params->eValue, params->eScopeType,
+                                              params->scopeObj, params->eDataType, &u_fn );
+        if (params->_ret) *w_callback_ptr = *(void **)(const void *)params->pArg;
+    }
+    else
+    {
         params->_ret = iface->SetConfigValue( params->eValue, params->eScopeType, params->scopeObj,
                                               params->eDataType, params->pArg );
     }
-
     return 0;
-}
-
-static void (*W_CDECL w_SteamNetConnectionStatusChanged_153a)( w_SteamNetConnectionStatusChangedCallback_t_153a * );
-static void U_CDECL u_SteamNetConnectionStatusChanged_153a( u_SteamNetConnectionStatusChangedCallback_t_153a *u_dat )
-{
-    w_SteamNetConnectionStatusChangedCallback_t_153a w_dat = *u_dat;
-    if (w_SteamNetConnectionStatusChanged_153a) queue_cdecl_func_callback( (w_cdecl_func)w_SteamNetConnectionStatusChanged_153a, &w_dat, sizeof(w_dat) );
-}
-
-static void (*W_CDECL w_SteamNetworkingMessagesSessionFailed_153a)( SteamNetworkingMessagesSessionFailed_t_153a * );
-static void U_CDECL u_SteamNetworkingMessagesSessionFailed_153a( SteamNetworkingMessagesSessionFailed_t_153a *dat )
-{
-    if (w_SteamNetworkingMessagesSessionFailed_153a) queue_cdecl_func_callback( (w_cdecl_func)w_SteamNetworkingMessagesSessionFailed_153a, dat, sizeof(*dat) );
 }
 
 template< typename Params, typename Umsg >
 static NTSTATUS ISteamNetworkingUtils_SetConfigValue( u_ISteamNetworkingUtils_SteamNetworkingUtils004 *iface, Params *params, bool wow64, Umsg const& )
 {
-    bool ret;
     void *u_fn; /* api requires passing pointer-to-pointer */
+    void **w_callback_ptr;
 
-    switch (params->eValue)
+    TRACE("eValue %d, pArg %p.\n", params->eValue, params->pArg);
+
+    if (params->pArg && (u_fn = wrap_callback_cdecl<153>( params->eValue, &w_callback_ptr )))
     {
-
-#define CASE( y )                                                                                  \
-    if (!params->pArg)                                                                             \
-    {                                                                                              \
-        params->_ret = iface->SetConfigValue( params->eValue, params->eScopeType,                  \
-                                              params->scopeObj, params->eDataType, NULL );         \
-    }                                                                                              \
-    else                                                                                           \
-    {                                                                                              \
-        if (*(void **)(const void *)params->pArg == NULL) u_fn = NULL;                             \
-        else u_fn = (void *)&u_##y;                                                                \
-        params->_ret = iface->SetConfigValue( params->eValue, params->eScopeType,                  \
-                                              params->scopeObj, params->eDataType, &u_fn );        \
-        if (params->_ret) w_##y = *(decltype(w_##y) *)(const void *)params->pArg;                  \
-    }                                                                                              \
-    break;
-
-    case 201 /*ConnectionStatusChanged*/: CASE( SteamNetConnectionStatusChanged_153a )
-    case 202 /*AuthStatusChanged*/: CASE( SteamNetAuthenticationStatusChanged )
-    case 203 /*RelayNetworkStatusChanged*/: CASE( SteamRelayNetworkStatusChanged )
-    case 204 /*MessagesSessionRequest*/: CASE( SteamNetworkingMessagesSessionRequest )
-    case 205 /*MessagesSessionFailed*/: CASE( SteamNetworkingMessagesSessionFailed_153a )
-
-#undef CASE
-
-    default:
+        if (!*(void **)(const void *)params->pArg) u_fn = NULL;
+        params->_ret = iface->SetConfigValue( params->eValue, params->eScopeType,
+                                              params->scopeObj, params->eDataType, &u_fn );
+        if (params->_ret) *w_callback_ptr = *(void **)(const void *)params->pArg;
+    }
+    else
+    {
         params->_ret = iface->SetConfigValue( params->eValue, params->eScopeType, params->scopeObj,
                                               params->eDataType, params->pArg );
     }
-
     return 0;
 }
 
@@ -415,6 +443,70 @@ static NTSTATUS ISteamNetworkingMessages_ReceiveMessagesOnChannel( Iface *iface,
     params->_ret = iface->ReceiveMessagesOnChannel( params->nLocalChannel, u_msgs, params->nMaxMessages );
     if (params->_ret > 0) receive_messages_utow( params->_ret, u_msgs, params->ppOutMessages );
     delete[] u_msgs;
+    return 0;
+}
+
+template< typename Iface, typename Params >
+static NTSTATUS ISteamNetworkingSockets_CreateListenSocketIP( Iface *iface, Params *params, bool wow64 )
+{
+    convert_SteamNetworkingConfigValue_t_array conv( params->pOptions, params->nOptions );
+    params->_ret = iface->CreateListenSocketIP( params->localAddress, params->nOptions, conv.converted_options );
+    return 0;
+}
+
+template< typename Iface, typename Params >
+static NTSTATUS ISteamNetworkingSockets_ConnectP2PCustomSignaling( Iface *iface, Params *params, bool wow64, u_SteamNetworkingMessage_t_153a const & )
+{
+    convert_SteamNetworkingConfigValue_t_array conv( params->pOptions, params->nOptions );
+    params->_ret = iface->ConnectP2PCustomSignaling( params->pSignaling, params->pPeerIdentity, params->nRemoteVirtualPort, params->nOptions, conv.converted_options );
+    return 0;
+}
+
+template< typename Iface, typename Params >
+static NTSTATUS ISteamNetworkingSockets_ConnectByIPAddress( Iface *iface, Params *params, bool wow64 )
+{
+    convert_SteamNetworkingConfigValue_t_array conv( params->pOptions, params->nOptions );
+    params->_ret = iface->ConnectByIPAddress( params->address, params->nOptions, conv.converted_options );
+    return 0;
+}
+
+template< typename Iface, typename Params >
+static NTSTATUS ISteamNetworkingSockets_CreateListenSocketP2P( Iface *iface, Params *params, bool wow64 )
+{
+    convert_SteamNetworkingConfigValue_t_array conv( params->pOptions, params->nOptions );
+    params->_ret = iface->CreateListenSocketP2P( params->nLocalVirtualPort, params->nOptions, conv.converted_options );
+    return 0;
+}
+
+template< typename Iface, typename Params >
+static NTSTATUS ISteamNetworkingSockets_ConnectP2P( Iface *iface, Params *params, bool wow64 )
+{
+    convert_SteamNetworkingConfigValue_t_array conv( params->pOptions, params->nOptions );
+    params->_ret = iface->ConnectP2P( params->identityRemote, params->nRemoteVirtualPort, params->nOptions, conv.converted_options );
+    return 0;
+}
+
+template< typename Iface, typename Params >
+static NTSTATUS ISteamNetworkingSockets_ConnectToHostedDedicatedServer( Iface *iface, Params *params, bool wow64 )
+{
+    convert_SteamNetworkingConfigValue_t_array conv( params->pOptions, params->nOptions );
+    params->_ret = iface->ConnectToHostedDedicatedServer( params->identityTarget, params->nRemoteVirtualPort, params->nOptions, conv.converted_options );
+    return 0;
+}
+
+template< typename Iface, typename Params >
+static NTSTATUS ISteamNetworkingSockets_CreateHostedDedicatedServerListenSocket( Iface *iface, Params *params, bool wow64 )
+{
+    convert_SteamNetworkingConfigValue_t_array conv( params->pOptions, params->nOptions );
+    params->_ret = iface->CreateHostedDedicatedServerListenSocket( params->nLocalVirtualPort, params->nOptions, conv.converted_options );
+    return 0;
+}
+
+template< typename Iface, typename Params >
+static NTSTATUS ISteamNetworkingSockets_CreateListenSocketP2PFakeIP( Iface *iface, Params *params, bool wow64 )
+{
+    convert_SteamNetworkingConfigValue_t_array conv( params->pOptions, params->nOptions );
+    params->_ret = iface->CreateListenSocketP2PFakeIP( params->idxFakePort, params->nOptions, conv.converted_options );
     return 0;
 }
 
@@ -443,6 +535,14 @@ LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingSockets, SteamNetworkingSockets009, Send
 LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingSockets, SteamNetworkingSockets012, ReceiveMessagesOnConnection, u_SteamNetworkingMessage_t_153a() );
 LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingSockets, SteamNetworkingSockets012, ReceiveMessagesOnPollGroup, u_SteamNetworkingMessage_t_153a() );
 LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingSockets, SteamNetworkingSockets012, SendMessages, u_SteamNetworkingMessage_t_153a() );
+LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingSockets, SteamNetworkingSockets012, CreateListenSocketIP );
+LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingSockets, SteamNetworkingSockets012, ConnectP2PCustomSignaling, u_SteamNetworkingMessage_t_153a() );
+LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingSockets, SteamNetworkingSockets012, ConnectByIPAddress );
+LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingSockets, SteamNetworkingSockets012, CreateListenSocketP2P );
+LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingSockets, SteamNetworkingSockets012, ConnectP2P );
+LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingSockets, SteamNetworkingSockets012, ConnectToHostedDedicatedServer );
+LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingSockets, SteamNetworkingSockets012, CreateHostedDedicatedServerListenSocket );
+LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingSockets, SteamNetworkingSockets012, CreateListenSocketP2PFakeIP );
 
 LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingUtils, SteamNetworkingUtils003, AllocateMessage, u_SteamNetworkingMessage_t_147() );
 LSTEAMCLIENT_UNIX_IMPL( ISteamNetworkingUtils, SteamNetworkingUtils003, SetConfigValue, u_SteamNetworkingMessage_t_147() );
