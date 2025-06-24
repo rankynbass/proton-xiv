@@ -1,7 +1,7 @@
-From 3c08c7499eeccc5205b0e379eb2259a5d40833a5 Mon Sep 17 00:00:00 2001
+From 6c4986a901a0a5748e53b2a941c1f26bbbb972d9 Mon Sep 17 00:00:00 2001
 From: Alexandros Frantzis <alexandros.frantzis@collabora.com>
 Date: Mon, 17 Mar 2025 09:19:43 +0200
-Subject: [PATCH 21/78] winewayland: Support wl_data_device for copies from
+Subject: [PATCH 021/156] winewayland: Support wl_data_device for copies from
  native apps to win32 clipboard.
 
 ---

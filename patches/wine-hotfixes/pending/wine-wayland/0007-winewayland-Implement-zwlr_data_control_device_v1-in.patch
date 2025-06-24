@@ -1,7 +1,7 @@
-From 6e01aa895b368b3382f292d37ffc34a9c47f40c7 Mon Sep 17 00:00:00 2001
+From a30ff74380a54954f589e4a685c7373647076022 Mon Sep 17 00:00:00 2001
 From: Alexandros Frantzis <alexandros.frantzis@collabora.com>
 Date: Fri, 7 Feb 2025 13:23:46 +0200
-Subject: [PATCH 07/78] winewayland: Implement zwlr_data_control_device_v1
+Subject: [PATCH 007/156] winewayland: Implement zwlr_data_control_device_v1
  initialization.
 
 ---

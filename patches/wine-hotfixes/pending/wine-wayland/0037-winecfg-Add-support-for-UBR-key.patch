@@ -1,8 +1,8 @@
-From 554f48452260a0262ef54615836c726da4dfaa38 Mon Sep 17 00:00:00 2001
+From dc8a22564e5c8ba08c81e399549c1e8c793fc0e9 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Sat, 10 May 2025 01:23:55 -0400
-Subject: [PATCH 37/78] winecfg: Add support for UBR key.
+Subject: [PATCH 037/156] winecfg: Add support for UBR key.
 
 ---
  programs/winecfg/appdefaults.c | 47 +++++++++++++++++++---------------
