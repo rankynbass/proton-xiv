@@ -372,6 +372,14 @@
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0076-winewayland-add-opcode-3-of-zwlr_data_control_device.patch
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0077-winewayland-systray-skeleton.patch
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0078-fixup-HACK-winewayland-Send-relative-event-with-abso.patch
+
+    echo "WINE: -CUSTOM- General fixes to help meet certain Anti-cheat engines' requirements"
+    # https://gitlab.winehq.org/wine/wine-staging/-/commit/d88d44f1d9d94cb11aff9e2f0ce37d0d67fe1e95
+    patch -Np1 < ../patches/wine-hotfixes/staging/trap-syscalls-in-reserved-area/0001-ntdll-Also-trap-syscalls-in-the-top-down-reserved-ar.patch
+    # https://gitlab.winehq.org/wine/wine/-/merge_requests/7579
+    patch -Np1 < ../patches/wine-hotfixes/pending/ntdll-return-access-violation-if-address-not-writable.patch
+    # https://gitlab.winehq.org/wine/wine/-/merge_requests/8324
+    patch -Np1 < ../patches/wine-hotfixes/pending/kernelbase-allocate-new-buffer-for-module-name.patch
     popd
 
 ### END PROTON-GE ADDITIONAL CUSTOM PATCHES ###
