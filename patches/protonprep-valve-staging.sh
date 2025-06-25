@@ -108,7 +108,8 @@
     -W winex11.drv-Query_server_position \
     -W wininet-Cleanup \
     -W cryptext-CryptExtOpenCER \
-    -W wineboot-ProxySettings
+    -W wineboot-ProxySettings \
+    -W version-VerQueryValue
 
     # NOTE: Some patches are applied manually because they -do- apply, just not cleanly, ie with patch fuzz.
     # A detailed list of why the above patches are disabled is listed below:
@@ -140,6 +141,7 @@
     # d3dx9_36-D3DXStubs - already applied
     # wined3d-zero-inf-shaders - already applied
     # ntdll-RtlQueryPackageIdentity - already applied
+    # version-VerQueryValue - just a test and doesn't apply cleanly. not relevant for gaming
 
     # applied manually:
     # ** loader-KeyboardLayouts - note -- always use and/or rebase this --  needed to prevent Overwatch huge FPS drop
