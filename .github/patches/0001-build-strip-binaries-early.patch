@@ -1,4 +1,4 @@
-From 8668d576addb03a5a41230925a4aa4558fa13b46 Mon Sep 17 00:00:00 2001
+From a7e133a2b2c98162db2541df95975fc0c1b64474 Mon Sep 17 00:00:00 2001
 From: Stelios Tsampas <loathingkernel@gmail.com>
 Date: Tue, 19 Mar 2024 14:20:43 +0200
 Subject: [PATCH] build: strip binaries early
@@ -8,11 +8,11 @@ Subject: [PATCH] build: strip binaries early
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Makefile.in b/Makefile.in
-index f1b3a18c..2a23031a 100644
+index cf9a1f71..0a284e58 100644
 --- a/Makefile.in
 +++ b/Makefile.in
-@@ -58,7 +58,7 @@ i386_CFLAGS    := -mstackrealign $(HOST_CFLAGS) -mno-avx512f -mfpmath=sse
- x86_64_CFLAGS  := -mcmodel=small $(HOST_CFLAGS) -mno-avx512f -mfpmath=sse
+@@ -57,7 +57,7 @@ i386_CFLAGS    := -mstackrealign -march=nocona -mtune=core-avx2 -mfpmath=sse
+ x86_64_CFLAGS  := -mcmodel=small -march=nocona -mtune=core-avx2 -mfpmath=sse
  
  CFLAGS  = -O2 -fwrapv -fno-strict-aliasing
 -CFLAGS += -ggdb -ffunction-sections -fdata-sections -fno-omit-frame-pointer
@@ -21,5 +21,5 @@ index f1b3a18c..2a23031a 100644
  
  ifneq ($(SUPPRESS_WARNINGS),)
 -- 
-2.49.0
+2.50.0
 
