@@ -1,7 +1,7 @@
-From a1592c68ba22dbc8292de992d05f069e84af60ed Mon Sep 17 00:00:00 2001
+From 2b5022aa1f3d6248edcce37b53c1bb6137ec03c9 Mon Sep 17 00:00:00 2001
 From: Dylan Donnell <dylan.donnell@student.griffith.ie>
 Date: Sun, 15 Jun 2025 00:23:39 +0300
-Subject: [PATCH 142/156] kernelbase: Allocate a new buffer for the module name
+Subject: [PATCH 142/163] kernelbase: Allocate a new buffer for the module name
  in LoadLibraryExA.
 
 (cherry picked from commit b4df52fd617c5807969a26706e65d2e13d411cbe)

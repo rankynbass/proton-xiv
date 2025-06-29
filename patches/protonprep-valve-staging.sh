@@ -109,7 +109,8 @@
     -W wininet-Cleanup \
     -W cryptext-CryptExtOpenCER \
     -W wineboot-ProxySettings \
-    -W version-VerQueryValue
+    -W version-VerQueryValue \
+    -W setupapi-DiskSpaceList
 
     # NOTE: Some patches are applied manually because they -do- apply, just not cleanly, ie with patch fuzz.
     # A detailed list of why the above patches are disabled is listed below:
@@ -164,6 +165,7 @@
     # mfplat-streaming-support -- interferes with proton's mfplat -- currently also disabled in upstream staging
     # wined3d-SWVP-shaders -- interferes with proton's wined3d -- currently also disabled in upstream staging
     # wined3d-Indexed_Vertex_Blending -- interferes with proton's wined3d -- currently also disabled in upstream staging
+    # setupapi-DiskSpaceList -- upstream commits were brought in for dualsense fixes, the staging patches are no longer needed
 
 
     echo "WINE: -STAGING- loader-KeyboardLayouts manually applied"
@@ -287,12 +289,6 @@
 
     echo "WINE: -CUSTOM- Fix a crash in ID2D1DeviceContext if no target is set"
     patch -Np1 < ../patches/proton/fix-a-crash-in-ID2D1DeviceContext-if-no-target-is-set.patch
-
-    # https://gitlab.winehq.org/wine/wine/-/merge_requests/7238
-    echo "WINE: -CUSTOM- Add enhanced dualsense patches"
-    patch -Np1 < ../patches/proton/dualsense/0001-mmdevapi-correctly-read-and-write-containerid-as-cls.patch
-    patch -Np1 < ../patches/proton/dualsense/0002-containerid-helper-to-generate-a-containerid-from-a-.patch
-    patch -Np1 < ../patches/proton/dualsense/0003-Implement-SetupDiGetDeviceInterfacePropertyW-for-DEV.patch
 
     echo "WINE: -CUSTOM- wine wayland"
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0001-use-surfaceless-for-GST.patch
@@ -441,9 +437,18 @@
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0144-winebus-Fix-PROTON_ENABLE-DISABLE_HIDRAW.patch
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0145-mmdevapi-correctly-read-and-write-containerid-as-cls.patch
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0146-containerid-helper-to-generate-a-containerid-from-a-.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0147-ntoskrnl.exe-Implement-KeAcquireGuardedMutex.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0148-ntoskrnl.exe-Implement-KeReleaseGuardedMutex.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0149-tdh-Add-stub-for-TdhEnumerateProviders.patch
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0154-winewayland-Use-SEND_HWMSG_NO_RAW-for-keyboard.patch
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0155-winewayland-Add-more-logging-for-keyboard.patch
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0156-fixup-Revert-winewayland-Use-SEND_HWMSG_NO_RAW-for-k.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0159-amdxc-Add-support-for-anti-lag-2.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0160-amdxc-code-cleanups.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0161-winewayland-Add-error-message-for-cross-process-rend.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0162-HACK-win32u-Place-windows-on-the-vscreen.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0163-HACK-winewayland-Always-create-a-new-client-surface-.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/ac97b117bd8fb3bd6b08d48d8808471189c1e9d5.patch
 
     echo "WINE: -CUSTOM- General fixes to help meet certain Anti-cheat engines' requirements"
     # https://gitlab.winehq.org/wine/wine-staging/-/commit/d88d44f1d9d94cb11aff9e2f0ce37d0d67fe1e95

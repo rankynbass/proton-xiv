@@ -1,8 +1,8 @@
-From dbe4aead6c400d88aa5fc9abebe8727b98b23596 Mon Sep 17 00:00:00 2001
+From 3f3131137bc6b645eb2bd5ce2299c367b07c6c3c Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Sat, 17 May 2025 15:08:08 -0400
-Subject: [PATCH 055/156] winewayland: Handle rotated screens.
+Subject: [PATCH 055/163] winewayland: Handle rotated screens.
 
 Some win32u issues with vertical monitors? But works exactly the same as winex11 so I think this is a win
 ---

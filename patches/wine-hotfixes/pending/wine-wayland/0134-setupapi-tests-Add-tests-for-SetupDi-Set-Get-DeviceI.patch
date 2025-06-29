@@ -1,7 +1,7 @@
-From 300f579e001774c9209d4012a9dbf7863fc44c09 Mon Sep 17 00:00:00 2001
+From b14b20f5ae7d262cf2c86b827aa64bb34b371546 Mon Sep 17 00:00:00 2001
 From: Vibhav Pant <vibhavp@gmail.com>
 Date: Wed, 18 Jun 2025 23:32:50 +0530
-Subject: [PATCH 134/156] setupapi/tests: Add tests for
+Subject: [PATCH 134/163] setupapi/tests: Add tests for
  SetupDi{Set,Get}DeviceInterfacePropertyW.
 
 ---
