@@ -1,4 +1,4 @@
-From 0567f13a6d323657592a41f109b38aa18ba949db Mon Sep 17 00:00:00 2001
+From 007e40b5f8e8fc2c88efef0ea79b48ce81c0aca0 Mon Sep 17 00:00:00 2001
 From: Stelios Tsampas <loathingkernel@gmail.com>
 Date: Sat, 1 Mar 2025 15:27:54 +0200
 Subject: [PATCH 01/37] ntdll: Enable esync and fsync by default.
@@ -24,15 +24,15 @@ index 3074f7c72ea..ec3aff489a5 100644
      return do_esync_cached;
  #else
 diff --git a/dlls/ntdll/unix/fsync.c b/dlls/ntdll/unix/fsync.c
-index c72f4786670..9f586dcad14 100644
+index ebd71ea3b7c..beebe520e4c 100644
 --- a/dlls/ntdll/unix/fsync.c
 +++ b/dlls/ntdll/unix/fsync.c
 @@ -171,7 +171,7 @@ int do_fsync(void)
      if (do_fsync_cached == -1)
      {
          syscall( __NR_futex_waitv, NULL, 0, 0, NULL, 0 );
--        do_fsync_cached = getenv("WINEFSYNC") && atoi(getenv("WINEFSYNC")) && errno != ENOSYS && errno != EPERM;
-+        do_fsync_cached = !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) && errno != ENOSYS && errno != EPERM;
+-        do_fsync_cached = getenv("WINEFSYNC") && atoi(getenv("WINEFSYNC")) && errno != ENOSYS;
++        do_fsync_cached = !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) && errno != ENOSYS;
      }
  
      return do_fsync_cached;
@@ -50,23 +50,23 @@ index a5164435ed6..d6057d1a45c 100644
      return do_esync_cached;
  #else
 diff --git a/server/fsync.c b/server/fsync.c
-index 8097b86fcea..787168c08c7 100644
+index dc50aa0a1f3..b83cdc10a51 100644
 --- a/server/fsync.c
 +++ b/server/fsync.c
 @@ -59,7 +59,7 @@ int do_fsync(void)
      if (do_fsync_cached == -1)
      {
          syscall( __NR_futex_waitv, 0, 0, 0, 0, 0);
--        do_fsync_cached = getenv("WINEFSYNC") && atoi(getenv("WINEFSYNC")) && errno != ENOSYS && errno != EPERM;
-+        do_fsync_cached = !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) && errno != ENOSYS && errno != EPERM;
+-        do_fsync_cached = getenv("WINEFSYNC") && atoi(getenv("WINEFSYNC")) && errno != ENOSYS;
++        do_fsync_cached = !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) && errno != ENOSYS;
      }
  
      return do_fsync_cached;
 -- 
-2.50.0
+2.49.0
 
 
-From 49f178e28dde16832190980c051aa07e81a7ec67 Mon Sep 17 00:00:00 2001
+From e4f46c4fb22128f41ccdb78bece5744e82e54636 Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Mon, 8 Mar 2021 22:31:06 +0200
 Subject: [PATCH 02/37] server: Add an object operation to retrieve an
@@ -405,7 +405,7 @@ index 934c394ae34..40ff667c98e 100644
      file_destroy                  /* destroy */
  };
 diff --git a/server/fsync.c b/server/fsync.c
-index 787168c08c7..f7923a44650 100644
+index b83cdc10a51..0fbfc690a66 100644
 --- a/server/fsync.c
 +++ b/server/fsync.c
 @@ -164,6 +164,7 @@ const struct object_ops fsync_ops =
@@ -477,7 +477,7 @@ index 37f8f1a679c..f89778b924e 100644
      mailslot_device_file_destroy            /* destroy */
  };
 diff --git a/server/mapping.c b/server/mapping.c
-index feaf7730c08..da8b7883c6f 100644
+index e68edf8aba4..572d3ba66e7 100644
 --- a/server/mapping.c
 +++ b/server/mapping.c
 @@ -81,6 +81,7 @@ static const struct object_ops ranges_ops =
@@ -635,7 +635,7 @@ index fb3f3211fae..403dfa3b141 100644
  
  int get_serial_async_timeout(struct object *obj, int type, int count);
 diff --git a/server/process.c b/server/process.c
-index 73e85e9d61a..bfa50cdfcb2 100644
+index 81ee0be4ee9..5072b400a70 100644
 --- a/server/process.c
 +++ b/server/process.c
 @@ -124,6 +124,7 @@ static const struct object_ops process_ops =
@@ -663,7 +663,7 @@ index 73e85e9d61a..bfa50cdfcb2 100644
      job_destroy                    /* destroy */
  };
 diff --git a/server/protocol.def b/server/protocol.def
-index fedff72c267..fa77f1b292e 100644
+index 72cb633397a..e240c4212db 100644
 --- a/server/protocol.def
 +++ b/server/protocol.def
 @@ -4203,6 +4203,17 @@ enum fsync_type
@@ -857,10 +857,10 @@ index 31fc4b8ddc6..16f74a32cae 100644
      token_destroy              /* destroy */
  };
 diff --git a/server/window.c b/server/window.c
-index 3920eaeb4ec..2891f659894 100644
+index 9ac827bfe4e..2f2faaa4081 100644
 --- a/server/window.c
 +++ b/server/window.c
-@@ -123,6 +123,7 @@ static const struct object_ops window_ops =
+@@ -121,6 +121,7 @@ static const struct object_ops window_ops =
      NULL,                     /* unlink_name */
      no_open_file,             /* open_file */
      no_kernel_obj_list,       /* get_kernel_obj_list */
@@ -889,10 +889,10 @@ index 5a83171e659..a8a0d2b7125 100644
      desktop_destroy               /* destroy */
  };
 -- 
-2.50.0
+2.49.0
 
 
-From 4f02a27c5c105ff26aba6b907e30f1e18a10f2d7 Mon Sep 17 00:00:00 2001
+From a9202fae50b9058dc9504c0d39cef01c8eaa1b0d Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Tue, 9 Mar 2021 00:38:18 +0200
 Subject: [PATCH 03/37] server: Create in-process synchronization objects for
@@ -1339,10 +1339,10 @@ index 403dfa3b141..346ee6abc98 100644
  
  /* serial functions */
 -- 
-2.50.0
+2.49.0
 
 
-From 2b9de11a4022f48fe3ab9598dd232e232f51336f Mon Sep 17 00:00:00 2001
+From 490d2fabaa25190af99f3faf917c1d4458bb4214 Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Thu, 11 Mar 2021 16:45:30 -0600
 Subject: [PATCH 04/37] server: Create in-process synchronization objects for
@@ -1530,10 +1530,10 @@ index 567a922c0ac..778823394a6 100644
  DECL_HANDLER(create_semaphore)
  {
 -- 
-2.50.0
+2.49.0
 
 
-From bb9e23c434cad08451d6068063fae88c0900bb1a Mon Sep 17 00:00:00 2001
+From a9adb7749752be8d4d84668f3016e5ac3ff179ef Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Thu, 11 Mar 2021 16:52:55 -0600
 Subject: [PATCH 05/37] server: Create in-process synchronization objects for
@@ -1736,10 +1736,10 @@ index 56e9c7c24db..2567f3a07e2 100644
  extern struct inproc_sync *no_get_inproc_sync( struct object *obj );
  
 -- 
-2.50.0
+2.49.0
 
 
-From 3f9160f10f4e92790e0cbf8e9ee39dd7904e09e9 Mon Sep 17 00:00:00 2001
+From 6dbd510d8e1d75943e673b0ff6a3297318e7e379 Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Fri, 12 Mar 2021 04:32:58 +0200
 Subject: [PATCH 06/37] server: Create in-process synchronization objects for
@@ -1841,10 +1841,10 @@ index e2fd3b39924..ce9fd598abf 100644
      }
  
 -- 
-2.50.0
+2.49.0
 
 
-From 89da43aab008f2c056da51a2d28b0db6c586e153 Mon Sep 17 00:00:00 2001
+From 3e44698b695e3c96f3bf91aa45026a3eea1edb7f Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Mon, 8 Mar 2021 16:54:34 -0600
 Subject: [PATCH 07/37] server: Create in-process synchronization objects for
@@ -2039,10 +2039,10 @@ index 530ee31581f..7bee3435b6d 100644
  
      if (req->read)
 -- 
-2.50.0
+2.49.0
 
 
-From 26082114859436b4977089545f71ee4099bc6599 Mon Sep 17 00:00:00 2001
+From 1611be0f6d70b84828b54b1ea56b233a2dee0248 Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Tue, 9 Mar 2021 01:00:51 +0200
 Subject: [PATCH 08/37] server: Create in-process synchronization objects for
@@ -2150,10 +2150,10 @@ index 7bee3435b6d..e173ad81206 100644
      release_object( server );
  }
 -- 
-2.50.0
+2.49.0
 
 
-From 11413332be1ac340c9471bd423fe0e8f62704a85 Mon Sep 17 00:00:00 2001
+From 44f859a643fd7eed23fa0f9b06176f4adc548c92 Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Mon, 8 Mar 2021 17:11:03 -0600
 Subject: [PATCH 09/37] server: Create in-process synchronization objects for
@@ -2254,10 +2254,10 @@ index 249c530e9b1..bb36c7aa51a 100644
      else
      {
 -- 
-2.50.0
+2.49.0
 
 
-From 51dad37320cb02b569590209a545fd3d57276e7f Mon Sep 17 00:00:00 2001
+From 23e12d4ed3207f0127add5004e45ea73df729352 Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Wed, 10 Mar 2021 19:02:42 +0200
 Subject: [PATCH 10/37] server: Create in-process synchronization objects for
@@ -2365,10 +2365,10 @@ index 78a37ae3bc0..48969b91a1d 100644
                  if (irp->file) grab_object( irp );
                  manager->current_call = irp;
 -- 
-2.50.0
+2.49.0
 
 
-From 5f98695b942cb6fb5dd79452b9877075c7ab5d1d Mon Sep 17 00:00:00 2001
+From 3f77028e8ad14929fc3adf9b6b1ae12508772bb7 Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Mon, 8 Mar 2021 17:13:20 -0600
 Subject: [PATCH 11/37] server: Create in-process synchronization objects for
@@ -2441,10 +2441,10 @@ index a9dc739a257..ef14582f1e0 100644
  DECL_HANDLER(create_event)
  {
 -- 
-2.50.0
+2.49.0
 
 
-From 9f5250b4b88be4e4e6d459f4d432b7baa37b0d40 Mon Sep 17 00:00:00 2001
+From ddc0bc41ea1ea6ea66aa2c323b0e712d028a34aa Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Tue, 9 Mar 2021 01:16:53 +0200
 Subject: [PATCH 12/37] server: Create in-process synchronization objects for
@@ -2456,7 +2456,7 @@ Subject: [PATCH 12/37] server: Create in-process synchronization objects for
  2 files changed, 16 insertions(+), 1 deletion(-)
 
 diff --git a/server/process.c b/server/process.c
-index bfa50cdfcb2..dde386f223b 100644
+index 5072b400a70..6e3a93eccf6 100644
 --- a/server/process.c
 +++ b/server/process.c
 @@ -96,6 +96,7 @@ static unsigned int process_map_access( struct object *obj, unsigned int access
@@ -2530,10 +2530,10 @@ index d2aadd521e8..25604958768 100644
      unsigned int         fsync_idx;
      struct cpu_topology_override cpu_override; /* Overridden CPUs to host CPUs mapping. */
 -- 
-2.50.0
+2.49.0
 
 
-From 609c851a074d7a4a3266bdae2d8e1070fad7e4a2 Mon Sep 17 00:00:00 2001
+From 4ab579c5efd96bcbca398d779b08620f29f49430 Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Mon, 8 Mar 2021 17:17:35 -0600
 Subject: [PATCH 13/37] server: Create in-process synchronization objects for
@@ -2544,7 +2544,7 @@ Subject: [PATCH 13/37] server: Create in-process synchronization objects for
  1 file changed, 17 insertions(+), 1 deletion(-)
 
 diff --git a/server/process.c b/server/process.c
-index dde386f223b..d2a0885ce7c 100644
+index 6e3a93eccf6..3b70e73d92a 100644
 --- a/server/process.c
 +++ b/server/process.c
 @@ -202,6 +202,7 @@ struct type_descr job_type =
@@ -2608,10 +2608,10 @@ index dde386f223b..d2a0885ce7c 100644
  
  static void job_dump( struct object *obj, int verbose )
 -- 
-2.50.0
+2.49.0
 
 
-From e87d53bf59651220c19da4390557f1c7737b170e Mon Sep 17 00:00:00 2001
+From 03741b19b4531f657febc3929a907543037bf082 Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Tue, 9 Mar 2021 01:24:15 +0200
 Subject: [PATCH 14/37] server: Create in-process synchronization objects for
@@ -2763,10 +2763,10 @@ index 6a28c3daac5..9e006690720 100644
  
      if (do_fsync() && !is_signaled( queue ))
 -- 
-2.50.0
+2.49.0
 
 
-From 08a9ff0dfff9d1e74b1c4f7f603599c41f4d8f31 Mon Sep 17 00:00:00 2001
+From 6fa7bf7e9695c797e1f0f9831460c64bb9fa2499 Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Tue, 9 Mar 2021 01:26:35 +0200
 Subject: [PATCH 15/37] server: Create in-process synchronization objects for
@@ -2852,10 +2852,10 @@ index 057ad9ec2ae..0dae653dea4 100644
  
  extern struct thread *current;
 -- 
-2.50.0
+2.49.0
 
 
-From 91c3005cbf75bbf545130452ba53c104beea6787 Mon Sep 17 00:00:00 2001
+From be8874634b71ce1ecc01b08adf1794fb3f0a276f Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Tue, 9 Mar 2021 01:29:38 +0200
 Subject: [PATCH 16/37] server: Create in-process synchronization objects for
@@ -2948,10 +2948,10 @@ index ca367a6fb7d..1050ac051b1 100644
  
  /* create a timer */
 -- 
-2.50.0
+2.49.0
 
 
-From 6bd35d10cacc17732de09f933f1e9588e3846f75 Mon Sep 17 00:00:00 2001
+From 6fdd58ff48fa34988efe44ace7e9d77a3cff720d Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Mon, 8 Mar 2021 17:40:57 -0600
 Subject: [PATCH 17/37] server: Create in-process synchronization objects for
@@ -3191,10 +3191,10 @@ index 0e0bfd70793..51dd51bb353 100644
      sock_destroy                  /* destroy */
  };
 -- 
-2.50.0
+2.49.0
 
 
-From da8bfaef1f90631f43b7cbbff9fc0edf8f03f567 Mon Sep 17 00:00:00 2001
+From f1ad604bb17ba59e257d06b3f93c6f3984a485ed Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Mon, 8 Mar 2021 17:46:06 -0600
 Subject: [PATCH 18/37] server: Add a request to retrieve the in-process
@@ -3238,7 +3238,7 @@ index 11c0a87d13f..feaa2ad8442 100644
 +#endif
 +}
 diff --git a/server/protocol.def b/server/protocol.def
-index fa77f1b292e..362d43d499b 100644
+index e240c4212db..8d7d5eba816 100644
 --- a/server/protocol.def
 +++ b/server/protocol.def
 @@ -4214,6 +4214,12 @@ enum inproc_sync_type
@@ -3255,10 +3255,10 @@ index fa77f1b292e..362d43d499b 100644
  @REQ(create_fsync)
      unsigned int access;        /* wanted access rights */
 -- 
-2.50.0
+2.49.0
 
 
-From 32b427e07f26192eff02493f2e2af58301a8ba85 Mon Sep 17 00:00:00 2001
+From 9db4c25e8ad3022133ab3d824b99a58a96ddde20 Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Mon, 8 Mar 2021 17:55:00 -0600
 Subject: [PATCH 19/37] server: Add a request to retrieve the in-process
@@ -3301,7 +3301,7 @@ index feaa2ad8442..6cb02b16832 100644
 +#endif
 +}
 diff --git a/server/protocol.def b/server/protocol.def
-index 362d43d499b..84273d3214c 100644
+index 8d7d5eba816..d601aba464b 100644
 --- a/server/protocol.def
 +++ b/server/protocol.def
 @@ -4267,3 +4267,13 @@ enum inproc_sync_type
@@ -3319,10 +3319,10 @@ index 362d43d499b..84273d3214c 100644
 +    unsigned int access;          /* handle access rights */
 +@END
 -- 
-2.50.0
+2.49.0
 
 
-From ea3bd909e72a44c553ba9d1d49319a9f7f618aab Mon Sep 17 00:00:00 2001
+From c40a793fd804ac0d4903b84f0fe06c32a18e46aa Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Tue, 9 Mar 2021 19:32:25 +0200
 Subject: [PATCH 20/37] server: Introduce select_inproc_queue and
@@ -3334,7 +3334,7 @@ Subject: [PATCH 20/37] server: Introduce select_inproc_queue and
  2 files changed, 55 insertions(+)
 
 diff --git a/server/protocol.def b/server/protocol.def
-index 84273d3214c..5aee41fea62 100644
+index d601aba464b..47f22ede411 100644
 --- a/server/protocol.def
 +++ b/server/protocol.def
 @@ -4277,3 +4277,14 @@ enum inproc_sync_type
@@ -3429,10 +3429,10 @@ index 9e006690720..c13fbc1ac23 100644
  {
      struct desktop *desktop;
 -- 
-2.50.0
+2.49.0
 
 
-From 50008102e641347909c15a10fc7bf359f7a3cfda Mon Sep 17 00:00:00 2001
+From 0013252b6ca6691eee262b61e545cc3a52ad9190 Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Fri, 22 Apr 2022 00:11:14 +0300
 Subject: [PATCH 21/37] server: Allow creating an event object for client-side
@@ -3445,7 +3445,7 @@ Subject: [PATCH 21/37] server: Allow creating an event object for client-side
  3 files changed, 27 insertions(+)
 
 diff --git a/server/protocol.def b/server/protocol.def
-index 5aee41fea62..281a5d3b621 100644
+index 47f22ede411..fe3b9e6a461 100644
 --- a/server/protocol.def
 +++ b/server/protocol.def
 @@ -4288,3 +4288,10 @@ enum inproc_sync_type
@@ -3534,10 +3534,10 @@ index 0dae653dea4..4384b79483b 100644
  
  extern struct thread *current;
 -- 
-2.50.0
+2.49.0
 
 
-From b5a7fc6446888332f3d2ce7e69a5807c42e5440d Mon Sep 17 00:00:00 2001
+From e4ed404bd1e905282a97066c54ffe1a83330741a Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Tue, 9 Mar 2021 02:07:23 +0200
 Subject: [PATCH 22/37] ntdll: Introduce a helper to wait on an internal server
@@ -3613,10 +3613,10 @@ index c35cf741211..388e5e80c63 100644
              SERVER_START_REQ( get_apc_result )
              {
 diff --git a/dlls/ntdll/unix/thread.c b/dlls/ntdll/unix/thread.c
-index 7da61c1a438..0fb4346da2b 100644
+index 5edca5fcf94..95d3a49b1a0 100644
 --- a/dlls/ntdll/unix/thread.c
 +++ b/dlls/ntdll/unix/thread.c
-@@ -1854,7 +1854,7 @@ NTSTATUS get_thread_context( HANDLE handle, void *context, BOOL *self, USHORT ma
+@@ -1846,7 +1846,7 @@ NTSTATUS get_thread_context( HANDLE handle, void *context, BOOL *self, USHORT ma
  
      if (ret == STATUS_PENDING)
      {
@@ -3638,10 +3638,10 @@ index afae39def06..2c4befe18a9 100644
  extern unsigned int server_queue_process_apc( HANDLE process, const union apc_call *call,
                                                union apc_result *result );
 -- 
-2.50.0
+2.49.0
 
 
-From cf0e91f34dab287881d0a54b638c64a9c69d6e75 Mon Sep 17 00:00:00 2001
+From a4e92fcf1e3babce99ba79c2ef17813e8d0f9c19 Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Tue, 9 Mar 2021 20:08:29 +0200
 Subject: [PATCH 23/37] ntdll: Add some traces to synchronization methods.
@@ -3872,10 +3872,10 @@ index 47fd5b24c46..0fa08dfdc94 100644
      if ((ULONG_PTR)key & 1) return STATUS_INVALID_PARAMETER_1;
      if (alertable) flags |= SELECT_ALERTABLE;
 -- 
-2.50.0
+2.49.0
 
 
-From d969f6665558d4d90993b63ff4f278a8bfd51e81 Mon Sep 17 00:00:00 2001
+From 5edab23bca4e264602adccabdeb9356880fd5cf6 Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Tue, 6 Apr 2021 23:37:02 +0300
 Subject: [PATCH 24/37] ntdll: Use in-process synchronization objects.
@@ -4779,10 +4779,10 @@ index 2c4befe18a9..3a3711d0b85 100644
  
  static inline ULONGLONG ticks_from_time_t( time_t time )
 diff --git a/dlls/ntdll/unix/virtual.c b/dlls/ntdll/unix/virtual.c
-index 355a88986a3..8c8a8369ac2 100644
+index f1f200b5bf4..e2566795108 100644
 --- a/dlls/ntdll/unix/virtual.c
 +++ b/dlls/ntdll/unix/virtual.c
-@@ -4175,6 +4175,7 @@ static TEB *init_teb( void *ptr, BOOL is_wow )
+@@ -4173,6 +4173,7 @@ static TEB *init_teb( void *ptr, BOOL is_wow )
      thread_data->reply_fd   = -1;
      thread_data->wait_fd[0] = -1;
      thread_data->wait_fd[1] = -1;
@@ -4791,10 +4791,10 @@ index 355a88986a3..8c8a8369ac2 100644
      return teb;
  }
 -- 
-2.50.0
+2.49.0
 
 
-From 2793351fd58ed2974531ad52df87d90448dfbf86 Mon Sep 17 00:00:00 2001
+From 7ba7d74c12aee8dccd5f66f97ec3e56bd63dbfec Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Tue, 20 Apr 2021 17:55:59 -0500
 Subject: [PATCH 25/37] ntdll: Use server_wait_for_object() when waiting on
@@ -4827,10 +4827,10 @@ index 3924699fea1..3300f3d56cb 100644
  
      ret = linux_wait_objs( device, count, objs, wait_any, alertable, timeout );
 -- 
-2.50.0
+2.49.0
 
 
-From eb6c8ee685f879189e79d7057c012b786734848b Mon Sep 17 00:00:00 2001
+From d2ddf450fed32c881c01f62fb97d76241a5be79e Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Fri, 12 Mar 2021 23:04:17 +0200
 Subject: [PATCH 26/37] ntdll: Cache in-process synchronization objects.
@@ -5160,10 +5160,10 @@ index 3a3711d0b85..962a47f436c 100644
                                            PNTAPCFUNC func, NTSTATUS status );
  extern NTSTATUS call_user_exception_dispatcher( EXCEPTION_RECORD *rec, CONTEXT *context );
 -- 
-2.50.0
+2.49.0
 
 
-From 2e32a75f9d4c9bf5aa813a20278c2d104f6c4f37 Mon Sep 17 00:00:00 2001
+From 35be6daa6a4c9aea7c7345c9b1fdb70551858a69 Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Sat, 13 Mar 2021 16:20:30 -0600
 Subject: [PATCH 27/37] server: Allow disabling in-process synchronization
@@ -5191,10 +5191,10 @@ index 6cb02b16832..fb9d2442c02 100644
          return (struct linux_device *)grab_object( linux_device_object );
  
 -- 
-2.50.0
+2.49.0
 
 
-From d270082ca28da04e50af115425785a2f58af0bef Mon Sep 17 00:00:00 2001
+From 67ab4a690b1f8ebcaec7d1155a63e11ffdf0beae Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Sun, 14 Mar 2021 11:08:02 -0500
 Subject: [PATCH 28/37] server: Add a message to signal that in-proces
@@ -5217,10 +5217,10 @@ index fb9d2442c02..1c67eba245f 100644
      return device;
  }
 -- 
-2.50.0
+2.49.0
 
 
-From c2746a95b9d6bbd4fa9c3e5889cb4c56072564f7 Mon Sep 17 00:00:00 2001
+From c295f9c9975a4fa4ddf1ae27c8bfd121c25a4e59 Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Fri, 3 May 2024 14:35:50 -0400
 Subject: [PATCH 29/37] extra debugging
@@ -5301,10 +5301,10 @@ index 1c67eba245f..a2781ac293c 100644
  }
  
 -- 
-2.50.0
+2.49.0
 
 
-From bb2534f5ad46d0f97ad959dd57caf0504c7b92d2 Mon Sep 17 00:00:00 2001
+From e2775686a5758ad6c297068a516ae22384b26c09 Mon Sep 17 00:00:00 2001
 From: Stelios Tsampas <loathingkernel@gmail.com>
 Date: Sun, 15 Dec 2024 01:59:50 +0200
 Subject: [PATCH 30/37] ntsync: disable esync and fsync when ntsync is enabled
@@ -5332,15 +5332,15 @@ index ec3aff489a5..22856231bc0 100644
      return do_esync_cached;
  #else
 diff --git a/dlls/ntdll/unix/fsync.c b/dlls/ntdll/unix/fsync.c
-index 9f586dcad14..495293615d6 100644
+index beebe520e4c..2aa402a57b2 100644
 --- a/dlls/ntdll/unix/fsync.c
 +++ b/dlls/ntdll/unix/fsync.c
 @@ -171,7 +171,8 @@ int do_fsync(void)
      if (do_fsync_cached == -1)
      {
          syscall( __NR_futex_waitv, NULL, 0, 0, NULL, 0 );
--        do_fsync_cached = !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) && errno != ENOSYS && errno != EPERM;
-+        do_fsync_cached = !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) && errno != ENOSYS && errno != EPERM &&
+-        do_fsync_cached = !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) && errno != ENOSYS;
++        do_fsync_cached = errno != ENOSYS && !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) &&
 +                          getenv( "WINE_DISABLE_FAST_SYNC" ) && atoi( getenv( "WINE_DISABLE_FAST_SYNC" ) );
      }
  
@@ -5360,15 +5360,15 @@ index 586ecc08059..fa73a4651ee 100644
      return do_esync_cached;
  #else
 diff --git a/server/fsync.c b/server/fsync.c
-index f7923a44650..305bb9ae286 100644
+index 0fbfc690a66..d8c5dced58b 100644
 --- a/server/fsync.c
 +++ b/server/fsync.c
 @@ -59,7 +59,8 @@ int do_fsync(void)
      if (do_fsync_cached == -1)
      {
          syscall( __NR_futex_waitv, 0, 0, 0, 0, 0);
--        do_fsync_cached = !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) && errno != ENOSYS && errno != EPERM;
-+        do_fsync_cached = !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) && errno != ENOSYS && errno != EPERM &&
+-        do_fsync_cached = !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) && errno != ENOSYS;
++        do_fsync_cached = errno != ENOSYS && !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) &&
 +                          getenv( "WINE_DISABLE_FAST_SYNC" ) && atoi( getenv( "WINE_DISABLE_FAST_SYNC" ) );
      }
  
@@ -5395,10 +5395,10 @@ index d0a0a4879b5..d0ac24b0a1f 100644
      if (debug_level) fprintf( stderr, "wineserver: starting (pid=%ld)\n", (long) getpid() );
      set_current_time();
 -- 
-2.50.0
+2.49.0
 
 
-From c02496e6553f92a68fafa8b3ee0fa3ae9e6d4f82 Mon Sep 17 00:00:00 2001
+From 9fa6a838118e6bc7527f4fa8892faa108a3b3ed0 Mon Sep 17 00:00:00 2001
 From: William Horvath <william@horvath.blog>
 Date: Mon, 10 Feb 2025 12:55:36 -0800
 Subject: [PATCH 31/37] fixup! HACK: win32u: Always call get_message request
@@ -5440,7 +5440,7 @@ index 59f8809fc1a..9ab45d47fa6 100644
  extern NTSTATUS esync_close( HANDLE handle );
  
 diff --git a/dlls/ntdll/unix/fsync.c b/dlls/ntdll/unix/fsync.c
-index 495293615d6..509d55704e1 100644
+index 2aa402a57b2..3736a0808ad 100644
 --- a/dlls/ntdll/unix/fsync.c
 +++ b/dlls/ntdll/unix/fsync.c
 @@ -163,7 +163,7 @@ static inline int futex_wake( int *addr, int val )
@@ -5510,10 +5510,10 @@ index f9b812ff70c..8ba5771d2f3 100644
  {
      if (status) RtlSetLastWin32Error( RtlNtStatusToDosError( status ));
 -- 
-2.50.0
+2.49.0
 
 
-From 5c775d5c0df5208175ac0324b97ba0d1a8ea1a17 Mon Sep 17 00:00:00 2001
+From 4a8b1dfc335b9a8ef05fba12c61f7c1ac36115b6 Mon Sep 17 00:00:00 2001
 From: William Horvath <william@horvath.blog>
 Date: Thu, 26 Dec 2024 07:00:02 -0800
 Subject: [PATCH 32/37] ntdll: Increase cache entries to 256.
@@ -5551,10 +5551,10 @@ index 846d8b6f37d..25ee0f59e62 100644
  static struct inproc_sync_cache_entry *inproc_sync_cache[INPROC_SYNC_CACHE_ENTRIES];
  static struct inproc_sync_cache_entry inproc_sync_cache_initial_block[INPROC_SYNC_CACHE_BLOCK_SIZE];
 -- 
-2.50.0
+2.49.0
 
 
-From a41edd19fad01ddba5446960772fb43ed6e8efd0 Mon Sep 17 00:00:00 2001
+From 832d16310af5c09587262f3f65da20c3eacac750 Mon Sep 17 00:00:00 2001
 From: Stelios Tsampas <loathingkernel@gmail.com>
 Date: Mon, 23 Dec 2024 11:31:27 +0200
 Subject: [PATCH 33/37] include: use ntsync.h v7 module header as an in-tree
@@ -5698,10 +5698,10 @@ index a2781ac293c..10a4d0e2538 100644
  struct linux_device
  {
 -- 
-2.50.0
+2.49.0
 
 
-From c66ce1f0b83ac6d6d7cfcd3452de2ddfa1a02543 Mon Sep 17 00:00:00 2001
+From d8b8645fb29bb5056d020d99264728bf7e30e248 Mon Sep 17 00:00:00 2001
 From: William Horvath <william@horvath.blog>
 Date: Wed, 26 Feb 2025 12:14:30 -0800
 Subject: [PATCH 34/37] ntdll: Check for esync/fsync before doing server waits.
@@ -5780,7 +5780,7 @@ index 80c603068b5..ebdb52e79ca 100644
              SERVER_START_REQ( get_apc_result )
              {
 diff --git a/dlls/ntdll/unix/thread.c b/dlls/ntdll/unix/thread.c
-index 0fb4346da2b..3f9471aedbc 100644
+index 95d3a49b1a0..374bbb8f8af 100644
 --- a/dlls/ntdll/unix/thread.c
 +++ b/dlls/ntdll/unix/thread.c
 @@ -76,6 +76,8 @@
@@ -5792,7 +5792,7 @@ index 0fb4346da2b..3f9471aedbc 100644
  
  WINE_DEFAULT_DEBUG_CHANNEL(thread);
  WINE_DECLARE_DEBUG_CHANNEL(seh);
-@@ -1679,7 +1681,10 @@ NTSTATUS WINAPI NtSuspendThread( HANDLE handle, ULONG *ret_count )
+@@ -1671,7 +1673,10 @@ NTSTATUS WINAPI NtSuspendThread( HANDLE handle, ULONG *ret_count )
  
      if (ret == STATUS_PENDING && wait_handle)
      {
@@ -5804,7 +5804,7 @@ index 0fb4346da2b..3f9471aedbc 100644
  
          SERVER_START_REQ( suspend_thread )
          {
-@@ -1854,7 +1859,10 @@ NTSTATUS get_thread_context( HANDLE handle, void *context, BOOL *self, USHORT ma
+@@ -1846,7 +1851,10 @@ NTSTATUS get_thread_context( HANDLE handle, void *context, BOOL *self, USHORT ma
  
      if (ret == STATUS_PENDING)
      {
@@ -5817,10 +5817,10 @@ index 0fb4346da2b..3f9471aedbc 100644
          SERVER_START_REQ( get_thread_context )
          {
 -- 
-2.50.0
+2.49.0
 
 
-From 2fb57402fa93da2a5ae48491c714ce30dd8306eb Mon Sep 17 00:00:00 2001
+From 0f3c181044e9c45fa6133749249c32f62eef7fbf Mon Sep 17 00:00:00 2001
 From: William Horvath <william@horvath.blog>
 Date: Fri, 28 Feb 2025 22:55:27 -0800
 Subject: [PATCH 35/37] server, ntdll: Add a do_ntsync helper.
@@ -5853,16 +5853,16 @@ index 0e924e199bb..b2fef343e51 100644
      return do_esync_cached;
  #else
 diff --git a/dlls/ntdll/unix/fsync.c b/dlls/ntdll/unix/fsync.c
-index 509d55704e1..5cc4493d845 100644
+index 3736a0808ad..445b90947a2 100644
 --- a/dlls/ntdll/unix/fsync.c
 +++ b/dlls/ntdll/unix/fsync.c
 @@ -171,8 +171,7 @@ NTSTATUS do_fsync(void)
      if (do_fsync_cached == -1)
      {
          syscall( __NR_futex_waitv, NULL, 0, 0, NULL, 0 );
--        do_fsync_cached = !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) && errno != ENOSYS && errno != EPERM &&
+-        do_fsync_cached = errno != ENOSYS && !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) &&
 -                          getenv( "WINE_DISABLE_FAST_SYNC" ) && atoi( getenv( "WINE_DISABLE_FAST_SYNC" ) );
-+        do_fsync_cached = !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) && errno != ENOSYS && errno != EPERM && !do_ntsync();
++        do_fsync_cached = errno != ENOSYS && !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) && !do_ntsync();
      }
  
      return do_fsync_cached;
@@ -5924,16 +5924,16 @@ index fa73a4651ee..abf454ec100 100644
      return do_esync_cached;
  #else
 diff --git a/server/fsync.c b/server/fsync.c
-index 305bb9ae286..80695b10964 100644
+index d8c5dced58b..04b74dcca23 100644
 --- a/server/fsync.c
 +++ b/server/fsync.c
 @@ -59,8 +59,7 @@ int do_fsync(void)
      if (do_fsync_cached == -1)
      {
          syscall( __NR_futex_waitv, 0, 0, 0, 0, 0);
--        do_fsync_cached = !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) && errno != ENOSYS && errno != EPERM &&
+-        do_fsync_cached = errno != ENOSYS && !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) &&
 -                          getenv( "WINE_DISABLE_FAST_SYNC" ) && atoi( getenv( "WINE_DISABLE_FAST_SYNC" ) );
-+        do_fsync_cached = !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) && errno != ENOSYS && errno != EPERM && !do_ntsync();
++        do_fsync_cached = errno != ENOSYS && !(getenv("WINEFSYNC") && !atoi(getenv("WINEFSYNC"))) && !do_ntsync();
      }
  
      return do_fsync_cached;
@@ -6076,10 +6076,10 @@ index 2567f3a07e2..999e4acce70 100644
  extern struct inproc_sync *no_get_inproc_sync( struct object *obj );
  
 -- 
-2.50.0
+2.49.0
 
 
-From 9e48ff0a065eb4e1743fcbff30762a4b7bcbebae Mon Sep 17 00:00:00 2001
+From 44699cdac5144f6eaec9d71b36a15c65a7bbb862 Mon Sep 17 00:00:00 2001
 From: William Horvath <william@horvath.blog>
 Date: Fri, 4 Apr 2025 20:37:03 +0300
 Subject: [PATCH 36/37] ntdll: Make the staging_warn_event a permanent object.
@@ -6121,10 +6121,10 @@ index 84df6640bb3..a62f19c1c58 100644
  
      if (!attach_done)  /* first time around */
 -- 
-2.50.0
+2.49.0
 
 
-From 18ecf1eda366666fa125916ecac403ee02ffee18 Mon Sep 17 00:00:00 2001
+From 899de154f052365cfff667989ea8d4b65c466fc2 Mon Sep 17 00:00:00 2001
 From: William Horvath <william@horvath.blog>
 Date: Fri, 4 Apr 2025 20:54:26 +0300
 Subject: [PATCH 37/37] wine: Consolidate and clean up startup messaging.
@@ -6244,7 +6244,7 @@ index 4ac3ce4dc36..82b7bf8211d 100644
  @ cdecl wine_get_version()
  @ cdecl wine_get_build_id()
 diff --git a/dlls/ntdll/unix/loader.c b/dlls/ntdll/unix/loader.c
-index f339dc64f9b..bd572fc1d69 100644
+index 80b17e17b16..595f72f7651 100644
 --- a/dlls/ntdll/unix/loader.c
 +++ b/dlls/ntdll/unix/loader.c
 @@ -1262,6 +1262,7 @@ static const unixlib_entry_t unix_call_funcs[] =
@@ -6353,7 +6353,7 @@ index abf454ec100..a940ebc7a3a 100644
  }
  
 diff --git a/server/fsync.c b/server/fsync.c
-index 80695b10964..066763d0c02 100644
+index 04b74dcca23..df7989b94f6 100644
 --- a/server/fsync.c
 +++ b/server/fsync.c
 @@ -117,8 +117,6 @@ void fsync_init(void)
@@ -6400,5 +6400,5 @@ index 433e41ee7e1..e2129002fd2 100644
      set_current_time();
      init_signals();
 -- 
-2.50.0
+2.49.0
 
