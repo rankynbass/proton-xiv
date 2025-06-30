@@ -1,7 +1,7 @@
-From e40d71244075c35bfd9e2cfd180c2b09c9e7cbe2 Mon Sep 17 00:00:00 2001
+From 428a0aa1ebab461754cba52630d3769a9569e69c Mon Sep 17 00:00:00 2001
 From: Alexandros Frantzis <alexandros.frantzis@collabora.com>
 Date: Fri, 7 Feb 2025 13:23:46 +0200
-Subject: [PATCH 19/78] winewayland: Implement wl_data_device initialization.
+Subject: [PATCH 019/163] winewayland: Implement wl_data_device initialization.
 
 The data device is initialized once for each process, from within a
 dedicated thread and window that handles clipboard events.

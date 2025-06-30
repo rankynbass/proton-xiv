@@ -34,10 +34,6 @@
     git reset --hard HEAD
     git clean -xdf
     popd
-    pushd python-xlib
-    git reset --hard HEAD
-    git clean -xdf
-    popd
     pushd umu-database
     git reset --hard HEAD
     git clean -xdf
@@ -112,7 +108,9 @@
     -W winex11.drv-Query_server_position \
     -W wininet-Cleanup \
     -W cryptext-CryptExtOpenCER \
-    -W wineboot-ProxySettings
+    -W wineboot-ProxySettings \
+    -W version-VerQueryValue \
+    -W setupapi-DiskSpaceList
 
     # NOTE: Some patches are applied manually because they -do- apply, just not cleanly, ie with patch fuzz.
     # A detailed list of why the above patches are disabled is listed below:
@@ -144,6 +142,7 @@
     # d3dx9_36-D3DXStubs - already applied
     # wined3d-zero-inf-shaders - already applied
     # ntdll-RtlQueryPackageIdentity - already applied
+    # version-VerQueryValue - just a test and doesn't apply cleanly. not relevant for gaming
 
     # applied manually:
     # ** loader-KeyboardLayouts - note -- always use and/or rebase this --  needed to prevent Overwatch huge FPS drop
@@ -166,6 +165,7 @@
     # mfplat-streaming-support -- interferes with proton's mfplat -- currently also disabled in upstream staging
     # wined3d-SWVP-shaders -- interferes with proton's wined3d -- currently also disabled in upstream staging
     # wined3d-Indexed_Vertex_Blending -- interferes with proton's wined3d -- currently also disabled in upstream staging
+    # setupapi-DiskSpaceList -- upstream commits were brought in for dualsense fixes, the staging patches are no longer needed
 
 
     echo "WINE: -STAGING- loader-KeyboardLayouts manually applied"
@@ -287,11 +287,8 @@
     echo "WINE: -CUSTOM- Add WINE_NO_WM_DECORATION option to disable window decorations so that borders behave properly"
     patch -Np1 < ../patches/proton/0001-win32u-add-env-switch-to-disable-wm-decorations.patch
 
-    # https://gitlab.winehq.org/wine/wine/-/merge_requests/7238
-    echo "WINE: -CUSTOM- Add enhanced dualsense patches"
-    patch -Np1 < ../patches/proton/dualsense/0001-mmdevapi-correctly-read-and-write-containerid-as-cls.patch
-    patch -Np1 < ../patches/proton/dualsense/0002-containerid-helper-to-generate-a-containerid-from-a-.patch
-    patch -Np1 < ../patches/proton/dualsense/0003-Implement-SetupDiGetDeviceInterfacePropertyW-for-DEV.patch
+    echo "WINE: -CUSTOM- Fix a crash in ID2D1DeviceContext if no target is set"
+    patch -Np1 < ../patches/proton/fix-a-crash-in-ID2D1DeviceContext-if-no-target-is-set.patch
 
     echo "WINE: -CUSTOM- wine wayland"
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0001-use-surfaceless-for-GST.patch
@@ -349,29 +346,117 @@
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0053-winewayland-Use-unaccelerated-relative-motion.patch
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0054-winewayland-Use-discrete-event-when-possible.patch
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0055-winewayland-Handle-rotated-screens.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0056-winebus-Fix-PROTON_ENABLE-DISABLE_HIDRAW.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0057-fixup-winewayland-Handle-rotated-screens.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0058-winewayland-make-wp_fractional_scale_handle_scale-st.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0059-winewayland-Place-fullscreen-windows-on-associated-o.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0060-HACK-ntdll-Ignore-SDL_VIDEODRIVER-env.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0061-fixup-winewayland-Place-fullscreen-windows-on-associ.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0062-HACK-winewayland-Support-output-switching.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0063-WIP-winewayland-emulate-some-edid-data.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0064-winedmo-Fix-double-free.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0065-winebus-remove-duplicated-code.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0066-winewayland-Set-edid-chromaticity-values.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0067-fixup-winewayland-Support-output-switching.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0068-HACK-winewayland-Add-option-to-offset-monitor-positi.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0069-winewayland-Add-error-message-when-wp_color_manager_.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0070-amdxc-Only-load-amdxcffx-when-FSR4-upgrade-is-enable.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0071-winebus-Ignore-steam-input-virtual-controller-when-P.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0072-winewayland-Refactor-output-selection.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0073-winebus-PROTON_PREFER_SDL-PROTON_USE_SDL.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0074-HACK-winewayland-Send-relative-event-with-absolute-e.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0075-winewayland-Update-min-max-window-based-on-window-re.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0076-winewayland-add-opcode-3-of-zwlr_data_control_device.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0077-winewayland-systray-skeleton.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0078-fixup-HACK-winewayland-Send-relative-event-with-abso.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0056-fixup-winewayland-Handle-rotated-screens.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0057-winewayland-make-wp_fractional_scale_handle_scale-st.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0058-winewayland-Place-fullscreen-windows-on-associated-o.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0059-HACK-ntdll-Ignore-SDL_VIDEODRIVER-env.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0060-fixup-winewayland-Place-fullscreen-windows-on-associ.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0061-HACK-winewayland-Support-output-switching.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0062-WIP-winewayland-emulate-some-edid-data.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0063-winedmo-Fix-double-free.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0064-winewayland-Set-edid-chromaticity-values.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0065-fixup-winewayland-Support-output-switching.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0066-HACK-winewayland-Add-option-to-offset-monitor-positi.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0067-winewayland-Add-error-message-when-wp_color_manager_.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0068-amdxc-Only-load-amdxcffx-when-FSR4-upgrade-is-enable.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0069-winebus-Ignore-steam-input-virtual-controller-when-P.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0070-winewayland-Refactor-output-selection.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0071-winebus-PROTON_PREFER_SDL-PROTON_USE_SDL.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0072-HACK-winewayland-Send-relative-event-with-absolute-e.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0073-winewayland-Update-min-max-window-based-on-window-re.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0074-winewayland-add-opcode-3-of-zwlr_data_control_device.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0075-winewayland-systray-skeleton.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0076-fixup-HACK-winewayland-Send-relative-event-with-abso.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0077-winewayland-ensure-flush-when-setting-fullscreen-sta.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0078-winewayland-Don-t-scale-raw-input-values.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0079-HACK-winewayland-add-support-for-picking-primary-mon.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0080-fixup-winewayland-emulate-edid-data.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0081-winewayland-round-relative-pointer-timestamp.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0082-winebus-Allow-disabling-steam-input-seperately.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0083-winegstreamer-disable-media-converter.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0084-winegstreamer-Add-env-to-enable-media-converter.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0085-winewayland-Send-no-raw-with-normal-pointer-events.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0086-winewayland-Allow-disabling-rawinput-through-env.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0087-fixup-winebus-Allow-disabling-steam-input-seperately.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0088-fixup-HACK-winewayland-add-support-for-picking-prima.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0089-fixup-winewayland-add-missing-locking-to-pointer-upd.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0090-winewayland-Rewrite-wayland-pointer-implementation.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0091-winewayland-Always-use-rawinput.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0092-winewayland-immediately-send-input-when-entering.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0093-winewayland-Implement-xdg-system-bell-v1.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0094-winewayland-Add-support-for-xdg-activation-v1.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0095-fixup-winewayland-Rewrite-wayland-pointer-implementa.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0096-winewayland-Implement-HasWindowManager-fully.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0097-HACK-winewayland-confine-to-parent-surface-on-kwin.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0098-amdxc-minor-code-cleanups.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0099-winewayland-small-cleanups.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0100-winewayland-Set-process-name-for-xdg-toplevel-icon.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0101-Import-WIP-atiadlxx-and-atidxx-implementations.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0102-wine.inf-Add-override-for-diabotical.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0103-winewayland-Implement-support-for-HDR-static-metadat.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0104-atiadlxx-Remove-outdated-comment.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0105-kernel32-Implement-timeGetTime.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0106-kernelbase-Implement-HeapSummary.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0107-ntdll-Add-a-stub-for-NtCreateSectionEx.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0108-kernelbase-Implement-CreateFileMapping2.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0109-winewayland-Don-t-drop-pointer-frames-in-relative-on.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0110-winewayland-Prefer-using-target-primaries.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0111-winewayland-implement-support-for-color-management-d.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0112-winebus-remove-duplicate-code.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0113-opengl32-Improve-wow64-mapping-performance-by-20x.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0114-HACK-opengl32-Reuse-allocated-memory.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0115-fixup-opengl32-Support-map-buffer-offsets.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0116-winewayland-Use-an-empty-string-to-clear-the-composi.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0117-win32u-Preserve-result-string-from-multiple-WINE_IME.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0118-win32u-Support-WM_IME_KEYDOWN-message-during-ImeProc.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0119-win32u-Add-more-CompAttr-CompClause-implementation-u.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0120-winewayland-Extend-cursor_pos-using-cursor_begin-cur.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0121-winemac-Extend-cursor_pos-using-cursor_begin-cursor_.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0122-winex11-Extend-cursor_pos-using-cursor_begin-cursor_.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0123-winex11-Update-only-when-caret-pos-changed-in-xic_pr.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0124-winewayland-Improve-cleanup-of-text-input-pending-st.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0125-winewayland-Ignore-text-input-done-events-that-don-t.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0126-imm32-Fix-the-WM_IME_COMPOSITION-messages-to-be-betw.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0127-opengl32-Use-VirtualAlloc-instead-of-NtAllocateVirtu.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0128-setupapi-Use-wide-character-string-literals.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0129-ntoskrnl.exe-tests-Improve-device-properties-test-av.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0130-ntoskrnl.exe-tests-Test-some-Io-functions-with-FDO-a.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0131-ntoskrnl.exe-tests-Test-that-calling-some-Io-functio.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0132-ntoskrnl.exe-Fix-getting-DevicePropertyEnumeratorNam.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0133-Revert-setupapi-Don-t-use-NULL-as-key-value-in-get_d.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0134-setupapi-tests-Add-tests-for-SetupDi-Set-Get-DeviceI.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0135-setupapi-Implement-SetupDiSetDeviceInterfaceProperty.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0136-setupapi-Implement-SetupDiGetDeviceInterfaceProperty.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0137-ntoskrnl.exe-test-Add-tests-for-SetupDiGetDeviceInte.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0138-setupapi-Don-t-use-NULL-as-key-value-in-get_device_r.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0139-setupapi-Implement-DEVPKEY_Device_InstanceId-in-Setu.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0140-ntdll-tests-Add-tests-for-ret_len-on-NtQueryInformat.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0141-ntdll-Return-STATUS_ACCESS_VIOLATION-from-NtQueryInf.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0142-kernelbase-Allocate-a-new-buffer-for-the-module-name.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0143-ntdll-Also-trap-syscalls-in-the-top-down-reserved-ar.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0144-winebus-Fix-PROTON_ENABLE-DISABLE_HIDRAW.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0145-mmdevapi-correctly-read-and-write-containerid-as-cls.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0146-containerid-helper-to-generate-a-containerid-from-a-.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0147-ntoskrnl.exe-Implement-KeAcquireGuardedMutex.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0148-ntoskrnl.exe-Implement-KeReleaseGuardedMutex.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0149-tdh-Add-stub-for-TdhEnumerateProviders.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0154-winewayland-Use-SEND_HWMSG_NO_RAW-for-keyboard.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0155-winewayland-Add-more-logging-for-keyboard.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0156-fixup-Revert-winewayland-Use-SEND_HWMSG_NO_RAW-for-k.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0159-amdxc-Add-support-for-anti-lag-2.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0160-amdxc-code-cleanups.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0161-winewayland-Add-error-message-for-cross-process-rend.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0162-HACK-win32u-Place-windows-on-the-vscreen.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0163-HACK-winewayland-Always-create-a-new-client-surface-.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/ac97b117bd8fb3bd6b08d48d8808471189c1e9d5.patch
+
+    echo "WINE: -CUSTOM- General fixes to help meet certain Anti-cheat engines' requirements"
+    # https://gitlab.winehq.org/wine/wine-staging/-/commit/d88d44f1d9d94cb11aff9e2f0ce37d0d67fe1e95
+    patch -Np1 < ../patches/wine-hotfixes/staging/trap-syscalls-in-reserved-area/0001-ntdll-Also-trap-syscalls-in-the-top-down-reserved-ar.patch
+    # https://gitlab.winehq.org/wine/wine/-/merge_requests/7579
+    patch -Np1 < ../patches/wine-hotfixes/pending/ntdll-return-access-violation-if-address-not-writable.patch
+    # https://gitlab.winehq.org/wine/wine/-/merge_requests/8324
+    patch -Np1 < ../patches/wine-hotfixes/pending/kernelbase-allocate-new-buffer-for-module-name.patch
     popd
 
 ### END PROTON-GE ADDITIONAL CUSTOM PATCHES ###

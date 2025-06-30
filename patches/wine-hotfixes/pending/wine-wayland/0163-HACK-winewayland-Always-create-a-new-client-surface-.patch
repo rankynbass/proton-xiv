@@ -1,0 +1,66 @@
+From 500e343ddda3e4866785de92b867be5aa49681bc Mon Sep 17 00:00:00 2001
+From: Etaash Mathamsetty <etaash.mathamsetty@gmail.com>
+Date: Sat, 28 Jun 2025 22:22:05 -0400
+Subject: [PATCH 163/163] HACK: winewayland: Always create a new client surface
+ for vulkan.
+
+---
+ dlls/winewayland.drv/vulkan.c | 27 +++++++++++++++++++++++++--
+ 1 file changed, 25 insertions(+), 2 deletions(-)
+
+diff --git a/dlls/winewayland.drv/vulkan.c b/dlls/winewayland.drv/vulkan.c
+index 034eaf363ff..833f3274400 100644
+--- a/dlls/winewayland.drv/vulkan.c
++++ b/dlls/winewayland.drv/vulkan.c
+@@ -61,7 +61,10 @@ static void wine_vk_surface_destroy(struct wayland_client_surface *client)
+     struct wayland_win_data *data = wayland_win_data_get(hwnd);
+ 
+     if (wayland_client_surface_release(client) && data)
+-        data->client_surface = NULL;
++    {
++        if (data->client_surface == client)
++            data->client_surface = NULL;
++    }
+ 
+     if (data) wayland_win_data_release(data);
+ }
+@@ -72,15 +75,35 @@ static VkResult wayland_vulkan_surface_create(HWND hwnd, VkInstance instance, Vk
+     DWORD pid, tid;
+     VkWaylandSurfaceCreateInfoKHR create_info_host;
+     struct wayland_client_surface *client;
++    struct wayland_win_data *data;
++    HWND toplevel = NtUserGetAncestor(hwnd, GA_ROOT);
+ 
+     TRACE("%p %p %p %p\n", hwnd, instance, surface, private);
+ 
+-    if (!(client = get_client_surface(hwnd)))
++    if (!(client = wayland_client_surface_create(hwnd)))
+     {
+         ERR("Failed to create client surface for hwnd=%p\n", hwnd);
+         return VK_ERROR_OUT_OF_HOST_MEMORY;
+     }
+ 
++    if ((data = wayland_win_data_get(hwnd)))
++    {
++        if (toplevel && NtUserIsWindowVisible(hwnd))
++        {
++            wayland_client_surface_attach(client, toplevel);
++        } else {
++            wayland_client_surface_detach(client);
++        }
++
++        /* FIXME: This probably leaks memory :(
++         * Luckily, surface recreation does not happen often enough
++         * that we need to worry about this.
++         */
++        data->client_surface = client;
++
++        wayland_win_data_release(data);
++    }
++
+     tid = NtUserGetWindowThread(hwnd, &pid);
+     if (tid && pid != GetCurrentProcessId())
+     {
+-- 
+2.49.0
+
