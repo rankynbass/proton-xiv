@@ -1,7 +1,7 @@
 From 4483f24525c5ca02fdb50c7671f837679edbaf9f Mon Sep 17 00:00:00 2001
 From: Harald Sitter <sitter@kde.org>
 Date: Sun, 22 Jun 2025 14:44:12 -0400
-Subject: [PATCH 146/163] containerid: helper to generate a containerid from a 
+Subject: [PATCH 146/158] containerid: helper to generate a containerid from a 
  sysfs path
 
 ---

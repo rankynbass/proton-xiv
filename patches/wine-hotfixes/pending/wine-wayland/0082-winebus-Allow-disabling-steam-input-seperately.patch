@@ -2,7 +2,7 @@ From 8482bd2b24a5dad2d3503c8dee2b6dc78be3ea4c Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Tue, 3 Jun 2025 18:53:52 -0400
-Subject: [PATCH 082/163] winebus: Allow disabling steam input seperately
+Subject: [PATCH 082/158] winebus: Allow disabling steam input seperately
 
 ---
  dlls/winebus.sys/bus_udev.c | 2 +-

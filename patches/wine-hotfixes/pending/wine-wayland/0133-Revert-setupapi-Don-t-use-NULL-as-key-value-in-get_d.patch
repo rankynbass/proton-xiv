@@ -2,7 +2,7 @@ From a6372a64da38cd87181a272ba221f908c7bcd441 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Sun, 22 Jun 2025 12:17:00 -0400
-Subject: [PATCH 133/163] Revert "setupapi: Don't use NULL as key value in
+Subject: [PATCH 133/158] Revert "setupapi: Don't use NULL as key value in
  get_device_property()."
 
 This reverts commit 3a090968a7e7e7d2290797e9fd672a9c41a24981.

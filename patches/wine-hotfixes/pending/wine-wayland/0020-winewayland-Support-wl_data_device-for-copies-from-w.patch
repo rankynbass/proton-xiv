@@ -1,7 +1,7 @@
 From 342cc05a2104366bef78445246856475cdfb6efb Mon Sep 17 00:00:00 2001
 From: Alexandros Frantzis <alexandros.frantzis@collabora.com>
 Date: Fri, 14 Mar 2025 10:13:26 +0200
-Subject: [PATCH 020/163] winewayland: Support wl_data_device for copies from
+Subject: [PATCH 020/158] winewayland: Support wl_data_device for copies from
  win32 clipboard to native apps.
 
 If the wlr-data-control-unstable-v1 extension is not available use
