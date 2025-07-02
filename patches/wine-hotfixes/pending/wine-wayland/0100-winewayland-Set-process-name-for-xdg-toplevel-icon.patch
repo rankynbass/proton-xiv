@@ -2,7 +2,7 @@ From 93dd7fb2c11a925b8fd8e00c54390b3ac4e6ad3d Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Fri, 13 Jun 2025 08:46:44 -0400
-Subject: [PATCH 100/163] winewayland: Set process name for xdg-toplevel-icon.
+Subject: [PATCH 100/158] winewayland: Set process name for xdg-toplevel-icon.
 
 ---
  dlls/winewayland.drv/wayland_surface.c | 2 +-
