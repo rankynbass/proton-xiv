@@ -45,6 +45,7 @@
     pushd winetricks
     git reset --hard HEAD
     git clean -xdf
+    patch -Np1 < ../../../patches/winetricks/winetrick_gnutls_fix.patch
     popd
     popd
     popd
@@ -430,25 +431,26 @@
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0137-ntoskrnl.exe-test-Add-tests-for-SetupDiGetDeviceInte.patch
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0138-setupapi-Don-t-use-NULL-as-key-value-in-get_device_r.patch
     patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0139-setupapi-Implement-DEVPKEY_Device_InstanceId-in-Setu.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0140-ntdll-tests-Add-tests-for-ret_len-on-NtQueryInformat.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0141-ntdll-Return-STATUS_ACCESS_VIOLATION-from-NtQueryInf.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0142-kernelbase-Allocate-a-new-buffer-for-the-module-name.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0143-ntdll-Also-trap-syscalls-in-the-top-down-reserved-ar.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0144-winebus-Fix-PROTON_ENABLE-DISABLE_HIDRAW.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0145-mmdevapi-correctly-read-and-write-containerid-as-cls.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0146-containerid-helper-to-generate-a-containerid-from-a-.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0147-ntoskrnl.exe-Implement-KeAcquireGuardedMutex.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0148-ntoskrnl.exe-Implement-KeReleaseGuardedMutex.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0149-tdh-Add-stub-for-TdhEnumerateProviders.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0150-winewayland-Use-SEND_HWMSG_NO_RAW-for-keyboard.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0151-winewayland-Add-more-logging-for-keyboard.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0152-fixup-Revert-winewayland-Use-SEND_HWMSG_NO_RAW-for-k.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0153-amdxc-Add-support-for-anti-lag-2.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0154-amdxc-code-cleanups.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0155-winewayland-Add-error-message-for-cross-process-rend.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0156-HACK-win32u-Place-windows-on-the-vscreen.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0157-fixup-win32u-Don-t-move-windows-when-it-s-impossible.patch
-    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0158-winewayland-Switch-client-surfaces-when-presenting.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0140-ntdll-Also-trap-syscalls-in-the-top-down-reserved-ar.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0141-winebus-Fix-PROTON_ENABLE-DISABLE_HIDRAW.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0142-mmdevapi-correctly-read-and-write-containerid-as-cls.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0143-containerid-helper-to-generate-a-containerid-from-a-.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0144-ntoskrnl.exe-Implement-KeAcquireGuardedMutex.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0145-ntoskrnl.exe-Implement-KeReleaseGuardedMutex.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0146-tdh-Add-stub-for-TdhEnumerateProviders.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0147-winewayland-Use-SEND_HWMSG_NO_RAW-for-keyboard.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0148-winewayland-Add-more-logging-for-keyboard.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0149-fixup-Revert-winewayland-Use-SEND_HWMSG_NO_RAW-for-k.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0150-amdxc-Add-support-for-anti-lag-2.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0151-amdxc-code-cleanups.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0152-winewayland-Add-error-message-for-cross-process-rend.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0153-HACK-win32u-Place-windows-on-the-vscreen.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0154-fixup-win32u-Don-t-move-windows-when-it-s-impossible.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0155-winewayland-Switch-client-surfaces-when-presenting.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0156-winewayland-Only-detach-attach-client-surface-if-it-.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0157-pdh-Add-stub-for-PdhEnumObjects-A-W.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0158-pdh-Add-stub-for-PdhGetRawCounterArrayW-A-W.patch
+    patch -Np1 < ../patches/wine-hotfixes/pending/wine-wayland/0159-atidxx-Return-error-with-anti-lag-2-usage.patch
 
 
     echo "WINE: -CUSTOM- General fixes to help meet certain Anti-cheat engines' requirements"
