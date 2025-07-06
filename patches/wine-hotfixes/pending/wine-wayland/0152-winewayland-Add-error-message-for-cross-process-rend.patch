@@ -1,8 +1,8 @@
-From c293047843d07c0af792c237cfd650a3bc8c8f90 Mon Sep 17 00:00:00 2001
+From 8802a8da546a825fd335c8c1deb8e3e5a16d0f84 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Fri, 27 Jun 2025 16:22:01 -0400
-Subject: [PATCH 155/158] winewayland: Add error message for cross process
+Subject: [PATCH 152/159] winewayland: Add error message for cross process
  rendering.
 
 ---
@@ -36,18 +36,18 @@ index 9d0aba68370..c6a84a4f1bd 100644
                                               client_width, client_height);
      if (!gl->wl_egl_window)
 diff --git a/dlls/winewayland.drv/vulkan.c b/dlls/winewayland.drv/vulkan.c
-index 0e1c33707d1..034eaf363ff 100644
+index 03d1ad09db5..97b611dc980 100644
 --- a/dlls/winewayland.drv/vulkan.c
 +++ b/dlls/winewayland.drv/vulkan.c
 @@ -69,6 +69,7 @@ static void wine_vk_surface_destroy(struct wayland_client_surface *client)
- static VkResult wayland_vulkan_surface_create(HWND hwnd, VkInstance instance, VkSurfaceKHR *surface, void **private)
+ static VkResult wayland_vulkan_surface_create(HWND hwnd, const struct vulkan_instance *instance, VkSurfaceKHR *surface, void **private)
  {
      VkResult res;
 +    DWORD pid, tid;
      VkWaylandSurfaceCreateInfoKHR create_info_host;
      struct wayland_client_surface *client;
  
-@@ -80,6 +81,12 @@ static VkResult wayland_vulkan_surface_create(HWND hwnd, VkInstance instance, Vk
+@@ -80,6 +81,12 @@ static VkResult wayland_vulkan_surface_create(HWND hwnd, const struct vulkan_ins
          return VK_ERROR_OUT_OF_HOST_MEMORY;
      }
  

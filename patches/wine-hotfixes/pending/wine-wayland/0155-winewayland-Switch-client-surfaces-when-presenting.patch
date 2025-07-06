@@ -1,7 +1,7 @@
-From a5843efcba3cafddc1aeb588c0880adbca08c8d3 Mon Sep 17 00:00:00 2001
+From aab79b2738d7410332760a1b7827cd283f0aac93 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?R=C3=A9mi=20Bernon?= <rbernon@codeweavers.com>
 Date: Fri, 30 May 2025 10:24:20 +0200
-Subject: [PATCH 158/158] winewayland: Switch client surfaces when presenting.
+Subject: [PATCH 155/159] winewayland: Switch client surfaces when presenting.
 
 ---
  dlls/winewayland.drv/opengl.c     |  5 +++-
@@ -34,10 +34,10 @@ index c6a84a4f1bd..cd5c20fa3fe 100644
       * use some as single-buffered, so avoid swapping those. */
      if (gl->double_buffered) p_eglSwapBuffers(egl_display, gl->surface);
 diff --git a/dlls/winewayland.drv/vulkan.c b/dlls/winewayland.drv/vulkan.c
-index 034eaf363ff..404db9455a9 100644
+index 97b611dc980..ade62d0df22 100644
 --- a/dlls/winewayland.drv/vulkan.c
 +++ b/dlls/winewayland.drv/vulkan.c
-@@ -75,7 +75,7 @@ static VkResult wayland_vulkan_surface_create(HWND hwnd, VkInstance instance, Vk
+@@ -75,7 +75,7 @@ static VkResult wayland_vulkan_surface_create(HWND hwnd, const struct vulkan_ins
  
      TRACE("%p %p %p %p\n", hwnd, instance, surface, private);
  
@@ -46,7 +46,7 @@ index 034eaf363ff..404db9455a9 100644
      {
          ERR("Failed to create client surface for hwnd=%p\n", hwnd);
          return VK_ERROR_OUT_OF_HOST_MEMORY;
-@@ -103,6 +103,7 @@ static VkResult wayland_vulkan_surface_create(HWND hwnd, VkInstance instance, Vk
+@@ -103,6 +103,7 @@ static VkResult wayland_vulkan_surface_create(HWND hwnd, const struct vulkan_ins
          return res;
      }
  

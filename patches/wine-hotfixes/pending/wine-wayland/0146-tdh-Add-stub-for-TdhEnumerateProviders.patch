@@ -1,8 +1,8 @@
-From cc2064c386a1ccab2252b43623d08276c738837b Mon Sep 17 00:00:00 2001
+From e63dda18a62b40f102fe9b521df1b3355d60a569 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Mon, 23 Jun 2025 00:19:00 -0400
-Subject: [PATCH 149/158] tdh: Add stub for TdhEnumerateProviders.
+Subject: [PATCH 146/159] tdh: Add stub for TdhEnumerateProviders.
 
 ---
  dlls/tdh/tdh.spec   |  2 +-

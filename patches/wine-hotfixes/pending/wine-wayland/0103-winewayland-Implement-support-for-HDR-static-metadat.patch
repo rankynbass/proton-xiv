@@ -1,7 +1,7 @@
-From fac77989952a5772567d624d9ba5bec47f8c2325 Mon Sep 17 00:00:00 2001
+From 83cf93ef74a1aa4ec91140634ddada099cf78540 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty <etaash.mathamsetty@gmail.com>
 Date: Sat, 14 Jun 2025 13:19:02 -0400
-Subject: [PATCH 103/158] winewayland: Implement support for HDR static
+Subject: [PATCH 103/159] winewayland: Implement support for HDR static
  metadata extension
 
 ---
@@ -12,10 +12,10 @@ Subject: [PATCH 103/158] winewayland: Implement support for HDR static
  4 files changed, 85 insertions(+), 24 deletions(-)
 
 diff --git a/dlls/win32u/sysparams.c b/dlls/win32u/sysparams.c
-index 41eaa04791b..d333df427e7 100644
+index 6b8131c9903..f068438f4e8 100644
 --- a/dlls/win32u/sysparams.c
 +++ b/dlls/win32u/sysparams.c
-@@ -7543,8 +7543,10 @@ NTSTATUS WINAPI NtUserDisplayConfigGetDeviceInfo( DISPLAYCONFIG_DEVICE_INFO_HEAD
+@@ -7558,8 +7558,10 @@ NTSTATUS WINAPI NtUserDisplayConfigGetDeviceInfo( DISPLAYCONFIG_DEVICE_INFO_HEAD
      {
          DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO *info = (DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO *)packet;
          const char *env;

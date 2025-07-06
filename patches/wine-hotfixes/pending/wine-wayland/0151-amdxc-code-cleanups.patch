@@ -1,8 +1,8 @@
-From d9a0f74e38b9ef52974d3e70df27a6fee9c4516e Mon Sep 17 00:00:00 2001
+From 44b8bbc42ec3c976312ca6f8df8324fc530b31e2 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Thu, 26 Jun 2025 23:16:18 -0400
-Subject: [PATCH 154/158] amdxc: code cleanups.
+Subject: [PATCH 151/159] amdxc: code cleanups.
 
 ---
  dlls/amdxc64/Makefile.in          |   1 -

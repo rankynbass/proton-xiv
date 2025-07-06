@@ -1,8 +1,8 @@
-From 1eed2ccf0ebda3b2672e42ce83a08a50189013fe Mon Sep 17 00:00:00 2001
+From 4dbbd8a4687dfd0fa9dad6f96e7f8003d53348a6 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Sun, 11 May 2025 23:10:42 -0400
-Subject: [PATCH 042/158] fixup! winewayland: handle locking with fractional
+Subject: [PATCH 042/159] fixup! winewayland: handle locking with fractional
  scale notification
 
 ruh roh I started using fixup lmao

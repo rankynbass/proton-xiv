@@ -1,7 +1,7 @@
-From a948c7c4717f051b6a85f7b71f18299ca2f9c0fe Mon Sep 17 00:00:00 2001
+From 762e5533cc7c26912aa6815b806b8cebccd78368 Mon Sep 17 00:00:00 2001
 From: Byeongsik Jeon <bsjeon@hanmail.net>
 Date: Tue, 8 Apr 2025 21:00:28 +0900
-Subject: [PATCH 118/158] win32u: Support WM_IME_KEYDOWN message during
+Subject: [PATCH 118/159] win32u: Support WM_IME_KEYDOWN message during
  ImeProcessKey.
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8

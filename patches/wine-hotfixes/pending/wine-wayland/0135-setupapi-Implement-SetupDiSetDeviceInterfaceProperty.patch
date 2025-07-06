@@ -1,7 +1,7 @@
-From 47773cccef5f69df7bb8cfe889ff6ab5b25bb3f5 Mon Sep 17 00:00:00 2001
+From c9c4880de6c0ec0d1c389786af1b8091e0149405 Mon Sep 17 00:00:00 2001
 From: Vibhav Pant <vibhavp@gmail.com>
 Date: Thu, 19 Jun 2025 20:53:20 +0530
-Subject: [PATCH 135/158] setupapi: Implement
+Subject: [PATCH 135/159] setupapi: Implement
  SetupDiSetDeviceInterfacePropertyW.
 
 ---
