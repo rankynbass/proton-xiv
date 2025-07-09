@@ -42,7 +42,7 @@ from pathlib import Path
 #To enable debug logging, copy "user_settings.sample.py" to "user_settings.py"
 #and edit it if needed.
 
-CURRENT_PREFIX_VERSION="GE-Proton10-8"
+CURRENT_PREFIX_VERSION="GE-Proton10-9"
 
 PFX="Proton: "
 ld_path_var = "LD_LIBRARY_PATH"
@@ -1701,6 +1701,7 @@ class Session:
         self.check_environment("PROTON_ENABLE_WAYLAND", "enablewayland")
         self.check_environment("PROTON_ENABLE_HDR", "enablehdr")
         self.check_environment("PROTON_PREFER_SDL", "sdlinput")
+        self.check_environment("PROTON_NO_STEAMINPUT", "sdlinput")
         self.check_environment("PROTON_DXVK_D3D8", "dxvkd3d8")
         self.check_environment("PROTON_NO_D3D11", "nod3d11")
         self.check_environment("PROTON_NO_D3D10", "nod3d10")
