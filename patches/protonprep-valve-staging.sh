@@ -247,6 +247,10 @@
     echo "WINE: -PENDING- unity crash hotfix"
     patch -Np1 < ../patches/wine-hotfixes/pending/unity_crash_hotfix.patch
 
+    # https://bugs.winehq.org/show_bug.cgi?id=58476
+    echo "WINE: -PENDING- RegGetValueW dwFlags hotfix (R.E.A.L VR mod)"
+    patch -Np1 < ../patches/wine-hotfixes/pending/registry_RRF_RT_REG_SZ-RRF_RT_REG_EXPAND_SZ.patch
+
     # https://github.com/ValveSoftware/wine/pull/205
     # https://github.com/ValveSoftware/Proton/issues/4625
     echo "WINE: -PENDING- Add WINE_DISABLE_SFN option. (Yakuza 5 cutscenes fix)"
