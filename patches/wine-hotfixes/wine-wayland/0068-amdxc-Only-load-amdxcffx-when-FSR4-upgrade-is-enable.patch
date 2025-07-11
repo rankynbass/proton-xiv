@@ -1,0 +1,58 @@
+From 451187c406605c67e54b2bc221128393cdf5d269 Mon Sep 17 00:00:00 2001
+From: Etaash Mathamsetty
+ <45927311+Etaash-mathamsetty@users.noreply.github.com>
+Date: Mon, 26 May 2025 23:39:19 -0400
+Subject: [PATCH 068/166] amdxc: Only load amdxcffx when FSR4 upgrade is
+ enabled.
+
+---
+ dlls/amdxc64/main.c | 27 ++++++++++++++++-----------
+ 1 file changed, 16 insertions(+), 11 deletions(-)
+
+diff --git a/dlls/amdxc64/main.c b/dlls/amdxc64/main.c
+index d4dd071b0e0..2cc11a811fc 100644
+--- a/dlls/amdxc64/main.c
++++ b/dlls/amdxc64/main.c
+@@ -84,23 +84,28 @@ HRESULT STDMETHODCALLTYPE AMDFSR4FFX_UpdateFfxApiProvider(IAmdExtFfxApi *iface,
+ {
+     const char *env;
+     updateffxapi_pfn pfn;
+-    HMODULE amdffx = LoadLibraryA("amdxcffx64");
++    HMODULE amdffx;
+ 
+     TRACE("%p %p %u\n", iface, data, size);
+ 
+-    if (!amdffx)
+-    {
+-        ERR("Failed to load FSR4 dll (amdxcffx)!\n");
+-        return E_NOINTERFACE;
+-    }
+-
+-    pfn = (updateffxapi_pfn)GetProcAddress(amdffx, "UpdateFfxApiProvider");
+     env = getenv("FSR4_UPGRADE");
+ 
+-    if(pfn && env && env[0] != '0')
++    if(env && env[0] != '0')
+     {
+-        FIXME("Replaced FSR3 with FSR4!\n");
+-        return pfn(data, size);
++        amdffx = LoadLibraryA("amdxcffx64");
++        if (!amdffx)
++        {
++            ERR("Failed to load FSR4 dll (amdxcffx)!\n");
++            return E_NOINTERFACE;
++        }
++
++        pfn = (updateffxapi_pfn)GetProcAddress(amdffx, "UpdateFfxApiProvider");
++
++        if(pfn)
++        {
++            FIXME("Replaced FSR3 with FSR4!\n");
++            return pfn(data, size);
++        }
+     }
+ 
+     return E_NOINTERFACE;
+-- 
+2.50.0
+

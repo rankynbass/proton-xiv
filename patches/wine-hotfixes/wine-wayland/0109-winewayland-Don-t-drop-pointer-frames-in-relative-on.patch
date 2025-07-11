@@ -1,0 +1,29 @@
+From bcac861cfd1f9359953d483dc057a72200b82d41 Mon Sep 17 00:00:00 2001
+From: Etaash Mathamsetty
+ <45927311+Etaash-mathamsetty@users.noreply.github.com>
+Date: Wed, 18 Jun 2025 16:46:53 -0400
+Subject: [PATCH 109/166] winewayland: Don't drop pointer frames in relative
+ only mode.
+
+---
+ dlls/winewayland.drv/wayland_pointer.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/dlls/winewayland.drv/wayland_pointer.c b/dlls/winewayland.drv/wayland_pointer.c
+index d5328f33ace..8cab18688f9 100644
+--- a/dlls/winewayland.drv/wayland_pointer.c
++++ b/dlls/winewayland.drv/wayland_pointer.c
+@@ -1172,7 +1172,9 @@ static void wayland_pointer_update_constraint(struct wl_surface *wl_surface,
+ 
+     pointer->relative_only = needs_relative;
+ 
+-    InterlockedExchange(&pointer->confinement_updated, TRUE);
++    /* we don't need to drop pointer frames when in relative only mode */
++    if (!pointer->relative_only)
++        InterlockedExchange(&pointer->confinement_updated, TRUE);
+ }
+ 
+ void wayland_pointer_clear_constraint(void)
+-- 
+2.50.0
+

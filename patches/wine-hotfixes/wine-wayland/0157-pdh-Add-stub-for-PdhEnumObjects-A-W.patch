@@ -1,0 +1,59 @@
+From 3f3512ee2c78b992442756446f1cef6b447a0761 Mon Sep 17 00:00:00 2001
+From: Louis Lenders <xerox.xerox2000x@gmail.com>
+Date: Sun, 25 May 2025 13:34:13 +0200
+Subject: [PATCH 157/166] pdh: Add stub for PdhEnumObjects{A,W}.
+
+Wine-Bug: https://bugs.winehq.org/show_bug.cgi?id=58255
+---
+ dlls/pdh/pdh.spec   |  4 ++--
+ dlls/pdh/pdh_main.c | 20 ++++++++++++++++++++
+ 2 files changed, 22 insertions(+), 2 deletions(-)
+
+diff --git a/dlls/pdh/pdh.spec b/dlls/pdh/pdh.spec
+index 854b8004399..6e0e07ace4b 100644
+--- a/dlls/pdh/pdh.spec
++++ b/dlls/pdh/pdh.spec
+@@ -32,10 +32,10 @@
+ @ stub PdhEnumObjectItemsHA
+ @ stub PdhEnumObjectItemsHW
+ @ stdcall PdhEnumObjectItemsW(wstr wstr wstr ptr ptr ptr ptr long long)
+-@ stub PdhEnumObjectsA
++@ stdcall PdhEnumObjectsA(str str ptr ptr long long)
+ @ stub PdhEnumObjectsHA
+ @ stub PdhEnumObjectsHW
+-@ stub PdhEnumObjectsW
++@ stdcall PdhEnumObjectsW(wstr wstr ptr ptr long long)
+ @ stdcall PdhExpandCounterPathA(str ptr ptr)
+ @ stdcall PdhExpandCounterPathW(wstr ptr ptr)
+ @ stdcall PdhExpandWildCardPathA(str str ptr ptr long)
+diff --git a/dlls/pdh/pdh_main.c b/dlls/pdh/pdh_main.c
+index f915f509177..19092107dc6 100644
+--- a/dlls/pdh/pdh_main.c
++++ b/dlls/pdh/pdh_main.c
+@@ -1309,3 +1309,23 @@ PDH_STATUS WINAPI PdhConnectMachineA(const char *name)
+     FIXME("%s: stub\n", debugstr_a(name));
+     return PDH_NOT_IMPLEMENTED;
+ }
++
++/***********************************************************************
++ *              PdhEnumObjectsA   (PDH.@)
++ */
++PDH_STATUS WINAPI PdhEnumObjectsA(const char *source, const char *machine, char *list,
++                                  DWORD *size, DWORD detail, BOOL refresh)
++{
++    FIXME("%s %s %p %p %lu %d: stub\n", debugstr_a(source),debugstr_a(machine), list, size, detail, refresh);
++    return PDH_NOT_IMPLEMENTED;
++}
++
++/***********************************************************************
++ *              PdhEnumObjectsW   (PDH.@)
++ */
++PDH_STATUS WINAPI PdhEnumObjectsW(const WCHAR *source, const WCHAR *machine, WCHAR *list,
++                                  DWORD *size, DWORD detail, BOOL refresh)
++{
++    FIXME("%s %s %p %p %lu %d: stub\n", debugstr_w(source),debugstr_w(machine), list, size, detail, refresh);
++    return PDH_NOT_IMPLEMENTED;
++}
+-- 
+2.50.0
+

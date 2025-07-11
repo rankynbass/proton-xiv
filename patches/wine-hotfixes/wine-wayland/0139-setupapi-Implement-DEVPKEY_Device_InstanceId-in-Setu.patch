@@ -1,0 +1,51 @@
+From 301de43b2e1851bbaff911aa867b38a9b3562637 Mon Sep 17 00:00:00 2001
+From: Etaash Mathamsetty
+ <45927311+Etaash-mathamsetty@users.noreply.github.com>
+Date: Sun, 22 Jun 2025 12:35:14 -0400
+Subject: [PATCH 139/166] setupapi: Implement DEVPKEY_Device_InstanceId in
+ SetupDiGetDeviceInterfacePropertyW.
+
+Based on patch by ClearlyClaire
+---
+ dlls/setupapi/devinst.c | 25 +++++++++++++++++++++++--
+ 1 file changed, 23 insertions(+), 2 deletions(-)
+
+diff --git a/dlls/setupapi/devinst.c b/dlls/setupapi/devinst.c
+index 9065ea5cfde..605c5d14591 100644
+--- a/dlls/setupapi/devinst.c
++++ b/dlls/setupapi/devinst.c
+@@ -3274,8 +3274,29 @@ BOOL WINAPI SetupDiGetDeviceInterfacePropertyW( HDEVINFO devinfo, SP_DEVICE_INTE
+             ret = ERROR_INSUFFICIENT_BUFFER;
+         if (req_size)
+             *req_size = sizeof( DEVPROP_BOOLEAN );
+-    }
+-    else
++    } else if (IsEqualDevPropKey( *key, DEVPKEY_Device_InstanceId )) {
++        struct device *device;
++
++        ret = ERROR_SUCCESS;
++
++        if ((device = iface->device))
++        {
++            DWORD len = wcslen(device->instanceId) + 1;
++            len *= sizeof(WCHAR); /* it is in units of bytes */
++
++            if (req_size) *req_size = len;
++
++            if (buf_size >= len)
++            {
++                wcscpy((WCHAR *)buf, device->instanceId);
++                *type = DEVPROP_TYPE_STRING;
++            }
++            else
++                ret = ERROR_INSUFFICIENT_BUFFER;
++        }
++        else
++            ret = ERROR_INVALID_PARAMETER;
++    } else
+         ret = get_device_reg_property( iface->refstr_key, key, type, buf, buf_size, req_size, flags );
+ 
+     SetLastError( ret );
+-- 
+2.50.0
+

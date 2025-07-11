@@ -1,0 +1,28 @@
+From 5d310f3c02af9599d01d528d101b9f288fc834cd Mon Sep 17 00:00:00 2001
+From: Etaash Mathamsetty
+ <45927311+Etaash-mathamsetty@users.noreply.github.com>
+Date: Sun, 25 May 2025 21:37:54 -0400
+Subject: [PATCH 065/166] fixup! winewayland: Support output switching.
+
+---
+ dlls/winewayland.drv/wayland_surface.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/dlls/winewayland.drv/wayland_surface.c b/dlls/winewayland.drv/wayland_surface.c
+index 3de12a1afe2..ea314dea032 100644
+--- a/dlls/winewayland.drv/wayland_surface.c
++++ b/dlls/winewayland.drv/wayland_surface.c
+@@ -712,6 +712,10 @@ static void wayland_surface_reconfigure_geometry(struct wayland_surface *surface
+                 xdg_toplevel_unset_fullscreen(surface->xdg_toplevel);
+                 wl_display_flush(process_wayland.wl_display);
+                 xdg_toplevel_set_fullscreen(surface->xdg_toplevel, output);
++                /* In case we don't get enter event from compositor
++                   happens on sway for instance
++                */
++                surface->wl_output = output;
+             }
+             pthread_mutex_unlock(&process_wayland.output_mutex);
+         }
+-- 
+2.50.0
+

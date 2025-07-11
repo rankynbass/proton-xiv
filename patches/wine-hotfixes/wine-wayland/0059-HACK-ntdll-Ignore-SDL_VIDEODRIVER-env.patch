@@ -1,0 +1,25 @@
+From 46422acc17674dd92bd9d1b16b657ddfd5ad17c7 Mon Sep 17 00:00:00 2001
+From: Etaash Mathamsetty
+ <45927311+Etaash-mathamsetty@users.noreply.github.com>
+Date: Fri, 23 May 2025 14:02:30 -0400
+Subject: [PATCH 059/166] HACK: ntdll: Ignore SDL_VIDEODRIVER env
+
+---
+ dlls/ntdll/unix/env.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/dlls/ntdll/unix/env.c b/dlls/ntdll/unix/env.c
+index 3c18484f417..98389c75ca6 100644
+--- a/dlls/ntdll/unix/env.c
++++ b/dlls/ntdll/unix/env.c
+@@ -347,6 +347,7 @@ static BOOL is_special_env_var( const char *var )
+             STARTS_WITH( var, "TMP=" ) ||
+             STARTS_WITH( var, "QT_" ) ||
+             STARTS_WITH( var, "SDL_AUDIODRIVER=" ) ||
++            STARTS_WITH( var, "SDL_VIDEODRIVER=" ) || /* the only allowed video driver on windows is windows */
+             STARTS_WITH( var, "VK_" ) ||
+             STARTS_WITH( var, "XR_" ) ||
+             STARTS_WITH( var, "XDG_SESSION_TYPE=" ));
+-- 
+2.50.0
+

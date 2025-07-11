@@ -1,0 +1,25 @@
+From e73963163f7f33d6713e3b81788096e49bb5fb51 Mon Sep 17 00:00:00 2001
+From: Etaash Mathamsetty
+ <45927311+Etaash-mathamsetty@users.noreply.github.com>
+Date: Sat, 14 Jun 2025 20:46:22 -0400
+Subject: [PATCH 104/166] atiadlxx: Remove outdated comment
+
+---
+ dlls/atiadlxx/atiadlxx_main.c | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/dlls/atiadlxx/atiadlxx_main.c b/dlls/atiadlxx/atiadlxx_main.c
+index 1c97b25962b..b8cc4eb86f7 100644
+--- a/dlls/atiadlxx/atiadlxx_main.c
++++ b/dlls/atiadlxx/atiadlxx_main.c
+@@ -833,7 +833,6 @@ int AMDAPI ADL2_Display_DDCInfo2_Get(ADL_CONTEXT *context, int index, int displa
+     if (desc.ColorSpace == DXGI_COLOR_SPACE_RGB_FULL_G2084_NONE_P2020)
+     {
+         TRACE("Reporting monitor %s as HDR10 supported.\n", debugstr_a((char*)devmode.dmDeviceName));
+-        /* FIXME check if freesync is supported */
+         info->iSupportedHDR = ADL_HDR_CEA861_3;
+ 
+         if(caps.iCaps & ADL_FREESYNC_CAP_SUPPORTED)
+-- 
+2.50.0
+

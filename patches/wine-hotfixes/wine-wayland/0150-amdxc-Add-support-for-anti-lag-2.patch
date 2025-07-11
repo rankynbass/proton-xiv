@@ -1,0 +1,96 @@
+From e9cfc1411f64e6a33f8604540d4773cb93d643d9 Mon Sep 17 00:00:00 2001
+From: Etaash Mathamsetty
+ <45927311+Etaash-mathamsetty@users.noreply.github.com>
+Date: Wed, 25 Jun 2025 12:17:22 -0400
+Subject: [PATCH 150/166] amdxc: Add support for anti lag 2
+
+---
+ dlls/amdxc64/main.c | 65 +--------------------------------------------
+ 1 file changed, 1 insertion(+), 64 deletions(-)
+
+diff --git a/dlls/amdxc64/main.c b/dlls/amdxc64/main.c
+index e02e6525aea..e9537cca1fc 100644
+--- a/dlls/amdxc64/main.c
++++ b/dlls/amdxc64/main.c
+@@ -120,65 +120,6 @@ static const struct IAmdExtFfxApiVtbl AMDFSR4FFX_vtable = {
+     AMDFSR4FFX_UpdateFfxApiProvider
+ };
+ 
+-struct AMDAntiLag2
+-{
+-    IAmdExtAntiLagApi IAmdExtAntiLagApi_iface;
+-    LONG ref;
+-};
+-
+-static struct AMDAntiLag2* impl_from_IAmdExtAntiLagApi(IAmdExtAntiLagApi *iface)
+-{
+-    return CONTAINING_RECORD(iface, struct AMDAntiLag2, IAmdExtAntiLagApi_iface);
+-}
+-
+-ULONG STDMETHODCALLTYPE AMDAntiLag2_AddRef(IAmdExtAntiLagApi *iface)
+-{
+-    struct AMDAntiLag2 *data = impl_from_IAmdExtAntiLagApi(iface);
+-    return InterlockedIncrement(&data->ref);
+-}
+-
+-ULONG STDMETHODCALLTYPE AMDAntiLag2_Release(IAmdExtAntiLagApi *iface)
+-{
+-    struct AMDAntiLag2 *data = impl_from_IAmdExtAntiLagApi(iface);
+-    ULONG ret = InterlockedDecrement(&data->ref);
+-    if (!ret) free(data);
+-    return ret;
+-}
+-
+-HRESULT STDMETHODCALLTYPE AMDAntiLag2_QueryInterface(IAmdExtAntiLagApi *iface, REFIID iid, void **out)
+-{
+-    FIXME("(%p %s %p) stub!\n", iface, debugstr_guid(iid), out);
+-    return E_NOINTERFACE;
+-}
+-
+-HRESULT STDMETHODCALLTYPE AMDAntiLag2_UpdateAntiLagState(IAmdExtAntiLagApi *iface, void* data)
+-{
+-    union {
+-        struct APIData_v1 *v1;
+-        struct APIData_v2 *v2;
+-    } apidata = {data};
+-    TRACE("(%p %p)!\n", iface, data);
+-
+-    if (!data) {
+-        /* perform sleep */
+-    } else if(apidata.v1->uiVersion == 1) {
+-        /* access apidata v1 */
+-        if(apidata.v1->uiSize != sizeof(struct APIData_v1)) return E_INVALIDARG;
+-    } else if(apidata.v1->uiVersion == 2) {
+-        /* access apidata v2 */
+-        if(apidata.v2->uiSize != sizeof(struct APIData_v2)) return E_INVALIDARG;
+-    }
+-
+-    return E_NOTIMPL;
+-}
+-
+-static const struct IAmdExtAntiLagApiVtbl AMDANTILAG_vtable = {
+-    AMDAntiLag2_QueryInterface,
+-    AMDAntiLag2_AddRef,
+-    AMDAntiLag2_Release,
+-    AMDAntiLag2_UpdateAntiLagState
+-};
+-
+ struct AMDExtStub2
+ {
+     IAmdExtStub2 IAmdExtStub2_iface;
+@@ -302,11 +243,7 @@ HRESULT CDECL AmdExtD3DCreateInterface(IUnknown *outer, REFIID iid, void **obj)
+         *obj = &ffx->IAmdExtFfxApi_iface;
+         return S_OK;
+     } else if (IsEqualGUID(iid, &IID_IAmdExtAntiLagApi)) {
+-        struct AMDAntiLag2 *out = calloc(1, sizeof(struct AMDAntiLag2));
+-        out->IAmdExtAntiLagApi_iface.lpVtbl = &AMDANTILAG_vtable;
+-        out->ref = 1;
+-        *obj = &out->IAmdExtAntiLagApi_iface;
+-        return S_OK;
++        return ID3D12Device_QueryInterface((ID3D12Device *)outer, &IID_IAmdExtAntiLagApi, obj);
+     } else if(IsEqualGUID(iid, &IID_IAmdExtStub1)) {
+         struct AMDExtStub1 *this = calloc(1, sizeof(struct AMDExtStub1));
+         this->IAmdExtStub1_iface.lpVtbl = &AMDSTUB1_vtable;
+-- 
+2.50.0
+
