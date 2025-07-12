@@ -1,0 +1,44 @@
+From 488e8c9b9f8b4a49a37848233d6670f6a53fa5a3 Mon Sep 17 00:00:00 2001
+From: Etaash Mathamsetty
+ <45927311+Etaash-mathamsetty@users.noreply.github.com>
+Date: Wed, 11 Jun 2025 13:19:49 -0400
+Subject: [PATCH 098/166] amdxc: minor code cleanups
+
+---
+ dlls/amdxc64/main.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/dlls/amdxc64/main.c b/dlls/amdxc64/main.c
+index 2cc11a811fc..e02e6525aea 100644
+--- a/dlls/amdxc64/main.c
++++ b/dlls/amdxc64/main.c
+@@ -82,6 +82,7 @@ typedef HRESULT (__stdcall *updateffxapi_pfn)(void*, unsigned int);
+ 
+ HRESULT STDMETHODCALLTYPE AMDFSR4FFX_UpdateFfxApiProvider(IAmdExtFfxApi *iface, void* data, unsigned int size)
+ {
++    static int once;
+     const char *env;
+     updateffxapi_pfn pfn;
+     HMODULE amdffx;
+@@ -90,7 +91,7 @@ HRESULT STDMETHODCALLTYPE AMDFSR4FFX_UpdateFfxApiProvider(IAmdExtFfxApi *iface,
+ 
+     env = getenv("FSR4_UPGRADE");
+ 
+-    if(env && env[0] != '0')
++    if(env && !strcmp(env, "1"))
+     {
+         amdffx = LoadLibraryA("amdxcffx64");
+         if (!amdffx)
+@@ -103,7 +104,8 @@ HRESULT STDMETHODCALLTYPE AMDFSR4FFX_UpdateFfxApiProvider(IAmdExtFfxApi *iface,
+ 
+         if(pfn)
+         {
+-            FIXME("Replaced FSR3 with FSR4!\n");
++            if (!once++)
++                FIXME("Replaced FSR3 with FSR4!\n");
+             return pfn(data, size);
+         }
+     }
+-- 
+2.50.0
+

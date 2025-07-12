@@ -1,0 +1,26 @@
+From 23370265ec409cfb0142d73b0ec318e1d2d887e5 Mon Sep 17 00:00:00 2001
+From: Etaash Mathamsetty
+ <45927311+Etaash-mathamsetty@users.noreply.github.com>
+Date: Mon, 2 Jun 2025 15:53:52 -0400
+Subject: [PATCH 077/166] winewayland: ensure flush when setting fullscreen
+ state.
+
+---
+ dlls/winewayland.drv/wayland_surface.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/dlls/winewayland.drv/wayland_surface.c b/dlls/winewayland.drv/wayland_surface.c
+index 3d30c37e58a..28087412446 100644
+--- a/dlls/winewayland.drv/wayland_surface.c
++++ b/dlls/winewayland.drv/wayland_surface.c
+@@ -711,6 +711,7 @@ static void wayland_surface_reconfigure_geometry(struct wayland_surface *surface
+                     xdg_toplevel_unset_fullscreen(surface->xdg_toplevel);
+                     wl_display_flush(process_wayland.wl_display);
+                     xdg_toplevel_set_fullscreen(surface->xdg_toplevel, output);
++                    wl_display_flush(process_wayland.wl_display);
+                     /* In case we don't get enter event from compositor
+                     happens on sway for instance
+                     */
+-- 
+2.50.0
+

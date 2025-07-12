@@ -1,0 +1,70 @@
+From ac6d29084994275e7db9b5d900721ece62ce9724 Mon Sep 17 00:00:00 2001
+From: Etaash Mathamsetty
+ <45927311+Etaash-mathamsetty@users.noreply.github.com>
+Date: Mon, 23 Jun 2025 00:19:00 -0400
+Subject: [PATCH 146/166] tdh: Add stub for TdhEnumerateProviders.
+
+---
+ dlls/tdh/tdh.spec   |  2 +-
+ dlls/tdh/tdh_main.c | 35 +++++++++++++++++++++++++++++++++++
+ 2 files changed, 36 insertions(+), 1 deletion(-)
+
+diff --git a/dlls/tdh/tdh.spec b/dlls/tdh/tdh.spec
+index cde397c3899..0a2663714fe 100644
+--- a/dlls/tdh/tdh.spec
++++ b/dlls/tdh/tdh.spec
+@@ -7,7 +7,7 @@
+ @ stub TdhEnumerateManifestProviderEvents
+ @ stub TdhEnumerateProviderFieldInformation
+ @ stub TdhEnumerateProviderFilters
+-@ stub TdhEnumerateProviders
++@ stdcall TdhEnumerateProviders(ptr ptr)
+ @ stub TdhEnumerateRemoteWBEMProviderFieldInformation
+ @ stub TdhEnumerateRemoteWBEMProviders
+ @ stub TdhFormatProperty
+diff --git a/dlls/tdh/tdh_main.c b/dlls/tdh/tdh_main.c
+index 60f32976b98..dab6e636384 100644
+--- a/dlls/tdh/tdh_main.c
++++ b/dlls/tdh/tdh_main.c
+@@ -38,3 +38,38 @@ ULONG WINAPI TdhLoadManifestFromBinary(LPWSTR binary)
+     FIXME("(%s): stub\n", debugstr_w(binary));
+     return STATUS_SUCCESS;
+ }
++
++/* FIXME: Move this */
++
++typedef struct _TRACE_PROVIDER_INFO {
++    GUID  ProviderGuid;
++    ULONG SchemaSource;
++    ULONG ProviderNameOffset;
++} TRACE_PROVIDER_INFO;
++
++typedef struct _PROVIDER_ENUMERATION_INFO {
++    ULONG               NumberOfProviders;
++    ULONG               Reserved;
++    TRACE_PROVIDER_INFO TraceProviderInfoArray[ANYSIZE_ARRAY];
++} PROVIDER_ENUMERATION_INFO;
++
++ULONG WINAPI TdhEnumerateProviders(PROVIDER_ENUMERATION_INFO *buffer, ULONG *size)
++{
++    FIXME("%p %p stub!\n", buffer, size);
++
++    if (!size) return ERROR_INVALID_PARAMETER;
++
++    if (!buffer)
++    {
++        *size = sizeof(PROVIDER_ENUMERATION_INFO);
++        return ERROR_SUCCESS;
++    }
++
++    if (*size < sizeof(PROVIDER_ENUMERATION_INFO))
++        return ERROR_INSUFFICIENT_BUFFER;
++
++    buffer->NumberOfProviders = 0;
++    buffer->Reserved = 0;
++
++    return ERROR_SUCCESS;
++}
+-- 
+2.50.0
+

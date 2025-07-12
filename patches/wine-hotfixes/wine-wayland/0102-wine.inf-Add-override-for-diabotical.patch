@@ -1,0 +1,24 @@
+From ea2f971897035c96b156b93637dd438d1c3feddb Mon Sep 17 00:00:00 2001
+From: Etaash Mathamsetty <etaash.mathamsetty@gmail.com>
+Date: Sat, 14 Jun 2025 11:22:44 -0400
+Subject: [PATCH 102/166] wine.inf: Add override for diabotical
+
+---
+ loader/wine.inf.in | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/loader/wine.inf.in b/loader/wine.inf.in
+index e0222e091f9..a1aec991435 100644
+--- a/loader/wine.inf.in
++++ b/loader/wine.inf.in
+@@ -2994,6 +2994,7 @@ HKCU,Software\Wine\DllOverrides,"vcruntime140_1",0x2,"native,builtin"
+ HKCU,Software\Wine\AppDefaults\ShadowOfWar.exe\DllOverrides,"amd_ags_x64",,"disabled"
+ HKCU,Software\Wine\AppDefaults\TDUSC.exe\DllOverrides,"xinput1_3",,"native,builtin"
+ HKCU,Software\Wine\AppDefaults\WRCG.exe\DllOverrides,"xinput1_3",,"native,builtin"
++HKCU,Software\Wine\AppDefaults\diabotical.exe\DllOverrides,"xaudio2_9",,"disabled"
+ ;;App-specific overrides for atiadlxx.dll.
+ HKCU,Software\Wine\AppDefaults\s2_sp64_ship.exe\DllOverrides,"atiadlxx",,"builtin"
+ HKCU,Software\Wine\AppDefaults\s2_mp64_ship.exe\DllOverrides,"atiadlxx",,"builtin"
+-- 
+2.50.0
+

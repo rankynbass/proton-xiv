@@ -1,0 +1,45 @@
+From 55bd36e3b0a5d8cf2864b94e119783c048c49eb2 Mon Sep 17 00:00:00 2001
+From: Etaash Mathamsetty
+ <45927311+Etaash-mathamsetty@users.noreply.github.com>
+Date: Tue, 8 Jul 2025 23:59:30 -0400
+Subject: [PATCH 160/166] winepulse: fixup pulse_get_prop_value with VT_CLSID.
+
+---
+ dlls/winepulse.drv/pulse.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/dlls/winepulse.drv/pulse.c b/dlls/winepulse.drv/pulse.c
+index dc610363851..0438022e0ee 100644
+--- a/dlls/winepulse.drv/pulse.c
++++ b/dlls/winepulse.drv/pulse.c
+@@ -2648,11 +2648,16 @@ static NTSTATUS pulse_get_prop_value(void *args)
+             }
+         } else if (IsEqualGUID(&params->prop->fmtid, &DEVPKEY_Device_ContainerId)) {
+             params->value->vt = VT_CLSID;
+-            params->value->puuid = malloc(sizeof(GUID));
+-            if (!params->value->puuid)
+-                params->result = E_OUTOFMEMORY;
++            if (*params->buffer_size < sizeof(GUID))
++            {
++                params->result = E_NOT_SUFFICIENT_BUFFER;
++                *params->buffer_size = sizeof(GUID);
++            }
++            else if (!params->buffer)
++                params->result = E_INVALIDARG;
+             else {
+                 params->result = S_OK;
++                params->value->puuid = params->buffer;
+                 *params->value->puuid = dev->container_id;
+             }
+             return STATUS_SUCCESS;
+@@ -3153,6 +3158,7 @@ static NTSTATUS pulse_wow64_get_prop_value(void *args)
+         switch (value.vt)
+         {
+         case VT_UI4:
++        case VT_CLSID:
+             value32->ulVal = value.ulVal;
+             break;
+         case VT_LPWSTR:
+-- 
+2.50.0
+

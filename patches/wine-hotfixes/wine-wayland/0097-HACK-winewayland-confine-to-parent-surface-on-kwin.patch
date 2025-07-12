@@ -1,0 +1,32 @@
+From 3c290d55f999992fca5c7ef77fba94d285bd46a4 Mon Sep 17 00:00:00 2001
+From: Etaash Mathamsetty <etaash.mathamsetty@gmail.com>
+Date: Tue, 10 Jun 2025 22:19:55 -0400
+Subject: [PATCH 097/166] HACK: winewayland: confine to parent surface on kwin.
+
+---
+ dlls/winewayland.drv/wayland_pointer.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/dlls/winewayland.drv/wayland_pointer.c b/dlls/winewayland.drv/wayland_pointer.c
+index de13e50deb8..d5328f33ace 100644
+--- a/dlls/winewayland.drv/wayland_pointer.c
++++ b/dlls/winewayland.drv/wayland_pointer.c
+@@ -1231,6 +1231,15 @@ BOOL WAYLAND_ClipCursor(const RECT *clip, BOOL reset)
+     NtUserGetCursorPos(&cursor_pos);
+     hwnd = NtUserGetForegroundWindow();
+ 
++    /* HACK: confine to parent surface on KWin */
++    if (WAYLAND_HasWindowManager("KDE"))
++    {
++        HWND old = hwnd;
++        hwnd = NtUserGetAncestor(hwnd, GA_ROOT);
++        if (old != hwnd)
++            WARN("Confining to parent surface!\n");
++    }
++
+     if (!(data = wayland_win_data_get(hwnd))) return FALSE;
+     if ((surface = data->wayland_surface))
+     {
+-- 
+2.50.0
+
