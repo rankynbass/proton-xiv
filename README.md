@@ -9,7 +9,7 @@ Proton runs in a container, which uses a runtime environment and libraries speci
 If you want proton functionality -outside- of proton for non-steam games, umu-launcher is a cli tool that was designed to be able to mimic steam in running the entire containerized runtime environment it needs in order to run proton exactly as steam does without needing steam. Any other method is not supported. 
 
 [Lutris](https://lutris.net/) has already integrated UMU as the default backend used when `GE-Proton(Latest)` is selected as a wine runner either globally or for any specific game.  
-[Heroic](https://heroicgameslauncher.com/) have added it as a toggle option `Use UMU as Proton runtime` under Settings > Advanced.  
+[Heroic](https://heroicgameslauncher.com/) has also enabled UMU by default when using `GE-Proton`.
 
 ## (2) If you have an issue that happens with my proton-GE build, provided FROM this repository, that does -not- happen on Valve's proton, please DO NOT open a bug report on Valve's bug tracker. Instead, contact me on Discord about the issue:
 
