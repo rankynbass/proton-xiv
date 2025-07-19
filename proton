@@ -43,7 +43,7 @@ from pathlib import Path
 #To enable debug logging, copy "user_settings.sample.py" to "user_settings.py"
 #and edit it if needed.
 
-CURRENT_PREFIX_VERSION="GE-Proton10-9"
+CURRENT_PREFIX_VERSION="GE-Proton10-10"
 
 PFX="Proton: "
 ld_path_var = "LD_LIBRARY_PATH"
@@ -1361,6 +1361,7 @@ def default_compat_config():
                 # Other issues arising from OWPR code path in apps, e. g., hitting unimplemented bits in
                 # d3dcompiler.
                 "230410", #Warframe
+                "3513350", #Wuthering Waves
                 ]:
             ret.add("noopwr")
 
