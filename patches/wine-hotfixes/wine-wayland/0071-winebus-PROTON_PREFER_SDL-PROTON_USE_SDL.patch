@@ -1,8 +1,8 @@
-From a52db4858de8b9d7a177cb556226f8b432b5dd0a Mon Sep 17 00:00:00 2001
+From f3512716f333e4b168ae347275375f4a254c1f39 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Wed, 28 May 2025 16:43:23 -0400
-Subject: [PATCH 071/166] winebus: PROTON_PREFER_SDL -> PROTON_USE_SDL
+Subject: [PATCH 071/177] winebus: PROTON_PREFER_SDL -> PROTON_USE_SDL
 
 More accurately name the env
 ---
@@ -10,10 +10,10 @@ More accurately name the env
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/dlls/winebus.sys/bus_udev.c b/dlls/winebus.sys/bus_udev.c
-index d1c3109c13e..9c992d84a64 100644
+index a0b30a1f8d0..0f900ab095c 100644
 --- a/dlls/winebus.sys/bus_udev.c
 +++ b/dlls/winebus.sys/bus_udev.c
-@@ -1646,7 +1646,7 @@ static void udev_add_device(struct udev_device *dev, int fd)
+@@ -1652,7 +1652,7 @@ static void udev_add_device(struct udev_device *dev, int fd)
  
      if (desc.vid == 0x28de && desc.pid == 0x11ff && !strcmp(subsystem, "input"))
      {

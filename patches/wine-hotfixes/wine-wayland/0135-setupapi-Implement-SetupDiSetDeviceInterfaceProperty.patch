@@ -1,7 +1,7 @@
-From 539ab49d7e9cad324953b0526997803af2a7623f Mon Sep 17 00:00:00 2001
+From c66680c6620eba6d9126cb93bd381d96358a5d01 Mon Sep 17 00:00:00 2001
 From: Vibhav Pant <vibhavp@gmail.com>
 Date: Thu, 19 Jun 2025 20:53:20 +0530
-Subject: [PATCH 135/166] setupapi: Implement
+Subject: [PATCH 135/177] setupapi: Implement
  SetupDiSetDeviceInterfacePropertyW.
 
 ---
@@ -10,7 +10,7 @@ Subject: [PATCH 135/166] setupapi: Implement
  2 files changed, 107 insertions(+), 61 deletions(-)
 
 diff --git a/dlls/setupapi/devinst.c b/dlls/setupapi/devinst.c
-index 059fcb93698..827dcfc6f80 100644
+index ddc683f182a..b60e9cc52b2 100644
 --- a/dlls/setupapi/devinst.c
 +++ b/dlls/setupapi/devinst.c
 @@ -47,6 +47,8 @@
@@ -22,7 +22,7 @@ index 059fcb93698..827dcfc6f80 100644
  
  WINE_DEFAULT_DEBUG_CHANNEL(setupapi);
  
-@@ -3196,14 +3198,99 @@ BOOL WINAPI SetupDiGetDeviceInterfacePropertyW( HDEVINFO devinfo, SP_DEVICE_INTE
+@@ -3198,14 +3200,99 @@ BOOL WINAPI SetupDiGetDeviceInterfacePropertyW( HDEVINFO devinfo, SP_DEVICE_INTE
      return FALSE;
  }
  
@@ -125,7 +125,7 @@ index 059fcb93698..827dcfc6f80 100644
  }
  
  /***********************************************************************
-@@ -4139,9 +4226,7 @@ BOOL WINAPI SetupDiSetDevicePropertyW(HDEVINFO devinfo, PSP_DEVINFO_DATA device_
+@@ -4141,9 +4228,7 @@ BOOL WINAPI SetupDiSetDevicePropertyW(HDEVINFO devinfo, PSP_DEVINFO_DATA device_
                                        DEVPROPTYPE type, const BYTE *buffer, DWORD size, DWORD flags)
  {
      struct device *device;
@@ -136,7 +136,7 @@ index 059fcb93698..827dcfc6f80 100644
  
      TRACE("%p %p %p %#lx %p %ld %#lx\n", devinfo, device_data, key, type, buffer, size, flags);
  
-@@ -4168,48 +4253,9 @@ BOOL WINAPI SetupDiSetDevicePropertyW(HDEVINFO devinfo, PSP_DEVINFO_DATA device_
+@@ -4170,48 +4255,9 @@ BOOL WINAPI SetupDiSetDevicePropertyW(HDEVINFO devinfo, PSP_DEVINFO_DATA device_
          return FALSE;
      }
  

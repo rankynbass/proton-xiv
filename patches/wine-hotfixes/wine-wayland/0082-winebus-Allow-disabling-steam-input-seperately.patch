@@ -1,18 +1,18 @@
-From 641076fc2d08fe16248a912aa66fd0c1efce1393 Mon Sep 17 00:00:00 2001
+From 482fa07d52d96ef0c046b67b0ae44aff01d270e0 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Tue, 3 Jun 2025 18:53:52 -0400
-Subject: [PATCH 082/166] winebus: Allow disabling steam input seperately
+Subject: [PATCH 082/177] winebus: Allow disabling steam input seperately
 
 ---
  dlls/winebus.sys/bus_udev.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/dlls/winebus.sys/bus_udev.c b/dlls/winebus.sys/bus_udev.c
-index 9c992d84a64..41d91d12eac 100644
+index 0f900ab095c..482a446d299 100644
 --- a/dlls/winebus.sys/bus_udev.c
 +++ b/dlls/winebus.sys/bus_udev.c
-@@ -1646,7 +1646,7 @@ static void udev_add_device(struct udev_device *dev, int fd)
+@@ -1652,7 +1652,7 @@ static void udev_add_device(struct udev_device *dev, int fd)
  
      if (desc.vid == 0x28de && desc.pid == 0x11ff && !strcmp(subsystem, "input"))
      {

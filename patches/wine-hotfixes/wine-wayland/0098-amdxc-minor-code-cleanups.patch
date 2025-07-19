@@ -1,8 +1,8 @@
-From 488e8c9b9f8b4a49a37848233d6670f6a53fa5a3 Mon Sep 17 00:00:00 2001
+From 5e1df474792c73ffa0dd3658cd6b960032fc8a73 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Wed, 11 Jun 2025 13:19:49 -0400
-Subject: [PATCH 098/166] amdxc: minor code cleanups
+Subject: [PATCH 098/177] amdxc: minor code cleanups
 
 ---
  dlls/amdxc64/main.c | 6 ++++--

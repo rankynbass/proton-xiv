@@ -1,8 +1,8 @@
-From 301de43b2e1851bbaff911aa867b38a9b3562637 Mon Sep 17 00:00:00 2001
+From 22db9a23c3e011dfa8aa1498b9ccfaa429000966 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Sun, 22 Jun 2025 12:35:14 -0400
-Subject: [PATCH 139/166] setupapi: Implement DEVPKEY_Device_InstanceId in
+Subject: [PATCH 139/177] setupapi: Implement DEVPKEY_Device_InstanceId in
  SetupDiGetDeviceInterfacePropertyW.
 
 Based on patch by ClearlyClaire
@@ -11,10 +11,10 @@ Based on patch by ClearlyClaire
  1 file changed, 23 insertions(+), 2 deletions(-)
 
 diff --git a/dlls/setupapi/devinst.c b/dlls/setupapi/devinst.c
-index 9065ea5cfde..605c5d14591 100644
+index cb4fe9ad4cf..215fc62a79e 100644
 --- a/dlls/setupapi/devinst.c
 +++ b/dlls/setupapi/devinst.c
-@@ -3274,8 +3274,29 @@ BOOL WINAPI SetupDiGetDeviceInterfacePropertyW( HDEVINFO devinfo, SP_DEVICE_INTE
+@@ -3276,8 +3276,29 @@ BOOL WINAPI SetupDiGetDeviceInterfacePropertyW( HDEVINFO devinfo, SP_DEVICE_INTE
              ret = ERROR_INSUFFICIENT_BUFFER;
          if (req_size)
              *req_size = sizeof( DEVPROP_BOOLEAN );

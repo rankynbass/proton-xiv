@@ -1,8 +1,8 @@
-From 9b926e05353f6db3b03c7280a5a609420e377e57 Mon Sep 17 00:00:00 2001
+From e39805c542db5268d10821944fa5769be1210b92 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Mon, 19 May 2025 20:33:06 -0400
-Subject: [PATCH 141/166] winebus: Fix PROTON_ENABLE/DISABLE_HIDRAW.
+Subject: [PATCH 141/177] winebus: Fix PROTON_ENABLE/DISABLE_HIDRAW.
 
 ---
  dlls/winebus.sys/main.c    | 43 ++++++++------------------------------

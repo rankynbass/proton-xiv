@@ -1,7 +1,7 @@
-From 6545b416d7f12969ab91521e671c829f1525c4f1 Mon Sep 17 00:00:00 2001
+From 54ce60ea9c4354a8d904f06289cd4bbb630fa7f0 Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Wed, 2 Jul 2025 20:53:50 -0400
-Subject: [PATCH 161/166] ntdll: Add some traces to synchronization methods.
+Subject: [PATCH 161/177] ntdll: Add some traces to synchronization methods.
 
 ---
  dlls/ntdll/unix/sync.c | 55 +++++++++++++++++++++++++++++++++++++++++-

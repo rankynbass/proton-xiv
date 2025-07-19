@@ -1,0 +1,64 @@
+From aa0d50f61852386ae3e0ee3b5aeb3d1c0a77f546 Mon Sep 17 00:00:00 2001
+From: Etaash Mathamsetty <etaash.mathamsetty@gmail.com>
+Date: Thu, 17 Jul 2025 09:50:37 -0400
+Subject: [PATCH 177/177] HACK: kernelbase: winewayland: Use --in-process-gpu
+ for EA App.
+
+---
+ dlls/kernelbase/process.c | 24 ++++++++++++++----------
+ 1 file changed, 14 insertions(+), 10 deletions(-)
+
+diff --git a/dlls/kernelbase/process.c b/dlls/kernelbase/process.c
+index 4797d30dc8f..6f55978cbe0 100644
+--- a/dlls/kernelbase/process.c
++++ b/dlls/kernelbase/process.c
+@@ -626,7 +626,8 @@ static const WCHAR *hack_append_command_line( const WCHAR *cmd )
+     static const struct option wayland_options[] = {
+         {L"launcher_epic.exe", L" --in-process-gpu"}, /* ZZZ EGS */
+         {L"Battle.net.exe", L" --in-process-gpu"},
+-        {L"RSI Launcher.exe", L" --in-process-gpu"}
++        {L"RSI Launcher.exe", L" --in-process-gpu"},
++        {L"EADesktop.exe", L" --in-process-gpu"}
+     };
+ 
+     unsigned int i;
+@@ -639,7 +640,7 @@ static const WCHAR *hack_append_command_line( const WCHAR *cmd )
+     GetEnvironmentVariableA("WINE_WAYLAND_HACKS",
+         wayland_hack_enabled, sizeof(wayland_hack_enabled));
+ 
+-    if (wayland_hack_enabled[0] == '1')
++    if (strcmp(wayland_hack_enabled, "1") == 0)
+     {
+         for (i = 0; i < ARRAY_SIZE(wayland_options); ++i)
+         {
+@@ -2059,16 +2060,19 @@ BOOL WINAPI DECLSPEC_HOTPATCH SetEnvironmentVariableW( LPCWSTR name, LPCWSTR val
+                     HMODULE h = GetModuleHandleW(L"Qt5Core.dll");
+                     void (WINAPI *QCoreApplication_setAttribute)(int attr, BOOL set);
+ 
+-                    QCoreApplication_setAttribute = (void *)GetProcAddress(h, "?setAttribute@QCoreApplication@@SAXW4ApplicationAttribute@Qt@@_N@Z");
+-                    if (QCoreApplication_setAttribute)
++                    if (h)
+                     {
+-                        QCoreApplication_setAttribute(16 /* AA_UseOpenGLES */, 0);
+-                        QCoreApplication_setAttribute(15 /* AA_UseDesktopOpenGL */, 1);
++                        QCoreApplication_setAttribute = (void *)GetProcAddress(h, "?setAttribute@QCoreApplication@@SAXW4ApplicationAttribute@Qt@@_N@Z");
++                        if (QCoreApplication_setAttribute)
++                        {
++                            QCoreApplication_setAttribute(16 /* AA_UseOpenGLES */, 0);
++                            QCoreApplication_setAttribute(15 /* AA_UseDesktopOpenGL */, 1);
++                        }
++                        else ERR("QCoreApplication_setAttribute not found, h %p.\n", h);
++                        value = L"desktop";
++                        FIXME( "HACK: setting QT_OPENGL=desktop.\n" );
++                        break;
+                     }
+-                    else ERR("QCoreApplication_setAttribute not found, h %p.\n", h);
+-                    value = L"desktop";
+-                    FIXME( "HACK: setting QT_OPENGL=desktop.\n" );
+-                    break;
+                 }
+             }
+         }
+-- 
+2.50.0
+

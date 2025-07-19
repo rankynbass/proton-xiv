@@ -1,7 +1,7 @@
-From 3760cb584d13e9eb4af82105d6364f80d8aa681c Mon Sep 17 00:00:00 2001
+From c5c533d63913c5cd905cd15fbe90827a451e8289 Mon Sep 17 00:00:00 2001
 From: Byeongsik Jeon <bsjeon@hanmail.net>
 Date: Sun, 6 Apr 2025 10:13:19 +0900
-Subject: [PATCH 120/166] winewayland: Extend cursor_pos using cursor_begin,
+Subject: [PATCH 120/177] winewayland: Extend cursor_pos using cursor_begin,
  cursor_end.
 
 ---

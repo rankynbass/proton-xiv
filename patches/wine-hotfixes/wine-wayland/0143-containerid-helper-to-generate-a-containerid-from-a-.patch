@@ -1,7 +1,7 @@
-From 7a1a1cd70cb6afb133cbf3f390f0192d1632131e Mon Sep 17 00:00:00 2001
+From caf4d5fe6c0053b5cc08f049de3c6e1752fcd9bb Mon Sep 17 00:00:00 2001
 From: Harald Sitter <sitter@kde.org>
 Date: Sun, 22 Jun 2025 14:44:12 -0400
-Subject: [PATCH 143/166] containerid: helper to generate a containerid from a 
+Subject: [PATCH 143/177] containerid: helper to generate a containerid from a 
  sysfs path
 
 ---
@@ -246,7 +246,7 @@ index 00000000000..61fa5896049
 +    return TRUE;
 +}
 diff --git a/dlls/winebus.sys/bus_udev.c b/dlls/winebus.sys/bus_udev.c
-index 4a763f72da2..c3ab8d13158 100644
+index 88e9dc1f146..5fbd910d413 100644
 --- a/dlls/winebus.sys/bus_udev.c
 +++ b/dlls/winebus.sys/bus_udev.c
 @@ -73,6 +73,7 @@

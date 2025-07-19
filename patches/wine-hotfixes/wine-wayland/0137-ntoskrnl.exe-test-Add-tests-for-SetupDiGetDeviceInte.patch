@@ -1,7 +1,7 @@
-From 4f10daa81d7b01ec4abeccf8fbd201bedc651610 Mon Sep 17 00:00:00 2001
+From df13a979596eda313b8d64dfdd3640e3a56bc1e5 Mon Sep 17 00:00:00 2001
 From: Vibhav Pant <vibhavp@gmail.com>
 Date: Fri, 20 Jun 2025 19:54:53 +0530
-Subject: [PATCH 137/166] ntoskrnl.exe/test: Add tests for
+Subject: [PATCH 137/177] ntoskrnl.exe/test: Add tests for
  SetupDiGetDeviceInterfacePropertyW with enabled interfaces.
 
 ---

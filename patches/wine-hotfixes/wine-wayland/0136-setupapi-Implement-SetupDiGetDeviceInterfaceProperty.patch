@@ -1,7 +1,7 @@
-From 1e8e9e0726fbe2fcb060df48d0e932415be824c5 Mon Sep 17 00:00:00 2001
+From 398c4eb57539902d14a559e36d248c1195dabb96 Mon Sep 17 00:00:00 2001
 From: Vibhav Pant <vibhavp@gmail.com>
 Date: Thu, 19 Jun 2025 21:47:23 +0530
-Subject: [PATCH 136/166] setupapi: Implement
+Subject: [PATCH 136/177] setupapi: Implement
  SetupDiGetDeviceInterfacePropertyW.
 
 ---
@@ -10,10 +10,10 @@ Subject: [PATCH 136/166] setupapi: Implement
  2 files changed, 105 insertions(+), 75 deletions(-)
 
 diff --git a/dlls/setupapi/devinst.c b/dlls/setupapi/devinst.c
-index 827dcfc6f80..222d7ca0452 100644
+index b60e9cc52b2..c7eff8fe81d 100644
 --- a/dlls/setupapi/devinst.c
 +++ b/dlls/setupapi/devinst.c
-@@ -3188,14 +3188,98 @@ BOOL WINAPI SetupDiGetDeviceInterfaceDetailW(HDEVINFO devinfo, SP_DEVICE_INTERFA
+@@ -3190,14 +3190,98 @@ BOOL WINAPI SetupDiGetDeviceInterfaceDetailW(HDEVINFO devinfo, SP_DEVICE_INTERFA
      return ret;
  }
  
@@ -115,7 +115,7 @@ index 827dcfc6f80..222d7ca0452 100644
  }
  
  static DWORD set_device_reg_property( HKEY base_key, const DEVPROPKEY *key, DEVPROPTYPE type, const BYTE *buf,
-@@ -5024,60 +5108,6 @@ out:
+@@ -5020,60 +5104,6 @@ out:
      return retval;
  }
  
@@ -176,7 +176,7 @@ index 827dcfc6f80..222d7ca0452 100644
  BOOL WINAPI SetupDiGetDevicePropertyKeys( HDEVINFO devinfo, PSP_DEVINFO_DATA device_data,
                                            DEVPROPKEY *prop_keys, DWORD prop_keys_len,
                                            DWORD *required_prop_keys, DWORD flags )
-@@ -5208,7 +5238,7 @@ BOOL WINAPI SetupDiGetDevicePropertyW(HDEVINFO devinfo, PSP_DEVINFO_DATA device_
+@@ -5204,7 +5234,7 @@ BOOL WINAPI SetupDiGetDevicePropertyW(HDEVINFO devinfo, PSP_DEVINFO_DATA device_
      if (!(device = get_device(devinfo, device_data)))
          return FALSE;
  
@@ -185,7 +185,7 @@ index 827dcfc6f80..222d7ca0452 100644
  
      SetLastError(ls);
      return !ls;
-@@ -5236,7 +5266,7 @@ CONFIGRET WINAPI CM_Get_DevNode_Property_ExW(DEVINST devnode, const DEVPROPKEY *
+@@ -5232,7 +5262,7 @@ CONFIGRET WINAPI CM_Get_DevNode_Property_ExW(DEVINST devnode, const DEVPROPKEY *
      if (!(device = get_devnode_device(devnode, &set)))
          return CR_NO_SUCH_DEVINST;
  

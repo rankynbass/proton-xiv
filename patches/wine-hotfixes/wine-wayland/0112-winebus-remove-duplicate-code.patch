@@ -1,8 +1,8 @@
-From 7aeb22a748e6c51ba174105cadc8df9167ea96fc Mon Sep 17 00:00:00 2001
+From 1286902d81574643e44d53565b1ea44f21a759d4 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Fri, 20 Jun 2025 14:18:52 -0400
-Subject: [PATCH 112/166] winebus: remove duplicate code.
+Subject: [PATCH 112/177] winebus: remove duplicate code.
 
 ---
  dlls/winebus.sys/main.c | 6 ------

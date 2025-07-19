@@ -1,8 +1,8 @@
-From c2189e27cab8d0a832bf27357215e39cea9e2c41 Mon Sep 17 00:00:00 2001
+From e5fe99317497af3805a354ad6c49dfa130c3ffeb Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Fri, 30 May 2025 11:17:38 -0400
-Subject: [PATCH 073/166] winewayland: Update min/max window based on window
+Subject: [PATCH 073/177] winewayland: Update min/max window based on window
  resizability
 
 ---

@@ -1,8 +1,8 @@
-From 026f433a43e37f61a89b037349e92afc67cb1eb2 Mon Sep 17 00:00:00 2001
+From a2fa349f94dd02d2bc3cd6bdf40582d7b6ba4a8b Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Sun, 11 May 2025 21:38:39 -0400
-Subject: [PATCH 041/166] check if FSR4_UPGRADE env is nonzero
+Subject: [PATCH 041/177] check if FSR4_UPGRADE env is nonzero
 
 ---
  dlls/amdxc64/main.c | 6 ++++--

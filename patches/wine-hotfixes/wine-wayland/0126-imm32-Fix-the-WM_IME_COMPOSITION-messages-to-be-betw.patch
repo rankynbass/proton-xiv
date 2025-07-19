@@ -1,7 +1,7 @@
-From f84e722fb160b15fd962515f358c386c09bb6385 Mon Sep 17 00:00:00 2001
+From 208b9cce8fdedc5c2277ebd276a22b06e47b4fc3 Mon Sep 17 00:00:00 2001
 From: Byeongsik Jeon <bsjeon@hanmail.net>
 Date: Sat, 12 Apr 2025 22:32:26 +0900
-Subject: [PATCH 126/166] imm32: Fix the WM_IME_COMPOSITION messages to be
+Subject: [PATCH 126/177] imm32: Fix the WM_IME_COMPOSITION messages to be
  between the WM_IME_{START|END}COMPOSITION message.
 
 This patch fixes a Japanese input issue in MS Office Visual Basic and Mery text

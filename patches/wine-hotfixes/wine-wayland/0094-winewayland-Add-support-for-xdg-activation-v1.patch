@@ -1,8 +1,8 @@
-From ef1156e754b94185ac90114954b19a969e02208a Mon Sep 17 00:00:00 2001
+From 25b3e656405c95ec6ca6d1edbd0c268dc27c3cfc Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Mon, 9 Jun 2025 09:07:33 -0400
-Subject: [PATCH 094/166] winewayland: Add support for xdg-activation-v1
+Subject: [PATCH 094/177] winewayland: Add support for xdg-activation-v1
 
 ---
  dlls/winewayland.drv/Makefile.in           |   1 +

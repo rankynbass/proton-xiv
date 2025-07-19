@@ -1,8 +1,8 @@
-From 51a48a9a8f794556fc44970a59cda7bbb24d5965 Mon Sep 17 00:00:00 2001
+From 57e68fa3db1527d8201ad11555e49d518dff5784 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Sat, 21 Jun 2025 18:54:32 -0400
-Subject: [PATCH 127/166] opengl32: Use VirtualAlloc instead of
+Subject: [PATCH 127/177] opengl32: Use VirtualAlloc instead of
  NtAllocateVirtualMemory
 
 ---

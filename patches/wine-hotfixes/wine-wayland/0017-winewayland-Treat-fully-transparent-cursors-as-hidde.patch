@@ -1,7 +1,7 @@
-From 897d777286a60bdfce3695b58911b159f5157417 Mon Sep 17 00:00:00 2001
+From 8e9ad5b3f7b6b19a4ef694cf65a785b64b253c7f Mon Sep 17 00:00:00 2001
 From: Alexandros Frantzis <alexandros.frantzis@collabora.com>
 Date: Thu, 6 Mar 2025 17:09:58 +0200
-Subject: [PATCH 017/166] winewayland: Treat fully transparent cursors as
+Subject: [PATCH 017/177] winewayland: Treat fully transparent cursors as
  hidden.
 
 SDL 2.0.18 and newer (including SDL 3) set a fully transparent cursor
