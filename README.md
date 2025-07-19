@@ -242,8 +242,8 @@ This unofficial build isn't supported by GloriousEggroll nor Valve and wasn't te
 
 
 ##### Enabling NTSync
-For NTSync to work, your kernel must be version 6.14 or newer and built with CONFIG_NTSYNC=y -OR- CONFIG_NTSYNC=m.
-If using CONFIG_NTSYNC=m, a module loading configuration is required followed by a reboot:
+For NTSync to work, your kernel must be version 6.14 or newer and built with `CONFIG_NTSYNC=y` -OR- `CONFIG_NTSYNC=m`.
+If using `CONFIG_NTSYNC=m`, a module loading configuration is required followed by a reboot:
 
 /etc/modules-load.d/ntsync.conf
 ```
@@ -253,6 +253,7 @@ You can also manually enable the module without reboot, just keep in mind the ab
 ```
 sudo modprobe ntsync
 ```
+After this, a device `/dev/ntsync` should now exist on your system.
 
 Once NTSYNC is enabled on the system, if you launch a game with GE-Proton10-10 or newer using PROTON_LOG=1, steam will generate a log for the game in your home folder `steam-XXXXXX.log`. Inside that log you should see `wineserver: NTSync up and running!`
 
