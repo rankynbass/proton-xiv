@@ -11,9 +11,11 @@ If you want proton functionality -outside- of proton for non-steam games, umu-la
 [Lutris](https://lutris.net/) has already integrated UMU as the default backend used when `GE-Proton(Latest)` is selected as a wine runner either globally or for any specific game.  
 [Heroic](https://heroicgameslauncher.com/) has also enabled UMU by default when using `GE-Proton`.
 
-## (2) If you have an issue that happens with my proton-GE build, provided FROM this repository, that does -not- happen on Valve's proton, please DO NOT open a bug report on Valve's bug tracker. Instead, contact me on Discord about the issue:
+## (2) If you have an issue that happens with my proton-GE build, provided FROM this repository, that does -not- happen on Valve's proton, please DO NOT open a bug report on Valve's bug tracker. 
 
-https://discord.gg/6y3BdzC
+## Instead, open an issue: https://github.com/GloriousEggroll/proton-ge-custom/issues 
+
+## or contact me on Discord about the issue: https://discord.gg/6y3BdzC
 
 ## (3)  Please note, this is a custom build of proton, and is -not- affiliated with Valve's proton.
 ## (4) Please also note I do not provide the flatpak of proton-GE, and I do not provide the AUR version of proton-GE. I will not assist with those.
@@ -61,6 +63,7 @@ Things it contains that Valve's Proton does not:
 - 'protonfixes' system -- this is an automated system that applies per-game fixes (such as winetricks, envvars, EAC workarounds, overrides, etc).
 - Various upstream WINE patches backported
 - Various wine-staging patches applied as they become needed
+- NTSync enablement if the kernel supports it.
 
 ## Notes
 
@@ -236,6 +239,23 @@ This unofficial build isn't supported by GloriousEggroll nor Valve and wasn't te
    * `tar -xf GE-ProtonVERSION.tar.gz -C ~/snap/steam/common/.steam/steam/compatibilitytools.d/`
 4. Restart Steam.
 5. [Enable proton-ge-custom](#enabling).
+
+
+##### Enabling NTSync
+For NTSync to work, your kernel must be version 6.14 or newer and built with CONFIG_NTSYNC=y -OR- CONFIG_NTSYNC=m.
+If using CONFIG_NTSYNC=m, a module loading configuration is required followed by a reboot:
+
+/etc/modules-load.d/ntsync.conf
+```
+ntsync
+```
+You can also manually enable the module without reboot, just keep in mind the above configuration is needed for it to persist reboot:
+```
+sudo modprobe ntsync
+```
+
+Once NTSYNC is enabled on the system, if you launch a game with GE-Proton10-10 or newer using PROTON_LOG=1, steam will generate a log for the game in your home folder `steam-XXXXXX.log`. Inside that log you should see `wineserver: NTSync up and running!`
+
 
 ## Building
 
