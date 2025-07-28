@@ -1,7 +1,7 @@
-From c629055d421d67fbfe70dbb8ed4a20abfbba6495 Mon Sep 17 00:00:00 2001
+From 18ecffd4384809f183bd2cad92ec5defc12e1ac4 Mon Sep 17 00:00:00 2001
 From: Alexandros Frantzis <alexandros.frantzis@collabora.com>
 Date: Fri, 2 May 2025 16:59:04 +0300
-Subject: [PATCH 043/166] winewayland: Use ARGB buffers for shaped windows.
+Subject: [PATCH 043/177] winewayland: Use ARGB buffers for shaped windows.
 
 When we detect a shaped window, switch to ARGB buffers in order to
 be able to apply the shape (in a follow-up commit).

@@ -1,7 +1,7 @@
-From 49d55dc3d434aece96b5eb2939a20534482b0821 Mon Sep 17 00:00:00 2001
+From 01c1e28e9801df99e6333dd3fbb7cc2eb0031add Mon Sep 17 00:00:00 2001
 From: Elizabeth Figura <zfigura@codeweavers.com>
 Date: Mon, 7 Jul 2025 21:44:10 -0400
-Subject: [PATCH 165/166] ntsync implementation
+Subject: [PATCH 165/177] ntsync implementation
 
 ---
  dlls/ntdll/unix/esync.c        |   2 +-

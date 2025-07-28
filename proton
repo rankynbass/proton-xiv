@@ -43,7 +43,7 @@ from pathlib import Path
 #To enable debug logging, copy "user_settings.sample.py" to "user_settings.py"
 #and edit it if needed.
 
-CURRENT_PREFIX_VERSION="GE-Proton10-9"
+CURRENT_PREFIX_VERSION="GE-Proton10-10"
 
 PFX="Proton: "
 ld_path_var = "LD_LIBRARY_PATH"
@@ -1361,6 +1361,7 @@ def default_compat_config():
                 # Other issues arising from OWPR code path in apps, e. g., hitting unimplemented bits in
                 # d3dcompiler.
                 "230410", #Warframe
+                "3513350", #Wuthering Waves
                 ]:
             ret.add("noopwr")
 
@@ -1738,12 +1739,20 @@ class Session:
         self.check_environment("PROTON_FSR4_UPGRADE", "fsr4")
         self.check_environment("PROTON_NATIVE_AGS", "nativeags")
         self.check_environment("PROTON_ENABLE_HDR", "hdr")
-        self.check_environment("PROTON_USE_NTSYNC", "ntsync")
+        self.check_environment("PROTON_NO_NTSYNC", "nontsync")
 
-        if "ntsync" in self.compat_config:
-            self.env["WINENTSYNC"] = "1"
-        else:
+        if "PROTON_ADD_CONFIG" in self.env:
+            try:
+                configs = self.env["PROTON_ADD_CONFIG"].split(',')
+                for c in configs:
+                    self.compat_config.add(c)
+            except:
+                pass
+
+        if "nontsync" in self.compat_config:
             self.env.pop("WINENTSYNC", "")
+        else:
+            self.env["WINENTSYNC"] = "1"
 
         if "noesync" in self.compat_config:
             self.env.pop("WINEESYNC", "")
@@ -2058,6 +2067,8 @@ class Session:
                 # Make sure SDL will still work with the controllers, steam sets this for some dumb reason
                 if "SDL_GAMECONTROLLER_IGNORE_DEVICES" in self.env:
                     del self.env["SDL_GAMECONTROLLER_IGNORE_DEVICES"]
+                # Always prefer SDL when no steaminput is available, better for non-xbox controllers
+                self.env["PROTON_PREFER_SDL"] = "1"
 
         if "forcenvapi" in self.compat_config:
             self.env["DXVK_NVAPI_ALLOW_OTHER_DRIVERS"] = "1"

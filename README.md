@@ -9,11 +9,13 @@ Proton runs in a container, which uses a runtime environment and libraries speci
 If you want proton functionality -outside- of proton for non-steam games, umu-launcher is a cli tool that was designed to be able to mimic steam in running the entire containerized runtime environment it needs in order to run proton exactly as steam does without needing steam. Any other method is not supported. 
 
 [Lutris](https://lutris.net/) has already integrated UMU as the default backend used when `GE-Proton(Latest)` is selected as a wine runner either globally or for any specific game.  
-[Heroic](https://heroicgameslauncher.com/) have added it as a toggle option `Use UMU as Proton runtime` under Settings > Advanced.  
+[Heroic](https://heroicgameslauncher.com/) has also enabled UMU by default when using `GE-Proton`.
 
-## (2) If you have an issue that happens with my proton-GE build, provided FROM this repository, that does -not- happen on Valve's proton, please DO NOT open a bug report on Valve's bug tracker. Instead, contact me on Discord about the issue:
+## (2) If you have an issue that happens with my proton-GE build, provided FROM this repository, that does -not- happen on Valve's proton, please DO NOT open a bug report on Valve's bug tracker. 
 
-https://discord.gg/6y3BdzC
+## Instead, open an issue: https://github.com/GloriousEggroll/proton-ge-custom/issues 
+
+## or contact me on Discord about the issue: https://discord.gg/6y3BdzC
 
 ## (3)  Please note, this is a custom build of proton, and is -not- affiliated with Valve's proton.
 ## (4) Please also note I do not provide the flatpak of proton-GE, and I do not provide the AUR version of proton-GE. I will not assist with those.
@@ -61,6 +63,7 @@ Things it contains that Valve's Proton does not:
 - 'protonfixes' system -- this is an automated system that applies per-game fixes (such as winetricks, envvars, EAC workarounds, overrides, etc).
 - Various upstream WINE patches backported
 - Various wine-staging patches applied as they become needed
+- NTSync enablement if the kernel supports it.
 
 ## Notes
 
@@ -237,6 +240,24 @@ This unofficial build isn't supported by GloriousEggroll nor Valve and wasn't te
 4. Restart Steam.
 5. [Enable proton-ge-custom](#enabling).
 
+
+##### Enabling NTSync
+For NTSync to work, your kernel must be version 6.14 or newer and built with `CONFIG_NTSYNC=y` -OR- `CONFIG_NTSYNC=m`.
+If using `CONFIG_NTSYNC=m`, a module loading configuration is required followed by a reboot:
+
+/etc/modules-load.d/ntsync.conf
+```
+ntsync
+```
+You can also manually enable the module without reboot, just keep in mind the above configuration is needed for it to persist reboot:
+```
+sudo modprobe ntsync
+```
+After this, a device `/dev/ntsync` should now exist on your system.
+
+Once NTSYNC is enabled on the system, if you launch a game with GE-Proton10-10 or newer using PROTON_LOG=1, steam will generate a log for the game in your home folder `steam-XXXXXX.log`. Inside that log you should see `wineserver: NTSync up and running!`
+
+
 ## Building
 
 1. Clone this repo by executing:
@@ -294,6 +315,7 @@ Environment variable options:
 | <tt>nod3d9</tt>      | <tt>PROTON_NO_D3D9</tt>        | Disables DX9.  |
 | <tt>noesync</tt>      | <tt>PROTON_NO_ESYNC</tt>       | Do not use eventfd-based in-process synchronization primitives. |
 | <tt>nofsync</tt>      | <tt>PROTON_NO_FSYNC</tt>       | Do not use futex-based in-process synchronization primitives. (Automatically disabled on systems with no `FUTEX_WAIT_MULTIPLE` support.) |
+| <tt>nontsync</tt>      | <tt>PROTON_NO_NTSYNC</tt>       | Do not use ntsync kernel module for in-process synchronization primitives. |
 | <tt>forcelgadd</tt>   | <tt>PROTON_FORCE_LARGE_ADDRESS_AWARE</tt> | Force Wine to enable the LARGE_ADDRESS_AWARE flag for all executables. |
 | <tt>heapdelayfree</tt>| <tt>PROTON_HEAP_DELAY_FREE</tt>| Delay freeing some memory, to work around application use-after-free bugs. |
 | <tt>noxim</tt>        | <tt>PROTON_NO_XIM</tt>         | Enabled by default. Do not attempt to use XIM (X Input Methods) support. XIM support is known to cause crashes with libx11 older than version 1.7. |

@@ -1,7 +1,7 @@
-From a1eca21490e2596e32f1d77157b39b3e0d142e9f Mon Sep 17 00:00:00 2001
+From 1249a22388a4654dfd6614f9cd0c78ffb7d88a90 Mon Sep 17 00:00:00 2001
 From: NelloKudo <marshnelloosu@gmail.com>
 Date: Wed, 18 Jun 2025 19:23:02 +0200
-Subject: [PATCH 140/166] ntdll: Also trap syscalls in the top-down reserved
+Subject: [PATCH 140/177] ntdll: Also trap syscalls in the top-down reserved
  area
 
 Backport of wine-staging patch from "mkrsym1@gmail.com".

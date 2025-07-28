@@ -1,8 +1,8 @@
-From 4c8d9f314fc4f0258c2edf656e6fea0ee2c4b0cc Mon Sep 17 00:00:00 2001
+From 46f848685ef786141939d8d33a9d58a09be6abd6 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Sun, 22 Jun 2025 12:17:00 -0400
-Subject: [PATCH 133/166] Revert "setupapi: Don't use NULL as key value in
+Subject: [PATCH 133/177] Revert "setupapi: Don't use NULL as key value in
  get_device_property()."
 
 This reverts commit 3a090968a7e7e7d2290797e9fd672a9c41a24981.
@@ -11,10 +11,10 @@ This reverts commit 3a090968a7e7e7d2290797e9fd672a9c41a24981.
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/dlls/setupapi/devinst.c b/dlls/setupapi/devinst.c
-index 3abd781ed50..f6df1025005 100644
+index f660f454ec9..fe60e47e98c 100644
 --- a/dlls/setupapi/devinst.c
 +++ b/dlls/setupapi/devinst.c
-@@ -4983,7 +4983,7 @@ static LSTATUS get_device_property(struct device *device, const DEVPROPKEY *prop
+@@ -4979,7 +4979,7 @@ static LSTATUS get_device_property(struct device *device, const DEVPROPKEY *prop
      if (!ls)
      {
          value_size = prop_buff_size;

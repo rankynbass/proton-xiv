@@ -1,7 +1,7 @@
-From 499f181624fe7ff897f00807517da6c92594be3b Mon Sep 17 00:00:00 2001
+From 159c0c314aa10dc6a07c10e427a8bd971a075725 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty <etaash.mathamsetty@gmail.com>
 Date: Mon, 20 Jan 2025 15:40:46 -0500
-Subject: [PATCH 035/166] wine.inf: Don't clobber UBR key.
+Subject: [PATCH 035/177] wine.inf: Don't clobber UBR key.
 
 ---
  loader/wine.inf.in | 2 +-

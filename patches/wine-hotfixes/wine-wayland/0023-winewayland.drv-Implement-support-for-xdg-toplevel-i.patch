@@ -1,7 +1,7 @@
-From 6d4cad7e78bb41ca6abcc877797d2bc305235f7b Mon Sep 17 00:00:00 2001
+From ab59a9b68115683a6db93c082ed12da1599d13d4 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty <etaash.mathamsetty@gmail.com>
 Date: Sun, 1 Dec 2024 13:36:40 -0500
-Subject: [PATCH 023/166] winewayland.drv: Implement support for
+Subject: [PATCH 023/177] winewayland.drv: Implement support for
  xdg-toplevel-icon.
 
 ---

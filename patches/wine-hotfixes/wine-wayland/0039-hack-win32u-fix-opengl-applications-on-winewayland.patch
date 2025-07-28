@@ -1,8 +1,8 @@
-From c72447a4ce431260f88e0d82cf0c6a5993443b6a Mon Sep 17 00:00:00 2001
+From d4c9a6406e912b3bef76c8169e9074bc7aa5dabe Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Sat, 10 May 2025 12:22:40 -0400
-Subject: [PATCH 039/166] hack: win32u: fix opengl applications on winewayland
+Subject: [PATCH 039/177] hack: win32u: fix opengl applications on winewayland
 
 ---
  dlls/win32u/window.c                   | 3 ++-

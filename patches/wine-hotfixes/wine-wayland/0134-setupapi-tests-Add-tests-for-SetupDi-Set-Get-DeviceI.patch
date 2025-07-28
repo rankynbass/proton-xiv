@@ -1,7 +1,7 @@
-From 5a11dfec6caf7307fc08abfb0b747ea1c9895028 Mon Sep 17 00:00:00 2001
+From 846d41505baa333f6509b5e1fc9ede2c81f5d2dc Mon Sep 17 00:00:00 2001
 From: Vibhav Pant <vibhavp@gmail.com>
 Date: Wed, 18 Jun 2025 23:32:50 +0530
-Subject: [PATCH 134/166] setupapi/tests: Add tests for
+Subject: [PATCH 134/177] setupapi/tests: Add tests for
  SetupDi{Set,Get}DeviceInterfacePropertyW.
 
 ---
@@ -12,10 +12,10 @@ Subject: [PATCH 134/166] setupapi/tests: Add tests for
  4 files changed, 177 insertions(+)
 
 diff --git a/dlls/setupapi/devinst.c b/dlls/setupapi/devinst.c
-index f6df1025005..059fcb93698 100644
+index fe60e47e98c..ddc683f182a 100644
 --- a/dlls/setupapi/devinst.c
 +++ b/dlls/setupapi/devinst.c
-@@ -3186,6 +3186,26 @@ BOOL WINAPI SetupDiGetDeviceInterfaceDetailW(HDEVINFO devinfo, SP_DEVICE_INTERFA
+@@ -3188,6 +3188,26 @@ BOOL WINAPI SetupDiGetDeviceInterfaceDetailW(HDEVINFO devinfo, SP_DEVICE_INTERFA
      return ret;
  }
  

@@ -1,8 +1,8 @@
-From 82c0a6a53a5349c31a8c9a503626e9afa5e196ff Mon Sep 17 00:00:00 2001
+From 5a62d78c31fc49cc436aa4c4444f5e0d94b5f573 Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Tue, 10 Jun 2025 22:11:41 -0400
-Subject: [PATCH 096/166] winewayland: Implement HasWindowManager fully
+Subject: [PATCH 096/177] winewayland: Implement HasWindowManager fully
 
 ---
  dlls/winewayland.drv/window_surface.c | 10 +++++++++-

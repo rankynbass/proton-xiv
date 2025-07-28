@@ -1,8 +1,8 @@
-From 2b118fbb0c3b4a9e2c035fd7d4d43bb09e0cbb68 Mon Sep 17 00:00:00 2001
+From 18f271c5192de977d92e1886a5d59c29fd5458dd Mon Sep 17 00:00:00 2001
 From: Etaash Mathamsetty
  <45927311+Etaash-mathamsetty@users.noreply.github.com>
 Date: Tue, 13 May 2025 16:29:55 -0400
-Subject: [PATCH 046/166] ntdll: remove outdated workaround for rainbow six
+Subject: [PATCH 046/177] ntdll: remove outdated workaround for rainbow six
  extraction
 
 ---

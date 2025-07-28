@@ -1,7 +1,7 @@
-From e64ef4dbf752432fc448f2c0460f9e69922c4173 Mon Sep 17 00:00:00 2001
+From c9f3a9823d4ba69904d57e373f00210133d76578 Mon Sep 17 00:00:00 2001
 From: Alex Henrie <alexhenrie24@gmail.com>
 Date: Sun, 22 Jun 2025 12:06:55 -0400
-Subject: [PATCH 128/166] setupapi: Use wide character string literals.
+Subject: [PATCH 128/177] setupapi: Use wide character string literals.
 
 ---
  dlls/setupapi/devinst.c   | 306 +++++++++++++++-----------------------
@@ -12,7 +12,7 @@ Subject: [PATCH 128/166] setupapi: Use wide character string literals.
  5 files changed, 148 insertions(+), 263 deletions(-)
 
 diff --git a/dlls/setupapi/devinst.c b/dlls/setupapi/devinst.c
-index f6675ee7840..3abd781ed50 100644
+index 1dc9f8237ca..f660f454ec9 100644
 --- a/dlls/setupapi/devinst.c
 +++ b/dlls/setupapi/devinst.c
 @@ -50,67 +50,21 @@
@@ -166,7 +166,7 @@ index f6675ee7840..3abd781ed50 100644
      WCHAR guidStr[39];
      DWORD len;
      LPWSTR ret;
-@@ -470,10 +417,10 @@ static BOOL is_linked(HKEY key)
+@@ -468,10 +415,10 @@ static BOOL is_linked(HKEY key)
      HKEY control_key;
      BOOL ret = FALSE;
  
@@ -179,7 +179,7 @@ index f6675ee7840..3abd781ed50 100644
                  && type == REG_DWORD && linked)
              ret = TRUE;
  
-@@ -531,7 +478,7 @@ static struct device_iface *SETUPDI_CreateDeviceInterface(struct device *device,
+@@ -529,7 +476,7 @@ static struct device_iface *SETUPDI_CreateDeviceInterface(struct device *device,
          SetLastError(ret);
          goto err;
      }
@@ -188,7 +188,7 @@ index f6675ee7840..3abd781ed50 100644
          lstrlenW(device->instanceId) * sizeof(WCHAR));
      free(path);
  
-@@ -548,7 +495,7 @@ static struct device_iface *SETUPDI_CreateDeviceInterface(struct device *device,
+@@ -546,7 +493,7 @@ static struct device_iface *SETUPDI_CreateDeviceInterface(struct device *device,
          SetLastError(ret);
          goto err;
      }
@@ -197,7 +197,7 @@ index f6675ee7840..3abd781ed50 100644
          lstrlenW(iface->symlink) * sizeof(WCHAR));
  
      if (is_linked(key))
-@@ -608,7 +555,7 @@ static LONG open_driver_key(struct device *device, REGSAM access, HKEY *key)
+@@ -606,7 +553,7 @@ static LONG open_driver_key(struct device *device, REGSAM access, HKEY *key)
          return l;
      }
  
@@ -206,7 +206,7 @@ index f6675ee7840..3abd781ed50 100644
      {
          if (!(l = RegOpenKeyExW(class_key, path, 0, access, key)))
          {
-@@ -624,8 +571,6 @@ static LONG open_driver_key(struct device *device, REGSAM access, HKEY *key)
+@@ -622,8 +569,6 @@ static LONG open_driver_key(struct device *device, REGSAM access, HKEY *key)
  
  static LONG create_driver_key(struct device *device, HKEY *key)
  {
@@ -215,7 +215,7 @@ index f6675ee7840..3abd781ed50 100644
      unsigned int i = 0;
      WCHAR path[50];
      HKEY class_key;
-@@ -643,17 +588,17 @@ static LONG create_driver_key(struct device *device, HKEY *key)
+@@ -641,17 +586,17 @@ static LONG create_driver_key(struct device *device, HKEY *key)
      }
  
      SETUPDI_GuidToString(&device->class, path);
@@ -236,7 +236,7 @@ index f6675ee7840..3abd781ed50 100644
              RegCloseKey(class_key);
              return ERROR_SUCCESS;
          }
-@@ -671,7 +616,7 @@ static LONG delete_driver_key(struct device *device)
+@@ -669,7 +614,7 @@ static LONG delete_driver_key(struct device *device)
  
      if (!(l = open_driver_key(device, KEY_READ | KEY_WRITE, &key)))
      {
@@ -245,7 +245,7 @@ index f6675ee7840..3abd781ed50 100644
          RegCloseKey(key);
      }
  
-@@ -685,28 +630,30 @@ struct PropertyMapEntry
+@@ -683,28 +628,30 @@ struct PropertyMapEntry
      LPCWSTR nameW;
  };
  
@@ -292,7 +292,7 @@ index f6675ee7840..3abd781ed50 100644
  
  static BOOL SETUPDI_SetDeviceRegistryPropertyW(struct device *device,
      DWORD prop, const BYTE *buffer, DWORD size)
-@@ -726,11 +673,11 @@ static BOOL SETUPDI_SetDeviceRegistryPropertyW(struct device *device,
+@@ -724,11 +671,11 @@ static BOOL SETUPDI_SetDeviceRegistryPropertyW(struct device *device,
  static void remove_device_iface(struct device_iface *iface)
  {
      RegDeleteTreeW(iface->refstr_key, NULL);
@@ -306,7 +306,7 @@ index f6675ee7840..3abd781ed50 100644
      RegCloseKey(iface->class_key);
      iface->class_key = NULL;
      iface->flags |= SPINT_REMOVED;
-@@ -835,7 +782,7 @@ static void remove_device(struct device *device)
+@@ -833,7 +780,7 @@ static void remove_device(struct device *device)
      }
  
      RegDeleteTreeW(device->key, NULL);
@@ -315,7 +315,7 @@ index f6675ee7840..3abd781ed50 100644
  
      /* delete all empty parents of the key */
      if (!RegOpenKeyExW(HKEY_LOCAL_MACHINE, Enum, 0, 0, &enum_key))
-@@ -931,7 +878,7 @@ static struct device *create_device(struct DeviceInfoSet *set,
+@@ -929,7 +876,7 @@ static struct device *create_device(struct DeviceInfoSet *set,
      device->params.cbSize = sizeof(SP_DEVINSTALL_PARAMS_W);
  
      if (phantom)
@@ -324,7 +324,7 @@ index f6675ee7840..3abd781ed50 100644
  
      SETUPDI_GuidToString(class, guidstr);
      SETUPDI_SetDeviceRegistryPropertyW(device, SPDRP_CLASSGUID,
-@@ -1119,7 +1066,7 @@ BOOL WINAPI SetupDiBuildClassInfoListExW(
+@@ -1117,7 +1064,7 @@ BOOL WINAPI SetupDiBuildClassInfoListExW(
  	    }
  
  	    if (!RegQueryValueExW(hClassKey,
@@ -333,7 +333,7 @@ index f6675ee7840..3abd781ed50 100644
  				  NULL,
  				  NULL,
  				  NULL,
-@@ -1132,7 +1079,7 @@ BOOL WINAPI SetupDiBuildClassInfoListExW(
+@@ -1130,7 +1077,7 @@ BOOL WINAPI SetupDiBuildClassInfoListExW(
  
  	    if ((Flags & DIBCI_NOINSTALLCLASS) &&
  		(!RegQueryValueExW(hClassKey,
@@ -342,7 +342,7 @@ index f6675ee7840..3abd781ed50 100644
  				   NULL,
  				   NULL,
  				   NULL,
-@@ -1145,7 +1092,7 @@ BOOL WINAPI SetupDiBuildClassInfoListExW(
+@@ -1143,7 +1090,7 @@ BOOL WINAPI SetupDiBuildClassInfoListExW(
  
  	    if ((Flags & DIBCI_NODISPLAYCLASS) &&
  		(!RegQueryValueExW(hClassKey,
@@ -351,7 +351,7 @@ index f6675ee7840..3abd781ed50 100644
  				   NULL,
  				   NULL,
  				   NULL,
-@@ -1320,7 +1267,7 @@ BOOL WINAPI SetupDiClassGuidsFromNameExW(
+@@ -1318,7 +1265,7 @@ BOOL WINAPI SetupDiClassGuidsFromNameExW(
  
  	    dwLength = sizeof(szClassName);
  	    if (!RegQueryValueExW(hClassKey,
@@ -360,7 +360,7 @@ index f6675ee7840..3abd781ed50 100644
  				  NULL,
  				  NULL,
  				  (LPBYTE)szClassName,
-@@ -1457,7 +1404,7 @@ BOOL WINAPI SetupDiClassNameFromGuidExW(
+@@ -1455,7 +1402,7 @@ BOOL WINAPI SetupDiClassNameFromGuidExW(
      {
  	dwLength = 0;
  	if (RegQueryValueExW(hKey,
@@ -369,7 +369,7 @@ index f6675ee7840..3abd781ed50 100644
  			     NULL,
  			     NULL,
  			     NULL,
-@@ -1472,7 +1419,7 @@ BOOL WINAPI SetupDiClassNameFromGuidExW(
+@@ -1470,7 +1417,7 @@ BOOL WINAPI SetupDiClassNameFromGuidExW(
  
      dwLength = ClassNameSize * sizeof(WCHAR);
      if (RegQueryValueExW(hKey,
@@ -378,7 +378,7 @@ index f6675ee7840..3abd781ed50 100644
  			 NULL,
  			 NULL,
  			 (LPBYTE)ClassName,
-@@ -1658,7 +1605,7 @@ HKEY WINAPI SetupDiCreateDevRegKeyW(HDEVINFO devinfo, SP_DEVINFO_DATA *device_da
+@@ -1656,7 +1603,7 @@ HKEY WINAPI SetupDiCreateDevRegKeyW(HDEVINFO devinfo, SP_DEVINFO_DATA *device_da
      switch (KeyType)
      {
          case DIREG_DEV:
@@ -387,7 +387,7 @@ index f6675ee7840..3abd781ed50 100644
                      KEY_READ | KEY_WRITE, NULL, &key, NULL);
              break;
          case DIREG_DRV:
-@@ -1748,7 +1695,6 @@ BOOL WINAPI SetupDiCreateDeviceInfoW(HDEVINFO devinfo, const WCHAR *name, const
+@@ -1746,7 +1693,6 @@ BOOL WINAPI SetupDiCreateDeviceInfoW(HDEVINFO devinfo, const WCHAR *name, const
      }
      if ((flags & DICD_GENERATE_ID))
      {
@@ -395,7 +395,7 @@ index f6675ee7840..3abd781ed50 100644
          unsigned int instance_id;
  
          if (wcschr(name, '\\'))
-@@ -1759,7 +1705,7 @@ BOOL WINAPI SetupDiCreateDeviceInfoW(HDEVINFO devinfo, const WCHAR *name, const
+@@ -1757,7 +1703,7 @@ BOOL WINAPI SetupDiCreateDeviceInfoW(HDEVINFO devinfo, const WCHAR *name, const
  
          for (instance_id = 0; ; ++instance_id)
          {
@@ -404,7 +404,7 @@ index f6675ee7840..3abd781ed50 100644
              {
                  SetLastError(ERROR_INVALID_DEVINST_NAME);
                  return FALSE;
-@@ -1838,7 +1784,7 @@ BOOL WINAPI SetupDiRegisterDeviceInfo(HDEVINFO devinfo, SP_DEVINFO_DATA *device_
+@@ -1836,7 +1782,7 @@ BOOL WINAPI SetupDiRegisterDeviceInfo(HDEVINFO devinfo, SP_DEVINFO_DATA *device_
      if (device->phantom)
      {
          device->phantom = FALSE;
@@ -413,7 +413,7 @@ index f6675ee7840..3abd781ed50 100644
      }
      return TRUE;
  }
-@@ -2101,14 +2047,14 @@ BOOL WINAPI SetupDiGetActualSectionToInstallExW(HINF hinf, const WCHAR *section,
+@@ -2099,14 +2045,14 @@ BOOL WINAPI SetupDiGetActualSectionToInstallExW(HINF hinf, const WCHAR *section,
          if (line_count == -1)
          {
              /* Test section name with '.NT' extension */
@@ -430,7 +430,7 @@ index f6675ee7840..3abd781ed50 100644
          line_count = SetupGetLineCountW(hinf, buffer);
      }
  
-@@ -2350,7 +2296,7 @@ static void SETUPDI_AddDeviceInterfaces(struct device *device, HKEY key,
+@@ -2348,7 +2294,7 @@ static void SETUPDI_AddDeviceInterfaces(struct device *device, HKEY key,
                          iface = SETUPDI_CreateDeviceInterface(device, guid, subKeyName + 1);
  
                          len = sizeof(symbolicLink);
@@ -439,7 +439,7 @@ index f6675ee7840..3abd781ed50 100644
                                  (BYTE *)symbolicLink, &len);
                          if (!l && dataType == REG_SZ)
                              SETUPDI_SetInterfaceSymbolicLink(iface, symbolicLink);
-@@ -2393,7 +2339,7 @@ static void SETUPDI_EnumerateMatchingInterfaces(HDEVINFO DeviceInfoSet,
+@@ -2391,7 +2337,7 @@ static void SETUPDI_EnumerateMatchingInterfaces(HDEVINFO DeviceInfoSet,
                  DWORD dataType;
  
                  len = sizeof(deviceInst);
@@ -448,7 +448,7 @@ index f6675ee7840..3abd781ed50 100644
                          (BYTE *)deviceInst, &len);
                  if (!l && dataType == REG_SZ)
                  {
-@@ -2409,7 +2355,7 @@ static void SETUPDI_EnumerateMatchingInterfaces(HDEVINFO DeviceInfoSet,
+@@ -2407,7 +2353,7 @@ static void SETUPDI_EnumerateMatchingInterfaces(HDEVINFO DeviceInfoSet,
                              WCHAR deviceClassStr[40];
  
                              len = sizeof(deviceClassStr);
@@ -457,7 +457,7 @@ index f6675ee7840..3abd781ed50 100644
                                      &dataType, (BYTE *)deviceClassStr, &len);
                              if (!l && dataType == REG_SZ &&
                                      deviceClassStr[0] == '{' &&
-@@ -2531,7 +2477,7 @@ static BOOL is_device_instance_linked(HKEY interfacesKey, const WCHAR *deviceIns
+@@ -2529,7 +2475,7 @@ static BOOL is_device_instance_linked(HKEY interfacesKey, const WCHAR *deviceIns
                  continue;
  
              len = ARRAY_SIZE(interface_devinstance);
@@ -466,7 +466,7 @@ index f6675ee7840..3abd781ed50 100644
              if (l || type != REG_SZ)
              {
                  RegCloseKey(device_key);
-@@ -2545,7 +2491,7 @@ static BOOL is_device_instance_linked(HKEY interfacesKey, const WCHAR *deviceIns
+@@ -2543,7 +2489,7 @@ static BOOL is_device_instance_linked(HKEY interfacesKey, const WCHAR *deviceIns
                  continue;
              }
  
@@ -475,7 +475,7 @@ index f6675ee7840..3abd781ed50 100644
              if (l)
              {
                  RegCloseKey(device_key);
-@@ -2598,7 +2544,7 @@ static void SETUPDI_EnumerateMatchingDeviceInstances(struct DeviceInfoSet *set,
+@@ -2596,7 +2542,7 @@ static void SETUPDI_EnumerateMatchingDeviceInstances(struct DeviceInfoSet *set,
                  DWORD dataType;
  
                  len = sizeof(classGuid);
@@ -484,7 +484,7 @@ index f6675ee7840..3abd781ed50 100644
                          (BYTE *)classGuid, &len);
                  if (!l && dataType == REG_SZ)
                  {
-@@ -2940,7 +2886,7 @@ HKEY WINAPI SetupDiCreateDeviceInterfaceRegKeyA(
+@@ -2938,7 +2884,7 @@ HKEY WINAPI SetupDiCreateDeviceInterfaceRegKeyA(
  
  static LONG create_iface_key(const struct device_iface *iface, REGSAM access, HKEY *key)
  {
@@ -493,7 +493,7 @@ index f6675ee7840..3abd781ed50 100644
  }
  
  /***********************************************************************
-@@ -2990,7 +2936,7 @@ BOOL WINAPI SetupDiDeleteDeviceInterfaceRegKey(HDEVINFO devinfo,
+@@ -2988,7 +2934,7 @@ BOOL WINAPI SetupDiDeleteDeviceInterfaceRegKey(HDEVINFO devinfo,
      if (!(iface = get_device_iface(devinfo, iface_data)))
          return FALSE;
  
@@ -502,7 +502,7 @@ index f6675ee7840..3abd781ed50 100644
      if (ret)
      {
          SetLastError(ret);
-@@ -3401,7 +3347,6 @@ BOOL WINAPI SetupDiInstallClassA(
+@@ -3403,7 +3349,6 @@ BOOL WINAPI SetupDiInstallClassA(
  
  static HKEY CreateClassKey(HINF hInf)
  {
@@ -510,7 +510,7 @@ index f6675ee7840..3abd781ed50 100644
      WCHAR FullBuffer[MAX_PATH];
      WCHAR Buffer[MAX_PATH];
      DWORD RequiredSize;
-@@ -3409,8 +3354,8 @@ static HKEY CreateClassKey(HINF hInf)
+@@ -3411,8 +3356,8 @@ static HKEY CreateClassKey(HINF hInf)
  
      if (!SetupGetLineTextW(NULL,
  			   hInf,
@@ -521,7 +521,7 @@ index f6675ee7840..3abd781ed50 100644
  			   Buffer,
  			   MAX_PATH,
  			   &RequiredSize))
-@@ -3419,7 +3364,7 @@ static HKEY CreateClassKey(HINF hInf)
+@@ -3421,7 +3366,7 @@ static HKEY CreateClassKey(HINF hInf)
      }
  
      lstrcpyW(FullBuffer, ControlClass);
@@ -530,7 +530,7 @@ index f6675ee7840..3abd781ed50 100644
      lstrcatW(FullBuffer, Buffer);
  
      if (RegOpenKeyExW(HKEY_LOCAL_MACHINE,
-@@ -3430,8 +3375,8 @@ static HKEY CreateClassKey(HINF hInf)
+@@ -3432,8 +3377,8 @@ static HKEY CreateClassKey(HINF hInf)
      {
  	if (!SetupGetLineTextW(NULL,
  			       hInf,
@@ -541,7 +541,7 @@ index f6675ee7840..3abd781ed50 100644
  			       Buffer,
  			       MAX_PATH,
  			       &RequiredSize))
-@@ -3455,7 +3400,7 @@ static HKEY CreateClassKey(HINF hInf)
+@@ -3457,7 +3402,7 @@ static HKEY CreateClassKey(HINF hInf)
      }
  
      if (RegSetValueExW(hClassKey,
@@ -550,7 +550,7 @@ index f6675ee7840..3abd781ed50 100644
  		       0,
  		       REG_SZ,
  		       (LPBYTE)Buffer,
-@@ -3524,7 +3469,7 @@ BOOL WINAPI SetupDiInstallClassW(
+@@ -3526,7 +3471,7 @@ BOOL WINAPI SetupDiInstallClassW(
  
      /* Retrieve the actual section name */
      SetupDiGetActualSectionToInstallW(hInf,
@@ -559,7 +559,7 @@ index f6675ee7840..3abd781ed50 100644
  				      SectionName,
  				      MAX_PATH,
  				      &SectionNameLength,
-@@ -3752,12 +3697,12 @@ BOOL WINAPI SetupDiOpenDeviceInfoW(HDEVINFO devinfo, PCWSTR instance_id, HWND hw
+@@ -3754,12 +3699,12 @@ BOOL WINAPI SetupDiOpenDeviceInfoW(HDEVINFO devinfo, PCWSTR instance_id, HWND hw
  
      /* If it's an unregistered instance, aka phantom instance, report ERROR_NO_SUCH_DEVINST */
      size = sizeof(phantom);
@@ -574,7 +574,7 @@ index f6675ee7840..3abd781ed50 100644
          goto done;
  
      classW[37] = 0;
-@@ -3863,7 +3808,7 @@ HKEY WINAPI SetupDiOpenDeviceInterfaceRegKey(HDEVINFO devinfo, PSP_DEVICE_INTERF
+@@ -3865,7 +3810,7 @@ HKEY WINAPI SetupDiOpenDeviceInterfaceRegKey(HDEVINFO devinfo, PSP_DEVICE_INTERF
      if (!(iface = get_device_iface(devinfo, iface_data)))
          return INVALID_HANDLE_VALUE;
  
@@ -583,7 +583,7 @@ index f6675ee7840..3abd781ed50 100644
      if (lr)
      {
          SetLastError(lr);
-@@ -3954,12 +3899,7 @@ static BOOL call_coinstallers(WCHAR *list, DI_FUNCTION function, HDEVINFO devinf
+@@ -3956,12 +3901,7 @@ static BOOL call_coinstallers(WCHAR *list, DI_FUNCTION function, HDEVINFO devinf
   */
  BOOL WINAPI SetupDiCallClassInstaller(DI_FUNCTION function, HDEVINFO devinfo, SP_DEVINFO_DATA *device_data)
  {
@@ -597,7 +597,7 @@ index f6675ee7840..3abd781ed50 100644
      DWORD (CALLBACK *classinst_proc)(DI_FUNCTION, HDEVINFO, SP_DEVINFO_DATA *);
      DWORD ret = ERROR_DI_DO_DEFAULT;
      HKEY class_key, coinst_key;
-@@ -3994,10 +3934,10 @@ BOOL WINAPI SetupDiCallClassInstaller(DI_FUNCTION function, HDEVINFO devinfo, SP
+@@ -3996,10 +3936,10 @@ BOOL WINAPI SetupDiCallClassInstaller(DI_FUNCTION function, HDEVINFO devinfo, SP
  
      if (!open_driver_key(device, KEY_READ, &coinst_key))
      {
@@ -610,7 +610,7 @@ index f6675ee7840..3abd781ed50 100644
                  coret = call_coinstallers(path, function, devinfo, device_data);
              free(path);
          }
-@@ -4006,10 +3946,10 @@ BOOL WINAPI SetupDiCallClassInstaller(DI_FUNCTION function, HDEVINFO devinfo, SP
+@@ -4008,10 +3948,10 @@ BOOL WINAPI SetupDiCallClassInstaller(DI_FUNCTION function, HDEVINFO devinfo, SP
  
      if ((class_key = SetupDiOpenClassRegKey(&device->class, KEY_READ)) != INVALID_HANDLE_VALUE)
      {
@@ -623,7 +623,7 @@ index f6675ee7840..3abd781ed50 100644
              {
                  TRACE("Found class installer %s.\n", debugstr_w(path));
                  if ((procnameW = wcschr(path, ',')))
-@@ -4178,8 +4118,6 @@ BOOL WINAPI SetupDiSetDeviceInstallParamsW(HDEVINFO devinfo,
+@@ -4180,8 +4120,6 @@ BOOL WINAPI SetupDiSetDeviceInstallParamsW(HDEVINFO devinfo,
  BOOL WINAPI SetupDiSetDevicePropertyW(HDEVINFO devinfo, PSP_DEVINFO_DATA device_data, const DEVPROPKEY *key,
                                        DEVPROPTYPE type, const BYTE *buffer, DWORD size, DWORD flags)
  {
@@ -632,7 +632,7 @@ index f6675ee7840..3abd781ed50 100644
      struct device *device;
      HKEY properties_hkey, property_hkey;
      WCHAR property_hkey_path[44];
-@@ -4210,7 +4148,7 @@ BOOL WINAPI SetupDiSetDevicePropertyW(HDEVINFO devinfo, PSP_DEVINFO_DATA device_
+@@ -4212,7 +4150,7 @@ BOOL WINAPI SetupDiSetDevicePropertyW(HDEVINFO devinfo, PSP_DEVINFO_DATA device_
          return FALSE;
      }
  
@@ -641,7 +641,7 @@ index f6675ee7840..3abd781ed50 100644
      if (ls)
      {
          SetLastError(ls);
-@@ -4218,7 +4156,7 @@ BOOL WINAPI SetupDiSetDevicePropertyW(HDEVINFO devinfo, PSP_DEVINFO_DATA device_
+@@ -4220,7 +4158,7 @@ BOOL WINAPI SetupDiSetDevicePropertyW(HDEVINFO devinfo, PSP_DEVINFO_DATA device_
      }
  
      SETUPDI_GuidToString(&key->fmtid, property_hkey_path);
@@ -650,7 +650,7 @@ index f6675ee7840..3abd781ed50 100644
  
      if (type == DEVPROP_TYPE_EMPTY)
      {
-@@ -4291,7 +4229,7 @@ HKEY WINAPI SetupDiOpenDevRegKey(HDEVINFO devinfo, SP_DEVINFO_DATA *device_data,
+@@ -4293,7 +4231,7 @@ HKEY WINAPI SetupDiOpenDevRegKey(HDEVINFO devinfo, SP_DEVINFO_DATA *device_data,
      switch (KeyType)
      {
          case DIREG_DEV:
@@ -659,7 +659,7 @@ index f6675ee7840..3abd781ed50 100644
              break;
          case DIREG_DRV:
              l = open_driver_key(device, samDesired, &key);
-@@ -4347,7 +4285,7 @@ BOOL WINAPI SetupDiDeleteDevRegKey(HDEVINFO devinfo, SP_DEVINFO_DATA *device_dat
+@@ -4349,7 +4287,7 @@ BOOL WINAPI SetupDiDeleteDevRegKey(HDEVINFO devinfo, SP_DEVINFO_DATA *device_dat
                  break;
              /* fall through */
          case DIREG_DEV:
@@ -668,7 +668,7 @@ index f6675ee7840..3abd781ed50 100644
              break;
          default:
              FIXME("Unhandled type %#lx.\n", KeyType);
-@@ -4945,7 +4883,7 @@ BOOL WINAPI SetupDiGetINFClassW(PCWSTR inf, LPGUID class_guid, PWSTR class_name,
+@@ -4941,7 +4879,7 @@ BOOL WINAPI SetupDiGetINFClassW(PCWSTR inf, LPGUID class_guid, PWSTR class_name,
          return FALSE;
      }
  
@@ -677,7 +677,7 @@ index f6675ee7840..3abd781ed50 100644
      {
          ERR("INF file %s does not have mandatory [Version].Signature\n", debugstr_w(inf));
          goto out;
-@@ -4957,13 +4895,13 @@ BOOL WINAPI SetupDiGetINFClassW(PCWSTR inf, LPGUID class_guid, PWSTR class_name,
+@@ -4953,13 +4891,13 @@ BOOL WINAPI SetupDiGetINFClassW(PCWSTR inf, LPGUID class_guid, PWSTR class_name,
          goto out;
      }
  
@@ -693,7 +693,7 @@ index f6675ee7840..3abd781ed50 100644
  
      if (have_guid)
      {
-@@ -4982,7 +4920,7 @@ BOOL WINAPI SetupDiGetINFClassW(PCWSTR inf, LPGUID class_guid, PWSTR class_name,
+@@ -4978,7 +4916,7 @@ BOOL WINAPI SetupDiGetINFClassW(PCWSTR inf, LPGUID class_guid, PWSTR class_name,
          }
      }
  
@@ -702,7 +702,7 @@ index f6675ee7840..3abd781ed50 100644
  
      class_name_len = 0;
      if (have_name)
-@@ -5300,8 +5238,8 @@ BOOL WINAPI SetupDiInstallDeviceInterfaces(HDEVINFO devinfo, SP_DEVINFO_DATA *de
+@@ -5296,8 +5234,8 @@ BOOL WINAPI SetupDiInstallDeviceInterfaces(HDEVINFO devinfo, SP_DEVINFO_DATA *de
  
      callback_ctx = SetupInitDefaultQueueCallback(NULL);
  
@@ -713,7 +713,7 @@ index f6675ee7840..3abd781ed50 100644
      {
          do {
              SetupGetStringFieldW(&ctx, 1, guidstr, ARRAY_SIZE(guidstr), NULL);
-@@ -5326,7 +5264,7 @@ BOOL WINAPI SetupDiInstallDeviceInterfaces(HDEVINFO devinfo, SP_DEVINFO_DATA *de
+@@ -5322,7 +5260,7 @@ BOOL WINAPI SetupDiInstallDeviceInterfaces(HDEVINFO devinfo, SP_DEVINFO_DATA *de
                      NULL, SP_COPY_NEWER_ONLY, SetupDefaultQueueCallbackW, callback_ctx, NULL, NULL);
  
              RegCloseKey(iface_key);
@@ -722,7 +722,7 @@ index f6675ee7840..3abd781ed50 100644
      }
  
      SetupTermDefaultQueueCallback(callback_ctx);
-@@ -5340,7 +5278,6 @@ BOOL WINAPI SetupDiInstallDeviceInterfaces(HDEVINFO devinfo, SP_DEVINFO_DATA *de
+@@ -5336,7 +5274,6 @@ BOOL WINAPI SetupDiInstallDeviceInterfaces(HDEVINFO devinfo, SP_DEVINFO_DATA *de
   */
  BOOL WINAPI SetupDiRegisterCoDeviceInstallers(HDEVINFO devinfo, SP_DEVINFO_DATA *device_data)
  {
@@ -730,7 +730,7 @@ index f6675ee7840..3abd781ed50 100644
      WCHAR coinst_key_ext[LINE_LEN];
      struct device *device;
      struct driver *driver;
-@@ -5365,7 +5302,7 @@ BOOL WINAPI SetupDiRegisterCoDeviceInstallers(HDEVINFO devinfo, SP_DEVINFO_DATA
+@@ -5361,7 +5298,7 @@ BOOL WINAPI SetupDiRegisterCoDeviceInstallers(HDEVINFO devinfo, SP_DEVINFO_DATA
          return FALSE;
  
      SetupDiGetActualSectionToInstallW(hinf, driver->section, coinst_key_ext, ARRAY_SIZE(coinst_key_ext), NULL, NULL);
@@ -739,7 +739,7 @@ index f6675ee7840..3abd781ed50 100644
  
      if ((l = create_driver_key(device, &driver_key)))
      {
-@@ -5424,16 +5361,16 @@ static BOOL version_is_compatible(const WCHAR *version)
+@@ -5420,16 +5357,16 @@ static BOOL version_is_compatible(const WCHAR *version)
      if ((p = wcschr(version, '.')))
          len = p - version;
  
@@ -759,7 +759,7 @@ index f6675ee7840..3abd781ed50 100644
          machine_ext = wow_ext;
  #endif
      }
-@@ -5460,7 +5397,6 @@ static bool any_version_is_compatible(INFCONTEXT *ctx)
+@@ -5456,7 +5393,6 @@ static bool any_version_is_compatible(INFCONTEXT *ctx)
  
  static void enum_compat_drivers_from_file(struct device *device, const WCHAR *path)
  {
@@ -767,7 +767,7 @@ index f6675ee7840..3abd781ed50 100644
      WCHAR mfg_key[LINE_LEN], id[MAX_DEVICE_ID_LEN];
      DWORD i, j, k, driver_count = device->driver_count;
      struct driver driver, *drivers = device->drivers;
-@@ -5475,7 +5411,7 @@ static void enum_compat_drivers_from_file(struct device *device, const WCHAR *pa
+@@ -5471,7 +5407,7 @@ static void enum_compat_drivers_from_file(struct device *device, const WCHAR *pa
  
      lstrcpyW(driver.inf_path, path);
  
@@ -776,7 +776,7 @@ index f6675ee7840..3abd781ed50 100644
      {
          SetupGetStringFieldW(&ctx, 0, driver.manufacturer, ARRAY_SIZE(driver.manufacturer), NULL);
          if (!SetupGetStringFieldW(&ctx, 1, mfg_key, ARRAY_SIZE(mfg_key), NULL))
-@@ -5496,9 +5432,9 @@ static void enum_compat_drivers_from_file(struct device *device, const WCHAR *pa
+@@ -5492,9 +5428,9 @@ static void enum_compat_drivers_from_file(struct device *device, const WCHAR *pa
              driver.rank = 0;
              for (k = 2, found = FALSE; SetupGetStringFieldW(&ctx, k, id, ARRAY_SIZE(id), NULL); ++k)
              {
@@ -788,7 +788,7 @@ index f6675ee7840..3abd781ed50 100644
                  driver.rank = 0x1000 + min(0x0100 * (k - 2), 0xf00);
              }
  
-@@ -5548,8 +5484,6 @@ BOOL WINAPI SetupDiBuildDriverInfoList(HDEVINFO devinfo, SP_DEVINFO_DATA *device
+@@ -5544,8 +5480,6 @@ BOOL WINAPI SetupDiBuildDriverInfoList(HDEVINFO devinfo, SP_DEVINFO_DATA *device
      }
      else
      {
@@ -797,7 +797,7 @@ index f6675ee7840..3abd781ed50 100644
          WCHAR dir[MAX_PATH], file[MAX_PATH];
          WIN32_FIND_DATAW find_data;
          HANDLE find_handle;
-@@ -5557,9 +5491,8 @@ BOOL WINAPI SetupDiBuildDriverInfoList(HDEVINFO devinfo, SP_DEVINFO_DATA *device
+@@ -5553,9 +5487,8 @@ BOOL WINAPI SetupDiBuildDriverInfoList(HDEVINFO devinfo, SP_DEVINFO_DATA *device
          if (device->params.DriverPath[0])
              lstrcpyW(dir, device->params.DriverPath);
          else
@@ -809,7 +809,7 @@ index f6675ee7840..3abd781ed50 100644
  
          TRACE("Searching for drivers in %s.\n", debugstr_w(dir));
  
-@@ -5927,14 +5860,14 @@ BOOL WINAPI SetupDiInstallDriverFiles(HDEVINFO devinfo, SP_DEVINFO_DATA *device_
+@@ -5923,14 +5856,14 @@ BOOL WINAPI SetupDiInstallDriverFiles(HDEVINFO devinfo, SP_DEVINFO_DATA *device_
      SetupInstallFromInfSectionW(NULL, hinf, section_ext, SPINST_FILES, NULL, NULL,
              SP_COPY_NEWER_ONLY, SetupDefaultQueueCallbackW, callback_ctx, NULL, NULL);
  
@@ -827,7 +827,7 @@ index f6675ee7840..3abd781ed50 100644
      }
  
      SetupTermDefaultQueueCallback(callback_ctx);
-@@ -5948,13 +5881,6 @@ BOOL WINAPI SetupDiInstallDriverFiles(HDEVINFO devinfo, SP_DEVINFO_DATA *device_
+@@ -5944,13 +5877,6 @@ BOOL WINAPI SetupDiInstallDriverFiles(HDEVINFO devinfo, SP_DEVINFO_DATA *device_
   */
  BOOL WINAPI SetupDiInstallDevice(HDEVINFO devinfo, SP_DEVINFO_DATA *device_data)
  {
@@ -841,7 +841,7 @@ index f6675ee7840..3abd781ed50 100644
      WCHAR section_ext[LINE_LEN], subsection[LINE_LEN], inf_path[MAX_PATH], *extptr, *filepart;
      static const DWORD config_flags = 0;
      UINT install_flags = SPINST_ALL;
-@@ -5995,7 +5921,7 @@ BOOL WINAPI SetupDiInstallDevice(HDEVINFO devinfo, SP_DEVINFO_DATA *device_data)
+@@ -5991,7 +5917,7 @@ BOOL WINAPI SetupDiInstallDevice(HDEVINFO devinfo, SP_DEVINFO_DATA *device_data)
          return FALSE;
      }
  
@@ -850,7 +850,7 @@ index f6675ee7840..3abd781ed50 100644
              KEY_READ | KEY_WRITE, NULL, &device_key, NULL)))
      {
          SetLastError(l);
-@@ -6017,17 +5943,17 @@ BOOL WINAPI SetupDiInstallDevice(HDEVINFO devinfo, SP_DEVINFO_DATA *device_data)
+@@ -6013,17 +5939,17 @@ BOOL WINAPI SetupDiInstallDevice(HDEVINFO devinfo, SP_DEVINFO_DATA *device_data)
              SP_COPY_NEWER_ONLY, SetupDefaultQueueCallbackW, callback_ctx, NULL, NULL);
  
      lstrcpyW(subsection, section_ext);
@@ -871,7 +871,7 @@ index f6675ee7840..3abd781ed50 100644
      {
          do
          {
-@@ -6036,10 +5962,10 @@ BOOL WINAPI SetupDiInstallDevice(HDEVINFO devinfo, SP_DEVINFO_DATA *device_data)
+@@ -6032,10 +5958,10 @@ BOOL WINAPI SetupDiInstallDevice(HDEVINFO devinfo, SP_DEVINFO_DATA *device_data)
              if (SetupGetIntField(&ctx, 2, &flags) && (flags & SPSVCINST_ASSOCSERVICE))
              {
                  if (SetupGetStringFieldW(&ctx, 1, svc_name, ARRAY_SIZE(svc_name), NULL) && svc_name[0])
@@ -884,7 +884,7 @@ index f6675ee7840..3abd781ed50 100644
      }
  
      SetupTermDefaultQueueCallback(callback_ctx);
-@@ -6048,15 +5974,15 @@ BOOL WINAPI SetupDiInstallDevice(HDEVINFO devinfo, SP_DEVINFO_DATA *device_data)
+@@ -6044,15 +5970,15 @@ BOOL WINAPI SetupDiInstallDevice(HDEVINFO devinfo, SP_DEVINFO_DATA *device_data)
      SetupCopyOEMInfW(driver->inf_path, NULL, SPOST_NONE, 0, inf_path, ARRAY_SIZE(inf_path), NULL, &filepart);
      TRACE("Copied INF file %s to %s.\n", debugstr_w(driver->inf_path), debugstr_w(inf_path));
  

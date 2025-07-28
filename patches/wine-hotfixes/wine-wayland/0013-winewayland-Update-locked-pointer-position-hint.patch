@@ -1,7 +1,7 @@
-From 4fe11383234a5732691d226377cd9cf2c1b43470 Mon Sep 17 00:00:00 2001
+From 71ae6d1daf2bebed5d67775d264b377f4bf50eee Mon Sep 17 00:00:00 2001
 From: Attila Fidan <dev@print0.net>
 Date: Mon, 17 Feb 2025 04:15:35 +0000
-Subject: [PATCH 013/166] winewayland: Update locked pointer position hint.
+Subject: [PATCH 013/177] winewayland: Update locked pointer position hint.
 
 This may be used by the compositor to warp the Wayland pointer to where
 the win32 cursor is upon unlock, if it's within surface bounds.
